@@ -17,6 +17,16 @@ We complement NORPG, we do not race them. The lab produces evidence and code tha
 2. The Common kernel census: how much of `platforms/common/src/kernels/*.cc` compiles as MSL behind a macro prelude, and what blocks the rest. This answers peastman's question "is MSL sufficiently similar".
 3. After that, whatever the first two say is the bottleneck. Candidates: a metal-cpp port of NORPG's host layer, a Metal findBlocksWithInteractions with SIMD-group reductions, offering the mini as the self-hosted GPU runner.
 
+## State on 2026-09-21
+
+Done: 001 baseline, 002 Common kernel census (49 of 67, the rest are fragments), 003 M2 kernel profile, 004 probes, 005 real program census (26 of 26 ApoA1 programs build as Metal on both chips with two mechanical rewrites). Draft upstream comment in `drafts/`, waiting for the owner.
+
+Next, in order:
+
+1. 006, run one. Take the Metal build of a small real program (the integrator or bonded forces), feed it the same buffers as the OpenCL platform, compare outputs. Compiling is settled; numerical agreement is not. `erf` and `erfc` accuracy belongs here.
+2. The host layer decision. Two routes to a platform that runs a simulation: port NORPG's ComputeContext layer from Objective-C++ to metal-cpp and add the nonbonded utilities, sort and FFT on top, or clone the OpenCL platform's host code and swap the API underneath. Decide after asking NORPG what they plan, so we do not fork the effort. This is an architecture decision: one Astra design lane, not a Gemini lane.
+3. Only then performance: a Metal findBlocksWithInteractions using `simd_ballot` on the HIP code path, measured against the OpenCL kernel on the M2.
+
 ## Rules
 
 - Nothing goes to the upstream thread, and no pull request opens, without the owner reading it first.
