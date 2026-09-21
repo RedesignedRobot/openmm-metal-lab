@@ -1,0 +1,799 @@
+{
+  "programs" : [
+    {
+      "errors" : [
+
+      ],
+      "index" : "000",
+      "kernels" : [
+        "determineNativeAccuracy",
+        "reduceForces",
+        "reduceReal4Buffer"
+      ],
+      "pipelineCreation" : {
+        "determineNativeAccuracy" : "success",
+        "reduceForces" : "success",
+        "reduceReal4Buffer" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 5,
+        "vector_literal_constructor" : 2
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "001",
+      "kernels" : [
+        "clearBuffer",
+        "clearFiveBuffers",
+        "clearFourBuffers",
+        "clearSixBuffers",
+        "clearThreeBuffers",
+        "clearTwoBuffers",
+        "reduceEnergy",
+        "setCharges"
+      ],
+      "pipelineCreation" : {
+        "clearBuffer" : "success",
+        "clearFiveBuffers" : "success",
+        "clearFourBuffers" : "success",
+        "clearSixBuffers" : "success",
+        "clearThreeBuffers" : "success",
+        "clearTwoBuffers" : "success",
+        "reduceEnergy" : "success",
+        "setCharges" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 24,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "002",
+      "kernels" : [
+        "applySettleToPositions",
+        "applySettleToVelocities",
+        "applyShakeToPositions",
+        "applyShakeToVelocities",
+        "computeCCMAConstraintDirectionsKernel",
+        "computeCCMAPositionConstraintForceKernel",
+        "computeCCMAVelocityConstraintForceKernel",
+        "computeKineticEnergy",
+        "computeVirtualSites",
+        "distributeVirtualSiteForces",
+        "generateRandomNumbers",
+        "multiplyByCCMAConstraintMatrixKernel",
+        "runCCMA",
+        "saveDistributedForces",
+        "timeShiftVelocities",
+        "updateCCMAAtomPositionsKernel"
+      ],
+      "pipelineCreation" : {
+        "applySettleToPositions" : "success",
+        "applySettleToVelocities" : "success",
+        "applyShakeToPositions" : "success",
+        "applyShakeToVelocities" : "success",
+        "computeCCMAConstraintDirectionsKernel" : "success",
+        "computeCCMAPositionConstraintForceKernel" : "success",
+        "computeCCMAVelocityConstraintForceKernel" : "success",
+        "computeKineticEnergy" : "success",
+        "computeVirtualSites" : "success",
+        "distributeVirtualSiteForces" : "success",
+        "generateRandomNumbers" : "success",
+        "multiplyByCCMAConstraintMatrixKernel" : "success",
+        "runCCMA" : "success",
+        "saveDistributedForces" : "success",
+        "timeShiftVelocities" : "success",
+        "updateCCMAAtomPositionsKernel" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 32,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "003",
+      "kernels" : [
+        "copyFloatBuffer"
+      ],
+      "pipelineCreation" : {
+        "copyFloatBuffer" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 2,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "004",
+      "kernels" : [
+        "computeExclusionParameters",
+        "computeParameters",
+        "computePlasmaCorrection"
+      ],
+      "pipelineCreation" : {
+        "computeExclusionParameters" : "success",
+        "computeParameters" : "success",
+        "computePlasmaCorrection" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 6,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "005",
+      "kernels" : [
+        "calcCenterOfMassMomentum",
+        "removeCenterOfMassMomentum"
+      ],
+      "pipelineCreation" : {
+        "calcCenterOfMassMomentum" : "success",
+        "removeCenterOfMassMomentum" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 2,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "006",
+      "kernels" : [
+        "computeBondedForces"
+      ],
+      "pipelineCreation" : {
+        "computeBondedForces" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 6,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiles with unsafe placeholder",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+        {
+          "buffer" : "forceBuffer",
+          "kernel" : "computeBondedForces",
+          "reason" : "64-bit fixed point atomic force accumulation (ATOMIC_ADD on mm_ulong)"
+        }
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "007",
+      "kernels" : [
+        "assignElementsToBuckets",
+        "assignElementsToBuckets2",
+        "computeBucketPositions",
+        "computeRange",
+        "copyDataToBuckets",
+        "sortBuckets",
+        "sortShortList",
+        "sortShortList2"
+      ],
+      "pipelineCreation" : {
+        "assignElementsToBuckets" : "success",
+        "assignElementsToBuckets2" : "success",
+        "computeBucketPositions" : "success",
+        "computeRange" : "success",
+        "copyDataToBuckets" : "success",
+        "sortBuckets" : "success",
+        "sortShortList" : "success",
+        "sortShortList2" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 11,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "008",
+      "kernels" : [
+        "integrateLangevinMiddlePart1",
+        "integrateLangevinMiddlePart2",
+        "integrateLangevinMiddlePart3",
+        "selectLangevinStepSize"
+      ],
+      "pipelineCreation" : {
+        "integrateLangevinMiddlePart1" : "success",
+        "integrateLangevinMiddlePart2" : "success",
+        "integrateLangevinMiddlePart3" : "success",
+        "selectLangevinStepSize" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 11,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "009",
+      "kernels" : [
+        "computeSortKeys",
+        "findBlockBounds",
+        "findBlocksWithInteractions",
+        "sortBoxData"
+      ],
+      "pipelineCreation" : {
+        "computeSortKeys" : "success",
+        "findBlockBounds" : "success",
+        "findBlocksWithInteractions" : "success",
+        "sortBoxData" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 29,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "010",
+      "kernels" : [
+        "computeNonbonded"
+      ],
+      "pipelineCreation" : {
+        "computeNonbonded" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 8,
+        "vector_literal_constructor" : 12
+      },
+      "status" : "compiles with unsafe placeholder",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+        {
+          "buffer" : "forceBuffers",
+          "kernel" : "computeNonbonded",
+          "reason" : "64-bit fixed point atomic force accumulation (ATOMIC_ADD on mm_ulong)"
+        }
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "011",
+      "kernels" : [
+        "computeNonbonded"
+      ],
+      "pipelineCreation" : {
+        "computeNonbonded" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 8,
+        "vector_literal_constructor" : 12
+      },
+      "status" : "compiled",
+      "test" : "apoa1rf",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "000",
+      "kernels" : [
+        "determineNativeAccuracy",
+        "reduceForces",
+        "reduceReal4Buffer"
+      ],
+      "pipelineCreation" : {
+        "determineNativeAccuracy" : "success",
+        "reduceForces" : "success",
+        "reduceReal4Buffer" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 5,
+        "vector_literal_constructor" : 2
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "001",
+      "kernels" : [
+        "clearBuffer",
+        "clearFiveBuffers",
+        "clearFourBuffers",
+        "clearSixBuffers",
+        "clearThreeBuffers",
+        "clearTwoBuffers",
+        "reduceEnergy",
+        "setCharges"
+      ],
+      "pipelineCreation" : {
+        "clearBuffer" : "success",
+        "clearFiveBuffers" : "success",
+        "clearFourBuffers" : "success",
+        "clearSixBuffers" : "success",
+        "clearThreeBuffers" : "success",
+        "clearTwoBuffers" : "success",
+        "reduceEnergy" : "success",
+        "setCharges" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 24,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "002",
+      "kernels" : [
+        "applySettleToPositions",
+        "applySettleToVelocities",
+        "applyShakeToPositions",
+        "applyShakeToVelocities",
+        "computeCCMAConstraintDirectionsKernel",
+        "computeCCMAPositionConstraintForceKernel",
+        "computeCCMAVelocityConstraintForceKernel",
+        "computeKineticEnergy",
+        "computeVirtualSites",
+        "distributeVirtualSiteForces",
+        "generateRandomNumbers",
+        "multiplyByCCMAConstraintMatrixKernel",
+        "runCCMA",
+        "saveDistributedForces",
+        "timeShiftVelocities",
+        "updateCCMAAtomPositionsKernel"
+      ],
+      "pipelineCreation" : {
+        "applySettleToPositions" : "success",
+        "applySettleToVelocities" : "success",
+        "applyShakeToPositions" : "success",
+        "applyShakeToVelocities" : "success",
+        "computeCCMAConstraintDirectionsKernel" : "success",
+        "computeCCMAPositionConstraintForceKernel" : "success",
+        "computeCCMAVelocityConstraintForceKernel" : "success",
+        "computeKineticEnergy" : "success",
+        "computeVirtualSites" : "success",
+        "distributeVirtualSiteForces" : "success",
+        "generateRandomNumbers" : "success",
+        "multiplyByCCMAConstraintMatrixKernel" : "success",
+        "runCCMA" : "success",
+        "saveDistributedForces" : "success",
+        "timeShiftVelocities" : "success",
+        "updateCCMAAtomPositionsKernel" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 32,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "003",
+      "kernels" : [
+        "copyFloatBuffer"
+      ],
+      "pipelineCreation" : {
+        "copyFloatBuffer" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 2,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "004",
+      "kernels" : [
+        "assignElementsToBuckets",
+        "assignElementsToBuckets2",
+        "computeBucketPositions",
+        "computeRange",
+        "copyDataToBuckets",
+        "sortBuckets",
+        "sortShortList",
+        "sortShortList2"
+      ],
+      "pipelineCreation" : {
+        "assignElementsToBuckets" : "success",
+        "assignElementsToBuckets2" : "success",
+        "computeBucketPositions" : "success",
+        "computeRange" : "success",
+        "copyDataToBuckets" : "success",
+        "sortBuckets" : "success",
+        "sortShortList" : "success",
+        "sortShortList2" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 11,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "005",
+      "kernels" : [
+        "computeExclusionParameters",
+        "computeParameters",
+        "computePlasmaCorrection"
+      ],
+      "pipelineCreation" : {
+        "computeExclusionParameters" : "success",
+        "computeParameters" : "success",
+        "computePlasmaCorrection" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 6,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "006",
+      "kernels" : [
+        "calcCenterOfMassMomentum",
+        "removeCenterOfMassMomentum"
+      ],
+      "pipelineCreation" : {
+        "calcCenterOfMassMomentum" : "success",
+        "removeCenterOfMassMomentum" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 2,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "007",
+      "kernels" : [
+        "computeBondedForces"
+      ],
+      "pipelineCreation" : {
+        "computeBondedForces" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 6,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiles with unsafe placeholder",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+        {
+          "buffer" : "forceBuffer",
+          "kernel" : "computeBondedForces",
+          "reason" : "64-bit fixed point atomic force accumulation (ATOMIC_ADD on mm_ulong)"
+        }
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "008",
+      "kernels" : [
+        "assignElementsToBuckets",
+        "assignElementsToBuckets2",
+        "computeBucketPositions",
+        "computeRange",
+        "copyDataToBuckets",
+        "sortBuckets",
+        "sortShortList",
+        "sortShortList2"
+      ],
+      "pipelineCreation" : {
+        "assignElementsToBuckets" : "success",
+        "assignElementsToBuckets2" : "success",
+        "computeBucketPositions" : "success",
+        "computeRange" : "success",
+        "copyDataToBuckets" : "success",
+        "sortBuckets" : "success",
+        "sortShortList" : "success",
+        "sortShortList2" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 11,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "009",
+      "kernels" : [
+        "integrateLangevinMiddlePart1",
+        "integrateLangevinMiddlePart2",
+        "integrateLangevinMiddlePart3",
+        "selectLangevinStepSize"
+      ],
+      "pipelineCreation" : {
+        "integrateLangevinMiddlePart1" : "success",
+        "integrateLangevinMiddlePart2" : "success",
+        "integrateLangevinMiddlePart3" : "success",
+        "selectLangevinStepSize" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 11,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "010",
+      "kernels" : [
+        "computeSortKeys",
+        "findBlockBounds",
+        "findBlocksWithInteractions",
+        "sortBoxData"
+      ],
+      "pipelineCreation" : {
+        "computeSortKeys" : "success",
+        "findBlockBounds" : "success",
+        "findBlocksWithInteractions" : "success",
+        "sortBoxData" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 29,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "011",
+      "kernels" : [
+        "addEnergy",
+        "addForces",
+        "findAtomGridIndex",
+        "finishSpreadCharge",
+        "gridEvaluateEnergy",
+        "gridInterpolateChargeDerivatives",
+        "gridInterpolateForce",
+        "gridSpreadCharge",
+        "reciprocalConvolution"
+      ],
+      "pipelineCreation" : {
+        "addEnergy" : "success",
+        "addForces" : "success",
+        "findAtomGridIndex" : "success",
+        "finishSpreadCharge" : "success",
+        "gridEvaluateEnergy" : "success",
+        "gridInterpolateChargeDerivatives" : "success",
+        "gridInterpolateForce" : "success",
+        "gridSpreadCharge" : "success",
+        "reciprocalConvolution" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 39,
+        "vector_literal_constructor" : 0
+      },
+      "status" : "compiles with unsafe placeholder",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+        {
+          "buffer" : "pmeGrid",
+          "kernel" : "gridSpreadCharge",
+          "reason" : "64-bit fixed point charge spreading into reciprocal grid (ATOMIC_ADD on mm_ulong)"
+        }
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "012",
+      "kernels" : [
+        "computeNonbonded"
+      ],
+      "pipelineCreation" : {
+        "computeNonbonded" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 8,
+        "vector_literal_constructor" : 12
+      },
+      "status" : "compiles with unsafe placeholder",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+        {
+          "buffer" : "forceBuffers",
+          "kernel" : "computeNonbonded",
+          "reason" : "64-bit fixed point atomic force accumulation (ATOMIC_ADD on mm_ulong)"
+        }
+      ]
+    },
+    {
+      "errors" : [
+
+      ],
+      "index" : "013",
+      "kernels" : [
+        "computeNonbonded"
+      ],
+      "pipelineCreation" : {
+        "computeNonbonded" : "success"
+      },
+      "rewritesApplied" : {
+        "kernel_signature_value_parameters" : 8,
+        "vector_literal_constructor" : 12
+      },
+      "status" : "compiled",
+      "test" : "apoa1pme",
+      "unsafePlaceholderDetails" : [
+
+      ]
+    }
+  ],
+  "rewriteRules" : [
+    {
+      "description" : "MSL disallows unadorned by-value parameters in kernel signatures. This rule rewrites each scalar or struct parameter T name to constant T& _in_name and inserts a local mutable copy T name = _in_name; at the kernel entry point. Pointer parameters remain unadorned. Preprocessor directives within parameter lists are preserved.",
+      "meaningPreservationNotes" : "Semantics preserved identically. Passing by const reference and immediately making a local value copy guarantees identical variable scope and mutability as OpenCL pass-by-value.",
+      "pattern" : "(?:KERNEL|__kernel)\\s+void\\s+(\\w+)\\s*\\(([\\s\\S]*?)\\)\\s*\\{",
+      "replacement" : "kernel void $1(<rewritten>) { <local_copies> }",
+      "rule" : "kernel_signature_value_parameters",
+      "totalSites" : 338
+    },
+    {
+      "description" : "Converts OpenCL C vector literal cast syntax (type)(a, b, ...) to C++ function-style constructor call type(a, b, ...). In MSL, (real4)(a, b, c, d) evaluates as a C-style cast on a comma-operator expression, discarding a, b, c and broadcasting d into all components. The rewrite invokes the multi-argument vector constructor, preserving the intended values.",
+      "meaningPreservationNotes" : "Required to preserve meaning. Without this rewrite, OpenCL vector literals like (real4)(x, y, z, w) silently degenerate to float4(w, w, w, w) in MSL due to C++ comma operator rules. The rewrite invokes the intended 4-component constructor.",
+      "pattern" : "\\(\\s*(real4|float8|float4|float2|float3|int2|int3|int4|uint2|uint3|uint4|short2|short3|short4)\\s*\\)\\s*\\(",
+      "replacement" : "$1(",
+      "rule" : "vector_literal_constructor",
+      "totalSites" : 52
+    }
+  ],
+  "summary" : {
+    "compiledClean" : 21,
+    "compiledWithUnsafePlaceholder" : 5,
+    "deviceName" : "Apple M3 Ultra",
+    "failed" : 0,
+    "testBreakdown" : {
+      "apoa1pme" : {
+        "compiled" : 11,
+        "compiledWithUnsafePlaceholder" : 3,
+        "failed" : 0,
+        "totalPrograms" : 14
+      },
+      "apoa1rf" : {
+        "compiled" : 10,
+        "compiledWithUnsafePlaceholder" : 2,
+        "failed" : 0,
+        "totalPrograms" : 12
+      }
+    },
+    "totalPrograms" : 26
+  }
+}
