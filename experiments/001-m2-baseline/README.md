@@ -24,5 +24,5 @@ How fast is OpenMM today on the smallest current Apple GPU, and how far ahead of
 ## What it changes
 
 - The GPU in the cheapest M2 runs the 92,000 atom ApoA1 system 6 to 7.5 times faster than its CPU. Folding@home folds on the CPU only on this machine, so a working GPU path is worth about that factor per Mac.
-- Reference points from the upstream thread: philipturner quotes 110 to 150 ns/day on apoa1rf for an M1 Max class part with 32 GPU cores. 59.5 on 10 cores says the small part is not starved by the OpenCL layer more than the large ones.
+- Reference point from the upstream thread: philipturner quotes apoa1rf going from 110 to 150 ns/day with his Metal plugin. He does not name the chip in that comment (his earlier work was on M1 Max), so treat the comparison with our 59.5 as loose.
 - Next: the per-kernel profile on this chip (`ENABLE_PROFILING` build), to compare with peastman's M4 Max breakdown.
