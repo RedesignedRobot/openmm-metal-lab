@@ -1,0 +1,864 @@
+{
+  "environment" : {
+    "buildVersion" : "26A428",
+    "chip" : "Apple M3 Ultra",
+    "command" : ".\/harness",
+    "metalDevice" : "Apple M3 Ultra",
+    "openclDevice" : "Apple M3 Ultra",
+    "osVersion" : "27.0.0"
+  },
+  "livenessChecks" : [
+    {
+      "observedValue" : "reassoc=0.0, isnan=1.0",
+      "passed" : true,
+      "setting" : "mathMode = .safe",
+      "testMechanism" : "reassociation ((1.0+1e20)-1e20)==0.0 and isnan(0\/0)==1.0"
+    },
+    {
+      "observedValue" : "reassoc=1.0, isnan=1.0",
+      "passed" : true,
+      "setting" : "mathMode = .relaxed",
+      "testMechanism" : "reassociation ((1.0+1e20)-1e20)==1.0 and isnan(0\/0)==1.0"
+    },
+    {
+      "observedValue" : "reassoc=1.0, isnan=0.0",
+      "passed" : true,
+      "setting" : "mathMode = .fast",
+      "testMechanism" : "reassociation ((1.0+1e20)-1e20)==1.0 and isnan(0\/0)==0.0 (assumes no NaN)"
+    },
+    {
+      "observedValue" : "expBits: precise=1102651397 fast=1102651395; sqrtBits: precise=1071833023 fast=1071833022",
+      "passed" : true,
+      "setting" : "mathFloatingPointFunctions (.precise vs .fast)",
+      "testMechanism" : "exp(3.14159f) & sqrt(3.14159f) bit pattern divergence between fast and precise namespaces"
+    },
+    {
+      "observedValue" : "off(reassoc=0.0, isnan=1.0), on(reassoc=1.0, isnan=0.0)",
+      "passed" : true,
+      "setting" : "fastMathEnabled (deprecated BOOL)",
+      "testMechanism" : "fastMathEnabled=false behaves as safe (reassoc=0), fastMathEnabled=true behaves as fast (reassoc=1, isnan=0)"
+    }
+  ],
+  "question1_bondedForces" : [
+    {
+      "bitwiseEqualCountVsClDefault" : 261733,
+      "bitwiseEqualCountVsClOpenMM" : 261733,
+      "bitwisePercentVsClDefault" : 94.60046553319455,
+      "bitwisePercentVsClOpenMM" : 94.60046553319455,
+      "maxAbsoluteDiffVsClDefault" : 0.004705755040049553,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004705755040049553,
+      "settingName" : "default (options: nil)"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 263144,
+      "bitwiseEqualCountVsClOpenMM" : 263144,
+      "bitwisePercentVsClDefault" : 95.11045570205876,
+      "bitwisePercentVsClOpenMM" : 95.11045570205876,
+      "maxAbsoluteDiffVsClDefault" : 0.004044055938720703,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004044055938720703,
+      "settingName" : "fastMathEnabled = false"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 261733,
+      "bitwiseEqualCountVsClOpenMM" : 261733,
+      "bitwisePercentVsClDefault" : 94.60046553319455,
+      "bitwisePercentVsClOpenMM" : 94.60046553319455,
+      "maxAbsoluteDiffVsClDefault" : 0.004705755040049553,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004705755040049553,
+      "settingName" : "fastMathEnabled = true"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 262417,
+      "bitwiseEqualCountVsClOpenMM" : 262417,
+      "bitwisePercentVsClDefault" : 94.84768968309044,
+      "bitwisePercentVsClOpenMM" : 94.84768968309044,
+      "maxAbsoluteDiffVsClDefault" : 0.004702389240264893,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004702389240264893,
+      "settingName" : "mathMode = .safe, mathFP = .fast"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 263144,
+      "bitwiseEqualCountVsClOpenMM" : 263144,
+      "bitwisePercentVsClDefault" : 95.11045570205876,
+      "bitwisePercentVsClOpenMM" : 95.11045570205876,
+      "maxAbsoluteDiffVsClDefault" : 0.004044055938720703,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004044055938720703,
+      "settingName" : "mathMode = .safe, mathFP = .precise"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 261733,
+      "bitwiseEqualCountVsClOpenMM" : 261733,
+      "bitwisePercentVsClDefault" : 94.60046553319455,
+      "bitwisePercentVsClOpenMM" : 94.60046553319455,
+      "maxAbsoluteDiffVsClDefault" : 0.004705755040049553,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004705755040049553,
+      "settingName" : "mathMode = .relaxed, mathFP = .fast"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 261875,
+      "bitwiseEqualCountVsClOpenMM" : 261875,
+      "bitwisePercentVsClDefault" : 94.65178984501503,
+      "bitwisePercentVsClOpenMM" : 94.65178984501503,
+      "maxAbsoluteDiffVsClDefault" : 0.004038691520690918,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004038691520690918,
+      "settingName" : "mathMode = .relaxed, mathFP = .precise"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 261733,
+      "bitwiseEqualCountVsClOpenMM" : 261733,
+      "bitwisePercentVsClDefault" : 94.60046553319455,
+      "bitwisePercentVsClOpenMM" : 94.60046553319455,
+      "maxAbsoluteDiffVsClDefault" : 0.004705755040049553,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004705755040049553,
+      "settingName" : "mathMode = .fast, mathFP = .fast"
+    },
+    {
+      "bitwiseEqualCountVsClDefault" : 261875,
+      "bitwiseEqualCountVsClOpenMM" : 261875,
+      "bitwisePercentVsClDefault" : 94.65178984501503,
+      "bitwisePercentVsClOpenMM" : 94.65178984501503,
+      "maxAbsoluteDiffVsClDefault" : 0.004038691520690918,
+      "maxAbsoluteDiffVsClOpenMM" : 0.004038691520690918,
+      "settingName" : "mathMode = .fast, mathFP = .precise"
+    }
+  ],
+  "question1_openclVariants" : [
+    {
+      "bitwiseEqualVsDefault" : 276672,
+      "bitwisePercentVsDefault" : 100,
+      "maxAbsoluteDiffVsDefault" : 0,
+      "optionsName" : "default (options: nil)"
+    },
+    {
+      "bitwiseEqualVsDefault" : 276672,
+      "bitwisePercentVsDefault" : 100,
+      "maxAbsoluteDiffVsDefault" : 0,
+      "optionsName" : "-cl-mad-enable -cl-no-signed-zeros (OpenMM upstream)"
+    },
+    {
+      "bitwiseEqualVsDefault" : 262215,
+      "bitwisePercentVsDefault" : 94.77467904233171,
+      "maxAbsoluteDiffVsDefault" : 0.002685546875,
+      "optionsName" : "-cl-fast-relaxed-math"
+    }
+  ],
+  "question1_singleOps" : [
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "sqrt",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "rsqrt",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "recip",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "divide",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "fma",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "muladd",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "asin",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "acos",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "safe,precise",
+      "operation" : "normalize",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 740102,
+      "bitwisePercent" : 74.0102,
+      "maxAbsoluteDifference" : 9.5367431640625e-07,
+      "maxUlpDifference" : 2,
+      "mode" : "fast,fast",
+      "operation" : "sqrt",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 956873,
+      "bitwisePercent" : 95.6873,
+      "maxAbsoluteDifference" : 3.814697265625e-06,
+      "maxUlpDifference" : 1,
+      "mode" : "fast,fast",
+      "operation" : "rsqrt",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 896346,
+      "bitwisePercent" : 89.63459999999999,
+      "maxAbsoluteDifference" : 3.0517578125e-05,
+      "maxUlpDifference" : 1,
+      "mode" : "fast,fast",
+      "operation" : "recip",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 728486,
+      "bitwisePercent" : 72.84859999999999,
+      "maxAbsoluteDifference" : 3.814697265625e-06,
+      "maxUlpDifference" : 1,
+      "mode" : "fast,fast",
+      "operation" : "divide",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "fast,fast",
+      "operation" : "fma",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 1000000,
+      "bitwisePercent" : 100,
+      "maxAbsoluteDifference" : 0,
+      "maxUlpDifference" : 0,
+      "mode" : "fast,fast",
+      "operation" : "muladd",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 429694,
+      "bitwisePercent" : 42.9694,
+      "maxAbsoluteDifference" : 2.384185791015625e-07,
+      "maxUlpDifference" : 4,
+      "mode" : "fast,fast",
+      "operation" : "asin",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 423622,
+      "bitwisePercent" : 42.3622,
+      "maxAbsoluteDifference" : 4.76837158203125e-07,
+      "maxUlpDifference" : 5,
+      "mode" : "fast,fast",
+      "operation" : "acos",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualCount" : 957536,
+      "bitwisePercent" : 95.7536,
+      "maxAbsoluteDifference" : 5.960464477539063e-08,
+      "maxUlpDifference" : 2,
+      "mode" : "fast,fast",
+      "operation" : "normalize",
+      "samplePoints" : 1000000
+    }
+  ],
+  "question2_erfcAccuracy" : [
+    {
+      "bitwiseEqualVsCpuFloat" : 578699,
+      "bitwiseEqualVsOpenCL" : 1000000,
+      "bitwisePercentVsCpuFloat" : 57.869899999999994,
+      "bitwisePercentVsOpenCL" : 100,
+      "implementation" : "OpenCL Builtin erfc",
+      "maxAbsoluteDiffVsDoubleRef" : 6.138382646625473e-08,
+      "maxRelativeDiffVsDoubleRef" : 1.154896413126077e-06,
+      "range" : "[0.0, 4.0]",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualVsCpuFloat" : 29282,
+      "bitwiseEqualVsOpenCL" : 35104,
+      "bitwisePercentVsCpuFloat" : 2.9282,
+      "bitwisePercentVsOpenCL" : 3.5104,
+      "implementation" : "Metal 005 Prelude (1 - erf)",
+      "maxAbsoluteDiffVsDoubleRef" : 5.297583852703625e-07,
+      "maxRelativeDiffVsDoubleRef" : 1.0050812765546988,
+      "range" : "[0.0, 4.0]",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualVsCpuFloat" : 29376,
+      "bitwiseEqualVsOpenCL" : 29295,
+      "bitwisePercentVsCpuFloat" : 2.9375999999999998,
+      "bitwisePercentVsOpenCL" : 2.9295,
+      "implementation" : "Metal Direct A&S 7.1.26",
+      "maxAbsoluteDiffVsDoubleRef" : 5.297583852703625e-07,
+      "maxRelativeDiffVsDoubleRef" : 0.0027924219093721434,
+      "range" : "[0.0, 4.0]",
+      "samplePoints" : 1000000
+    },
+    {
+      "bitwiseEqualVsCpuFloat" : 158636,
+      "bitwiseEqualVsOpenCL" : 153544,
+      "bitwisePercentVsCpuFloat" : 15.8636,
+      "bitwisePercentVsOpenCL" : 15.354400000000002,
+      "implementation" : "Metal Degree-7 Minimax",
+      "maxAbsoluteDiffVsDoubleRef" : 4.2484247519958274e-07,
+      "maxRelativeDiffVsDoubleRef" : 1.515365897025738e-06,
+      "range" : "[0.0, 4.0]",
+      "samplePoints" : 1000000
+    }
+  ],
+  "question2_erfcCost" : [
+    {
+      "implementation" : "OpenCL Builtin erfc",
+      "nsPerCall" : 0.01735973358154297,
+      "ratioVsOpenCL" : 1,
+      "totalEvaluations" : 50000000,
+      "wallTimeMs" : 0.8679866790771484
+    },
+    {
+      "implementation" : "Metal 005 Prelude (1 - erf)",
+      "nsPerCall" : 0.012040138244628906,
+      "ratioVsOpenCL" : 0.6935669944514641,
+      "totalEvaluations" : 50000000,
+      "wallTimeMs" : 0.6020069122314453
+    },
+    {
+      "implementation" : "Metal Direct A&S 7.1.26",
+      "nsPerCall" : 0.009176254272460938,
+      "ratioVsOpenCL" : 0.5285941877712464,
+      "totalEvaluations" : 50000000,
+      "wallTimeMs" : 0.4588127136230469
+    },
+    {
+      "implementation" : "Metal Degree-7 Minimax",
+      "nsPerCall" : 0.015875816345214844,
+      "ratioVsOpenCL" : 0.9145195846838433,
+      "totalEvaluations" : 50000000,
+      "wallTimeMs" : 0.7937908172607422
+    }
+  ],
+  "question2_mslErfScan" : [
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "1.1"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "1.2"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "2.0"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "2.1"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "2.2"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "2.3"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "2.4"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "3.0"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "3.1"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "3.2"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "4.0"
+    },
+    {
+      "accepted" : true,
+      "hasErf" : false,
+      "hasErfc" : false,
+      "version" : "4.1"
+    }
+  ],
+  "question3_oldestSupportableMacOS" : "macOS 14.0 (Sonoma)",
+  "question3_programsPassCount" : "104\/104",
+  "question3_supportedVersions" : [
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "1.1"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "1.2"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "2.0"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "2.1"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "2.2"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "2.3"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "2.4"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : false,
+      "version" : "3.0"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : true,
+      "version" : "3.1"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : true,
+      "version" : "3.2"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : true,
+      "version" : "4.0"
+    },
+    {
+      "acceptedByMakeLibrary" : true,
+      "acceptsProgramScopeBuiltins" : true,
+      "version" : "4.1"
+    }
+  ],
+  "question4_binaryArchive" : {
+    "archiveSizeBytes" : 73520,
+    "binaryArchivePipelineCreationMs" : 0.0029802322387695312,
+    "canBypassMakeLibrary" : false,
+    "coldPipelineCreationMs" : 0.010013580322265625,
+    "mechanismAnalysis" : "MTLBinaryArchive eliminates pipeline backend compilation time (reducing it to ~0.04 ms). However, MTLComputePipelineDescriptor requires a MTLFunction instance; without an offline precompiled metallib, the runtime must still invoke makeLibrary to produce the MTLFunction object.",
+    "testProgram" : "apoa1rf\/006: computeBondedForces"
+  },
+  "question4_programTimings" : [
+    {
+      "clColdMs" : 19.227027893066406,
+      "clWarmMs" : 0.1939535140991211,
+      "metalColdLibraryMs" : 20.35200595855713,
+      "metalColdPipelineMs" : 0.16999244689941406,
+      "metalColdTotalMs" : 20.521998405456543,
+      "metalWarmLibraryMs" : 0.013947486877441406,
+      "metalWarmPipelineMs" : 0.007987022399902344,
+      "metalWarmTotalMs" : 0.02193450927734375,
+      "programIndex" : "000",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 16.412973403930664,
+      "clWarmMs" : 0.21898746490478516,
+      "metalColdLibraryMs" : 25.19094944000244,
+      "metalColdPipelineMs" : 0.2650022506713867,
+      "metalColdTotalMs" : 25.455951690673828,
+      "metalWarmLibraryMs" : 0.02110004425048828,
+      "metalWarmPipelineMs" : 0.013947486877441406,
+      "metalWarmTotalMs" : 0.03504753112792969,
+      "programIndex" : "001",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 67.60907173156738,
+      "clWarmMs" : 0.8759498596191406,
+      "metalColdLibraryMs" : 62.21497058868408,
+      "metalColdPipelineMs" : 0.48601627349853516,
+      "metalColdTotalMs" : 62.70098686218262,
+      "metalWarmLibraryMs" : 0.051975250244140625,
+      "metalWarmPipelineMs" : 0.029087066650390625,
+      "metalWarmTotalMs" : 0.08106231689453125,
+      "programIndex" : "002",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 4.89497184753418,
+      "clWarmMs" : 0.15795230865478516,
+      "metalColdLibraryMs" : 15.594005584716797,
+      "metalColdPipelineMs" : 0.08094310760498047,
+      "metalColdTotalMs" : 15.674948692321777,
+      "metalWarmLibraryMs" : 0.019073486328125,
+      "metalWarmPipelineMs" : 0.0069141387939453125,
+      "metalWarmTotalMs" : 0.025987625122070312,
+      "programIndex" : "003",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 18.474936485290527,
+      "clWarmMs" : 0.2219676971435547,
+      "metalColdLibraryMs" : 18.427014350891113,
+      "metalColdPipelineMs" : 0.1360177993774414,
+      "metalColdTotalMs" : 18.563032150268555,
+      "metalWarmLibraryMs" : 0.01704692840576172,
+      "metalWarmPipelineMs" : 0.010013580322265625,
+      "metalWarmTotalMs" : 0.027060508728027344,
+      "programIndex" : "004",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 18.75007152557373,
+      "clWarmMs" : 0.2149343490600586,
+      "metalColdLibraryMs" : 19.168972969055176,
+      "metalColdPipelineMs" : 0.14102458953857422,
+      "metalColdTotalMs" : 19.30999755859375,
+      "metalWarmLibraryMs" : 0.015020370483398438,
+      "metalWarmPipelineMs" : 0.007033348083496094,
+      "metalWarmTotalMs" : 0.02205371856689453,
+      "programIndex" : "005",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 29.201984405517578,
+      "clWarmMs" : 0.2460479736328125,
+      "metalColdLibraryMs" : 28.54907512664795,
+      "metalColdPipelineMs" : 0.09489059448242188,
+      "metalColdTotalMs" : 28.64396572113037,
+      "metalWarmLibraryMs" : 0.019073486328125,
+      "metalWarmPipelineMs" : 0.003933906555175781,
+      "metalWarmTotalMs" : 0.02300739288330078,
+      "programIndex" : "006",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 24.354100227355957,
+      "clWarmMs" : 0.3609657287597656,
+      "metalColdLibraryMs" : 28.407931327819824,
+      "metalColdPipelineMs" : 0.2560615539550781,
+      "metalColdTotalMs" : 28.663992881774902,
+      "metalWarmLibraryMs" : 0.02491474151611328,
+      "metalWarmPipelineMs" : 0.014066696166992188,
+      "metalWarmTotalMs" : 0.03898143768310547,
+      "programIndex" : "007",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 21.705031394958496,
+      "clWarmMs" : 0.2589225769042969,
+      "metalColdLibraryMs" : 20.584940910339355,
+      "metalColdPipelineMs" : 0.1779794692993164,
+      "metalColdTotalMs" : 20.762920379638672,
+      "metalWarmLibraryMs" : 0.015020370483398438,
+      "metalWarmPipelineMs" : 0.007987022399902344,
+      "metalWarmTotalMs" : 0.02300739288330078,
+      "programIndex" : "008",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 37.770986557006836,
+      "clWarmMs" : 0.49495697021484375,
+      "metalColdLibraryMs" : 32.18507766723633,
+      "metalColdPipelineMs" : 0.1609325408935547,
+      "metalColdTotalMs" : 32.34601020812988,
+      "metalWarmLibraryMs" : 0.033974647521972656,
+      "metalWarmPipelineMs" : 0.008106231689453125,
+      "metalWarmTotalMs" : 0.04208087921142578,
+      "programIndex" : "009",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 29.160022735595703,
+      "clWarmMs" : 0.6899833679199219,
+      "metalColdLibraryMs" : 30.467987060546875,
+      "metalColdPipelineMs" : 0.12600421905517578,
+      "metalColdTotalMs" : 30.59399127960205,
+      "metalWarmLibraryMs" : 0.03707408905029297,
+      "metalWarmPipelineMs" : 0.0059604644775390625,
+      "metalWarmTotalMs" : 0.04303455352783203,
+      "programIndex" : "010",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 27.06301212310791,
+      "clWarmMs" : 0.6539821624755859,
+      "metalColdLibraryMs" : 25.834083557128906,
+      "metalColdPipelineMs" : 0.11396408081054688,
+      "metalColdTotalMs" : 25.948047637939453,
+      "metalWarmLibraryMs" : 0.033974647521972656,
+      "metalWarmPipelineMs" : 0.0050067901611328125,
+      "metalWarmTotalMs" : 0.03898143768310547,
+      "programIndex" : "011",
+      "testName" : "apoa1rf"
+    },
+    {
+      "clColdMs" : 17.292022705078125,
+      "clWarmMs" : 0.16796588897705078,
+      "metalColdLibraryMs" : 18.920063972473145,
+      "metalColdPipelineMs" : 0.15497207641601562,
+      "metalColdTotalMs" : 19.07503604888916,
+      "metalWarmLibraryMs" : 0.015974044799804688,
+      "metalWarmPipelineMs" : 0.007033348083496094,
+      "metalWarmTotalMs" : 0.02300739288330078,
+      "programIndex" : "000",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 16.206026077270508,
+      "clWarmMs" : 0.2429485321044922,
+      "metalColdLibraryMs" : 24.255990982055664,
+      "metalColdPipelineMs" : 0.27191638946533203,
+      "metalColdTotalMs" : 24.527907371520996,
+      "metalWarmLibraryMs" : 0.01704692840576172,
+      "metalWarmPipelineMs" : 0.015020370483398438,
+      "metalWarmTotalMs" : 0.032067298889160156,
+      "programIndex" : "001",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 65.76299667358398,
+      "clWarmMs" : 0.8130073547363281,
+      "metalColdLibraryMs" : 58.38799476623535,
+      "metalColdPipelineMs" : 0.4000663757324219,
+      "metalColdTotalMs" : 58.78806114196777,
+      "metalWarmLibraryMs" : 0.033974647521972656,
+      "metalWarmPipelineMs" : 0.025987625122070312,
+      "metalWarmTotalMs" : 0.05996227264404297,
+      "programIndex" : "002",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 4.495978355407715,
+      "clWarmMs" : 0.15401840209960938,
+      "metalColdLibraryMs" : 14.850974082946777,
+      "metalColdPipelineMs" : 0.09703636169433594,
+      "metalColdTotalMs" : 14.948010444641113,
+      "metalWarmLibraryMs" : 0.02205371856689453,
+      "metalWarmPipelineMs" : 0.004887580871582031,
+      "metalWarmTotalMs" : 0.026941299438476562,
+      "programIndex" : "003",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 25.143980979919434,
+      "clWarmMs" : 0.3229379653930664,
+      "metalColdLibraryMs" : 29.667973518371582,
+      "metalColdPipelineMs" : 0.23496150970458984,
+      "metalColdTotalMs" : 29.902935028076172,
+      "metalWarmLibraryMs" : 0.019073486328125,
+      "metalWarmPipelineMs" : 0.012993812561035156,
+      "metalWarmTotalMs" : 0.032067298889160156,
+      "programIndex" : "004",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 18.435955047607422,
+      "clWarmMs" : 0.23806095123291016,
+      "metalColdLibraryMs" : 17.495036125183105,
+      "metalColdPipelineMs" : 0.1399517059326172,
+      "metalColdTotalMs" : 17.634987831115723,
+      "metalWarmLibraryMs" : 0.0209808349609375,
+      "metalWarmPipelineMs" : 0.007033348083496094,
+      "metalWarmTotalMs" : 0.028014183044433594,
+      "programIndex" : "005",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 17.277002334594727,
+      "clWarmMs" : 0.16510486602783203,
+      "metalColdLibraryMs" : 18.25404167175293,
+      "metalColdPipelineMs" : 0.125885009765625,
+      "metalColdTotalMs" : 18.379926681518555,
+      "metalWarmLibraryMs" : 0.01800060272216797,
+      "metalWarmPipelineMs" : 0.006079673767089844,
+      "metalWarmTotalMs" : 0.024080276489257812,
+      "programIndex" : "006",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 34.898996353149414,
+      "clWarmMs" : 0.26297569274902344,
+      "metalColdLibraryMs" : 30.939936637878418,
+      "metalColdPipelineMs" : 0.16796588897705078,
+      "metalColdTotalMs" : 31.10790252685547,
+      "metalWarmLibraryMs" : 0.024080276489257812,
+      "metalWarmPipelineMs" : 0.0050067901611328125,
+      "metalWarmTotalMs" : 0.029087066650390625,
+      "programIndex" : "007",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 24.41108226776123,
+      "clWarmMs" : 0.34499168395996094,
+      "metalColdLibraryMs" : 28.25188636779785,
+      "metalColdPipelineMs" : 0.2630949020385742,
+      "metalColdTotalMs" : 28.514981269836426,
+      "metalWarmLibraryMs" : 0.02300739288330078,
+      "metalWarmPipelineMs" : 0.013947486877441406,
+      "metalWarmTotalMs" : 0.03695487976074219,
+      "programIndex" : "008",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 21.127939224243164,
+      "clWarmMs" : 0.2429485321044922,
+      "metalColdLibraryMs" : 20.94101905822754,
+      "metalColdPipelineMs" : 0.18703937530517578,
+      "metalColdTotalMs" : 21.128058433532715,
+      "metalWarmLibraryMs" : 0.02002716064453125,
+      "metalWarmPipelineMs" : 0.007987022399902344,
+      "metalWarmTotalMs" : 0.028014183044433594,
+      "programIndex" : "009",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 37.7199649810791,
+      "clWarmMs" : 0.5140304565429688,
+      "metalColdLibraryMs" : 31.84199333190918,
+      "metalColdPipelineMs" : 0.17499923706054688,
+      "metalColdTotalMs" : 32.01699256896973,
+      "metalWarmLibraryMs" : 0.027060508728027344,
+      "metalWarmPipelineMs" : 0.008940696716308594,
+      "metalWarmTotalMs" : 0.03600120544433594,
+      "programIndex" : "010",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 36.17596626281738,
+      "clWarmMs" : 0.4220008850097656,
+      "metalColdLibraryMs" : 33.91599655151367,
+      "metalColdPipelineMs" : 0.3159046173095703,
+      "metalColdTotalMs" : 34.23190116882324,
+      "metalWarmLibraryMs" : 0.02300739288330078,
+      "metalWarmPipelineMs" : 0.01704692840576172,
+      "metalWarmTotalMs" : 0.0400543212890625,
+      "programIndex" : "011",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 29.139995574951172,
+      "clWarmMs" : 0.5800724029541016,
+      "metalColdLibraryMs" : 29.572010040283203,
+      "metalColdPipelineMs" : 0.07891654968261719,
+      "metalColdTotalMs" : 29.65092658996582,
+      "metalWarmLibraryMs" : 0.028014183044433594,
+      "metalWarmPipelineMs" : 0.0029802322387695312,
+      "metalWarmTotalMs" : 0.030994415283203125,
+      "programIndex" : "012",
+      "testName" : "apoa1pme"
+    },
+    {
+      "clColdMs" : 25.142908096313477,
+      "clWarmMs" : 0.5650520324707031,
+      "metalColdLibraryMs" : 25.45797824859619,
+      "metalColdPipelineMs" : 0.10502338409423828,
+      "metalColdTotalMs" : 25.56300163269043,
+      "metalWarmLibraryMs" : 0.03504753112792969,
+      "metalWarmPipelineMs" : 0.0059604644775390625,
+      "metalWarmTotalMs" : 0.04100799560546875,
+      "programIndex" : "013",
+      "testName" : "apoa1pme"
+    }
+  ],
+  "question5_functionConstants" : {
+    "coldFunctionConstantCompileMs" : 28.73241901397705,
+    "coldTextualDefineCompileMs" : 27.953600883483887,
+    "mechanism" : "Specializing a precompiled function constant library skips the MSL frontend parser, AST construction, and macro expansion, saving ~15 ms per kernel recompilation. Backend GPU code generation still runs to propagate the constant into shader instructions.",
+    "parameterChangeSpecializationMs" : 38.369202613830566,
+    "parameterChangeTextualRecompileMs" : 59.897589683532715,
+    "parameterTested" : "PADDED_NUM_ATOMS",
+    "program" : "apoa1rf\/006: computeBondedForces",
+    "speedupFactor" : 1.5610850787381758
+  },
+  "question6_offlineCompiler" : {
+    "activeDeveloperDir" : "\/Library\/Developer\/CommandLineTools",
+    "offlineCompilationAvailable" : false,
+    "summary" : "Xcode.app exists in \/Applications, but active developer directory is \/Library\/Developer\/CommandLineTools (Command Line Tools alone, which lacks the metal binary). In addition, Xcode license agreement has not been completed.",
+    "xcodeAppExists" : true,
+    "xcodeLicenseAgreed" : false,
+    "xcrunMetalFound" : false,
+    "xcrunMetalOutput" : "xcrun: error: unable to find utility \"metal\", not a developer tool or in PATH"
+  }
+}

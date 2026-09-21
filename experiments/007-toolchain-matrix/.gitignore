@@ -1,0 +1,7 @@
+# Built binaries and test artifacts
+harness
+matrix
+*.o
+*.dylib
+*.metallib
+*.bin

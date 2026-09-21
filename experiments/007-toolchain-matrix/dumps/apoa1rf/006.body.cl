@@ -1,0 +1,188 @@
+KERNEL void computeBondedForces(GLOBAL mm_ulong* RESTRICT forceBuffer, GLOBAL mixed* RESTRICT energyBuffer, GLOBAL const real4* RESTRICT posq, int groups, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const uint2* RESTRICT atomIndices0_0, GLOBAL const uint4* RESTRICT atomIndices1_0, GLOBAL const uint2* RESTRICT atomIndices2_0, GLOBAL const uint4* RESTRICT atomIndices3_0, GLOBAL float2* customArg1, GLOBAL float4* customArg2, GLOBAL float4* customArg3, GLOBAL float2* customArg4) {
+mixed energy = 0;
+if ((groups&1) != 0)
+for (unsigned int index = GLOBAL_ID; index < 11428; index += GLOBAL_SIZE) {
+    uint2 atoms0 = atomIndices0_0[index];
+    unsigned int atom1 = atoms0.x;
+    real4 pos1 = posq[atom1];
+    unsigned int atom2 = atoms0.y;
+    real4 pos2 = posq[atom2];
+real3 delta = make_real3(pos2.x-pos1.x, pos2.y-pos1.y, pos2.z-pos1.z);
+#if 0
+APPLY_PERIODIC_TO_DELTA(delta)
+#endif
+real r = SQRT(delta.x*delta.x + delta.y*delta.y + delta.z*delta.z);
+float2 bondParams = customArg1[index];
+real deltaIdeal = r-bondParams.x;
+energy += 0.5f * bondParams.y*deltaIdeal*deltaIdeal;
+real dEdR = bondParams.y * deltaIdeal;
+
+dEdR = (r > 0) ? (dEdR / r) : 0;
+delta *= dEdR;
+real3 force1 = delta;
+real3 force2 = -delta;
+
+    ATOMIC_ADD(&forceBuffer[atom1], (mm_ulong) realToFixedPoint(force1.x));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force1.y));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force1.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom2], (mm_ulong) realToFixedPoint(force2.x));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force2.y));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force2.z));
+    MEM_FENCE;
+}
+if ((groups&1) != 0)
+for (unsigned int index = GLOBAL_ID; index < 99628; index += GLOBAL_SIZE) {
+    uint4 atoms0 = atomIndices1_0[index];
+    unsigned int atom1 = atoms0.x;
+    real4 pos1 = posq[atom1];
+    unsigned int atom2 = atoms0.y;
+    real4 pos2 = posq[atom2];
+    unsigned int atom3 = atoms0.z;
+    real4 pos3 = posq[atom3];
+    unsigned int atom4 = atoms0.w;
+    real4 pos4 = posq[atom4];
+const real PI = (real) 3.14159265358979323846;
+real3 v0 = make_real3(pos1.x-pos2.x, pos1.y-pos2.y, pos1.z-pos2.z);
+real3 v1 = make_real3(pos3.x-pos2.x, pos3.y-pos2.y, pos3.z-pos2.z);
+real3 v2 = make_real3(pos3.x-pos4.x, pos3.y-pos4.y, pos3.z-pos4.z);
+#if 0
+APPLY_PERIODIC_TO_DELTA(v0)
+APPLY_PERIODIC_TO_DELTA(v1)
+APPLY_PERIODIC_TO_DELTA(v2)
+#endif
+real3 cp0 = cross(v0, v1);
+real3 cp1 = cross(v1, v2);
+real cosangle = dot(normalize(cp0), normalize(cp1));
+real theta;
+if (cosangle > 0.99f || cosangle < -0.99f) {
+    // We're close to the singularity in acos(), so take the cross product and use asin() instead.
+
+    real3 cross_prod = cross(cp0, cp1);
+    real scale = dot(cp0, cp0)*dot(cp1, cp1);
+    theta = ASIN(SQRT(dot(cross_prod, cross_prod)/scale));
+    if (cosangle < 0)
+        theta = PI-theta;
+}
+else
+   theta = ACOS(cosangle);
+theta = (dot(v0, cp1) >= 0 ? theta : -theta);
+float4 torsionParams = customArg2[index];
+real deltaAngle = torsionParams.z*theta-torsionParams.y;
+energy += torsionParams.x*(1.0f+COS(deltaAngle));
+real sinDeltaAngle = SIN(deltaAngle);
+real dEdAngle = -torsionParams.x*torsionParams.z*sinDeltaAngle;
+
+real normCross1 = dot(cp0, cp0);
+real normSqrBC = dot(v1, v1);
+real normBC = SQRT(normSqrBC);
+real normCross2 = dot(cp1, cp1);
+real dp = RECIP(normSqrBC);
+real4 ff = make_real4((-dEdAngle*normBC)/normCross1, dot(v0, v1)*dp, dot(v2, v1)*dp, (dEdAngle*normBC)/normCross2);
+real3 force1 = ff.x*cp0;
+real3 force4 = ff.w*cp1;
+real3 s = ff.y*force1 - ff.z*force4;
+real3 force2 = s-force1;
+real3 force3 = -s-force4;
+
+    ATOMIC_ADD(&forceBuffer[atom1], (mm_ulong) realToFixedPoint(force1.x));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force1.y));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force1.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom2], (mm_ulong) realToFixedPoint(force2.x));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force2.y));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force2.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom3], (mm_ulong) realToFixedPoint(force3.x));
+    ATOMIC_ADD(&forceBuffer[atom3+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force3.y));
+    ATOMIC_ADD(&forceBuffer[atom3+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force3.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom4], (mm_ulong) realToFixedPoint(force4.x));
+    ATOMIC_ADD(&forceBuffer[atom4+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force4.y));
+    ATOMIC_ADD(&forceBuffer[atom4+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force4.z));
+    MEM_FENCE;
+}
+if ((groups&1) != 0)
+for (unsigned int index = GLOBAL_ID; index < 73902; index += GLOBAL_SIZE) {
+    uint2 atoms0 = atomIndices2_0[index];
+    unsigned int atom1 = atoms0.x;
+    real4 pos1 = posq[atom1];
+    unsigned int atom2 = atoms0.y;
+    real4 pos2 = posq[atom2];
+float4 exceptionParams = customArg3[index];
+real3 delta = make_real3(pos2.x-pos1.x, pos2.y-pos1.y, pos2.z-pos1.z);
+#if 0
+APPLY_PERIODIC_TO_DELTA(delta)
+#endif
+real r2 = delta.x*delta.x + delta.y*delta.y + delta.z*delta.z;
+real invR = RSQRT(r2);
+real sig2 = invR*exceptionParams.y;
+sig2 *= sig2;
+real sig6 = sig2*sig2*sig2;
+real dEdR = exceptionParams.z*(12.0f*sig6-6.0f)*sig6;
+real tempEnergy = exceptionParams.z*(sig6-1.0f)*sig6;
+dEdR += exceptionParams.x*invR;
+dEdR *= invR*invR;
+tempEnergy += exceptionParams.x*invR;
+energy += tempEnergy;
+delta *= dEdR;
+real3 force1 = -delta;
+real3 force2 = delta;
+
+    ATOMIC_ADD(&forceBuffer[atom1], (mm_ulong) realToFixedPoint(force1.x));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force1.y));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force1.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom2], (mm_ulong) realToFixedPoint(force2.x));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force2.y));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force2.z));
+    MEM_FENCE;
+}
+if ((groups&1) != 0)
+for (unsigned int index = GLOBAL_ID; index < 52678; index += GLOBAL_SIZE) {
+    uint4 atoms0 = atomIndices3_0[index];
+    unsigned int atom1 = atoms0.x;
+    real4 pos1 = posq[atom1];
+    unsigned int atom2 = atoms0.y;
+    real4 pos2 = posq[atom2];
+    unsigned int atom3 = atoms0.z;
+    real4 pos3 = posq[atom3];
+real3 v0 = make_real3(pos2.x-pos1.x, pos2.y-pos1.y, pos2.z-pos1.z);
+real3 v1 = make_real3(pos2.x-pos3.x, pos2.y-pos3.y, pos2.z-pos3.z);
+#if 0
+APPLY_PERIODIC_TO_DELTA(v0)
+APPLY_PERIODIC_TO_DELTA(v1)
+#endif
+real3 cp = cross(v0, v1);
+real rp = cp.x*cp.x + cp.y*cp.y + cp.z*cp.z;
+rp = max(SQRT(rp), (real) 1.0e-06f);
+real r21 = v0.x*v0.x + v0.y*v0.y + v0.z*v0.z;
+real r23 = v1.x*v1.x + v1.y*v1.y + v1.z*v1.z;
+real dot = v0.x*v1.x + v0.y*v1.y + v0.z*v1.z;
+real cosine = min(max(dot*RSQRT(r21*r23), (real) -1), (real) 1);
+real theta = ACOS(cosine);
+float2 angleParams = customArg4[index];
+real deltaIdeal = theta-angleParams.x;
+energy += 0.5f*angleParams.y*deltaIdeal*deltaIdeal;
+real dEdAngle = angleParams.y*deltaIdeal;
+
+real3 force1 = cross(v0, cp)*(dEdAngle/(r21*rp));
+real3 force3 = cross(cp, v1)*(dEdAngle/(r23*rp));
+real3 force2 = -force1-force3;
+
+    ATOMIC_ADD(&forceBuffer[atom1], (mm_ulong) realToFixedPoint(force1.x));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force1.y));
+    ATOMIC_ADD(&forceBuffer[atom1+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force1.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom2], (mm_ulong) realToFixedPoint(force2.x));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force2.y));
+    ATOMIC_ADD(&forceBuffer[atom2+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force2.z));
+    MEM_FENCE;
+    ATOMIC_ADD(&forceBuffer[atom3], (mm_ulong) realToFixedPoint(force3.x));
+    ATOMIC_ADD(&forceBuffer[atom3+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(force3.y));
+    ATOMIC_ADD(&forceBuffer[atom3+PADDED_NUM_ATOMS*2], (mm_ulong) realToFixedPoint(force3.z));
+    MEM_FENCE;
+}
+energyBuffer[GLOBAL_ID] += energy;
+}
+

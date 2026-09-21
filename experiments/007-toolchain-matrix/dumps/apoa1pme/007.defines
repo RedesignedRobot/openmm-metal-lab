@@ -1,0 +1,31 @@
+context	ACOS	acos
+context	APPLY_PERIODIC_TO_DELTA(delta)	delta.xyz -= floor(delta.xyz*invPeriodicBoxSize.xyz+0.5f)*periodicBoxSize.xyz;
+context	APPLY_PERIODIC_TO_POS(pos)	pos.xyz -= floor(pos.xyz*invPeriodicBoxSize.xyz)*periodicBoxSize.xyz;
+context	APPLY_PERIODIC_TO_POS_WITH_CENTER(pos, center)	{pos.x -= floor((pos.x-center.x)*invPeriodicBoxSize.x+0.5f)*periodicBoxSize.x; \
+pos.y -= floor((pos.y-center.y)*invPeriodicBoxSize.y+0.5f)*periodicBoxSize.y; \
+pos.z -= floor((pos.z-center.z)*invPeriodicBoxSize.z+0.5f)*periodicBoxSize.z;}
+context	ASIN	asin
+context	ATAN	atan
+context	COS	cos
+context	ERF	erf
+context	ERFC	erfc
+context	EXP	native_exp
+context	FABS	fabs
+context	FMA	fma
+context	LOG	native_log
+context	POW	pow
+context	RECIP	native_recip
+context	RSQRT	native_rsqrt
+context	SIN	sin
+context	SQRT	native_sqrt
+context	SYNC_WARPS	mem_fence(CLK_LOCAL_MEM_FENCE)
+context	TAN	tan
+context	convert_mixed4	convert_float4
+context	convert_real4	convert_float4
+context	make_mixed2	make_float2
+context	make_mixed3	make_float3
+context	make_mixed4	make_float4
+context	make_real2	make_float2
+context	make_real3	make_float3
+context	make_real4	make_float4
+program	PADDED_NUM_ATOMS	92224

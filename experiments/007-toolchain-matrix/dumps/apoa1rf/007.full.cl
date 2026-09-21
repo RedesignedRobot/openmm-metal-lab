@@ -1,0 +1,463 @@
+// Compilation Options: -cl-mad-enable -cl-no-signed-zeros
+
+#define ACOS acos
+#define APPLY_PERIODIC_TO_DELTA(delta) delta.xyz -= floor(delta.xyz*invPeriodicBoxSize.xyz+0.5f)*periodicBoxSize.xyz;
+#define APPLY_PERIODIC_TO_POS(pos) pos.xyz -= floor(pos.xyz*invPeriodicBoxSize.xyz)*periodicBoxSize.xyz;
+#define APPLY_PERIODIC_TO_POS_WITH_CENTER(pos, center) {pos.x -= floor((pos.x-center.x)*invPeriodicBoxSize.x+0.5f)*periodicBoxSize.x; \
+pos.y -= floor((pos.y-center.y)*invPeriodicBoxSize.y+0.5f)*periodicBoxSize.y; \
+pos.z -= floor((pos.z-center.z)*invPeriodicBoxSize.z+0.5f)*periodicBoxSize.z;}
+#define ASIN asin
+#define ATAN atan
+#define COS cos
+#define ERF erf
+#define ERFC erfc
+#define EXP native_exp
+#define FABS fabs
+#define FMA fma
+#define LOG native_log
+#define POW pow
+#define RECIP native_recip
+#define RSQRT native_rsqrt
+#define SIN sin
+#define SQRT native_sqrt
+#define SYNC_WARPS mem_fence(CLK_LOCAL_MEM_FENCE)
+#define TAN tan
+#define convert_mixed4 convert_float4
+#define convert_real4 convert_float4
+#define make_mixed2 make_float2
+#define make_mixed3 make_float3
+#define make_mixed4 make_float4
+#define make_real2 make_float2
+#define make_real3 make_float3
+#define make_real4 make_float4
+
+typedef float real;
+typedef float2 real2;
+typedef float3 real3;
+typedef float4 real4;
+typedef float mixed;
+typedef float2 mixed2;
+typedef float3 mixed3;
+typedef float4 mixed4;
+/**
+ * This file contains OpenCL definitions for the macros and functions needed for the
+ * common compute framework.
+ */
+
+#pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
+#ifdef cl_khr_int64_base_atomics
+#pragma OPENCL EXTENSION cl_khr_int64_base_atomics : enable
+#else
+__attribute__((overloadable)) unsigned long atom_add(volatile __global unsigned long* p, unsigned long val) {
+    volatile __global unsigned int* word = (volatile __global unsigned int*) p;
+#ifdef __ENDIAN_LITTLE__
+    int lowIndex = 0;
+#else
+    int lowIndex = 1;
+#endif
+    unsigned int lower = val;
+    unsigned int upper = val >> 32;
+    unsigned int result = atomic_add(&word[lowIndex], lower);
+    int carry = (lower + (unsigned long) result >= 0x100000000 ? 1 : 0);
+    upper += carry;
+    if (upper != 0)
+        atomic_add(&word[1-lowIndex], upper);
+    return 0;
+}
+#endif
+
+#define KERNEL __kernel
+#define DEVICE
+#define LOCAL __local
+#define LOCAL_ARG __local
+#define GLOBAL __global
+#define RESTRICT restrict
+#define LOCAL_ID get_local_id(0)
+#define LOCAL_SIZE get_local_size(0)
+#define GLOBAL_ID get_global_id(0)
+#define GLOBAL_SIZE get_global_size(0)
+#define GROUP_ID get_group_id(0)
+#define NUM_GROUPS get_num_groups(0)
+#define SYNC_THREADS barrier(CLK_LOCAL_MEM_FENCE+CLK_GLOBAL_MEM_FENCE);
+#define MEM_FENCE mem_fence(CLK_LOCAL_MEM_FENCE+CLK_GLOBAL_MEM_FENCE);
+#define ATOMIC_ADD(dest, value) atom_add(dest, value)
+
+typedef long mm_long;
+typedef unsigned long mm_ulong;
+
+#define make_short2(x...) ((short2) (x))
+#define make_short3(x...) ((short3) (x))
+#define make_short4(x...) ((short4) (x))
+#define make_int2(x...) ((int2) (x))
+#define make_int3(x...) ((int3) (x))
+#define make_int4(x...) ((int4) (x))
+#define make_float2(x...) ((float2) (x))
+#define make_float3(x...) ((float3) (x))
+#define make_float4(x...) ((float4) (x))
+#define make_double2(x...) ((double2) (x))
+#define make_double3(x...) ((double3) (x))
+#define make_double4(x...) ((double4) (x))
+
+#define trimTo3(v) (v).xyz
+
+// OpenCL has overloaded versions of standard math functions for single and double
+// precision arguments.  CUDA has separate functions.  To allow them to be called
+// consistently, we define the "single precision" functions to just be synonyms
+// for the standard ones.
+
+#define sqrtf(x) sqrt(x)
+#define rsqrtf(x) rsqrt(x)
+#define expf(x) exp(x)
+#define logf(x) log(x)
+#define powf(x) pow(x)
+#define cosf(x) cos(x)
+#define sinf(x) sin(x)
+#define tanf(x) tan(x)
+#define acosf(x) acos(x)
+#define asinf(x) asin(x)
+#define atanf(x) atan(x)
+#define atan2f(x, y) atan2(x, y)
+
+inline long realToFixedPoint(real x) {
+    return (long) (x * 0x100000000);
+}
+
+#pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
+
+unsigned int getValue(unsigned int value) {
+    return value;
+}
+
+/**
+ * Sort a list that is short enough to entirely fit in local memory.  This is executed as
+ * a single thread block.
+ */
+__kernel void sortShortList(__global unsigned int* restrict data, uint length, __local unsigned int* dataBuffer) {
+    // Load the data into local memory.
+    
+    for (int index = get_local_id(0); index < length; index += get_local_size(0))
+        dataBuffer[index] = data[index];
+    barrier(CLK_LOCAL_MEM_FENCE);
+
+    // Perform a bitonic sort in local memory.
+
+    for (unsigned int k = 2; k < 2*length; k *= 2) {
+        for (unsigned int j = k/2; j > 0; j /= 2) {
+            for (unsigned int i = get_local_id(0); i < length; i += get_local_size(0)) {
+                int ixj = i^j;
+                if (ixj > i && ixj < length) {
+                    unsigned int value1 = dataBuffer[i];
+                    unsigned int value2 = dataBuffer[ixj];
+                    bool ascending = ((i&k) == 0);
+                    for (unsigned int mask = k*2; mask < 2*length; mask *= 2)
+                        ascending = ((i&mask) == 0 ? !ascending : ascending);
+                    unsigned int lowKey  = (ascending ? getValue(value1) : getValue(value2));
+                    unsigned int highKey = (ascending ? getValue(value2) : getValue(value1));
+                    if (lowKey > highKey) {
+                        dataBuffer[i] = value2;
+                        dataBuffer[ixj] = value1;
+                    }
+                }
+            }
+            barrier(CLK_LOCAL_MEM_FENCE);
+        }
+    }
+
+    // Write the data back to global memory.
+
+    for (int index = get_local_id(0); index < length; index += get_local_size(0))
+        data[index] = dataBuffer[index];
+}
+
+/**
+ * An alternate kernel for sorting short lists.  In this version every thread does a full
+ * scan through the data to select the destination for one element.  This involves more
+ * work, but also parallelizes much better.
+ */
+__kernel void sortShortList2(__global const unsigned int* restrict dataIn, __global unsigned int* restrict dataOut, int length) {
+    __local unsigned int dataBuffer[64];
+    unsigned int value = dataIn[get_global_id(0) < length ? get_global_id(0) : 0];
+    unsigned int key = getValue(value);
+    int count = 0;
+    for (int blockStart = 0; blockStart < length; blockStart += get_local_size(0)) {
+        int numInBlock = min((int) get_local_size(0), length-blockStart);
+        barrier(CLK_LOCAL_MEM_FENCE);
+        if (get_local_id(0) < numInBlock)
+            dataBuffer[get_local_id(0)] = dataIn[blockStart+get_local_id(0)];
+        barrier(CLK_LOCAL_MEM_FENCE);
+        for (int i = 0; i < numInBlock; i++) {
+            unsigned int otherKey = getValue(dataBuffer[i]);
+            if (otherKey < key || (otherKey == key && blockStart+i < get_global_id(0)))
+                count++;
+        }
+    }
+    if (get_global_id(0) < length)
+        dataOut[count] = value;
+}
+
+/**
+ * Calculate the minimum and maximum value in the array to be sorted.  This kernel
+ * is executed as a single work group.
+ */
+__kernel void computeRange(__global const unsigned int* restrict data, uint length, __global unsigned int* restrict range, __local unsigned int* restrict minBuffer,
+        __local unsigned int* restrict maxBuffer, uint numBuckets, __global uint* restrict bucketOffset) {
+#if 0
+    unsigned int minimum = 0xFFFFFFFFu;
+    unsigned int maximum = 0;
+
+    // Each thread calculates the range of a subset of values.
+
+    for (uint index = get_local_id(0); index < length; index += get_local_size(0)) {
+        unsigned int value = getValue(data[index]);
+        minimum = min(minimum, value);
+        maximum = max(maximum, value);
+    }
+
+    // Now reduce them.
+
+    minBuffer[get_local_id(0)] = minimum;
+    maxBuffer[get_local_id(0)] = maximum;
+    barrier(CLK_LOCAL_MEM_FENCE);
+    for (uint step = 1; step < get_local_size(0); step *= 2) {
+        if (get_local_id(0)+step < get_local_size(0) && get_local_id(0)%(2*step) == 0) {
+            minBuffer[get_local_id(0)] = min(minBuffer[get_local_id(0)], minBuffer[get_local_id(0)+step]);
+            maxBuffer[get_local_id(0)] = max(maxBuffer[get_local_id(0)], maxBuffer[get_local_id(0)+step]);
+        }
+        barrier(CLK_LOCAL_MEM_FENCE);
+    }
+    minimum = minBuffer[0];
+    maximum = maxBuffer[0];
+    if (get_local_id(0) == 0) {
+        range[0] = minimum;
+        range[1] = maximum;
+    }
+#endif
+
+    // Clear the bucket counters in preparation for the next kernel.
+
+    for (uint index = get_local_id(0); index < numBuckets; index += get_local_size(0))
+        bucketOffset[index] = 0;
+}
+
+/**
+ * Assign elements to buckets.  This version is optimized for uniformly distributed data.
+ */
+__kernel void assignElementsToBuckets(__global const unsigned int* restrict data, uint length, uint numBuckets, __global const unsigned int* restrict range,
+        __global uint* restrict bucketOffset, __global uint* restrict bucketOfElement, __global uint* restrict offsetInBucket) {
+#ifdef AMD_ATOMIC_WORK_AROUND
+    // Do a byte write to force all memory accesses to interactionCount to use the complete path.
+    // This avoids the atomic access from causing all word accesses to other buffers from using the slow complete path.
+    // The IF actually causes the write to never be executed, its presence is all that is needed.
+    // AMD APP SDK 2.4 has this problem.
+    if (get_global_id(0) == get_local_id(0)+1)
+        ((__global char*)bucketOffset)[sizeof(int)*numBuckets+1] = 0;
+#endif
+    float minValue = (float) (range[0]);
+    float maxValue = (float) (range[1]);
+    float bucketWidth = (maxValue-minValue)/numBuckets;
+    for (uint index = get_global_id(0); index < length; index += get_global_size(0)) {
+        float key = (float) getValue(data[index]);
+        uint bucketIndex = min((uint) ((key-minValue)/bucketWidth), numBuckets-1);
+        offsetInBucket[index] = atom_inc(&bucketOffset[bucketIndex]);
+        bucketOfElement[index] = bucketIndex;
+    }
+}
+
+/**
+ * Assign elements to buckets.  This version is optimized for non-uniformly distributed data.
+ */
+__kernel void assignElementsToBuckets2(__global const unsigned int* restrict data, uint length, uint numBuckets, __global const unsigned int* restrict range,
+        __global uint* restrict bucketOffset, __global uint* restrict bucketOfElement, __global uint* restrict offsetInBucket) {
+    // Load 64 datapoints and sort them to get an estimate of the data distribution.
+
+    __local unsigned int elements[64];
+    if (get_local_id(0) < 64) {
+        int index = (int) (get_local_id(0)*length/64.0);
+        elements[get_local_id(0)] = getValue(data[index]);
+    }
+    barrier(CLK_LOCAL_MEM_FENCE);
+    for (unsigned int k = 2; k <= 64; k *= 2) {
+        for (unsigned int j = k/2; j > 0; j /= 2) {
+            if (get_local_id(0) < 64) {
+                int ixj = get_local_id(0)^j;
+                if (ixj > get_local_id(0)) {
+                    unsigned int value1 = elements[get_local_id(0)];
+                    unsigned int value2 = elements[ixj];
+                    bool ascending = (get_local_id(0)&k) == 0;
+                    unsigned int lowKey = (ascending ? value1 : value2);
+                    unsigned int highKey = (ascending ? value2 : value1);
+                    if (lowKey > highKey) {
+                        elements[get_local_id(0)] = value2;
+                        elements[ixj] = value1;
+                    }
+                }
+            }
+            barrier(CLK_LOCAL_MEM_FENCE);
+        }
+    }
+
+    // Create a function composed of linear segments mapping data values to bucket indices.
+
+    __local float segmentLowerBound[9];
+    __local float segmentBaseIndex[9];
+    __local float segmentIndexScale[9];
+    if (get_local_id(0) == 0) {
+        segmentLowerBound[0] = elements[0]-0.2f*(elements[5]-elements[0]);
+        segmentLowerBound[1] = elements[5];
+        segmentLowerBound[2] = elements[10];
+        segmentLowerBound[3] = elements[20];
+        segmentLowerBound[4] = elements[30];
+        segmentLowerBound[5] = elements[40];
+        segmentLowerBound[6] = elements[50];
+        segmentLowerBound[7] = elements[60];
+        segmentLowerBound[8] = elements[63]+0.2f*(elements[63]-elements[58]);
+        segmentBaseIndex[0] = numBuckets/16;
+        segmentBaseIndex[1] = 3*numBuckets/16;
+        segmentBaseIndex[2] = 5*numBuckets/16;
+        segmentBaseIndex[3] = 7*numBuckets/16;
+        segmentBaseIndex[4] = 9*numBuckets/16;
+        segmentBaseIndex[5] = 11*numBuckets/16;
+        segmentBaseIndex[6] = 13*numBuckets/16;
+        segmentBaseIndex[7] = 15*numBuckets/16;
+        segmentBaseIndex[8] = numBuckets;
+        for (int i = 0; i < 8; i++)
+            if (segmentLowerBound[i+1] == segmentLowerBound[i])
+                segmentIndexScale[i] = 0;
+            else
+                segmentIndexScale[i] = (segmentBaseIndex[i+1]-segmentBaseIndex[i])/(segmentLowerBound[i+1]-segmentLowerBound[i]);
+    }
+    barrier(CLK_LOCAL_MEM_FENCE);
+
+    // Assign elements to buckets.
+
+    for (unsigned int index = get_global_id(0); index < length; index += get_global_size(0)) {
+        float key = (float) getValue(data[index]);
+        int segment;
+        for (segment = 0; segment < 7 && key > segmentLowerBound[segment+1]; segment++)
+            ;
+        unsigned int bucketIndex = segmentBaseIndex[segment]+(key-segmentLowerBound[segment])*segmentIndexScale[segment];
+        bucketIndex = min(max((uint) 0, bucketIndex), numBuckets-1);
+        offsetInBucket[index] = atom_inc(&bucketOffset[bucketIndex]);
+        bucketOfElement[index] = bucketIndex;
+    }
+}
+
+/**
+ * Sum the bucket sizes to compute the start position of each bucket.  This kernel
+ * is executed as a single work group.
+ */
+__kernel void computeBucketPositions(uint numBuckets, __global uint* restrict bucketOffset, __local uint* restrict buffer) {
+    uint globalOffset = 0;
+    for (uint startBucket = 0; startBucket < numBuckets; startBucket += get_local_size(0)) {
+        // Load the bucket sizes into local memory.
+
+        uint globalIndex = startBucket+get_local_id(0);
+        barrier(CLK_LOCAL_MEM_FENCE);
+        buffer[get_local_id(0)] = (globalIndex < numBuckets ? bucketOffset[globalIndex] : 0);
+        barrier(CLK_LOCAL_MEM_FENCE);
+
+        // Perform a parallel prefix sum.
+
+        for (uint step = 1; step < get_local_size(0); step *= 2) {
+            uint add = (get_local_id(0) >= step ? buffer[get_local_id(0)-step] : 0);
+            barrier(CLK_LOCAL_MEM_FENCE);
+            buffer[get_local_id(0)] += add;
+            barrier(CLK_LOCAL_MEM_FENCE);
+        }
+
+        // Write the results back to global memory.
+
+        if (globalIndex < numBuckets)
+            bucketOffset[globalIndex] = buffer[get_local_id(0)]+globalOffset;
+        globalOffset += buffer[get_local_size(0)-1];
+    }
+}
+
+/**
+ * Copy the input data into the buckets for sorting.
+ */
+__kernel void copyDataToBuckets(__global const unsigned int* restrict data, __global unsigned int* restrict buckets, uint length, __global const uint* restrict bucketOffset, __global const uint* restrict bucketOfElement, __global const uint* restrict offsetInBucket) {
+    for (uint index = get_global_id(0); index < length; index += get_global_size(0)) {
+        unsigned int element = data[index];
+        uint bucketIndex = bucketOfElement[index];
+        uint offset = (bucketIndex == 0 ? 0 : bucketOffset[bucketIndex-1]);
+        buckets[offset+offsetInBucket[index]] = element;
+    }
+}
+
+/**
+ * Sort the data in each bucket.
+ */
+__kernel void sortBuckets(__global unsigned int* restrict data, __global const unsigned int* restrict buckets, uint numBuckets, __global const uint* restrict bucketOffset, __local unsigned int* restrict buffer) {
+    for (int index = get_group_id(0); index < numBuckets; index += get_num_groups(0)) {
+        int startIndex = (index == 0 ? 0 : bucketOffset[index-1]);
+        int endIndex = bucketOffset[index];
+        int length = endIndex-startIndex;
+        if (length <= get_local_size(0)) {
+            // Load the data into local memory.
+
+            if (get_local_id(0) < length)
+                buffer[get_local_id(0)] = buckets[startIndex+get_local_id(0)];
+            else
+                buffer[get_local_id(0)] = 0xFFFFFFFFu;
+            barrier(CLK_LOCAL_MEM_FENCE);
+
+            // Perform a bitonic sort in local memory.
+
+            for (int k = 2; k <= get_local_size(0); k *= 2) {
+                for (int j = k/2; j > 0; j /= 2) {
+                    int ixj = get_local_id(0)^j;
+                    if (ixj > get_local_id(0)) {
+                        unsigned int value1 = buffer[get_local_id(0)];
+                        unsigned int value2 = buffer[ixj];
+                        bool ascending = (get_local_id(0)&k) == 0;
+                        unsigned int lowKey = (ascending ? getValue(value1) : getValue(value2));
+                        unsigned int highKey = (ascending ? getValue(value2) : getValue(value1));
+                        if (lowKey > highKey) {
+                            buffer[get_local_id(0)] = value2;
+                            buffer[ixj] = value1;
+                        }
+                    }
+                    barrier(CLK_LOCAL_MEM_FENCE);
+                }
+            }
+
+            // Write the data to the sorted array.
+
+            if (get_local_id(0) < length)
+                data[startIndex+get_local_id(0)] = buffer[get_local_id(0)];
+        }
+        else {
+            // Copy the bucket data over to the output array.
+
+            for (int i = get_local_id(0); i < length; i += get_local_size(0))
+                data[startIndex+i] = buckets[startIndex+i];
+            barrier(CLK_GLOBAL_MEM_FENCE);
+
+            // Perform a bitonic sort in global memory.
+
+            for (int k = 2; k < 2*length; k *= 2) {
+                for (int j = k/2; j > 0; j /= 2) {
+                    for (int i = get_local_id(0); i < length; i += get_local_size(0)) {
+                        int ixj = i^j;
+                        if (ixj > i && ixj < length) {
+                            unsigned int value1 = data[startIndex+i];
+                            unsigned int value2 = data[startIndex+ixj];
+                            bool ascending = ((i&k) == 0);
+                            for (int mask = k*2; mask < 2*length; mask *= 2)
+                                ascending = ((i&mask) == 0 ? !ascending : ascending);
+                            unsigned int lowKey  = (ascending ? getValue(value1) : getValue(value2));
+                            unsigned int highKey = (ascending ? getValue(value2) : getValue(value1));
+                            if (lowKey > highKey) {
+                                data[startIndex+i] = value2;
+                                data[startIndex+ixj] = value1;
+                            }
+                        }
+                    }
+                    barrier(CLK_GLOBAL_MEM_FENCE);
+                }
+            }
+        }
+    }
+}
+
