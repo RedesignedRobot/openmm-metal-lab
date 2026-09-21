@@ -1,0 +1,46 @@
+{
+    "benchmarks": [
+        {
+            "test": "apoa1rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "CPU",
+            "platform_properties": {
+                "Threads": "8",
+                "DeterministicForces": "false"
+            },
+            "steps": 714,
+            "elapsed_time": 31.283255,
+            "ns_per_day": 7.887874839111209
+        },
+        {
+            "test": "apoa1pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "CPU",
+            "platform_properties": {
+                "Threads": "8",
+                "DeterministicForces": "false"
+            },
+            "steps": 696,
+            "elapsed_time": 31.672168,
+            "ns_per_day": 7.594604827809702
+        }
+    ],
+    "system": {
+        "hostname": "MASMacMini",
+        "timestamp": "2026-09-21T13:35:19.025445+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M2",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}
