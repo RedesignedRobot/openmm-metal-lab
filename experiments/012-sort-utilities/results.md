@@ -14,7 +14,7 @@ Key findings:
 
 Testing was performed on two Apple Silicon configurations:
 - **Apple M3 Ultra:** 60 GPU cores, 128 GB unified memory, macOS 15.
-- **Apple M2:** 10 GPU cores, 16 GB unified memory, macOS 15 (remote host `amir@10.10.10.11`).
+- **Apple M2:** 10 GPU cores, 8 GB unified memory, macOS 27.0 (remote host, see mini.sh).
 
 ## Investigation of atom reordering
 

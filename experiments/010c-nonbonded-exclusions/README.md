@@ -42,7 +42,7 @@ Run the gate script on the Apple M2 mini via the lab script:
 Or execute the harness directly on the remote host:
 
 ```sh
-ssh amir@10.10.10.11 "~/lab/010c-nonbonded-exclusions/harness --out ~/lab/010c-nonbonded-exclusions/results-m2.json --captures-dir ~/lab/010-compute-nonbonded/captures --kernels-dir ~/lab/010c-nonbonded-exclusions/kernels"
+ssh "$MINI" "~/lab/010c-nonbonded-exclusions/harness --out ~/lab/010c-nonbonded-exclusions/results-m2.json --captures-dir ~/lab/010-compute-nonbonded/captures --kernels-dir ~/lab/010c-nonbonded-exclusions/kernels"
 ```
 
 ## Directory contents
