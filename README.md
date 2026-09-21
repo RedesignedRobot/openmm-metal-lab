@@ -30,7 +30,7 @@ Programme, one experiment at a time on the mini:
 - 008 host cost: dispatch latency and command buffer batching measured, classic command model against Metal 4, shared against private storage, metal-cpp against Objective-C call overhead, the GPU timestamp units the profile in 003 could not pin down.
 - 009 neighbour list: findBlocksWithInteractions on the `simd_ballot` path against the OpenCL kernel, threadgroup size sweep, SIMD width checked on both chips.
 - 010 computeNonbonded: needs 009's neighbour list. Numerical agreement first, then speed, with and without SIMD shuffles.
-- 011 PME: gridSpreadCharge fixed point against float atomics with the real ApoA1 distribution, finishSpreadCharge cost, FFT candidates (VkFFT Metal, MPSGraph, Accelerate on unified memory).
+- 011 PME: gridSpreadCharge fixed point against float atomics with the real ApoA1 distribution, finishSpreadCharge cost, FFT candidates (VkFFT Metal, MPSGraph, Accelerate on unified memory). Done: on matched clocks PME ties with OpenCL, see experiments/011-pme/HEAD-NOTE.md.
 - 012 sort and the remaining utilities.
 - 013 the host layer decision, after asking NORPG. One Astra design lane.
 
