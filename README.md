@@ -31,7 +31,7 @@ Programme, one experiment at a time on the mini:
 - 009 neighbour list: findBlocksWithInteractions on the `simd_ballot` path against the OpenCL kernel, threadgroup size sweep, SIMD width checked on both chips.
 - 010 computeNonbonded: needs 009's neighbour list. Numerical agreement first, then speed, with and without SIMD shuffles.
 - 011 PME: gridSpreadCharge fixed point against float atomics with the real ApoA1 distribution, finishSpreadCharge cost, FFT candidates (VkFFT Metal, MPSGraph, Accelerate on unified memory). Done: on matched clocks PME ties with OpenCL, see experiments/011-pme/HEAD-NOTE.md.
-- 012 sort and the remaining utilities.
+- 012 sort and the remaining utilities. Done: tie with OpenCL, translated bucket sort kept, see experiments/012-sort-utilities/HEAD-NOTE.md.
 - 013 the host layer decision, after asking NORPG. One Astra design lane.
 
 ## Rules
