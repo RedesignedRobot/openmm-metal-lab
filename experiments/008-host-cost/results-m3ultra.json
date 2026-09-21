@@ -1,0 +1,796 @@
+{
+  "q1_per_dispatch_cost": {
+    "methods": {
+      "encoder_per_kernel": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 4.0531158447265625,
+            "median": 18.00060272216797
+          },
+          "gpu_exec_us": {
+            "iqr": 0.8750357665121555,
+            "median": 3.875029506161809
+          },
+          "host_encode_us": {
+            "iqr": 0.11920928955078125,
+            "median": 2.9802322387695312
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.2980232238769531,
+            "median": 1.6033649444580078
+          },
+          "gpu_exec_us": {
+            "iqr": 0.3125052899122238,
+            "median": 2.164582838304341
+          },
+          "host_encode_us": {
+            "iqr": 0.10728836059570312,
+            "median": 0.5960464477539062
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.010728836059570312,
+            "median": 0.15020370483398438
+          },
+          "gpu_exec_us": {
+            "iqr": 0.1387501833960414,
+            "median": 2.020416723098606
+          },
+          "host_encode_us": {
+            "iqr": 0.040531158447265625,
+            "median": 0.30040740966796875
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.0020265579223632812,
+            "median": 0.01704692840576172
+          },
+          "gpu_exec_us": {
+            "iqr": 0.14095823280513287,
+            "median": 1.9423750054556876
+          },
+          "host_encode_us": {
+            "iqr": 0.033020973205566406,
+            "median": 0.28395652770996094
+          },
+          "passed": true
+        }
+      },
+      "metal4_encoder_per_kernel": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 8.940696716308594,
+            "median": 149.9652862548828
+          },
+          "host_encode_us": {
+            "iqr": 0,
+            "median": 2.9802322387695312
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 2.5033950805664062,
+            "median": 24.950504302978516
+          },
+          "host_encode_us": {
+            "iqr": 0.20265579223632812,
+            "median": 1.3947486877441406
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.5686283111572266,
+            "median": 15.999674797058105
+          },
+          "host_encode_us": {
+            "iqr": 0.15020370483398438,
+            "median": 1.1348724365234375
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.24390220642089844,
+            "median": 14.40054178237915
+          },
+          "host_encode_us": {
+            "iqr": 0.14412403106689453,
+            "median": 1.0279417037963867
+          },
+          "passed": true
+        }
+      },
+      "metal4_one_encoder": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 14.066696166992188,
+            "median": 143.52798461914062
+          },
+          "host_encode_us": {
+            "iqr": 3.0994415283203125,
+            "median": 3.9339065551757812
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.7987022399902344,
+            "median": 17.398595809936523
+          },
+          "host_encode_us": {
+            "iqr": 0.10728836059570312,
+            "median": 0.40531158447265625
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.2086162567138672,
+            "median": 3.5202503204345703
+          },
+          "host_encode_us": {
+            "iqr": 0.019073486328125,
+            "median": 0.15974044799804688
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.1729726791381836,
+            "median": 2.1555423736572266
+          },
+          "host_encode_us": {
+            "iqr": 0.0209808349609375,
+            "median": 0.10001659393310547
+          },
+          "passed": true
+        }
+      },
+      "one_cb_per_kernel": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 1.2916862033307552,
+            "median": 7.250026101246476
+          },
+          "host_encode_us": {
+            "iqr": 2.0265579223632812,
+            "median": 6.556510925292969
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 2.8625072445720434,
+            "median": 6.62083039060235
+          },
+          "host_encode_us": {
+            "iqr": 0.8940696716308594,
+            "median": 3.701448440551758
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.09041104931384325,
+            "median": 3.580414631869644
+          },
+          "host_encode_us": {
+            "iqr": 1.9407272338867188,
+            "median": 8.944869041442871
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.051167618948966265,
+            "median": 3.52716728230007
+          },
+          "host_encode_us": {
+            "iqr": 0.7159709930419922,
+            "median": 15.121519565582275
+          },
+          "passed": true
+        }
+      },
+      "one_encoder_concurrent": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 3.9339065551757812,
+            "median": 18.00060272216797
+          },
+          "gpu_exec_us": {
+            "iqr": 1.0000658221542835,
+            "median": 3.8958387449383736
+          },
+          "host_encode_us": {
+            "iqr": 1.0728836059570312,
+            "median": 3.4570693969726562
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.3933906555175781,
+            "median": 1.8000602722167969
+          },
+          "gpu_exec_us": {
+            "iqr": 0.3875000402331352,
+            "median": 2.454165951348841
+          },
+          "host_encode_us": {
+            "iqr": 0.10728836059570312,
+            "median": 0.6973743438720703
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.059604644775390625,
+            "median": 0.2002716064453125
+          },
+          "gpu_exec_us": {
+            "iqr": 0.26083318516612053,
+            "median": 2.336458710487932
+          },
+          "host_encode_us": {
+            "iqr": 0.06079673767089844,
+            "median": 0.3647804260253906
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.003933906555175781,
+            "median": 0.02396106719970703
+          },
+          "gpu_exec_us": {
+            "iqr": 0.3515416174195707,
+            "median": 2.3249999794643372
+          },
+          "host_encode_us": {
+            "iqr": 0.041961669921875,
+            "median": 0.2859830856323242
+          },
+          "passed": true
+        }
+      },
+      "one_encoder_serial": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 3.9339065551757812,
+            "median": 18.95427703857422
+          },
+          "gpu_exec_us": {
+            "iqr": 0.5416804924607277,
+            "median": 3.958324668928981
+          },
+          "host_encode_us": {
+            "iqr": 0.11920928955078125,
+            "median": 2.9802322387695312
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.19073486328125,
+            "median": 1.6927719116210938
+          },
+          "gpu_exec_us": {
+            "iqr": 0.2583314199000597,
+            "median": 2.1812506020069122
+          },
+          "host_encode_us": {
+            "iqr": 0.10728836059570312,
+            "median": 0.40531158447265625
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.040531158447265625,
+            "median": 0.18477439880371094
+          },
+          "gpu_exec_us": {
+            "iqr": 0.1708336640149355,
+            "median": 1.892083091661334
+          },
+          "host_encode_us": {
+            "iqr": 0.019073486328125,
+            "median": 0.15974044799804688
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0.0059604644775390625,
+            "median": 0.018477439880371094
+          },
+          "gpu_exec_us": {
+            "iqr": 0.20433333702385426,
+            "median": 1.8812291673384607
+          },
+          "host_encode_us": {
+            "iqr": 0.02002716064453125,
+            "median": 0.1119375228881836
+          },
+          "passed": true
+        }
+      },
+      "opencl_batched": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 6.079673767089844,
+            "median": 142.51470565795898
+          },
+          "host_encode_us": {
+            "iqr": 1.0728836059570312,
+            "median": 2.0265579223632812
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 1.4066696166992188,
+            "median": 16.802549362182617
+          },
+          "host_encode_us": {
+            "iqr": 0.095367431640625,
+            "median": 0.5006790161132812
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.14066696166992188,
+            "median": 3.514885902404785
+          },
+          "host_encode_us": {
+            "iqr": 0.08106231689453125,
+            "median": 0.43511390686035156
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.11706352233886719,
+            "median": 2.270042896270752
+          },
+          "host_encode_us": {
+            "iqr": 0.04494190216064453,
+            "median": 0.38546323776245117
+          },
+          "passed": true
+        }
+      }
+    },
+    "repeats": 20
+  },
+  "q2_step_workload_replay": {
+    "configurations": {
+      "metal_pipelined": {
+        "ms_per_step": {
+          "iqr": 0.0015559196472167969,
+          "median": 0.3324660062789917
+        },
+        "passed": true
+      },
+      "metal_step_sync": {
+        "ms_per_step": {
+          "iqr": 0.06964004039764404,
+          "median": 0.5665904879570007
+        },
+        "passed": true
+      },
+      "opencl_pipelined": {
+        "ms_per_step": {
+          "iqr": 0.0032349824905395508,
+          "median": 0.33592504262924194
+        },
+        "passed": true
+      },
+      "opencl_step_sync": {
+        "ms_per_step": {
+          "iqr": 0.12442409992218018,
+          "median": 0.6509044766426086
+        },
+        "passed": true
+      }
+    },
+    "dispatches_per_step": 50,
+    "num_atoms": 92224,
+    "repeats": 20,
+    "steps_per_repeat": 1000
+  },
+  "q3_metal4": {
+    "metal4_supported_without_xcode": true,
+    "methods": {
+      "metal4_encoder_per_kernel": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 8.940696716308594,
+            "median": 149.9652862548828
+          },
+          "host_encode_us": {
+            "iqr": 0,
+            "median": 2.9802322387695312
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 2.5033950805664062,
+            "median": 24.950504302978516
+          },
+          "host_encode_us": {
+            "iqr": 0.20265579223632812,
+            "median": 1.3947486877441406
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.5686283111572266,
+            "median": 15.999674797058105
+          },
+          "host_encode_us": {
+            "iqr": 0.15020370483398438,
+            "median": 1.1348724365234375
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.24390220642089844,
+            "median": 14.40054178237915
+          },
+          "host_encode_us": {
+            "iqr": 0.14412403106689453,
+            "median": 1.0279417037963867
+          },
+          "passed": true
+        }
+      },
+      "metal4_one_encoder": {
+        "N_1": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 14.066696166992188,
+            "median": 143.52798461914062
+          },
+          "host_encode_us": {
+            "iqr": 3.0994415283203125,
+            "median": 3.9339065551757812
+          },
+          "passed": true
+        },
+        "N_10": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.7987022399902344,
+            "median": 17.398595809936523
+          },
+          "host_encode_us": {
+            "iqr": 0.10728836059570312,
+            "median": 0.40531158447265625
+          },
+          "passed": true
+        },
+        "N_100": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.2086162567138672,
+            "median": 3.5202503204345703
+          },
+          "host_encode_us": {
+            "iqr": 0.019073486328125,
+            "median": 0.15974044799804688
+          },
+          "passed": true
+        },
+        "N_1000": {
+          "commit_to_scheduled_us": {
+            "iqr": 0,
+            "median": 0
+          },
+          "gpu_exec_us": {
+            "iqr": 0.1729726791381836,
+            "median": 2.1555423736572266
+          },
+          "host_encode_us": {
+            "iqr": 0.0209808349609375,
+            "median": 0.10001659393310547
+          },
+          "passed": true
+        }
+      }
+    }
+  },
+  "q4_storage_modes": {
+    "bandwidth_difference_pct": -22.599036019184688,
+    "buffer_size_mb": 100,
+    "elements": 26214400,
+    "private_mode": {
+      "bandwidth_gbps": 734.8330561557299,
+      "energy_readback_us": {
+        "iqr": 92.02957153320312,
+        "median": 170.4692840576172
+      },
+      "gpu_time_ms": {
+        "iqr": 0.0979166361503303,
+        "median": 0.26579166296869516
+      },
+      "wall_time_ms": {
+        "iqr": 0.5611181259155273,
+        "median": 0.433504581451416
+      }
+    },
+    "readback_penalty_private_us": 169.51560974121094,
+    "repeats": 20,
+    "shared_mode": {
+      "bandwidth_gbps": 568.7678691142208,
+      "energy_readback_us": {
+        "iqr": 0.95367431640625,
+        "median": 0.95367431640625
+      },
+      "gpu_time_ms": {
+        "iqr": 0.0869583454914391,
+        "median": 0.3433958045206964
+      },
+      "wall_time_ms": {
+        "iqr": 0.5500316619873047,
+        "median": 0.6364583969116211
+      }
+    }
+  },
+  "q5_wrapper_overhead": {
+    "delta_cpp_vs_objc_ns": 2.366999999999994,
+    "dispatches": 10000,
+    "metal_cpp": {
+      "iqr_us_per_dispatch": 0.0067416,
+      "median_us_per_dispatch": 0.100529
+    },
+    "objc": {
+      "iqr_us_per_dispatch": 0.001533,
+      "median_us_per_dispatch": 0.098162
+    },
+    "swift": {
+      "iqr_us_per_dispatch": 0.008893013000488281,
+      "median_us_per_dispatch": 0.10715126991271973
+    }
+  },
+  "q6_timestamp_units": {
+    "conversion_factor_ns_per_tick": 41.666666666666664,
+    "iterations": 600000,
+    "mach_timebase_denom": 3,
+    "mach_timebase_numer": 125,
+    "metal_gpu_ms": {
+      "iqr": 3.131625009700656,
+      "median": 78.4211041755043
+    },
+    "metal_wall_ms": {
+      "iqr": 3.1440258026123047,
+      "median": 78.72045040130615
+    },
+    "opencl_if_mach_ticks_ms": 271.16477083333336,
+    "opencl_if_ns_ms": 6.5079545,
+    "opencl_raw_diff_ticks": {
+      "iqr": 61686,
+      "median": 6507954.5
+    },
+    "opencl_wall_ms": {
+      "iqr": 2.6241540908813477,
+      "median": 271.52150869369507
+    },
+    "ratio_opencl_wall_to_raw": 41.721482332689185
+  },
+  "q7_hang_modes": {
+    "modes": [
+      {
+        "behavior": "hangs_indefinitely_at_0_cpu",
+        "description": "Calling waitUntilCompleted() before commit()",
+        "elapsed_seconds": 3.0043810606002808,
+        "error_description": "nil",
+        "status_code": 0,
+        "status_name": "notEnqueued",
+        "test_name": "wait_before_commit",
+        "timed_out": true
+      },
+      {
+        "behavior": "silent_completion_store_dropped",
+        "description": "Kernel writes to unmapped GPU address (0xdeadbeef0000)",
+        "elapsed_seconds": 0.006705045700073242,
+        "error_description": "nil",
+        "status_code": 4,
+        "status_name": "completed",
+        "test_name": "out_of_range_buffer_write",
+        "timed_out": false
+      },
+      {
+        "behavior": "gpu_hangs_in_flight",
+        "description": "Kernel executes non-terminating while loop",
+        "elapsed_seconds": 3.005052089691162,
+        "error_description": "nil",
+        "status_code": 3,
+        "status_name": "other",
+        "test_name": "infinite_kernel_loop",
+        "timed_out": true
+      },
+      {
+        "behavior": "deadlock_hang",
+        "description": "threadgroup_barrier called conditionally by simdgroup 0 only",
+        "elapsed_seconds": 3.002764940261841,
+        "error_description": "nil",
+        "status_code": 3,
+        "status_name": "other",
+        "test_name": "threadgroup_barrier_divergent",
+        "timed_out": true
+      }
+    ]
+  },
+  "q8_bonded_fma_contraction": {
+    "bonded_forces_comparison": [
+      {
+        "bitwise_equal_count": 266761,
+        "bitwise_percent": 96.41777989821882,
+        "config": "Metal default (fast math)",
+        "max_abs_diff_kJ_mol_nm": 0.017061233520507812,
+        "total_elements": 276672
+      },
+      {
+        "bitwise_equal_count": 269652,
+        "bitwise_percent": 97.46269951422623,
+        "config": "Metal safe math (no pragma)",
+        "max_abs_diff_kJ_mol_nm": 0.056396484375,
+        "total_elements": 276672
+      },
+      {
+        "bitwise_equal_count": 266863,
+        "bitwise_percent": 96.45464665741383,
+        "config": "Metal safe math + #pragma clang fp contract(off)",
+        "max_abs_diff_kJ_mol_nm": 0.10375906527042389,
+        "total_elements": 276672
+      },
+      {
+        "bitwise_equal_count": 267852,
+        "bitwise_percent": 96.81210964607911,
+        "config": "Metal safe math + #pragma clang fp contract(fast)",
+        "max_abs_diff_kJ_mol_nm": 0.05639626085758209,
+        "total_elements": 276672
+      },
+      {
+        "bitwise_equal_count": 266863,
+        "bitwise_percent": 96.45464665741383,
+        "config": "Metal safe math + #pragma STDC FP_CONTRACT OFF",
+        "max_abs_diff_kJ_mol_nm": 0.10375906527042389,
+        "total_elements": 276672
+      }
+    ],
+    "tiny_kernel_verification": {
+      "contract_off_is_live": true,
+      "status": "PASS",
+      "value_contract_fast": -1.4210854715202004e-14,
+      "value_contract_off": 0,
+      "value_default": -1.4210854715202004e-14,
+      "value_stdc_off": 0
+    }
+  },
+  "system_info": {
+    "command": "sh experiments/008-host-cost/run.sh",
+    "device_name": "Apple M3 Ultra",
+    "macos_build": "26A428",
+    "macos_version": "27.0"
+  },
+  "verification": {
+    "all_methods_checked_on_host": true,
+    "section_checks": {
+      "q1_dispatch": true,
+      "q2_step_replay": true,
+      "q4_storage_modes": true,
+      "q5_metal_cpp": true,
+      "q5_objc": true,
+      "q5_swift": true,
+      "q6_timestamps": true,
+      "q7_hangs": true,
+      "q8_fma": true
+    },
+    "status": "PASS"
+  }
+}

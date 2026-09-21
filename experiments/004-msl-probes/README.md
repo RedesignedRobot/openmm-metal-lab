@@ -9,6 +9,7 @@ Small Swift programs that compile MSL at runtime and execute it. The head wrote 
 | `atomics-compile.swift` | Which atomics build into a pipeline? | `atomic<float>` add, exchange, compare-exchange: yes. `atomic<ulong>` fetch_add and fetch_max: no matching function | Same on both counts |
 | `split-word-atomic-add.swift` | OpenMM's OpenCL prelude builds a 64-bit atomic add from two 32-bit atomic adds and a carry. Is the same code exact in MSL under contention (2^22 adds into 8 cells, a carry on almost every add, mixed signs)? | Exact. 5.1 ms GPU time | Exact. 2.0 ms GPU time |
 | `opencl-vector-literal.swift` | What does the OpenCL vector literal `(float4) (a, b, c, d)` do in MSL? | not run | Compiles, gives (d, d, d, d). `float4(a, b, c, d)` gives the right vector |
+| `gpu-watchdog.swift` | How long does macOS let a compute kernel spin before it ends the command buffer? | Still running after 120 s, status 3 (committed and scheduled), no error | Same |
 | `float-atomic-contention.swift` | Is `atomic<float>` fetch_add correct, and what does it cost under worst-case contention (2^20 threads adding into 8 cells)? | Correct sums. 190.8 ms GPU time | Correct sums. 0.34 ms GPU time |
 
 ## What it changes
