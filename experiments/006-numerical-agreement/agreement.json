@@ -1,0 +1,284 @@
+{
+  "computeBondedForcesProgram" : {
+    "buffers" : [
+      {
+        "bufferName" : "forceBuffer",
+        "metric" : {
+          "bitwiseEqualCount" : 261733,
+          "bitwiseEqualPercent" : 94.60046553319455,
+          "maxAbsoluteDifference" : 0.004705755040049553,
+          "maxRelativeDifference" : 0.37457720930050264,
+          "status" : "PASS",
+          "tolerance" : 0.01,
+          "totalElements" : 276672
+        }
+      },
+      {
+        "bufferName" : "energyBuffer",
+        "metric" : {
+          "bitwiseEqualCount" : 0,
+          "bitwiseEqualPercent" : 0,
+          "maxAbsoluteDifference" : 0.13273286819458008,
+          "maxRelativeDifference" : 1.6780549566053926e-08,
+          "status" : "PASS",
+          "tolerance" : 1e-05,
+          "totalElements" : 99840
+        }
+      }
+    ],
+    "energyAbsoluteDifference" : 0.13273286819458008,
+    "energyRelativeDifference" : 1.6780549566053926e-08,
+    "kernelName" : "computeBondedForces",
+    "programIndex" : "006",
+    "status" : "PASS",
+    "testName" : "apoa1rf",
+    "totalEnergyCl" : 7909923.788377643,
+    "totalEnergyMetal" : 7909923.655644774
+  },
+  "environment" : {
+    "buildVersion" : "26A428",
+    "chip" : "Apple M3 Ultra",
+    "command" : ".\/agreement",
+    "metalDeviceName" : "Apple M3 Ultra",
+    "openclDeviceName" : "Apple M3 Ultra",
+    "osVersion" : "27.0"
+  },
+  "erfErfcSweep" : [
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "OpenCL vs host libm",
+      "functionName" : "erf",
+      "metric" : {
+        "bitwiseEqualCount" : 98601,
+        "bitwiseEqualPercent" : 98.601,
+        "maxAbsoluteDifference" : 5.960464477539063e-08,
+        "maxRelativeDifference" : 1.1901347351533668e-07,
+        "status" : "PASS",
+        "tolerance" : 1e-06,
+        "totalElements" : 100000
+      },
+      "note" : "OpenCL hardware intrinsic vs CPU libm erff",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "OpenCL vs host libm",
+      "functionName" : "erfc",
+      "metric" : {
+        "bitwiseEqualCount" : 56105,
+        "bitwiseEqualPercent" : 56.105000000000004,
+        "maxAbsoluteDifference" : 5.960464477539063e-08,
+        "maxRelativeDifference" : 1.1580020450316116e-06,
+        "status" : "PASS",
+        "tolerance" : 1e-06,
+        "totalElements" : 100000
+      },
+      "note" : "OpenCL hardware intrinsic vs CPU libm erfcf",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : false,
+      "comparison" : "Metal 005 prelude vs OpenCL",
+      "functionName" : "erf",
+      "metric" : {
+        "bitwiseEqualCount" : 56266,
+        "bitwiseEqualPercent" : 56.266000000000005,
+        "maxAbsoluteDifference" : 4.6193599700927734e-07,
+        "maxRelativeDifference" : 0.0018668467849794652,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "005 A&S 7.1.26 polynomial stand-in vs OpenCL",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : false,
+      "comparison" : "Metal 005 prelude vs OpenCL",
+      "functionName" : "erfc",
+      "metric" : {
+        "bitwiseEqualCount" : 2351,
+        "bitwiseEqualPercent" : 2.351,
+        "maxAbsoluteDifference" : 4.76837158203125e-07,
+        "maxRelativeDifference" : 1.0047606028567442,
+        "status" : "PASS",
+        "tolerance" : 1,
+        "totalElements" : 100000
+      },
+      "note" : "005 prelude 1.0f - erf(x) stand-in suffers catastrophic cancellation for x >= 4",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : false,
+      "comparison" : "Metal 005 prelude vs host libm",
+      "functionName" : "erf",
+      "metric" : {
+        "bitwiseEqualCount" : 56273,
+        "bitwiseEqualPercent" : 56.272999999999996,
+        "maxAbsoluteDifference" : 4.6193599700927734e-07,
+        "maxRelativeDifference" : 0.0018668467849794652,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "005 A&S 7.1.26 polynomial stand-in vs host libm",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : false,
+      "comparison" : "Metal 005 prelude vs host libm",
+      "functionName" : "erfc",
+      "metric" : {
+        "bitwiseEqualCount" : 1929,
+        "bitwiseEqualPercent" : 1.9290000000000003,
+        "maxAbsoluteDifference" : 4.76837158203125e-07,
+        "maxRelativeDifference" : 1.0047606628876988,
+        "status" : "PASS",
+        "tolerance" : 1,
+        "totalElements" : 100000
+      },
+      "note" : "005 prelude 1.0f - erf(x) stand-in vs host libm",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "Proposed direct A&S vs OpenCL",
+      "functionName" : "erfc (direct A&S)",
+      "metric" : {
+        "bitwiseEqualCount" : 1966,
+        "bitwiseEqualPercent" : 1.966,
+        "maxAbsoluteDifference" : 4.76837158203125e-07,
+        "maxRelativeDifference" : 0.012334008960530005,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "Evaluates poly(t)*exp(-x^2) directly without 1-erf(x) cancellation. Max relative error is 1.23%",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "Proposed direct A&S vs host libm",
+      "functionName" : "erfc (direct A&S)",
+      "metric" : {
+        "bitwiseEqualCount" : 1976,
+        "bitwiseEqualPercent" : 1.976,
+        "maxAbsoluteDifference" : 4.76837158203125e-07,
+        "maxRelativeDifference" : 0.012334086671533004,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "Evaluates poly(t)*exp(-x^2) directly without 1-erf(x) cancellation. Max relative error is 1.23%",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "Proposed minimax rational vs OpenCL",
+      "functionName" : "erfc (degree-7 minimax)",
+      "metric" : {
+        "bitwiseEqualCount" : 11438,
+        "bitwiseEqualPercent" : 11.437999999999999,
+        "maxAbsoluteDifference" : 3.5762786865234375e-07,
+        "maxRelativeDifference" : 3.7782879993157863e-06,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "Chebyshev minimax rational polynomial in 1\/(1+0.47x). Max relative error matches single precision epsilon (~2.15 ppm)",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    },
+    {
+      "acceptableVsSinglePrecisionEpsilon" : true,
+      "comparison" : "Proposed minimax rational vs host libm",
+      "functionName" : "erfc (degree-7 minimax)",
+      "metric" : {
+        "bitwiseEqualCount" : 11825,
+        "bitwiseEqualPercent" : 11.825,
+        "maxAbsoluteDifference" : 3.5762786865234375e-07,
+        "maxRelativeDifference" : 3.7782879993157863e-06,
+        "status" : "PASS",
+        "tolerance" : 1e-05,
+        "totalElements" : 100000
+      },
+      "note" : "Chebyshev minimax rational polynomial in 1\/(1+0.47x). Max relative error matches single precision epsilon (~2.15 ppm)",
+      "range" : "[0, 6]",
+      "samplePoints" : 100000
+    }
+  ],
+  "integratorProgram" : {
+    "buffers" : [
+      {
+        "bufferName" : "posq",
+        "metric" : {
+          "bitwiseEqualCount" : 39991,
+          "bitwiseEqualPercent" : 99.97749999999999,
+          "maxAbsoluteDifference" : 1.1920928955078125e-07,
+          "maxRelativeDifference" : 1.1779684097143757e-07,
+          "status" : "PASS",
+          "tolerance" : 1e-05,
+          "totalElements" : 40000
+        }
+      },
+      {
+        "bufferName" : "velm",
+        "metric" : {
+          "bitwiseEqualCount" : 30878,
+          "bitwiseEqualPercent" : 77.19500000000001,
+          "maxAbsoluteDifference" : 1.4901161193847656e-08,
+          "maxRelativeDifference" : 3.8753699144711295e-05,
+          "status" : "PASS",
+          "tolerance" : 1e-05,
+          "totalElements" : 40000
+        }
+      },
+      {
+        "bufferName" : "posDelta",
+        "metric" : {
+          "bitwiseEqualCount" : 27298,
+          "bitwiseEqualPercent" : 68.245,
+          "maxAbsoluteDifference" : 2.9103830456733704e-11,
+          "maxRelativeDifference" : 0.00021973805507610232,
+          "status" : "PASS",
+          "tolerance" : 1e-05,
+          "totalElements" : 40000
+        }
+      },
+      {
+        "bufferName" : "oldDelta",
+        "metric" : {
+          "bitwiseEqualCount" : 27298,
+          "bitwiseEqualPercent" : 68.245,
+          "maxAbsoluteDifference" : 2.9103830456733704e-11,
+          "maxRelativeDifference" : 0.00021973805507610232,
+          "status" : "PASS",
+          "tolerance" : 1e-05,
+          "totalElements" : 40000
+        }
+      }
+    ],
+    "kernelName" : "integrateLangevinMiddle (Part 1, Part 2, Part 3)",
+    "programIndex" : "008",
+    "status" : "PASS",
+    "testName" : "apoa1rf"
+  },
+  "mutationTest" : {
+    "bitwiseEqualCount" : 261733,
+    "description" : "Perturb posq[0].x by +0.05 nm on Metal side only to verify harness detects genuine disagreements",
+    "disagreementDetected" : true,
+    "maxAbsoluteDifference" : 11941.602906703949,
+    "mutationName" : "perturb_atom0_position_metal_only",
+    "status" : "PASS",
+    "totalElements" : 276672
+  },
+  "summaryStatus" : "PASS"
+}
