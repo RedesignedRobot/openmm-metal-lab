@@ -21,11 +21,18 @@ We complement NORPG, we do not race them. The lab produces evidence and code tha
 
 Done: 001 baseline, 002 Common kernel census (49 of 67, the rest are fragments), 003 M2 kernel profile, 004 probes, 005 real program census (26 of 26 ApoA1 programs build as Metal on both chips with two mechanical rewrites). Draft upstream comment in `drafts/`, waiting for the owner.
 
-Next, in order:
+Owner ruling, 2026-09-21: the upstream post waits until this whole programme has run. Every claim gets tested by execution, no hypotheses left standing.
 
-1. 006, run one. Take the Metal build of a small real program (the integrator or bonded forces), feed it the same buffers as the OpenCL platform, compare outputs. Compiling is settled; numerical agreement is not. `erf` and `erfc` accuracy belongs here.
-2. The host layer decision. Two routes to a platform that runs a simulation: port NORPG's ComputeContext layer from Objective-C++ to metal-cpp and add the nonbonded utilities, sort and FFT on top, or clone the OpenCL platform's host code and swap the API underneath. Decide after asking NORPG what they plan, so we do not fork the effort. This is an architecture decision: one Astra design lane, not a Gemini lane.
-3. Only then performance: a Metal findBlocksWithInteractions using `simd_ballot` on the HIP code path, measured against the OpenCL kernel on the M2.
+Programme, one experiment at a time on the mini:
+
+- 006 numerical agreement: same program body through Apple's OpenCL and through Metal, identical inputs, element by element. Covers erf and erfc, an integrator, bonded forces. Running.
+- 007 toolchain matrix: every MSL language version the runtime compiler accepts, fast math and math mode options, function constants against defines, runtime compile time per program, binary archives and pipeline caching, offline metallib where a toolchain exists. Output: which settings change results, which change speed.
+- 008 host cost: dispatch latency and command buffer batching measured, classic command model against Metal 4, shared against private storage, metal-cpp against Objective-C call overhead, the GPU timestamp units the profile in 003 could not pin down.
+- 009 neighbour list: findBlocksWithInteractions on the `simd_ballot` path against the OpenCL kernel, threadgroup size sweep, SIMD width checked on both chips.
+- 010 computeNonbonded: needs 009's neighbour list. Numerical agreement first, then speed, with and without SIMD shuffles.
+- 011 PME: gridSpreadCharge fixed point against float atomics with the real ApoA1 distribution, finishSpreadCharge cost, FFT candidates (VkFFT Metal, MPSGraph, Accelerate on unified memory).
+- 012 sort and the remaining utilities.
+- 013 the host layer decision, after asking NORPG. One Astra design lane.
 
 ## Rules
 
