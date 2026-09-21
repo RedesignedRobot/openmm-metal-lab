@@ -48,3 +48,7 @@ Programme, one experiment at a time on the mini:
 - `experiments/NNN-name/` holds one experiment each: a README with the question, the method, the result and what it changes.
 - `results/` holds raw benchmark JSON pulled from the mini.
 - OpenMM fork: `~/code/openmm` (origin RedesignedRobot/openmm, remotes `upstream` and `norpg`).
+
+## License
+
+MIT, see LICENSE. Files under any `kernels/` directory that were copied or translated from OpenMM (the `.cl` and `.cc` sources, their `.metal` translations, and the `openmm-capture.patch` files) stay under OpenMM's own licences, MIT and LGPL as marked upstream at https://github.com/openmm/openmm. VkFFT and metal-cpp are fetched at build time and are not part of this repo.
