@@ -1,0 +1,578 @@
+// Compilation Options: -cl-mad-enable -cl-no-signed-zeros
+
+#define ACOS acos
+#define APPLY_PERIODIC_TO_DELTA(delta) delta.xyz -= floor(delta.xyz*invPeriodicBoxSize.xyz+0.5f)*periodicBoxSize.xyz;
+#define APPLY_PERIODIC_TO_POS(pos) pos.xyz -= floor(pos.xyz*invPeriodicBoxSize.xyz)*periodicBoxSize.xyz;
+#define APPLY_PERIODIC_TO_POS_WITH_CENTER(pos, center) {pos.x -= floor((pos.x-center.x)*invPeriodicBoxSize.x+0.5f)*periodicBoxSize.x; \
+pos.y -= floor((pos.y-center.y)*invPeriodicBoxSize.y+0.5f)*periodicBoxSize.y; \
+pos.z -= floor((pos.z-center.z)*invPeriodicBoxSize.z+0.5f)*periodicBoxSize.z;}
+#define ASIN asin
+#define ATAN atan
+#define COS cos
+#define ERF erf
+#define ERFC erfc
+#define EXP native_exp
+#define FABS fabs
+#define FMA fma
+#define LOG native_log
+#define POW pow
+#define RECIP native_recip
+#define RSQRT native_rsqrt
+#define SIN sin
+#define SQRT native_sqrt
+#define SYNC_WARPS mem_fence(CLK_LOCAL_MEM_FENCE)
+#define TAN tan
+#define convert_mixed4 convert_float4
+#define convert_real4 convert_float4
+#define make_mixed2 make_float2
+#define make_mixed3 make_float3
+#define make_mixed4 make_float4
+#define make_real2 make_float2
+#define make_real3 make_float3
+#define make_real4 make_float4
+
+typedef float real;
+typedef float2 real2;
+typedef float3 real3;
+typedef float4 real4;
+typedef float mixed;
+typedef float2 mixed2;
+typedef float3 mixed3;
+typedef float4 mixed4;
+/**
+ * This file contains OpenCL definitions for the macros and functions needed for the
+ * common compute framework.
+ */
+
+#pragma OPENCL EXTENSION cl_khr_global_int32_base_atomics : enable
+#ifdef cl_khr_int64_base_atomics
+#pragma OPENCL EXTENSION cl_khr_int64_base_atomics : enable
+#else
+__attribute__((overloadable)) unsigned long atom_add(volatile __global unsigned long* p, unsigned long val) {
+    volatile __global unsigned int* word = (volatile __global unsigned int*) p;
+#ifdef __ENDIAN_LITTLE__
+    int lowIndex = 0;
+#else
+    int lowIndex = 1;
+#endif
+    unsigned int lower = val;
+    unsigned int upper = val >> 32;
+    unsigned int result = atomic_add(&word[lowIndex], lower);
+    int carry = (lower + (unsigned long) result >= 0x100000000 ? 1 : 0);
+    upper += carry;
+    if (upper != 0)
+        atomic_add(&word[1-lowIndex], upper);
+    return 0;
+}
+#endif
+
+#define KERNEL __kernel
+#define DEVICE
+#define LOCAL __local
+#define LOCAL_ARG __local
+#define GLOBAL __global
+#define RESTRICT restrict
+#define LOCAL_ID get_local_id(0)
+#define LOCAL_SIZE get_local_size(0)
+#define GLOBAL_ID get_global_id(0)
+#define GLOBAL_SIZE get_global_size(0)
+#define GROUP_ID get_group_id(0)
+#define NUM_GROUPS get_num_groups(0)
+#define SYNC_THREADS barrier(CLK_LOCAL_MEM_FENCE+CLK_GLOBAL_MEM_FENCE);
+#define MEM_FENCE mem_fence(CLK_LOCAL_MEM_FENCE+CLK_GLOBAL_MEM_FENCE);
+#define ATOMIC_ADD(dest, value) atom_add(dest, value)
+
+typedef long mm_long;
+typedef unsigned long mm_ulong;
+
+#define make_short2(x...) ((short2) (x))
+#define make_short3(x...) ((short3) (x))
+#define make_short4(x...) ((short4) (x))
+#define make_int2(x...) ((int2) (x))
+#define make_int3(x...) ((int3) (x))
+#define make_int4(x...) ((int4) (x))
+#define make_float2(x...) ((float2) (x))
+#define make_float3(x...) ((float3) (x))
+#define make_float4(x...) ((float4) (x))
+#define make_double2(x...) ((double2) (x))
+#define make_double3(x...) ((double3) (x))
+#define make_double4(x...) ((double4) (x))
+
+#define trimTo3(v) (v).xyz
+
+// OpenCL has overloaded versions of standard math functions for single and double
+// precision arguments.  CUDA has separate functions.  To allow them to be called
+// consistently, we define the "single precision" functions to just be synonyms
+// for the standard ones.
+
+#define sqrtf(x) sqrt(x)
+#define rsqrtf(x) rsqrt(x)
+#define expf(x) exp(x)
+#define logf(x) log(x)
+#define powf(x) pow(x)
+#define cosf(x) cos(x)
+#define sinf(x) sin(x)
+#define tanf(x) tan(x)
+#define acosf(x) acos(x)
+#define asinf(x) asin(x)
+#define atanf(x) atan(x)
+#define atan2f(x, y) atan2(x, y)
+
+inline long realToFixedPoint(real x) {
+    return (long) (x * 0x100000000);
+}
+
+#define EPSILON_FACTOR 1.17870886e+01f
+#define GRID_SIZE_X 98
+#define GRID_SIZE_Y 98
+#define GRID_SIZE_Z 98
+#define M_PI 3.14159265e+00f
+#define NUM_ATOMS 92224
+#define NUM_INDICES 0
+#define PADDED_NUM_ATOMS 92224
+#define PME_ORDER 5
+#define RECIP_EXP_FACTOR 1.15730498e+00f
+#define USE_FIXED_POINT_CHARGE_SPREADING 1
+
+KERNEL void findAtomGridIndex(GLOBAL const real4* RESTRICT posq, GLOBAL int2* RESTRICT pmeAtomGridIndex,
+        real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
+        real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ
+    ) {
+    // Compute the index of the grid point each atom is associated with.
+
+    for (int atom = GLOBAL_ID; atom < NUM_ATOMS; atom += GLOBAL_SIZE) {
+        real4 pos = posq[atom];
+        APPLY_PERIODIC_TO_POS(pos)
+        real3 t = make_real3(pos.x*recipBoxVecX.x+pos.y*recipBoxVecY.x+pos.z*recipBoxVecZ.x,
+                             pos.y*recipBoxVecY.y+pos.z*recipBoxVecZ.y,
+                             pos.z*recipBoxVecZ.z);
+        t.x = (t.x-floor(t.x))*GRID_SIZE_X;
+        t.y = (t.y-floor(t.y))*GRID_SIZE_Y;
+        t.z = (t.z-floor(t.z))*GRID_SIZE_Z;
+        int3 gridIndex = make_int3(((int) t.x) % GRID_SIZE_X,
+                                   ((int) t.y) % GRID_SIZE_Y,
+                                   ((int) t.z) % GRID_SIZE_Z);
+        pmeAtomGridIndex[atom] = make_int2(atom, gridIndex.x*GRID_SIZE_Y*GRID_SIZE_Z+gridIndex.y*GRID_SIZE_Z+gridIndex.z);
+    }
+}
+
+KERNEL void gridSpreadCharge(GLOBAL const real4* RESTRICT posq,
+#ifdef USE_FIXED_POINT_CHARGE_SPREADING
+        GLOBAL mm_ulong* RESTRICT pmeGrid,
+#else
+        GLOBAL real* RESTRICT pmeGrid,
+#endif
+        real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
+        real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ, GLOBAL const int2* RESTRICT pmeAtomGridIndex,
+#ifdef CHARGE_FROM_SIGEPS
+        GLOBAL const float2* RESTRICT sigmaEpsilon
+#else
+        GLOBAL const real* RESTRICT charges
+#endif
+        ) {
+    // Process the atoms in spatially sorted order.  This improves efficiency when writing
+    // the grid values.  PME_ORDER threads process one atom.
+
+    real3 data[PME_ORDER];
+    const real scale = RECIP((real) (PME_ORDER-1));
+    for (int i = GLOBAL_ID; i < NUM_ATOMS*PME_ORDER; i += GLOBAL_SIZE) {
+        int atom = pmeAtomGridIndex[i/PME_ORDER].x;
+        real4 pos = posq[atom];
+#ifdef CHARGE_FROM_SIGEPS
+        const float2 sigEps = sigmaEpsilon[atom];
+        const real charge = 8*sigEps.x*sigEps.x*sigEps.x*sigEps.y;
+#else
+        const real charge = (pos.w)*EPSILON_FACTOR;
+#endif
+        APPLY_PERIODIC_TO_POS(pos)
+        real3 t = make_real3(pos.x*recipBoxVecX.x+pos.y*recipBoxVecY.x+pos.z*recipBoxVecZ.x,
+                             pos.y*recipBoxVecY.y+pos.z*recipBoxVecZ.y,
+                             pos.z*recipBoxVecZ.z);
+        t.x = (t.x-floor(t.x))*GRID_SIZE_X;
+        t.y = (t.y-floor(t.y))*GRID_SIZE_Y;
+        t.z = (t.z-floor(t.z))*GRID_SIZE_Z;
+        int3 gridIndex = make_int3(((int) t.x) % GRID_SIZE_X,
+                                   ((int) t.y) % GRID_SIZE_Y,
+                                   ((int) t.z) % GRID_SIZE_Z);
+        if (charge == 0)
+            continue;
+
+        // Since we need the full set of thetas, it's faster to compute them here than load them
+        // from global memory.
+
+        real3 dr = make_real3(t.x-(int) t.x, t.y-(int) t.y, t.z-(int) t.z);
+        data[PME_ORDER-1] = make_real3(0);
+        data[1] = dr;
+        data[0] = make_real3(1)-dr;
+        for (int j = 3; j < PME_ORDER; j++) {
+            real div = RECIP((real) (j-1));
+            data[j-1] = div*dr*data[j-2];
+            for (int k = 1; k < (j-1); k++)
+                data[j-k-1] = div*((dr+make_real3(k))*data[j-k-2] + (make_real3(j-k)-dr)*data[j-k-1]);
+            data[0] = div*(make_real3(1)-dr)*data[0];
+        }
+        data[PME_ORDER-1] = scale*dr*data[PME_ORDER-2];
+        for (int j = 1; j < (PME_ORDER-1); j++)
+            data[PME_ORDER-j-1] = scale*((dr+make_real3(j))*data[PME_ORDER-j-2] + (make_real3(PME_ORDER-j)-dr)*data[PME_ORDER-j-1]);
+        data[0] = scale*(make_real3(1)-dr)*data[0];
+
+        // Spread the charge from this atom onto each grid point.  PME_ORDER threads access
+        // consecutive addresses.
+
+        int iz = i%PME_ORDER;
+        int zindex = gridIndex.z+iz;
+        zindex -= (zindex >= GRID_SIZE_Z ? GRID_SIZE_Z : 0);
+        real dz = 0;
+        for (int i = 0; i < PME_ORDER; i++) {
+            dz = i == iz ? data[i].z : dz;
+        }
+        dz *= charge;
+        for (int ix = 0; ix < PME_ORDER; ix++) {
+            int xbase = gridIndex.x+ix;
+            xbase -= (xbase >= GRID_SIZE_X ? GRID_SIZE_X : 0);
+            xbase = xbase*GRID_SIZE_Y*GRID_SIZE_Z;
+            real dzdx = dz*data[ix].x;
+            for (int iy = 0; iy < PME_ORDER; iy++) {
+                int ybase = gridIndex.y+iy;
+                ybase -= (ybase >= GRID_SIZE_Y ? GRID_SIZE_Y : 0);
+                ybase = ybase*GRID_SIZE_Z;
+                int index = xbase + ybase + zindex;
+                real add = dzdx*data[iy].y;
+                if (fabs(add) > 2.3e-10f) { // Smallest value representable in 64 bit fixed point
+#ifdef USE_FIXED_POINT_CHARGE_SPREADING
+                    ATOMIC_ADD(&pmeGrid[index], (mm_ulong) realToFixedPoint(add));
+#if defined(__GFX12__) && defined(USE_HIP)
+                    // Workaround for rare cases when few values of pmeGrid are very large and
+                    // incorrect. The cause is unknown. Why this workaround or other irrelevant
+                    // changes like printf help is also unknown.
+                    asm volatile("s_wait_storecnt 0x0");
+#endif
+#else
+                    ATOMIC_ADD(&pmeGrid[index], add);
+#endif
+                }
+            }
+        }
+    }
+}
+
+#ifdef USE_FIXED_POINT_CHARGE_SPREADING
+
+KERNEL void finishSpreadCharge(
+        GLOBAL const mm_long* RESTRICT grid1,
+        GLOBAL real* RESTRICT grid2) {
+    const unsigned int gridSize = GRID_SIZE_X*GRID_SIZE_Y*GRID_SIZE_Z;
+    real scale = 1/(real) 0x100000000;
+    for (int index = GLOBAL_ID; index < gridSize; index += GLOBAL_SIZE) {
+        grid2[index] = scale*grid1[index];
+    }
+}
+
+#endif
+
+KERNEL void reciprocalConvolution(GLOBAL real2* RESTRICT pmeGrid, GLOBAL const real* RESTRICT pmeBsplineModuliX,
+        GLOBAL const real* RESTRICT pmeBsplineModuliY, GLOBAL const real* RESTRICT pmeBsplineModuliZ,
+        real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ) {
+    // R2C stores into a half complex matrix where the last dimension is cut by half
+    const unsigned int gridSize = GRID_SIZE_X*GRID_SIZE_Y*(GRID_SIZE_Z/2+1);
+#ifdef USE_LJPME
+    const real recipScaleFactor = -(2*M_PI/6)*SQRT(M_PI)*recipBoxVecX.x*recipBoxVecY.y*recipBoxVecZ.z;
+    real bfac = M_PI / EWALD_ALPHA;
+    real fac1 = 2*M_PI*M_PI*M_PI*SQRT(M_PI);
+    real fac2 = EWALD_ALPHA*EWALD_ALPHA*EWALD_ALPHA;
+    real fac3 = -2*EWALD_ALPHA*M_PI*M_PI;
+#else
+    const real recipScaleFactor = RECIP(M_PI)*recipBoxVecX.x*recipBoxVecY.y*recipBoxVecZ.z;
+#endif
+
+    for (int index = GLOBAL_ID; index < gridSize; index += GLOBAL_SIZE) {
+        // real indices
+        int kx = index/(GRID_SIZE_Y*(GRID_SIZE_Z/2+1));
+        int remainder = index-kx*GRID_SIZE_Y*(GRID_SIZE_Z/2+1);
+        int ky = remainder/(GRID_SIZE_Z/2+1);
+        int kz = remainder-ky*(GRID_SIZE_Z/2+1);
+        int mx = (kx < (GRID_SIZE_X+1)/2) ? kx : (kx-GRID_SIZE_X);
+        int my = (ky < (GRID_SIZE_Y+1)/2) ? ky : (ky-GRID_SIZE_Y);
+        int mz = (kz < (GRID_SIZE_Z+1)/2) ? kz : (kz-GRID_SIZE_Z);
+        real mhx = mx*recipBoxVecX.x;
+        real mhy = mx*recipBoxVecY.x+my*recipBoxVecY.y;
+        real mhz = mx*recipBoxVecZ.x+my*recipBoxVecZ.y+mz*recipBoxVecZ.z;
+        real bx = pmeBsplineModuliX[kx];
+        real by = pmeBsplineModuliY[ky];
+        real bz = pmeBsplineModuliZ[kz];
+        real2 grid = pmeGrid[index];
+        real m2 = mhx*mhx+mhy*mhy+mhz*mhz;
+#ifdef USE_LJPME
+        real denom = recipScaleFactor/(bx*by*bz);
+        real m = SQRT(m2);
+        real m3 = m*m2;
+        real b = bfac*m;
+        real expfac = -b*b;
+        real expterm = EXP(expfac);
+        real erfcterm = ERFC(b);
+        real eterm = (fac1*erfcterm*m3 + expterm*(fac2 + fac3*m2)) * denom;
+        pmeGrid[index] = make_real2(grid.x*eterm, grid.y*eterm);
+#else
+        real denom = m2*bx*by*bz;
+        real eterm = recipScaleFactor*EXP(-RECIP_EXP_FACTOR*m2)/denom;
+        if (kx != 0 || ky != 0 || kz != 0) {
+            pmeGrid[index] = make_real2(grid.x*eterm, grid.y*eterm);
+        } else {
+            pmeGrid[index] = make_real2(0);
+        }
+#endif
+    }
+}
+
+KERNEL void gridEvaluateEnergy(GLOBAL real2* RESTRICT pmeGrid, GLOBAL mixed* RESTRICT energyBuffer,
+                      GLOBAL const real* RESTRICT pmeBsplineModuliX, GLOBAL const real* RESTRICT pmeBsplineModuliY, GLOBAL const real* RESTRICT pmeBsplineModuliZ,
+                      real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ) {
+    // R2C stores into a half complex matrix where the last dimension is cut by half
+    const unsigned int gridSize = GRID_SIZE_X*GRID_SIZE_Y*GRID_SIZE_Z;
+ #ifdef USE_LJPME
+    const real recipScaleFactor = -(2*M_PI/6)*SQRT(M_PI)*recipBoxVecX.x*recipBoxVecY.y*recipBoxVecZ.z;
+    real bfac = M_PI / EWALD_ALPHA;
+    real fac1 = 2*M_PI*M_PI*M_PI*SQRT(M_PI);
+    real fac2 = EWALD_ALPHA*EWALD_ALPHA*EWALD_ALPHA;
+    real fac3 = -2*EWALD_ALPHA*M_PI*M_PI;
+#else
+    const real recipScaleFactor = RECIP(M_PI)*recipBoxVecX.x*recipBoxVecY.y*recipBoxVecZ.z;
+#endif
+
+    mixed energy = 0;
+    for (int index = GLOBAL_ID; index < gridSize; index += GLOBAL_SIZE) {
+        // real indices
+        int kx = index/(GRID_SIZE_Y*(GRID_SIZE_Z));
+        int remainder = index-kx*GRID_SIZE_Y*(GRID_SIZE_Z);
+        int ky = remainder/(GRID_SIZE_Z);
+        int kz = remainder-ky*(GRID_SIZE_Z);
+        int mx = (kx < (GRID_SIZE_X+1)/2) ? kx : (kx-GRID_SIZE_X);
+        int my = (ky < (GRID_SIZE_Y+1)/2) ? ky : (ky-GRID_SIZE_Y);
+        int mz = (kz < (GRID_SIZE_Z+1)/2) ? kz : (kz-GRID_SIZE_Z);
+        real mhx = mx*recipBoxVecX.x;
+        real mhy = mx*recipBoxVecY.x+my*recipBoxVecY.y;
+        real mhz = mx*recipBoxVecZ.x+my*recipBoxVecZ.y+mz*recipBoxVecZ.z;
+        real m2 = mhx*mhx+mhy*mhy+mhz*mhz;
+        real bx = pmeBsplineModuliX[kx];
+        real by = pmeBsplineModuliY[ky];
+        real bz = pmeBsplineModuliZ[kz];
+#ifdef USE_LJPME
+        real denom = recipScaleFactor/(bx*by*bz);
+        real m = SQRT(m2);
+        real m3 = m*m2;
+        real b = bfac*m;
+        real expfac = -b*b;
+        real expterm = EXP(expfac);
+        real erfcterm = ERFC(b);
+        real eterm = (fac1*erfcterm*m3 + expterm*(fac2 + fac3*m2)) * denom;
+#else
+        real denom = m2*bx*by*bz;
+        real eterm = recipScaleFactor*EXP(-RECIP_EXP_FACTOR*m2)/denom;
+#endif
+        if (kz >= (GRID_SIZE_Z/2+1)) {
+            kx = ((kx == 0) ? kx : GRID_SIZE_X-kx);
+            ky = ((ky == 0) ? ky : GRID_SIZE_Y-ky);
+            kz = GRID_SIZE_Z-kz;
+        }
+        int indexInHalfComplexGrid = kz + ky*(GRID_SIZE_Z/2+1)+kx*(GRID_SIZE_Y*(GRID_SIZE_Z/2+1));
+        real2 grid = pmeGrid[indexInHalfComplexGrid];
+#ifndef USE_LJPME
+        if (kx != 0 || ky != 0 || kz != 0)
+#endif
+            energy += eterm*(grid.x*grid.x + grid.y*grid.y);
+    }
+#if defined(USE_PME_STREAM) && !defined(USE_LJPME)
+    energyBuffer[GLOBAL_ID] = 0.5f*energy;
+#else
+    energyBuffer[GLOBAL_ID] += 0.5f*energy;
+#endif
+}
+
+KERNEL void gridInterpolateForce(GLOBAL const real4* RESTRICT posq, GLOBAL mm_ulong* RESTRICT forceBuffers, GLOBAL const real* RESTRICT pmeGrid,
+        real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
+        real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ, GLOBAL const int2* RESTRICT pmeAtomGridIndex,
+#ifdef CHARGE_FROM_SIGEPS
+        GLOBAL const float2* RESTRICT sigmaEpsilon
+#else
+        GLOBAL const real* RESTRICT charges
+#endif
+        ) {
+    real3 data[PME_ORDER];
+    real3 ddata[PME_ORDER];
+    const real scale = RECIP((real) (PME_ORDER-1));
+
+    // Process the atoms in spatially sorted order.  This improves cache performance when loading
+    // the grid values.
+
+    for (int i = GLOBAL_ID; i < NUM_ATOMS; i += GLOBAL_SIZE) {
+        int atom = pmeAtomGridIndex[i].x;
+        real3 force = make_real3(0);
+        real4 pos = posq[atom];
+        APPLY_PERIODIC_TO_POS(pos)
+        real3 t = make_real3(pos.x*recipBoxVecX.x+pos.y*recipBoxVecY.x+pos.z*recipBoxVecZ.x,
+                             pos.y*recipBoxVecY.y+pos.z*recipBoxVecZ.y,
+                             pos.z*recipBoxVecZ.z);
+        t.x = (t.x-floor(t.x))*GRID_SIZE_X;
+        t.y = (t.y-floor(t.y))*GRID_SIZE_Y;
+        t.z = (t.z-floor(t.z))*GRID_SIZE_Z;
+        int3 gridIndex = make_int3(((int) t.x) % GRID_SIZE_X,
+                                   ((int) t.y) % GRID_SIZE_Y,
+                                   ((int) t.z) % GRID_SIZE_Z);
+#ifdef CHARGE_FROM_SIGEPS
+        const float2 sigEps = sigmaEpsilon[atom];
+        real q = 8*sigEps.x*sigEps.x*sigEps.x*sigEps.y;
+#else
+        real q = pos.w*EPSILON_FACTOR;
+#endif
+        if (q == 0)
+            continue;
+
+        // Since we need the full set of thetas, it's faster to compute them here than load them
+        // from global memory.
+
+        real3 dr = make_real3(t.x-(int) t.x, t.y-(int) t.y, t.z-(int) t.z);
+        data[PME_ORDER-1] = make_real3(0);
+        data[1] = dr;
+        data[0] = make_real3(1)-dr;
+        for (int j = 3; j < PME_ORDER; j++) {
+            real div = RECIP((real) (j-1));
+            data[j-1] = div*dr*data[j-2];
+            for (int k = 1; k < (j-1); k++)
+                data[j-k-1] = div*((dr+make_real3(k))*data[j-k-2] + (make_real3(j-k)-dr)*data[j-k-1]);
+            data[0] = div*(make_real3(1)-dr)*data[0];
+        }
+        ddata[0] = -data[0];
+        for (int j = 1; j < PME_ORDER; j++)
+            ddata[j] = data[j-1]-data[j];
+        data[PME_ORDER-1] = scale*dr*data[PME_ORDER-2];
+        for (int j = 1; j < (PME_ORDER-1); j++)
+            data[PME_ORDER-j-1] = scale*((dr+make_real3(j))*data[PME_ORDER-j-2] + (make_real3(PME_ORDER-j)-dr)*data[PME_ORDER-j-1]);
+        data[0] = scale*(make_real3(1)-dr)*data[0];
+
+        // Compute the force on this atom.
+
+        for (int ix = 0; ix < PME_ORDER; ix++) {
+            int xbase = gridIndex.x+ix;
+            xbase -= (xbase >= GRID_SIZE_X ? GRID_SIZE_X : 0);
+            xbase = xbase*GRID_SIZE_Y*GRID_SIZE_Z;
+            real dx = data[ix].x;
+            real ddx = ddata[ix].x;
+
+            for (int iy = 0; iy < PME_ORDER; iy++) {
+                int ybase = gridIndex.y+iy;
+                ybase -= (ybase >= GRID_SIZE_Y ? GRID_SIZE_Y : 0);
+                ybase = xbase + ybase*GRID_SIZE_Z;
+                real dy = data[iy].y;
+                real ddy = ddata[iy].y;
+
+                for (int iz = 0; iz < PME_ORDER; iz++) {
+                    int zindex = gridIndex.z+iz;
+                    zindex -= (zindex >= GRID_SIZE_Z ? GRID_SIZE_Z : 0);
+                    int index = ybase + zindex;
+                    real gridvalue = pmeGrid[index];
+                    force.x += ddx*dy*data[iz].z*gridvalue;
+                    force.y += dx*ddy*data[iz].z*gridvalue;
+                    force.z += dx*dy*ddata[iz].z*gridvalue;
+                }
+            }
+        }
+        real forceX = -q*(force.x*GRID_SIZE_X*recipBoxVecX.x);
+        real forceY = -q*(force.x*GRID_SIZE_X*recipBoxVecY.x+force.y*GRID_SIZE_Y*recipBoxVecY.y);
+        real forceZ = -q*(force.x*GRID_SIZE_X*recipBoxVecZ.x+force.y*GRID_SIZE_Y*recipBoxVecZ.y+force.z*GRID_SIZE_Z*recipBoxVecZ.z);
+#ifdef USE_PME_STREAM
+        ATOMIC_ADD(&forceBuffers[atom], (mm_ulong) realToFixedPoint(forceX));
+        ATOMIC_ADD(&forceBuffers[atom+PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(forceY));
+        ATOMIC_ADD(&forceBuffers[atom+2*PADDED_NUM_ATOMS], (mm_ulong) realToFixedPoint(forceZ));
+#else
+        forceBuffers[atom] += (mm_ulong) realToFixedPoint(forceX);
+        forceBuffers[atom+PADDED_NUM_ATOMS] += (mm_ulong) realToFixedPoint(forceY);
+        forceBuffers[atom+2*PADDED_NUM_ATOMS] += (mm_ulong) realToFixedPoint(forceZ);
+#endif
+    }
+}
+
+KERNEL void gridInterpolateChargeDerivatives(GLOBAL const real4* RESTRICT posq, GLOBAL mm_ulong* RESTRICT derivatives, GLOBAL const real* RESTRICT pmeGrid,
+        real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
+        real4 recipBoxVecX, real4 recipBoxVecY, real4 recipBoxVecZ, GLOBAL const int* RESTRICT atomIndices
+        ) {
+    real3 data[PME_ORDER];
+    const real scale = RECIP((real) (PME_ORDER-1));
+
+    for (int i = GLOBAL_ID; i < NUM_INDICES; i += GLOBAL_SIZE) {
+        int atom = atomIndices[i];
+        real derivative = 0;
+        real4 pos = posq[atom];
+        APPLY_PERIODIC_TO_POS(pos)
+        real3 t = make_real3(pos.x*recipBoxVecX.x+pos.y*recipBoxVecY.x+pos.z*recipBoxVecZ.x,
+                             pos.y*recipBoxVecY.y+pos.z*recipBoxVecZ.y,
+                             pos.z*recipBoxVecZ.z);
+        t.x = (t.x-floor(t.x))*GRID_SIZE_X;
+        t.y = (t.y-floor(t.y))*GRID_SIZE_Y;
+        t.z = (t.z-floor(t.z))*GRID_SIZE_Z;
+        int3 gridIndex = make_int3(((int) t.x) % GRID_SIZE_X,
+                                   ((int) t.y) % GRID_SIZE_Y,
+                                   ((int) t.z) % GRID_SIZE_Z);
+
+        // Since we need the full set of thetas, it's faster to compute them here than load them
+        // from global memory.
+
+        real3 dr = make_real3(t.x-(int) t.x, t.y-(int) t.y, t.z-(int) t.z);
+        data[PME_ORDER-1] = make_real3(0);
+        data[1] = dr;
+        data[0] = make_real3(1)-dr;
+        for (int j = 3; j < PME_ORDER; j++) {
+            real div = RECIP((real) (j-1));
+            data[j-1] = div*dr*data[j-2];
+            for (int k = 1; k < (j-1); k++)
+                data[j-k-1] = div*((dr+make_real3(k))*data[j-k-2] + (make_real3(j-k)-dr)*data[j-k-1]);
+            data[0] = div*(make_real3(1)-dr)*data[0];
+        }
+        data[PME_ORDER-1] = scale*dr*data[PME_ORDER-2];
+        for (int j = 1; j < (PME_ORDER-1); j++)
+            data[PME_ORDER-j-1] = scale*((dr+make_real3(j))*data[PME_ORDER-j-2] + (make_real3(PME_ORDER-j)-dr)*data[PME_ORDER-j-1]);
+        data[0] = scale*(make_real3(1)-dr)*data[0];
+
+        // Compute the charge derivative on this atom.
+
+        for (int ix = 0; ix < PME_ORDER; ix++) {
+            int xbase = gridIndex.x+ix;
+            xbase -= (xbase >= GRID_SIZE_X ? GRID_SIZE_X : 0);
+            xbase = xbase*GRID_SIZE_Y*GRID_SIZE_Z;
+            real dx = data[ix].x;
+
+            for (int iy = 0; iy < PME_ORDER; iy++) {
+                int ybase = gridIndex.y+iy;
+                ybase -= (ybase >= GRID_SIZE_Y ? GRID_SIZE_Y : 0);
+                ybase = xbase + ybase*GRID_SIZE_Z;
+                real dy = data[iy].y;
+
+                for (int iz = 0; iz < PME_ORDER; iz++) {
+                    int zindex = gridIndex.z+iz;
+                    zindex -= (zindex >= GRID_SIZE_Z ? GRID_SIZE_Z : 0);
+                    derivative += dx*dy*data[iz].z*pmeGrid[ybase + zindex];
+                }
+            }
+        }
+        derivative *= EPSILON_FACTOR;
+#ifdef USE_PME_STREAM
+        ATOMIC_ADD(&derivatives[i], (mm_ulong) realToFixedPoint(derivative));
+#else
+        derivatives[i] += (mm_ulong) realToFixedPoint(derivative);
+#endif
+    }
+}
+
+KERNEL void addForces(GLOBAL const real4* RESTRICT forces, GLOBAL mm_long* RESTRICT forceBuffers) {
+    for (int atom = GLOBAL_ID; atom < NUM_ATOMS; atom += GLOBAL_SIZE) {
+        real4 f = forces[atom];
+        forceBuffers[atom] += realToFixedPoint(f.x);
+        forceBuffers[atom+PADDED_NUM_ATOMS] += realToFixedPoint(f.y);
+        forceBuffers[atom+2*PADDED_NUM_ATOMS] += realToFixedPoint(f.z);
+    }
+}
+
+KERNEL void addEnergy(GLOBAL const mixed* RESTRICT pmeEnergyBuffer, GLOBAL mixed* RESTRICT energyBuffer, int bufferSize) {
+    for (int i = GLOBAL_ID; i < bufferSize; i += GLOBAL_SIZE)
+        energyBuffer[i] += pmeEnergyBuffer[i];
+}
+

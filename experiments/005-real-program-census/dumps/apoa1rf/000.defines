@@ -1,0 +1,9 @@
+context	SYNC_WARPS	mem_fence(CLK_LOCAL_MEM_FENCE)
+context	convert_mixed4	convert_float4
+context	convert_real4	convert_float4
+context	make_mixed2	make_float2
+context	make_mixed3	make_float3
+context	make_mixed4	make_float4
+context	make_real2	make_float2
+context	make_real3	make_float3
+context	make_real4	make_float4
