@@ -1,0 +1,442 @@
+diff --git a/platforms/common/src/CommonCalcNonbondedForce.cpp b/platforms/common/src/CommonCalcNonbondedForce.cpp
+index 019b06e88..1d8ac3f19 100644
+--- a/platforms/common/src/CommonCalcNonbondedForce.cpp
++++ b/platforms/common/src/CommonCalcNonbondedForce.cpp
+@@ -37,9 +37,83 @@
+ #include <iterator>
+ #include <set>
+ 
++#include <sys/stat.h>
++#include <fstream>
++#include <iostream>
++#include <iomanip>
++
+ using namespace OpenMM;
+ using namespace std;
+ 
++static bool s_hasCapturedPme = false;
++static bool s_capturingNowPme = false;
++static std::string s_captureDirPme = "";
++
++static void writeArrayToFilePme(const std::string& path, ArrayInterface& array) {
++    if (!array.isInitialized() || array.getSize() == 0) {
++        std::ofstream out(path, std::ios::binary);
++        return;
++    }
++    size_t bytes = (size_t) array.getSize() * array.getElementSize();
++    std::vector<char> data(bytes);
++    array.download(data.data(), true);
++    std::ofstream out(path, std::ios::binary);
++    if (!out) {
++        std::cerr << "Failed to open " << path << std::endl;
++        return;
++    }
++    out.write(data.data(), bytes);
++}
++
++static void writePmeMetadata(const std::string& path, ComputeContext& cc,
++                             int gridSizeX, int gridSizeY, int gridSizeZ,
++                             int pmeOrder, bool useFixedPointChargeSpreading,
++                             bool usePosqCharges, double alpha, double ewaldSelfEnergy,
++                             double dispersionCoefficient, double totalCharge,
++                             const mm_float4& recip0, const mm_float4& recip1, const mm_float4& recip2,
++                             const std::map<std::string, std::string>& pmeDefines) {
++    Vec3 a, b, c;
++    cc.getPeriodicBoxVectors(a, b, c);
++    mm_float4 box((float) a[0], (float) b[1], (float) c[2], 0.0f);
++    mm_float4 invBox(1.0f/(float) a[0], 1.0f/(float) b[1], 1.0f/(float) c[2], 0.0f);
++    mm_float4 boxVecX((float) a[0], (float) a[1], (float) a[2], 0.0f);
++    mm_float4 boxVecY((float) b[0], (float) b[1], (float) b[2], 0.0f);
++    mm_float4 boxVecZ((float) c[0], (float) c[1], (float) c[2], 0.0f);
++
++    std::ofstream out(path);
++    out << std::setprecision(12);
++    out << "{\n";
++    out << "  \"stepCount\": " << cc.getStepCount() << ",\n";
++    out << "  \"numAtoms\": " << cc.getNumAtoms() << ",\n";
++    out << "  \"paddedNumAtoms\": " << cc.getPaddedNumAtoms() << ",\n";
++    out << "  \"gridSizeX\": " << gridSizeX << ",\n";
++    out << "  \"gridSizeY\": " << gridSizeY << ",\n";
++    out << "  \"gridSizeZ\": " << gridSizeZ << ",\n";
++    out << "  \"pmeOrder\": " << pmeOrder << ",\n";
++    out << "  \"useFixedPointChargeSpreading\": " << (useFixedPointChargeSpreading ? 1 : 0) << ",\n";
++    out << "  \"usePosqCharges\": " << (usePosqCharges ? 1 : 0) << ",\n";
++    out << "  \"alpha\": " << alpha << ",\n";
++    out << "  \"ewaldSelfEnergy\": " << ewaldSelfEnergy << ",\n";
++    out << "  \"dispersionCoefficient\": " << dispersionCoefficient << ",\n";
++    out << "  \"totalCharge\": " << totalCharge << ",\n";
++    out << "  \"periodicBoxSize\": [" << box.x << ", " << box.y << ", " << box.z << ", " << box.w << "],\n";
++    out << "  \"invPeriodicBoxSize\": [" << invBox.x << ", " << invBox.y << ", " << invBox.z << ", " << invBox.w << "],\n";
++    out << "  \"periodicBoxVecX\": [" << boxVecX.x << ", " << boxVecX.y << ", " << boxVecX.z << ", " << boxVecX.w << "],\n";
++    out << "  \"periodicBoxVecY\": [" << boxVecY.x << ", " << boxVecY.y << ", " << boxVecY.z << ", " << boxVecY.w << "],\n";
++    out << "  \"periodicBoxVecZ\": [" << boxVecZ.x << ", " << boxVecZ.y << ", " << boxVecZ.z << ", " << boxVecZ.w << "],\n";
++    out << "  \"recipBoxVecX\": [" << recip0.x << ", " << recip0.y << ", " << recip0.z << ", " << recip0.w << "],\n";
++    out << "  \"recipBoxVecY\": [" << recip1.x << ", " << recip1.y << ", " << recip1.z << ", " << recip1.w << "],\n";
++    out << "  \"recipBoxVecZ\": [" << recip2.x << ", " << recip2.y << ", " << recip2.z << ", " << recip2.w << "],\n";
++    out << "  \"defines\": {\n";
++    size_t count = 0;
++    for (auto& pair : pmeDefines) {
++        out << "    \"" << pair.first << "\": \"" << pair.second << "\""
++            << (++count < pmeDefines.size() ? "," : "") << "\n";
++    }
++    out << "  }\n";
++    out << "}\n";
++}
++
+ class CommonCalcNonbondedForceKernel::ForceInfo : public ComputeForceInfo {
+ public:
+     ForceInfo(const NonbondedForce& force) : force(force) {
+@@ -963,6 +1037,32 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+         // Execute the reciprocal space kernels.
+ 
+         if (hasCoulomb) {
++            const char* capEnv = getenv("OPENMM_CAPTURE_PME_DIR");
++            if (!capEnv)
++                capEnv = getenv("OPENMM_CAPTURE_DIR");
++            bool doCapture = (capEnv != NULL && !s_hasCapturedPme && cc.getStepCount() >= 200);
++            if (doCapture) {
++                s_capturingNowPme = true;
++                s_captureDirPme = capEnv;
++                system(("mkdir -p " + s_captureDirPme).c_str());
++                stepsToSort = 0; // Ensure sort runs!
++
++                writePmeMetadata(s_captureDirPme + "/pme_metadata.json", cc,
++                                 gridSizeX, gridSizeY, gridSizeZ,
++                                 PmeOrder, useFixedPointChargeSpreading,
++                                 usePosqCharges, alpha, ewaldSelfEnergy,
++                                 dispersionCoefficient, totalCharge,
++                                 recipBoxVectorsFloat[0], recipBoxVectorsFloat[1], recipBoxVectorsFloat[2],
++                                 pmeDefines);
++
++                // Initial inputs
++                writeArrayToFilePme(s_captureDirPme + "/posq.bin", cc.getPosq());
++                writeArrayToFilePme(s_captureDirPme + "/charges.bin", charges);
++                writeArrayToFilePme(s_captureDirPme + "/sigmaEpsilon.bin", sigmaEpsilon);
++                writeArrayToFilePme(s_captureDirPme + "/pmeBsplineModuliX.bin", pmeBsplineModuliX);
++                writeArrayToFilePme(s_captureDirPme + "/pmeBsplineModuliY.bin", pmeBsplineModuliY);
++                writeArrayToFilePme(s_captureDirPme + "/pmeBsplineModuliZ.bin", pmeBsplineModuliZ);
++            }
+             if (stepsToSort <= 0 || doLJPME) {
+                 setPeriodicBoxArgs(cc, pmeGridIndexKernel, 2);
+                 if (cc.getUseDoublePrecision()) {
+@@ -976,11 +1076,23 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+                     pmeGridIndexKernel->setArg(9, recipBoxVectorsFloat[2]);
+                 }
+                 pmeGridIndexKernel->execute(cc.getNumAtoms());
++                if (s_capturingNowPme) {
++                    writeArrayToFilePme(s_captureDirPme + "/pmeAtomGridIndex_after_findAtomGridIndex.bin", pmeAtomGridIndex);
++                }
+                 sort->sort(pmeAtomGridIndex);
++                if (s_capturingNowPme) {
++                    writeArrayToFilePme(s_captureDirPme + "/pmeAtomGridIndex_after_sort.bin", pmeAtomGridIndex);
++                }
+                 stepsToSort = (cc.getNumAtoms() > 15000) ? 1 : 3;
+             }
+             else
+                 stepsToSort--;
++            if (s_capturingNowPme) {
++                if (useFixedPointChargeSpreading)
++                    writeArrayToFilePme(s_captureDirPme + "/pmeGrid2_before_gridSpreadCharge.bin", pmeGrid2);
++                else
++                    writeArrayToFilePme(s_captureDirPme + "/pmeGrid1_before_gridSpreadCharge.bin", pmeGrid1);
++            }
+             setPeriodicBoxArgs(cc, pmeSpreadChargeKernel, 2);
+             if (cc.getUseDoublePrecision()) {
+                 pmeSpreadChargeKernel->setArg(7, recipBoxVectors[0]);
+@@ -993,9 +1105,22 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+                 pmeSpreadChargeKernel->setArg(9, recipBoxVectorsFloat[2]);
+             }
+             pmeSpreadChargeKernel->execute(cc.getNumAtoms());
+-            if (useFixedPointChargeSpreading)
++            if (s_capturingNowPme) {
++                if (useFixedPointChargeSpreading)
++                    writeArrayToFilePme(s_captureDirPme + "/pmeGrid2_after_gridSpreadCharge.bin", pmeGrid2);
++                else
++                    writeArrayToFilePme(s_captureDirPme + "/pmeGrid1_after_gridSpreadCharge.bin", pmeGrid1);
++            }
++            if (useFixedPointChargeSpreading) {
+                 pmeFinishSpreadChargeKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
++                if (s_capturingNowPme) {
++                    writeArrayToFilePme(s_captureDirPme + "/pmeGrid1_after_finishSpreadCharge.bin", pmeGrid1);
++                }
++            }
+             fft->execFFT(pmeGrid1, pmeGrid2, true);
++            if (s_capturingNowPme) {
++                writeArrayToFilePme(s_captureDirPme + "/pmeGrid2_after_forwardFFT.bin", pmeGrid2);
++            }
+             if (cc.getUseDoublePrecision()) {
+                 pmeConvolutionKernel->setArg<mm_double4>(4, recipBoxVectors[0]);
+                 pmeConvolutionKernel->setArg<mm_double4>(5, recipBoxVectors[1]);
+@@ -1012,10 +1137,21 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+                 pmeEvalEnergyKernel->setArg<mm_float4>(6, recipBoxVectorsFloat[1]);
+                 pmeEvalEnergyKernel->setArg<mm_float4>(7, recipBoxVectorsFloat[2]);
+             }
+-            if (includeEnergy)
++            if (includeEnergy) {
+                 pmeEvalEnergyKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
++                if (s_capturingNowPme) {
++                    writeArrayToFilePme(s_captureDirPme + "/pmeEnergyBuffer_after_gridEvaluateEnergy.bin", pmeEnergyBuffer);
++                }
++            }
+             pmeConvolutionKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
++            if (s_capturingNowPme) {
++                writeArrayToFilePme(s_captureDirPme + "/pmeGrid2_after_reciprocalConvolution.bin", pmeGrid2);
++            }
+             fft->execFFT(pmeGrid2, pmeGrid1, false);
++            if (s_capturingNowPme) {
++                writeArrayToFilePme(s_captureDirPme + "/pmeGrid1_after_inverseFFT.bin", pmeGrid1);
++                writeArrayToFilePme(s_captureDirPme + "/forceBuffers_before_gridInterpolateForce.bin", cc.getLongForceBuffer());
++            }
+             setPeriodicBoxArgs(cc, pmeInterpolateForceKernel, 3);
+             if (cc.getUseDoublePrecision()) {
+                 pmeInterpolateForceKernel->setArg(8, recipBoxVectors[0]);
+@@ -1031,6 +1167,12 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+                 pmeInterpolateForceKernel->execute(cc.getNumThreadBlocks(), 1);
+             else
+                 pmeInterpolateForceKernel->execute(cc.getNumAtoms());
++            if (s_capturingNowPme) {
++                writeArrayToFilePme(s_captureDirPme + "/forceBuffers_after_gridInterpolateForce.bin", cc.getLongForceBuffer());
++                s_capturingNowPme = false;
++                s_hasCapturedPme = true;
++                std::cout << "OPENMM_CAPTURE_PME: Successfully captured step " << cc.getStepCount() << " to " << s_captureDirPme << std::endl;
++            }
+         }
+ 
+         if (doLJPME && hasLJ) {
+diff --git a/platforms/opencl/src/OpenCLContext.cpp b/platforms/opencl/src/OpenCLContext.cpp
+index baa93f6b3..48bf437ac 100644
+--- a/platforms/opencl/src/OpenCLContext.cpp
++++ b/platforms/opencl/src/OpenCLContext.cpp
+@@ -631,6 +631,20 @@ cl::Program OpenCLContext::createProgram(const string source, const map<string,
+     if (!defines.empty())
+         src << endl;
+     src << source << endl;
++    // Lab patch: dump every program the platform compiles, for the Metal census.
++    if (const char* dumpDir = getenv("OPENMM_DUMP_PROGRAMS")) {
++        static int dumpIndex = 0;
++        char name[32];
++        snprintf(name, sizeof(name), "/%03d", dumpIndex++);
++        ofstream(string(dumpDir)+name+".full.cl") << src.str();
++        ofstream(string(dumpDir)+name+".body.cl") << source << endl;
++        ofstream definesFile(string(dumpDir)+name+".defines");
++        for (auto& pair : compilationDefines)
++            if (defines.find(pair.first) == defines.end())
++                definesFile << "context\t" << pair.first << "\t" << pair.second << endl;
++        for (auto& pair : defines)
++            definesFile << "program\t" << pair.first << "\t" << pair.second << endl;
++    }
+     cl::Program::Sources sources({src.str()});
+     cl::Program program(context, sources);
+     try {
+diff --git a/platforms/opencl/src/OpenCLNonbondedUtilities.cpp b/platforms/opencl/src/OpenCLNonbondedUtilities.cpp
+index 2771c490a..00124b33c 100644
+--- a/platforms/opencl/src/OpenCLNonbondedUtilities.cpp
++++ b/platforms/opencl/src/OpenCLNonbondedUtilities.cpp
+@@ -32,10 +32,104 @@
+ #include <map>
+ #include <set>
+ #include <utility>
++#include <sys/stat.h>
++#include <fstream>
++#include <iostream>
++#include <iomanip>
+ 
+ using namespace OpenMM;
+ using namespace std;
+ 
++static bool s_hasCaptured = false;
++static bool s_capturingNow = false;
++static string s_captureDir = "";
++
++static void writeBufferToFile(const string& path, OpenCLContext& context, cl::Buffer& buf, size_t bytes) {
++    vector<char> data(bytes);
++    if (bytes > 0) {
++        context.getQueue().enqueueReadBuffer(buf, CL_TRUE, 0, bytes, data.data());
++    }
++    ofstream out(path, ios::binary);
++    if (!out) {
++        cerr << "Failed to open " << path << endl;
++        return;
++    }
++    if (bytes > 0)
++        out.write(data.data(), bytes);
++}
++
++static void writeArrayToFile(const string& path, OpenCLContext& context, ArrayInterface& array) {
++    if (!array.isInitialized() || array.getSize() == 0) {
++        ofstream out(path, ios::binary);
++        return;
++    }
++    size_t bytes = (size_t) array.getSize() * array.getElementSize();
++    writeBufferToFile(path, context, context.unwrap(array).getDeviceBuffer(), bytes);
++}
++
++static void writeMetadata(const string& path, OpenCLContext& context,
++                          int forceGroups, int numAtoms, int paddedNumAtoms, int numBlocks,
++                          int startBlockIndex, int numBlocksParam, int maxTiles,
++                          int numBlockSizes, int interactingBlocksThreadBlockSize,
++                          int forceThreadBlockSize, int numForceThreadBlocks,
++                          bool usePeriodic, bool useLargeBlocks,
++                          int exclusionIndicesSize, int exclusionRowIndicesSize,
++                          int exclusionsSize, int exclusionTilesSize,
++                          int startTileIndex, unsigned long long numTiles,
++                          const vector<ComputeParameterInfo>& parameters,
++                          const vector<ComputeParameterInfo>& arguments) {
++    mm_float4 box = context.getPeriodicBoxSize();
++    mm_float4 invBox = context.getInvPeriodicBoxSize();
++    mm_float4 boxVecX = context.getPeriodicBoxVecX();
++    mm_float4 boxVecY = context.getPeriodicBoxVecY();
++    mm_float4 boxVecZ = context.getPeriodicBoxVecZ();
++
++    ofstream out(path);
++    out << "{\n";
++    out << "  \"stepCount\": " << context.getStepCount() << ",\n";
++    out << "  \"computeForceCount\": " << context.getComputeForceCount() << ",\n";
++    out << "  \"numAtoms\": " << numAtoms << ",\n";
++    out << "  \"paddedNumAtoms\": " << paddedNumAtoms << ",\n";
++    out << "  \"numBlocks\": " << numBlocks << ",\n";
++    out << "  \"startBlockIndex\": " << startBlockIndex << ",\n";
++    out << "  \"numBlocksParam\": " << numBlocksParam << ",\n";
++    out << "  \"maxTiles\": " << maxTiles << ",\n";
++    out << "  \"numBlockSizes\": " << numBlockSizes << ",\n";
++    out << "  \"interactingBlocksThreadBlockSize\": " << interactingBlocksThreadBlockSize << ",\n";
++    out << "  \"forceThreadBlockSize\": " << forceThreadBlockSize << ",\n";
++    out << "  \"numForceThreadBlocks\": " << numForceThreadBlocks << ",\n";
++    out << "  \"usePeriodic\": " << (usePeriodic ? 1 : 0) << ",\n";
++    out << "  \"useLargeBlocks\": " << (useLargeBlocks ? 1 : 0) << ",\n";
++    out << "  \"periodicBoxSize\": [" << setprecision(10) << box.x << ", " << box.y << ", " << box.z << ", " << box.w << "],\n";
++    out << "  \"invPeriodicBoxSize\": [" << setprecision(10) << invBox.x << ", " << invBox.y << ", " << invBox.z << ", " << invBox.w << "],\n";
++    out << "  \"periodicBoxVecX\": [" << setprecision(10) << boxVecX.x << ", " << boxVecX.y << ", " << boxVecX.z << ", " << boxVecX.w << "],\n";
++    out << "  \"periodicBoxVecY\": [" << setprecision(10) << boxVecY.x << ", " << boxVecY.y << ", " << boxVecY.z << ", " << boxVecY.w << "],\n";
++    out << "  \"periodicBoxVecZ\": [" << setprecision(10) << boxVecZ.x << ", " << boxVecZ.y << ", " << boxVecZ.z << ", " << boxVecZ.w << "],\n";
++    out << "  \"startTileIndex\": " << startTileIndex << ",\n";
++    out << "  \"numTiles\": " << numTiles << ",\n";
++    out << "  \"exclusionIndicesSize\": " << exclusionIndicesSize << ",\n";
++    out << "  \"exclusionRowIndicesSize\": " << exclusionRowIndicesSize << ",\n";
++    out << "  \"exclusionsSize\": " << exclusionsSize << ",\n";
++    out << "  \"exclusionTilesSize\": " << exclusionTilesSize << ",\n";
++    out << "  \"parameters\": [\n";
++    for (size_t i = 0; i < parameters.size(); i++) {
++        out << "    {\"name\": \"" << parameters[i].getName() << "\", \"type\": \"" << parameters[i].getType()
++            << "\", \"size\": " << parameters[i].getArray().getSize()
++            << ", \"elementSize\": " << parameters[i].getArray().getElementSize() << "}"
++            << (i + 1 < parameters.size() ? "," : "") << "\n";
++    }
++    out << "  ],\n";
++    out << "  \"arguments\": [\n";
++    for (size_t i = 0; i < arguments.size(); i++) {
++        out << "    {\"name\": \"" << arguments[i].getName() << "\", \"type\": \"" << arguments[i].getType()
++            << "\", \"size\": " << arguments[i].getArray().getSize()
++            << ", \"elementSize\": " << arguments[i].getArray().getElementSize() << "}"
++            << (i + 1 < arguments.size() ? "," : "") << "\n";
++    }
++    out << "  ]\n";
++    out << "}\n";
++}
++
+ class OpenCLNonbondedUtilities::BlockSortTrait : public ComputeSortImpl::SortTrait {
+ public:
+     BlockSortTrait() {}
+@@ -347,19 +441,69 @@ void OpenCLNonbondedUtilities::prepareInteractions(int forceGroups) {
+     if (numTiles == 0)
+         return;
+ 
++    const char* capEnv = getenv("OPENMM_CAPTURE_DIR");
++    if (!capEnv)
++        capEnv = getenv("OPENMM_CAPTURE_NEIGHBOR_LIST");
++    bool doCapture = (capEnv != NULL && !s_hasCaptured && context.getStepCount() >= 200);
++    if (doCapture) {
++        s_capturingNow = true;
++        s_captureDir = capEnv;
++        system(("mkdir -p " + s_captureDir).c_str());
++        forceRebuildNeighborList = true; // Ensure neighbor list is rebuilt!
++
++        writeMetadata(s_captureDir + "/metadata.json", context, forceGroups,
++                      context.getNumAtoms(), context.getPaddedNumAtoms(), context.getNumAtomBlocks(),
++                      startBlockIndex, numBlocks, interactingTiles.getSize(), numBlockSizes,
++                      interactingBlocksThreadBlockSize, forceThreadBlockSize, numForceThreadBlocks,
++                      usePeriodic, useLargeBlocks, exclusionIndices.getSize(), exclusionRowIndices.getSize(),
++                      exclusions.getSize(), exclusionTiles.getSize(), startTileIndex, (unsigned long long) numTiles,
++                      parameters, arguments);
++
++        // Initial input buffers before findBlockBounds
++        writeArrayToFile(s_captureDir + "/posq.bin", context, context.getPosq());
++        writeArrayToFile(s_captureDir + "/oldPositions_before.bin", context, oldPositions);
++        writeArrayToFile(s_captureDir + "/exclusionIndices.bin", context, exclusionIndices);
++        writeArrayToFile(s_captureDir + "/exclusionRowIndices.bin", context, exclusionRowIndices);
++    }
++
+     // Compute the neighbor list.
+ 
+     setPeriodicBoxArgs(context, kernels.findBlockBoundsKernel, 1);
+     context.executeKernel(kernels.findBlockBoundsKernel, context.getNumAtomBlocks());
++    if (doCapture) {
++        writeArrayToFile(s_captureDir + "/blockCenter_after_findBlockBounds.bin", context, blockCenter);
++        writeArrayToFile(s_captureDir + "/blockBoundingBox_after_findBlockBounds.bin", context, blockBoundingBox);
++        writeArrayToFile(s_captureDir + "/rebuildNeighborList_after_findBlockBounds.bin", context, rebuildNeighborList);
++        writeArrayToFile(s_captureDir + "/blockSizeRange_after_findBlockBounds.bin", context, blockSizeRange);
++    }
+     context.executeKernel(kernels.computeSortKeysKernel, context.getNumAtomBlocks());
++    if (doCapture) {
++        writeArrayToFile(s_captureDir + "/sortedBlocks_after_computeSortKeys.bin", context, sortedBlocks);
++    }
+     if (useLargeBlocks)
+         setPeriodicBoxArgs(context, kernels.sortBoxDataKernel, 12);
+     blockSorter->sort(sortedBlocks);
++    if (doCapture) {
++        writeArrayToFile(s_captureDir + "/sortedBlocks_after_sort.bin", context, sortedBlocks);
++    }
+     kernels.sortBoxDataKernel.setArg<cl_int>(9, forceRebuildNeighborList);
+     context.executeKernel(kernels.sortBoxDataKernel, context.getNumAtoms());
++    if (doCapture) {
++        writeArrayToFile(s_captureDir + "/sortedBlockCenter_after_sortBoxData.bin", context, sortedBlockCenter);
++        writeArrayToFile(s_captureDir + "/sortedBlockBoundingBox_after_sortBoxData.bin", context, sortedBlockBoundingBox);
++        writeArrayToFile(s_captureDir + "/oldPositions_after_sortBoxData.bin", context, oldPositions);
++        writeArrayToFile(s_captureDir + "/interactionCount_after_sortBoxData.bin", context, interactionCount);
++        writeArrayToFile(s_captureDir + "/rebuildNeighborList_after_sortBoxData.bin", context, rebuildNeighborList);
++    }
+     setPeriodicBoxArgs(context, kernels.findInteractingBlocksKernel, 0);
+     context.executeKernel(kernels.findInteractingBlocksKernel, context.getNumAtoms(), interactingBlocksThreadBlockSize);
+     forceRebuildNeighborList = false;
++    if (doCapture) {
++        writeArrayToFile(s_captureDir + "/interactionCount_after_findBlocksWithInteractions.bin", context, interactionCount);
++        writeArrayToFile(s_captureDir + "/interactingTiles_after_findBlocksWithInteractions.bin", context, interactingTiles);
++        writeArrayToFile(s_captureDir + "/interactingAtoms_after_findBlocksWithInteractions.bin", context, interactingAtoms);
++        writeArrayToFile(s_captureDir + "/oldPositions_after_findBlocksWithInteractions.bin", context, oldPositions);
++    }
+     context.getQueue().enqueueReadBuffer(interactionCount.getDeviceBuffer(), CL_FALSE, 0, sizeof(int), pinnedCountMemory, NULL, &downloadCountEvent);
+     if (isAMD)
+         context.getQueue().flush();
+@@ -376,6 +520,18 @@ void OpenCLNonbondedUtilities::computeInteractions(int forceGroups, bool include
+         return;
+     KernelSet& kernels = groupKernels[forceGroups];
+     if (kernels.hasForces && (includeForces || includeEnergy)) {
++        if (s_capturingNow) {
++            writeArrayToFile(s_captureDir + "/forceBuffers_before.bin", context, context.getLongForceBuffer());
++            writeArrayToFile(s_captureDir + "/energyBuffer_before.bin", context, context.getEnergyBuffer());
++            writeArrayToFile(s_captureDir + "/exclusions.bin", context, exclusions);
++            writeArrayToFile(s_captureDir + "/exclusionTiles.bin", context, exclusionTiles);
++            for (size_t i = 0; i < parameters.size(); i++) {
++                writeArrayToFile(s_captureDir + "/param_" + to_string(i) + "_" + parameters[i].getName() + ".bin", context, parameters[i].getArray());
++            }
++            for (size_t i = 0; i < arguments.size(); i++) {
++                writeArrayToFile(s_captureDir + "/arg_" + to_string(i) + "_" + arguments[i].getName() + ".bin", context, arguments[i].getArray());
++            }
++        }
+         if (isAMD)
+             context.getQueue().flush();
+         cl::Kernel& kernel = (includeForces ? (includeEnergy ? kernels.forceEnergyKernel : kernels.forceKernel) : kernels.energyKernel);
+@@ -384,6 +540,13 @@ void OpenCLNonbondedUtilities::computeInteractions(int forceGroups, bool include
+         if (useCutoff)
+             setPeriodicBoxArgs(context, kernel, 9);
+         context.executeKernel(kernel, numForceThreadBlocks*forceThreadBlockSize, forceThreadBlockSize);
++        if (s_capturingNow) {
++            writeArrayToFile(s_captureDir + "/forceBuffers_after.bin", context, context.getLongForceBuffer());
++            writeArrayToFile(s_captureDir + "/energyBuffer_after.bin", context, context.getEnergyBuffer());
++            s_capturingNow = false;
++            s_hasCaptured = true;
++            cout << "OPENMM_CAPTURE: Successfully captured step " << context.getStepCount() << " to " << s_captureDir << endl;
++        }
+     }
+     if (useNeighborList && numTiles > 0) {
+         #if __APPLE__ && defined(__aarch64__)

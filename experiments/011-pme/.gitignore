@@ -1,0 +1,9 @@
+harness
+fft_harness
+*.o
+*.dylib
+*.dSYM
+.DS_Store
+metal-cpp/
+vkFFT/
+captures/extracted/
