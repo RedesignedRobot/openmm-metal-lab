@@ -6,15 +6,22 @@
 //     #define double df64  and  #define double2 df64_2 (3, 4 likewise; metal_stdlib reserves the
 //     names as typedefs), plus SUPPORTS_DOUBLE_PRECISION, as OpenCLContext does in mixed mode.
 // The prelude's trimTo3 must be a function (not the (v).xyz macro) so the df64_4 overload applies.
-// A df64 is the unevaluated sum hi + lo of two floats with hi = RN(hi + lo): 48 significand bits
-// (49 counting the sign of lo) and the float exponent range. Apple GPUs flush float subnormals, so
-// full precision holds down to |x| ~ 2^-102 (lo must stay normal); below that it degrades to float.
+// A df64 is the unevaluated sum hi + lo of two floats with hi = RN(hi + lo) (a double-word number,
+// Definition 1.4 of JMP 2017 below): 48 significand bits (49 counting the sign of lo) and the float
+// exponent range. Every operation and the decoder return such pairs, and the operations and
+// comparisons assume them. Apple GPUs flush float subnormals, so full precision holds down to
+// |x| ~ 2^-102 (lo must stay normal); below that it degrades to float.
 //
 // Arithmetic follows Joldes, Muller, Popescu, "Tight and rigorous error bounds for basic building
-// blocks of double-word arithmetic", ACM TOMS 44(2), 2017. Proven relative error bounds, u = 2^-24:
-//     df64 + df64  AccurateDWPlusDW  3u^2        df64 + float  DWPlusFP   2u^2
-//     df64 * df64  DWTimesDW3        4u^2        df64 * float  DWTimesFP3 2u^2
-//     df64 / df64  DWDivDW2          15u^2       df64 / float  DWDivFP3   3u^2
+// blocks of double-word arithmetic", ACM TOMS 44(2), 2017 (JMP), with the bounds as formally proven
+// in Muller, Rideau, "Formalization of double-word arithmetic, and comments on ...", ACM TOMS 48(1),
+// 2022 (MR). Relative error bounds, u = 2^-24, valid while no intermediate over- or underflows:
+//     df64 + df64  AccurateDWPlusDW (JMP Alg. 6)   3u^2 + 13u^3 (JMP Thm 3.1)
+//     df64 * df64  DWTimesDW3 (JMP Alg. 12)        4u^2 (MR Thm 2.8; JMP Thm 5.4 gave 5u^2)
+//     df64 / df64  DWDivDW2 (JMP Alg. 17, with DWTimesFP1 at line 2 as stated) 15u^2 + 56u^3 (JMP Thm 7.1)
+//     df64 + float DWPlusFP (JMP Alg. 4)           2u^2 (JMP Thm 2.2)
+//     df64 * float DWTimesFP3 (JMP Alg. 9)         2u^2 (JMP Thm 4.3)
+//     df64 / float DWDivFP3 (JMP Alg. 15)          3u^2 (JMP Thm 6.2)
 // sqrt is one correction of the float square root (SQRTDWtoDW in Lefevre, Louvet, Muller, Picot,
 // Rideau, ACM TOMS 2023, bound 25/8 u^2). exp and log are Taylor/Newton constructions on top.
 //
@@ -86,6 +93,17 @@ inline void df64_decompose(float x, thread ulong& m, thread int& e) {
     uint biased = b >> 23;
     m = biased == 0 ? (b & 0x7FFFFFu) : ((b & 0x7FFFFFu) | 0x800000u);
     e = biased == 0 ? -149 : (int) biased - 150;
+}
+
+// lo = RN(d - hi) can round up to exactly half an ulp of hi. When hi is odd, hi + lo then rounds
+// away from hi, so the pair would not be a double-word number: lo moves one float towards zero.
+inline float df64_below_tie(float hi, float lo) {
+    uint h = as_type<uint>(hi);
+    uint biased = (h >> 23) & 0xFFu;
+    // Bits of ulp(hi)/2 = 2^(biased - 151) as a float, normal or subnormal; 0 when not representable.
+    uint halfUlp = biased > 24u ? (biased - 24u) << 23 : (biased >= 2u ? 1u << (biased - 2u) : 0u);
+    bool tie = (h & 1u) != 0 && halfUlp != 0 && (as_type<uint>(lo) & 0x7FFFFFFFu) == halfUlp;
+    return tie ? as_type<float>(as_type<uint>(lo) - 1u) : lo;
 }
 
 struct df64;
@@ -194,10 +212,11 @@ inline df64 df64_from_ieee_slow(uint2 b) {
     long rest = mh == 0 ? (long) m : (long) m - (long) (mh << (eh - e));
     if (rest == 0)
         return df64(hi, 0.0f);
-    return df64(hi, df64_round_to_float((rest < 0) != negative, (ulong) abs(rest), e));
+    return df64(hi, df64_below_tie(hi, df64_round_to_float((rest < 0) != negative, (ulong) abs(rest), e)));
 }
 
-// hi = RN(d), lo = RN(d - hi); NaN and +-inf give lo = 0. Bit-exact over all doubles.
+// hi = RN(d), and lo = RN(d - hi) unless that is half an ulp of an odd hi, where it is the next float
+// towards zero, so hi = RN(hi + lo) always and (float) of the result is RN(d). NaN and +-inf give lo = 0.
 inline df64 df64_from_ieee(uint2 b) {
     uint biased = (b.y >> 20) & 0x7FFu;
     // Fast path for unbiased exponents -74..127: hi is a normal float and lo is normal or zero.
@@ -212,7 +231,8 @@ inline df64 df64_from_ieee(uint2 b) {
         return df64(as_type<float>(sign | 0x7F800000u), 0.0f);
     int rest = up ? (int) low - 0x20000000 : (int) low;
     float scale = as_type<float>((biased - 948u) << 23);
-    return df64(as_type<float>(sign | hiBits), (float) (sign ? -rest : rest) * scale);
+    float hi = as_type<float>(sign | hiBits);
+    return df64(hi, df64_below_tie(hi, (float) (sign ? -rest : rest) * scale));
 }
 
 inline uint2 df64_to_ieee_slow(float hi, float lo) {
@@ -254,18 +274,29 @@ inline uint2 df64_to_ieee_slow(float hi, float lo) {
     return uint2((uint) bits, (uint) (bits >> 32));
 }
 
-// RN(hi + lo) as a double, with the sign of hi kept when the value is zero. Bit-exact for |lo| < |hi|.
+// RN(hi + lo) as a double, with the sign of hi kept when the value is zero. Bit-exact for every
+// double-word number and for unnormalized pairs with |lo| <= |hi|. (0, lo) encodes lo, and a non-finite
+// lo gives the float sum hi + lo (inf or NaN).
 // Float arithmetic on Apple GPUs flushes subnormal operands and results to zero, so a subnormal lo,
-// or a tiny hi whose renormalization error could be subnormal, takes the integer path.
+// or a tiny hi whose renormalization error could be subnormal, takes the integer path. So does a pair
+// whose float sum overflows although hi + lo is a finite double.
 inline uint2 df64_to_ieee(df64 v) {
     float hi = v.hi;
     float lo = v.lo;
+    if ((as_type<uint>(hi) & 0x7FFFFFFFu) == 0 && (as_type<uint>(lo) & 0x7FFFFFFFu) != 0) {
+        hi = lo;
+        lo = 0.0f;
+    }
+    else if (!isfinite(lo)) {
+        hi += lo;
+        lo = 0.0f;
+    }
     uint loBits = as_type<uint>(lo);
     bool loSubnormal = (loBits & 0x7F800000u) == 0 && (loBits & 0x7FFFFFu) != 0;
     bool hiTiny = ((as_type<uint>(hi) >> 23) & 0xFFu) < 53u;
-    // Near FLT_MAX the float sum can round to inf while hi + lo is a finite double; skip renormalizing then.
     float sum = hi + lo;
-    if (!loSubnormal && !hiTiny && lo != 0.0f && sum != hi && isfinite(sum)) {
+    bool sumOverflows = !isfinite(sum) && isfinite(hi);
+    if (!loSubnormal && !hiTiny && !sumOverflows && lo != 0.0f && sum != hi) {
         float2 s = df64_two_sum(hi, lo);
         hi = s.x;
         lo = s.y;
@@ -277,7 +308,7 @@ inline uint2 df64_to_ieee(df64 v) {
         return uint2(0u, sign | ((hiBits & 0x7FFFFFu) != 0 ? 0x7FF80000u : 0x7FF00000u));
     if ((hiBits & 0x7FFFFFFFu) == 0)
         return uint2(0u, sign);
-    if (biased < 53u || loSubnormal)
+    if (biased < 53u || loSubnormal || sumOverflows)
         return df64_to_ieee_slow(hi, lo);
     // hi = mh * 2^(biased-150) exactly; lo in units of 2^(biased-150-shift) is at most 2^28 and
     // rounds to an integer with ties to even, which is also the tie rule for the whole sum.
@@ -345,14 +376,17 @@ inline df64 operator/(df64 x, float y) {
     return df64(z.x, z.y);
 }
 
+// DWDivDW2 exactly as JMP state it, with DWTimesFP1 for (yh, yl) * th: the proof of the 15u^2 bound
+// covers that variant, not the FMA product DWTimesFP3 that operator*(df64, float) uses.
 inline df64 operator/(df64 x, df64 y) {
     float th = x.hi / y.hi;
     if (!isfinite(th))
         return df64(th, 0.0f);
-    df64 r = y * th;
-    float2 p = df64_two_sum(x.hi, -r.hi);
-    float d = p.x + ((p.y - r.lo) + x.lo);
-    float2 z = df64_fast_two_sum(th, d / y.hi);
+    float2 c = df64_two_prod(y.hi, th);
+    float2 t = df64_fast_two_sum(c.x, y.lo * th);
+    float2 r = df64_fast_two_sum(t.x, t.y + c.y);
+    float delta = (x.hi - r.x) + (x.lo - r.y);
+    float2 z = df64_fast_two_sum(th, delta / y.hi);
     return df64(z.x, z.y);
 }
 

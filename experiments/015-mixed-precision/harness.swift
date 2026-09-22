@@ -104,11 +104,22 @@ struct SplitMix64 {
     }
 }
 
-// CPU reference split of a double into a normalized df64 pair: hi = RN(d), lo = RN(d - hi).
+// CPU reference split of a double into a double-word pair (hi = RN(hi + lo)), the rule df64_from_ieee
+// implements: hi = RN(d), lo = RN(d - hi), except that a lo of half an ulp of an odd hi, which would make
+// hi + lo round away from hi, moves one float towards zero. d - hi is exact in double.
 func split(_ d: Double) -> (Float, Float) {
     let hi = Float(d)
     if !d.isFinite || !hi.isFinite { return (hi, 0) }
-    return (hi, Float(d - Double(hi)))
+    let lo = Float(d - Double(hi))
+    if isDoubleWord(hi, lo) { return (hi, lo) }
+    return (hi, lo > 0 ? lo.nextDown : lo.nextUp)
+}
+
+// hi = RN(hi + lo). The double sum is exact whenever lo is within a few ulps of a float tie of hi, so
+// rounding it to float decides the question.
+func isDoubleWord(_ hi: Float, _ lo: Float) -> Bool {
+    if !hi.isFinite { return lo == 0 }
+    return Float(Double(hi) + Double(lo)) == hi
 }
 
 func value(_ hi: Float, _ lo: Float) -> Double { Double(hi) + Double(lo) }
@@ -165,12 +176,17 @@ kernel void binary(device const float2* a [[buffer(0)]], device const float2* b 
     out[i] = float2(r.hi, r.lo);
 }
 
-kernel void compare(device const float2* a [[buffer(0)]], device const float2* b [[buffer(1)]],
-        device uint2* out [[buffer(2)]], uint i [[thread_position_in_grid]]) {
-    df64 x(a[i].x, a[i].y);
-    df64 y(b[i].x, b[i].y);
+// Operands decoded on the GPU from IEEE doubles, as every IEEE-storage load does. `stable` checks that
+// adding zero or multiplying by one returns the same pair, which holds only for double-word pairs.
+kernel void compare(device const uint2* a [[buffer(0)]], device const uint2* b [[buffer(1)]],
+        device uint4* out [[buffer(2)]], device float4* pairs [[buffer(3)]], uint i [[thread_position_in_grid]]) {
+    df64 x = df64_from_ieee(a[i]);
+    df64 y = df64_from_ieee(b[i]);
     uint bits = (x < y) | ((x <= y) << 1) | ((x == y) << 2) | ((x > y) << 3) | ((x >= y) << 4) | ((x != y) << 5);
-    out[i] = uint2(bits, as_type<uint>((float) x));
+    df64 z = x + df64(0.0f);
+    bool stable = x == z && !(x < z) && !(z < x) && x == x + 0.0f && x == x * 1.0f && x == x * df64(1.0f);
+    out[i] = uint4(bits, as_type<uint>((float) x), stable ? 1u : 0u, 0u);
+    pairs[i] = float4(x.hi, x.lo, y.hi, y.lo);
 }
 
 // The float primitives df64 relies on: correct rounding of sqrt and division.
@@ -257,7 +273,7 @@ func runCase(_ c: AccuracyCase, _ pso: MTLComputePipelineState, samples: Int, se
 
 // MD magnitudes: positions 1e-3..1e3 nm, velocities 1e-4..1e1 nm/ps, energies to 1e7 kJ/mol.
 let accuracyCases: [AccuracyCase] = [
-    AccuracyCase(name: "df64 + df64", op: 0, domain: "a, b in +-[1e-4, 1e7]", bound: "3u^2 = 3",
+    AccuracyCase(name: "df64 + df64", op: 0, domain: "a, b in +-[1e-4, 1e7]", bound: "3u^2 + 13u^3 = 3 (JMP Thm 3.1)",
                  make: { r in (r.logUniform(1e-4, 1e7), r.logUniform(1e-4, 1e7), 0) }, reference: { x, y, _ in x + y }),
     AccuracyCase(name: "df64 + df64 (position + step)", op: 0, domain: "a in +-[1e-3, 1e3], b in +-[1e-9, 1e-2]", bound: "3",
                  make: { r in (r.logUniform(1e-3, 1e3), r.logUniform(1e-9, 1e-2), 0) }, reference: { x, y, _ in x + y }),
@@ -266,15 +282,15 @@ let accuracyCases: [AccuracyCase] = [
                  reference: { x, y, _ in x + y }),
     AccuracyCase(name: "df64 - df64", op: 1, domain: "a, b in +-[1e-4, 1e7]", bound: "3",
                  make: { r in (r.logUniform(1e-4, 1e7), r.logUniform(1e-4, 1e7), 0) }, reference: { x, y, _ in x - y }),
-    AccuracyCase(name: "df64 * df64", op: 2, domain: "a, b in +-[1e-4, 1e7]", bound: "4u^2 = 4",
+    AccuracyCase(name: "df64 * df64", op: 2, domain: "a, b in +-[1e-4, 1e7]", bound: "4u^2 = 4 (MR Thm 2.8)",
                  make: { r in (r.logUniform(1e-4, 1e7), r.logUniform(1e-4, 1e7), 0) }, reference: { x, y, _ in x * y }),
-    AccuracyCase(name: "df64 / df64", op: 3, domain: "a, b in +-[1e-4, 1e7]", bound: "15u^2 = 15",
+    AccuracyCase(name: "df64 / df64", op: 3, domain: "a, b in +-[1e-4, 1e7]", bound: "15u^2 + 56u^3 = 15 (JMP Thm 7.1)",
                  make: { r in (r.logUniform(1e-4, 1e7), r.logUniform(1e-4, 1e7), 0) }, reference: { x, y, _ in x / y }),
-    AccuracyCase(name: "df64 + float", op: 4, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "2u^2 = 2",
+    AccuracyCase(name: "df64 + float", op: 4, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "2u^2 = 2 (JMP Thm 2.2)",
                  make: { r in (r.logUniform(1e-4, 1e7), Double(Float(r.logUniform(1e-4, 1e7))), 0) }, reference: { x, y, _ in x + y }),
-    AccuracyCase(name: "df64 * float", op: 5, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "2",
+    AccuracyCase(name: "df64 * float", op: 5, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "2u^2 = 2 (JMP Thm 4.3)",
                  make: { r in (r.logUniform(1e-4, 1e7), Double(Float(r.logUniform(1e-4, 1e7))), 0) }, reference: { x, y, _ in x * y }),
-    AccuracyCase(name: "df64 / float", op: 6, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "3u^2 = 3",
+    AccuracyCase(name: "df64 / float", op: 6, domain: "a in +-[1e-4, 1e7], b float in +-[1e-4, 1e7]", bound: "3u^2 = 3 (JMP Thm 6.2)",
                  make: { r in (r.logUniform(1e-4, 1e7), Double(Float(r.logUniform(1e-4, 1e7))), 0) }, reference: { x, y, _ in x / y }),
     AccuracyCase(name: "sqrt(df64)", op: 7, domain: "a in [1e-6, 1e7]", bound: "25/8 u^2 = 3.1",
                  make: { r in (r.logUniform(1e-6, 1e7, signed: false), 0, 0) }, reference: { x, _, _ in x.squareRoot() }),
@@ -299,8 +315,8 @@ func runAccuracy() {
     let samples = 1 << 20
     let lib = makeLibrary(accuracySource)
     let pso = makePipeline(lib, "binary")
-    print("\(samples) random inputs per row, inputs are exact df64 pairs split from doubles, reference is the same op in CPU double (itself within 2^-53 = 0.03 units).")
-    print("Error = |gpu - ref| / |ref| in units of 2^-48. Flag threshold 2^-44 = 16 units. Proven bound from the literature in the same units (u = 2^-24, u^2 = 1 unit).")
+    print("\(samples) random inputs per row, inputs are double-word pairs split from doubles by the decode rule, reference is the same op in CPU double on the exact pair values (itself within 2^-53 = 0.03 units).")
+    print("Error = |gpu - ref| / |ref| in units of 2^-48. Flag threshold 2^-44 = 16 units. Proven bound in the same units (u = 2^-24, u^2 = 1 unit): JMP = Joldes, Muller, Popescu, ACM TOMS 44(2) 2017; MR = Muller, Rideau, ACM TOMS 48(1) 2022; sqrt: Lefevre et al., ACM TOMS 2023.")
     print("")
     print("| Operation | Inputs | Median | 99.9th pct | Max | Proven bound | > 2^-44 | Non-finite |")
     print("| --- | --- | ---: | ---: | ---: | --- | ---: | ---: |")
@@ -310,37 +326,57 @@ func runAccuracy() {
     }
     print("")
 
-    // Comparisons and the conversion to float, on pairs that differ only in lo, only in hi, or not at all.
+    // Comparisons, narrowing to float and double-word form, on operands decoded on the GPU. Half the
+    // doubles lie within 32 double ulps of a float tie of an odd hi (where RN(d - hi) can round up to
+    // the tie); y is the same double, a neighbouring double, a neighbouring float, or unrelated.
     var rng = SplitMix64(state: 0x15_1000)
-    var a = [SIMD2<Float>](), b = [SIMD2<Float>]()
-    for _ in 0..<samples {
-        let x = rng.logUniform(1e-4, 1e7)
-        let (xh, xl) = split(x)
-        var yh = xh, yl = xl
-        switch rng.next() % 5 {
-        case 0: break
-        case 1: yl = xl.nextUp
-        case 2: yl = xl.nextDown
-        case 3: yh = xh.nextUp; yl = 0
-        default: (yh, yl) = split(rng.logUniform(1e-4, 1e7))
+    var a = [UInt64](), b = [UInt64]()
+    for k in 0..<samples {
+        var x = rng.logUniform(1e-4, 1e7)
+        if k % 2 == 0 {
+            var h = Float(x)
+            if h.bitPattern & 1 == 0 { h = h.nextUp }
+            let half = Double(h.ulp) / 2, doubleUlp = Double(h.ulp) * 0x1p-29
+            let side: Double = rng.next() & 1 == 1 ? 1 : -1
+            x = Double(h) + side * (half - Double(Int(rng.next() % 33) - 1) * doubleUlp)
         }
-        a.append(SIMD2(xh, xl)); b.append(SIMD2(yh, yl))
+        var y = x
+        switch rng.next() % 6 {
+        case 0: break
+        case 1: y = x.nextUp
+        case 2: y = x.nextDown
+        case 3: y = Double(Float(x).nextUp)
+        case 4: y = Double(Float(x).nextDown)
+        default: y = rng.logUniform(1e-4, 1e7)
+        }
+        a.append(x.bitPattern); b.append(y.bitPattern)
     }
-    let out = device.makeBuffer(length: samples * 8, options: .storageModeShared)!
-    dispatch(makePipeline(lib, "compare"), [makeBuffer(a), makeBuffer(b), out], samples)
-    let got = readBuffer(out, samples, as: SIMD2<UInt32>.self)
-    var compareMismatch = 0, floatMismatch = 0
+    let out = device.makeBuffer(length: samples * 16, options: .storageModeShared)!
+    let pairOut = device.makeBuffer(length: samples * 16, options: .storageModeShared)!
+    dispatch(makePipeline(lib, "compare"), [makeBuffer(a), makeBuffer(b), out, pairOut], samples)
+    let got = readBuffer(out, samples, as: SIMD4<UInt32>.self)
+    let pairs = readBuffer(pairOut, samples, as: SIMD4<Float>.self)
+    var compareMismatch = 0, floatMismatch = 0, notDoubleWord = 0, unstable = 0, splitMismatch = 0
     for i in 0..<samples {
+        let p = pairs[i]
         // Sign of x - y without rounding away a one-ulp difference in lo: both partial differences are
         // exact in double here, and rounding their sum never changes its sign.
-        let diff = (Double(a[i].x) - Double(b[i].x)) + (Double(a[i].y) - Double(b[i].y))
-        let x = value(a[i].x, a[i].y)
+        let diff = (Double(p.x) - Double(p.z)) + (Double(p.y) - Double(p.w))
         let want = UInt32(diff < 0 ? 1 : 0) | UInt32(diff <= 0 ? 2 : 0) | UInt32(diff == 0 ? 4 : 0) | UInt32(diff > 0 ? 8 : 0) | UInt32(diff >= 0 ? 16 : 0) | UInt32(diff != 0 ? 32 : 0)
+        let d = Double(bitPattern: a[i])
         if got[i].x != want { compareMismatch += 1 }
-        if got[i].y != Float(x).bitPattern { floatMismatch += 1 }
+        if got[i].y != Float(d).bitPattern { floatMismatch += 1 }
+        if !isDoubleWord(p.x, p.y) || !isDoubleWord(p.z, p.w) { notDoubleWord += 1 }
+        if got[i].z != 1 { unstable += 1 }
+        let (sh, sl) = split(d)
+        if sh.bitPattern != p.x.bitPattern || sl.bitPattern != p.y.bitPattern { splitMismatch += 1 }
     }
-    print("Comparisons (<, <=, ==, >, >=, !=) on \(samples) pairs, 3/5 of them equal or one ulp of lo or hi apart: \(compareMismatch) mismatches against CPU double.")
-    print("Conversion df64 -> float (the implicit `(real) mixed`): \(floatMismatch) of \(samples) differ from RN(value) bit for bit.")
+    print("Operands decoded on the GPU (df64_from_ieee) from \(samples) doubles in +-[1e-4, 1e7], half of them within 32 double ulps of a float tie of an odd hi; the second operand is the same double, a neighbouring double or float, or unrelated:")
+    print("")
+    print("- Decoded pairs that are not double-word numbers (hi != RN(hi + lo)): \(notDoubleWord). Decoded pairs that differ from the CPU split: \(splitMismatch).")
+    print("- Comparisons (<, <=, ==, >, >=, !=) that disagree with exact comparison of the decoded values: \(compareMismatch).")
+    print("- `(float) x` (the implicit `(real) mixed`) differing from RN(d) of the source double, bit for bit: \(floatMismatch).")
+    print("- Pairs where x + 0, x + 0.0f, x * 1.0f or x * df64(1) is not the same pair: \(unstable).")
     print("")
 
     // Float primitives under safe math.
@@ -419,6 +455,9 @@ let specialDoubles: [(String, Double)] = {
         ("2^-74 (fast path edge)", 0x1p-74 * 1.2345678901234), ("2^-102 (lo leaves normal range)", 0x1p-102 * 1.2345678901234),
         ("1", 1.0), ("-1", -1.0), ("1 + 2^-24 (tie, even)", 1 + 0x1p-24), ("1 + 3*2^-24 (tie, odd)", 1 + 3 * 0x1p-24),
         ("1 + 2^-24 + 2^-52", 1 + 0x1p-24 + 0x1p-52), ("1 - 2^-53", 1 - 0x1p-53), ("1 + 2^-52", 1 + 0x1p-52),
+        ("1 + 2^-23 + 2^-24 - 2^-52 (below a tie, odd hi)", 1 + 0x1p-23 + 0x1p-24 - 0x1p-52),
+        ("-(1 + 2^-23) + 2^-24 + 2^-52 (below a tie, odd hi)", -(1 + 0x1p-23) + 0x1p-24 + 0x1p-52),
+        ("2^-110 (1 + 2^-23) + 2^-134 - 2^-162 (below a tie, subnormal lo)", 0x1p-110 * (1 + 0x1p-23) + 0x1p-134 - 0x1p-162),
         ("pi", Double.pi), ("-1e7 / 3", -1e7 / 3), ("0.002", 0.002), ("2^32", 0x1p32),
         ("FLT_MAX", Double(Float.greatestFiniteMagnitude)),
         ("FLT_MAX + half ulp - 2^76 (below tie)", Double(Float.greatestFiniteMagnitude) + 0x1p103 - 0x1p76),
@@ -439,13 +478,15 @@ func runConvert() {
     let specials = specialDoubles.map { $0.1.bitPattern }
     let decoded = convertInPlace(fromIEEE, specials)
     let encoded = convertInPlace(toIEEE, decoded)
+    print("Decode reference: hi = RN(d), lo = RN(d - hi) moved one float towards zero when it is half an ulp of an odd hi; the decoded pair must also be a double-word number (hi = RN(hi + lo)).")
+    print("")
     print("| Input | Bits | GPU hi | GPU lo | Decode matches reference | Encode(decode(x)) | Round trip |")
     print("| --- | --- | --- | --- | --- | --- | --- |")
     var specialFailures = 0
     for (i, (name, d)) in specialDoubles.enumerated() {
         let (hi, lo) = pairOf(decoded[i])
         let (rh, rl) = decodeReference(d)
-        let decodeOK = sameFloat(hi, rh) && sameFloat(lo, rl)
+        let decodeOK = sameFloat(hi, rh) && sameFloat(lo, rl) && isDoubleWord(hi, lo)
         let back = Double(bitPattern: encoded[i])
         let encodeOK = sameDouble(back, encodeReference(hi, lo))
         let representable = !d.isFinite || Double(lo) == d - Double(hi)
@@ -466,19 +507,31 @@ func runConvert() {
             let m = 1 + rng.uniform()
             return (Double(sign: rng.next() & 1 == 1 ? .minus : .plus, exponent: Int(rng.next() % 301) - 160, significand: m)).bitPattern }),
         ("MD magnitudes, +-[1e-4, 1e7]", (0..<count).map { _ in rng.logUniform(1e-4, 1e7).bitPattern }),
+        ("within 32 double ulps of a float tie, odd hi, exponents -140..127", (0..<count).map { _ in
+            var h = Float(sign: rng.next() & 1 == 1 ? .minus : .plus, exponent: Int(rng.next() % 268) - 140, significand: Float(1 + rng.uniform()))
+            if h.bitPattern & 1 == 0 { h = h.nextUp }
+            let side: Double = rng.next() & 1 == 1 ? 1 : -1
+            return (Double(h) + side * (Double(h.ulp) / 2 - Double(Int(rng.next() % 33) - 1) * Double(h.ulp) * 0x1p-29)).bitPattern }),
     ]
-    print("| Set | Doubles | Decode bit-exact | Encode(decode) = RN(hi+lo) bit-exact | Representable | Representable round trips exact | Decode idempotent after encode |")
-    print("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+    print("| Set | Doubles | Decode bit-exact | Decoded double-word pairs | Encode(decode) = RN(hi+lo) bit-exact | Representable | Representable round trips exact | Decode idempotent after encode (a zero lo may change sign) | Max decode error, 2^-48 units, 2^-100 <= |d| <= FLT_MAX |")
+    print("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
     for (name, words) in sets {
         let dec = convertInPlace(fromIEEE, words)
         let enc = convertInPlace(toIEEE, dec)
         let dec2 = convertInPlace(fromIEEE, enc)
-        var decodeOK = 0, encodeOK = 0, representable = 0, roundTrip = 0, idempotent = 0
+        var decodeOK = 0, doubleWord = 0, encodeOK = 0, representable = 0, roundTrip = 0, idempotent = 0
+        var maxDecodeError = 0.0
         for i in 0..<words.count {
             let d = Double(bitPattern: words[i])
             let (hi, lo) = pairOf(dec[i])
             let (rh, rl) = decodeReference(d)
             if sameFloat(hi, rh) && sameFloat(lo, rl) { decodeOK += 1 }
+            else if verbose { print("    decode mismatch: d=\(d) (0x\(String(words[i], radix: 16))) gpu=(\(hi), \(lo)) want=(\(rh), \(rl))") }
+            if isDoubleWord(hi, lo) { doubleWord += 1 }
+            if abs(d) >= 0x1p-100 && abs(d) <= Double(Float.greatestFiniteMagnitude) {
+                // Exact: both partial differences are exact in double, and d - hi and lo are within 2^-24 |d|.
+                maxDecodeError = max(maxDecodeError, abs((d - Double(hi)) - Double(lo)) / abs(d) / unit48)
+            }
             let back = Double(bitPattern: enc[i])
             if sameDouble(back, encodeReference(hi, lo)) { encodeOK += 1 }
             else if verbose { print("    encode mismatch: d=\(d) (0x\(String(words[i], radix: 16))) hi=\(hi) lo=\(lo) gpu=\(back) want=\(encodeReference(hi, lo))") }
@@ -487,41 +540,77 @@ func runConvert() {
                 if sameDouble(back, d) || (d.isNaN && back.isNaN) || (!Float(d).isFinite && back.isInfinite) { roundTrip += 1 }
             }
             let (h2, l2) = pairOf(dec2[i])
-            if sameFloat(h2, hi) && sameFloat(l2, lo) { idempotent += 1 }
+            if sameFloat(h2, hi) && l2 == lo { idempotent += 1 }
+            else if verbose { print("    not idempotent: d=\(d) (0x\(String(words[i], radix: 16))) first=(\(hi), \(lo)) second=(\(h2), \(l2))") }
         }
-        print("| \(name) | \(words.count) | \(decodeOK) | \(encodeOK) | \(representable) | \(roundTrip) | \(idempotent) |")
+        print("| \(name) | \(words.count) | \(decodeOK) | \(doubleWord) | \(encodeOK) | \(representable) | \(roundTrip) | \(idempotent) | \(String(format: "%.3f", maxDecodeError)) |")
     }
     print("")
     print("Representable: the double equals hi + lo exactly (its bits fit in two floats), or it is NaN or overflows float. For those a round trip must return the input (inf for values beyond float range, NaN for NaN).")
     print("")
 
-    // Encode of arbitrary pairs, including unnormalized ones, against RN(hi + lo).
-    var pairs = [UInt64]()
+    // Encode of pairs that are not double-word numbers: the verifier's overflow cases and the documented
+    // conventions for (0, lo) and a non-finite lo.
+    let fltMax = Float.greatestFiniteMagnitude
+    let edgePairs: [(String, Float, Float)] = [
+        ("(FLT_MAX, 2^126)", fltMax, 0x1p126), ("(-FLT_MAX, -2^126)", -fltMax, -0x1p126),
+        ("(1.9 * 2^127, 0.2 * 2^127)", 1.9 * 0x1p127, 0.2 * 0x1p127), ("(FLT_MAX, 2^104 (1 + 2^-23))", fltMax, 0x1p104 * (1 + 0x1p-23)),
+        ("(FLT_MAX, 2^103)", fltMax, 0x1p103), ("(FLT_MAX, -FLT_MAX)", fltMax, -fltMax),
+        ("(0, 2^-10)", 0, 0x1p-10), ("(-0, 2^-10)", -0.0, 0x1p-10), ("(0, 2^-140)", 0, 0x1p-140), ("(-0, +0)", -0.0, 0),
+        ("(1, NaN)", 1, .nan), ("(1, inf)", 1, .infinity), ("(1, -inf)", 1, -.infinity), ("(inf, 1)", .infinity, 1),
+        ("(2^-120, 2^-140)", 0x1p-120, 0x1p-140), ("(1, -2^-25)", 1, -0x1p-25),
+    ]
+    let edgeOut = convertInPlace(toIEEE, edgePairs.map { pairBits($0.1, $0.2) })
+    print("| Pair (hi, lo) | GPU encode | RN(hi + lo) | Match |")
+    print("| --- | --- | --- | --- |")
+    var edgeFailures = 0
+    for (i, (name, hi, lo)) in edgePairs.enumerated() {
+        let got = Double(bitPattern: edgeOut[i]), want = encodeReference(hi, lo)
+        if !sameDouble(got, want) { edgeFailures += 1 }
+        print("| \(name) | \(got) | \(want) | \(sameDouble(got, want) ? "yes" : "NO") |")
+    }
+    print("")
+    print("Edge pairs failing: \(edgeFailures) of \(edgePairs.count).")
+    print("")
+
+    // Encode of random pairs over the whole finite float range (subnormal hi included), in four classes.
+    let classes = ["double-word pairs", "unnormalized, |lo| up to 4 ulp(hi)", "unnormalized, |lo| / |hi| log-uniform in [2^-60, 1]", "|hi| >= 2^126, |lo| / |hi| log-uniform in [2^-30, 1]"]
+    var pairs = [UInt64](), pairClass = [Int]()
     for k in 0..<count {
+        let c = k % 4
         var hi: Float
-        repeat { hi = Float(bitPattern: UInt32(truncatingIfNeeded: rng.next())) } while !hi.isFinite || abs(hi) > Float.greatestFiniteMagnitude / 4
-        let spread = k % 4 == 0 ? 4.0 : 0.5 // every fourth pair is not normalized (|lo| up to 4 ulp of hi)
-        let lo = Float(Double(hi.ulp) * spread * rng.uniform(-1, 1) * (k % 3 == 0 ? rng.logUniform(0x1p-40, 1, signed: false) : 1))
-        pairs.append(pairBits(hi, lo))
+        repeat { hi = Float(bitPattern: UInt32(truncatingIfNeeded: rng.next())) } while !hi.isFinite || (c == 3 && abs(hi) < 0x1p126)
+        let lo: Float
+        switch c {
+        case 0: (hi, lo) = split(Double(hi) + Double(hi.ulp) * rng.uniform(-0.5, 0.5))
+        case 1: lo = Float(Double(hi.ulp) * rng.uniform(-4, 4))
+        case 2: lo = Float(Double(hi) * rng.logUniform(0x1p-60, 1))
+        default: lo = Float(Double(hi) * rng.logUniform(0x1p-30, 1))
+        }
+        pairs.append(pairBits(hi, lo)); pairClass.append(c)
     }
     let encPairs = convertInPlace(toIEEE, pairs)
-    var pairOK = 0
+    var pairOK = [0, 0, 0, 0], pairTotal = [0, 0, 0, 0]
     for i in 0..<pairs.count {
         let (hi, lo) = pairOf(pairs[i])
-        if sameDouble(Double(bitPattern: encPairs[i]), encodeReference(hi, lo)) { pairOK += 1 }
+        pairTotal[pairClass[i]] += 1
+        if sameDouble(Double(bitPattern: encPairs[i]), encodeReference(hi, lo)) { pairOK[pairClass[i]] += 1 }
         else if verbose { print("    pair mismatch: hi=\(hi) (0x\(String(hi.bitPattern, radix: 16))) lo=\(lo) (0x\(String(lo.bitPattern, radix: 16))) gpu=\(Double(bitPattern: encPairs[i])) want=\(encodeReference(hi, lo))") }
     }
-    print("Encode of \(pairs.count) random pairs over the float range (a quarter of them unnormalized, |lo| up to 4 ulp(hi)): \(pairOK) bit-exact against RN(hi + lo).")
+    print("| Random pairs, hi over all finite floats | Pairs | Encode = RN(hi + lo) bit-exact |")
+    print("| --- | ---: | ---: |")
+    for c in 0..<4 { print("| \(classes[c]) | \(pairTotal[c]) | \(pairOK[c]) |") }
     print("")
 }
 
 // MARK: - Program composition (prelude + precision block + defines + rewritten Common source)
 
 enum Precision: CaseIterable {
-    case single, df64Pairs, df64IEEE
+    case single, floatMixed, df64Pairs, df64IEEE
     var label: String {
         switch self {
-        case .single: return "single (float mixed)"
+        case .single: return "single (no USE_MIXED_PRECISION)"
+        case .floatMixed: return "float mixed (USE_MIXED_PRECISION, mixed = float)"
         case .df64Pairs: return "df64 mixed, pair storage"
         case .df64IEEE: return "df64 mixed, IEEE storage"
         }
@@ -542,8 +631,10 @@ func precisionBlock(_ p: Precision, supportsDouble: Bool = true) -> String {
     #define convert_real4(x) (float4(x))
 
     """
-    if p == .single {
-        return real + """
+    if p == .single || p == .floatMixed {
+        // floatMixed: the mixed-precision code paths (posqCorrection traffic included) with mixed = float,
+        // the baseline that isolates the cost of df64 itself.
+        return (p == .floatMixed ? "#define USE_MIXED_PRECISION 1\n" : "") + real + """
         typedef float mixed;
         typedef float2 mixed2;
         typedef float3 mixed3;
@@ -849,7 +940,7 @@ final class System {
 
     func mixedBuffer(_ values: [Double]) -> MTLBuffer {
         switch precision {
-        case .single: return makeBuffer(values.map { Float($0) })
+        case .single, .floatMixed: return makeBuffer(values.map { Float($0) })
         case .df64Pairs: return makeBuffer(values.flatMap { d -> [Float] in let (h, l) = split(d); return [h, l] })
         case .df64IEEE: return makeBuffer(values)
         }
@@ -858,7 +949,7 @@ final class System {
     func mixedValues(_ name: String, _ count: Int) -> [Double] {
         let b = buffers[name]!
         switch precision {
-        case .single: return readBuffer(b, count, as: Float.self).map { Double($0) }
+        case .single, .floatMixed: return readBuffer(b, count, as: Float.self).map { Double($0) }
         case .df64Pairs: let f = readBuffer(b, 2 * count, as: Float.self); return (0..<count).map { value(f[2 * $0], f[2 * $0 + 1]) }
         case .df64IEEE: return readBuffer(b, count, as: Double.self)
         }
@@ -875,20 +966,19 @@ final class System {
         enc.dispatchThreads(MTLSize(width: threads, height: 1, depth: 1), threadsPerThreadgroup: MTLSize(width: 64, height: 1, depth: 1))
     }
 
-    // GPU seconds per repetition of `kernels`, median of `trials` command buffers of `reps` repetitions each.
-    func time(_ kernels: [Kernel], reps: Int, trials: Int) -> Double {
-        var samples = [Double]()
-        for trial in 0...trials {
-            let cb = queue.makeCommandBuffer()!
-            let enc = cb.makeComputeCommandEncoder()!
-            for _ in 0..<reps { for k in kernels { encode(enc, k) } }
-            enc.endEncoding()
-            commit(cb)
-            if trial > 0 { samples.append((cb.gpuEndTime - cb.gpuStartTime) / Double(reps)) }
-        }
-        return median(samples)
+    // GPU seconds per repetition of `kernels`, from one command buffer of `reps` repetitions.
+    func time(_ kernels: [Kernel], reps: Int) -> Double {
+        let cb = queue.makeCommandBuffer()!
+        let enc = cb.makeComputeCommandEncoder()!
+        for _ in 0..<reps { for k in kernels { encode(enc, k) } }
+        enc.endEncoding()
+        commit(cb)
+        return (cb.gpuEndTime - cb.gpuStartTime) / Double(reps)
     }
 }
+
+let timingReps = 200
+let timingRounds = 21
 
 let integrators: [(String, String, [String])] = [
     ("Verlet", "verlet.cc", ["integrateVerletPart1", "integrateVerletPart2"]),
@@ -901,7 +991,7 @@ func runTiming() {
     let before = busyProcesses()
     print("Build processes before timing (pgrep ninja|clang|cc1plus): \(before.isEmpty ? "none" : before)")
     print("")
-    print("Clock: GPU, MTLCommandBuffer gpuEndTime - gpuStartTime, one compute encoder per command buffer holding 200 repetitions, median of 5 command buffers after one warm-up. One thread per atom, 64-thread threadgroups. Kernels are the unmodified Common sources through the lab prelude and the 005 rewrites.")
+    print("Clock: GPU, MTLCommandBuffer gpuEndTime - gpuStartTime, one compute encoder per command buffer. One thread per atom, 64-thread threadgroups. Kernels are the unmodified Common sources through the lab prelude and the 005 rewrites. Variants: single (real = mixed = float, no USE_MIXED_PRECISION); float mixed (USE_MIXED_PRECISION with mixed = float, so posqCorrection is read and written; no SUPPORTS_DOUBLE_PRECISION); df64 pairs and df64 IEEE (USE_MIXED_PRECISION and SUPPORTS_DOUBLE_PRECISION, mixed = df64).")
     print("")
     let libraries = Dictionary(uniqueKeysWithValues: Precision.allCases.map { p in
         (p, integrators.map { makeLibrary(composeProgram(rewriteKernelSignatures(readFile("\(kernelsDir)/\($0.1)")), p, defines: "")) })
@@ -952,23 +1042,51 @@ func runTiming() {
 
     print("### Time per call, µs (GPU clock)")
     print("")
-    print("| Integrator | Kernel | Atoms | single | df64 pairs | df64 IEEE | pairs / single | IEEE / single |")
-    print("| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+    print("Each cell is the median over \(timingRounds) rounds, with the interquartile range in brackets. A round measures every (variant, kernel) cell of one integrator and size once, as one command buffer of \(timingReps) repetitions, in a freshly shuffled order; one untimed round warms up first. Ratios are of medians, against float mixed.")
+    print("")
+    print("| Integrator | Kernel | Atoms | single | float mixed | df64 pairs | df64 IEEE | pairs / float mixed | IEEE / float mixed |")
+    print("| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    var order = SplitMix64(state: 0x15_5800)
+    var wholeVsSum = [String]()
     for atoms in [23_558, 173_112] {
         for (index, integrator) in integrators.enumerated() {
             let systems = Dictionary(uniqueKeysWithValues: Precision.allCases.map { ($0, System(n: atoms, precision: $0, seed: 0x15_5000)) })
             let kernels = Dictionary(uniqueKeysWithValues: Precision.allCases.map { p in (p, integrator.2.map { makeKernel(libraries[p]![index], $0) }) })
-            for (r, row) in (integrator.2 + ["whole step"]).enumerated() {
-                var t = [Precision: Double]()
-                for p in Precision.allCases {
+            let rows = integrator.2 + ["whole step"]
+            var cells = [(Precision, Int)]()
+            for p in Precision.allCases { for r in rows.indices { cells.append((p, r)) } }
+            var samples = [String: [Double]]()
+            for round in 0...timingRounds {
+                for i in stride(from: cells.count - 1, to: 0, by: -1) { cells.swapAt(i, Int(order.next() % UInt64(i + 1))) }
+                for (p, r) in cells {
                     let ks = r < integrator.2.count ? [kernels[p]![r]] : kernels[p]!
-                    t[p] = systems[p]!.time(ks, reps: 200, trials: 5) * 1e6
+                    let t = systems[p]!.time(ks, reps: timingReps) * 1e6
+                    if round > 0 { samples["\(p)/\(r)", default: []].append(t) }
                 }
-                let s = t[.single]!, a = t[.df64Pairs]!, b = t[.df64IEEE]!
-                print("| \(integrator.0) | \(row) | \(atoms) | \(String(format: "%.1f", s)) | \(String(format: "%.1f", a)) | \(String(format: "%.1f", b)) | \(String(format: "%.2f", a / s)) | \(String(format: "%.2f", b / s)) |")
             }
+            for (r, row) in rows.enumerated() {
+                var med = [Precision: Double](), text = [Precision: String]()
+                for p in Precision.allCases {
+                    let v = samples["\(p)/\(r)"]!.sorted()
+                    med[p] = median(v)
+                    text[p] = String(format: "%.1f [%.1f-%.1f]", med[p]!, percentile(v, 0.25), percentile(v, 0.75))
+                }
+                let base = med[.floatMixed]!
+                print("| \(integrator.0) | \(row) | \(atoms) | \(text[.single]!) | \(text[.floatMixed]!) | \(text[.df64Pairs]!) | \(text[.df64IEEE]!) | \(String(format: "%.2f", med[.df64Pairs]! / base)) | \(String(format: "%.2f", med[.df64IEEE]! / base)) |")
+            }
+            let ratios = Precision.allCases.map { p -> String in
+                let parts = integrator.2.indices.map { median(samples["\(p)/\($0)"]!) }.reduce(0, +)
+                return String(format: "%.2f", median(samples["\(p)/\(integrator.2.count)"]!) / parts)
+            }
+            wholeVsSum.append("| \(integrator.0) | \(atoms) | \(ratios.joined(separator: " | ")) |")
         }
     }
+    print("")
+    print("Whole step against the sum of its kernels timed alone (median / sum of medians). A kernel repeated alone rereads the same arrays; a ratio above 1 is consistent with more of them staying in the GPU caches than when the step's kernels alternate (cache residency is not measured here). The whole-step row is the figure to use.")
+    print("")
+    print("| Integrator | Atoms | single | float mixed | df64 pairs | df64 IEEE |")
+    print("| --- | ---: | ---: | ---: | ---: | ---: |")
+    wholeVsSum.forEach { print($0) }
     print("")
 
     // Cost of converting a velocity-sized array when device memory holds pairs.
@@ -976,20 +1094,22 @@ func runTiming() {
     let from = makePipeline(lib, "df64FromIEEE"), to = makePipeline(lib, "df64ToIEEE")
     print("### Bulk conversion of a velm-sized array (4 doubles per atom), µs (GPU clock)")
     print("")
+    print("Median [interquartile range] of \(timingRounds) command buffers of \(timingReps) in-place conversions each, after one warm-up.")
+    print("")
     print("| Atoms | Doubles | df64FromIEEE | df64ToIEEE |")
     print("| ---: | ---: | ---: | ---: |")
     for atoms in [23_558, 173_112] {
         let count = 4 * atoms
         var rng = SplitMix64(state: 0x15_6000)
         let buf = makeBuffer((0..<count).map { _ in rng.uniform(-3, 3).bitPattern })
-        var results = [Double]()
+        var results = [String]()
         for pso in [from, to] {
             var samples = [Double]()
-            for trial in 0...5 {
+            for trial in 0...timingRounds {
                 let cb = queue.makeCommandBuffer()!
                 let enc = cb.makeComputeCommandEncoder()!
                 var c = UInt32(count)
-                for _ in 0..<200 {
+                for _ in 0..<timingReps {
                     enc.setComputePipelineState(pso)
                     enc.setBuffer(buf, offset: 0, index: 0)
                     enc.setBytes(&c, length: 4, index: 1)
@@ -997,11 +1117,12 @@ func runTiming() {
                 }
                 enc.endEncoding()
                 commit(cb)
-                if trial > 0 { samples.append((cb.gpuEndTime - cb.gpuStartTime) / 200 * 1e6) }
+                if trial > 0 { samples.append((cb.gpuEndTime - cb.gpuStartTime) / Double(timingReps) * 1e6) }
             }
-            results.append(median(samples))
+            samples.sort()
+            results.append(String(format: "%.1f [%.1f-%.1f]", median(samples), percentile(samples, 0.25), percentile(samples, 0.75)))
         }
-        print("| \(atoms) | \(count) | \(String(format: "%.1f", results[0])) | \(String(format: "%.1f", results[1])) |")
+        print("| \(atoms) | \(count) | \(results[0]) | \(results[1]) |")
     }
     print("")
     let after = busyProcesses()
