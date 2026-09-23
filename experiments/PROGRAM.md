@@ -58,6 +58,5 @@ Validation protocol to adopt (P1-P6): User Guide 14 per-atom median force error 
 float-exact positions vs published CUDA; ubiquitin OBC NVE drift and OpenMM 7 DHFR drift protocol
 (10 x 1 ns); bitwise reproducibility across 10 contexts; per-chip ulp tables.
 
-REPORT FIX NEEDED: metal-report.html drift paragraph must not imply parity; absolute dhfr drift
-(-110 to -177 kJ/mol/ns) is 25-35x OpenMM 7's published mixed value and CPU drifts as much here,
-so it's protocol-limited. Reword at the next rebuild; claim nothing until P2 is run.
+Report drift paragraph now says the 0.1 ns runs measure protocol, not platform (no parity claim).
+Run P2 before claiming anything about drift.
