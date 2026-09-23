@@ -72,3 +72,6 @@ footer { margin-top:96px; border-top:1px solid var(--line); padding:28px 0 72px;
   ol.steps li { grid-template-columns:48px 1fr; } ol.steps i { grid-column:2; margin-top:8px; }
   table.prose td:first-child { width:auto; }
 }
+.draft { margin:18px 0 28px; padding:4px 0 4px 22px; border-left:2px solid var(--c, var(--line)); font:400 15px/1.62 var(--mono); color:var(--text); white-space:pre-wrap; overflow-wrap:anywhere; }
+.where { font:600 12px/1.4 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:36px 0 0; }
+.where b { color:var(--c, var(--text)); }
