@@ -35,6 +35,7 @@ All probes compile the MSL with the MetalContext.cpp options (MSL 3.1, `MathMode
 - `probes/largeforces.cpp`: testLargeForces verbatim (same SFMT seed, system and call), plus a dump of the initial forces and one line per minimizer iteration from a `MinimizationReporter`. Linked against the existing f9347f6c5 installs (mini `~/lab/qa-f934/prefix`, Studio `/tmp/openmm-metal-bench/prefix`).
 - `probes/fixedpoint-fix-metal.swift`, `probes/fixedpoint-fix-opencl.c`: run the current conversion and the proposed fix over 2^20 random float bit patterns covering the whole exponent range, plus NaN. Each result is compared with a host reference that truncates toward zero and saturates.
 - `probes/patch-metal.pl`: a same-length patch of the `common.metal` text embedded in a copy of `libOpenMMMetal.dylib`. It deletes the erf doc comment to make room for the saturating `realToFixedPoint`. The OpenCL copy was patched with a same-length perl substitution: `    return (long) (x * 0x100000000);` became ` return convert_long_sat(x*0x1p32f);`, and exactly 32 bytes differ. Both copies were re-signed ad hoc (`codesign -f -s -`) and loaded through `OPENMM_PLUGIN_DIR`. The installed prefix was not modified.
+- `lane/lane.sh`: the Studio driver for section 6. It builds the base and fix branches, runs CTest, and times fahwu, taking the lease separately for each step. `lane/fahwu.py` is an unmodified copy of `017-three-chips/fahwu.py`, so the Studio run has it next to the driver.
 
 Machines: Mac mini M2 (10 GPU cores), macOS 27.0 26A428, `~/lab/021-largeforces-m3`. Mac Studio M3 Ultra, macOS 27.2 26B5091g, `/tmp/openmm-metal-bench/021`. The M2 conversion, atomic and minimizer probes ran before the shared-lease rule existed; every later run on either machine held that machine's lease. Raw outputs are in `raw/`, prefixed `m2-` and `m3u-`. No GPU work ran on the laptop.
 
@@ -121,11 +122,46 @@ The fix changes no in-range value on either chip (0 in-range disagreements), and
 
 With the patch the initial forces read back as ±2.147483648e+09, exactly as on the M2.
 
+## 6. Fix branches, built and tested (M3 Ultra, `results-fix/`)
+
+Two branches in `openmm-metal`, not pushed:
+
+| Branch | Base | Commit | Change |
+| --- | --- | --- | --- |
+| `metal-fixed-point-sat` | `metal` 361452c5c | 556fbad21 | Saturating `realToFixedPoint` in `common.metal` (explicit compares), plus the common kernels. 6 files, +26/-21 |
+| `opencl-fixed-point-sat` | 3c9effc96, the merge-base of `metal` and upstream `master` | 0e0a66cfe | `convert_long_sat` in `common.cl`, plus the same common kernels. 6 files, +23/-21. This is the upstream fix for #5434 |
+
+Both branches route the five direct-cast sites in `platforms/common/src/kernels` through the platform's `realToFixedPoint`, so each branch has one helper. The sites are `customCppForce.cc`, `pythonForce.cc`, `minimize.cc` `getConstraintEnergyForces`, `atmforce.cc` and `customCentroidBond.cc`. The last two already hold fixed-point values. They scale back by 2^32 before the call, so the sum or the weighted value saturates instead of wrapping. The brief named f9347f6c5 as the merge-base, but that commit is on `metal`. The true merge-base with `origin/master` is 3c9effc96, so the OpenCL branch starts there.
+
+Each branch was exported with `git archive` to `/tmp/openmm-metal-bench/021/src` on the Studio, where `lane/lane.sh` built it. Every step held the Studio lease on its own, and the longest hold was 5 min 04 s. The embedded kernel sources were checked for the new `realToFixedPoint` and for 16 routed call sites in `CommonKernelSources.cpp` on `fix` and `oclfix`, with 0 on `base`.
+
+Host: Apple M3 Ultra, macOS 27.2 (26B5091g).
+
+| Run | Result | Wall time |
+| --- | --- | --- |
+| `ctest -R '^TestMetal.*Single$' -j 4` | **55/55 passed** | 206.30 s |
+| `ctest -R '^TestMetal.*Mixed$' -j 4` | **55/55 passed** | 303.74 s |
+| `TestOpenCL{LocalEnergyMinimizer,CustomCentroidBondForce,ATMForce}Single`, 3 runs | **3/3 passed each run** | 22.57, 16.23, 18.82 s |
+
+`TestMetalLocalEnergyMinimizerSingle` took 8.25 s and `TestMetalLocalEnergyMinimizerMixed` took 22.48 s. `TestOpenCLLocalEnergyMinimizerSingle` took 14.41, 14.42 and 16.95 s. Before the fix all three fail on this machine (section 2). The ATM, CustomCentroidBond and PythonForce tests also pass on Metal in both precisions. The last of these covers the `pythonForce.cc` kernels. The OpenCL build only compiled the three tests above, not the full OpenCL suite.
+
+Cost, from `results-fix/timing.jsonl`: `fahwu.py`, Metal single, 30 s per run. The clock is `fahwu.py`'s host wall clock (`time.perf_counter`) over whole steps. Base (361452c5c) and fix (556fbad21) were interleaved over 2 rounds, base first in round 1 and fix first in round 2.
+
+| WU | Round | base ns/day | fix ns/day | fix / base |
+| --- | --- | --- | --- | --- |
+| dhfr (23,558 atoms) | 1 | 126.70 | 126.43 | 0.998 |
+| dhfr | 2 | 128.27 | 128.79 | 1.004 |
+| nav (173,112 atoms) | 1 | 44.86 | 44.69 | 0.996 |
+| nav | 2 | 44.84 | 44.94 | 1.002 |
+| **mean** | | dhfr 127.48, nav 44.85 | dhfr 127.61, nav 44.82 | **dhfr 1.001, nav 0.999** |
+
+The fix costs nothing measurable. The fix/base ratio changes sign between rounds, and each difference is smaller than the 1.2-1.9% drift of a single variant between rounds. Energies and force errors against the reference match between base and fix on both WUs.
+
 ## Risks and follow-ups
 
-- **Other sites cast directly and bypass `realToFixedPoint`.** They hit the same wrap on M3: `minimize.cc:289-291` (`getConstraintEnergyForces`, `(mm_long)(kdr*scale*delta)`, which is relevant to minimizing with constraints and a stiff kRestraint), `customCppForce.cc:4-6`, `pythonForce.cc:13-24`, `customCentroidBond.cc:93-95` and `atmforce.cc:23-25`. The fix for #5434 only needs `realToFixedPoint`. Routing these sites through it, or through a shared saturating helper, is the complete fix for M3.
-- The fix is not built or tested through CTest. The patched-plugin runs use the test body verbatim, in `largeforces.cpp`, and not the CTest binary. The next check is a real build with the change, followed by `TestMetalLocalEnergyMinimizer{Single,Mixed}` and `TestOpenCLLocalEnergyMinimizerSingle` on an M3, plus the full Metal suite to catch regressions.
-- Performance of the Metal fix is unmeasured. It adds two compares and two selects per conversion in the nonbonded, bonded and PME force write-back. That should be small next to the 64-bit atomic that follows each conversion, but someone should time it.
+- **`minimize.cc` precision in mixed mode.** `getConstraintEnergyForces` used to scale in `mixed`. It now calls `realToFixedPoint`, which takes `real`. On Metal mixed and OpenCL mixed this narrows `kdr*delta` from df64/double to float before the conversion, which matches how every other force reaches the buffer. Double mode is unchanged, since `real` is double there. `TestMetalLocalEnergyMinimizerMixed` passes, but no test measures that precision directly.
+- `df64::operator long` (Metal mixed) is `(long)hi + (long)lo`, and it wraps in the same way. After this change no fixed-point path uses it. Any future caller needs the same saturation.
+- The fix is covered by the CTest binaries above, and before that by `largeforces.cpp`, which runs the test body verbatim on patched plugins (section 5). The full OpenCL suite was not run on either branch.
 - Saturation is only a signal. A saturated contribution plus other contributions to the same atom can still wrap in the 64-bit atomic sum, on every GPU. That is pre-existing upstream behaviour and not part of this issue.
 - The M3 Pro was not probed (owner's rule), so M3 Pro wrapping is inferred from its identical failure. The laptop can confirm it in 2 seconds with `conv-metal` whenever GPU use is allowed there again.
 - The probes cannot tell hardware from driver per-family code generation. One sign of software lowering on Apple9: 32-bit and unsigned 64-bit conversions saturate, and only signed 64-bit wraps. Either way the upstream fix is the same, since MSL and OpenCL C both leave out-of-range conversions undefined, apart from `convert_*_sat`.
