@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metal Platform PR</title>
+<!--css-->
+</head>
+<body>
+<main>
+<div class="eyebrow">Pull request draft · not posted</div>
+<h1>Add a Metal platform</h1>
+<p><span class="chip warn">Owner review required</span> <span class="chip">Related #5397</span> <span class="chip">See also #5416</span> <span class="chip">Build f9347f6c5</span></p>
+
+<div class="ai"><b>AI use:</b> built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. I have reviewed the code, I understand how it works, and I will answer review questions myself.</div>
+
+<p>This adds a native Metal platform for Apple GPUs. Like CUDA and HIP, it is a thin <code>ComputeContext</code> implementation on the common compute framework, and every common kernel compiles unchanged. It is plain C++ using metal-cpp, which is header-only and vendored. There is no Objective-C, and it builds without Xcode.</p>
+
+<div class="kpis">
+  <div class="kpi"><b>1.01–1.28×</b><span>Metal single vs OpenCL single, every work unit and chip</span></div>
+  <div class="kpi"><b>2.8–11×</b><span>Metal mixed vs CPU. Apple's OpenCL has no mixed precision</span></div>
+  <div class="kpi"><b>= OpenCL</b><span>force error vs Reference: 1.21e-6 on dhfr, 1.75e-6 on nav</span></div>
+  <div class="kpi"><b>6,557</b><span>lines in <code>platforms/metal/src</code>; HIP 5,760, CUDA 7,897, OpenCL 8,845</span></div>
+</div>
+
+<div class="two" style="margin-top:12px">
+  <div class="card"><h3>Command buffers</h3><p class="small">Kernels encode into one open command buffer, which is committed only when the host needs a result: <b>1.01</b> command buffers per step without a cutoff and <b>2.01</b> with PME (TestMetalCommandBatching).</p></div>
+  <div class="card"><h3>Precision</h3><p class="small">Single precision is native. Mixed precision uses float-float (df64) arithmetic, stored as IEEE doubles, so host code and array layouts are unchanged. A transcendental applied to a mixed value is a <b>compile error</b>, never a silent fallback to float. No double precision.</p></div>
+</div>
+
+<h2>Performance <span class="n">FAHBench · ns/day · host wall clock, whole steps · 60 s after a 200-step warm-up · mean of 3 rotated rounds</span></h2>
+<figure><!--fig:fah-throughput--><figcaption>Whiskers show ±1 sd over 3 rounds. The GPU standard deviation is under 1% in 19 of 27 cells and at most 4.3%.</figcaption></figure>
+<figure><!--fig:ratios--><figcaption>Left: Metal single against OpenCL single. The gain is largest on dhfr (PME). Right: Metal mixed against CPU.</figcaption></figure>
+
+<div class="scroll card" style="padding:4px 6px">
+<table>
+<thead><tr><th class="l">Work unit</th><th class="l">Chip</th><th>Metal single</th><th>OpenCL single</th><th>Ratio</th><th>Metal mixed</th><th>CPU</th></tr></thead>
+<tbody>
+<tr class="g"><td class="l">dhfr-implicit · 2,489</td><td class="l">M2 · 10 GPU cores</td><td>199.4</td><td>192.8</td><td>1.03</td><td>155.1</td><td>18.2</td></tr>
+<tr><td></td><td class="l">M3 Pro · 18</td><td>377.2</td><td>374.2</td><td>1.01</td><td>318.6</td><td>30.0</td></tr>
+<tr><td></td><td class="l">M3 Ultra · 60</td><td>624.8</td><td>598.2</td><td>1.04</td><td>464.2</td><td>42.3</td></tr>
+<tr class="g"><td class="l">dhfr, PME · 23,558</td><td class="l">M2</td><td>82.8</td><td>69.2</td><td><b>1.20</b></td><td>55.3</td><td>19.8</td></tr>
+<tr><td></td><td class="l">M3 Pro</td><td>134.6</td><td>108.1</td><td><b>1.25</b></td><td>98.9</td><td>29.3</td></tr>
+<tr><td></td><td class="l">M3 Ultra</td><td>135.2</td><td>105.7</td><td><b>1.28</b></td><td>102.5</td><td>28.8</td></tr>
+<tr class="g"><td class="l">nav, PME · 173,112</td><td class="l">M2</td><td>11.28</td><td>11.00</td><td>1.03</td><td>8.49</td><td>1.50</td></tr>
+<tr><td></td><td class="l">M3 Pro</td><td>21.16</td><td>20.98</td><td>1.01</td><td>15.93</td><td>2.49</td></tr>
+<tr><td></td><td class="l">M3 Ultra</td><td>45.13</td><td>44.76</td><td>1.01</td><td>36.42</td><td>4.81</td></tr>
+</tbody></table>
+</div>
+
+<figure><!--fig:scaling--><figcaption>Throughput plateaus with system size, and OpenCL (rings) plateaus at the same level. Per GPU core the M2 and M3 Pro are equal; the M3 Ultra reaches 68% of that. A step never goes below about 0.24 ms, so dhfr is too small to fill the Ultra.</figcaption></figure>
+
+<h2>Accuracy <span class="n">against Reference in double, at each work unit's start state</span></h2>
+<div class="two">
+  <figure><!--fig:accuracy--><figcaption>Every run on every chip. The points overlap: Metal single, Metal mixed and OpenCL agree to three digits. dhfr-implicit's 2.5e-5 comes from rounding positions to float on every GPU platform.</figcaption></figure>
+  <figure><!--fig:drift--><figcaption>NVE drift on dhfr over 0.1 ns, with ±1 naive standard error. CPU alone spans −53 to −160 across the three machines, so run-to-run variation dominates.</figcaption></figure>
+</div>
+<p class="small muted">Energy error is at most 2.2e-6. Against a host double closed form, df64 is within 7e-15 (single: 1.1e-7).</p>
+
+<h2>Changes outside <code>platforms/metal</code></h2>
+<div class="scroll card" style="padding:4px 6px">
+<table class="wrap">
+<tbody>
+<tr><td class="l"><code>CMakeLists.txt</code></td><td class="l">adds <code>OPENMM_BUILD_METAL_LIB</code>, on by default for arm64 macOS</td></tr>
+<tr><td class="l"><code>ComputeContext.h</code></td><td class="l"><code>doubleToString</code> is now virtual, for df64 constants. <b>ABI change:</b> plugins must be rebuilt</td></tr>
+<tr><td class="l">common kernels</td><td class="l">a <code>PRIVATE</code> address-space macro, empty on CUDA, OpenCL and HIP; <code>(mixed) 0</code> literals. Output is the same on the other platforms</td></tr>
+<tr><td class="l"><code>minimize.cc</code></td><td class="l">without 64-bit atomics, the nine <code>atomicAddMixed</code> kernels run as a single threadgroup; launches are unchanged elsewhere</td></tr>
+<tr><td class="l"><code>vkFFT.h</code></td><td class="l">fixes to the Metal backend, all inside <code>VKFFT_BACKEND==5</code></td></tr>
+<tr><td class="l">docs</td><td class="l">licenses (metal-cpp is Apache 2.0) and a user guide section</td></tr>
+</tbody></table>
+</div>
+
+<h2>Tests <span class="n"><code>ctest -R TestMetal</code> · 55 programs × single and mixed</span></h2>
+<div class="scroll card" style="padding:4px 6px">
+<table>
+<thead><tr><th class="l">Chip</th><th class="l">Suite</th><th class="l">testLargeForces · Metal</th><th class="l">testLargeForces · OpenCL, unmodified main</th><th class="l">Stochastic, passes on rerun</th></tr></thead>
+<tbody>
+<tr><td class="l">M2</td><td class="l"><span class="pill ok">109 / 110</span></td><td class="l"><span class="pill ok">pass</span></td><td class="l"><span class="pill ok">pass 3/3</span></td><td class="l">LangevinMiddle mixed</td></tr>
+<tr><td class="l">M3 Pro</td><td class="l"><span class="pill ok">107 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">fail 4/4</span></td><td class="l">Brownian mixed</td></tr>
+<tr><td class="l">M3 Ultra</td><td class="l"><span class="pill ok">108 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">fail 3/3</span></td><td class="l">none</td></tr>
+</tbody></table>
+</div>
+<p class="small muted"><code>testLargeForces</code> fails on unmodified main with OpenCL on M3 GPUs, so it predates this PR. It will be filed separately.</p>
+
+<h2>Limitations</h2>
+<div class="two">
+  <figure><!--fig:minimizer--><figcaption>Energy minimization on nav (173k atoms). Mixed reduces within a single threadgroup because there are no 64-bit atomics.</figcaption></figure>
+  <div class="card"><ul class="tight small">
+    <li>QTBIntegrator is single precision only.</li>
+    <li>There is one device per context, so the multi-device tests are skipped.</li>
+    <li>Requires macOS 15 or later and an Apple7 or newer GPU (M1 or later).</li>
+    <li>Not yet tested on M1 or M4 hardware, or with OpenMM's own benchmark suite.</li>
+  </ul></div>
+</div>
+</main>
+</body>
+</html>

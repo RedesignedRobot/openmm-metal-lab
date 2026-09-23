@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenMM Metal Benchmarks</title>
+<!--css-->
+</head>
+<body>
+<main>
+<div class="eyebrow">Lab report · 23 September 2026 · experiment 017</div>
+<h1>OpenMM on Apple GPUs: a native Metal platform on three chips</h1>
+<p class="muted">One build (f9347f6c5) and one harness, run on an M2, an M3 Pro and an M3 Ultra, all on macOS 27.0.</p>
+
+<div class="ai"><b>AI use:</b> built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. Every number on this page is generated from raw result files on the hardware named.</div>
+
+<div class="kpis">
+  <div class="kpi"><b>2.8–11×</b><span>Metal mixed vs the same Mac's CPU</span></div>
+  <div class="kpi"><b>1.01–1.28×</b><span>Metal single vs Apple OpenCL</span></div>
+  <div class="kpi"><b>11.7 M</b><span>atom·ns/day, M3 Ultra plateau</span></div>
+  <div class="kpi"><b>≤ 7e-15</b><span>df64 error against the host double closed form</span></div>
+</div>
+
+<h2>Path to Folding@home</h2>
+<div class="path">
+  <div class="step done"><b>Metal platform</b>built, tested, benchmarked<br><span class="chip" style="color:var(--ok)">done</span></div>
+  <div class="step"><b>OpenMM upstream</b>PR drafted; related #5397 and #5416<br><span class="chip warn">owner review</span></div>
+  <div class="step"><b>FAH GPU core</b>a signed build by the Folding@home team<br><span class="chip">not ours</span></div>
+  <div class="step"><b>FAH client</b>detect non-PCI GPUs (fah-client-bastet #303)<br><span class="chip">not ours</span></div>
+</div>
+
+<h2>Speed <span class="n">FAHBench work units · ns/day · host wall clock, whole steps · 3 rotated rounds × 60 s</span></h2>
+<figure><!--fig:fah-throughput--><figcaption>Whiskers: ±1 sd. Apple's OpenCL has no mixed precision, so Metal mixed is the only GPU route to Folding@home's precision.</figcaption></figure>
+<figure><!--fig:ratios--></figure>
+
+<h2>Scaling <span class="n">TIP3P water boxes, 2.7k–792k atoms · single 30 s run per point</span></h2>
+<figure><!--fig:scaling--></figure>
+<div class="two">
+  <figure><!--fig:step-time--><figcaption>Every chip hits the same per-step floor below ~10k atoms. It's a fixed cost that more cores can't remove.</figcaption></figure>
+  <figure><!--fig:per-core--><figcaption>The M2 and M3 Pro scale linearly per core. The M3 Ultra's two dies reach 68% of that, and OpenCL shows the same ceiling (11.52 vs 11.72).</figcaption></figure>
+</div>
+
+<h2>Accuracy <span class="n">against Reference in double</span></h2>
+<div class="two">
+  <figure><!--fig:accuracy--><figcaption>All runs on all chips overlap. The dhfr-implicit value is position rounding, and against Reference at the same rounded positions Metal is at ~4e-6.</figcaption></figure>
+  <figure><!--fig:drift--><figcaption>dhfr NVE, 0.1 ns, ±1 naive SE. There's no platform signal beyond the machine-to-machine spread CPU itself shows.</figcaption></figure>
+</div>
+<div class="scroll card" style="padding:4px 6px; margin-top:12px">
+<table>
+<thead><tr><th class="l">One VariableVerlet step vs host closed form</th><th>dt rel. error</th><th>position max error</th><th>velocity max rel. error</th></tr></thead>
+<tbody>
+<tr><td class="l">Metal mixed (df64)</td><td>1.1e-16</td><td>6.7e-15</td><td>4.5e-15</td></tr>
+<tr><td class="l">Metal single</td><td>5.1e-9</td><td>1.0e-7</td><td>1.1e-7</td></tr>
+</tbody></table>
+</div>
+
+<h2>Tests</h2>
+<div class="scroll card" style="padding:4px 6px">
+<table>
+<thead><tr><th class="l">Chip</th><th class="l">ctest -R TestMetal</th><th class="l">testLargeForces · Metal</th><th class="l">· OpenCL, unmodified main</th><th class="l">· Reference, CPU</th></tr></thead>
+<tbody>
+<tr><td class="l">M2 · 10 cores</td><td class="l"><span class="pill ok">109 / 110</span></td><td class="l"><span class="pill ok">pass</span></td><td class="l"><span class="pill ok">3/3 pass</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
+<tr><td class="l">M3 Pro · 18</td><td class="l"><span class="pill ok">107 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">4/4 fail</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
+<tr><td class="l">M3 Ultra · 60</td><td class="l"><span class="pill ok">108 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">3/3 fail</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
+</tbody></table>
+</div>
+<p class="small muted">The only repeatable failure is <code>testLargeForces</code> (TestLocalEnergyMinimizer.h:229). It is an upstream issue on M3 GPUs and fails on unmodified OpenMM with OpenCL. The other failures are stochastic tests that pass on rerun.</p>
+
+<h2>Limits</h2>
+<div class="two">
+  <figure><!--fig:minimizer--><figcaption>nav minimization. Mixed reduces within a single threadgroup: there are no 64-bit atomics.</figcaption></figure>
+  <div class="card"><ul class="tight small">
+    <li>No df64 transcendentals. Using one on a mixed value is a compile error, which Folding@home's path never triggers.</li>
+    <li>QTBIntegrator is single precision only. There is one GPU per context.</li>
+    <li>Requires macOS 15 or later and an M1 or newer GPU.</li>
+    <li>Not yet run: OpenMM's standard benchmark suite, and M1 or M4 hardware.</li>
+  </ul></div>
+</div>
+
+<h2>Method</h2>
+<div class="scroll card" style="padding:4px 6px">
+<table class="wrap"><tbody>
+<tr><td class="l">Build</td><td class="l"><code>git archive</code> of f9347f6c5 on each machine; source manifest sha256 matches. Apple clang 21.0.0, Release</td></tr>
+<tr><td class="l">Machines</td><td class="l">Mac mini M2 (10 GPU cores, 8 GB) · MacBook Pro M3 Pro (18, 36 GB) · Mac Studio M3 Ultra (60, 96 GB)</td></tr>
+<tr><td class="l">Timing</td><td class="l"><code>time.perf_counter</code> over whole steps; nice 0 enforced; configuration order rotated per round</td></tr>
+<tr><td class="l">Conditions</td><td class="l">M3 Pro round 1 on battery, the rest on AC. The M3 Ultra had a dictation app (~31% CPU) and 2 VMs running, so its CPU timings vary by up to 16%.</td></tr>
+<tr><td class="l">Data</td><td class="l">openmm-metal-lab · experiments/017-three-chips/results · figures from drafts/figures/build_figures.py</td></tr>
+</tbody></table>
+</div>
+</main>
+</body>
+</html>
