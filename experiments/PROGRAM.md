@@ -4,8 +4,9 @@ State file for the experiment program. Each lane lists its ranked experiments; s
 queued -> running -> measured -> verified. A gain counts only with an end-to-end measurement that
 names its clock and a fresh-context verifier pass.
 
-Machines: mini (M2, main test box), laptop (M3 Pro, free after 018), Studio (M3 Ultra, final
-benchmarks only, /tmp/openmm-metal-bench). One heavy job per machine: every build, GPU run or timed measurement
+Machines: mini (M2, main test box, `amir@100.80.58.31` over Tailscale) and Studio (M3 Ultra, only under
+/tmp/openmm-metal-bench). The laptop (M3 Pro) is the owner's working machine: edit code there, but no builds,
+GPU runs or timings (owner, 2026-09-23). M3 results come from the Studio. One heavy job per machine: every build, GPU run or timed measurement
 holds that machine's lease, `mkdir /tmp/openmm-lease` (owner line inside; released right after; never
 held while editing; stale after 60 min = ask the lead).
 
@@ -18,8 +19,8 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 
 | # | Experiment | Status |
 |---|---|---|
-| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | running (laptop, branch metal-fah-readiness) |
-| C2 | Mock FAH core loop: XML WU -> Metal mixed -> checkpointState.xml -> reload, bitwise continuity, FAH state tests vs Reference (dhfr, nav, TIP4P-Ew, >1M atoms) | running (laptop, exp 020) |
+| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | running (branch metal-fah-readiness; mini or Studio) |
+| C2 | Mock FAH core loop: XML WU -> Metal mixed -> checkpointState.xml -> reload, bitwise continuity, FAH state tests vs Reference (dhfr, nav, TIP4P-Ew, >1M atoms) | running (exp 020; mini or Studio) |
 | C3 | df64 sin/cos/pow/atan2/erf (QTB and CustomIntegrator in mixed) | queued |
 | C4 | Mixed minimizer two-pass reduction (nav mixed 264 s -> target <100 s on M2) | queued |
 | C5 | 31 buffer-slot limit: pack scalar args / argument buffers (CustomNonbonded >12 params, HIPPO 33 slots) | queued |
