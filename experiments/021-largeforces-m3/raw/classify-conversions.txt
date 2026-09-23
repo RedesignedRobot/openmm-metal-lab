@@ -1,0 +1,6 @@
+raw/m2-conversion-metal-fast.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 29/64, saturating 64/64
+raw/m2-conversion-metal-safe.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 29/64, saturating 64/64
+raw/m2-conversion-opencl.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 29/64, saturating 64/64
+raw/m3u-conversion-metal-fast.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 64/64, saturating 29/64
+raw/m3u-conversion-metal-safe.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 64/64, saturating 29/64
+raw/m3u-conversion-opencl.txt: 64 conversions ((long)(x*2^32) and (long)x); wrapping 64/64, saturating 29/64

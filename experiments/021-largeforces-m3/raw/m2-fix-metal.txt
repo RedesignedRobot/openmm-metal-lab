@@ -1,0 +1,4 @@
+device Apple M2, 1048576 non-NaN inputs (650419 whose fixed-point value fits in 64 bits)
+current (long)(x*2^32):  0 disagree with saturating reference (0 of them in range)
+saturated:               0 disagree with saturating reference (0 of them in range)
+NaN: current 0x0000000000000000, saturated 0x0000000000000000

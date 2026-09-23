@@ -1,0 +1,5 @@
+device Apple M3 Ultra, 1048576 non-NaN inputs (649564 whose fixed-point value fits in 64 bits)
+current (long)(x*2^32):  396953 disagree with saturating reference (0 of them in range)
+saturated:               0 disagree with saturating reference (0 of them in range)
+first current disagreement: x=0x7f800000 (inf) got 0x0000000000000000 want 0x7fffffffffffffff
+NaN: current 0x0000000000000000, saturated 0x0000000000000000
