@@ -10,7 +10,7 @@ py=$lab/venv/bin/python
 probe=${0:A:h}/ws_probe.py
 
 rm -rf $dir && mkdir -p $dir && cd $dir
-cp ${GPUS_JSON:-$lab/gpus-cache/gpus.json} gpus.json
+cp ${GPUS_JSON:-$lab/gpus-cache/gpus.json} gpus.json || { echo "no gpus.json, refusing to run (the client would fetch it from FAH)"; exit 1; }
 
 $bin --verbosity 5 --log log.txt \
   --assignment-servers 127.0.0.1 --api-server https://127.0.0.1 \
