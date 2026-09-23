@@ -1,8 +1,9 @@
 """Run OpenMM's own benchmark suite (examples/benchmarks/benchmark.py) on one Mac.
 
-usage: python run.py <python> <benchmark.py> <out-dir>
+usage: python run.py <python> <benchmark.py> <out-dir> [test,test,...]
   <python>        interpreter whose `openmm` is the f9347f6c5 install (Metal, OpenCL, CPU)
   <benchmark.py>  examples/benchmarks/benchmark.py from the same commit, unmodified
+  [tests]         optional subset of TESTS, comma separated, to rerun into a fresh out-dir
 Launch detached from sh at nice 0, as in experiment 017:
   sh -c "nohup python3 run.py ... > run.log 2>&1 &"
 
@@ -10,7 +11,8 @@ Clock: benchmark.py's own, host wall (datetime.now) over whole steps, 60 s per t
 20-step warm-up. Every (test, configuration) pair is a separate process with a timeout, so one
 slow minimization or an out-of-memory failure can't stop the rest. The configuration order
 rotates from test to test, so drift over the session spreads across configurations.
-AMOEBA tests are skipped: the Metal platform has no AMOEBA plugin.
+AMOEBA tests are skipped: the Metal platform has no AMOEBA plugin. amber20-dhfr reads a NetCDF
+restart file, so the interpreter needs scipy.
 """
 import json
 import os
@@ -36,6 +38,7 @@ def snapshot(out, label):
 
 def main():
     py, bench, out = sys.argv[1:4]
+    tests = sys.argv[4].split(",") if len(sys.argv) > 4 else TESTS
     if os.getpriority(os.PRIO_PROCESS, 0) != 0:
         sys.exit("not at nice 0; launch from sh, not zsh with &")
     if "Battery Power" in sh("pmset -g batt"):
@@ -46,7 +49,7 @@ def main():
                    "system_profiler SPDisplaysDataType | grep -E 'Chipset|Total Number of Cores'"))
         f.write(sh(f"{py} -c \"import openmm as m; print('openmm', m.__version__, m.version.git_revision)\""))
         f.write(sh(f"shasum -a 256 {bench}"))
-    for i, test in enumerate(TESTS):
+    for i, test in enumerate(tests):
         snapshot(out, test)
         for platform, precision in CONFIGS[i % 4:] + CONFIGS[:i % 4]:
             name = f"{test}-{platform}-{precision}"
