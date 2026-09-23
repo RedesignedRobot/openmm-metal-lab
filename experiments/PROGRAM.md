@@ -32,8 +32,22 @@ Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not
 | # | Experiment | Status |
 |---|---|---|
 | P0 | simd_ballot findInteractingBlocks in the platform (branch metal-simd-findblocks, exp 019) | running (mini) |
+| P1 | Instrumentation behind OPENMM_METAL_PROFILE: sync census (commits, finish, event waits, CCMA iterations), GPU busy/bubbles via completion handlers, per-kernel GPU time in a buffer-per-dispatch mode; dhfr, nav, dhfr-implicit, single and mixed | queued (agent writing code; machine when free) |
+| P2 | CCMA without drains: encode block k+1 before waiting on block k, read the flag from shared memory (bitwise identical; dhfr 1.1-1.6x est.) | queued, after P1 |
+| P3 | Attribute and fix the mixed-precision cost (unguarded df64 energy writes in bonded/GBSA, SETTLE/SHAKE in df64, CCMA iterations, IEEE decode) | queued, after P1 |
+| P4 | Defer the neighbor-list count wait one step with rollback on overflow (upstream-relevant) | queued |
+| P5 | Float-atomic PME spreading on Apple9+ only (~0.26 ms/step on Ultra; M2 slower) | queued |
+| P6 | Native SIMD nonbonded (exp 010) on Apple9+ | queued |
+| P7 | Per-chip grid and threadgroup sweep | queued |
+| P8 | Relaxed math with df64 kept safe via `#pragma METAL fp math_mode(safe)` | queued |
+| P9 | Overlap PME with nonbonded (concurrent encoder or second queue) | queued, needs P1 bubbles |
+| P10 | Non-blocking uploads | queued, only if P1 shows per-step uploads |
 
-Research report pending.
+The honest FAH bar: Metal MIXED vs OpenCL SINGLE (Apple OpenCL has no mixed). From 017, host clock:
+0.76-0.97x today (dhfr-implicit 0.78-0.85, dhfr 0.80-0.97, nav 0.76-0.81). dhfr runs 1.28 ms/step on
+both M3 Pro and M3 Ultra, so it's latency-bound (host syncs ~0.25 ms each). Rejected with evidence:
+Metal 4 for dispatch cost, ICB replay (no setBytes), untracked hazards, simdgroup_matrix, MPSGraph FFT
+(4-7x slower than VkFFT), MLX custom kernels, Metal 4 ML/tensors.
 
 ## Accuracy (research report 2026-09-23)
 
