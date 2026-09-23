@@ -33,7 +33,7 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 | C6 | Drude and RPMD Metal plugins (thin glue, port OpenCL tests) | queued |
 | C7 | AMOEBA/HIPPO plugin (PRIVATE sweep + glue; after C5) | queued |
 | C8 | Packaging: conda-forge osx-arm64 toolchain, runtime gate on older macOS | queued |
-| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | running (mini, branch metal-hipdelta; stops after stage 2) |
+| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stopped after stage 2, waiting for the lead: 731 added lines, 54/54 Single tests, benchmark.py 1.00 to 1.19 of `metal` on the M2 (mini, branch metal-hipdelta aa7464387) |
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
 

@@ -1,0 +1,40 @@
+file                                            added removed
+src/MetalArray.cpp                                 35      61
+src/MetalContext.cpp                              357     534
+src/MetalEvent.cpp                                 26      11
+src/MetalFFT3D.cpp                                 60     106
+src/MetalIntegrationUtilities.cpp                  17      48
+src/MetalKernel.cpp                                53      26
+src/MetalKernelFactory.cpp                         46      79
+src/MetalKernels.cpp                               24      52
+src/MetalKernelSources.cpp.in                       1       0
+src/MetalKernelSources.h.in                         2       1
+src/MetalNonbondedUtilities.cpp                   283     300
+src/MetalPlatform.cpp                              46     171
+src/MetalProgram.cpp                                8       4
+src/MetalQueue.cpp                                 86      11
+src/MetalSort.cpp                                  77      56
+src/kernels/common.metal                          119      40
+src/kernels/findInteractingBlocks.metal           181     431
+src/kernels/nonbonded.metal                       196     306
+src/kernels/sort.metal                            119     174
+include/MetalArray.h                               16      15
+include/MetalContext.h                             84     280
+include/MetalEvent.h                               16      15
+include/MetalFFT3D.h                               18      30
+include/MetalIntegrationUtilities.h                 2       6
+include/MetalKernel.h                              28       9
+include/MetalKernelFactory.h                        1       0
+include/MetalKernels.h                              8      12
+include/MetalNonbondedUtilities.h                  26      32
+include/MetalPlatform.h                            13      43
+include/MetalProgram.h                             10       5
+include/MetalQueue.h                               60      13
+include/MetalSort.h                                 6      10
+
+metal-only file                                 lines
+src/kernels/df64.metal                            683
+src/kernels/utilities.metal                        14
+
+added lines in shared files                      2024
+lines in metal-only files                         697
