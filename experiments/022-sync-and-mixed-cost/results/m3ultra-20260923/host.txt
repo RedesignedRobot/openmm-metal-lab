@@ -1,5 +1,5 @@
 == ctest p2 Single nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -14,29 +14,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T16:30:25Z ctest p2 Single
-19:30  up  2:44, 2 users, load averages: 5.95 4.97 4.63
+load averages: 5.95 4.97 4.63
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 11.9
-com.apple.Virtua 11.8
-top              8.2 
-kernel_task      5.1 
-WindowServer     3.4 
-iStat Menus Menu 3.1 
 == 2026-09-23T16:30:26Z end ctest
-19:30  up  2:44, 2 users, load averages: 5.95 4.97 4.63
+load averages: 5.95 4.97 4.63
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 12.5
-com.apple.Virtua 11.3
-top              9.2 
-kernel_task      5.0 
-powermetrics     4.3 
-WindowServer     3.9 
 == ctest p2 Mixed nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -51,29 +39,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T16:31:28Z ctest p2 Mixed
-19:31  up  2:45, 2 users, load averages: 3.41 4.40 4.44
+load averages: 3.41 4.40 4.44
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 13.8
-com.apple.Virtua 11.6
-top              8.6 
-kernel_task      5.4 
-powermetrics     3.9 
-WindowServer     3.4 
 == 2026-09-23T16:38:42Z end ctest
-19:38  up  2:53, 2 users, load averages: 3.66 5.04 4.91
+load averages: 3.66 5.04 4.91
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 17.8
-com.apple.Virtua 11.1
-top              9.3 
-kernel_task      5.3 
-powermetrics     4.4 
-iStat Menus Menu 3.0 
 == ctest p3 Single nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -88,29 +64,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T16:39:43Z ctest p3 Single
-19:39  up  2:54, 2 users, load averages: 2.45 4.42 4.69
+load averages: 2.45 4.42 4.69
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 14.7
-com.apple.Virtua 10.2
-top              8.2 
-powermetrics     4.4 
-kernel_task      3.8 
-iStat Menus Menu 3.6 
 == 2026-09-23T16:43:16Z end ctest
-19:43  up  2:57, 2 users, load averages: 2.67 3.81 4.38
+load averages: 2.67 3.81 4.38
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 25.4
-com.apple.Virtua 15.6
-top              9.2 
-kernel_task      4.8 
-WindowServer     3.0 
-2.1.280          3.0 
 == ctest p3 Mixed nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -125,29 +89,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T16:44:17Z ctest p3 Mixed
-19:44  up  2:58, 2 users, load averages: 1.94 3.39 4.18
+load averages: 1.94 3.39 4.18
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-com.apple.Virtua 13.7
-top              9.2 
-com.apple.Virtua 8.1 
-kernel_task      4.8 
-powermetrics     4.3 
-2.1.280          2.3 
 == 2026-09-23T16:48:45Z end ctest
-19:48  up  3:03, 2 users, load averages: 3.01 3.58 4.09
+load averages: 3.01 3.58 4.09
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-2.1.280          15.5
-com.apple.Virtua 13.1
-top              8.8 
-com.apple.Virtua 8.2 
-WindowServer     8.0 
-kernel_task      6.5 
 == bits base p2 p3 p2p3 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -162,29 +114,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T16:49:47Z bits
-19:49  up  3:04, 2 users, load averages: 3.61 3.72 4.10
+load averages: 3.61 3.72 4.10
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             146.8
-kernel_task      33.9 
-bird             29.3 
-com.apple.Virtua 19.3 
-top              7.8  
-ContainerMetadat 5.6  
 == 2026-09-23T16:50:44Z end bits
-19:50  up  3:05, 2 users, load averages: 7.69 4.89 4.51
+load averages: 7.69 4.89 4.51
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-fseventsd        112.3
-cloudd           90.2 
-io.tailscale.ipn 53.3 
-kernel_task      30.3 
-superwhisper     23.2 
-Finder           22.3 
 == bits base p2 p3 p2p3 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -199,29 +139,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:03:26Z bits
-20:03  up  3:17, 2 users, load averages: 5.23 6.56 5.90
+load averages: 5.23 6.56 5.90
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     28.8
-com.apple.Virtua 11.4
-com.apple.Virtua 10.2
-top              8.9 
-kernel_task      6.3 
-WindowServer     4.5 
 == 2026-09-23T17:05:47Z end bits
-20:05  up  3:20, 2 users, load averages: 3.33 5.16 5.42
+load averages: 3.33 5.16 5.42
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     25.7
-com.apple.Virtua 12.3
-com.apple.Virtua 10.2
-top              9.3 
-kernel_task      6.3 
-2.1.280          5.0 
 == energy base p2 p3 p2p3 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -236,29 +164,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:07:00Z energy
-20:07  up  3:21, 2 users, load averages: 3.21 4.67 5.21
+load averages: 3.21 4.67 5.21
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-textunderstandin 44.5
-TGOnDeviceInfere 30.4
-kernel_task      25.7
-superwhisper     21.8
-mediaanalysisd   21.6
-com.apple.Virtua 11.8
 == 2026-09-23T17:07:51Z end energy
-20:07  up  3:22, 2 users, load averages: 5.46 5.21 5.38
+load averages: 5.46 5.21 5.38
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-mediaanalysisd   66.7
-com.apple.Virtua 32.5
-superwhisper     22.1
-kernel_task      16.0
-com.apple.Virtua 9.1 
-top              7.4 
 == energy base p2 p3 p2p3 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -273,18 +189,12 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:08:04Z energy
-20:08  up  3:22, 2 users, load averages: 4.77 5.07 5.33
+load averages: 4.77 5.07 5.33
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-mediaanalysisd   121.3
-superwhisper     22.3 
-kernel_task      12.2 
-com.apple.Virtua 9.1  
-top              9.0  
-com.apple.Virtua 8.9  
 == ctest p2 Single nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -299,29 +209,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:08:52Z ctest p2 Single
-20:08  up  3:23, 2 users, load averages: 4.97 5.19 5.37
+load averages: 4.97 5.19 5.37
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-textunderstandin 55.6
-mediaanalysisd   22.3
-superwhisper     19.5
-com.apple.Virtua 13.4
-kernel_task      9.2 
-com.apple.Virtua 8.9 
 == 2026-09-23T17:12:10Z end ctest
-20:12  up  3:26, 2 users, load averages: 6.70 6.53 5.92
+load averages: 6.70 6.53 5.92
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-runningboardd    60.5
-PerfPowerService 42.6
-superwhisper     26.4
-TGOnDeviceInfere 23.7
-analyticsd       15.1
-com.apple.Virtua 13.9
 == p1 base-prof nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -336,29 +234,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:13:12Z p1 dhfr
-20:13  up  3:27, 2 users, load averages: 3.68 5.67 5.64
+load averages: 3.68 5.67 5.64
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-mediaanalysisd   78.3
-textunderstandin 47.6
-superwhisper     23.0
-com.apple.Virtua 12.2
-kernel_task      11.4
-com.apple.Virtua 10.3
 == 2026-09-23T17:16:46Z end p1
-20:16  up  3:31, 2 users, load averages: 11.19 6.63 5.92
+load averages: 11.19 6.63 5.92
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             98.9
-TGOnDeviceInfere 25.0
-superwhisper     24.2
-mds_stores       16.8
-mediaanalysisd   11.8
-codex            10.9
 == p1 base-prof nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -373,29 +259,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:17:48Z p1 nav
-20:17  up  3:32, 2 users, load averages: 6.12 6.06 5.76
+load averages: 6.12 6.06 5.76
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-mediaanalysisd   97.4
-node             41.7
-textunderstandin 24.7
-superwhisper     18.6
-com.apple.Virtua 12.0
-kernel_task      11.8
 == 2026-09-23T17:22:33Z end p1
-20:22  up  3:36, 2 users, load averages: 5.16 5.20 5.39
+load averages: 5.16 5.20 5.39
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-textunderstandin 55.8
-mediaanalysisd   54.2
-node             38.9
-superwhisper     20.8
-kernel_task      15.6
-bun              13.7
 == p1 base-prof nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -410,29 +284,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:23:35Z p1 dhfr-implicit
-20:23  up  3:37, 2 users, load averages: 3.77 4.81 5.23
+load averages: 3.77 4.81 5.23
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             93.9
-mediaanalysisd   68.6
-superwhisper     19.1
-node             18.4
-textunderstandin 14.6
-kernel_task      13.8
 == 2026-09-23T17:26:41Z end p1
-20:26  up  3:41, 2 users, load averages: 7.73 5.96 5.59
+load averages: 7.73 5.96 5.59
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             59.6
-textunderstandin 54.3
-mediaanalysisd   54.3
-bun              25.0
-bun              21.2
-bun              21.0
 == runs census p2-prof:dhfr:single:Metal:1 p2-prof:dhfr:mixed:Metal:1 p2-prof:nav:single:Metal:1 p2-prof:nav:mixed:Metal:1 p3-prof:dhfr:single:Metal:kernels p3-prof:dhfr:mixed:Metal:kernels p3-prof:nav:single:Metal:kernels p3-prof:nav:mixed:Metal:kernels nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -447,29 +309,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:31:43Z runs census round 1
-20:31  up  3:46, 2 users, load averages: 11.85 9.83 7.38
+load averages: 11.85 9.83 7.38
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             102.3
-superwhisper     24.4 
-kernel_task      8.7  
-com.apple.Virtua 8.4  
-top              7.0  
-com.apple.Virtua 3.4  
 == 2026-09-23T17:37:20Z end runs
-20:37  up  3:51, 2 users, load averages: 5.78 7.14 6.87
+load averages: 5.78 7.14 6.87
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-bun              31.1
-superwhisper     22.2
-kernel_task      11.5
-com.apple.Virtua 11.5
-bun              10.5
-top              7.5 
 == runs time base:dhfr:single:Metal:0 base:dhfr:mixed:Metal:0 p2:dhfr:single:Metal:0 p2:dhfr:mixed:Metal:0 p3:dhfr:single:Metal:0 p3:dhfr:mixed:Metal:0 p2p3:dhfr:single:Metal:0 p2p3:dhfr:mixed:Metal:0 shared:dhfr:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -484,29 +334,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:44:22Z runs time round 1
-20:44  up  3:58, 2 users, load averages: 3.96 5.77 6.34
+load averages: 3.96 5.77 6.34
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     28.5
-com.apple.Virtua 14.5
-com.apple.Virtua 12.9
-node             9.1 
-top              9.1 
-kernel_task      6.9 
 == 2026-09-23T17:54:16Z end runs
-20:54  up  4:08, 2 users, load averages: 2.81 4.20 5.24
+load averages: 2.81 4.20 5.24
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     30.3
-WindowServer     19.8
-com.apple.Virtua 15.8
-2.1.280          12.7
-com.apple.Virtua 11.5
-top              9.0 
 == runs time base:nav:single:Metal:0 base:nav:mixed:Metal:0 p2:nav:single:Metal:0 p2:nav:mixed:Metal:0 p3:nav:single:Metal:0 p3:nav:mixed:Metal:0 p2p3:nav:single:Metal:0 p2p3:nav:mixed:Metal:0 shared:nav:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -521,29 +359,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T17:55:17Z runs time round 1
-20:55  up  4:09, 2 users, load averages: 3.10 4.07 5.12
+load averages: 3.10 4.07 5.12
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             93.5
-superwhisper     24.7
-com.apple.Virtua 12.5
-WindowServer     8.9 
-top              6.9 
-kernel_task      6.3 
 == 2026-09-23T18:06:59Z end runs
-21:06  up  4:21, 2 users, load averages: 4.14 3.43 4.09
+load averages: 4.14 3.43 4.09
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             100.5
-superwhisper     25.2 
-launchd          13.0 
-com.apple.Virtua 10.0 
-top              7.2  
-kernel_task      6.0  
 == runs time base:dhfr-implicit:single:Metal:0 base:dhfr-implicit:mixed:Metal:0 p2:dhfr-implicit:single:Metal:0 p2:dhfr-implicit:mixed:Metal:0 p3:dhfr-implicit:single:Metal:0 p3:dhfr-implicit:mixed:Metal:0 p2p3:dhfr-implicit:single:Metal:0 p2p3:dhfr-implicit:mixed:Metal:0 shared:dhfr-implicit:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -558,29 +384,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T18:19:21Z runs time round 1
-21:19  up  4:33, 2 users, load averages: 8.75 7.97 6.28
+load averages: 8.75 7.97 6.28
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     22.7
-bun              21.2
-node             17.2
-com.apple.Virtua 10.9
-kernel_task      9.7 
-WindowServer     8.8 
 == 2026-09-23T18:28:29Z end runs
-21:28  up  4:42, 2 users, load averages: 7.06 7.81 6.91
+load averages: 7.06 7.81 6.91
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             40.4
-superwhisper     24.3
-WindowServer     13.5
-launchd          10.7
-com.apple.Virtua 9.1 
-top              7.7 
 == runs time base:nav:single:Metal:0 base:nav:mixed:Metal:0 p2:nav:single:Metal:0 p2:nav:mixed:Metal:0 p3:nav:single:Metal:0 p3:nav:mixed:Metal:0 p2p3:nav:single:Metal:0 p2p3:nav:mixed:Metal:0 shared:nav:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -595,29 +409,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T18:29:31Z runs time round 2
-21:29  up  4:43, 2 users, load averages: 4.33 6.84 6.61
+load averages: 4.33 6.84 6.61
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             93.9
-launchd          46.5
-kernel_task      36.1
-superwhisper     26.7
-com.apple.Virtua 9.2 
-top              8.1 
 == 2026-09-23T18:41:13Z end runs
-21:41  up  4:55, 4 users, load averages: 15.43 7.46 6.19
+load averages: 15.43 7.46 6.19
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-bun              130.3
-bun              126.7
-bun              119.7
-bun              118.4
-bun              116.5
-bun              115.1
 == runs time base:dhfr-implicit:single:Metal:0 base:dhfr-implicit:mixed:Metal:0 p2:dhfr-implicit:single:Metal:0 p2:dhfr-implicit:mixed:Metal:0 p3:dhfr-implicit:single:Metal:0 p3:dhfr-implicit:mixed:Metal:0 p2p3:dhfr-implicit:single:Metal:0 p2p3:dhfr-implicit:mixed:Metal:0 shared:dhfr-implicit:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -632,29 +434,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T18:42:15Z runs time round 2
-21:42  up  4:56, 4 users, load averages: 9.80 7.58 6.34
+load averages: 9.80 7.58 6.34
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     29.7
-WindowServer     16.6
-com.apple.Virtua 12.3
-kernel_task      9.5 
-top              8.6 
-com.apple.Virtua 8.5 
 == 2026-09-23T18:51:23Z end runs
-21:51  up  5:05, 4 users, load averages: 6.02 7.65 6.72
+load averages: 6.02 7.65 6.72
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     28.1
-com.apple.Virtua 25.6
-WindowServer     15.2
-kernel_task      9.5 
-2.1.280          9.2 
-top              9.2 
 == runs time base:dhfr:single:Metal:0 base:dhfr:mixed:Metal:0 p2:dhfr:single:Metal:0 p2:dhfr:mixed:Metal:0 p3:dhfr:single:Metal:0 p3:dhfr:mixed:Metal:0 p2p3:dhfr:single:Metal:0 p2p3:dhfr:mixed:Metal:0 shared:dhfr:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -669,29 +459,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T18:52:25Z runs time round 2
-21:52  up  5:06, 3 users, load averages: 4.54 6.88 6.49
+load averages: 4.54 6.88 6.49
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-backupd          340.0
-node             93.8 
-kernel_task      31.9 
-superwhisper     25.2 
-com.apple.Virtua 18.8 
-lsd              18.2 
 == 2026-09-23T19:02:17Z end runs
-22:02  up  5:16, 3 users, load averages: 3.45 4.46 5.35
+load averages: 3.45 4.46 5.35
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-backupd          31.8
-kernel_task      31.0
-superwhisper     29.4
-com.apple.Virtua 14.4
-com.apple.Virtua 9.7 
-top              8.9 
 == runs time base:dhfr-implicit:single:Metal:0 base:dhfr-implicit:mixed:Metal:0 p2:dhfr-implicit:single:Metal:0 p2:dhfr-implicit:mixed:Metal:0 p3:dhfr-implicit:single:Metal:0 p3:dhfr-implicit:mixed:Metal:0 p2p3:dhfr-implicit:single:Metal:0 p2p3:dhfr-implicit:mixed:Metal:0 shared:dhfr-implicit:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -706,29 +484,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:03:18Z runs time round 3
-22:03  up  5:17, 3 users, load averages: 3.50 4.23 5.19
+load averages: 3.50 4.23 5.19
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-backupd          138.1
-kernel_task      32.4 
-superwhisper     28.0 
-com.apple.Virtua 14.6 
-WindowServer     9.4  
-top              9.2  
 == 2026-09-23T19:12:26Z end runs
-22:12  up  5:26, 3 users, load averages: 3.06 3.55 4.46
+load averages: 3.06 3.55 4.46
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-kernel_task      29.1
-superwhisper     26.3
-com.apple.Virtua 11.7
-com.apple.Virtua 10.7
-top              9.3 
-2.1.280          6.5 
 == runs time base:dhfr:single:Metal:0 base:dhfr:mixed:Metal:0 p2:dhfr:single:Metal:0 p2:dhfr:mixed:Metal:0 p3:dhfr:single:Metal:0 p3:dhfr:mixed:Metal:0 p2p3:dhfr:single:Metal:0 p2p3:dhfr:mixed:Metal:0 shared:dhfr:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -743,29 +509,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:13:27Z runs time round 3
-22:13  up  5:27, 3 users, load averages: 3.58 3.58 4.41
+load averages: 3.58 3.58 4.41
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     44.1
-WindowServer     26.0
-kernel_task      18.8
-com.apple.Virtua 12.8
-com.apple.Virtua 9.4 
-top              8.8 
 == 2026-09-23T19:23:20Z end runs
-22:23  up  5:37, 3 users, load averages: 5.32 5.25 4.86
+load averages: 5.32 5.25 4.86
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-kernel_task      34.8
-superwhisper     30.5
-WindowServer     11.7
-top              8.8 
-com.apple.Virtua 8.4 
-2.1.280          8.3 
 == runs time base:nav:single:Metal:0 base:nav:mixed:Metal:0 p2:nav:single:Metal:0 p2:nav:mixed:Metal:0 p3:nav:single:Metal:0 p3:nav:mixed:Metal:0 p2p3:nav:single:Metal:0 p2p3:nav:mixed:Metal:0 shared:nav:single:OpenCL:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -780,29 +534,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:24:21Z runs time round 3
-22:24  up  5:38, 3 users, load averages: 3.50 4.79 4.71
+load averages: 3.50 4.79 4.71
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-kernel_task      33.4
-superwhisper     30.2
-com.apple.Virtua 10.8
-com.apple.Virtua 10.1
-top              9.0 
-backupd          8.0 
 == 2026-09-23T19:36:00Z end runs
-22:36  up  5:50, 2 users, load averages: 4.35 3.54 3.92
+load averages: 4.35 3.54 3.92
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-knowledgeconstru 90.7
-spotlightknowled 90.3
-superwhisper     31.8
-kernel_task      31.0
-WindowServer     13.6
-com.apple.Virtua 10.6
 == runs ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -817,29 +559,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:38:02Z runs ab round 1
-22:38  up  5:52, 2 users, load averages: 5.23 4.11 4.09
+load averages: 5.23 4.11 4.09
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-backupd          171.0
-spotlightknowled 88.6 
-superwhisper     30.5 
-SystemUIServer   17.5 
-com.apple.Virtua 14.1 
-kernel_task      12.9 
 == 2026-09-23T19:44:26Z end runs
-22:44  up  5:58, 2 users, load averages: 9.27 9.57 6.90
+load averages: 9.27 9.57 6.90
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-spotlightknowled 77.9
-backupd          63.7
-node             63.1
-node             62.8
-node             62.8
-node             62.7
 == runs ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -854,29 +584,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:45:28Z runs ab round 2
-22:45  up  5:59, 2 users, load averages: 10.44 10.01 7.26
+load averages: 10.44 10.01 7.26
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-spotlightknowled 88.7
-com.apple.Virtua 31.1
-limactl          27.3
-superwhisper     26.4
-backupd          22.3
-kernel_task      17.3
 == 2026-09-23T19:51:51Z end runs
-22:51  up  6:06, 2 users, load averages: 15.11 8.91 7.33
+load averages: 15.11 8.91 7.33
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-backupd          164.9
-bun              122.4
-bun              116.4
-bun              116.4
-bun              115.4
-bun              114.9
 == runs ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -891,29 +609,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T19:52:53Z runs ab round 3
-22:52  up  6:07, 2 users, load averages: 11.01 8.88 7.43
+load averages: 11.01 8.88 7.43
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             94.8
-superwhisper     26.1
-kernel_task      19.9
-node             8.6 
-top              7.6 
-backupd          4.2 
 == 2026-09-23T19:59:17Z end runs
-22:59  up  6:13, 2 users, load averages: 5.82 6.40 6.65
+load averages: 5.82 6.40 6.65
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-node             57.7
-bun              45.9
-backupd          32.0
-kernel_task      27.1
-superwhisper     26.8
-WindowServer     9.2 
 == runs p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -929,29 +635,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T20:15:36Z runs p3diag round 1
-23:15  up  6:29, 1 user, load averages: 2.07 3.15 4.63
+load averages: 2.07 3.15 4.63
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     20.7
-com.apple.Virtua 17.4
-com.apple.Virtua 14.9
-top              8.9 
-kernel_task      6.7 
-runningboardd    4.0 
 == 2026-09-23T20:18:00Z end runs
-23:18  up  6:32, 1 user, load averages: 3.84 3.72 4.63
+load averages: 3.84 3.72 4.63
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     19.4
-history          18.2
-launchd          11.1
-com.apple.Virtua 10.1
-com.apple.Virtua 9.7 
-top              9.0 
 == runs p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -967,29 +661,17 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T20:27:21Z runs p3diag round 2
-23:27  up  6:41, 1 user, load averages: 3.50 4.45 4.73
+load averages: 3.50 4.45 4.73
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     19.3
-com.apple.Virtua 14.3
-com.apple.Virtua 11.9
-top              9.1 
-kernel_task      6.1 
-powermetrics     4.2 
 == 2026-09-23T20:29:44Z end runs
-23:29  up  6:44, 1 user, load averages: 2.52 4.00 4.52
+load averages: 2.52 4.00 4.52
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     21.6
-com.apple.Virtua 11.0
-com.apple.Virtua 9.9 
-top              8.8 
-kernel_task      6.6 
-powermetrics     4.4 
 == runs p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1 nice 0
-Darwin MAS-Mac-Studio-Ultra.local 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
+Darwin 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:47:24 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6031 arm64
 ProductName:		macOS
 ProductVersion:		27.2
 BuildVersion:		26B5091g
@@ -1005,24 +687,12 @@ p3: fab2a3ee3ae8c3918a6e0f099d9e4c1d7ed42dd6
 p3-prof: 4c1c8b3967c4c6134540dda3329dc8ad3fc0a20c
 shared: f9347f6c5619613c1b7169dc42c7aab1ba0912c0 (shared 018 install: /tmp/openmm-metal-bench/prefix, python module from src/build; used for OpenCL only)
 == 2026-09-23T20:30:05Z runs p3diag round 3
-23:30  up  6:44, 1 user, load averages: 2.24 3.83 4.45
+load averages: 2.24 3.83 4.45
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     23.1
-com.apple.Virtua 13.6
-com.apple.Virtua 9.8 
-top              8.9 
-kernel_task      6.2 
-powermetrics     4.3 
 == 2026-09-23T20:32:28Z end runs
-23:32  up  6:46, 1 user, load averages: 3.45 3.65 4.26
+load averages: 3.45 3.65 4.26
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
-superwhisper     21.5
-com.apple.Virtua 17.4
-com.apple.Virtua 13.2
-top              8.8 
-kernel_task      6.3 
-powermetrics     4.4 

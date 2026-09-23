@@ -1,0 +1,35 @@
+== lease taken 20:50:15Z build-base
+CMake Warning (policy) at CMakeLists.txt:15 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+CMake Warning (author) at CMakeLists.txt:21 (PROJECT):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-author to suppress it.
+
+/tmp/openmm-metal-bench/verify-p2p3/v/base/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py /tmp/openmm-metal-bench/verify-p2p3/v/base/prefix/lib
+== lease released 20:51:02Z build-base exit 0
+BUILD-base-EXIT 0
+== lease taken 20:51:32Z build-p2p3
+CMake Warning (policy) at CMakeLists.txt:15 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+CMake Warning (author) at CMakeLists.txt:21 (PROJECT):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-author to suppress it.
+
+/tmp/openmm-metal-bench/verify-p2p3/v/p2p3/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py /tmp/openmm-metal-bench/verify-p2p3/v/p2p3/prefix/lib
+== lease released 20:52:16Z build-p2p3 exit 0
+BUILD-p2p3-EXIT 0
+CHAIN-DONE

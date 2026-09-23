@@ -1,0 +1,17 @@
+2026-09-23T21:21:34Z
+ 0:21  up  7:35, 2 users, load averages: 5.39 5.65 4.81
+Test project /tmp/openmm-metal-bench/verify-p2p3/v/p2p3/build
+    Start 121: TestMetalLocalEnergyMinimizerMixed
+1/2 Test #121: TestMetalLocalEnergyMinimizerMixed .........***Failed    9.20 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+    Start 129: TestMetalMonteCarloFlexibleBarostatMixed
+2/2 Test #129: TestMetalMonteCarloFlexibleBarostatMixed ...   Passed  113.17 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) = 122.38 sec
+
+The following tests FAILED:
+	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest

@@ -1,4 +1,4 @@
-### Per-step census (OPENMM_METAL_PROFILE=1; ns/day and wall from the profiling-off run)
+### Per-step census on the M3 Ultra (OPENMM_METAL_PROFILE=1; ns/day and wall us/step (off) from the profiling-off run on the host wall clock, fahwu.py time.perf_counter; wall us/step (census) and waits on mach_absolute_time; GPU busy and gaps from command buffers' GPUStartTime/GPUEndTime)
 
 | WU | precision | ns/day (off) | wall us/step (off) | wall us/step (census) | commits | dispatches | finish() | finish wait us | top finish: cause:array n/wait | event waits | event wait us | top event: n/wait | CCMA iter/call | GPU busy us | busy fraction | gaps | gap us |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -9,7 +9,7 @@
 | dhfr-implicit | single | 619.0 | 279 | 278 | 2.04 | 17 | 0.04 | 6 | download:kineticEnergy 0.01/2us; download:energySum 0.01/2us; download:posq 0.00/1us | 1.01 | 251 | after findBlocksWithInteractions 1.01/251us | - | 263 | 0.947 | 2.04 | 15 |
 | dhfr-implicit | mixed | 468.5 | 369 | 369 | 2.04 | 17 | 0.05 | 7 | download:kineticEnergy 0.01/3us; download:energySum 0.01/2us; download:posq 0.01/1us | 1.01 | 336 | after findBlocksWithInteractions 1.01/336us | - | 356 | 0.963 | 2.04 | 14 |
 
-### Census overhead (host wall us/step)
+### Census overhead on the M3 Ultra (host wall us/step, fahwu.py time.perf_counter)
 
 | WU | precision | off | census | change |
 |---|---|---|---|---|
@@ -20,7 +20,7 @@
 | dhfr-implicit | single | 279 | 278 | -0.4% |
 | dhfr-implicit | mixed | 369 | 369 | +0.1% |
 
-#### Gap sites, dhfr single
+#### Gap sites, dhfr single on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -31,7 +31,7 @@
 | reduceEnergy | timeShiftVelocities | 0.01 | 2.9 |
 | computeKineticEnergy | calcCenterOfMassMomentum | 0.01 | 2.7 |
 
-#### Gap sites, dhfr mixed
+#### Gap sites, dhfr mixed on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -42,7 +42,7 @@
 | reduceEnergy | timeShiftVelocities | 0.01 | 2.9 |
 | computeKineticEnergy | calcCenterOfMassMomentum | 0.01 | 2.9 |
 
-#### Gap sites, nav single
+#### Gap sites, nav single on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -53,7 +53,7 @@
 | computeKineticEnergy | (none) | 0.02 | 13.0 |
 | computeKineticEnergy | scalePositions | 0.02 | 6.8 |
 
-#### Gap sites, nav mixed
+#### Gap sites, nav mixed on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -64,7 +64,7 @@
 | computeKineticEnergy | (none) | 0.02 | 13.0 |
 | copyFloatBuffer | scalePositions | 0.02 | 9.6 |
 
-#### Gap sites, dhfr-implicit single
+#### Gap sites, dhfr-implicit single on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -75,7 +75,7 @@
 | integrateVerletPart2 | calcCenterOfMassMomentum | 0.00 | 1.1 |
 | computeNonbonded | reduceEnergy | 0.01 | 0.0 |
 
-#### Gap sites, dhfr-implicit mixed
+#### Gap sites, dhfr-implicit mixed on the M3 Ultra (command buffers' GPUStartTime/GPUEndTime)
 
 | after | before | per step | us/step |
 |---|---|---|---|
@@ -86,7 +86,7 @@
 | findBlocksWithInteractions | computeBornSum | 1.01 | 0.9 |
 | computeNonbonded | reduceEnergy | 0.01 | 0.0 |
 
-### Kernel GPU time per step, dhfr (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch)
+### Kernel GPU time per step, dhfr on the M3 Ultra (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch, GPUEndTime - GPUStartTime of each buffer)
 
 | kernel | single us | mixed us | mixed - single | share of gap |
 |---|---|---|---|---|
@@ -107,7 +107,7 @@
 | applySettleToVelocities | 0.1 | 0.6 | +0.5 | 0% |
 | (all kernels) | 853.9 | 1281.9 | +428.0 | 100% |
 
-### Kernel GPU time per step, nav (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch)
+### Kernel GPU time per step, nav on the M3 Ultra (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch, GPUEndTime - GPUStartTime of each buffer)
 
 | kernel | single us | mixed us | mixed - single | share of gap |
 |---|---|---|---|---|
@@ -128,7 +128,7 @@
 | computeSortKeys | 15.5 | 19.3 | +3.8 | 0% |
 | (all kernels) | 4152.4 | 5035.1 | +882.7 | 100% |
 
-### Kernel GPU time per step, dhfr-implicit (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch)
+### Kernel GPU time per step, dhfr-implicit on the M3 Ultra (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch, GPUEndTime - GPUStartTime of each buffer)
 
 | kernel | single us | mixed us | mixed - single | share of gap |
 |---|---|---|---|---|
@@ -149,7 +149,7 @@
 | timeShiftVelocities | 0.1 | 0.2 | +0.1 | 0% |
 | (all kernels) | 298.8 | 392.0 | +93.2 | 100% |
 
-### State after 1000 steps (energy requested every 100), SHA-256 prefixes
+### State after 1000 steps on the M3 Ultra (energy requested every 100), SHA-256 prefixes
 
 | WU | precision | variant | rep | positions | velocities | forces | energies (10 x PE, KE) | final PE kJ/mol | positions, velocities, forces = base rep 1 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -186,7 +186,7 @@
 | nav | single | p3 | 1 | c207419f | 9ab42cf1 | f4d3918d | 690b73db | -1730395.643318 | yes |
 | nav | single | p3 | 2 | c207419f | 9ab42cf1 | f4d3918d | a0be8f0f | -1730395.674568 | yes |
 
-### Start-state potential energy, 50 evaluations per context (kJ/mol)
+### Start-state potential energy, 50 evaluations per context on the M3 Ultra (kJ/mol)
 
 | WU | precision | variant | contexts | distinct values per context | value per context | spread over all variants and contexts |
 |---|---|---|---|---|---|---|
@@ -207,7 +207,7 @@
 | nav | single | p2p3 | 2 | 1 1 | -1720827.026131 -1720827.080818 | 0.109 |
 | nav | single | p3 | 2 | 1 1 | -1720826.971443 -1720827.041756 | 0.109 |
 
-### End-to-end speed, ns/day (host wall clock: fahwu.py time.perf_counter over whole steps, 60 s after 200 warm-up steps, 3 interleaved rounds)
+### End-to-end speed, ns/day on the M3 Ultra (host wall clock: fahwu.py time.perf_counter over whole steps, 60 s after 200 warm-up steps, 3 interleaved rounds)
 
 | WU | precision | platform | variant | ns/day per round | median | range | / base | / OpenCL single |
 |---|---|---|---|---|---|---|---|---|
@@ -239,7 +239,7 @@
 | dhfr-implicit | mixed | Metal | p2p3 | 473.1 459.2 478.4 | 473.1 | 19.2 | 1.026 | 0.807 |
 | dhfr-implicit | mixed | Metal | p3 | 468.9 471.9 473.0 | 471.9 | 4.1 | 1.023 | 0.805 |
 
-### CCMA A/B, ns/day (host wall clock as above; dhfr-hbonds = heavy-atom constraints as bonds, 3 interleaved rounds)
+### CCMA A/B, ns/day on the M3 Ultra (host wall clock as above; dhfr-hbonds = heavy-atom constraints as bonds, 3 interleaved rounds)
 
 | WU | precision | platform | variant | ns/day per round | median | range | / base | / OpenCL single |
 |---|---|---|---|---|---|---|---|---|
@@ -250,7 +250,7 @@
 | dhfr-hbonds | single | Metal | p2 | 220.6 220.5 219.9 | 220.5 | 0.7 | 0.999 | 1.024 |
 | dhfr-hbonds | single | OpenCL | shared | 182.2 215.3 215.9 | 215.3 | 33.7 | - | 1.000 |
 
-### Census per variant (OPENMM_METAL_PROFILE=1, 30 s)
+### Census per variant on the M3 Ultra (OPENMM_METAL_PROFILE=1, 30 s; wall us/step and waits on mach_absolute_time, GPU busy and gaps from GPUStartTime/GPUEndTime)
 
 | variant | WU | precision | wall us/step (census) | commits | finish() | finish wait us | event waits | event wait us | CCMA iter/call (dispatched) | GPU busy us | busy fraction | gap us |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -263,7 +263,7 @@
 | base-prof | nav | single | 3845 | 2.39 | 0.25 | 311 | 1.09 | 3436 | - | 3736 | 0.972 | 109 |
 | p2-prof | nav | single | 3828 | 2.39 | 0.25 | 310 | 1.09 | 3425 | - | 3717 | 0.971 | 111 |
 
-### Energy guard: kernel GPU us/step (OPENMM_METAL_PROFILE=kernels), base-prof vs p3-prof
+### Energy guard: kernel GPU us/step on the M3 Ultra (OPENMM_METAL_PROFILE=kernels, GPUEndTime - GPUStartTime of each buffer), base-prof vs p3-prof
 
 | WU | precision | computeNonbonded base | computeNonbonded p3 | all kernels base | all kernels p3 |
 |---|---|---|---|---|---|
@@ -272,7 +272,7 @@
 | nav | mixed | 1657.4 | 1223.1 | 5035.1 | 4575.6 |
 | nav | single | 1190.1 | 1189.3 | 4152.4 | 4140.0 |
 
-### p3 alone on dhfr single: ns/day (host wall clock as above, 30 s runs, 3 interleaved rounds; the -prof variants have the census on)
+### p3 alone on dhfr single: ns/day on the M3 Ultra (host wall clock as above, 30 s runs, 3 interleaved rounds; the -prof variants have the census on)
 
 | WU | precision | platform | variant | ns/day per round | median | range | / base | / OpenCL single |
 |---|---|---|---|---|---|---|---|---|
@@ -281,7 +281,7 @@
 | dhfr | single | Metal | p3 | 121.9 126.4 121.4 | 121.9 | 5.1 | 1.007 | - |
 | dhfr | single | Metal | p3-prof | 124.0 122.2 121.7 | 122.2 | 2.3 | 1.010 | - |
 
-### p3 alone on dhfr single: census per round
+### p3 alone on dhfr single: census per round on the M3 Ultra (clocks as in the census per variant)
 
 | variant | WU | precision | wall us/step (census) | commits | finish() | finish wait us | event waits | event wait us | CCMA iter/call (dispatched) | GPU busy us | busy fraction | gap us |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

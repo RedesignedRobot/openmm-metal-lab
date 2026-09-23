@@ -1,5 +1,5 @@
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -7,31 +7,19 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:11:22Z p1 dhfr
-18:11  up 7 days, 18:16, 2 users, load averages: 5.98 14.17 12.10
+load averages: 5.98 14.17 12.10
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-kernel_task      9.9 
-top              9.0 
-WindowServer     7.4 
-io.tailscale.ipn 6.1 
-AirPlayXPCHelper 5.5 
-VTDecoderXPCServ 4.7 
 == 2026-09-23T15:18:16Z end p1
-18:18  up 7 days, 18:22, 2 users, load averages: 3.25 7.03 9.35
+load averages: 3.25 7.03 9.35
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-bztransmit       79.7
-launchd          13.3
-kernel_task      11.9
-AirPlayXPCHelper 6.1 
-top              6.0 
-WindowServer     5.7 
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -39,19 +27,13 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:18:18Z p1 dhfr-implicit
-18:18  up 7 days, 18:22, 2 users, load averages: 3.23 6.96 9.31
+load averages: 3.23 6.96 9.31
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-bztransmit       77.8
-WindowServer     22.6
-kernel_task      15.1
-MTLCompilerServi 8.9 
-AirPlayXPCHelper 7.5 
-top              7.0 
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -59,19 +41,13 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:22:03Z p1 nav
-18:22  up 7 days, 18:26, 2 users, load averages: 3.24 4.88 7.84
+load averages: 3.24 4.88 7.84
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-bztransmit       79.5
-kernel_task      12.6
-2.1.280          11.2
-top              7.3 
-AirPlayXPCHelper 6.8 
-io.tailscale.ipn 6.4 
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -79,19 +55,13 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:30:14Z p1 dhfr-implicit
-18:30  up 7 days, 18:34, 2 users, load averages: 2.67 3.43 5.79
+load averages: 2.67 3.43 5.79
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 63.6
-WindowServer     16.8
-ghostty          15.5
-2.1.280          14.4
-runningboardd    12.4
-kernel_task      10.8
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -99,31 +69,19 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:30:44Z p1 dhfr-implicit
-18:30  up 7 days, 18:35, 2 users, load averages: 2.95 3.43 5.71
+load averages: 2.95 3.43 5.71
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 77.9
-mediaanalysisd   15.1
-top              10.0
-kernel_task      9.1 
-2.1.280          6.9 
-AirPlayXPCHelper 6.7 
 == 2026-09-23T15:36:50Z end p1
-18:36  up 7 days, 18:41, 2 users, load averages: 3.22 3.33 4.84
+load averages: 3.22 3.33 4.84
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 85.4
-2.1.280          11.7
-kernel_task      11.4
-top              9.3 
-io.tailscale.ipn 6.9 
-AirPlayXPCHelper 6.6 
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -131,31 +89,19 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:36:51Z p1 nav
-18:36  up 7 days, 18:41, 2 users, load averages: 3.22 3.33 4.84
+load averages: 3.22 3.33 4.84
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 69.4
-2.1.280          11.2
-kernel_task      9.2 
-corespeechd      8.9 
-WindowServer     7.1 
-top              6.5 
 == 2026-09-23T15:44:50Z end p1
-18:44  up 7 days, 18:49, 2 users, load averages: 2.59 3.03 4.10
+load averages: 2.59 3.03 4.10
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 61.3
-WindowServer     25.3
-kernel_task      14.9
-top              10.1
-AirPlayXPCHelper 9.0 
-Google Chrome    8.3 
 == p1 nice 0
-Darwin Laptop 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+Darwin 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
 ProductName:		macOS
 ProductVersion:		27.0
 BuildVersion:		26A428
@@ -163,26 +109,14 @@ Apple M3 Pro
 38654705664
 base-prof: 32d09490dd1d6cadd67be813db5f43e712e21bf9
 == 2026-09-23T15:44:52Z p1 bench:rf
-18:44  up 7 days, 18:49, 2 users, load averages: 2.59 3.03 4.10
+load averages: 2.59 3.03 4.10
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'AC Power'
-Google Chrome He 77.8
-kernel_task      10.8
-top              9.4 
-WindowServer     9.0 
-AirPlayXPCHelper 8.1 
-2.1.280          5.8 
 == 2026-09-23T15:51:08Z end p1
-18:51  up 7 days, 18:55, 2 users, load averages: 4.15 3.66 4.04
+load averages: 4.15 3.66 4.04
 Note: No thermal warning level has been recorded
 Note: No performance warning level has been recorded
 Note: No CPU power status has been recorded
 Now drawing from 'Battery Power'
-Google Chrome He 71.4
-com.apple.WebKit 32.6
-WindowServer     12.4
-top              7.5 
-kernel_task      7.0 
-io.tailscale.ipn 5.9 

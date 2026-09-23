@@ -1,0 +1,15 @@
+2026-09-23T20:59:48Z
+23:59  up  7:14, 1 user, load averages: 2.16 3.29 3.55
+Test project /tmp/openmm-metal-bench/verify-p2p3/v/base/build
+    Start 120: TestMetalLocalEnergyMinimizerSingle
+1/1 Test #120: TestMetalLocalEnergyMinimizerSingle ...***Failed    7.23 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   7.23 sec
+
+The following tests FAILED:
+	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+Errors while running CTest

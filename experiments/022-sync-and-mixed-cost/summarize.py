@@ -2,7 +2,7 @@
 
 usage: summarize.py <out-dir>
 Reads whichever of p1.jsonl, bits.jsonl, energy.jsonl, time.jsonl, ab.jsonl, census.jsonl and p3diag.jsonl
-exist in <out-dir>.
+exist in <out-dir>, and names the machine in every heading from the "Apple ..." line of <out-dir>/host.txt.
 Speeds are the host wall clock (fahwu.py or benchmark.py); profile numbers are per step inside the profiler's window
 (after 200 steps), with blocked-wait times on the host's mach_absolute_time clock and GPU busy
 time and gaps from the command buffers' GPUStartTime/GPUEndTime.
@@ -72,19 +72,21 @@ def p1(runs):
                          f"{g['gaps_per_step']:.2f}", f"{g['gap_us_per_step']:.0f}"])
             overhead.append([wu, prec, f"{wall_us(off):.0f}", f"{wall_us(census):.0f}",
                              f"{100 * (wall_us(census) / wall_us(off) - 1):+.1f}%"])
-    out = ["### Per-step census (OPENMM_METAL_PROFILE=1; ns/day and wall from the profiling-off run)", "",
+    out = ["### Per-step census (OPENMM_METAL_PROFILE=1; ns/day and wall us/step (off) from the profiling-off run on "
+           "the host wall clock, fahwu.py time.perf_counter; wall us/step (census) and waits on mach_absolute_time; "
+           "GPU busy and gaps from command buffers' GPUStartTime/GPUEndTime)", "",
            table(["WU", "precision", "ns/day (off)", "wall us/step (off)", "wall us/step (census)", "commits",
                   "dispatches", "finish()", "finish wait us", "top finish: cause:array n/wait", "event waits",
                   "event wait us", "top event: n/wait", "CCMA iter/call", "GPU busy us", "busy fraction",
                   "gaps", "gap us"], rows), "",
-           "### Census overhead (host wall us/step)", "",
+           "### Census overhead (host wall us/step, fahwu.py time.perf_counter)", "",
            table(["WU", "precision", "off", "census", "change"], overhead), ""]
     for wu in WUS:
         for prec in PRECISIONS:
             census = by.get((wu, prec, "1"))
             if census:
                 sites = census[0]["profile"]["gpu"]["gap_sites"][:6]
-                out += [f"#### Gap sites, {wu} {prec}", "",
+                out += [f"#### Gap sites, {wu} {prec} (command buffers' GPUStartTime/GPUEndTime)", "",
                         table(["after", "before", "per step", "us/step"],
                               [[s["after"], s["before"], f"{s['per_step']:.2f}", f"{s['us_per_step']:.1f}"] for s in sites]), ""]
     out += kernels(by)
@@ -104,7 +106,8 @@ def kernels(by):
                  f"{100 * (m.get(k, 0) - s.get(k, 0)) / (total_m - total_s):.0f}%" if total_m != total_s else "-"]
                 for k in names[:15]]
         rows.append(["(all kernels)", f"{total_s:.1f}", f"{total_m:.1f}", f"{total_m - total_s:+.1f}", "100%"])
-        out += [f"### Kernel GPU time per step, {wu} (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch)", "",
+        out += [f"### Kernel GPU time per step, {wu} (OPENMM_METAL_PROFILE=kernels, one buffer per dispatch, "
+                "GPUEndTime - GPUStartTime of each buffer)", "",
                 table(["kernel", "single us", "mixed us", "mixed - single", "share of gap"], rows), ""]
     return out
 
@@ -200,9 +203,20 @@ def guard_kernels(runs):
         b = kernels[("base-prof", wu, prec)]
         rows.append([wu, prec, f"{b.get('computeNonbonded', 0):.1f}", f"{k.get('computeNonbonded', 0):.1f}",
                      f"{sum(b.values()):.1f}", f"{sum(k.values()):.1f}"])
-    return ["### Energy guard: kernel GPU us/step (OPENMM_METAL_PROFILE=kernels), base-prof vs p3-prof", "",
+    return ["### Energy guard: kernel GPU us/step (OPENMM_METAL_PROFILE=kernels, GPUEndTime - GPUStartTime of each "
+            "buffer), base-prof vs p3-prof", "",
             table(["WU", "precision", "computeNonbonded base", "computeNonbonded p3", "all kernels base",
                    "all kernels p3"], rows), ""]
+
+
+def on_machine(line, machine):
+    """A heading with "on the <machine>" before its first parenthesis, or at its end; other lines as they are."""
+    if not line.startswith("###"):
+        return line
+    if " (" not in line:
+        return f"{line} on the {machine}"
+    head, rest = line.split(" (", 1)
+    return f"{head} on the {machine} ({rest}"
 
 
 def main():
@@ -222,13 +236,15 @@ def main():
                              "as bonds, 3 interleaved rounds)")
     if runs := read(out, "census.jsonl"):
         p1_runs = [r for r in read(out, "p1.jsonl") if r["run"]["wu"] in ("dhfr", "nav")]
-        lines += census(runs + p1_runs, "Census per variant (OPENMM_METAL_PROFILE=1, 30 s)")
+        lines += census(runs + p1_runs, "Census per variant (OPENMM_METAL_PROFILE=1, 30 s; wall us/step and waits on "
+                                        "mach_absolute_time, GPU busy and gaps from GPUStartTime/GPUEndTime)")
         lines += guard_kernels(runs + p1_runs)
     if runs := read(out, "p3diag.jsonl"):
         lines += timed(runs, "p3 alone on dhfr single: ns/day (host wall clock as above, 30 s runs, 3 interleaved "
                              "rounds; the -prof variants have the census on)")
-        lines += census(runs, "p3 alone on dhfr single: census per round")
-    print("\n".join(lines))
+        lines += census(runs, "p3 alone on dhfr single: census per round (clocks as in the census per variant)")
+    machine = next(line.strip()[len("Apple "):] for line in open(os.path.join(out, "host.txt")) if line.startswith("Apple "))
+    print("\n".join(on_machine(line, machine) for line in lines))
 
 
 if __name__ == "__main__":
