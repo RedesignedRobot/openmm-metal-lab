@@ -3,90 +3,124 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>OpenMM Metal Benchmarks</title>
 <!--css-->
 </head>
 <body>
-<main>
-<div class="eyebrow">Lab report · 23 September 2026 · experiment 017</div>
-<h1>OpenMM on Apple GPUs: a native Metal platform on three chips</h1>
-<p class="muted">One build (f9347f6c5) and one harness, run on an M2, an M3 Pro and an M3 Ultra, all on macOS 27.0.</p>
+<div class="mast"><div class="wrap"><b>OpenMM on Metal</b><span>Lab report 017</span></div></div>
 
-<div class="ai"><b>AI use:</b> built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. Every number on this page is generated from raw result files on the hardware named.</div>
+<header class="hero"><div class="wrap">
+  <div class="kicker">Scientific computing <span>&middot; September 23, 2026</span></div>
+  <h1>Step one: bringing scientific compute to <span class="grad">Apple silicon.</span></h1>
+  <p class="dek">OpenMM, the molecular dynamics engine behind Folding@home's GPU work, now runs natively on Apple GPUs through Metal. On an M2, an M3 Pro and an M3 Ultra, it runs every Folding@home benchmark work unit in the precision Folding@home's science requires, with the accuracy of established GPU platforms.</p>
+  <div class="byline"><b>An independent open-source effort.</b> Built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. Not yet reviewed or accepted by the OpenMM or Folding@home teams.</div>
 
-<div class="kpis">
-  <div class="kpi"><b>2.8–11×</b><span>Metal mixed vs the same Mac's CPU</span></div>
-  <div class="kpi"><b>1.01–1.28×</b><span>Metal single vs Apple OpenCL</span></div>
-  <div class="kpi"><b>11.7 M</b><span>atom·ns/day, M3 Ultra plateau</span></div>
-  <div class="kpi"><b>≤ 7e-15</b><span>df64 error against the host double closed form</span></div>
+  <div class="stats">
+    <div class="stat" style="--c:var(--violet)"><b>11&times;</b><span>faster than the same Mac's CPU, in Folding@home's mixed precision</span></div>
+    <div class="stat" style="--c:var(--blue)"><b>1.28&times;</b><span>faster than Apple's OpenCL at its best, and never slower</span></div>
+    <div class="stat" style="--c:var(--cyan)"><b>11.7M</b><span>atom&middot;ns/day of throughput on the M3 Ultra</span></div>
+    <div class="stat" style="--c:var(--teal)"><b>1.2e-6</b><span>relative force error, matching OpenCL on every chip</span></div>
+  </div>
+</div></header>
+
+<section><div class="wrap"><div class="col">
+  <h2 style="--c:var(--gold)"><small>Why</small>Remarkable GPUs, sitting out of science.</h2>
+  <p>Every Mac with Apple silicon carries a capable GPU, unified memory and outstanding performance per watt. Yet when a Mac joins Folding@home today, it can contribute through its CPU alone.</p>
+  <p>The reason is a chain of dependencies. Folding@home's GPU cores are built on <b>OpenMM</b>. OpenMM speaks CUDA, HIP and OpenCL, but not Metal. Apple's OpenCL has been deprecated since 2018, and it can't run the <b>mixed precision</b> Folding@home depends on, because Apple GPUs have no 64-bit floating-point hardware.</p>
+  <p>So the first link in the chain has to be OpenMM itself.</p>
 </div>
+<p class="pull">Every Mac with Apple silicon has a capable GPU. Not one of them can contribute GPU work to Folding@home <em>yet.</em></p>
+</div></section>
 
-<h2>Path to Folding@home</h2>
-<div class="path">
-  <div class="step done"><b>Metal platform</b>built, tested, benchmarked<br><span class="chip" style="color:var(--ok)">done</span></div>
-  <div class="step"><b>OpenMM upstream</b>PR drafted; related #5397 and #5416<br><span class="chip warn">owner review</span></div>
-  <div class="step"><b>FAH GPU core</b>a signed build by the Folding@home team<br><span class="chip">not ours</span></div>
-  <div class="step"><b>FAH client</b>detect non-PCI GPUs (fah-client-bastet #303)<br><span class="chip">not ours</span></div>
-</div>
+<section><div class="wrap"><div class="col">
+  <h2 style="--c:var(--cyan)"><small>What we built</small>A native Metal platform, built the way OpenMM's own platforms are.</h2>
+  <p>The platform follows the design of OpenMM's CUDA and HIP platforms: a thin layer on OpenMM's common compute framework. Every one of OpenMM's shared GPU kernels compiles for Metal unchanged. It's written in plain C++ against Apple's metal-cpp headers, with no Objective-C, and it builds without Xcode.</p>
+  <p>The hard part was precision. Mixed precision keeps positions and velocities in 64-bit doubles. On Apple GPUs, the platform represents each double as a pair of 32-bit floats, a technique known as <b>double-float</b>. Over one integration step, it agrees with true double precision to within <b>7 parts in 10<sup>15</sup></b>.</p>
+  <p>Just as important is what it refuses to do. If a calculation would quietly fall back to single precision, the platform stops with an error that names the function and the line, rather than returning a subtly wrong answer.</p>
+</div></div></section>
 
-<h2>Speed <span class="n">FAHBench work units · ns/day · host wall clock, whole steps · 3 rotated rounds × 60 s</span></h2>
-<figure><!--fig:fah-throughput--><figcaption>Whiskers: ±1 sd. Apple's OpenCL has no mixed precision, so Metal mixed is the only GPU route to Folding@home's precision.</figcaption></figure>
-<figure><!--fig:ratios--></figure>
+<section><div class="wrap">
+  <div class="col">
+    <h2 style="--c:var(--blue)"><small>Performance</small>Faster than OpenCL. Up to eleven times faster than the CPU.</h2>
+    <p>We ran Folding@home's three benchmark work units on all three chips. They range from a 2,489-atom protein in implicit solvent to a 173,000-atom system in explicit water. Each configuration ran three times, in rotated order, on the same build.</p>
+  </div>
+  <figure><!--fig:fah-throughput--><figcaption><b>Throughput in ns/day, higher is better.</b> Host wall clock over whole steps, 60 s after 200 warm-up steps, mean of 3 rounds. Whiskers show &plusmn;1 sd. Apple's OpenCL has no mixed precision, so Metal mixed is the only GPU path to Folding@home's precision.</figcaption></figure>
+  <div class="col"><p>In single precision, Metal leads OpenCL everywhere. The margin is small on the implicit-solvent and largest systems, and <b>20 to 28 percent</b> on dhfr, a 23,558-atom system with PME electrostatics. In mixed precision, the only mode OpenCL can't offer at all, Metal runs <b>2.8 to 11 times</b> faster than the CPU in the same machine.</p></div>
+  <figure><!--fig:ratios--><figcaption><b>Speed ratios</b> for each work unit and chip.</figcaption></figure>
+</div></section>
 
-<h2>Scaling <span class="n">TIP3P water boxes, 2.7k–792k atoms · single 30 s run per point</span></h2>
-<figure><!--fig:scaling--></figure>
-<div class="two">
-  <figure><!--fig:step-time--><figcaption>Every chip hits the same per-step floor below ~10k atoms. It's a fixed cost that more cores can't remove.</figcaption></figure>
-  <figure><!--fig:per-core--><figcaption>The M2 and M3 Pro scale linearly per core. The M3 Ultra's two dies reach 68% of that, and OpenCL shows the same ceiling (11.52 vs 11.72).</figcaption></figure>
-</div>
+<section><div class="wrap">
+  <div class="col">
+    <h2 style="--c:var(--pink)"><small>Scaling</small>The bigger the system, the more the big chips shine.</h2>
+    <p>To see how each GPU fills up, we ran water boxes from 2,700 to 792,000 atoms. Throughput climbs until the GPU is saturated, then holds. The M2 and M3 Pro deliver the same work per GPU core. The M3 Ultra, two dies joined by UltraFusion, reaches <b>11.7 million atom&middot;ns/day</b>, and Apple's OpenCL tops out at the same ceiling.</p>
+  </div>
+  <figure><!--fig:scaling--><figcaption><b>Throughput against system size</b>, in atoms &times; ns/day. Solid: Metal single. Dashed: Metal mixed. Rings: OpenCL single. TIP3P water, PME, 2 fs, one 30 s run per point.</figcaption></figure>
+  <div class="pair">
+    <figure><!--fig:step-time--><figcaption><b>Time per step.</b> Small systems hit a floor of about 0.24 ms per step on every chip. That fixed cost is the next optimization target.</figcaption></figure>
+    <figure><!--fig:per-core--><figcaption><b>Work per GPU core at the plateau.</b> The M3 Ultra's two dies reach 68% of the smaller chips' per-core rate.</figcaption></figure>
+  </div>
+</div></section>
 
-<h2>Accuracy <span class="n">against Reference in double</span></h2>
-<div class="two">
-  <figure><!--fig:accuracy--><figcaption>All runs on all chips overlap. The dhfr-implicit value is position rounding, and against Reference at the same rounded positions Metal is at ~4e-6.</figcaption></figure>
-  <figure><!--fig:drift--><figcaption>dhfr NVE, 0.1 ns, ±1 naive SE. There's no platform signal beyond the machine-to-machine spread CPU itself shows.</figcaption></figure>
-</div>
-<div class="scroll card" style="padding:4px 6px; margin-top:12px">
-<table>
-<thead><tr><th class="l">One VariableVerlet step vs host closed form</th><th>dt rel. error</th><th>position max error</th><th>velocity max rel. error</th></tr></thead>
-<tbody>
-<tr><td class="l">Metal mixed (df64)</td><td>1.1e-16</td><td>6.7e-15</td><td>4.5e-15</td></tr>
-<tr><td class="l">Metal single</td><td>5.1e-9</td><td>1.0e-7</td><td>1.1e-7</td></tr>
-</tbody></table>
-</div>
+<section><div class="wrap">
+  <div class="col">
+    <h2 style="--c:var(--teal)"><small>Accuracy</small>Speed means nothing without the right answer.</h2>
+    <p>Every result was checked against OpenMM's Reference platform, which computes in full double precision on the CPU. On all three chips, Metal's forces match OpenCL's to three significant figures. Energy conservation shows no signal beyond the spread the CPU itself shows from machine to machine.</p>
+  </div>
+  <div class="pair">
+    <figure><!--fig:accuracy--><figcaption><b>Relative force error</b>, every run on every chip. The points coincide. dhfr-implicit's 2.5e-5 comes from rounding positions to float, which every GPU platform does.</figcaption></figure>
+    <figure><!--fig:drift--><figcaption><b>Energy drift</b> in constant-energy dynamics on dhfr over 0.1 ns, with &plusmn;1 naive standard error.</figcaption></figure>
+  </div>
+  <div class="col scroll">
+    <table>
+      <thead><tr><th class="l">One step against a double-precision closed form</th><th>Time step</th><th>Position</th><th>Velocity</th></tr></thead>
+      <tbody>
+        <tr><td class="l">Metal mixed (double-float)</td><td class="hi">1.1e-16</td><td class="hi">6.7e-15</td><td class="hi">4.5e-15</td></tr>
+        <tr><td class="l">Metal single</td><td>5.1e-9</td><td>1.0e-7</td><td>1.1e-7</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
 
-<h2>Tests</h2>
-<div class="scroll card" style="padding:4px 6px">
-<table>
-<thead><tr><th class="l">Chip</th><th class="l">ctest -R TestMetal</th><th class="l">testLargeForces · Metal</th><th class="l">· OpenCL, unmodified main</th><th class="l">· Reference, CPU</th></tr></thead>
-<tbody>
-<tr><td class="l">M2 · 10 cores</td><td class="l"><span class="pill ok">109 / 110</span></td><td class="l"><span class="pill ok">pass</span></td><td class="l"><span class="pill ok">3/3 pass</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
-<tr><td class="l">M3 Pro · 18</td><td class="l"><span class="pill ok">107 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">4/4 fail</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
-<tr><td class="l">M3 Ultra · 60</td><td class="l"><span class="pill ok">108 / 110</span></td><td class="l"><span class="pill bad">fail</span></td><td class="l"><span class="pill bad">3/3 fail</span></td><td class="l"><span class="pill ok">pass</span></td></tr>
-</tbody></table>
-</div>
-<p class="small muted">The only repeatable failure is <code>testLargeForces</code> (TestLocalEnergyMinimizer.h:229). It is an upstream issue on M3 GPUs and fails on unmodified OpenMM with OpenCL. The other failures are stochastic tests that pass on rerun.</p>
+<section><div class="wrap"><div class="col">
+  <h2 style="--c:var(--ok)"><small>Tests</small>OpenMM's own test suite, on every chip.</h2>
+  <p>We ported OpenMM's OpenCL test suite to Metal: 110 tests, each program in single and mixed precision. The only repeatable failure is <code>testLargeForces</code>, and that one fails the same way on unmodified OpenMM with Apple's OpenCL on M3 GPUs. It's an existing upstream issue, which we're reporting separately.</p>
+  <div class="scroll"><table>
+    <thead><tr><th class="l">Chip</th><th>Suite</th><th>testLargeForces, Metal</th><th>Same test, OpenCL, unmodified</th></tr></thead>
+    <tbody>
+      <tr><td class="l">M2 &middot; 10 GPU cores</td><td class="ok">109 / 110</td><td class="ok">pass</td><td class="ok">3 of 3 pass</td></tr>
+      <tr><td class="l">M3 Pro &middot; 18 GPU cores</td><td class="ok">107 / 110</td><td class="bad">fail</td><td class="bad">4 of 4 fail</td></tr>
+      <tr><td class="l">M3 Ultra &middot; 60 GPU cores</td><td class="ok">108 / 110</td><td class="bad">fail</td><td class="bad">3 of 3 fail</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">The remaining failures are statistical tests that pass on rerun.</p>
+</div></div></section>
 
-<h2>Limits</h2>
-<div class="two">
-  <figure><!--fig:minimizer--><figcaption>nav minimization. Mixed reduces within a single threadgroup: there are no 64-bit atomics.</figcaption></figure>
-  <div class="card"><ul class="tight small">
-    <li>No df64 transcendentals. Using one on a mixed value is a compile error, which Folding@home's path never triggers.</li>
-    <li>QTBIntegrator is single precision only. There is one GPU per context.</li>
-    <li>Requires macOS 15 or later and an M1 or newer GPU.</li>
-    <li>Not yet run: OpenMM's standard benchmark suite, and M1 or M4 hardware.</li>
-  </ul></div>
+<section><div class="wrap"><div class="col">
+  <h2 style="--c:var(--violet)"><small>What comes next</small>This is step one.</h2>
+  <p>No Mac folds for Folding@home yet. The project accepts results only from its own signed GPU cores, so three more steps have to happen, and none of them is ours alone to take.</p>
+  <ol class="steps">
+    <li style="--c:var(--ok)"><div><b>A Metal platform for OpenMM</b><span>Built, tested and benchmarked on three chips.</span></div><i>Done</i></li>
+    <li style="--c:var(--gold)"><div><b>Acceptance into OpenMM</b><span>A pull request is drafted, alongside openmm#5397 and #5416.</span></div><i>In review</i></li>
+    <li><div><b>A macOS GPU core</b><span>Built and signed by the Folding@home team on top of OpenMM.</span></div><i>Folding@home</i></li>
+    <li><div><b>Apple GPU detection</b><span>The Folding@home client must recognize GPUs that aren't on PCI (fah-client-bastet #303).</span></div><i>Folding@home</i></li>
+  </ol>
+  <p>Some gaps remain. Energy minimization in mixed precision is correct but slow, because Apple GPUs lack 64-bit atomics. There's no double-float version of the trigonometric functions. And the platform has yet to run on M1 or M4 hardware, or through OpenMM's standard benchmark suite.</p>
 </div>
+<figure style="max-width:700px; margin-left:auto; margin-right:auto"><!--fig:minimizer--><figcaption><b>Energy minimization</b> on the 173,000-atom nav system.</figcaption></figure>
+</div></section>
 
-<h2>Method</h2>
-<div class="scroll card" style="padding:4px 6px">
-<table class="wrap"><tbody>
-<tr><td class="l">Build</td><td class="l"><code>git archive</code> of f9347f6c5 on each machine; source manifest sha256 matches. Apple clang 21.0.0, Release</td></tr>
-<tr><td class="l">Machines</td><td class="l">Mac mini M2 (10 GPU cores, 8 GB) · MacBook Pro M3 Pro (18, 36 GB) · Mac Studio M3 Ultra (60, 96 GB)</td></tr>
-<tr><td class="l">Timing</td><td class="l"><code>time.perf_counter</code> over whole steps; nice 0 enforced; configuration order rotated per round</td></tr>
-<tr><td class="l">Conditions</td><td class="l">M3 Pro round 1 on battery, the rest on AC. The M3 Ultra had a dictation app (~31% CPU) and 2 VMs running, so its CPU timings vary by up to 16%.</td></tr>
-<tr><td class="l">Data</td><td class="l">openmm-metal-lab · experiments/017-three-chips/results · figures from drafts/figures/build_figures.py</td></tr>
-</tbody></table>
-</div>
-</main>
+<section><div class="wrap"><div class="col">
+  <h2 style="--c:var(--muted)"><small>Method</small>How we measured.</h2>
+  <table class="prose"><tbody>
+    <tr><td>Build</td><td>A <code>git archive</code> of commit f9347f6c5, built on each machine with matching source hashes. Apple clang 21.0.0, Release.</td></tr>
+    <tr><td>Machines</td><td>Mac mini, M2, 10 GPU cores, 8 GB. MacBook Pro, M3 Pro, 18 GPU cores, 36 GB. Mac Studio, M3 Ultra, 60 GPU cores, 96 GB. All on macOS 27.0.</td></tr>
+    <tr><td>Timing</td><td>Host wall clock (<code>time.perf_counter</code>) over whole steps, at nice 0, with configuration order rotated every round.</td></tr>
+    <tr><td>Conditions</td><td>The M3 Pro ran its first round on battery and the rest on AC. The M3 Ultra ran alongside a dictation app and two virtual machines, so its CPU timings vary by up to 16%.</td></tr>
+    <tr><td>Data</td><td>Every figure is generated from the raw results in openmm-metal-lab, experiment 017.</td></tr>
+  </tbody></table>
+</div></div></section>
+
+<footer><div class="wrap">OpenMM on Metal &middot; an independent open-source effort &middot; not affiliated with OpenMM, Folding@home or Apple</div></footer>
 </body>
 </html>

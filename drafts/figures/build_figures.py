@@ -61,7 +61,7 @@ class Svg:
 
     def rect(self, x, y, w, h, cls):
         self.add(f'<rect x="{x:.1f}" y="{y:.1f}" width="{max(w, 0):.1f}" height="{max(h, 0):.1f}" '
-                 f'rx="1.5" class="{cls}"/>')
+                 f'class="{cls}"/>')
 
     def save(self, name):
         with open(os.path.join(HERE, f"{name}.svg"), "w") as f:
@@ -85,7 +85,7 @@ def legend(svg, items, x, y):
     for label, cls in items:
         svg.rect(x, y - 9, 11, 11, cls)
         svg.text(x + 16, y, label, size=12)
-        x += 22 + 7.2 * len(label)
+        x += 34 + 7.2 * len(label)
 
 
 def fig_fah_throughput(runs):

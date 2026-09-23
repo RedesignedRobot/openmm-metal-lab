@@ -1,11 +1,9 @@
-/* Palette for the inlined figures. Pages define the base tokens (--text, --muted, --line). */
-:root { --ms:#2563eb; --mm:#9333ea; --ocl:#94a3b8; --cpu:#c08a3e; --m2:#e8702a; --pro:#0ea5e9; --ultra:#16a34a; --neutral:#64748b; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ms:#6b9bff; --mm:#c084fc; --ocl:#8b98ab; --cpu:#d9a55a; --m2:#ff9152; --pro:#38bdf8; --ultra:#4ade80; --neutral:#94a3b8; } }
-:root[data-theme="dark"] { --ms:#6b9bff; --mm:#c084fc; --ocl:#8b98ab; --cpu:#d9a55a; --m2:#ff9152; --pro:#38bdf8; --ultra:#4ade80; --neutral:#94a3b8; }
-figure svg { display:block; height:auto; }
+/* Figure palette. Pages define --text, --muted, --line and the font stacks. */
+:root { --ms:#2f6bff; --mm:#b44dff; --ocl:#00d4b0; --cpu:#ff7a1a; --m2:#ff3d71; --pro:#ffc400; --ultra:#00d9ff; --neutral:#a1a1aa; }
+svg text { font-family:var(--sans, -apple-system, sans-serif); }
 svg .grid { stroke: var(--line); stroke-width: 1; }
-svg .ax { stroke: var(--muted); stroke-width: 1.2; }
-svg .err { stroke: var(--text); stroke-width: 1.3; opacity: .75; }
+svg .ax { stroke: #3a3a42; stroke-width: 1.2; }
+svg .err { stroke: #ffffff; stroke-width: 1.4; opacity: .7; }
 svg .lbl { fill: var(--muted); }
 svg .ttl { fill: var(--text); }
 svg .c-ms { fill: var(--ms); stroke: var(--ms); } svg .c-mm { fill: var(--mm); stroke: var(--mm); }
@@ -13,7 +11,7 @@ svg .c-ocl { fill: var(--ocl); stroke: var(--ocl); } svg .c-cpu { fill: var(--cp
 svg .c-m2 { fill: var(--m2); stroke: var(--m2); } svg .c-pro { fill: var(--pro); stroke: var(--pro); }
 svg .c-ultra { fill: var(--ultra); stroke: var(--ultra); } svg .c-neutral { fill: var(--neutral); stroke: var(--neutral); }
 svg rect { stroke-width: 0; }
-svg .line { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+svg .line { fill: none; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
 svg .ring { fill: none; stroke-width: 2; }
-svg .dot { fill-opacity: .45; stroke-width: 1; }
+svg .dot { fill-opacity: .55; stroke-width: 1.2; }
 svg .t-c-m2 { fill: var(--m2); } svg .t-c-pro { fill: var(--pro); } svg .t-c-ultra { fill: var(--ultra); }
