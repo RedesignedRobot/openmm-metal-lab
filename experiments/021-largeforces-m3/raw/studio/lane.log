@@ -1,0 +1,49 @@
+== lease taken 16:11:41Z 021 build base (Metal, no tests)
+/tmp/openmm-metal-bench/021/v/base/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py /tmp/openmm-metal-bench/021/v/base/prefix/lib ['Reference', 'CPU', 'Metal']
+== lease released 16:12:15Z 021 build base (Metal, no tests) exit 0
+== lease taken 16:12:16Z 021 build fix (Metal + tests)
+/tmp/openmm-metal-bench/021/v/fix/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py /tmp/openmm-metal-bench/021/v/fix/prefix/lib ['Reference', 'CPU', 'Metal']
+== lease released 16:13:02Z 021 build fix (Metal + tests) exit 0
+== lease taken 16:13:02Z 021 build oclfix (OpenCL tests)
+== lease released 16:13:17Z 021 build oclfix (OpenCL tests) exit 0
+== lease taken 16:13:17Z 021 ctest Metal Single
+54/55 Test #128: TestMetalMonteCarloFlexibleBarostatSingle ......   Passed  136.00 sec
+55/55 Test #124: TestMetalMonteCarloAnisotropicBarostatSingle ...   Passed  151.07 sec
+
+100% tests passed out of 55
+
+Total Test time (real) = 206.30 sec
+== lease released 16:16:43Z 021 ctest Metal Single exit 0
+== lease taken 16:16:43Z 021 ctest Metal Mixed
+54/55 Test #125: TestMetalMonteCarloAnisotropicBarostatMixed ...   Passed  150.84 sec
+55/55 Test #163: TestMetalVirtualSitesMixed ....................   Passed   29.46 sec
+
+100% tests passed out of 55
+
+Total Test time (real) = 303.74 sec
+== lease released 16:21:47Z 021 ctest Metal Mixed exit 0
+== lease taken 16:21:47Z 021 ctest OpenCL minimizer/centroid/ATM x3
+1/3 Test  #54: TestOpenCLATMForceSingle ..................   Passed    6.80 sec
+2/3 Test  #90: TestOpenCLCustomCentroidBondForceSingle ...   Passed    1.36 sec
+3/3 Test #153: TestOpenCLLocalEnergyMinimizerSingle ......   Passed   14.41 sec
+100% tests passed out of 3
+1/3 Test  #54: TestOpenCLATMForceSingle ..................   Passed    1.60 sec
+2/3 Test  #90: TestOpenCLCustomCentroidBondForceSingle ...   Passed    0.20 sec
+3/3 Test #153: TestOpenCLLocalEnergyMinimizerSingle ......   Passed   14.42 sec
+100% tests passed out of 3
+1/3 Test  #54: TestOpenCLATMForceSingle ..................   Passed    1.67 sec
+2/3 Test  #90: TestOpenCLCustomCentroidBondForceSingle ...   Passed    0.20 sec
+3/3 Test #153: TestOpenCLLocalEnergyMinimizerSingle ......   Passed   16.95 sec
+100% tests passed out of 3
+== lease released 16:22:45Z 021 ctest OpenCL minimizer/centroid/ATM x3 exit 0
+== lease taken 16:22:45Z 021 timing dhfr+nav base vs fix
+{"round": 1, "variant": "base", "commit": "361452c5c0b86019d3b4456e85c90aa9a8312ba5", "wu": "dhfr", "result": {"wu": "dhfr", "atoms": 23558, "platform": "Metal", "precision": "single", "ns_per_day": 126.70175653082818, "steps": 22000, "wall_s": 30.0, "rel_force_err": 1.207275662063339e-06, "energy": -337088.92893304746, "energy_ref": -337089.6341468159, "energy_rel_err": 2.092066017547017e-06, "clock": "host wall, whole steps"}}
+{"round": 1, "variant": "fix", "commit": "556fbad21341e99efb0adaec9476eeb88cf285d0", "wu": "dhfr", "result": {"wu": "dhfr", "atoms": 23558, "platform": "Metal", "precision": "single", "ns_per_day": 126.43107917108499, "steps": 22000, "wall_s": 30.07, "rel_force_err": 1.207275662063339e-06, "energy": -337088.93674554746, "energy_ref": -337089.6341468159, "energy_rel_err": 2.0688896893286377e-06, "clock": "host wall, whole steps"}}
+{"round": 1, "variant": "base", "commit": "361452c5c0b86019d3b4456e85c90aa9a8312ba5", "wu": "nav", "result": {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "single", "ns_per_day": 44.86334332346425, "steps": 7800, "wall_s": 30.04, "rel_force_err": 1.750514859081555e-06, "energy": -1720827.1120681027, "energy_ref": -1720827.7931792985, "energy_rel_err": 3.9580439049325055e-07, "clock": "host wall, whole steps"}}
+{"round": 1, "variant": "fix", "commit": "556fbad21341e99efb0adaec9476eeb88cf285d0", "wu": "nav", "result": {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "single", "ns_per_day": 44.693862139268035, "steps": 7800, "wall_s": 30.16, "rel_force_err": 1.750514859081555e-06, "energy": -1720827.0183181027, "energy_ref": -1720827.7931792985, "energy_rel_err": 4.502839847743222e-07, "clock": "host wall, whole steps"}}
+{"round": 2, "variant": "fix", "commit": "556fbad21341e99efb0adaec9476eeb88cf285d0", "wu": "dhfr", "result": {"wu": "dhfr", "atoms": 23558, "platform": "Metal", "precision": "single", "ns_per_day": 128.79300223756118, "steps": 22400, "wall_s": 30.05, "rel_force_err": 1.207275662063339e-06, "energy": -337088.93674554746, "energy_ref": -337089.6341468159, "energy_rel_err": 2.0688896893286377e-06, "clock": "host wall, whole steps"}}
+{"round": 2, "variant": "base", "commit": "361452c5c0b86019d3b4456e85c90aa9a8312ba5", "wu": "dhfr", "result": {"wu": "dhfr", "atoms": 23558, "platform": "Metal", "precision": "single", "ns_per_day": 128.26527311662167, "steps": 22300, "wall_s": 30.04, "rel_force_err": 1.207275662063339e-06, "energy": -337088.94065179746, "energy_ref": -337089.6341468159, "energy_rel_err": 2.057301525219448e-06, "clock": "host wall, whole steps"}}
+{"round": 2, "variant": "fix", "commit": "556fbad21341e99efb0adaec9476eeb88cf285d0", "wu": "nav", "result": {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "single", "ns_per_day": 44.94393687299399, "steps": 7900, "wall_s": 30.37, "rel_force_err": 1.750514859081555e-06, "energy": -1720827.0026931027, "energy_ref": -1720827.7931792985, "energy_rel_err": 4.593639171545008e-07, "clock": "host wall, whole steps"}}
+{"round": 2, "variant": "base", "commit": "361452c5c0b86019d3b4456e85c90aa9a8312ba5", "wu": "nav", "result": {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "single", "ns_per_day": 44.83997992801552, "steps": 7800, "wall_s": 30.06, "rel_force_err": 1.750514859081555e-06, "energy": -1720827.0105056027, "energy_ref": -1720827.7931792985, "energy_rel_err": 4.5482395096441147e-07, "clock": "host wall, whole steps"}}
+== lease released 16:28:13Z 021 timing dhfr+nav base vs fix exit 0
+LANE-DONE
