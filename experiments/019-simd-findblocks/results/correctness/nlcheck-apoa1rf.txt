@@ -1,0 +1,6 @@
+reference (OpenCL capture): tiles 55396, pairs 1727984
+device Apple M2, gpu cores 10, threadgroups 120 x 256
+before: tiles 55396, pairs 1727984, missing vs ref 0, extra vs ref 0 | GPU ms median 4.3545 min 4.2025 max 6.6655 (n=20)
+  after missing: |distance - PADDED_CUTOFF| max 3.107e-06 nm (-5.21e-08 -2.38e-07 -4.78e-07 -1.53e-06 -2.69e-06 -3.11e-06)
+  after extra: |distance - PADDED_CUTOFF| max 1.111e-05 nm (+5.48e-07 +6.64e-07 +1.09e-06 +1.19e-06 +1.60e-06 +2.31e-06 +2.81e-06 +3.11e-06 +4.51e-06 +1.11e-05)
+after: tiles 55396, pairs 1727988, missing vs ref 6, extra vs ref 10 | GPU ms median 1.9025 min 1.8499 max 3.3529 (n=20)
