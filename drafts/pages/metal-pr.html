@@ -16,7 +16,7 @@
   <p class="dek">A native Metal platform for Apple GPUs. Like CUDA and HIP, it's a thin <code>ComputeContext</code> on the common compute framework, and every common kernel compiles unchanged. Plain C++ with vendored metal-cpp: no Objective-C, and no Xcode.</p>
   <div class="byline">Built using Claude Fable 5.1, with a rigorous scientific and testing approach, under my direction.</div>
   <div class="stats">
-    <div class="stat" style="--c:var(--blue)"><b>1.28&times;</b><span>Metal single over OpenCL single on dhfr. Never below 1.01&times;</span></div>
+    <div class="stat" style="--c:var(--blue)"><b>0.99&ndash;1.07&times;</b><span>Metal single over OpenCL on OpenMM's benchmark suite. 1.20&ndash;1.28&times; on FAHBench dhfr</span></div>
     <div class="stat" style="--c:var(--violet)"><b>11&times;</b><span>Metal mixed over CPU. Apple's OpenCL has no mixed precision</span></div>
     <div class="stat" style="--c:var(--teal)"><b>1.21e-6</b><span>force error on dhfr, identical to OpenCL on every chip</span></div>
     <div class="stat" style="--c:var(--gold)"><b>6,507</b><span>lines in platforms/metal src and include. HIP 7,604, CUDA 7,828</span></div>
@@ -48,6 +48,26 @@
     </tbody>
   </table></div>
   <figure><!--fig:scaling--><figcaption><b>Throughput against system size.</b> OpenCL (rings) plateaus at the same level as Metal. Per core, the M3 Ultra reaches 68% of the M2 and M3 Pro. A step never goes below about 0.24 ms, so dhfr is too small to fill the Ultra.</figcaption></figure>
+</div></section>
+
+<section><div class="wrap">
+  <div class="col"><h2 style="--c:var(--blue)"><small>Performance</small>OpenMM's benchmark suite.</h2>
+  <p>OpenMM's <code>benchmark.py</code>, unmodified, on all nine non-AMOEBA tests. Metal single runs at 0.99 to 1.07 times OpenCL. These systems constrain only bonds to hydrogen, so none uses CCMA; FAHBench's dhfr, the one system where Metal leads clearly, sends 3,072 constraints to CCMA. Whether CCMA is the cause is not yet isolated. Mixed precision costs 15 to 42% against Metal single. Clock: <code>benchmark.py</code>'s host wall clock, one 60 s run per configuration.</p></div>
+  <div class="col scroll"><table>
+    <thead><tr><th class="l">Test</th><th>M2</th><th>M3 Pro</th><th>M3 Ultra</th><th>M2</th><th>M3 Pro</th><th>M3 Ultra</th></tr>
+    <tr><th></th><th colspan="3">Metal single / OpenCL single</th><th colspan="3">Metal mixed / OpenCL single</th></tr></thead>
+    <tbody>
+      <tr><td class="l">gbsa</td><td>1.01</td><td>1.01</td><td>1.01</td><td>0.76</td><td>0.79</td><td>0.68</td></tr>
+      <tr><td class="l">rf</td><td>0.99</td><td>1.02</td><td>1.07</td><td>0.58</td><td>0.66</td><td>0.72</td></tr>
+      <tr><td class="l">pme</td><td>1.01</td><td>1.00</td><td>1.04</td><td>0.68</td><td>0.72</td><td>0.72</td></tr>
+      <tr><td class="l">apoa1rf</td><td>0.99</td><td>1.01</td><td>1.03</td><td>0.66</td><td>0.71</td><td>0.75</td></tr>
+      <tr><td class="l">apoa1pme</td><td>1.02</td><td>1.02</td><td>1.02</td><td>0.76</td><td>0.78</td><td>0.82</td></tr>
+      <tr><td class="l">apoa1ljpme</td><td>1.00</td><td>1.00</td><td>1.01</td><td>0.79</td><td>0.80</td><td>0.85</td></tr>
+      <tr><td class="l">amber20-dhfr</td><td>1.02</td><td>1.02</td><td>1.03</td><td>0.66</td><td>0.70</td><td>0.70</td></tr>
+      <tr><td class="l">amber20-cellulose</td><td>1.02</td><td>1.05</td><td>1.01</td><td>0.79</td><td>0.81</td><td>0.85</td></tr>
+      <tr><td class="l">amber20-stmv</td><td>1.03</td><td>1.07</td><td>1.00</td><td>0.81</td><td>0.89</td><td>0.85</td></tr>
+    </tbody>
+  </table></div>
 </div></section>
 
 <section><div class="wrap">
@@ -91,7 +111,7 @@
     <li><b>QTBIntegrator</b> is single precision only.</li>
     <li><b>One device per context</b>, so the multi-device tests are skipped.</li>
     <li><b>Requires</b> macOS 15 or later and an Apple7 or newer GPU (M1 or later).</li>
-    <li><b>Not yet tested</b> on M1 or M4 hardware, or with OpenMM's benchmark suite.</li>
+    <li><b>Not yet tested</b> on M1 or M4 hardware, or on the AMOEBA benchmarks: Metal has no AMOEBA plugin.</li>
   </ul>
 </div></div></section>
 

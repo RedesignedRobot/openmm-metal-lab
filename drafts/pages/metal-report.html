@@ -19,7 +19,7 @@
 
   <div class="abstract">
     <h3>Abstract</h3>
-    <p>OpenMM, the molecular dynamics engine behind Folding@home's GPU cores, runs on CUDA, HIP and OpenCL but not on Metal. Apple's OpenCL can't run the mixed precision Folding@home uses, because Apple GPUs have no 64-bit floating-point hardware. We built a native Metal platform the way OpenMM's CUDA and HIP platforms are built: a thin compute context on Common Compute, so every shared GPU kernel compiles unchanged. Kernels encode into one open command buffer, and mixed precision uses double-float arithmetic. On an M2, an M3 Pro and an M3 Ultra, the platform passes 107 to 109 of 110 tests, most of them ported from OpenMM's OpenCL suite, and its only repeatable failure also occurs with OpenCL on unmodified OpenMM on M3 GPUs. On Folding@home's benchmark work units, Metal is 1.01 to 1.28 times faster than OpenCL in single precision. In mixed precision, which OpenCL can't offer on these GPUs, it is 2.8 to 11 times faster than the CPU in the same machine. Force errors against OpenMM's double-precision Reference platform match OpenCL's on every chip. Standalone Metal-native kernels run the neighbor-list block search a further 2.3 to 3.1 times faster, and are not yet part of the platform.</p>
+    <p>OpenMM, the molecular dynamics engine behind Folding@home's GPU cores, runs on CUDA, HIP and OpenCL but not on Metal. Apple's OpenCL can't run the mixed precision Folding@home uses, because Apple GPUs have no 64-bit floating-point hardware. We built a native Metal platform the way OpenMM's CUDA and HIP platforms are built: a thin compute context on Common Compute, so every shared GPU kernel compiles unchanged. Kernels encode into one open command buffer, and mixed precision uses double-float arithmetic. On an M2, an M3 Pro and an M3 Ultra, the platform passes 107 to 109 of 110 tests, most of them ported from OpenMM's OpenCL suite, and its only repeatable failure also occurs with OpenCL on unmodified OpenMM on M3 GPUs. In single precision it matches OpenCL on OpenMM's benchmark suite, at 0.99 to 1.07 times its speed, and leads by 20 to 28% on the one Folding@home work unit that uses the CCMA constraint solver, for reasons not yet isolated. Mixed precision, which OpenCL can't offer on these GPUs, costs 15 to 42% against Metal's single precision and runs 2.8 to 11 times faster than the CPU in the same machine. Force errors against OpenMM's double-precision Reference platform match OpenCL's on every chip. Standalone Metal-native kernels run the neighbor-list block search a further 2.3 to 3.1 times faster, and are not yet part of the platform.</p>
   </div>
 </div>
 <figure><!--fig:architecture--><figcaption><span class="fn">Figure 1.</span><b>The Metal platform sits beside CUDA, HIP and OpenCL.</b> OpenMM's GPU platforms share one set of kernels through Common Compute. Each supplies a thin context that compiles and launches them. The Metal platform does the same through Apple's metal-cpp headers, in plain C++, with no Objective-C and no Xcode.</figcaption></figure>
@@ -29,7 +29,7 @@
   <h2><small>Introduction</small>Capable GPUs, outside the science.</h2>
   <p>Folding@home simulates protein dynamics on volunteers' computers, and most of its throughput comes from GPUs running OpenMM<sup class="c">1,2</sup>. Every Mac with Apple silicon has a capable GPU with unified memory, but a Mac that joins Folding@home today contributes through its CPU alone.</p>
   <p>Three things stand in the way. OpenMM has no Metal platform. Apple's OpenCL, deprecated since 2018, runs only OpenMM's single precision. And the Folding@home client can't yet detect a GPU that isn't on PCI<sup class="c">8</sup>. This report addresses the first two.</p>
-  <p>We describe the platform's design, then measure it at three levels: individual kernels against OpenCL, the whole platform on Folding@home's benchmark work units, and OpenMM's own test suite. The platform ran on three Apple chips spanning 10 to 60 GPU cores, and the kernel studies on two or three of them.</p>
+  <p>We describe the platform's design, then measure it at three levels: individual kernels against OpenCL, the whole platform on Folding@home's benchmark work units and on OpenMM's benchmark suite, and OpenMM's own test suite. The platform ran on three Apple chips spanning 10 to 60 GPU cores, and the kernel studies on two or three of them.</p>
 </div></div></section>
 
 <section><div class="wrap"><div class="col">
@@ -70,11 +70,11 @@
 </div></div></section>
 
 <section><div class="wrap"><div class="col">
-  <h3 class="sub">Faster than OpenCL on Folding@home work units</h3>
-  <p>We ran FAHBench's three work units<sup class="c">5</sup> on each chip: dhfr in implicit solvent (2,489 atoms), dhfr with PME (23,558) and nav with PME (173,112). Each configuration ran three rounds of 60 s after 200 warm-up steps, in rotated order. Metal leads OpenCL in every case, by 1 to 4% on dhfr-implicit and nav, and by 20 to 28% on dhfr with PME.</p>
+  <h3 class="sub">Close to OpenCL, well ahead where CCMA runs</h3>
+  <p>We ran FAHBench's three work units<sup class="c">5</sup> on each chip: dhfr in implicit solvent (2,489 atoms), dhfr with PME (23,558) and nav with PME (173,112). Each configuration ran three rounds of 60 s after 200 warm-up steps, in rotated order. Metal is 1 to 4% ahead of OpenCL on dhfr-implicit and nav, a small margin but outside the round-to-round spread, and 20 to 28% ahead on dhfr with PME. That work unit constrains every bond and every H&ndash;X&ndash;H angle, so all 3,072 of its non-water constraints go to the CCMA solver. The other two constrain only bonds to hydrogen, which OpenMM handles with SETTLE and SHAKE clusters, and send nothing to CCMA. We have not yet isolated whether CCMA is the cause.</p>
 </div>
-<figure><!--fig:fah-throughput--><figcaption><span class="fn">Figure 5.</span><b>Metal leads OpenCL on every work unit and every chip.</b> ns/day on the host wall clock over whole steps. Mean of three rounds, whiskers &plusmn;1 sd. Apple's OpenCL has no mixed precision, so Metal mixed is the only GPU path at Folding@home's precision.</figcaption></figure>
-<figure><!--fig:ratios--><figcaption><span class="fn">Figure 6.</span><b>The lead over OpenCL is largest on dhfr with PME, and the lead over the CPU grows with the chip.</b> Metal single over OpenCL single, and Metal mixed over the CPU platform in the same machine.</figcaption></figure>
+<figure><!--fig:fah-throughput--><figcaption><span class="fn">Figure 5.</span><b>Metal is slightly ahead of OpenCL on two work units and well ahead on the third.</b> ns/day on the host wall clock over whole steps. Mean of three rounds, whiskers &plusmn;1 sd. Apple's OpenCL has no mixed precision, so Metal mixed is the only GPU path at Folding@home's precision.</figcaption></figure>
+<figure><!--fig:ratios--><figcaption><span class="fn">Figure 6.</span><b>The lead over OpenCL is large only on dhfr with PME, and the lead over the CPU grows with the chip.</b> Metal single over OpenCL single, and Metal mixed over the CPU platform in the same machine.</figcaption></figure>
 <div class="col scroll"><table>
   <thead><tr><th class="l">Work unit</th><th class="l">Chip</th><th>Metal single</th><th>OpenCL single</th><th>Ratio</th><th>Metal mixed</th><th>CPU</th></tr></thead>
   <tbody>
@@ -90,6 +90,28 @@
   </tbody>
 </table>
 <p class="note">Table 1. Throughput in ns/day, host wall clock, mean of three rounds.</p></div>
+</div></section>
+
+<section><div class="wrap"><div class="col">
+  <h3 class="sub">OpenMM's benchmark suite</h3>
+  <p>We also ran OpenMM's own <code>benchmark.py</code>, unmodified, on each chip: nine systems from 2,489 to 1,067,095 atoms, all with a 4 fs step and only bonds to hydrogen constrained, so none of them uses CCMA. Each configuration ran once, for 60 s. In single precision, Metal runs at 0.99 to 1.07 times OpenCL's speed on every system and chip. Mixed precision, Folding@home's, runs at 0.58 to 0.89 times OpenCL single, and 4.0 to 11 times the CPU. The cost is 28 to 42% on the three 23,558-atom dhfr systems and 15 to 23% on the two largest. We have not yet measured where it goes.</p>
+</div>
+<div class="col scroll"><table>
+  <thead><tr><th class="l">Test</th><th>Atoms</th><th>M2</th><th>M3 Pro</th><th>M3 Ultra</th><th>M2</th><th>M3 Pro</th><th>M3 Ultra</th></tr>
+  <tr><th></th><th></th><th colspan="3">Metal single / OpenCL single</th><th colspan="3">Metal mixed / OpenCL single</th></tr></thead>
+  <tbody>
+    <tr><td class="l">gbsa</td><td>2,489</td><td>1.01</td><td>1.01</td><td>1.01</td><td>0.76</td><td>0.79</td><td>0.68</td></tr>
+    <tr><td class="l">rf</td><td>23,558</td><td>0.99</td><td>1.02</td><td>1.07</td><td>0.58</td><td>0.66</td><td>0.72</td></tr>
+    <tr><td class="l">pme</td><td>23,558</td><td>1.01</td><td>1.00</td><td>1.04</td><td>0.68</td><td>0.72</td><td>0.72</td></tr>
+    <tr><td class="l">apoa1rf</td><td>92,224</td><td>0.99</td><td>1.01</td><td>1.03</td><td>0.66</td><td>0.71</td><td>0.75</td></tr>
+    <tr><td class="l">apoa1pme</td><td>92,224</td><td>1.02</td><td>1.02</td><td>1.02</td><td>0.76</td><td>0.78</td><td>0.82</td></tr>
+    <tr><td class="l">apoa1ljpme</td><td>92,224</td><td>1.00</td><td>1.00</td><td>1.01</td><td>0.79</td><td>0.80</td><td>0.85</td></tr>
+    <tr><td class="l">amber20-dhfr</td><td>23,558</td><td>1.02</td><td>1.02</td><td>1.03</td><td>0.66</td><td>0.70</td><td>0.70</td></tr>
+    <tr><td class="l">amber20-cellulose</td><td>408,609</td><td>1.02</td><td>1.05</td><td>1.01</td><td>0.79</td><td>0.81</td><td>0.85</td></tr>
+    <tr><td class="l">amber20-stmv</td><td>1,067,095</td><td>1.03</td><td>1.07</td><td>1.00</td><td>0.81</td><td>0.89</td><td>0.85</td></tr>
+  </tbody>
+</table>
+<p class="note">Table 2. Throughput ratios from <code>benchmark.py</code>'s own host wall clock, one 60 s run per configuration. ns/day for every configuration, with the CPU, are in experiment 018.</p></div>
 </div></section>
 
 <section><div class="wrap"><div class="col">
@@ -136,11 +158,11 @@
 
 <section><div class="wrap"><div class="col">
   <h2 style="--c:var(--violet)"><small>Discussion</small>A first step, with a clear next one.</h2>
-  <p>A Metal platform built like CUDA and HIP runs OpenMM on Apple GPUs with the accuracy of an established platform, and it is ahead of OpenCL in every whole-platform measurement. It also delivers the mixed precision Folding@home requires, which OpenCL can't on this hardware. The gain over OpenCL comes from the platform layer, not from the kernels: command-buffer batching, and fast math functions chosen by an accuracy check. The larger gains measured in native kernels are the natural next step, and they would live inside the platform, leaving the common kernels untouched.</p>
+  <p>A Metal platform built like CUDA and HIP runs OpenMM on Apple GPUs with the accuracy of an established platform, and it matches OpenCL's speed in single precision on OpenMM's benchmark suite. It also delivers the mixed precision Folding@home requires, which OpenCL can't on this hardware, at a cost of 15 to 42% in speed. The one clear lead over OpenCL, on the work unit that uses CCMA, is not yet explained. The larger gains measured in native kernels are the route past OpenCL, and they would live inside the platform, leaving the common kernels untouched.</p>
   <p>Several limitations apply.</p>
   <ul class="plain">
     <li><b>Mixed-precision minimization is slow.</b> Without 64-bit atomics, its reductions run in a single threadgroup and take 80% of the time. On nav on the M2, it takes 264 s, against 58 s in single precision and 300 s on the CPU.</li>
-    <li><b>Coverage.</b> Three chips, all on macOS 27. No M1 or M4 hardware, and not yet OpenMM's standard benchmark suite.</li>
+    <li><b>Coverage.</b> Three chips, all on macOS 27. No M1 or M4 hardware. The benchmark suite ran once per configuration, and without its AMOEBA tests, because the platform has no AMOEBA plugin.</li>
     <li><b>Conditions.</b> The M3 Pro and M3 Ultra were in everyday use during the runs. Between rounds, dhfr timings on those chips vary by up to 9%, and the M3 Ultra's CPU timings by up to 16%.</li>
     <li><b>Scope.</b> One device per context, no double precision, and QTBIntegrator in single precision only.</li>
   </ul>
@@ -156,8 +178,8 @@
   <table class="prose"><tbody>
     <tr><td>Build</td><td>Commit f9347f6c5, built from clean on each machine: from a <code>git archive</code> with a matching source manifest on the M3 Pro and M3 Ultra, and as an independent verification build on the M2. Apple clang 21.0.0, macOS SDK 27.0, Release.</td></tr>
     <tr><td>Machines</td><td>Mac mini, M2, 8 CPU and 10 GPU cores, 8 GB. MacBook Pro, M3 Pro, 12 CPU and 18 GPU cores, 36 GB. Mac Studio, M3 Ultra, 28 CPU and 60 GPU cores, 96 GB. All on macOS 27.0.</td></tr>
-    <tr><td>Clocks</td><td>Platform throughput and minimization: host wall clock (<code>time.perf_counter</code>) over whole steps. Standalone kernels: GPU timestamps. Dispatch cost: host clock. We never compare numbers from different clocks directly.</td></tr>
-    <tr><td>Protocol</td><td>Three rounds per configuration, order rotated each round, 200 warm-up steps, 60 s timed, at nice 0. Scaling: one 30 s run per box size.</td></tr>
+    <tr><td>Clocks</td><td>Platform throughput and minimization: host wall clock (<code>time.perf_counter</code>) over whole steps. Benchmark suite: <code>benchmark.py</code>'s own host wall clock (<code>datetime.now</code>) over whole steps. Standalone kernels: GPU timestamps. Dispatch cost: host clock. We never compare numbers from different clocks directly.</td></tr>
+    <tr><td>Protocol</td><td>Three rounds per configuration, order rotated each round, 200 warm-up steps, 60 s timed, at nice 0. Scaling: one 30 s run per box size. Benchmark suite: <code>benchmark.py</code> defaults, one 60 s run per configuration in a separate process, order rotated from test to test.</td></tr>
     <tr><td>Accuracy</td><td>Forces compared with the Reference platform from the same positions. Drift from 0.1 ns of constant-energy dynamics on dhfr, as the fitted slope of total energy.</td></tr>
     <tr><td>Conditions</td><td>The M3 Pro ran its first round on battery and the rest on AC. The M3 Ultra ran alongside a dictation app and two virtual machines.</td></tr>
   </tbody></table>
@@ -165,7 +187,7 @@
 
 <section><div class="wrap"><div class="col">
   <h2 style="--c:var(--muted)"><small>Availability</small>Data and code.</h2>
-  <p>The platform is on the <code>metal</code> branch of <a href="https://github.com/RedesignedRobot/openmm/tree/metal">RedesignedRobot/openmm</a>. Raw results, harnesses and the scripts that draw every figure are in <a href="https://github.com/RedesignedRobot/openmm-metal-lab">openmm-metal-lab</a>, experiments 001 to 017.</p>
+  <p>The platform is on the <code>metal</code> branch of <a href="https://github.com/RedesignedRobot/openmm/tree/metal">RedesignedRobot/openmm</a>. Raw results, harnesses and the scripts that draw every figure are in <a href="https://github.com/RedesignedRobot/openmm-metal-lab">openmm-metal-lab</a>, experiments 001 to 018.</p>
   <h3 class="sub">Use of AI tools</h3>
   <p>Built using Claude Fable 5.1, under my direction. Claude wrote the platform, the harnesses and the analysis. I set the goals, reviewed the results and made the decisions.</p>
   <h3 class="sub">Acknowledgments</h3>

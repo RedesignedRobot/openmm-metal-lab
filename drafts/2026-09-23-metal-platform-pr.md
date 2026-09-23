@@ -26,7 +26,21 @@ Folding@home work units (FAHBench) on three Apple GPUs, in ns/day. Clock: host w
 | | M3 Pro | 21.16 | 20.98 | 1.01 | 15.93 | 2.49 |
 | | M3 Ultra | 45.13 | 44.76 | 1.01 | 36.42 | 4.81 |
 
-The GPU standard deviation is under 1% in 19 of 27 cells and at most 4.3%. Apple's OpenCL can't run mixed precision at all, so Metal mixed is compared only with CPU.
+The GPU standard deviation is under 1% in 19 of 27 cells and at most 4.3%. Apple's OpenCL can't run mixed precision at all, so Metal mixed is compared with CPU here and with OpenCL single below.
+
+On OpenMM's own `benchmark.py`, unmodified, Metal single runs at 0.99 to 1.07 times OpenCL on all nine non-AMOEBA tests and all three chips. These systems constrain only bonds to hydrogen, so none uses CCMA. FAHBench's dhfr, the one system where Metal leads clearly, constrains every bond and sends 3,072 constraints to CCMA. I haven't yet isolated whether CCMA is the cause. Mixed precision costs 15 to 42% against Metal single, and runs at 0.58 to 0.89 times OpenCL single. Clock: benchmark.py's own host wall clock, one 60 s run per configuration.
+
+| Test | Metal single / OpenCL: M2, M3 Pro, M3 Ultra | Metal mixed / OpenCL single: M2, M3 Pro, M3 Ultra |
+|---|--:|--:|
+| gbsa | 1.01, 1.01, 1.01 | 0.76, 0.79, 0.68 |
+| rf | 0.99, 1.02, 1.07 | 0.58, 0.66, 0.72 |
+| pme | 1.01, 1.00, 1.04 | 0.68, 0.72, 0.72 |
+| apoa1rf | 0.99, 1.01, 1.03 | 0.66, 0.71, 0.75 |
+| apoa1pme | 1.02, 1.02, 1.02 | 0.76, 0.78, 0.82 |
+| apoa1ljpme | 1.00, 1.00, 1.01 | 0.79, 0.80, 0.85 |
+| amber20-dhfr | 1.02, 1.02, 1.03 | 0.66, 0.70, 0.70 |
+| amber20-cellulose | 1.02, 1.05, 1.01 | 0.79, 0.81, 0.85 |
+| amber20-stmv | 1.03, 1.07, 1.00 | 0.81, 0.89, 0.85 |
 
 ![FAHBench throughput](figures/png/fah-throughput.png)
 
@@ -57,7 +71,7 @@ On all three chips the relative force error against Reference is the same as Ope
 | M3 Pro | 107 / 110 | one stochastic Brownian test, plus testLargeForces (single and mixed) |
 | M3 Ultra | 108 / 110 | testLargeForces (single and mixed) |
 
-`testLargeForces` also fails on unmodified main with OpenCL on both M3 chips, and passes on the M2. It predates this PR and is filed separately as #____.
+`testLargeForces` also fails on unmodified main with OpenCL on both M3 chips, and passes on the M2. It predates this PR and is filed separately as #5434.
 
 ## Limitations
 
@@ -65,4 +79,4 @@ On all three chips the relative force error against Reference is the same as Ope
 - QTBIntegrator is single precision only.
 - There is one device per context, so the multi-device tests are skipped.
 - Requires macOS 15 or later and an Apple7 or newer GPU (M1 or later).
-- I haven't tested on M1 or M4 hardware, or with OpenMM's own benchmark suite.
+- I haven't tested on M1 or M4 hardware, or the AMOEBA benchmarks, since there's no AMOEBA plugin for Metal.
