@@ -276,6 +276,13 @@ Co-Authored-By/Claude-Session trailers; I followed team-lead.
   +2.04e-6), OpenCL +1.76e-6; reciprocal space +1.15e-7 vs +1.13e-7; bonded < 3e-9. Team-lead
   decision: this is float summation order, not a bug, and every test tolerance passes. No Kahan
   pass for now.
+- Minimizer option C: two-pass reductions instead of single-block ones in mixed precision.
+  - Each block writes its partial sum to a scratch array, and one block adds the partials in a
+    fixed order. That keeps mixed minimization bit-identical run to run, as it is now.
+  - Estimate, not measured: 54271 launches at 0.3–0.8 ms instead of 4.18 ms gives 15–45 s, plus
+    57 s of force evaluations. So about 75–100 s on nav, against 264 s now (58 s single, 300 s CPU).
+  - Team-lead decision: ship A. Minimization is off by default in FAH, and single precision is the
+    fast path.
 
 ### Test wrappers vs OpenCL (verifier findings on afa4268)
 
@@ -1067,3 +1074,88 @@ host sequence in CommonMinimizeKernel.cpp:
 - A mutation check is the way to show a test catches the bug it is meant for. Break the code in the
   specific way named (here `(long) hi`, and floor without lo), rebuild just the test target, watch
   it fail, then restore.
+
+### 2026-09-23 — upstream-shaped history (local branch `metal-upstream`, not pushed)
+
+Ten trailer-free commits on 3c9effc96. `git diff metal metal-upstream` is empty (0 bytes), so the
+tree is `metal` at f9347f6c5.
+
+| # | Commit | Subject |
+|---|---|---|
+| 1 | 0c3e7731e | Add metal-cpp headers |
+| 2 | 75ab1aa64 | Fix VkFFT's Metal backend for use with metal-cpp (every hunk inside `VKFFT_BACKEND==5`) |
+| 3 | 6afd95bba | Cast zero literals to mixed in conditional expressions |
+| 4 | 5c725738f | Make ComputeContext::doubleToString virtual (ABI note in the message) |
+| 5 | 4c1980672 | Add a PRIVATE address space macro for pointers to private variables |
+| 6 | 96eeefed2 | Let the minimizer reduce without 64 bit atomics |
+| 7 | 123d96c08 | Add a Metal implementation of atomicAddMixed |
+| 8 | 038101955 | Add a Metal platform |
+| 9 | 89f91d7e4 | Add Metal platform tests |
+| 10 | 915bccb92 | Document the PRIVATE address space macro |
+
+- Each commit builds from clean on the M3 Pro (Ninja, OpenCL on, no Python wrappers).
+  - Commits 1–8 give 212 test programs and no Metal tests. Commits 9–10 give 267, 55 of them Metal.
+  - Commits 9 and 10 were reworded after the build; their trees are the ones built.
+  - CUDA and HIP can't be built on a Mac. Their edits are the PRIVATE macro (empty) and the minimizer,
+    which preprocesses byte-identically.
+- Full Metal suite on the tip, M3 Pro (18 GPU cores), macOS 27: 107/110.
+  - BrownianIntegratorMixed is the stochastic failure; it passes 4/4 on rerun.
+  - LocalEnergyMinimizer testLargeForces (`maxdist > 1.0`, line 229) fails in single and mixed. It
+    fails the same way for OpenCL single on an unmodified 3c9effc96 build on this machine, so it is
+    not ours. Reference and CPU pass, and it passes on the M2.
+- PR description draft: `drafts/2026-09-23-metal-platform-pr.txt`. It has a placeholder for the AI
+  disclosure, which the owner writes.
+
+#### Upstream hygiene, not done (size estimates)
+
+- License headers (S, mechanical). 84 files carry "Portions copyright (c) 2026 the Authors." with
+  blank Authors and Contributors lines. The owner must supply the names. The 6 .metal kernels and
+  the 2 CMakeLists have no header, which matches OpenCL.
+- Licenses.txt (XS). Section 2 names only CUDA and OpenCL (add Metal). Add a section for metal-cpp
+  (Apache 2.0, compatible with LGPLv3).
+- User guide (S, 40–60 lines). There is no Metal section in `usersguide/library/04_platform_specifics.rst`
+  (Precision, DeviceName, UseCpuPme, TempDirectory; no DeviceIndex). The getting-started
+  requirements need macOS 15 and Apple7+. The developer guide has chapters for OpenCL and CUDA;
+  whether Metal needs one (the prelude, the rewriter, df64) is peastman's call (M if so).
+- Trim metal-cpp (M, risky). It is 127 files and 35k lines, but `Metal.hpp` includes every Metal
+  header, and VkFFT needs Foundation and QuartzCore. Trimming means hand-pruning the umbrella
+  headers against each metal-cpp update. Recommend keeping it whole and saying so in the PR.
+- Older SDKs (S to verify). metal-cpp is the macOS 27 release, and the deployment target defaults
+  to 10.7. Unverified: a build against the oldest SDK that conda-forge uses for osx-arm64.
+- CI (S to M). GitHub's macOS runners are virtualized. If their GPU isn't Apple7, the platform won't
+  register and every Metal test fails. Needs a check, and possibly a skip-if-unavailable in the
+  test wrappers.
+- Rerun on the final tip on the mini (S, about 1 h of mini time): the full suite, the FAH table (now
+  from 5fe5b9492), and per-commit builds with the OpenCL tests.
+- maxShortList 1024 vs 8192, and no PRUNE_BY_CUTOFF (S to M): benchmark or restore parity.
+- The rewriter's comment stripping, plus a unit test (S). The `thread`→`_mmThread` rename also
+  touches comments (cosmetic).
+- sort.metal mixes binding styles (XS).
+- Split commit 8 (6.6k lines) into context/arrays/rewriter, then kernels (M). Only if peastman
+  asks; each part must still build.
+- VkFFT: send METAL_PATCHES.txt to VkFFT upstream (S), so the vendored copy converges.
+- QTB in mixed: expected-error test vs skipping (XS, reviewer preference).
+- testLargeForces on M3: pre-existing, OpenCL too. Worth an upstream issue, separate from this PR
+  (S to investigate).
+- Non-blocking uploads, minimizer option C: performance, not blocking.
+- AI_POLICY.md (owner only). Disclosure in the PR, plus the owner confirms they understand the code
+  and have the legal right to submit it, and answers review questions without AI.
+
+### 2026-09-23 — docs commits on `metal` (b64ed233a, 87d9bc487, 55a34bad4), related-powers fix (uncommitted)
+
+- Docs only, no builds (the laptop is busy with the three-chip benchmark, and the verifier has
+  the mini):
+  - Licenses.txt, plus Apache-2.0.txt for metal-cpp.
+  - The user guide's Metal section and getting-started line.
+  - The platform lists in 01_introduction, 02_running_sims and 02_compiling.
+- The integer-power fix ("Known deviations" item 3 above) is written but not built.
+  - ExpressionUtilities.cpp POWER_CONSTANT declares each related power like the primary one:
+    `make_<tempType>(0.0f)` for vector temps, instead of `tempType t = 0.0f`.
+  - Lepton rewrites ^2, ^3, ^0.5 and ^-1 to SQUARE, CUBE, SQRT and RECIPROCAL, so the path needs
+    two different integer powers ≥ 4 of the same base.
+  - New test: testRelatedPowers in tests/TestCustomIntegrator.h, per-DOF `x^4+x^5` at 1e-5.
+  - OpenCL C accepts `double3 t = 0.0f` through scalar widening. CUDA/HIP vector types are plain
+    structs, so they likely had the same bug; unverified, since they can't be built on a Mac.
+  - Before committing, once the machines are released:
+    - build and run TestMetalCustomIntegrator in single and mixed, and TestOpenCLCustomIntegrator;
+    - mutation check: revert the one line, and mixed must fail to compile.
