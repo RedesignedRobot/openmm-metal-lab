@@ -1,26 +1,29 @@
 POSTED 2026-09-23 as https://github.com/openmm/openmm/issues/5434 (tables and code as markdown; #5198 line softened to what the code shows).
-
-Title: testLargeForces fails on OpenCL (single) on Apple M3 GPUs, passes on M2
-
 TestOpenCLLocalEnergyMinimizer fails in single precision on Apple M3 GPUs, on unmodified main (3c9effc96):
 
-  $ ./TestOpenCLLocalEnergyMinimizer single
-  exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+```
+$ ./TestOpenCLLocalEnergyMinimizer single
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+```
 
-Line 229 is ASSERT(maxdist > 1.0) in testLargeForces: after minimizing ten nearly overlapping particles with tolerance 1.0, none ended up more than 1 nm from the origin. The seed is fixed and the result is the same on every run.
+Line 229 is `ASSERT(maxdist > 1.0)` in `testLargeForces`: after minimizing ten nearly overlapping particles with tolerance 1.0, none ended up more than 1 nm from the origin. The seed is fixed and the result is the same on every run.
 
-  Machine (macOS 27.0, clang 21.0.0)    OpenCL single   Reference, CPU
-  Mac mini, M2 (10 GPU cores)           pass (3/3)      pass
-  MacBook Pro, M3 Pro (18 GPU cores)    fail (4/4)      pass
-  Mac Studio, M3 Ultra (60 GPU cores)   fail (3/3)      pass
+| Machine (macOS 27.0, clang 21.0.0) | OpenCL single | Reference, CPU |
+|---|---|---|
+| Mac mini, M2 (10 GPU cores) | pass (3/3) | pass |
+| MacBook Pro, M3 Pro (18 GPU cores) | fail (4/4) | pass |
+| Mac Studio, M3 Ultra (60 GPU cores) | fail (3/3) | pass |
 
 Repro:
-  git checkout 3c9effc96
-  cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
-    -DOPENMM_BUILD_OPENCL_LIB=ON -DOPENMM_BUILD_OPENCL_TESTS=ON \
-    -DOPENMM_BUILD_PYTHON_WRAPPERS=OFF \
-    -DOPENMM_BUILD_C_AND_FORTRAN_WRAPPERS=OFF
-  ninja -C build TestOpenCLLocalEnergyMinimizer
-  build/TestOpenCLLocalEnergyMinimizer single
 
-Since #5198 the minimizer runs on the GPU, so its single-precision path is the likely area. I found this while building a Metal platform with Claude Fable 5.1 (#5397), which shows the same M2 and M3 split.
+```
+git checkout 3c9effc96
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
+  -DOPENMM_BUILD_OPENCL_LIB=ON -DOPENMM_BUILD_OPENCL_TESTS=ON \
+  -DOPENMM_BUILD_PYTHON_WRAPPERS=OFF \
+  -DOPENMM_BUILD_C_AND_FORTRAN_WRAPPERS=OFF
+ninja -C build TestOpenCLLocalEnergyMinimizer
+build/TestOpenCLLocalEnergyMinimizer single
+```
+
+Cause: an out-of-range float to long conversion wraps mod 2^64 on M3 GPUs (it saturates on the M2), so the forces become 0 and the minimizer stops at iteration 0. See #5198 and below. I found this while building a Metal platform with Claude Fable 5.1 (#5397).
