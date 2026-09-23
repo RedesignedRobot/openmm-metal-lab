@@ -30,7 +30,7 @@ Everything ran on the Mac mini: Apple M2, 10 GPU cores, 8 GB, macOS 27.0 (26A428
 2. **Forces and energies** (`eqcheck.py`, `compare.py`): 7 systems, each evaluated in 2 fresh Contexts per install, in single and mixed precision. The systems are apoa1rf, apoa1pme, pme (dhfr), amber20-cellulose (408,609 atoms, large-block path), and the FAH work units dhfr, nav (173,112 atoms, large-block path) and dhfr in a triclinic box. The before-vs-before difference is the rounding floor.
 3. **ctest**: `ctest -R TestMetal --timeout 1800` on the after build tree. This covers 110 tests, both precisions.
 4. **Speed** (`run.py`): the unmodified `benchmark.py` (sha256 `cb2dec8f…`, same as `bench-018` and the 361452c5c source), run from a copy of `examples/benchmarks` with `--platform=Metal`. Tests are pme, apoa1rf, apoa1pme and amber20-cellulose, in single and mixed. The FAH dhfr and nav work units run through `fahwu.py` for 60 s. Three rounds, all at nice 0, on AC power.
-   - Within a round, each (test, precision) pair runs before and after back to back, and which install goes first alternates.
+   - Within a round, each (test, precision) pair runs before and after back to back. Which install goes first alternates from one pair to the next, but each pair keeps the same order in every round: before first for single, after first for mixed. The before medians match experiment 018's M2 baseline to within 0.1%.
    - **Clock:** `benchmark.py`'s own host wall clock (`datetime.now`, whole steps, after its warm-up); `fahwu.py` uses host wall `time.perf_counter`.
    - The mini is shared with other agents. Each pair held the machine lease `/tmp/openmm-lease`, so nothing else ran during a pair. One scheduled pause, 16:03–16:13Z, fell between pairs (`results/yield-boundary.log`).
    - An earlier attempt overlapped two `run.py` processes. All of its data was discarded; it is archived on the mini as `~/lab/simd-019/bench-contaminated-20260923T1558Z` and not used here. The run reported below is a single clean run, 15:59–17:41Z.
@@ -61,9 +61,9 @@ Everything ran on the Mac mini: Apple M2, 10 GPU cores, 8 GB, macOS 27.0 (26A428
   - Each install gives bitwise-identical forces from one fresh Context to the next.
   - Before vs after, the largest max|dF| is 7.0e-4 (cellulose), and the largest relative |dF| is 5.4e-9, in both precisions.
   - pme gives bitwise-identical forces.
-- Energies: every before-vs-after |dE| is within the before-vs-before spread. Outside the triclinic case, that is at most 0.5 kJ/mol on −3.0e6 in single (cellulose, where before-vs-before is also 0.5), and 1e-15 relative in mixed.
+- Energies: every before-vs-after |dE| is within the run-to-run spread of one of the installs (before-vs-before or after-vs-after), which is float rounding. In single, the largest is 0.25 kJ/mol on −3.0e6 (cellulose, before-vs-before also 0.25). In mixed, it is at most 2.3e-15 relative.
 - Where the differences come from: the flipped boundary pairs contribute zero force, but they shift atoms between tile columns, which changes float summation order.
-- The triclinic case is a deliberately compressed box, so its energy is huge. It is there to exercise `TRICLINIC` and `forceInclude`, and it also matches to rounding.
+- The triclinic case shears the 6.223 nm dhfr box without re-wrapping the atoms, so its energy is huge. It exercises `TRICLINIC` and matches to rounding. With a 0.8 nm cutoff it almost certainly never triggers `forceInclude`, which ctest's TestMetalEwald testTriclinic2 covers.
 
 **ctest** (`results/correctness/ctest.txt`): `100% tests passed out of 110`, 1501 s. This covers the Single and Mixed variants of NonbondedForce, CustomNonbondedForce, CustomGBForce, GBSAOBCForce, CustomManyParticleForce, CustomHbondForce, ATMForce and the rest. The baseline flake, TestMetalLangevinMiddleIntegratorMixed, passed this time.
 
@@ -101,7 +101,7 @@ In every row, the before and after ranges are far apart; none overlap.
 | apoa1pme | single | 2.023, 27.8% | 0.855, 14.0% | 7.273 → 6.120 |
 | apoa1pme | mixed | 2.009, 20.4% | 0.862, 10.1% | 9.834 → 8.570 |
 | amber20-cellulose | single | 9.212, 28.0% | 4.328, 15.5% | 32.877 → 28.004 |
-| amber20-cellulose | mixed | 9.206, 21.6% | 4.331, 11.7% | 42.547 → 37.608 |
+| amber20-cellulose | mixed | 9.206, 21.6% | 4.331, 11.5% | 42.547 → 37.608 |
 
 - The list is rebuilt on about half the steps: rebuild fraction 0.44–0.50 at 4 fs. A rebuild takes 1.7x (pme) to 2.4x (apoa1pme) less GPU time after the change: pme 0.67 → 0.40 ms, apoa1pme 4.05 → 1.71 ms, cellulose 18.4 → 8.7 ms. A skipped step costs about 4 µs in both.
 - The step-time saving matches the findBlocks saving almost exactly. For apoa1rf single, findBlocks drops by 1.09 ms/step and the step drops by 1.09 ms. So the whole end-to-end gain is this kernel, and nothing else moved.
