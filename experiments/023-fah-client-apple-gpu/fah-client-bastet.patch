@@ -1,23 +1,24 @@
-From 3029beaded9f1f65331ff24bca1c8baf5e3e7ace Mon Sep 17 00:00:00 2001
+From bbfe0255c8baf71c050891818ac8082f59252e65 Mon Sep 17 00:00:00 2001
 From: Amir Ayub <dev.amirayub@gmail.com>
-Date: Wed, 23 Sep 2026 21:41:50 +0300
+Date: Wed, 23 Sep 2026 23:40:23 +0300
 Subject: [PATCH] Detect Apple silicon GPUs
 
 Apple silicon GPUs have no PCI address, so detect() dropped them.  On
-macOS, keep an Apple OpenCL GPU without PCI info as gpu:soc:<n>.  Use its
-SoC ID as the device ID and mark it supported when gpus.json lists a
-species for vendor 0x106b and that ID.
+macOS, keep an Apple OpenCL GPU without PCI info as gpu:soc:<n>.  Its
+device ID is the SoC ID from the GPU's IOKit IONameMatched property, for
+example "gpu,t8112" gives 0x8112 on M2.  It is supported when gpus.json
+lists a species for vendor 0x106b and that ID.
 
 Needs the matching cbang change.  See #303.
 ---
- src/fah/client/GPUResources.cpp | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ src/fah/client/GPUResources.cpp | 47 +++++++++++++++++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
 diff --git a/src/fah/client/GPUResources.cpp b/src/fah/client/GPUResources.cpp
-index df95afa..da55560 100644
+index df95afa..b323f5f 100644
 --- a/src/fah/client/GPUResources.cpp
 +++ b/src/fah/client/GPUResources.cpp
-@@ -42,8 +42,13 @@
+@@ -42,13 +42,43 @@
  #include <cbang/hw/OpenCLLibrary.h>
  #include <cbang/hw/CUDALibrary.h>
  #include <cbang/hw/HIPLibrary.h>
@@ -25,36 +26,62 @@ index df95afa..da55560 100644
  #include <cbang/util/WeakCallback.h>
  
 +#ifdef __APPLE__
-+#include <cbang/os/osx/MacOSGPU.h>
++#include <IOKit/IOKitLib.h>
 +#endif
 +
  using namespace FAH::Client;
  using namespace cb;
  using namespace std;
-@@ -220,6 +225,27 @@ void GPUResources::detect() {
+ 
+ 
++#ifdef __APPLE__
++static uint16_t getAppleGPUDeviceID() {
++  io_service_t dev = IOServiceGetMatchingService(
++    MACH_PORT_NULL, IOServiceMatching("IOAccelerator"));
++  if (!dev) return 0;
++
++  CFTypeRef name = IORegistryEntryCreateCFProperty(
++    dev, CFSTR("IONameMatched"), kCFAllocatorDefault, 0);
++  IOObjectRelease(dev);
++
++  char buf[16] = "";
++  if (name && CFGetTypeID(name) == CFStringGetTypeID())
++    CFStringGetCString(
++      (CFStringRef)name, buf, sizeof(buf), kCFStringEncodingASCII);
++  if (name) CFRelease(name);
++
++  uint16_t id = 0;
++  if (strlen(buf) == 9 && String::startsWith(buf, "gpu,t"))
++    String::parseU16(string("0x") + (buf + 5), id, true);
++
++  return id;
++}
++#endif
++
++
+ namespace {
+   const unsigned updateFreq = Time::SEC_PER_DAY * 5;
+ 
+@@ -220,6 +250,23 @@ void GPUResources::detect() {
        res->insert("description", gpu.getDescription());
    }
  
 +#ifdef __APPLE__
-+  // Apple silicon GPUs are not PCI devices.  Identify them by SoC ID.
-+  // Assumes one GPU per SoC.
-+  uint16_t deviceID = getAppleGPUDeviceID();
-+  const auto &gpu = gpuIndex.find(GPUVendor::VENDOR_APPLE, deviceID);
-+  unsigned socIndex = 0;
++  uint16_t appleID = getAppleGPUDeviceID();
++  const auto &appleGPU = gpuIndex.find(GPUVendor::VENDOR_APPLE, appleID);
++  unsigned soc = 0;
 +
 +  for (auto &cd: openclGPUs) {
 +    if (cd.isPCIValid() || cd.vendorID != GPUVendor::VENDOR_APPLE) continue;
 +
-+    string id = "gpu:soc:" + String(socIndex++);
-+
++    string id = "gpu:soc:" + String(soc++);
 +    auto res = resources[id] = new GPUResource(id);
 +    res->set("opencl", cd);
-+    res->insert("device", deviceID);
-+    res->insertBoolean("supported", gpu.getSpecies());
-+
-+    if (gpu.getSpecies()) valid.insert(id);
++    res->insert("device", appleID);
++    res->insertBoolean("supported", appleGPU.getSpecies());
++    if (appleGPU.getSpecies()) valid.insert(id);
 +  }
-+#endif // __APPLE__
++#endif
 +
    // Match with existing GPUResources
    bool changed = false;

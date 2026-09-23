@@ -6,7 +6,7 @@ Can the open-source FAH client (fah-client-bastet plus cbang) see an Apple silic
 
 ## Answer
 
-Yes. cbang gets one enum value, a 2-line vendor mapping and a new IOKit helper (`MacOSGPU.cpp`, 71 lines, 31 of them license header). The client gets 23 lines. The patched client lists the M2 GPU as `gpu:soc:0` with vendor 0x106b and device 0x8112. Once a local gpus.json row gives that pair a species, the default group offers the GPU and allocates a work unit to it. The unit's assignment request serializes the GPU without error. The core arguments come out as `-gpu-platform opencl -gpu-vendor apple -opencl-platform 0 -opencl-device 0 -gpu 0`. No request reached FAH. The assignment server was set to 127.0.0.1, where nothing listens on 443.
+Yes. cbang gets 2 lines: one enum value and one vendor mapping. The client gets 47 lines, with no comments: a 22-line IOKit helper and a 17-line detect block, both under `#ifdef __APPLE__`. The patched client lists the M2 GPU as `gpu:soc:0` with vendor 0x106b and device 0x8112. Once a local gpus.json row gives that pair a species, the default group offers the GPU and allocates a work unit to it. The unit's assignment request serializes the GPU without error. The core arguments come out as `-gpu-platform opencl -gpu-vendor apple -opencl-platform 0 -opencl-device 0 -gpu 0`. No request reached FAH. The assignment server was set to 127.0.0.1, where nothing listens on 443.
 
 Upstream bases:
 
@@ -29,10 +29,10 @@ Two things. The first shows in the unpatched run below. The second comes from re
 cbang (`cbang.patch`):
 - `src/cbang/hw/GPUVendor.h`: `VENDOR_APPLE = 0x106b`, Apple's PCI vendor ID, which is also the GPU's IOKit `vendor-id`. The client's `type` field becomes `apple`.
 - `src/cbang/hw/OpenCLLibrary.cpp` `getVendorID`: map 0x1027f00 to 0x106b, next to the existing AMD-on-Apple fixup.
-- `src/cbang/os/osx/MacOSGPU.{h,cpp}`: `getAppleGPUDeviceID()`. It walks `IOAccelerator` services and returns the SoC ID from the first `IONameMatched` of the form `gpu,t` plus four hex digits, for example `gpu,t8112` gives 0x8112. It returns 0 when nothing matches. It uses cbang's `MacOSRef`, `MacOSString::convert` and the non-throwing `String::parseU16`. `MacOSString::convert` throws only if `CFStringGetCString` fails, which the short ASCII names here don't trigger. It passes `MACH_PORT_NULL` (the default main port) rather than the deprecated `kIOMasterPortDefault`, so it adds no warnings. `os/osx` is only built on darwin (`cbang/SConstruct`), so there is no stub for other platforms.
 
 fah-client-bastet (`fah-client-bastet.patch`):
-- `src/fah/client/GPUResources.cpp` `detect()`: after the PCI loop, under `#ifdef __APPLE__`, each Apple OpenCL device without PCI info becomes `gpu:soc:<n>`. It gets the OpenCL entry (vendor 0x106b, type, description), `device` set to the SoC ID, and `supported` set when gpus.json has a species for (0x106b, SoC ID). The `MacOSGPU.h` include is under `#ifdef __APPLE__` too, because cbang's `scons install` ships `os/osx` headers only on darwin. Nothing else in the client changes. `isSupported`, `Config::getGPUs`, the group allocator, `writeRequest` and `Unit::run` work as they are.
+- `src/fah/client/GPUResources.cpp` `detect()`: after the PCI loop, under `#ifdef __APPLE__`, each Apple OpenCL device without PCI info becomes `gpu:soc:<n>`. It gets the OpenCL entry (vendor 0x106b, type, description), `device` set to the SoC ID, and `supported` set when gpus.json has a species for (0x106b, SoC ID).
+- Same file, `getAppleGPUDeviceID()`, static, under `#ifdef __APPLE__`: takes the single `IOAccelerator` service and returns the SoC ID from its `IONameMatched` when that is `gpu,t` plus four hex digits, for example `gpu,t8112` gives 0x8112, else 0. It passes `MACH_PORT_NULL` (the default main port) rather than the deprecated `kIOMasterPortDefault`. The client already links IOKit through cbang. An earlier version put this helper in cbang `os/osx/MacOSGPU.{h,cpp}` (118 lines, mostly license header). Moving it into the client cut cbang to 2 lines. Nothing else in the client changes. `isSupported`, `Config::getGPUs`, the group allocator, `writeRequest` and `Unit::run` work as they are.
 
 No gpus.json schema change. The Apple row is `{vendor: 4203, device: <SoC ID>, type: <FAH's choice>, species: N}`. I used type 4 in the test row. The patch does not define a `GPU_APPLE` value, because the client only checks `type` for non-zero and the number is FAH's to pick.
 
@@ -112,16 +112,16 @@ The mini clone was reset to the patch commit afterwards.
 
 - Any Mac other than the M2. I have IOKit data for the M2 (here) and the M3 Pro (research doc) only.
 - The assignment server's handling of `gpu: "apple"` and vendor 0x106b. It is closed source.
-- A release build (`debug=0`), a full x86_64 or universal build, and a non-darwin build. `MacOSGPU.cpp` alone compiles for both `-arch arm64` and `-arch x86_64` with `-Wall -Werror`, deprecations excepted. The client block is inside `#ifdef __APPLE__` and the helper lives in `os/osx`, so Linux and Windows builds do not compile the new code.
+- A release build (`debug=0`), a full x86_64 or universal build, and a non-darwin build. The client's new code is all inside `#ifdef __APPLE__`, so Linux and Windows builds do not compile it.
 - The web page itself. The check above is by reading the source.
 
 ## M3 Ultra (Studio)
 
-Reasoned from source only. I ran nothing on the Studio. The code path is the same. What could differ:
+Reasoned from source plus one `ioreg` read. I ran no client on the Studio. The code path is the same. What could differ:
 
-1. The gpus.json row needs the Studio's own SoC ID, read from `ioreg -r -c IOAccelerator` there. Asahi's table has no M3 Ultra entry, so I don't know the value. M1 Ultra is T6002 and M2 Ultra is T6022.
+1. The gpus.json row needs the Studio's own SoC ID. `ioreg -r -c IOAccelerator` there shows one accelerator, `IONameMatched = "gpu,t6032"`, so 0x6032.
 2. If the Ultra's `IONameMatched` is not `gpu,t` plus four hex digits, the helper returns 0, and the GPU shows up with device 0 and `supported: false`. It would not crash or disappear.
-3. If the Ultra exposes two OpenCL GPU devices or two `IOAccelerator` entries, the patch lists `gpu:soc:0` and `gpu:soc:1` with the same device ID. I expect one of each but have not checked.
+3. If a Mac exposed two OpenCL GPU devices, the patch would list `gpu:soc:0` and `gpu:soc:1` with the same device ID. The Studio has one `IOAccelerator`, like the mini.
 
 ## Review notes
 
@@ -135,8 +135,10 @@ A fresh-context review found no correctness bug on single-GPU Apple silicon and 
 - `cbang.patch`, `fah-client-bastet.patch`: the deliverable.
 - `run.sh`, `ws_probe.py`: the test harness.
 - `results/`: raw logs and state dumps for each run, the three build logs, the test gpus.json row, and the test-only instrumentation patch.
-- Mini: `~/lab/fah-client/` has the clones with the patch commits (cbang 92edc613, client fc6a5f9) and the binaries `fah-client-unpatched`, `fah-client-patched` and `fah-client-instrumented`.
+- Mini: `~/lab/fah-client/` has the clones with the patch commits (cbang 984c0f31, client bbfe025; the earlier version is on branch `apple-full`) and the binaries `fah-client-unpatched`, `fah-client-patched` and `fah-client-instrumented`.
 
 ## Verification
 
-A fresh-context verifier rebuilt both patches from fresh clones on the mini (`~/lab/verify-023/VERIFY.md` there) and confirmed claims 1 to 4: `git am` applies, the unpatched client drops the GPU, the patched one lists `gpu:soc:0` as 0x106b/0x8112, and with the Apple row it is supported and the request carries both u16 fields. The only connect target in its 4 runs was 127.0.0.1. A probe calling `getAppleGPUDeviceID()` 200,000 times leaked no Mach ports or memory (`leaks` reports 0). Its three low findings (the "cannot throw" wording, the unguarded include, the deprecated constant) are fixed in the current patches, cbang 775da343 and client 3029bea, rebuilt and rerun in `results/fixed/`.
+A fresh-context verifier rebuilt both patches from fresh clones on the mini (`~/lab/verify-023/VERIFY.md` there) and confirmed claims 1 to 4: `git am` applies, the unpatched client drops the GPU, the patched one lists `gpu:soc:0` as 0x106b/0x8112, and with the Apple row it is supported and the request carries both u16 fields. The only connect target in its 4 runs was 127.0.0.1. A probe calling `getAppleGPUDeviceID()` 200,000 times leaked no Mach ports or memory (`leaks` reports 0). Its three low findings (the "cannot throw" wording, the unguarded include, the deprecated constant) are fixed in the current patches, cbang 775da343 and client 3029bea, rebuilt and rerun.
+
+The patches were then cut to cbang 984c0f31 (2 lines) and client bbfe025 (47 lines) by moving the helper into the client and switching to `IOServiceGetMatchingService`. The mini rebuilt them and reran both cases. With the live gpus.json, `gpu:soc:0` is vendor 4203, device 33042 (0x8112), unsupported. With the Apple row it is supported and the client POSTs assignment requests to 127.0.0.1. No connect target other than 127.0.0.1 appears in either log. `results/fixed/` holds the Apple-row run. The 200,000-call leak probe covered the earlier helper, not this one. The new one releases the service and the property the same way.
