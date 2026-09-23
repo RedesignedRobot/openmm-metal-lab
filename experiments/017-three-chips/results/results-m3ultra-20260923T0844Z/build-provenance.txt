@@ -1,0 +1,61 @@
+commit: f9347f6c5619613c1b7169dc42c7aab1ba0912c0  (git archive; openmm.version.git_revision reports Unknown because the tree has no .git)
+source tree manifest sha256 (sorted per-file sha256 of all 2474 files): 264cff55b07aefade067457b3fe52e29707883ca5556baca72d672a003191cd3 (matches laptop git archive)
+compiler: Apple clang version 21.0.0 (clang-2100.3.34.2); SDK 27.0 at /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+configure: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_INSTALL_PREFIX=/tmp/openmm-metal-bench/prefix -DPYTHON_EXECUTABLE=/tmp/openmm-metal-bench/env/bin/python -DOPENMM_BUILD_OPENCL_LIB=ON
+build: ninja -C build -j16; ninja -C build install; ninja -C build PythonInstall
+CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_FLAGS:STRING=
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_MAKE_PROGRAM:FILEPATH=/tmp/openmm-metal-bench/env/bin/ninja
+CMAKE_OSX_ARCHITECTURES:STRING=arm64
+CMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.7
+CMAKE_OSX_SYSROOT:STRING=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+OPENMM_BUILD_AMOEBA_CUDA_LIB:BOOL=OFF
+OPENMM_BUILD_AMOEBA_HIP_LIB:BOOL=OFF
+OPENMM_BUILD_AMOEBA_OPENCL_LIB:BOOL=ON
+OPENMM_BUILD_CPU_LIB:BOOL=ON
+OPENMM_BUILD_CUDA_LIB:BOOL=OFF
+OPENMM_BUILD_DRUDE_CUDA_LIB:BOOL=OFF
+OPENMM_BUILD_DRUDE_HIP_LIB:BOOL=OFF
+OPENMM_BUILD_DRUDE_OPENCL_LIB:BOOL=ON
+OPENMM_BUILD_HIP_LIB:BOOL=OFF
+OPENMM_BUILD_METAL_LIB:BOOL=ON
+OPENMM_BUILD_OPENCL_LIB:BOOL=ON
+OPENMM_BUILD_RPMD_CUDA_LIB:BOOL=OFF
+OPENMM_BUILD_RPMD_HIP_LIB:BOOL=OFF
+OPENMM_BUILD_RPMD_OPENCL_LIB:BOOL=ON
+OPENMM_BUILD_SHARED_LIB:BOOL=ON
+OPENMM_BUILD_STATIC_LIB:BOOL=OFF
+PYTHON_EXECUTABLE:FILEPATH=/tmp/openmm-metal-bench/env/bin/python
+env (micromamba, conda-forge):
+  cmake            4.4.3         hf91ab31_0            conda-forge
+  cython           3.3.0         py313hbbd9ce8_0       conda-forge
+  doxygen          1.18.0        py310h3226bdb_0       conda-forge
+  libcxx           23.1.1        h55c6f16_0            conda-forge
+  ninja            1.13.2        h3feff0a_1            conda-forge
+  numpy            2.5.3         py313h24c19cf_0       conda-forge
+  python           3.13.15       hb59dee6_103_cp313    conda-forge
+  setuptools       84.0.0        pyh332efcf_0          conda-forge
+  swig             4.5.1         h55aefed_1            conda-forge
+platforms: 8.6 ['Reference', 'CPU', 'Metal', 'OpenCL'] ()
+harness sha256:
+c4fdcb59e2986e0e14256098a45038bec343c0bd3cbe79cb6fc82a1684d761e3  bench.sh
+0c60a12333f2a4a5abf7a5c6b3aab29aa180539b6d7a7c356c46ce298b663e72  fahwu.py
+39f9aa6823b214d031f4cec4abe3d42827a541847771a73b390bad04bdbe8977  nvedrift.py
+e88a3fb8105601435d1e151c4db890100dda1ac7858f06e81fcd2dda7a8a59d1  summarize.py
+work units sha256 (match mini lab/fah-wu):
+414c248ffe18cf6eb84951adf5359827e529366cbbd8ee4220e5758c7514e7e0  ./.DS_Store
+7498ff5b04aceb7211a48950bdac74b58abad7e90fa731e50fb83129ac2d057c  ./dhfr-implicit/integrator.xml
+e64e7da090752810528afeaa5c866748c15a2cc75194d14e348d47d5478e2b39  ./dhfr-implicit/state.xml
+64a229de61420f72ec21c4d00550843fbf0e51801d76edf924b1501e4d2ab690  ./dhfr-implicit/system.xml
+67a443dfa343a625da2df6a98a2702535c12b23ab87f57444835ba9e526bc644  ./dhfr-implicit/wu.json
+7498ff5b04aceb7211a48950bdac74b58abad7e90fa731e50fb83129ac2d057c  ./dhfr/integrator.xml
+b9af84018492de1d17a3d8dcd942b591eb9e239ba5dbc6389449d9491bfc388f  ./dhfr/state.xml
+75b74478f5057ac41246447cc5d8514076055cef758efe233aae3ed9812a985a  ./dhfr/system.xml
+f7f02c2a0977667c845ad918a38c55b5cd7c42b2a620bdeb2cc6c1db10d5b3bd  ./dhfr/wu.json
+d48c2e6d5f5e6ed6b038059d694fd4c0d60e65c87fe424f1a6f0a74474e2e76d  ./nav/integrator.xml
+de00687479887865c6c5b035ccab5b8ea5f5b549e8095a50218effd2099dd6be  ./nav/state.xml
+8a6ab5bd4ad76b1747f667614f27f3e5444afbcaa339e1c6660fefabd61a3a49  ./nav/system.xml
+954ec2a819e970cf6f281c5ccccd9feccf0a5d8d6b1ac864a8f082b3dd1258e8  ./nav/wu.json

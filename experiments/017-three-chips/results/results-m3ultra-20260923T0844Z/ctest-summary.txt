@@ -1,0 +1,40 @@
+ 96/110 Test #311: TestMetalRMSDForceMixed ........................   Passed    0.68 sec
+        Start 312: TestMetalRandomSingle
+ 97/110 Test #312: TestMetalRandomSingle ..........................   Passed    0.59 sec
+        Start 313: TestMetalRandomMixed
+ 98/110 Test #313: TestMetalRandomMixed ...........................   Passed    0.07 sec
+        Start 314: TestMetalSettleSingle
+ 99/110 Test #314: TestMetalSettleSingle ..........................   Passed    0.82 sec
+        Start 315: TestMetalSettleMixed
+100/110 Test #315: TestMetalSettleMixed ...........................   Passed    0.84 sec
+        Start 316: TestMetalSortSingle
+101/110 Test #316: TestMetalSortSingle ............................   Passed    0.52 sec
+        Start 317: TestMetalSortMixed
+102/110 Test #317: TestMetalSortMixed .............................   Passed    0.09 sec
+        Start 318: TestMetalVariableLangevinIntegratorSingle
+103/110 Test #318: TestMetalVariableLangevinIntegratorSingle ......   Passed   12.94 sec
+        Start 319: TestMetalVariableLangevinIntegratorMixed
+104/110 Test #319: TestMetalVariableLangevinIntegratorMixed .......   Passed   16.01 sec
+        Start 320: TestMetalVariableVerletIntegratorSingle
+105/110 Test #320: TestMetalVariableVerletIntegratorSingle ........   Passed    3.20 sec
+        Start 321: TestMetalVariableVerletIntegratorMixed
+106/110 Test #321: TestMetalVariableVerletIntegratorMixed .........   Passed    3.68 sec
+        Start 322: TestMetalVerletIntegratorSingle
+107/110 Test #322: TestMetalVerletIntegratorSingle ................   Passed    5.26 sec
+        Start 323: TestMetalVerletIntegratorMixed
+108/110 Test #323: TestMetalVerletIntegratorMixed .................   Passed   10.73 sec
+        Start 324: TestMetalVirtualSitesSingle
+109/110 Test #324: TestMetalVirtualSitesSingle ....................   Passed    6.03 sec
+        Start 325: TestMetalVirtualSitesMixed
+110/110 Test #325: TestMetalVirtualSitesMixed .....................   Passed   24.50 sec
+
+98% tests passed, 2 tests failed out of 110
+
+Total Test time (real) = 1356.92 sec
+
+The following tests FAILED:
+	282 - TestMetalLocalEnergyMinimizerSingle (Failed)
+	283 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest
+Output from these tests are in: /tmp/openmm-metal-bench/src/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.

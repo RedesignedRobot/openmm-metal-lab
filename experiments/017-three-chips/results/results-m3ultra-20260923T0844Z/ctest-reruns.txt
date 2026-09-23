@@ -1,0 +1,85 @@
+# Reruns of ctest failures, 3x each, 2026-09-23T09:57:08Z
+=== TestMetalLocalEnergyMinimizerSingle run 1 09:57:08Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 282: TestMetalLocalEnergyMinimizerSingle
+1/1 Test #282: TestMetalLocalEnergyMinimizerSingle ...***Failed    4.74 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   4.75 sec
+
+The following tests FAILED:
+	282 - TestMetalLocalEnergyMinimizerSingle (Failed)
+Errors while running CTest
+=== TestMetalLocalEnergyMinimizerSingle run 2 09:57:12Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 282: TestMetalLocalEnergyMinimizerSingle
+1/1 Test #282: TestMetalLocalEnergyMinimizerSingle ...***Failed    7.14 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   7.15 sec
+
+The following tests FAILED:
+	282 - TestMetalLocalEnergyMinimizerSingle (Failed)
+Errors while running CTest
+=== TestMetalLocalEnergyMinimizerSingle run 3 09:57:20Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 282: TestMetalLocalEnergyMinimizerSingle
+1/1 Test #282: TestMetalLocalEnergyMinimizerSingle ...***Failed    5.20 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   5.21 sec
+
+The following tests FAILED:
+	282 - TestMetalLocalEnergyMinimizerSingle (Failed)
+Errors while running CTest
+=== TestMetalLocalEnergyMinimizerMixed run 1 09:57:25Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 283: TestMetalLocalEnergyMinimizerMixed
+1/1 Test #283: TestMetalLocalEnergyMinimizerMixed ...***Failed    9.28 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   9.29 sec
+
+The following tests FAILED:
+	283 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest
+=== TestMetalLocalEnergyMinimizerMixed run 2 09:57:34Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 283: TestMetalLocalEnergyMinimizerMixed
+1/1 Test #283: TestMetalLocalEnergyMinimizerMixed ...***Failed    9.53 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   9.54 sec
+
+The following tests FAILED:
+	283 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest
+=== TestMetalLocalEnergyMinimizerMixed run 3 09:57:44Z
+Test project /tmp/openmm-metal-bench/src/build
+    Start 283: TestMetalLocalEnergyMinimizerMixed
+1/1 Test #283: TestMetalLocalEnergyMinimizerMixed ...***Failed    9.63 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   9.63 sec
+
+The following tests FAILED:
+	283 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest

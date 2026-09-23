@@ -1,0 +1,27 @@
+Test project /tmp/openmm-metal-bench/src/build
+    Start  33: TestReferenceLocalEnergyMinimizer
+1/5 Test  #33: TestReferenceLocalEnergyMinimizer ......   Passed    0.96 sec
+    Start 153: TestOpenCLLocalEnergyMinimizerSingle
+2/5 Test #153: TestOpenCLLocalEnergyMinimizerSingle ...***Failed   11.78 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+    Start 154: TestOpenCLLocalEnergyMinimizerMixed
+3/5 Test #154: TestOpenCLLocalEnergyMinimizerMixed ....***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+    Start 155: TestOpenCLLocalEnergyMinimizerDouble
+4/5 Test #155: TestOpenCLLocalEnergyMinimizerDouble ...***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+    Start 341: TestCpuLocalEnergyMinimizer
+5/5 Test #341: TestCpuLocalEnergyMinimizer ............   Passed    7.03 sec
+
+40% tests passed, 3 tests failed out of 5
+
+Total Test time (real) =  19.84 sec
+
+The following tests FAILED:
+	153 - TestOpenCLLocalEnergyMinimizerSingle (Failed)
+	154 - TestOpenCLLocalEnergyMinimizerMixed (Failed)
+	155 - TestOpenCLLocalEnergyMinimizerDouble (Failed)
+Errors while running CTest

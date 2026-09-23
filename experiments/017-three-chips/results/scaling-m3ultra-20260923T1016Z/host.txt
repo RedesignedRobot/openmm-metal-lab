@@ -1,0 +1,48 @@
+nice 0
+commit f9347f6c5619613c1b7169dc42c7aab1ba0912c0
+ed022dff7dea808e9bd13dbad6f366abbc5649e3806f9ccf20624ca124b7e66b  /tmp/openmm-metal-bench/harness/scaling.py
+openmm 8.6 ['Reference', 'CPU', 'Metal', 'OpenCL']
+== 2026-09-23T10:16:51Z Metal single
+13:16  up 5 days, 10:45, 4 users, load averages: 2.20 2.27 3.99
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+spotlightknowled 30.6
+superwhisper     27.5
+com.apple.Virtua 11.5
+com.apple.Virtua 9.8 
+top              9.5 
+kernel_task      9.1 
+== 2026-09-23T10:21:14Z Metal mixed
+13:21  up 5 days, 10:49, 3 users, load averages: 1.36 2.08 3.49
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+superwhisper     32.7
+com.apple.Virtua 12.2
+com.apple.Virtua 10.7
+top              10.0
+kernel_task      5.8 
+WindowServer     5.0 
+== 2026-09-23T10:27:56Z OpenCL single
+13:27  up 5 days, 10:56, 3 users, load averages: 1.39 2.25 3.08
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+superwhisper     30.8
+com.apple.Virtua 10.6
+top              10.1
+com.apple.Virtua 6.4 
+kernel_task      5.3 
+WindowServer     4.3 
+== 2026-09-23T10:29:27Z end
+13:29  up 5 days, 10:58, 3 users, load averages: 1.81 2.18 2.96
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+superwhisper     30.0
+com.apple.Virtua 18.7
+com.apple.Virtua 12.4
+top              9.9 
+kernel_task      6.3 
+WindowServer     5.1 
