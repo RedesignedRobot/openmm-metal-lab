@@ -64,7 +64,7 @@ Double precision: decline.
 
 | # | Experiment | Status |
 |---|---|---|
-| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | running (M3 Ultra done; M2 fix probe on the mini) |
+| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | root cause found, verifying: on M3, float->signed int64 casts wrap mod 2^64 (M2 saturates), so realToFixedPoint turns 1e22+ forces into exactly 0, the overflow check misses them and L-BFGS exits at iteration 0. Saturating fix passes via patched plugins; real build + ctest running (branches metal-fixed-point-sat, opencl-fixed-point-sat) |
 | E1 | Better erfc in direct-space PME via an upstream macro hook; host prediction first, then kernel A/B | queued |
 | E2 | Replace 20-point fast-math probe with domain sweep (exp on [-88,0], log near 1, ulp not relative, NaN = fail); attribute Metal-vs-OpenCL energy gap | queued |
 | E3 | Two-pass deterministic minimizer reductions (= C4) | queued |
