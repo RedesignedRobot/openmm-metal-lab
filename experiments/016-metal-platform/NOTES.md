@@ -124,6 +124,10 @@ Same clock and method, Metal single, 60 s per WU.
 6. `platforms/common/include/openmm/common/ComputeContext.h`: `doubleToString` is virtual, so
    MetalContext can write double constants that a float can't hold as df64 (see "float fallbacks"
    below). No behaviour change for CUDA/HIP/OpenCL.
+   - Upstream risk: this is an ABI change. Making a non-virtual member function virtual changes
+     ComputeContext's vtable, so plugins built against an earlier OpenMM's ComputeContext must be
+     rebuilt. Upstream would have to accept it in a release that already breaks the plugin ABI, or
+     Metal would need another route (for example a hook in the expression code generator).
 
 ### 2026-09-23 — room for df64 mixed precision (commit 8dc19ec55)
 
@@ -266,7 +270,12 @@ Co-Authored-By/Claude-Session trailers; I followed team-lead.
 - License header author lines.
 - sort.metal mixes binding styles.
 - The rewriter's comment stripping: make it robust and add a unit test.
-- The global `#define thread` in the prelude.
+- ~~The global `#define thread` in the prelude.~~ Done with the DPD/GayBerne fix (see below).
+- Direct-space nonbonded energy error on dhfr is about 14% above OpenCL (016f, start state, 3
+  contexts, relative to the total Reference energy): direct space Metal +2.01e-6 (preciseRECIP
+  +2.04e-6), OpenCL +1.76e-6; reciprocal space +1.15e-7 vs +1.13e-7; bonded < 3e-9. Team-lead
+  decision: this is float summation order, not a bug, and every test tolerance passes. No Kahan
+  pass for now.
 
 ### Test wrappers vs OpenCL (verifier findings on afa4268)
 
@@ -439,12 +448,15 @@ red if mixed silently falls back to float.
   MetalContext::createLibrary then writes every full program: defines, df64, prelude, kernel and
   host-generated source.
 - Configurations:
-  - the three WUs as shipped: dhfr-implicit (Langevin, GBSA-OBC), dhfr and nav (PME, SHAKE/SETTLE,
-    Langevin);
+  - the three WUs as shipped: dhfr-implicit (Verlet, GBSA-OBC), dhfr (Verlet, PME) and nav
+    (LangevinMiddle, PME, MonteCarloBarostat). All three have CMMotionRemover. (Correction: this
+    said Langevin for all three. nav's integrator.xml says "LangevinIntegrator", but it
+    deserializes as LangevinMiddleIntegrator.)
+  - dhfr with the plain LangevinIntegrator (added after 5722f98a7, see "fixes from the verifier");
   - dhfr with LangevinMiddle and MonteCarloBarostat (frequency 5);
   - a TIP4P-Ew 2.5 nm box (virtual sites, SETTLE, PME, barostat, LangevinMiddle);
   - a 4-atom fully constrained chain (CCMA, Verlet, CMMotionRemover).
-- Together they cover Verlet, Langevin, LangevinMiddle, SETTLE, CCMA and SHAKE, CMMotionRemover,
+- Together they cover Verlet, LangevinMiddle (and LangevinIntegrator, which runs the same kernels), SETTLE, CCMA and SHAKE, CMMotionRemover,
   MonteCarloBarostat, virtual sites, PME, the nonbonded energy accumulation, and the KE and energy
   reductions.
 - `strictnarrow.py` recompiles each captured program with df64's four implicit `operator T()`
@@ -500,8 +512,10 @@ red if mixed silently falls back to float.
    - Since f3a7b1af4 the message names the function and quotes the calling source line. For QTB:
      "cos is called on a mixed precision value, which Metal can only evaluate in single precision,
      in: mixed cw = (1 - 2*EXP(-dt*friction)*COS(f*dt) + ...".
-   - Affected: CustomIntegrator expressions that use these functions (its globals and per-DOF values
-     are mixed; custom forces compute in real and are unaffected), and QTBIntegrator (qtb.cc:154, `COS(f*dt)` in the noise spectrum).
+   - Affected: CustomIntegrator per-DOF and sum expressions that use these functions (their values are
+     mixed; custom forces compute in real and are unaffected). ComputeGlobal steps are unaffected:
+     they are evaluated on the host in double (CommonIntegrateCustomStepKernel.cpp:727–731), so
+     neither the guard nor doubleToString touches them. (Correction: this listed globals as affected.) and QTBIntegrator (qtb.cc:154, `COS(f*dt)` in the noise spectrum).
    - QTB is unavailable in mixed precision on Metal (team-lead decision). TestMetalQTBIntegratorMixed
      expects the error (see "Test wrappers vs OpenCL").
    - The fix is df64 sin/cos (the deferred work). qtb.cc:139's twiddle table uses float arguments
@@ -509,7 +523,8 @@ red if mixed silently falls back to float.
 2. Double constants in expressions.
    - Fixed (135f194ca): ComputeContext::doubleToString is virtual, and MetalContext writes a
      constant that a float can't hold as `df64(hi, lo)` when a double constant is requested in mixed
-     mode. This covers CustomIntegrator globals and per-DOF expressions and NoseHoover's BOLTZ.
+     mode. This covers CustomIntegrator per-DOF expressions and NoseHoover's BOLTZ. (Correction: this
+     also listed globals, but ComputeGlobal steps are evaluated on the host in double.)
    - The kernel files have no inexact literals in mixed contexts (sweep above).
 3. A per-DOF expression with two different integer powers ≥ 4 of the same base.
    - It still emits `double3 t = 0.0f`, which fails to compile in mixed. That's loud, but through
@@ -538,6 +553,8 @@ red if mixed silently falls back to float.
     dominate. With the Reference platform as oracle, Reference Verlet's own velocity from a position
     difference carries ~1e-13.
 - CustomIntegrator constants 0.1 and 0.7 in a global step and a per-DOF step, compared at 1e-12.
+  Correction (dba2bfa16): the global half tested nothing on the device, because ComputeGlobal runs on
+  the host in double. The test now has one per-DOF step, `v = 0.1*v+g` with the global g = 1.3.
 
 ### 2026-09-23 — full plan on build 5fe5b9492 (installed to prefix-openmm-metal / venv-metal)
 
@@ -586,8 +603,12 @@ Within 1% of 016b everywhere, as expected: the FAH path's programs didn't change
 | Metal mixed | -171.4 | -1.48e-3 | 6.46 | 156.9 |
 | CPU | -106.1 | -0.91e-3 | 6.44 | 433.2 |
 
-- Metal single and mixed reproduce 016b's drift and rms to every printed digit, since Metal runs are
-  deterministic.
+- Metal single and mixed reproduce 016b's drift and rms to every printed digit, since Metal
+  trajectories are deterministic. That applies to trajectories only. The start-state energy error
+  varies from context to context, about 8.2–9.7e-7 (016c/016e fahwu runs). In 016f only the
+  NonbondedForce/GBSA energies varied (by up to 1e-7 across 3 contexts), and the bonded ones were
+  identical. Likely cause, not checked: forces sum in fixed point, so order doesn't matter, but
+  energies sum in float in whatever order the neighbor list's tiles come out.
 - CPU moved from -120.9 to -106.1. CPU runs aren't bitwise reproducible across runs, and that
   spread (about 1σ of the slope estimate) confirms that the Metal/CPU difference is within noise.
 
@@ -633,7 +654,7 @@ Within 1% of 016b everywhere, as expected: the FAH path's programs didn't change
 | unsupported: the 13 functions throw on mixed | FAIL (compiles silently) | pass |
 | step: Verlet and LangevinMiddle (T = 0), 1 step at 1e-12 | **pass** | pass |
 | variable: VariableVerlet, 1 step, dt/pos/vel at 1e-12 (new, bdc6a74bc) | FAIL: dt check | pass |
-| constants: CustomIntegrator 0.1 and 0.7 at 1e-12 | FAIL | pass |
+| constants: CustomIntegrator 0.1 and 0.7 at 1e-12 (the global half was host-evaluated; per-DOF only since dba2bfa16) | FAIL | pass |
 
 - The fixed-step check passes pre-fix. At T = 0, Verlet and LangevinMiddle never pass a mixed value
   through SQRT/RSQRT/RECIP/EXP/LOG in the kernel: inverse masses come from the host, and
@@ -728,3 +749,321 @@ number is shown.
     single's native_recip (8.2e-7).
 - LocalEnergyMinimizerMixed gets the same expect-the-error treatment as QTB (8829d724c). Checked on
   the mini with `ctest -R TestMetalLocalEnergyMinimizer`: "100% tests passed out of 2".
+
+### 2026-09-23 — fixes from the verifier on 8829d724c (dba2bfa16, 5722f98a7; installed to prefix-openmm-metal / venv-metal)
+
+**1. Constants test, per-DOF only (dba2bfa16).**
+- The global half of testExpressionConstants tested nothing on the device: ComputeGlobal steps are
+  evaluated on the host in double (CommonIntegrateCustomStepKernel.cpp:727–731).
+- The test now has one per-DOF step, `v = 0.1*v+g` with the global g = 1.3, checked at 1e-12.
+- Pre-fix: a temporary build whose MetalContext::doubleToString returns the plain literal fails at
+  TestMetalMixedPrecision.cpp:261, "Expected [1.41, 1.21, 1.335], found [1.41, 1.21, 1.335]". The
+  values agree to the printed digits but not to 1e-12. Every check before it passes. At HEAD it passes.
+
+**2. Deleted-call error only when it is the only error (5722f98a7).**
+- createLibrary now explains a deleted df64 call only when every `: error: ` in the log is a
+  deleted call. Otherwise it throws the plain "Error compiling program: <log>". The full log is
+  appended either way.
+- New case in testUnsupportedFunctions: `SIN(x)+undefinedValue` must give a message that starts
+  "Error compiling program: program_source:" and names undefinedValue. Against 8829d724c's
+  MetalContext.cpp it fails at TestMetalMixedPrecision.cpp:148. At HEAD it passes.
+- Mini, production build of 5722f98a7:
+  `ctest -R "TestMetalMixedPrecision|TestMetalQTBIntegrator|TestMetalLocalEnergyMinimizer"`:
+  "100% tests passed out of 6". The installed libOpenMMMetal.dylib has no
+  OPENMM_METAL_PRECISE_RECIP string.
+
+**3. Energy error vs OpenCL, per force group** (`energybreak.py`).
+- Each force gets its own group, and on dhfr so does PME reciprocal space. Start state, 3 contexts
+  per run.
+- Errors are relative to the total Reference energy at the state's double positions. "Float pos"
+  compares with Reference at the positions rounded to float.
+- Metal-preciseRECIP is the temporary A/B build (reverted).
+- Results in `~/lab/results-016f-energy-20260923T055733Z/`.
+
+dhfr-implicit (E_ref −19176.946 kJ/mol; float rounding of positions moves the Reference total by
+4.8e-8):
+
+| group | Metal | Metal-preciseRECIP | OpenCL |
+|---|---|---|---|
+| GBSAOBCForce | +8.11e-7 (float pos +8.26e-7) | +3.39e-7 (+3.54e-7) | +7.67e-7 (+7.82e-7) |
+| NonbondedForce | +1.46e-7 | +1.49e-7 | +1.31e-7 |
+| HarmonicAngleForce | −6.46e-8 | −6.46e-8 | −6.46e-8 |
+| HarmonicBondForce | −2.57e-8 | −2.57e-8 | +7.3e-9 |
+| total | +8.56e-7 | +3.56e-7 | +8.57e-7 |
+
+- fast::divide in GBSA-OBC accounts for the whole difference from precise RECIP. In this run Metal
+  and OpenCL (native_recip) are level (8.56e-7 vs 8.57e-7). The 016c gap (Metal above OpenCL) is
+  within the context-to-context spread of up to 1e-7.
+- Metal's total equals its sum of groups, so the energy reduction adds nothing.
+
+dhfr (PME; E_ref −337089.634 kJ/mol; float rounding is negligible):
+
+| group | Metal | Metal-preciseRECIP | OpenCL |
+|---|---|---|---|
+| NonbondedForce, direct space | +2.01e-6 | +2.04e-6 | +1.76e-6 |
+| NonbondedForce, reciprocal space | +1.15e-7 | +1.15e-7 | +1.13e-7 |
+| bonded groups | < 3e-9 | < 3e-9 | < 3e-9 |
+| total | +2.08e-6 | +2.07e-6 | +1.80e-6 |
+
+- On dhfr it isn't RECIP (precise is the same), and it isn't PME's reciprocal part. The gap is in
+  the direct-space nonbonded energy: +2.01e-6 vs +1.76e-6, about 14% more error. The spread across
+  contexts is about 1e-7.
+- Direct space sums the per-pair energies in float in each thread (`energy += tempEnergy`) and
+  then across the energy buffer. Metal's computeNonbonded is its own kernel (nonbonded.metal), and
+  its summation order can differ from OpenCL's. Likely cause, not proven: summation order in float.
+  Candidate fix, not done: accumulate the pair energy in mixed or in Kahan form. It isn't a
+  one-liner, so it is left for a decision.
+- The total minus the sum of groups is about 9e-8 on both platforms: the reduction plus
+  nondeterminism.
+
+**4. Plain LangevinIntegrator in the sweep.**
+- capture.py adds "dhfr-langevin": dhfr with `mm.LangevinIntegrator(300 K, 1/ps, 2 fs)` (the Python
+  type is LangevinIntegrator).
+- In this OpenMM, LangevinIntegrator is an empty subclass of LangevinMiddleIntegrator
+  (LangevinIntegrator.h:40–45). The capture agrees: its 15 programs match the other configurations'
+  programs by source hash, and none is new. Across all 7 configurations there are 47 unique
+  programs, the same set as the 016c capture.
+- strictnarrow.py on its 15 programs, with fast and with precise defines (identical): 12 clean, and
+  the rest hold only the known storage narrowings (posqCorrection ×3, LocalCoordinatesSite
+  fresult). literals.py: only the two known harmless hits.
+- Capture in `~/lab/capture-5722/` (build 5722f98a7).
+
+**5. Timing hygiene.**
+- 016c, 016d and 016e ran at nice 5. They were launched with zsh `&`, and zsh's BG_NICE lowers
+  background jobs by 5. Both platforms in each run had the same nice, so the ratios stand; the
+  absolute numbers may be low.
+- mini-b.sh, repeats.sh and abrecip.sh now refuse to run at any nice value other than 0, and write
+  it as the first line of host.txt. Launch: `ssh <mini> 'sh -c "nohup sh ~/lab/SCRIPT <label> >
+  ~/lab/SCRIPT.log 2>&1 &"'`.
+- Checked: a zsh `&` launch prints "running at nice 5, not 0" and creates no results directory.
+- Re-run of repeats.sh at nice 0 (`~/lab/results-016g-20260923T060618Z/`; host.txt: "nice 0"; no
+  thermal or performance warnings):
+
+| WU | Metal single ns/day | OpenCL single ns/day | Metal/OpenCL |
+|---|---|---|---|
+| dhfr-implicit | 199.36, 198.96, 198.86: 199.06 ± 0.26 | 191.74, 192.50, 192.35: 192.20 ± 0.40 | 1.036 (1.040 / 1.034 / 1.034) |
+| nav | 11.30, 11.28, 11.29: 11.29 ± 0.01 | 11.01, 11.01, 11.00: 11.01 ± 0.01 | 1.026 (1.026 / 1.024 / 1.027) |
+
+- The same as 016d at nice 5 (1.037 and 1.026). With the mini otherwise idle, nice 5 cost nothing
+  measurable, so the 016c/d/e numbers stand.
+
+### 2026-09-23 — DPDIntegrator and GayBerneForce: PRIVATE address space (commit 677e98030)
+
+- dpd.cc and gayBerne.cc pass pointers to a thread's own variables (`RandomState*`, `int*
+  neighborBuffer`, `AtomData*`, `real (*m)[3]`, `real3* force1`, ...). MSL needs an address space on
+  every pointer, local variables included.
+- New kernel macro `PRIVATE`: empty in the OpenCL, CUDA and HIP preludes, and `thread` on Metal.
+  dpd.cc gets 3 uses and gayBerne.cc 11 (function parameters, plus the three local `real (*a)[3]`
+  pointers in computeOneInteraction). The developer guide's macro table lists it.
+- Catch: Metal's prelude had `#define thread _mmThread`, because 18 common kernels use `thread` as
+  a variable name. That define also rewrote `PRIVATE` → `thread` → `_mmThread`. Checked with mslc:
+  no spelling of the thread address space survives the define (`__attribute__((address_space(0)))`
+  still gives "pointer type must have explicit address space qualifier", and `__thread` isn't
+  supported).
+- So createLibrary now renames the word `thread` to `_mmThread` in the kernel source text and in
+  the define values, and the global define is gone. The preprocessor runs later, so PRIVATE still
+  expands to the real keyword.
+  - None of Metal's own kernel files uses `thread` as a keyword; only comments mention it, and
+    renaming a comment is harmless.
+  - The prelude (common.metal, df64.metal) isn't renamed.
+- Shared-code footprint: 1 line in each of 3 preludes, 14 PRIVATE markers in 2 common kernels, and
+  the developer guide. No behaviour change on OpenCL/CUDA/HIP, where the macro is empty. CUDA and HIP
+  are untested here; OpenCL is checked below.
+- Mini, build of 677e98030 (the synced tree, committed unchanged):
+  - `ctest -R "DPDIntegrator|GayBerne"`: Single and Mixed of both pass (4 of 4).
+  - Full `ctest -R TestMetal -j1`: "100% tests passed out of 110", covering every kernel that uses
+    `thread` as a variable.
+  - No OpenCL tests are registered in this build, so OpenCL is checked from Python.
+  - `gayberne.py` (20 random ellipsoids): relative force error against Reference is OpenCL 9.0e-7
+    and Metal 1.18e-6. Energy −1.61146 kJ/mol on all three.
+  - `dpdtemp.py`: a 200-particle ideal gas in a 3 nm periodic box, DPD at 300 K with friction 1/ps
+    and 1 fs steps. Mean temperature over 10–20 ps, 3 seeds each: Reference 302.1 /
+    301.2 / 298.7, OpenCL 296.2 / 300.0 / 305.9, Metal 297.9 / 300.3 / 302.6.
+  - The first version of dpdtemp.py used an open (non-periodic) box. The gas expanded beyond the
+    cutoff, so the thermostat stopped acting and every platform froze at 330–400 K. Learning: a
+    thermostat check needs a periodic box.
+- Not covered: AMOEBA and other plugins pass unqualified private pointers too (for example
+  gkPairForce1.cc `real3* force`). They need PRIVATE when those plugins get Metal platforms.
+
+### 2026-09-23 — energy minimization in mixed precision: single-block reductions (option A)
+
+- Problem: in mixed precision the LBFGS minimizer sums into doubles with `atomicAddMixed`, which
+  needs 64-bit float atomics (CUDA/HIP `atomicAdd`, OpenCL a 64-bit CAS). Metal has neither, so
+  8829d724c refused the minimizer in mixed.
+- Change:
+  - CommonMinimizeKernel sets `singleBlockReductions = mixedIsDouble && !getSupports64BitGlobalAtomics()`,
+    where it used to throw "Double precision is not supported on devices that do not support 64 bit
+    atomic operations".
+  - When it is set, the program gets `-DSINGLE_BLOCK_REDUCTIONS`, and the 9 kernels that call
+    atomicAddMixed launch as one thread block through a new `executeReduction`.
+  - atomicAddMixed's first branch under that define is a plain `*target += value`.
+  - Every other case keeps the same launches and the same preprocessed source.
+  - The Metal-only throw in MetalKernelFactory and the ctest expect-error are removed.
+- Upstream already runs gradNorm, getConstraintError and getScale's largeGrad path as one block
+  (`execute(threadBlockSize, threadBlockSize)`). All minimizer kernels loop grid-stride, so one block
+  covers every variable.
+
+#### Single-writer audit (condition 1)
+
+Every atomicAddMixed call is `if (LOCAL_ID == 0) atomicAddMixed(target, reduceAdd(...))`: one call
+per block, so one block means one writer per launch. Per kernel, from reading minimize.cc and the
+host sequence in CommonMinimizeKernel.cpp:
+- No kernel has a "last block" counter.
+- Nothing combines values across blocks in any other way.
+- No target gets a second non-atomic write in the same launch.
+- No target is read in the launch that accumulates it.
+
+| Kernel (launch) | Target | Zeroed by (earlier launch) | Other accesses in the same launch |
+|---|---|---|---|
+| getConstraintEnergyForces (evaluateGpu) | `returnValue` | restorePos, `GLOBAL_ID == 0` (every evaluateGpu starts with it); CPU fallback: `cc.clearBuffer(returnValue)` | none; convertForces may later overwrite it with FLT_MAX (a later launch) |
+| getScale, non-largeGrad path | `scale[end]`, `returnValue` | getDiff, `GLOBAL_ID == 0 && !largeGrad` | also zeroes `alpha[0..NUM_VECTORS]`, a different target; neither target is read. largeGrad path is already one block with plain stores |
+| reinitializeDir | `alpha[vectorIndex]` | getScale | thread 0 writes `returnValue`, a different target; alpha is not read |
+| updateDirAlpha | `alpha[vectorIndex2]`, the cyclic predecessor of vectorIndex1 | getScale | reads `alpha[vectorIndex1]`, never the target (NUM_VECTORS = 6); each index is accumulated by one launch and read only by later ones |
+| scaleDir | `alpha[NUM_VECTORS]` | getScale | reads `alpha[vectorIndex]` and `returnValue`, not the target. Upstream puts the result in the extra slot precisely so that no block reads a target another block adds to. `GLOBAL_ID == 0 ? innerScale : 0` adds innerScale once |
+| updateDirBeta | `alpha[vectorIndex2]`, vectorIndex1 + 1 | not zeroed: it adds onto the value the alpha pass finished in an earlier launch, by design | reads `alpha[vectorIndexAlpha]` (vectorIndex1 or NUM_VECTORS), never the target |
+| lineSearchSetup | `lineSearchData[LS_DOT_START]` | resetLineSearchData (initializeDir / updateDirFinal, `GLOBAL_ID == 0`) | also writes `returnFlag` and `gradNorm = 0`, different targets |
+| lineSearchStep, LS_SUCCEED branch | `gradNorm` | lineSearchSetup / lineSearchContinue `*gradNorm = 0` | returns right after; the other branch writes `returnFlag` and `lineSearchData[LS_DOT] = 0`, which this branch doesn't touch |
+| lineSearchDot | `lineSearchData[LS_DOT]` | lineSearchStep `GLOBAL_ID == 0`; CPU fallback restores it from lineSearchDataBackup | reads `LS_STEP`, `LS_DOT_START`, `returnValue`, not the target |
+
+- getDiff reads `gradNorm`, but in a later launch than the one that accumulates it.
+
+#### The df64 → long cast (condition 2)
+
+- getConstraintEnergyForces converts forces to fixed point with `(mm_long) (kdr * scale * delta.x)`.
+  df64's `operator long` was already exact, not `(long) hi`:
+  - It floors (or, if negative, ceils) the whole df64, then returns `(long) t.hi + (long) t.lo`.
+  - A whole df64 has integral hi and lo.
+  - df64 `floor` covers both cases: hi not integral (then |lo| < ulp(hi)/2 can't cross an
+    integer), and hi integral with a fractional lo.
+- It had no runtime test. `testLongConversion` (TestMetalMixedPrecision, mixed) now checks:
+  - 12 values that df64 holds exactly, each with both signs: 0, 0.75, 1.5, 3−2^-30, 2^24−0.5,
+    2^31+0.25, 2^40+0.75, 1234.5·2^32, 2^52−0.5, 2^53−1, 2^53+2, 2^62+2^40. Each must survive the
+    round trip exactly and cast equal to the host's `(long long)` of the double.
+  - 1000 random values up to 2^62, with random sign. Each is rounded to df64 on load, so it is
+    compared with the host cast of the value the kernel stored back (and must be within 1e-14 of
+    the input).
+- Mutation check. With the cast changed temporarily, and only the test target rebuilt:
+  - `return (long) hi;` fails: "Expected 2, found 3" (3−2^-30).
+  - Floor, then `(long) t.hi` only, fails: "Expected 4503599627370495, found 4503599627370496".
+  - Restored and rebuilt, the test passes.
+- Condition 5: minimize.cc needed no df64.metal additions. `+=` on `volatile threadgroup df64`
+  (reduceAdd's temp) and `explicit operator long()` both already existed. The new runtime test
+  covers the cast. The volatile `+=` is exercised by the full minimizer test in mixed.
+
+#### Single and non-Metal kernel source unchanged (condition 4)
+
+- Metal single, full program source as saved by OPENMM_SAVE_TEMPS (`minsrc.py`, which minimizes 3
+  particles with a bond and a constraint):
+  - Baseline from the 677e98030 install: `~/lab/minsrc-before/minimize-single.metal`. After:
+    `~/lab/minsrc-after/`.
+  - The raw text differs only by the minimize.cc edit itself: the new `#if
+    defined(SINGLE_BLOCK_REDUCTIONS)` branch and the reworded Metal comment.
+  - The define block is identical. There is no SINGLE_BLOCK_REDUCTIONS in single; the mixed program
+    has it.
+  - After stripping `#include <metal_stdlib>` and running `clang -E -P -x c++
+    -D__METAL_VERSION__=310`, the two single programs are byte-identical (661 lines, sha256
+    04b96efb…).
+- minimize.cc alone, preprocessed old against new with `clang -E -P`: identical for every other
+  configuration. Each configuration hashes differently, so each branch really was selected.
+  - CUDA single, mixed and double.
+  - HIP single and mixed.
+  - OpenCL single, mixed and double.
+  - Metal single.
+- Host launches on CUDA, OpenCL and HIP are unchanged, because singleBlockReductions is false
+  whenever the device has 64-bit atomics.
+  - Behaviour change: an OpenCL device without 64-bit atomics used to throw in mixed or double
+    precision, and now takes the single-block path.
+
+#### Tests (build of f9347f6c5 = the synced tree; installed to prefix-openmm-metal / venv-metal)
+
+- `ctest -R "TestMetalLocalEnergyMinimizer|TestMetalMixedPrecision"`: 4 of 4. LocalEnergyMinimizerMixed
+  now runs the whole shared test (harmonic bonds, large system with constraints, virtual sites, large
+  forces, force groups, massless particles, reporter), with no expected error.
+- Full `ctest -R TestMetal -j1`: 108 of 110. The two failures are the known stochastic barostat tests:
+  - MonteCarloBarostatSingle: "Expected 1.5, found 1.34655".
+  - MonteCarloFlexibleBarostatMixed: "Expected 3, found 3.67115".
+  - Neither test minimizes, and neither runs minimize.cc code.
+  - Rerun 3 times: BarostatSingle passed 3 of 3; FlexibleBarostatMixed passed 2 of 3.
+- The raw ctest output is in `~/lab/ctest-minA.txt`.
+
+#### Minimization of the work units (results-016h-20260923T*, `minimize.sh` / `minwu.py`)
+
+- Method:
+  - Start state of each work unit; tolerance 10 kJ/mol/nm; maxIterations 0.
+  - Wall time is host wall around `minimize()` at nice 0, after a one-iteration warm-up that
+    compiles the kernels.
+  - A second run with a reporter counts iterations over all 4 restraint passes. The first attempt
+    counted only the last pass (the reporter's iteration number restarts each pass), so it was
+    aborted and rerun.
+  - Each final state is scored on Reference in double precision: energy, plus force with its
+    components along constraints projected out, per rigid cluster, by least squares. From that:
+    - RMS over particles, the quantity the tolerance bounds (`|g| <= tol·sqrt(N)`);
+    - max over particles, which the tolerance doesn't bound.
+- Start energies (Reference): dhfr −337089.6, nav −1720827.8 kJ/mol.
+
+| WU | run | final E (platform) | final E (Reference) | RMS F | max F | iterations | wall s | ms/iteration |
+|---|---|---|---|---|---|---|---|---|
+| dhfr (23558) | Metal mixed | −381325.77 | −381326.55 | 5.64 | 119.8 | 2303 | 28.02 | 12.2 |
+| | Metal mixed, repeat | same positions (sha 82891d9e…) | | | | 2303 | 28.02 | |
+| | Metal single | −381926.54 | −381927.29 | 6.46 | 114.2 | 3111 | 9.76 | 3.1 |
+| | CPU | −381385.49 | −381385.44 | 5.64 | 89.1 | 2109 | 24.50 | 11.6 |
+| nav (173112) | Metal mixed | −2283374.07 | −2283374.11 | 8.62 | 1460.4 | 2999 | 263.94 | 88.0 |
+| | Metal mixed, repeat | same positions (sha eedb6028…) | | | | 2999 | 263.89 | |
+| | Metal single | −2286220.89 | −2286220.81 | 8.15 | 1132.0 | 3674 | 58.32 | 15.9 |
+| | CPU | −2280000.19 | −2279999.98 | 9.28 | 571.2 | 2180 | 300.15 | 137.7 |
+
+- Every run reaches the tolerance: the RMS of the Reference-scored force is 5.6–9.3 against 10.
+  Max constraint error is under 1.1e-5.
+- Mixed is deterministic.
+  - The repeat ends at bit-identical positions on both work units.
+  - The reporter run ends there too.
+  - Single and CPU don't: float atomics and threads make them run-to-run different.
+  - The two mixed dhfr runs print energies 7e-10 kJ/mol apart at identical positions. That is
+    energy summation order in the force kernels, not the minimizer.
+- Final energies against CPU. The runs stop in different nearby minima, so compare them against
+  the energy drop (dhfr about 44,000, nav about 560,000 kJ/mol):
+  - dhfr: mixed is 60 above CPU (0.14% of the drop); single is 541 below it (1.2%).
+  - nav: mixed is 3374 below CPU (0.6% of the drop); single is 6221 below it (1.1%).
+- Max per-particle force is the outlier. nav mixed ends with one particle at 1460 kJ/mol/nm (single
+  1132, CPU 571), which the RMS criterion allows.
+
+#### Where mixed minimize time goes (the 25% gate): **gate exceeded, about 80% on nav**
+
+- Temporary instrumentation (never committed; the committed build was reinstalled afterwards, and
+  `MINIMIZE_PROFILE` is absent from the installed plugins):
+  - Each single-block launch and each GPU force evaluation is timed between device syncs.
+  - The cost of one empty sync per launch is measured and subtracted.
+  - `minprof.py`; output in `minprof-016h.txt`.
+- The syncs add wall time: nav mixed 285 s instrumented against 264 s. So the shares below are
+  against the instrumented wall, and are cross-checked against the uninstrumented wall.
+
+| run | wall s | single-block launches | their time s (−sync) | per launch ms | force evals | force s | per eval ms |
+|---|---|---|---|---|---|---|---|
+| dhfr mixed | 43.09 | 41709 | 30.91 | 0.74 | 2426 | 7.44 | 3.07 |
+| dhfr single (multi-block, float atomics) | 20.96 | 45485 | 10.89 | 0.24 | 2709 | 6.05 | 2.23 |
+| nav mixed | 285.13 | 54271 | 226.85 | 4.18 | 3134 | 57.31 | 18.29 |
+| nav single (multi-block, float atomics) | 73.71 | 65291 | 17.62 | 0.27 | 3806 | 50.85 | 13.36 |
+
+- nav mixed: the single-block kernels are 80% of the instrumented wall.
+  - Cross-check: the uninstrumented 264 s minus the force evaluations (≤ 57 s) leaves ≤ 207 s,
+    or ≤ 78% for everything else.
+  - Either way the share is about 80%, well above the 25% gate. Per launch, one block of 256 threads
+    is 15× slower than the multi-block float version (4.18 against 0.27 ms).
+- nav minimization takes 264 s in mixed, against 58 s in single and 300 s on CPU. Correct, but
+  4.5× slower than single.
+- Per the plan, I stop here and report before starting option C (two-pass reduction).
+  - Rough estimate for C, not a measurement: mixed launches cost what single's do, or 2–3× that for
+    df64 arithmetic and IEEE packing. That gives 54271 × 0.3–0.8 ms ≈ 15–45 s, plus 57 s of force
+    evaluations: about 75–100 s on nav, against 264 s now and 58 s single.
+
+#### Learnings (2026-09-23)
+
+- zsh doesn't word-split unquoted parameters. `for d in "-DA -DB"; do clang $d` passes one argument,
+  and `set -- $a` sets only `$1`. It bit twice here: the preprocessor comparison looked identical
+  across precisions, and a profile loop ran nothing. Use `${=d}`, or run the loop under `sh -c`.
+  Distinct hashes per configuration are what exposed the first one.
+- MinimizationReporter's iteration number restarts at 0 on each restraint pass. Count calls to get
+  total iterations.
+- A mutation check is the way to show a test catches the bug it is meant for. Break the code in the
+  specific way named (here `(long) hi`, and floor without lo), rebuild just the test target, watch
+  it fail, then restore.

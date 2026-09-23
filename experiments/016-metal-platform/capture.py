@@ -68,6 +68,12 @@ def main():
         system, integrator, state = load(f"{root}/{wu}")
         run(wu, system, integrator, out, state=state)
 
+    # FAH's integrator.xml type "LangevinIntegrator" deserializes as LangevinMiddleIntegrator, so none of
+    # the WUs above runs the plain LangevinIntegrator.
+    system, _, state = load(f"{root}/dhfr")
+    run("dhfr-langevin", system,
+        mm.LangevinIntegrator(300 * u.kelvin, 1 / u.picosecond, 2 * u.femtosecond), out, state=state)
+
     system, _, state = load(f"{root}/dhfr")
     system.addForce(mm.MonteCarloBarostat(1 * u.bar, 300 * u.kelvin, 5))
     run("dhfr-langevinmiddle-barostat", system,

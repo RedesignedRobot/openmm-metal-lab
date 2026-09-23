@@ -1,0 +1,15 @@
+nice 0
+== dhfr mixed
+PROFILE wall 3.9352 reduce 0.1494 n 248 sync 0.0103 force 0.2291 n 67
+PROFILE wall 43.0945 reduce 32.8848 n 41709 sync 1.9764 force 7.4389 n 2426
+== dhfr single
+PROFILE wall 3.7831 reduce 0.0535 n 248 sync 0.0059 force 0.1565 n 67
+PROFILE wall 20.9617 reduce 11.9815 n 45485 sync 1.0878 force 6.0486 n 2709
+== nav mixed
+PROFILE wall 4.4839 reduce 0.4951 n 196 sync 0.0097 force 1.0142 n 53
+PROFILE wall 285.1333 reduce 230.0786 n 54271 sync 3.2316 force 57.3126 n 3134
+== nav single
+PROFILE wall 3.9070 reduce 0.0551 n 196 sync 0.0043 force 0.7614 n 53
+PROFILE wall 73.7067 reduce 19.0923 n 65291 sync 1.4736 force 50.8537 n 3806
+
+[exited with code 0]

@@ -4,12 +4,19 @@
 # forces RECIP to (1.0f/(x)); unset, that build is HEAD. One job at a time, no build running.
 # usage: abrecip.sh [label]. Results land in ~/lab/results-<label>-<stamp>/.
 set -u
+# zsh runs background jobs at nice 5 (BG_NICE), which would slow the host side of every timing.
+# Launch from sh instead: ssh <mini> 'sh -c "nohup sh ~/lab/abrecip.sh <label> > ~/lab/abrecip.sh.log 2>&1 &"'
+nice_value=$(ps -o nice= -p $$ | tr -d ' ')
+if [ "$nice_value" != 0 ]; then
+    echo "running at nice $nice_value, not 0; see the launch line above" >&2
+    exit 1
+fi
 py="$HOME/lab/venv-metal/bin/python"
 wus="$HOME/lab/fah-wu"
 out="$HOME/lab/results-${1:-016e}-$(date -u +%Y%m%dT%H%M%SZ)"
 mkdir -p "$out"
 # Clock for every timing below: host wall (time.perf_counter), whole steps, after warm-up.
-{ uname -a; pmset -g therm; uptime; } > "$out/host.txt" 2>&1
+{ echo "nice $nice_value"; uname -a; pmset -g therm; uptime; } > "$out/host.txt" 2>&1
 
 fast() { "$py" "$@"; }
 precise() { OPENMM_METAL_PRECISE_RECIP=1 "$py" "$@"; }
