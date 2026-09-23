@@ -9,6 +9,10 @@ Machines: mini (M2, main test box, `amir@100.80.58.31` over Tailscale) and Studi
 GPU runs or timings (owner, 2026-09-23). M3 results come from the Studio. One heavy job per machine: every build, GPU run or timed measurement
 holds that machine's lease, `mkdir /tmp/openmm-lease` (owner line inside; released right after; never
 held while editing; stale after 60 min = ask the lead).
+OpenMM's setup.py deletes whatever `openmm` its Python can import, even for `setup.py build` (removePackage).
+Build a variant's Python module with an interpreter that has no openmm installed, never the Studio's shared
+env: on 2026-09-23 a 022 variant build wiped the shared install, which was restored with
+`ninja -C src/build PythonInstall` (restore-env.sh).
 
 ## Compatibility (research report 2026-09-23)
 
