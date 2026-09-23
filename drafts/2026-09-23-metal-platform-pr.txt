@@ -1,0 +1,110 @@
+DRAFT, not posted. Branch metal-upstream (10 commits on 3c9effc96).
+
+Title: Add a Metal platform
+
+This adds a native Metal platform for Apple GPUs, following up on #5397.
+It is built on the common compute framework, like OpenCL, CUDA and HIP. It is written in C++
+with metal-cpp, which is vendored under libraries/, and it needs no Xcode.
+- The common kernels compile unchanged. A Metal prelude defines the framework macros, and kernel
+  signatures are rewritten when the source is compiled.
+- Kernels are encoded into one open command buffer, which is committed only when the host needs a
+  result.
+- Single precision is native.
+- Mixed precision uses df64 (float-float, about 48 significand bits), stored as IEEE doubles in
+  device memory. Host code and array layouts are therefore the same as on other platforms.
+- It registers only on macOS 15+ with an Apple7 (M1) or newer GPU. Other Macs fall back to OpenCL.
+
+[AI USE DISCLOSURE: to be written by the owner, in their own words, per AI_POLICY.md]
+
+
+Edits outside platforms/metal
+-----------------------------
+- CMakeLists.txt: OPENMM_BUILD_METAL_LIB, which defaults to ON on arm64 Macs and also builds
+  platforms/common. No effect on other platforms.
+- libraries/metal-cpp: Apple's headers (Foundation, Metal, QuartzCore; Apache 2.0). Header-only;
+  used only by the Metal platform. It is vendored whole (127 files): Metal.hpp includes every Metal
+  header, and trimming would mean re-pruning on every metal-cpp update.
+- docs-source: Licenses.txt lists the Metal platform and metal-cpp, with Apache-2.0.txt installed
+  next to LGPL.txt. The user guide gets a Metal platform section and a requirements line.
+- libraries/vkfft/vkFFT.h: fixes to VkFFT's Metal backend (NSError init, compile options, library
+  checks, no release of autoreleased objects). Listed in METAL_PATCHES.txt for VkFFT.
+  - Every hunk is inside VKFFT_BACKEND==5, so the CUDA, HIP and OpenCL backends are unchanged.
+- ComputeContext.h: doubleToString is now virtual, because Metal writes double constants as df64.
+  - CUDA, OpenCL and HIP keep the base implementation.
+  - ABI: this adds a vtable entry to ComputeContext, so plugins compiled against the old header
+    must be rebuilt.
+- integrationUtilities.cc, noseHooverIntegrator.cc: `cond ? x : 0.0f` becomes
+  `cond ? x : (mixed) 0`, because a class-type mixed doesn't unify with a float literal. On
+  CUDA/OpenCL/HIP the literal was already promoted to mixed, so the code generated is the same.
+- common.cl/.cu/.hip, dpd.cc, gayBerne.cc: a new PRIVATE macro marks pointers to a thread's own
+  variables, since MSL needs an address space on every pointer. It is empty on CUDA/OpenCL/HIP, so
+  those preprocess to the same source.
+- CommonMinimizeKernel, minimize.cc: when the device has no 64-bit atomics, the nine kernels that
+  call atomicAddMixed run as one thread block, and atomicAddMixed is a plain add
+  (SINGLE_BLOCK_REDUCTIONS). Previously this threw "Double precision is not supported...".
+  - Every target is zeroed by an earlier launch, and none is read in the launch that adds to it.
+  - Devices with 64-bit atomics keep the same launches. minimize.cc preprocesses byte-identically
+    for CUDA, HIP and OpenCL in every precision.
+  - Side effect: an OpenCL device without 64-bit atomics can now minimize in mixed/double.
+- minimize.cc: a Metal branch of atomicAddMixed for single precision (float atomic add).
+- Developer guide: a row for PRIVATE in the macro table.
+
+
+Known deviations
+----------------
+- No double precision. "double" is rejected as a Precision value.
+- df64 has no sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, erf, erfc or pow. Calling
+  one on a mixed value is a compile error that names the function and the line; it never falls
+  back to float. As a result, QTBIntegrator (cos) is unavailable in mixed precision, and its mixed
+  test expects that error.
+- Minimization in mixed precision works and is deterministic, but it reduces in one thread block,
+  because Apple GPUs have no 64-bit atomics.
+  - nav (173k atoms) minimizes in 264 s, against 58 s in single and 300 s on CPU.
+  - Single is the fast path.
+- RECIP uses fast::divide when the startup accuracy probe finds it within 1e-6, like OpenCL's
+  native_recip. Energy error is 8.4-9.3e-7 against 3.5-4.2e-7 with a correctly rounded divide, and
+  it is 26% faster on dhfr-implicit.
+- The test wrappers leave out testParallelComputation and the DeviceIndex "0,0" CustomCPPForce run.
+  Both need two devices; a Metal context has one GPU, as on CPU. testWorkerThreadUploads replaces
+  them.
+- No DeviceIndex or DeterministicForces property. Forces always accumulate in 64-bit fixed point.
+- Requires macOS 15 (MTLCompileOptions.mathMode) and an Apple7+ GPU (32-wide SIMD groups).
+
+
+Tests
+-----
+- ctest -R TestMetal: 55 test programs, each in single and mixed, 110 in all. OpenCL's tests are
+  ported except DeviceQuery. New tests: CommandBatching (command buffers per step) and
+  MixedPrecision (df64 math, the long cast, the loud-failure errors).
+- Mac mini M2 (10 GPU cores, 8 GB), macOS 27: 108/110 pass.
+  - The two failures are the stochastic barostat tests, MonteCarloBarostatSingle and
+    MonteCarloFlexibleBarostatMixed ("This test is stochastic and may occasionally fail"). Both
+    pass on rerun.
+  - testHugeSystem skips when the GPU's recommended working set is under 8 GB.
+- MacBook Pro M3 Pro (18 GPU cores), macOS 27: 107/110 on metal-upstream's tip.
+  - BrownianIntegratorMixed is the stochastic failure; it passes on rerun.
+  - LocalEnergyMinimizer testLargeForces (`maxdist > 1.0`) fails in both precisions. It fails the
+    same way for OpenCL single on the unmodified base (3c9effc96) on this machine, so it predates
+    this PR. Reference and CPU pass, and Metal passes it on the M2.
+
+
+FAH benchmarks
+--------------
+[REPLACE: this table is from build 5fe5b9492 on the M2 only. Swap in the three-chip results (M2,
+M3 Pro, M3 Ultra at f9347f6c5, lab experiments/017-three-chips) when they land.]
+- Host: Mac mini M2 (10 GPU cores, 8 GB).
+- Clock: host wall clock (time.perf_counter) over whole steps, 60 s after a 200-step warm-up.
+- Errors: relative to Reference in double, at the work unit's start state.
+
+  ns/day                     Metal single  Metal mixed  OpenCL single    CPU   Metal/OpenCL
+  dhfr-implicit (2489 atoms)       198.25       155.18         191.42  18.39           1.04
+  dhfr, PME (23558)                 81.78        54.53          68.14  20.15           1.20
+  nav, PME (173112)                 11.27         8.49          11.01   1.53           1.02
+
+- Three interleaved repeats, single precision, nice 0: dhfr-implicit 199.06 ± 0.26 against
+  192.20 ± 0.40 (1.036); nav 11.29 ± 0.01 against 11.01 ± 0.01 (1.026).
+- Force and energy errors are at OpenCL's level.
+  - Force: 1.21e-6 on dhfr and 1.75e-6 against OpenCL's 1.80e-6 on nav.
+  - Energy: 2.0e-6 against 1.8e-6 on dhfr.
+  - The 2.5e-5 dhfr-implicit force error is the same on every GPU platform. It comes from
+    rounding the work unit's positions to float.

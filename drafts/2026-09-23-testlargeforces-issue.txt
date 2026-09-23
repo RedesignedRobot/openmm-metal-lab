@@ -1,0 +1,36 @@
+DRAFT, not posted. Before posting: run the open checks at the end once the M2 and M3 Pro are free.
+
+Title: testLargeForces fails on OpenCL (single) on an Apple M3 Pro
+
+TestOpenCLLocalEnergyMinimizer fails in single precision on an M3 Pro, on unmodified main (3c9effc96):
+
+  $ ./TestOpenCLLocalEnergyMinimizer single
+  exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+Line 229 is `ASSERT(maxdist > 1.0)` in testLargeForces: after minimizing ten nearly overlapping
+particles with tolerance 1.0, none of them ended up more than 1 nm from the origin.
+
+Where it has been run:
+- MacBook Pro, Apple M3 Pro (18 GPU cores), macOS 27.0 (26A428), Apple clang 21.0.0:
+  - OpenCL single: fails.
+  - Reference and CPU: pass.
+  - OpenCL mixed and double don't run: "No compatible OpenCL platform is available".
+- Mac mini, Apple M2 (10 GPU cores), macOS 27: the OpenCL test has not been run there yet.
+
+Repro:
+
+  git checkout 3c9effc96
+  cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64 \
+      -DOPENMM_BUILD_OPENCL_LIB=ON -DOPENMM_BUILD_PYTHON_WRAPPERS=OFF \
+      -DOPENMM_BUILD_C_AND_FORTRAN_WRAPPERS=OFF
+  ninja -C build TestOpenCLLocalEnergyMinimizer
+  build/TestOpenCLLocalEnergyMinimizer single
+
+The test uses a fixed seed. It has been run on 3c9effc96 once, and it failed.
+
+Open checks before posting:
+- Run the same on the M2, so the report says whether it is M3-specific.
+- Rerun on the M3 Pro a few times, to confirm it fails every time.
+- Print maxdist and the final energy, to show whether the minimizer stopped early or the particles
+  did not move. The test dates from 2018. The likely area is the GPU L-BFGS (#5198), which moved
+  minimization onto the GPU and changed how large forces are handled in single precision.
