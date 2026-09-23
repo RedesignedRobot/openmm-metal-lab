@@ -101,7 +101,7 @@
       <tr><td class="l">M3 Ultra</td><td class="ok">108 / 110</td><td class="bad">fail</td><td class="bad">3 of 3 fail</td><td class="l">none</td></tr>
     </tbody>
   </table></div>
-  <p class="note">testLargeForces fails on unmodified main with OpenCL on M3 GPUs. It predates this PR and will be filed separately.</p>
+  <p class="note">testLargeForces fails on unmodified main with OpenCL on M3 GPUs, #5434: out-of-range float to long conversion wraps on M3 and saturates on the M2. The saturating fix is a separate change.</p>
 </div></div></section>
 
 <section><div class="wrap"><div class="col">

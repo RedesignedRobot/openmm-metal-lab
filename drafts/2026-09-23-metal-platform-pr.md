@@ -71,7 +71,7 @@ On all three chips the relative force error against Reference is the same as Ope
 | M3 Pro | 107 / 110 | one stochastic Brownian test, plus testLargeForces (single and mixed) |
 | M3 Ultra | 108 / 110 | testLargeForces (single and mixed) |
 
-`testLargeForces` also fails on unmodified main with OpenCL on both M3 chips, and passes on the M2. It predates this PR and is filed separately as #5434.
+`testLargeForces` also fails on unmodified main with OpenCL on both M3 chips, and passes on the M2. It predates this PR (#5434): an out-of-range float to long conversion wraps on M3 GPUs and saturates on the M2, so the test's forces become 0. The saturating fix is a separate change.
 
 ## Limitations
 

@@ -146,7 +146,7 @@
       <tr><td class="l">M3 Ultra &middot; 60 GPU cores</td><td class="ok">108 / 110</td><td class="bad">fail</td><td class="bad">3 of 3 fail</td></tr>
     </tbody>
   </table></div>
-  <p>The only repeatable failure is <code>testLargeForces</code> in the energy minimizer tests. On both M3 chips it fails the same way with OpenCL on unmodified OpenMM, and it passes on the M2. The Reference and CPU platforms pass it. It is an existing issue in OpenMM on M3 GPUs, not in the Metal platform. The other failures are statistical tests that pass on rerun.</p>
+  <p>The only repeatable failure is <code>testLargeForces</code> in the energy minimizer tests. On both M3 chips it fails the same way with OpenCL on unmodified OpenMM, and it passes on the M2. The Reference and CPU platforms pass it. It is an existing issue in OpenMM on M3 GPUs, not in the Metal platform (#5434): converting an out-of-range float to a 64-bit integer wraps modulo 2<sup>64</sup> on M3 GPUs and saturates on the M2, so the test's forces, above 10<sup>22</sup>, become exactly zero, and the minimizer stops before its first step. With a saturating conversion, the Metal suite passes 110 of 110 on the M3 Ultra, at no measurable cost in speed. The other failures are statistical tests that pass on rerun.</p>
 </div></div></section>
 
 <section><div class="wrap"><div class="col">
