@@ -1,0 +1,16 @@
+{
+  "gpu:soc:0": {
+    "description": "Apple M2",
+    "device": 33042,
+    "opencl": {
+      "compute": "1.2",
+      "device": 0,
+      "driver": "1.0",
+      "platform": 0
+    },
+    "supported": false,
+    "type": "apple",
+    "vendor": 4203
+  }
+}
+gpu:soc:0 device.toString(16) = 8112

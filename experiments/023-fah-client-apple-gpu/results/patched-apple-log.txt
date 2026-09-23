@@ -1,0 +1,1415 @@
+*********************** Log Started 2026-09-23T18:52:20Z ***********************
+18:52:20:I1:*********************** Folding@home Client ***********************
+18:52:20:I1:    Version: 8.5.7
+18:52:20:I1:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+18:52:20:I1:        Org: foldingathome.org
+18:52:20:I1:  Copyright: 2023-2026, foldingathome.org
+18:52:20:I1:   Homepage: https://foldingathome.org/
+18:52:20:I1:    License: GPL-3.0-or-later
+18:52:20:I1:        URL: https://v8-5.foldingathome.org/
+18:52:20:I1:       Date: Sep 23 2026
+18:52:20:I1:       Time: 21:52:05
+18:52:20:I1:   Revision: fc6a5f9f0923b9b1f317d03d77ad5dfc1a419d0a
+18:52:20:I1:     Branch: master
+18:52:20:I1:   Compiler: GNU Apple LLVM 21.0.0 (clang-2100.3.34.2)
+18:52:20:I1:    Options: -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline
+18:52:20:I1:             -fno-omit-frame-pointer -Og -fPIC
+18:52:20:I1:   Platform: darwin 27.0.0
+18:52:20:I1:       Bits: 64
+18:52:20:I1:       Mode: Debug
+18:52:20:I1:       Args: --verbosity 5 --log log.txt --assignment-servers 127.0.0.1
+18:52:20:I1:             --api-server https://127.0.0.1
+18:52:20:I1:****************************** CBang ******************************
+18:52:20:I1:    Version: 1.7.2
+18:52:20:I1:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+18:52:20:I1:        Org: Cauldron Development
+18:52:20:I1:  Copyright: Cauldron Development, 2003-2026
+18:52:20:I1:   Homepage: https://cauldrondevelopment.com/
+18:52:20:I1:    License: LGPL-2.1-or-later
+18:52:20:I1:       Date: Sep 23 2026
+18:52:20:I1:       Time: 21:52:00
+18:52:20:I1:   Revision: 92edc61331f331afda62eeb785f2c7921062e363
+18:52:20:I1:     Branch: master
+18:52:20:I1:   Compiler: GNU Apple LLVM 21.0.0 (clang-2100.3.34.2)
+18:52:20:I1:    Options: -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline
+18:52:20:I1:             -fno-omit-frame-pointer -Og -fPIC
+18:52:20:I1:   Platform: darwin 27.0.0
+18:52:20:I1:       Bits: 64
+18:52:20:I1:       Mode: Debug
+18:52:20:I1:***************************** System ******************************
+18:52:20:I1:        CPU: Apple M2
+18:52:20:I1:     CPU ID: Apple Family 8 Model 0 Stepping 0
+18:52:20:I1:       CPUs: 8
+18:52:20:I1:     Memory: 8.00GiB
+18:52:20:I1:Free Memory: 830.81MiB
+18:52:20:I1: OS Version: 27.0
+18:52:20:I1:Has Battery: false
+18:52:20:I1: On Battery: false
+18:52:20:I1:   Hostname: Amirs-Mac-mini.local
+18:52:20:I1: UTC Offset: 3
+18:52:20:I1:        PID: 26110
+18:52:20:I1:        CWD: /Users/amir/lab/fah-client/run-patched-apple
+18:52:20:I1:       Exec: /Users/amir/lab/fah-client/fah-client-patched
+18:52:20:I1:*******************************************************************
+18:52:20:I2:<config>
+18:52:20:I2:  <!-- Client -->
+18:52:20:I2:  <allowed-origin-exprs>
+18:52:20:I2:    https://([^./]+\.)*foldingathome\.org
+18:52:20:I2:  </allowed-origin-exprs>
+18:52:20:I2:  <on-idle v='false'/>
+18:52:20:I2:  <open-web-control v='false'/>
+18:52:20:I2:  <web-root v='fah-web-control/dist'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- Debugging -->
+18:52:20:I2:  <api-server v='https://127.0.0.1'/>
+18:52:20:I2:  <assignment-servers>
+18:52:20:I2:    127.0.0.1
+18:52:20:I2:  </assignment-servers>
+18:52:20:I2:  <debug-libevent v='false'/>
+18:52:20:I2:  <exception-locations v='true'/>
+18:52:20:I2:  <stack-traces v='true'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- HTTP Server -->
+18:52:20:I2:  <http-addresses>
+18:52:20:I2:    127.0.0.1:7396
+18:52:20:I2:  </http-addresses>
+18:52:20:I2:  <http-max-body-size v='1048576'/>
+18:52:20:I2:  <http-max-headers-size v='1048576'/>
+18:52:20:I2:  <http-trusted-proxies>
+18:52:20:I2:    127.0.0.0/8 ::1
+18:52:20:I2:  </http-trusted-proxies>
+18:52:20:I2:
+18:52:20:I2:  <!-- Logging -->
+18:52:20:I2:  <log v='log.txt'/>
+18:52:20:I2:  <log-color v='true'/>
+18:52:20:I2:  <log-crlf v='false'/>
+18:52:20:I2:  <log-date v='false'/>
+18:52:20:I2:  <log-date-periodically v='0'/>
+18:52:20:I2:  <log-debug v='true'/>
+18:52:20:I2:  <log-domain v='false'/>
+18:52:20:I2:  <log-header v='true'/>
+18:52:20:I2:  <log-level v='true'/>
+18:52:20:I2:  <log-no-info-header v='true'/>
+18:52:20:I2:  <log-rotate v='true'/>
+18:52:20:I2:  <log-rotate-compression v='NONE'/>
+18:52:20:I2:  <log-rotate-dir v='logs'/>
+18:52:20:I2:  <log-rotate-max v='90'/>
+18:52:20:I2:  <log-rotate-period v='86400'/>
+18:52:20:I2:  <log-short-level v='true'/>
+18:52:20:I2:  <log-simple-domains v='true'/>
+18:52:20:I2:  <log-thread-id v='false'/>
+18:52:20:I2:  <log-thread-prefix v='true'/>
+18:52:20:I2:  <log-time v='true'/>
+18:52:20:I2:  <log-to-screen v='true'/>
+18:52:20:I2:  <log-truncate v='false'/>
+18:52:20:I2:  <verbosity v='5'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- Project Settings -->
+18:52:20:I2:  <beta v='false'/>
+18:52:20:I2:  <cause v='any'/>
+18:52:20:I2:  <project-key v='0'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- Resource Settings -->
+18:52:20:I2:  <cpus v='4'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- Server -->
+18:52:20:I2:  <allow v='127.0.0.1 ::1'/>
+18:52:20:I2:  <connection-backlog v='128'/>
+18:52:20:I2:  <deny v='0/0 ::/0'/>
+18:52:20:I2:  <max-connections v='4294967295'/>
+18:52:20:I2:  <max-ttl v='0'/>
+18:52:20:I2:
+18:52:20:I2:  <!-- User Information -->
+18:52:20:I2:  <passkey v='*****'/>
+18:52:20:I2:  <team v='0'/>
+18:52:20:I2:  <user v='Anonymous'/>
+18:52:20:I2:</config>
+18:52:20:D3:Anchor certificate count: 157
+18:52:20:D5:Cert 0: DigiCert TLS ECC P384 Root G5
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: DigiCert TLS ECC P384 Root G5
+18:52:20:D5:Cert 1: XRamp Global Certification Authority
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: XRamp Global Certification Authority
+18:52:20:D5:Cert 2: OISTE WISeKey Global Root GB CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: OISTE WISeKey Global Root GB CA
+18:52:20:D5:Cert 3: Amazon Root CA 2
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Amazon Root CA 2
+18:52:20:D5:Cert 4: Actalis Authentication Root CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Actalis Authentication Root CA
+18:52:20:D5:Cert 5: ISRG Root X1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: ISRG Root X1
+18:52:20:D5:Cert 6: Apple Platform Code Signing ECC Root CA - G1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Apple Platform Code Signing ECC Root CA - G1
+18:52:20:D5:Cert 7: ACCVRAIZ1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: ACCVRAIZ1
+18:52:20:D5:Cert 8: Certainly Root R1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Certainly Root R1
+18:52:20:D5:Cert 9: Certum Trusted Root CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Certum Trusted Root CA
+18:52:20:D5:Cert 10: TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1
+18:52:20:D5:Cert 11: GTS Root R3
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: GTS Root R3
+18:52:20:D5:Cert 12: Certum Trusted Network CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Certum Trusted Network CA
+18:52:20:D5:Cert 13: Certainly Root E1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Certainly Root E1
+18:52:20:D5:Cert 14: certSIGN ROOT CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: certSIGN ROOT CA
+18:52:20:D5:Cert 15: SwissSign Gold CA - G2
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: SwissSign Gold CA - G2
+18:52:20:D5:Cert 16: T-TeleSec GlobalRoot Class 2
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: T-TeleSec GlobalRoot Class 2
+18:52:20:D5:Cert 17: Entrust.net Certification Authority (2048)
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Entrust.net Certification Authority (2048)
+18:52:20:D5:Cert 18: D-TRUST Root Class 3 CA 2 2009
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: D-TRUST Root Class 3 CA 2 2009
+18:52:20:D5:Cert 19: DigiCert Assured ID Root G2
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: DigiCert Assured ID Root G2
+18:52:20:D5:Cert 20: ePKI Root Certification Authority
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: ePKI Root Certification Authority
+18:52:20:D5:Cert 21: GeoTrust Primary Certification Authority - G2
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: GeoTrust Primary Certification Authority - G2
+18:52:20:D5:Cert 22: GlobalSign
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: GlobalSign
+18:52:20:D5:Cert 23: USERTrust RSA Certification Authority
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: USERTrust RSA Certification Authority
+18:52:20:D5:Cert 24: Atos TrustedRoot Root CA ECC TLS 2021
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Atos TrustedRoot Root CA ECC TLS 2021
+18:52:20:D5:Cert 25: Sectigo Public Email Protection Root R46
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Sectigo Public Email Protection Root R46
+18:52:20:D5:Cert 26: TeliaSonera Root CA v1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: TeliaSonera Root CA v1
+18:52:20:D5:Cert 27: Starfield Class 2 Certification Authority
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Starfield Class 2 Certification Authority
+18:52:20:D5:Cert 28: AffirmTrust Premium ECC
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: AffirmTrust Premium ECC
+18:52:20:D5:Cert 29: DigiCert High Assurance EV Root CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: DigiCert High Assurance EV Root CA
+18:52:20:D5:Cert 30: GlobalSign Secure Mail Root E45
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: GlobalSign Secure Mail Root E45
+18:52:20:D5:Cert 31: TWCA Global Root CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: TWCA Global Root CA
+18:52:20:D5:Cert 32: OISTE WISeKey Global Root GC CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: OISTE WISeKey Global Root GC CA
+18:52:20:D5:Cert 33: Buypass Class 3 Root CA
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Buypass Class 3 Root CA
+18:52:20:D5:Cert 34: Apple Platform Developer ECC Root CA - G1
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: Apple Platform Developer ECC Root CA - G1
+18:52:20:D5:Cert 35: SECOM SMIME RSA Root CA 2024
+18:52:20:D5:Called SecTrustEvaluateWithError()
+18:52:20:D5:Trusting certificate: SECOM SMIME RSA Root CA 2024
+18:52:20:D5:Cert 36: Atos TrustedRoot 2011
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Atos TrustedRoot 2011
+18:52:21:D5:Cert 37: CA Disig Root R2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: CA Disig Root R2
+18:52:21:D5:Cert 38: IdenTrust Public Sector Root CA 1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: IdenTrust Public Sector Root CA 1
+18:52:21:D5:Cert 39: Telia Root CA v2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Telia Root CA v2
+18:52:21:D5:Cert 40: SSL.com Client RSA Root CA 2022
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com Client RSA Root CA 2022
+18:52:21:D5:Cert 41: SSL.com Root Certification Authority ECC
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com Root Certification Authority ECC
+18:52:21:D5:Cert 42: Security Communication ECC RootCA1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Security Communication ECC RootCA1
+18:52:21:D5:Cert 43: AC RAIZ FNMT-RCM
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: AC RAIZ FNMT-RCM
+18:52:21:D5:Cert 44: SSL.com EV Root Certification Authority RSA R2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com EV Root Certification Authority RSA R2
+18:52:21:D5:Cert 45: SECOM TLS RSA Root CA 2024
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SECOM TLS RSA Root CA 2024
+18:52:21:D5:Cert 46: SSL.com EV Root Certification Authority ECC
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com EV Root Certification Authority ECC
+18:52:21:D5:Cert 47: USERTrust ECC Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: USERTrust ECC Certification Authority
+18:52:21:D5:Cert 48: HARICA TLS RSA Root CA 2021
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: HARICA TLS RSA Root CA 2021
+18:52:21:D5:Cert 49: Sectigo Public Time Stamping Root R46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Sectigo Public Time Stamping Root R46
+18:52:21:D5:Cert 50: Atos TrustedRoot Root CA RSA G2 2020
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Atos TrustedRoot Root CA RSA G2 2020
+18:52:21:D5:Cert 51: GlobalSign Root E46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign Root E46
+18:52:21:D5:Cert 52: DigiCert TLS RSA4096 Root G5
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert TLS RSA4096 Root G5
+18:52:21:D5:Cert 53: DigiCert SMIME ECC P384 Root G5
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert SMIME ECC P384 Root G5
+18:52:21:D5:Cert 54: QuoVadis Root CA 3 G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: QuoVadis Root CA 3 G3
+18:52:21:D5:Cert 55: emSign ECC Root CA - G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: emSign ECC Root CA - G3
+18:52:21:D5:Cert 56: Apple Platform ECC Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform ECC Root CA - G1
+18:52:21:D5:Cert 57: HARICA Client RSA Root CA 2021
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: HARICA Client RSA Root CA 2021
+18:52:21:D5:Cert 58: Certum Trusted Network CA 2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Certum Trusted Network CA 2
+18:52:21:D5:Cert 59: NetLock Arany (Class Gold) Főtanúsítvány
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: NetLock Arany (Class Gold) Főtanúsítvány
+18:52:21:D5:Cert 60: NAVER Global Root Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: NAVER Global Root Certification Authority
+18:52:21:D5:Cert 61: Trustwave Global Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Trustwave Global Certification Authority
+18:52:21:D5:Cert 62: Sectigo Public Email Protection Root E46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Sectigo Public Email Protection Root E46
+18:52:21:D5:Cert 63: T-TeleSec GlobalRoot Class 3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: T-TeleSec GlobalRoot Class 3
+18:52:21:D5:Cert 64: Apple Root CA - G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Root CA - G3
+18:52:21:D5:Cert 65: QuoVadis Root CA 2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: QuoVadis Root CA 2
+18:52:21:D5:Cert 66: Microsoft RSA Root Certificate Authority 2017
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Microsoft RSA Root Certificate Authority 2017
+18:52:21:D5:Cert 67: SSL.com Client ECC Root CA 2022
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com Client ECC Root CA 2022
+18:52:21:D5:Cert 68: GlobalSign Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign Root CA
+18:52:21:D5:Cert 69: QuoVadis Root CA 2 G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: QuoVadis Root CA 2 G3
+18:52:21:D5:Cert 70: DigiCert Global Root G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Global Root G3
+18:52:21:D5:Cert 71: Entrust Root Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Entrust Root Certification Authority
+18:52:21:D5:Cert 72: Microsoft ECC Root Certificate Authority 2017
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Microsoft ECC Root Certificate Authority 2017
+18:52:21:D5:Cert 73: ISRG Root X2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: ISRG Root X2
+18:52:21:D5:Cert 74: OISTE WISeKey Global Root GA CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: OISTE WISeKey Global Root GA CA
+18:52:21:D5:Cert 75: COMODO ECC Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: COMODO ECC Certification Authority
+18:52:21:D5:Cert 76: DigiCert SMIME RSA4096 Root G5
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert SMIME RSA4096 Root G5
+18:52:21:D5:Cert 77: Apple Platform TLS RSA Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform TLS RSA Root CA - G1
+18:52:21:D5:Cert 78: GlobalSign Root R46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign Root R46
+18:52:21:D5:Cert 79: Apple Platform Developer RSA Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform Developer RSA Root CA - G1
+18:52:21:D5:Cert 80: AAA Certificate Services
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: AAA Certificate Services
+18:52:21:D5:Cert 81: DigiCert Global Root G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Global Root G2
+18:52:21:D5:Cert 82: GlobalSign Secure Mail Root R45
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign Secure Mail Root R45
+18:52:21:D5:Cert 83: Trustwave Global ECC P256 Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Trustwave Global ECC P256 Certification Authority
+18:52:21:D5:Cert 84: QuoVadis Root CA 3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: QuoVadis Root CA 3
+18:52:21:D5:Cert 85: Global Chambersign Root - 2008
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Global Chambersign Root - 2008
+18:52:21:D5:Cert 86: TWCA Root Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: TWCA Root Certification Authority
+18:52:21:D5:Cert 87: Chambers of Commerce Root - 2008
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Chambers of Commerce Root - 2008
+18:52:21:D5:Cert 88: Buypass Class 2 Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Buypass Class 2 Root CA
+18:52:21:D5:Cert 89: Entrust Root Certification Authority - EC1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Entrust Root Certification Authority - EC1
+18:52:21:D5:Cert 90: Hellenic Academic and Research Institutions ECC RootCA 2015
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Hellenic Academic and Research Institutions ECC RootCA 2015
+18:52:21:D5:Cert 91: Security Communication RootCA2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Security Communication RootCA2
+18:52:21:D5:Cert 92: Starfield Services Root Certificate Authority - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Starfield Services Root Certificate Authority - G2
+18:52:21:D5:Cert 93: SSL.com Root Certification Authority RSA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com Root Certification Authority RSA
+18:52:21:D5:Cert 94: SwissSign Silver CA - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SwissSign Silver CA - G2
+18:52:21:D5:Cert 95: DigiCert Assured ID Root G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Assured ID Root G3
+18:52:21:D5:Cert 96: GlobalSign
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign
+18:52:21:D5:Cert 97: GTS Root R2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GTS Root R2
+18:52:21:D5:Cert 98: Autoridad de Certificacion Firmaprofesional CIF A62634068
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Autoridad de Certificacion Firmaprofesional CIF A62634068
+18:52:21:D5:Cert 99: HiPKI Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: HiPKI Root CA - G1
+18:52:21:D5:Cert 100: Trustwave Global ECC P384 Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Trustwave Global ECC P384 Certification Authority
+18:52:21:D5:Cert 101: Atos TrustedRoot Root CA RSA TLS 2021
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Atos TrustedRoot Root CA RSA TLS 2021
+18:52:21:D5:Cert 102: AffirmTrust Commercial
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: AffirmTrust Commercial
+18:52:21:D5:Cert 103: Sectigo Public Server Authentication Root E46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Sectigo Public Server Authentication Root E46
+18:52:21:D5:Cert 104: SecureTrust CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SecureTrust CA
+18:52:21:D5:Cert 105: Apple Platform TLS ECC Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform TLS ECC Root CA - G1
+18:52:21:D5:Cert 106: Microsec e-Szigno Root CA 2009
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Microsec e-Szigno Root CA 2009
+18:52:21:D5:Cert 107: Apple Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Root CA
+18:52:21:D5:Cert 108: SECOM TLS ECC Root CA 2024
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SECOM TLS ECC Root CA 2024
+18:52:21:D5:Cert 109: HARICA TLS ECC Root CA 2021
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: HARICA TLS ECC Root CA 2021
+18:52:21:D5:Cert 110: Amazon Root CA 3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Amazon Root CA 3
+18:52:21:D5:Cert 111: QuoVadis Root CA 1 G3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: QuoVadis Root CA 1 G3
+18:52:21:D5:Cert 112: GDCA TrustAUTH R5 ROOT
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GDCA TrustAUTH R5 ROOT
+18:52:21:D5:Cert 113: Amazon Root CA 1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Amazon Root CA 1
+18:52:21:D5:Cert 114: GlobalSign
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign
+18:52:21:D5:Cert 115: COMODO RSA Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: COMODO RSA Certification Authority
+18:52:21:D5:Cert 116: SSL.com TLS RSA Root CA 2022
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com TLS RSA Root CA 2022
+18:52:21:D5:Cert 117: Apple Platform Multipurpose RSA Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform Multipurpose RSA Root CA - G1
+18:52:21:D5:Cert 118: Starfield Root Certificate Authority - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Starfield Root Certificate Authority - G2
+18:52:21:D5:Cert 119: COMODO Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: COMODO Certification Authority
+18:52:21:D5:Cert 120: Hellenic Academic and Research Institutions RootCA 2015
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Hellenic Academic and Research Institutions RootCA 2015
+18:52:21:D5:Cert 121: ComSign Global Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: ComSign Global Root CA
+18:52:21:D5:Cert 122: AffirmTrust Networking
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: AffirmTrust Networking
+18:52:21:D5:Cert 123: Entrust Root Certification Authority - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Entrust Root Certification Authority - G2
+18:52:21:D5:Cert 124: Apple Root CA - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Root CA - G2
+18:52:21:D5:Cert 125: Apple Platform RSA Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform RSA Root CA - G1
+18:52:21:D5:Cert 126: DigiCert Trusted Root G4
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Trusted Root G4
+18:52:21:D5:Cert 127: Izenpe.com
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Izenpe.com
+18:52:21:D5:Cert 128: GTS Root R1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GTS Root R1
+18:52:21:D5:Cert 129: Sectigo Public Server Authentication Root R46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Sectigo Public Server Authentication Root R46
+18:52:21:D5:Cert 130: D-TRUST Root Class 3 CA 2 EV 2009
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: D-TRUST Root Class 3 CA 2 EV 2009
+18:52:21:D5:Cert 131: emSign Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: emSign Root CA - G1
+18:52:21:D5:Cert 132: GLOBALTRUST 2020
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GLOBALTRUST 2020
+18:52:21:D5:Cert 133: DigiCert Assured ID Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Assured ID Root CA
+18:52:21:D5:Cert 134: Apple Platform Code Signing RSA Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform Code Signing RSA Root CA - G1
+18:52:21:D5:Cert 135: GTS Root R4
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GTS Root R4
+18:52:21:D5:Cert 136: DigiCert Global Root CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: DigiCert Global Root CA
+18:52:21:D5:Cert 137: Go Daddy Root Certificate Authority - G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Go Daddy Root Certificate Authority - G2
+18:52:21:D5:Cert 138: Go Daddy Class 2 Certification Authority
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Go Daddy Class 2 Certification Authority
+18:52:21:D5:Cert 139: Hongkong Post Root CA 3
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Hongkong Post Root CA 3
+18:52:21:D5:Cert 140: Certigna
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Certigna
+18:52:21:D5:Cert 141: Certum EC-384 CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Certum EC-384 CA
+18:52:21:D5:Cert 142: Sectigo Public Time Stamping Root E46
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Sectigo Public Time Stamping Root E46
+18:52:21:D5:Cert 143: IdenTrust Commercial Root CA 1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: IdenTrust Commercial Root CA 1
+18:52:21:D5:Cert 144: Certum CA
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Certum CA
+18:52:21:D5:Cert 145: GlobalSign
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: GlobalSign
+18:52:21:D5:Cert 146: Amazon Root CA 4
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Amazon Root CA 4
+18:52:21:D5:Cert 147: SSL.com TLS ECC Root CA 2022
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: SSL.com TLS ECC Root CA 2022
+18:52:21:D5:Cert 148: AffirmTrust Premium
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: AffirmTrust Premium
+18:52:21:D5:Cert 149: CFCA EV ROOT
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: CFCA EV ROOT
+18:52:21:D5:Cert 150: HARICA Client ECC Root CA 2021
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: HARICA Client ECC Root CA 2021
+18:52:21:D5:Cert 151: Apple Platform Multipurpose ECC Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform Multipurpose ECC Root CA - G1
+18:52:21:D5:Cert 152: D-TRUST Root CA 3 2013
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: D-TRUST Root CA 3 2013
+18:52:21:D5:Cert 153: Entrust Root Certification Authority - G4
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Entrust Root Certification Authority - G4
+18:52:21:D5:Cert 154: Atos TrustedRoot Root CA ECC G2 2020
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Atos TrustedRoot Root CA ECC G2 2020
+18:52:21:D5:Cert 155: certSIGN ROOT CA G2
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: certSIGN ROOT CA G2
+18:52:21:D5:Cert 156: Apple Platform Bootstrap ECC Root CA - G1
+18:52:21:D5:Called SecTrustEvaluateWithError()
+18:52:21:D5:Trusting certificate: Apple Platform Bootstrap ECC Root CA - G1
+18:52:21:D3:Trusted certificate count: 157
+18:52:21:I1:Opening Database
+18:52:21:D5:SQL: PRAGMA journal_mode=WAL
+18:52:21:D5:SQL: PRAGMA locking_mode=EXCLUSIVE
+18:52:21:D5:SQL: PRAGMA synchronous=NORMAL
+18:52:21:D5:SQL: PRAGMA auto_vacuum=FULL
+18:52:21:D5:SQL: CREATE TABLE IF NOT EXISTS "config" (name TEXT PRIMARY KEY,value)
+18:52:21:D5:SQL: REPLACE INTO "config" (name, value) VALUES (@NAME, @VALUE)
+18:52:21:D5:SQL: DELETE FROM "config" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT value FROM "config" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT name, value FROM "config" LIMIT @LIMIT
+18:52:21:I1:Generating RSA key.+.+......+...+..+...+.+.....+.+...............+++++++++++++++++++++++++++++++++++++++++++++*..+......+......+........+...+++++++++++++++++++++++++++++++++++++++++++++*....+...+.....................+...+.+..+...+....+.................+..................+.......+......+.....+....+.........+.........+...+...+......+...+++++-.+....+......+++++++++++++++++++++++++++++++++++++++++++++*.+..+.+........+..........+..+.........+.+..+......+.+...+......+.....+............+.......+.....+......+.+...+......+..+...+.+......+..+.............+...+..+....+...+..+......+....+...+......+..+.......+............+........+...+...+.+....................+.+..............+.+++++++++++++++++++++++++++++++++++++++++++++*..+.............+..+.+...+..+....+........+.+.........+.................+.+....................+....+...+..+.............+..+.........+.......+..............+.............+...+..+...+...+.......+..+......+..........+...........+.............+.................+....+......+.....+.....................+.........+....+............+............+..+.+..+...+..........+...+.........+............+...+..+......+...+.........+......+....+.....+.....................+.+........+...+...............+............+...+...................+..................+...........+.+......+..+...+...+......+.+........+.+......+...+.........+.....................+..............+.......+......+..+...............+...+....+........+............+.........+....+......+..+....+.........+.....+...............+......+.+........+......+..........+........+......+.+......+.....+.......+..+....+......+...+...........+.......+............+..................+........+...............+.+++++-
+18:52:21:D5:bstream_create()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_write()
+18:52:21:D5:bstream_destroy()
+18:52:21:D5:bstream_create()
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=128, 1)
+18:52:21:D5:bstream_ctrl()
+18:52:21:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_gets()
+18:52:21:D5:bstream_destroy()
+18:52:21:I1:F@H ID = 7pJ-BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY
+18:52:21:I3:Loading default resource group
+18:52:21:D5:SQL: CREATE TABLE IF NOT EXISTS "groups" (name TEXT PRIMARY KEY,value)
+18:52:21:D5:SQL: REPLACE INTO "groups" (name, value) VALUES (@NAME, @VALUE)
+18:52:21:D5:SQL: DELETE FROM "groups" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT value FROM "groups" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT name, value FROM "groups" LIMIT @LIMIT
+18:52:21:D5:SQL: CREATE TABLE IF NOT EXISTS "units" (name TEXT PRIMARY KEY,value)
+18:52:21:D5:SQL: REPLACE INTO "units" (name, value) VALUES (@NAME, @VALUE)
+18:52:21:D5:SQL: DELETE FROM "units" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT value FROM "units" WHERE name=@NAME
+18:52:21:D5:SQL: SELECT name, value FROM "units" LIMIT @LIMIT
+18:52:21:I3:Loaded 0 wus.
+18:52:21:I2:Listening for HTTP on 127.0.0.1:7396
+18:52:21:D4:Binding 127.0.0.1:7396
+18:52:21:D4:WS18446744073709551615:cb::WS::Websocket::close(NORMAL, Account restart)
+18:52:21:D5:OSXOSImpl::dispatch()
+18:52:21:D5:heartbeat on thread 0x1e9d2ff80 main
+18:52:21:I5:Started thread 1 on PID 26110
+18:52:21:I2:Loading gpus.json
+18:52:21:D3:Platform:OpenCL: Apple (0) Device:Apple M2 (0) Vendor:0x106b PCI:??:??:?? Compute:1.2 Driver:1.0 GPU:true
+18:52:21:D3:HIP not supported: Failed to open dynamic library '/Library/Frameworks/HIP.framework/HIP': dlopen(/Library/Frameworks/HIP.framework/HIP, 0x0001): tried: '/Library/Frameworks/HIP.framework/HIP' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Library/Frameworks/HIP.framework/HIP' (no such file), '/Library/Frameworks/HIP.framework/HIP' (no such file)
+18:52:21:I3:gpus = {
+18:52:21:I3:  "gpu:soc:0": {
+18:52:21:I3:    "vendor": 4203,
+18:52:21:I3:    "type": "apple",
+18:52:21:I3:    "description": "Apple M2",
+18:52:21:I3:    "opencl": {"platform": 0, "device": 0, "compute": "1.2", "driver": "1.0"},
+18:52:21:I3:    "device": 33042,
+18:52:21:I3:    "supported": true
+18:52:21:I3:  }
+18:52:21:I3:}
+18:52:24:D5:Event callback fd=11 flags=2
+18:52:24:D5:accept() new connection
+18:52:24:D4:New connection from 127.0.0.1:62824
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:FD-1:cb::Event::FD::FD()
+18:52:24:D4:CON1:Connection opened
+18:52:24:D5:CON1:Accepting from 127.0.0.1:62824
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON1:Connection accepted with fd 14
+18:52:24:D4:CON1:cb::HTTP::ConnIn::readHeader()
+18:52:24:D4:FD14:old events=0 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=1048576 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=277 buf=277 finished=0 length=1048576 until='\r\n\r\n'
+18:52:24:D5:0x000 47 45 54 20 2f 61 70 69  2f 77 65 62 73 6f 63 6b   G E T   / a p i  / w e b s o c k
+18:52:24:D5:0x010 65 74 20 48 54 54 50 2f  31 2e 31 0d 0a 48 6f 73   e t   H T T P /  1 . 1\r\n H o s
+18:52:24:D5:0x020 74 3a 20 31 32 37 2e 30  2e 30 2e 31 3a 37 33 39   t :   1 2 7 . 0  . 0 . 1 : 7 3 9
+18:52:24:D5:0x030 36 0d 0a 55 70 67 72 61  64 65 3a 20 77 65 62 73   6\r\n U p g r a  d e :   w e b s
+18:52:24:D5:0x040 6f 63 6b 65 74 0d 0a 43  6f 6e 6e 65 63 74 69 6f   o c k e t\r\n C  o n n e c t i o
+18:52:24:D5:0x050 6e 3a 20 55 70 67 72 61  64 65 0d 0a 53 65 63 2d   n :   U p g r a  d e\r\n S e c -
+18:52:24:D5:0x060 57 65 62 53 6f 63 6b 65  74 2d 4b 65 79 3a 20 50   W e b S o c k e  t - K e y :   P
+18:52:24:D5:0x070 67 7a 42 2b 6c 61 38 31  72 56 2f 48 71 59 45 62   g z B + l a 8 1  r V / H q Y E b
+18:52:24:D5:0x080 31 49 4a 4e 41 3d 3d 0d  0a 53 65 63 2d 57 65 62   1 I J N A = =\r \n S e c - W e b
+18:52:24:D5:0x090 53 6f 63 6b 65 74 2d 56  65 72 73 69 6f 6e 3a 20   S o c k e t - V  e r s i o n :  
+18:52:24:D5:0x0a0 31 33 0d 0a 53 65 63 2d  57 65 62 53 6f 63 6b 65   1 3\r\n S e c -  W e b S o c k e
+18:52:24:D5:0x0b0 74 2d 45 78 74 65 6e 73  69 6f 6e 73 3a 20 70 65   t - E x t e n s  i o n s :   p e
+18:52:24:D5:0x0c0 72 6d 65 73 73 61 67 65  2d 64 65 66 6c 61 74 65   r m e s s a g e  - d e f l a t e
+18:52:24:D5:0x0d0 3b 20 63 6c 69 65 6e 74  5f 6d 61 78 5f 77 69 6e   ;   c l i e n t  _ m a x _ w i n
+18:52:24:D5:0x0e0 64 6f 77 5f 62 69 74 73  0d 0a 55 73 65 72 2d 41   d o w _ b i t s \r\n U s e r - A
+18:52:24:D5:0x0f0 67 65 6e 74 3a 20 50 79  74 68 6f 6e 2f 33 2e 31   g e n t :   P y  t h o n / 3 . 1
+18:52:24:D5:0x100 34 20 77 65 62 73 6f 63  6b 65 74 73 2f 31 37 2e   4   w e b s o c  k e t s / 1 7 .
+18:52:24:D5:0x110 31 0d 0a 0d 0a                                     1\r\n\r\n
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D4:CON1:cb::HTTP::ConnIn::processHeader()
+18:52:24:I2:REQ1:< 127.0.0.1 GET /api/websocket HTTP/1.1
+18:52:24:D5:REQ1:Host: 127.0.0.1:7396
+18:52:24:D5:REQ1:Upgrade: websocket
+18:52:24:D5:REQ1:Connection: Upgrade
+18:52:24:D5:REQ1:Sec-WebSocket-Key: PgzB+la81rV/HqYEb1IJNA==
+18:52:24:D5:REQ1:Sec-WebSocket-Version: 13
+18:52:24:D5:REQ1:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+18:52:24:D5:REQ1:User-Agent: Python/3.14 websockets/17.1
+18:52:24:D5:REQ1:
+18:52:24:D5:/api/websocket matched /api/websocket
+18:52:24:I4:REQ1:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
+18:52:24:D5:REQ1:Upgrade: websocket
+18:52:24:D5:REQ1:Connection: upgrade
+18:52:24:D5:REQ1:Sec-WebSocket-Accept: ltNIxviwo4LFgbyOQ/tfKBoKVsg=
+18:52:24:D5:REQ1:Date: Wed, 23 Sep 2026 18:52:24 GMT
+18:52:24:D5:REQ1:
+18:52:24:D4:CON1:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
+18:52:24:D4:FD14:cb::Event::FD::write() length=171
+18:52:24:D4:FD14:old events=2 new events=4
+18:52:24:D3:New client 127.0.0.1
+18:52:24:D4:WS1:cb::WS::Websocket::writeFrame(TEXT, 1, 877)
+18:52:24:D4:FD14:cb::Event::FD::write() length=881
+18:52:24:D4:FD14:old events=4 new events=6
+18:52:24:D3:Adding remote 127.0.0.1
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=171 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=171
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=881 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=881
+18:52:24:D4:FD14:old events=6 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 88 82                                              . .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=6 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=4 buf=6 finished=0 length=6 until=''
+18:52:24:D5:0x0 88 82 4c d7 6a ea                                  . . L . j .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D4:WS1:cb::WS::Websocket::readHeader() opcode=CLOSE bytes=2
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 4f 3f                                              O ?
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D5:WS1:Frame body
+18:52:24:D5:WS1:0x0 03 e8                                              . .
+18:52:24:D4:WS1:cb::WS::Websocket::close(NORMAL, )
+18:52:24:D4:WS1:cb::WS::Websocket::writeFrame(CLOSE, 1, 2)
+18:52:24:D4:FD14:cb::Event::FD::write() length=4
+18:52:24:D4:FD14:old events=2 new events=4
+18:52:24:D3:Closing client 127.0.0.1
+18:52:24:D3:Removing remote 127.0.0.1
+18:52:24:D4:Connection ended
+18:52:24:D4:FD14:cb::Event::FD::close()
+18:52:24:D4:Socket::close(14)
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON1:Connection closed
+18:52:24:D4:FD-1:cb::Event::FD::~FD()
+18:52:24:D5:Event callback fd=11 flags=2
+18:52:24:D5:accept() new connection
+18:52:24:D4:New connection from 127.0.0.1:62825
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:FD-1:cb::Event::FD::FD()
+18:52:24:D4:CON2:Connection opened
+18:52:24:D5:CON2:Accepting from 127.0.0.1:62825
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON2:Connection accepted with fd 14
+18:52:24:D4:CON2:cb::HTTP::ConnIn::readHeader()
+18:52:24:D4:FD14:old events=0 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=1048576 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=277 buf=277 finished=0 length=1048576 until='\r\n\r\n'
+18:52:24:D5:0x000 47 45 54 20 2f 61 70 69  2f 77 65 62 73 6f 63 6b   G E T   / a p i  / w e b s o c k
+18:52:24:D5:0x010 65 74 20 48 54 54 50 2f  31 2e 31 0d 0a 48 6f 73   e t   H T T P /  1 . 1\r\n H o s
+18:52:24:D5:0x020 74 3a 20 31 32 37 2e 30  2e 30 2e 31 3a 37 33 39   t :   1 2 7 . 0  . 0 . 1 : 7 3 9
+18:52:24:D5:0x030 36 0d 0a 55 70 67 72 61  64 65 3a 20 77 65 62 73   6\r\n U p g r a  d e :   w e b s
+18:52:24:D5:0x040 6f 63 6b 65 74 0d 0a 43  6f 6e 6e 65 63 74 69 6f   o c k e t\r\n C  o n n e c t i o
+18:52:24:D5:0x050 6e 3a 20 55 70 67 72 61  64 65 0d 0a 53 65 63 2d   n :   U p g r a  d e\r\n S e c -
+18:52:24:D5:0x060 57 65 62 53 6f 63 6b 65  74 2d 4b 65 79 3a 20 71   W e b S o c k e  t - K e y :   q
+18:52:24:D5:0x070 50 67 6b 5a 62 2b 70 50  70 6e 57 4f 52 59 6c 55   P g k Z b + p P  p n W O R Y l U
+18:52:24:D5:0x080 70 58 48 55 41 3d 3d 0d  0a 53 65 63 2d 57 65 62   p X H U A = =\r \n S e c - W e b
+18:52:24:D5:0x090 53 6f 63 6b 65 74 2d 56  65 72 73 69 6f 6e 3a 20   S o c k e t - V  e r s i o n :  
+18:52:24:D5:0x0a0 31 33 0d 0a 53 65 63 2d  57 65 62 53 6f 63 6b 65   1 3\r\n S e c -  W e b S o c k e
+18:52:24:D5:0x0b0 74 2d 45 78 74 65 6e 73  69 6f 6e 73 3a 20 70 65   t - E x t e n s  i o n s :   p e
+18:52:24:D5:0x0c0 72 6d 65 73 73 61 67 65  2d 64 65 66 6c 61 74 65   r m e s s a g e  - d e f l a t e
+18:52:24:D5:0x0d0 3b 20 63 6c 69 65 6e 74  5f 6d 61 78 5f 77 69 6e   ;   c l i e n t  _ m a x _ w i n
+18:52:24:D5:0x0e0 64 6f 77 5f 62 69 74 73  0d 0a 55 73 65 72 2d 41   d o w _ b i t s \r\n U s e r - A
+18:52:24:D5:0x0f0 67 65 6e 74 3a 20 50 79  74 68 6f 6e 2f 33 2e 31   g e n t :   P y  t h o n / 3 . 1
+18:52:24:D5:0x100 34 20 77 65 62 73 6f 63  6b 65 74 73 2f 31 37 2e   4   w e b s o c  k e t s / 1 7 .
+18:52:24:D5:0x110 31 0d 0a 0d 0a                                     1\r\n\r\n
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D4:CON2:cb::HTTP::ConnIn::processHeader()
+18:52:24:I2:REQ2:< 127.0.0.1 GET /api/websocket HTTP/1.1
+18:52:24:D5:REQ2:Host: 127.0.0.1:7396
+18:52:24:D5:REQ2:Upgrade: websocket
+18:52:24:D5:REQ2:Connection: Upgrade
+18:52:24:D5:REQ2:Sec-WebSocket-Key: qPgkZb+pPpnWORYlUpXHUA==
+18:52:24:D5:REQ2:Sec-WebSocket-Version: 13
+18:52:24:D5:REQ2:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+18:52:24:D5:REQ2:User-Agent: Python/3.14 websockets/17.1
+18:52:24:D5:REQ2:
+18:52:24:D5:/api/websocket matched /api/websocket
+18:52:24:I4:REQ2:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
+18:52:24:D5:REQ2:Upgrade: websocket
+18:52:24:D5:REQ2:Connection: upgrade
+18:52:24:D5:REQ2:Sec-WebSocket-Accept: ppFjL9V2IGGlbQ0Uq0DZr2Wg2Os=
+18:52:24:D5:REQ2:Date: Wed, 23 Sep 2026 18:52:24 GMT
+18:52:24:D5:REQ2:
+18:52:24:D4:CON2:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
+18:52:24:D4:FD14:cb::Event::FD::write() length=171
+18:52:24:D4:FD14:old events=2 new events=4
+18:52:24:D3:New client 127.0.0.1
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 877)
+18:52:24:D4:FD14:cb::Event::FD::write() length=881
+18:52:24:D4:FD14:old events=4 new events=6
+18:52:24:D3:Adding remote 127.0.0.1
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=171 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=171
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=881 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=881
+18:52:24:D4:FD14:old events=6 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 81 fe                                              . .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=8 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=6 buf=8 finished=0 length=8 until=''
+18:52:24:D5:0x0 81 fe 00 84 05 e0 2d dd                            . . . . . . - .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D4:WS2:cb::WS::Websocket::readHeader() opcode=TEXT bytes=132
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D4:FD14:old events=2 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=132 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=132 buf=132 finished=0 length=132 until=''
+18:52:24:D5:0x00 7e c2 4e b0 61 c2 17 fd  27 83 42 b3 63 89 4a ff   ~ . N . a . . .  ' . B . c . J .
+18:52:24:D5:0x10 29 c0 0f a9 6c 8d 48 ff  3f c0 0f ef 35 d2 1b f0   ) . . . l . H .  ? . . . 5 .  .
+18:52:24:D5:0x20 35 d9 00 ef 36 b4 1c e5  3f d5 1f e7 37 d4 77 ff   5 . . . 6 .  .  ? .  . 7 . w .
+18:52:24:D5:0x30 29 c0 0f be 6a 8e 4b b4  62 c2 17 fd 7e c2 4a af   ) . . . j . K .  b . . . ~ . J .
+18:52:24:D5:0x40 6a 95 5d ae 27 da 0d a6  27 c2 17 fd 7e c2 4e ad   j . ] . ' .\r .  ' . . . ~ . N .
+18:52:24:D5:0x50 70 93 0f e7 25 d0 01 fd  27 87 5d a8 76 c2 17 fd   p . . . % . . .  ' . ] . v . . .
+18:52:24:D5:0x60 7e c2 4a ad 70 da 5e b2  66 da 1d ff 3f c0 56 ff   ~ . J . p . ^ .  f .  . ? . V .
+18:52:24:D5:0x70 60 8e 4c bf 69 85 49 ff  3f c0 59 af 70 85 50 a0   ` . L . i . I .  ? . Y . p . P .
+18:52:24:D5:0x80 78 9d 50 a0                                        x . P .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D5:WS2:Frame body
+18:52:24:D5:WS2:0x00 7b 22 63 6d 64 22 3a 20  22 63 6f 6e 66 69 67 22   { " c m d " :    " c o n f i g "
+18:52:24:D5:WS2:0x10 2c 20 22 74 69 6d 65 22  3a 20 22 32 30 32 36 2d   ,   " t i m e "  :   " 2 0 2 6 -
+18:52:24:D5:WS2:0x20 30 39 2d 32 33 54 31 38  3a 35 32 3a 32 34 5a 22   0 9 - 2 3 T 1 8  : 5 2 : 2 4 Z "
+18:52:24:D5:WS2:0x30 2c 20 22 63 6f 6e 66 69  67 22 3a 20 7b 22 67 72   ,   " c o n f i  g " :   { " g r
+18:52:24:D5:WS2:0x40 6f 75 70 73 22 3a 20 7b  22 22 3a 20 7b 22 63 70   o u p s " :   {  " " :   { " c p
+18:52:24:D5:WS2:0x50 75 73 22 3a 20 30 2c 20  22 67 70 75 73 22 3a 20   u s " :   0 ,    " g p u s " :  
+18:52:24:D5:WS2:0x60 7b 22 67 70 75 3a 73 6f  63 3a 30 22 3a 20 7b 22   { " g p u : s o  c : 0 " :   { "
+18:52:24:D5:WS2:0x70 65 6e 61 62 6c 65 64 22  3a 20 74 72 75 65 7d 7d   e n a b l e d "  :   t r u e } }
+18:52:24:D5:WS2:0x80 7d 7d 7d 7d                                        } } } }
+18:52:24:D3:msg: {
+18:52:24:D3:  "cmd": "config",
+18:52:24:D3:  "time": "2026-09-23T18:52:24Z",
+18:52:24:D3:  "config": {
+18:52:24:D3:    "groups": {
+18:52:24:D3:      "": {
+18:52:24:D3:        "cpus": 0,
+18:52:24:D3:        "gpus": {
+18:52:24:D3:          "gpu:soc:0": {"enabled": true}
+18:52:24:D3:        }
+18:52:24:D3:      }
+18:52:24:D3:    }
+18:52:24:D3:  }
+18:52:24:D3:}
+18:52:24:D5:notify ["groups", "", "config", "cpus", 0]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 31)
+18:52:24:D4:FD14:cb::Event::FD::write() length=33
+18:52:24:D4:FD14:old events=2 new events=4
+18:52:24:D5:notify ["groups", "", "config", "gpus", {
+18:52:24:D5:    "gpu:soc:0": {"enabled": true}
+18:52:24:D5:  }]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 60)
+18:52:24:D4:FD14:cb::Event::FD::write() length=62
+18:52:24:D4:FD14:old events=4 new events=6
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=6
+18:52:24:D4:FD14:callback() events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 81 c1                                              . .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=33 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=33
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=6
+18:52:24:D4:FD14:callback() events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=6 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=4 buf=6 finished=0 length=6 until=''
+18:52:24:D5:0x0 81 c1 2c 52 53 a9                                  . . , R S .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D4:WS2:cb::WS::Websocket::readHeader() opcode=TEXT bytes=65
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=62 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=62
+18:52:24:D4:FD14:old events=6 new events=2
+18:52:24:D5:Event callback fd=14 flags=2
+18:52:24:D4:FD14:callback() events=2
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=65 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=65 buf=65 finished=0 length=65 until=''
+18:52:24:D5:0x00 57 70 30 c4 48 70 69 89  0e 21 27 c8 58 37 71 85   W p 0 . H p i .  . ! ' . X 7 q .
+18:52:24:D5:0x10 0c 70 27 c0 41 37 71 93  0c 70 61 99 1e 64 7e 99  \f p ' . A 7 q . \f p a .  d ~ .
+18:52:24:D5:0x20 15 7f 61 9a 78 63 6b 93  19 60 69 9b 18 08 71 85   . . a . x c k .  . ` i . .\b q .
+18:52:24:D5:0x30 0c 70 20 dd 4d 26 36 8b  16 72 71 cf 43 3e 37 8b  \f p   . M & 6 .  . r q . C > 7 .
+18:52:24:D5:0x40 51                                                 Q
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D5:WS2:Frame body
+18:52:24:D5:WS2:0x00 7b 22 63 6d 64 22 3a 20  22 73 74 61 74 65 22 2c   { " c m d " :    " s t a t e " ,
+18:52:24:D5:WS2:0x10 20 22 74 69 6d 65 22 3a  20 22 32 30 32 36 2d 30     " t i m e " :    " 2 0 2 6 - 0
+18:52:24:D5:WS2:0x20 39 2d 32 33 54 31 38 3a  35 32 3a 32 34 5a 22 2c   9 - 2 3 T 1 8 :  5 2 : 2 4 Z " ,
+18:52:24:D5:WS2:0x30 20 22 73 74 61 74 65 22  3a 20 22 66 6f 6c 64 22     " s t a t e "  :   " f o l d "
+18:52:24:D5:WS2:0x40 7d                                                 }
+18:52:24:D3:msg: {"cmd": "state", "time": "2026-09-23T18:52:24Z", "state": "fold"}
+18:52:24:I1:Machine state fold
+18:52:24:D5:notify ["groups", "", "config", "paused", false]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 37)
+18:52:24:D4:FD14:cb::Event::FD::write() length=39
+18:52:24:D4:FD14:old events=2 new events=4
+18:52:24:D5:notify ["groups", "", "wait", "2026-09-23T18:52:24Z"]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 43)
+18:52:24:D4:FD14:cb::Event::FD::write() length=45
+18:52:24:D5:notify ["groups", "", "failed_wus", 0]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 28)
+18:52:24:D4:FD14:cb::Event::FD::write() length=30
+18:52:24:D5:notify ["groups", "", "lost_wus", 0]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 26)
+18:52:24:D4:FD14:cb::Event::FD::write() length=28
+18:52:24:D5:notify ["groups", "", "failed", ""]
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(TEXT, 1, 25)
+18:52:24:D4:FD14:cb::Event::FD::write() length=27
+18:52:24:D4:FD14:old events=4 new events=6
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=6
+18:52:24:D4:FD14:callback() events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 88 82                                              . .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=39 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=39
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=6
+18:52:24:D4:FD14:callback() events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=6 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=4 buf=6 finished=0 length=6 until=''
+18:52:24:D5:0x0 88 82 58 d8 ae 93                                  . . X . . .
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:24:D4:WS2:cb::WS::Websocket::readHeader() opcode=CLOSE bytes=2
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=45 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=45
+18:52:24:D4:FD14:old events=6 new events=6
+18:52:24:D5:Event callback fd=14 flags=6
+18:52:24:D4:FD14:callback() events=6
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:24Z
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=2 buf=2 finished=0 length=2 until=''
+18:52:24:D5:0x0 5b 30                                              [ 0
+18:52:24:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:24:D5:WS2:Frame body
+18:52:24:D5:WS2:0x0 03 e8                                              . .
+18:52:24:D4:WS2:cb::WS::Websocket::close(NORMAL, )
+18:52:24:D4:WS2:cb::WS::Websocket::writeFrame(CLOSE, 1, 2)
+18:52:24:D4:FD14:cb::Event::FD::write() length=4
+18:52:24:D3:Closing client 127.0.0.1
+18:52:24:D3:Removing remote 127.0.0.1
+18:52:24:D4:Connection ended
+18:52:24:D4:FD14:cb::Event::FD::close()
+18:52:24:D4:Socket::close(14)
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON2:Connection closed
+18:52:24:D4:FD-1:cb::Event::FD::~FD()
+18:52:24:D1:Default:Remaining CPUs: 0, Remaining GPUs: 1, Active WUs: 0
+18:52:24:I1:Default:Added new work unit: cpus:0 gpus:gpu:soc:0
+18:52:24:I1:WU1:Requesting WU assignment for user Anonymous team 0 from https://127.0.0.1/api/assign
+18:52:24:D3:WU1:{
+18:52:24:D3:WU1:  "time": "2026-09-23T18:52:24Z",
+18:52:24:D3:WU1:  "wu": 1,
+18:52:24:D3:WU1:  "version": "8.5.7",
+18:52:24:D3:WU1:  "id": "7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=",
+18:52:24:D3:WU1:  "user": "Anonymous",
+18:52:24:D3:WU1:  "team": 0,
+18:52:24:D3:WU1:  "passkey": "",
+18:52:24:D3:WU1:  "os": {"version": "27.0", "type": "macosx", "memory": 3054698496},
+18:52:24:D3:WU1:  "project": {"cause": "any", "beta": false},
+18:52:24:D3:WU1:  "resources": {
+18:52:24:D3:WU1:    "cpu": {"cpu": "arm64", "cpus": 0, "vendor": "Apple", "signature": 2171136, "family": 8, "model": 0, "stepping": 0, "features": 0, "extended": 0, "80000001": 0},
+18:52:24:D3:WU1:    "gpu:soc:0": {
+18:52:24:D3:WU1:      "gpu": "apple",
+18:52:24:D3:WU1:      "vendor": 4203,
+18:52:24:D3:WU1:      "device": 33042,
+18:52:24:D3:WU1:      "opencl": {"platform": 0, "device": 0, "compute": "1.2", "driver": "1.0"}
+18:52:24:D3:WU1:    }
+18:52:24:D3:WU1:  }
+18:52:24:D3:WU1:}
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:FD-1:cb::Event::FD::FD()
+18:52:24:D4:CON3:Connection opened
+18:52:24:D5:bstream_create()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_write()
+18:52:24:D5:bstream_destroy()
+18:52:24:D5:CON3:Connecting to 127.0.0.1:443
+18:52:24:D5:DNS: resolving '127.0.0.1'
+18:52:24:D5:DNS: resolve response: NOERROR
+18:52:24:D4:CON3:Connecting to 127.0.0.1:443
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON3:Connection with fd 14
+18:52:24:D4:Connecting to 127.0.0.1:443
+18:52:24:D4:FD14:cb::Event::FD::write() length=0
+18:52:24:D4:FD14:old events=0 new events=4
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=0 time=2026-09-23T18:52:24Z
+18:52:24:I2:OUT3:> POST https://127.0.0.1/api/assign
+18:52:24:D5:OUT3:Content-Type: application/json
+18:52:24:D5:OUT3:Host: 127.0.0.1
+18:52:24:D5:OUT3:Connection: close
+18:52:24:D5:OUT3:Accept: */*
+18:52:24:D5:OUT3:Content-Length: 2061
+18:52:24:D5:OUT3:
+18:52:24:D4:CON3:cb::HTTP::ConnOut::writeRequest() length=2193
+18:52:24:D4:CON3:Sending: POST /api/assign HTTP/1.1
+18:52:24:D4:CON3:Content-Type: application/json
+18:52:24:D4:CON3:Host: 127.0.0.1
+18:52:24:D4:CON3:Connection: close
+18:52:24:D4:CON3:Accept: */*
+18:52:24:D4:CON3:Content-Length: 2061
+18:52:24:D4:CON3:
+18:52:24:D4:CON3:{"data":{"time":"2026-09-23T18:52:24Z","wu":1,"version":"8.5.7","id":"7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3054698496},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"dxZi3aU0oEVKsLWxL6RYXMZ6hdPcsrOOflrYP5S+eUzciEOdPuOTc1an+Q1BvxAwAfR4dZ7zORT0aA3vVPHiZhyTPNmej1hwBIhHkjKYtWBE/vhOXARwctVZTjiYWqtDk4d8oqHm3r3ExnoYXTIyK4S5/EG1jOQje1LunuCUmYiVJLmT2X9piBcMnkgvYPrbtI5hhqIaTauX76Md8ZntIz5LT0vJN/inEDMhAwI+NZgsRilsAyjrINIg+O7+zTZ3FfLi7KS0UGnK7Hy59Mel6MvMWtVDzbiRLpD32Lbn0S9lktNFW592UZAAG92cN72y+XfQWjQmwrZDrho6TZv7fditt3jBNflUmwv3cY75kmTbfa4ZSlgoEOHo5M+CtbeYf0IrgqOKSFbDgiVVJWmEpwO8AoqlUV3UDZux1eZI+Y3bXPnB+E/A/P2GsYd5z3b5UZM9gVA8sRH4KS4W/BG0L+E2VspZAm8Z9nSjE+XkWEi4Be01XczZK9RjjJ4/ulxie5vDBkoHjlDCOzERVNIWpJq4wbLc5R00mIR4Zl+4Sv3ehGS+L+om5jYzBSpet7wlc99nhsBaOLjeY2s8L/8ZoJ9063AymA6hOujS8h+yFtm8bmmlCaJVgG2Imf2SaOtco6JxzOBzP3J59lQKkvN7bqAgtW6Z46x3LhFIkpq6GQs=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAuye+AjWH8GwhDc6yXNIw\npqdILrmN0a5QpPm4+DZvPwXjkSq4VEgcAArIWXD9d+tN3iVNX0tqkF4bE2sT5jch\nxIdI0wj56uaVNINHZRLpW/LqbVdOQCQWc1aBOX1vQlzggw4cmAoM2u11g00kiBSD\nw6bG8bfj/I4qKTBMjRE+eF099hyL7YNhGTyHGADrgnx+TigZ+sX9++NOg3OwMBb1\nJdpYal9DRCrBUqOfsPD6ADL+2tE6zkXEqX1wFLgktqk1evlVhmYsd4p+THkcCvD6\nSfOsnzloXlOkNRoGW+w/to2W166aEguN/UexKprZU1kXLVKTyF9Gm4sHeSCo5RMP\nUuClArFt7RDc1bcdO8/k9r0k53JlqlCOR4548lZeaKCDTIue+h2E47hOL6MNG7Jc\nuY1JPoI40+Etms4l6TgR6wFUumOTP5TkrRPoiOI5UYgFW+tqrWxgksU0y04KC0Ys\nLGd4nA98pqyKLQFCKfNufPaKdSpZ26uYmGlBDCfDYlaUecjfhFQ9LvAikmkV4FTE\nrZiJ5W26qd8U/R6n0re09UK7PZwwfvOBjhbX8Zrh1DoLbh7vRmY4IsVd2i+Ckhr6\nw7eLkCh+3REV/K8zhIOzqLmbeFBrz+8XHPn8pYXcai7v8yAjgq5mak1HzX3cr9Qz\nfiXckb454M/a4BM/qFcMvw0CAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:24:D4:FD14:cb::Event::FD::write() length=2193
+18:52:24:D4:FD14:old events=4 new events=4
+18:52:24:D4:FD14:old events=4 new events=4
+18:52:24:D5:Event callback fd=14 flags=4
+18:52:24:D4:FD14:callback() events=4
+18:52:24:D4:FD14:cb::Event::FD::progressStart() read=0 size=2193 time=2026-09-23T18:52:24Z
+18:52:24:D5:cb::SSL::write(size=2193)
+18:52:24:D4:SSL write failed: OK
+18:52:24:D4:cb::Event::TransferWrite::transfer() ret=-1
+18:52:24:D3:CON3:Failed to write request
+18:52:24:D4:OUT3:< EOF
+18:52:24:E :OUT3:Failed response: EOF
+18:52:24:I1:WU1:Retry #1 in 2 secs
+18:52:24:D4:FD14:cb::Event::FD::close()
+18:52:24:D4:Socket::close(14)
+18:52:24:D4:FD-1:cb::Event::FD::setFD()
+18:52:24:D4:CON3:Connection closed
+18:52:24:D4:FD-1:cb::Event::FD::~FD()
+18:52:24:D5:Disabling system sleep
+18:52:26:I1:WU1:Requesting WU assignment for user Anonymous team 0 from https://127.0.0.1/api/assign
+18:52:26:D3:WU1:{
+18:52:26:D3:WU1:  "time": "2026-09-23T18:52:26Z",
+18:52:26:D3:WU1:  "wu": 1,
+18:52:26:D3:WU1:  "version": "8.5.7",
+18:52:26:D3:WU1:  "id": "7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=",
+18:52:26:D3:WU1:  "user": "Anonymous",
+18:52:26:D3:WU1:  "team": 0,
+18:52:26:D3:WU1:  "passkey": "",
+18:52:26:D3:WU1:  "os": {"version": "27.0", "type": "macosx", "memory": 3052060672},
+18:52:26:D3:WU1:  "project": {"cause": "any", "beta": false},
+18:52:26:D3:WU1:  "resources": {
+18:52:26:D3:WU1:    "cpu": {"cpu": "arm64", "cpus": 0, "vendor": "Apple", "signature": 2171136, "family": 8, "model": 0, "stepping": 0, "features": 0, "extended": 0, "80000001": 0},
+18:52:26:D3:WU1:    "gpu:soc:0": {
+18:52:26:D3:WU1:      "gpu": "apple",
+18:52:26:D3:WU1:      "vendor": 4203,
+18:52:26:D3:WU1:      "device": 33042,
+18:52:26:D3:WU1:      "opencl": {"platform": 0, "device": 0, "compute": "1.2", "driver": "1.0"}
+18:52:26:D3:WU1:    }
+18:52:26:D3:WU1:  }
+18:52:26:D3:WU1:}
+18:52:26:D4:FD-1:cb::Event::FD::setFD()
+18:52:26:D4:FD-1:cb::Event::FD::FD()
+18:52:26:D4:CON4:Connection opened
+18:52:26:D5:bstream_create()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_write()
+18:52:26:D5:bstream_destroy()
+18:52:26:D5:CON4:Connecting to 127.0.0.1:443
+18:52:26:D5:DNS: resolving '127.0.0.1'
+18:52:26:D5:DNS: resolve response: NOERROR
+18:52:26:D4:CON4:Connecting to 127.0.0.1:443
+18:52:26:D4:FD-1:cb::Event::FD::setFD()
+18:52:26:D4:CON4:Connection with fd 14
+18:52:26:D4:Connecting to 127.0.0.1:443
+18:52:26:D4:FD14:cb::Event::FD::write() length=0
+18:52:26:D4:FD14:old events=0 new events=4
+18:52:26:D5:Event callback fd=14 flags=4
+18:52:26:D4:FD14:callback() events=4
+18:52:26:D4:FD14:cb::Event::FD::progressStart() read=0 size=0 time=2026-09-23T18:52:26Z
+18:52:26:I2:OUT4:> POST https://127.0.0.1/api/assign
+18:52:26:D5:OUT4:Content-Type: application/json
+18:52:26:D5:OUT4:Host: 127.0.0.1
+18:52:26:D5:OUT4:Connection: close
+18:52:26:D5:OUT4:Accept: */*
+18:52:26:D5:OUT4:Content-Length: 2061
+18:52:26:D5:OUT4:
+18:52:26:D4:CON4:cb::HTTP::ConnOut::writeRequest() length=2193
+18:52:26:D4:CON4:Sending: POST /api/assign HTTP/1.1
+18:52:26:D4:CON4:Content-Type: application/json
+18:52:26:D4:CON4:Host: 127.0.0.1
+18:52:26:D4:CON4:Connection: close
+18:52:26:D4:CON4:Accept: */*
+18:52:26:D4:CON4:Content-Length: 2061
+18:52:26:D4:CON4:
+18:52:26:D4:CON4:{"data":{"time":"2026-09-23T18:52:26Z","wu":1,"version":"8.5.7","id":"7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3052060672},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"f1LF7OHdPtKwqboShr6/XAQXI/vZO5+BwkU6t7fCuQ+4sAU3TjU4obu3EDCGqJVNkhsMszaFs8rrBPCErUP22oA9Ac4ExTKKd9QLg0DNKFeQ4VDOty9va2PJBJ3t518gbQNWU2lupokEeUJxBluSKIPs4li4XhX5jd7Qnaxn4Is0nvl9J7OeC3iymNTyA5sSlRmRdzQjIBdPR+52gJYMDUP+TXvJ8p+O8NqcI+gO1Cy3vD4wrPal+QuXm0H1eVpUs3M0BO4RGfa9QHv85jv5PKqcEO+GR3XLt6OJZ6r/x5ldUduxnsLXpacj9RtEitVNtf3MqLEYAg/X713hPG8eYjSnWmrOdIObOfmQcFKeR2boIvGPs9y97Js1Qk4oLhwP5kFPTfPVBwEYzpRwlhpKwx5x1lh3xEfAti87dhJhTPdnHAa/Bq3Kv8rs4BhuNatbHkJIo2V8Qk2QZuEOdLTI7Phngncn7os2G63glh4pAq7NYe5EplJIp0cy8KSceX42icNz1bFyhcWj+SG7wMmpp/tsvl1bhxmZo+V2bMl6yoBoXNE/nNPYQ0IYMCC5/nuKxhMulCr2OArvIEl1bxfeowtbNASz9Xa4FPkESnhphJQGnnOUQo5/d4H9HzreY9nvLhBPJv++lpkHw2wPsvF3s89o1NFqVHpUPZNcsFlkrqU=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAuye+AjWH8GwhDc6yXNIw\npqdILrmN0a5QpPm4+DZvPwXjkSq4VEgcAArIWXD9d+tN3iVNX0tqkF4bE2sT5jch\nxIdI0wj56uaVNINHZRLpW/LqbVdOQCQWc1aBOX1vQlzggw4cmAoM2u11g00kiBSD\nw6bG8bfj/I4qKTBMjRE+eF099hyL7YNhGTyHGADrgnx+TigZ+sX9++NOg3OwMBb1\nJdpYal9DRCrBUqOfsPD6ADL+2tE6zkXEqX1wFLgktqk1evlVhmYsd4p+THkcCvD6\nSfOsnzloXlOkNRoGW+w/to2W166aEguN/UexKprZU1kXLVKTyF9Gm4sHeSCo5RMP\nUuClArFt7RDc1bcdO8/k9r0k53JlqlCOR4548lZeaKCDTIue+h2E47hOL6MNG7Jc\nuY1JPoI40+Etms4l6TgR6wFUumOTP5TkrRPoiOI5UYgFW+tqrWxgksU0y04KC0Ys\nLGd4nA98pqyKLQFCKfNufPaKdSpZ26uYmGlBDCfDYlaUecjfhFQ9LvAikmkV4FTE\nrZiJ5W26qd8U/R6n0re09UK7PZwwfvOBjhbX8Zrh1DoLbh7vRmY4IsVd2i+Ckhr6\nw7eLkCh+3REV/K8zhIOzqLmbeFBrz+8XHPn8pYXcai7v8yAjgq5mak1HzX3cr9Qz\nfiXckb454M/a4BM/qFcMvw0CAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:26:D4:FD14:cb::Event::FD::write() length=2193
+18:52:26:D4:FD14:old events=4 new events=4
+18:52:26:D4:FD14:old events=4 new events=4
+18:52:26:D5:Event callback fd=14 flags=4
+18:52:26:D4:FD14:callback() events=4
+18:52:26:D4:FD14:cb::Event::FD::progressStart() read=0 size=2193 time=2026-09-23T18:52:26Z
+18:52:26:D5:cb::SSL::write(size=2193)
+18:52:26:D4:SSL write failed: OK
+18:52:26:D4:cb::Event::TransferWrite::transfer() ret=-1
+18:52:26:D3:CON4:Failed to write request
+18:52:26:D4:OUT4:< EOF
+18:52:26:E :OUT4:Failed response: EOF
+18:52:26:I1:WU1:Retry #2 in 4 secs
+18:52:26:D4:FD14:cb::Event::FD::close()
+18:52:26:D4:Socket::close(14)
+18:52:26:D4:FD-1:cb::Event::FD::setFD()
+18:52:26:D4:CON4:Connection closed
+18:52:26:D4:FD-1:cb::Event::FD::~FD()
+18:52:30:I1:WU1:Requesting WU assignment for user Anonymous team 0 from https://127.0.0.1/api/assign
+18:52:30:D3:WU1:{
+18:52:30:D3:WU1:  "time": "2026-09-23T18:52:30Z",
+18:52:30:D3:WU1:  "wu": 1,
+18:52:30:D3:WU1:  "version": "8.5.7",
+18:52:30:D3:WU1:  "id": "7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=",
+18:52:30:D3:WU1:  "user": "Anonymous",
+18:52:30:D3:WU1:  "team": 0,
+18:52:30:D3:WU1:  "passkey": "",
+18:52:30:D3:WU1:  "os": {"version": "27.0", "type": "macosx", "memory": 3072671744},
+18:52:30:D3:WU1:  "project": {"cause": "any", "beta": false},
+18:52:30:D3:WU1:  "resources": {
+18:52:30:D3:WU1:    "cpu": {"cpu": "arm64", "cpus": 0, "vendor": "Apple", "signature": 2171136, "family": 8, "model": 0, "stepping": 0, "features": 0, "extended": 0, "80000001": 0},
+18:52:30:D3:WU1:    "gpu:soc:0": {
+18:52:30:D3:WU1:      "gpu": "apple",
+18:52:30:D3:WU1:      "vendor": 4203,
+18:52:30:D3:WU1:      "device": 33042,
+18:52:30:D3:WU1:      "opencl": {"platform": 0, "device": 0, "compute": "1.2", "driver": "1.0"}
+18:52:30:D3:WU1:    }
+18:52:30:D3:WU1:  }
+18:52:30:D3:WU1:}
+18:52:30:D4:FD-1:cb::Event::FD::setFD()
+18:52:30:D4:FD-1:cb::Event::FD::FD()
+18:52:30:D4:CON5:Connection opened
+18:52:30:D5:bstream_create()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_write()
+18:52:30:D5:bstream_destroy()
+18:52:30:D5:CON5:Connecting to 127.0.0.1:443
+18:52:30:D5:DNS: resolving '127.0.0.1'
+18:52:30:D5:DNS: resolve response: NOERROR
+18:52:30:D4:CON5:Connecting to 127.0.0.1:443
+18:52:30:D4:FD-1:cb::Event::FD::setFD()
+18:52:30:D4:CON5:Connection with fd 14
+18:52:30:D4:Connecting to 127.0.0.1:443
+18:52:30:D4:FD14:cb::Event::FD::write() length=0
+18:52:30:D4:FD14:old events=0 new events=4
+18:52:30:D5:Event callback fd=14 flags=4
+18:52:30:D4:FD14:callback() events=4
+18:52:30:D4:FD14:cb::Event::FD::progressStart() read=0 size=0 time=2026-09-23T18:52:30Z
+18:52:30:I2:OUT5:> POST https://127.0.0.1/api/assign
+18:52:30:D5:OUT5:Content-Type: application/json
+18:52:30:D5:OUT5:Host: 127.0.0.1
+18:52:30:D5:OUT5:Connection: close
+18:52:30:D5:OUT5:Accept: */*
+18:52:30:D5:OUT5:Content-Length: 2061
+18:52:30:D5:OUT5:
+18:52:30:D4:CON5:cb::HTTP::ConnOut::writeRequest() length=2193
+18:52:30:D4:CON5:Sending: POST /api/assign HTTP/1.1
+18:52:30:D4:CON5:Content-Type: application/json
+18:52:30:D4:CON5:Host: 127.0.0.1
+18:52:30:D4:CON5:Connection: close
+18:52:30:D4:CON5:Accept: */*
+18:52:30:D4:CON5:Content-Length: 2061
+18:52:30:D4:CON5:
+18:52:30:D4:CON5:{"data":{"time":"2026-09-23T18:52:30Z","wu":1,"version":"8.5.7","id":"7pJ+BBlWPKl1dlvnahwCT1izdeSXBZO4FhiSVIXFgnY=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3072671744},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"IKiQsgLLVCAy908Gad7hB7SJToyOOuZ6DT78c4bvdw+90JI0BXC/TwY5zVL9DTfztmf+N6LWnHi7sdRkyMcZR4owdaczg/JP+HwWCGXCZZsh6gflsc8wxQ602UL1OJ4l4F74YkiqEUTQ5YtteUtvTYP0fJby8bneQgHvglKAtNFSUDc4uWiuMmiusByMimkMoly+OVm3dS1Cl70ZeThvOk24bOw4Kern9CeolBtg+CE1Rr2gXfbq+ZPDm0eHF8Yi6af2/rvtWhHxxp9y/4AiF2MANuIXo+/OiB8ZMAci/pr5+8UGZfckkhufMGGffkq2NoXqjYSj4uym3a9COt7pbDgogDd1OzJ76eDH/4+HdUN8+Eyf/Aqv83fQ8TT1r117ZffVda+7Xj19CZG+3Cs2KRx7UwM4g/kjg33ogbdzaCzL0aH2FsdElj3oReBybo/brMKhkjK9gNhoo2tE/SUz4jb2jKRplUsBnUunXAjTARnsoykABadGXlZF28mkagXllLoLdrezoaRtXLMAL3SUYhsZdL7YHOD0U7tfIQ5IKTiMI28+O80uvGpRbHsvixszadnUS3GtfAfbi9Cm28PDieTXB8+0FoYnrRt/O4aMC4WhdLGNKLdp8Toi9ThMd1svjKi+A2K37Cg2baC5OfBxFLTx9wZwmOR9r1tXpCngCRo=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAuye+AjWH8GwhDc6yXNIw\npqdILrmN0a5QpPm4+DZvPwXjkSq4VEgcAArIWXD9d+tN3iVNX0tqkF4bE2sT5jch\nxIdI0wj56uaVNINHZRLpW/LqbVdOQCQWc1aBOX1vQlzggw4cmAoM2u11g00kiBSD\nw6bG8bfj/I4qKTBMjRE+eF099hyL7YNhGTyHGADrgnx+TigZ+sX9++NOg3OwMBb1\nJdpYal9DRCrBUqOfsPD6ADL+2tE6zkXEqX1wFLgktqk1evlVhmYsd4p+THkcCvD6\nSfOsnzloXlOkNRoGW+w/to2W166aEguN/UexKprZU1kXLVKTyF9Gm4sHeSCo5RMP\nUuClArFt7RDc1bcdO8/k9r0k53JlqlCOR4548lZeaKCDTIue+h2E47hOL6MNG7Jc\nuY1JPoI40+Etms4l6TgR6wFUumOTP5TkrRPoiOI5UYgFW+tqrWxgksU0y04KC0Ys\nLGd4nA98pqyKLQFCKfNufPaKdSpZ26uYmGlBDCfDYlaUecjfhFQ9LvAikmkV4FTE\nrZiJ5W26qd8U/R6n0re09UK7PZwwfvOBjhbX8Zrh1DoLbh7vRmY4IsVd2i+Ckhr6\nw7eLkCh+3REV/K8zhIOzqLmbeFBrz+8XHPn8pYXcai7v8yAjgq5mak1HzX3cr9Qz\nfiXckb454M/a4BM/qFcMvw0CAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:30:D4:FD14:cb::Event::FD::write() length=2193
+18:52:30:D4:FD14:old events=4 new events=4
+18:52:30:D4:FD14:old events=4 new events=4
+18:52:30:D5:Event callback fd=14 flags=4
+18:52:30:D4:FD14:callback() events=4
+18:52:30:D4:FD14:cb::Event::FD::progressStart() read=0 size=2193 time=2026-09-23T18:52:30Z
+18:52:30:D5:cb::SSL::write(size=2193)
+18:52:30:D4:SSL write failed: OK
+18:52:30:D4:cb::Event::TransferWrite::transfer() ret=-1
+18:52:30:D3:CON5:Failed to write request
+18:52:30:D4:OUT5:< EOF
+18:52:30:E :OUT5:Failed response: EOF
+18:52:30:I1:WU1:Retry #3 in 8 secs
+18:52:30:D4:FD14:cb::Event::FD::close()
+18:52:30:D4:Socket::close(14)
+18:52:30:D4:FD-1:cb::Event::FD::setFD()
+18:52:30:D4:CON5:Connection closed
+18:52:30:D4:FD-1:cb::Event::FD::~FD()
+18:52:31:D5:OSXOSImpl::finishInit() on thread 0x1e9d2ff80 main
+18:52:31:D4:consoleUserChanged() amir
+18:52:34:D5:Event callback fd=11 flags=2
+18:52:34:D5:accept() new connection
+18:52:34:D4:New connection from 127.0.0.1:62829
+18:52:34:D4:FD-1:cb::Event::FD::setFD()
+18:52:34:D4:FD-1:cb::Event::FD::FD()
+18:52:34:D4:CON6:Connection opened
+18:52:34:D5:CON6:Accepting from 127.0.0.1:62829
+18:52:34:D4:FD-1:cb::Event::FD::setFD()
+18:52:34:D4:CON6:Connection accepted with fd 14
+18:52:34:D4:CON6:cb::HTTP::ConnIn::readHeader()
+18:52:34:D4:FD14:old events=0 new events=2
+18:52:34:D5:Event callback fd=14 flags=2
+18:52:34:D4:FD14:callback() events=2
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=1 size=1048576 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=277 buf=277 finished=0 length=1048576 until='\r\n\r\n'
+18:52:34:D5:0x000 47 45 54 20 2f 61 70 69  2f 77 65 62 73 6f 63 6b   G E T   / a p i  / w e b s o c k
+18:52:34:D5:0x010 65 74 20 48 54 54 50 2f  31 2e 31 0d 0a 48 6f 73   e t   H T T P /  1 . 1\r\n H o s
+18:52:34:D5:0x020 74 3a 20 31 32 37 2e 30  2e 30 2e 31 3a 37 33 39   t :   1 2 7 . 0  . 0 . 1 : 7 3 9
+18:52:34:D5:0x030 36 0d 0a 55 70 67 72 61  64 65 3a 20 77 65 62 73   6\r\n U p g r a  d e :   w e b s
+18:52:34:D5:0x040 6f 63 6b 65 74 0d 0a 43  6f 6e 6e 65 63 74 69 6f   o c k e t\r\n C  o n n e c t i o
+18:52:34:D5:0x050 6e 3a 20 55 70 67 72 61  64 65 0d 0a 53 65 63 2d   n :   U p g r a  d e\r\n S e c -
+18:52:34:D5:0x060 57 65 62 53 6f 63 6b 65  74 2d 4b 65 79 3a 20 56   W e b S o c k e  t - K e y :   V
+18:52:34:D5:0x070 79 6d 54 71 55 74 67 69  50 48 52 55 2f 77 32 6a   y m T q U t g i  P H R U / w 2 j
+18:52:34:D5:0x080 2b 53 5a 35 77 3d 3d 0d  0a 53 65 63 2d 57 65 62   + S Z 5 w = =\r \n S e c - W e b
+18:52:34:D5:0x090 53 6f 63 6b 65 74 2d 56  65 72 73 69 6f 6e 3a 20   S o c k e t - V  e r s i o n :  
+18:52:34:D5:0x0a0 31 33 0d 0a 53 65 63 2d  57 65 62 53 6f 63 6b 65   1 3\r\n S e c -  W e b S o c k e
+18:52:34:D5:0x0b0 74 2d 45 78 74 65 6e 73  69 6f 6e 73 3a 20 70 65   t - E x t e n s  i o n s :   p e
+18:52:34:D5:0x0c0 72 6d 65 73 73 61 67 65  2d 64 65 66 6c 61 74 65   r m e s s a g e  - d e f l a t e
+18:52:34:D5:0x0d0 3b 20 63 6c 69 65 6e 74  5f 6d 61 78 5f 77 69 6e   ;   c l i e n t  _ m a x _ w i n
+18:52:34:D5:0x0e0 64 6f 77 5f 62 69 74 73  0d 0a 55 73 65 72 2d 41   d o w _ b i t s \r\n U s e r - A
+18:52:34:D5:0x0f0 67 65 6e 74 3a 20 50 79  74 68 6f 6e 2f 33 2e 31   g e n t :   P y  t h o n / 3 . 1
+18:52:34:D5:0x100 34 20 77 65 62 73 6f 63  6b 65 74 73 2f 31 37 2e   4   w e b s o c  k e t s / 1 7 .
+18:52:34:D5:0x110 31 0d 0a 0d 0a                                     1\r\n\r\n
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:34:D4:CON6:cb::HTTP::ConnIn::processHeader()
+18:52:34:I2:REQ6:< 127.0.0.1 GET /api/websocket HTTP/1.1
+18:52:34:D5:REQ6:Host: 127.0.0.1:7396
+18:52:34:D5:REQ6:Upgrade: websocket
+18:52:34:D5:REQ6:Connection: Upgrade
+18:52:34:D5:REQ6:Sec-WebSocket-Key: VymTqUtgiPHRU/w2j+SZ5w==
+18:52:34:D5:REQ6:Sec-WebSocket-Version: 13
+18:52:34:D5:REQ6:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+18:52:34:D5:REQ6:User-Agent: Python/3.14 websockets/17.1
+18:52:34:D5:REQ6:
+18:52:34:D5:/api/websocket matched /api/websocket
+18:52:34:I4:REQ6:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
+18:52:34:D5:REQ6:Upgrade: websocket
+18:52:34:D5:REQ6:Connection: upgrade
+18:52:34:D5:REQ6:Sec-WebSocket-Accept: fxTPCrOEyB1zGg2usZXE5BXsnvY=
+18:52:34:D5:REQ6:Date: Wed, 23 Sep 2026 18:52:34 GMT
+18:52:34:D5:REQ6:
+18:52:34:D4:CON6:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
+18:52:34:D4:FD14:cb::Event::FD::write() length=171
+18:52:34:D4:FD14:old events=2 new events=4
+18:52:34:D3:New client 127.0.0.1
+18:52:34:D4:WS6:cb::WS::Websocket::writeFrame(TEXT, 1, 1149)
+18:52:34:D4:FD14:cb::Event::FD::write() length=1153
+18:52:34:D4:FD14:old events=4 new events=6
+18:52:34:D3:Adding remote 127.0.0.1
+18:52:34:D4:FD14:old events=6 new events=6
+18:52:34:D5:Event callback fd=14 flags=4
+18:52:34:D4:FD14:callback() events=4
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=0 size=171 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferWrite::transfer() ret=171
+18:52:34:D4:FD14:old events=6 new events=6
+18:52:34:D5:Event callback fd=14 flags=4
+18:52:34:D4:FD14:callback() events=4
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=0 size=1153 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferWrite::transfer() ret=1153
+18:52:34:D4:FD14:old events=6 new events=2
+18:52:34:D5:Event callback fd=14 flags=2
+18:52:34:D4:FD14:callback() events=2
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=2 buf=2 finished=0 length=2 until=''
+18:52:34:D5:0x0 88 82                                              . .
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:34:D4:FD14:old events=2 new events=2
+18:52:34:D4:FD14:old events=2 new events=2
+18:52:34:D5:Event callback fd=14 flags=2
+18:52:34:D4:FD14:callback() events=2
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=1 size=6 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 ret=4 buf=6 finished=0 length=6 until=''
+18:52:34:D5:0x0 88 82 a4 c7 b4 c0                                  . . . . . .
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5a4e0 finished=1
+18:52:34:D4:WS6:cb::WS::Websocket::readHeader() opcode=CLOSE bytes=2
+18:52:34:D4:FD14:old events=2 new events=2
+18:52:34:D4:FD14:old events=2 new events=2
+18:52:34:D5:Event callback fd=14 flags=2
+18:52:34:D4:FD14:callback() events=2
+18:52:34:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:34Z
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 ret=2 buf=2 finished=0 length=2 until=''
+18:52:34:D5:0x0 a7 2f                                              . /
+18:52:34:D4:cb::Event::TransferRead::transfer() 0x7a56e5aa80 finished=1
+18:52:34:D5:WS6:Frame body
+18:52:34:D5:WS6:0x0 03 e8                                              . .
+18:52:34:D4:WS6:cb::WS::Websocket::close(NORMAL, )
+18:52:34:D4:WS6:cb::WS::Websocket::writeFrame(CLOSE, 1, 2)
+18:52:34:D4:FD14:cb::Event::FD::write() length=4
+18:52:34:D4:FD14:old events=2 new events=4
+18:52:34:D3:Closing client 127.0.0.1
+18:52:34:D3:Removing remote 127.0.0.1
+18:52:34:D4:Connection ended
+18:52:34:D4:FD14:cb::Event::FD::close()
+18:52:34:D4:Socket::close(14)
+18:52:34:D4:FD-1:cb::Event::FD::setFD()
+18:52:34:D4:CON6:Connection closed
+18:52:34:D4:FD-1:cb::Event::FD::~FD()
+18:52:34:D5:Event callback fd=2 flags=8
+18:52:34:D3:Vacuuming database
+18:52:34:D5:SQL: VACUUM
+18:52:34:I1:Clean exit
+18:52:34:D4:Socket::close(11)

@@ -1,0 +1,108 @@
+diff --git a/src/fah/client/Unit.cpp b/src/fah/client/Unit.cpp
+index 8194c1f..573bfd2 100644
+--- a/src/fah/client/Unit.cpp
++++ b/src/fah/client/Unit.cpp
+@@ -637,36 +637,8 @@ void Unit::run() {
+   runningCPUs = getCPUs();
+ 
+   auto &gpus = *get("gpus");
+-  if (gpus.size()) {
+-    string id = gpus.getString(0);
+-    auto &gpu = *app.getGPUs().get(id).cast<GPUResource>();
+-
+-    // GPU UUID
+-    if (gpu.hasString("uuid")) {
+-      args.push_back("-gpu-uuid");
+-      args.push_back(gpu.getString("uuid"));
+-    }
+-
+-    // GPU platform
+-    bool withCUDA = gpu.isComputeDeviceSupported("cuda", getConfig());
+-    bool withHIP  = gpu.isComputeDeviceSupported("hip",  getConfig());
+-    args.push_back("-gpu-platform");
+-    args.push_back(withCUDA ? "cuda" : "opencl");
+-
+-    // Old GPU options
+-    args.push_back("-gpu-vendor");
+-    args.push_back(gpu.getString("type"));
+-
+-    addGPUArgs(args, gpu, "opencl");
+-    if (withCUDA) addGPUArgs(args, gpu, "cuda");
+-    if (withHIP)  addGPUArgs(args, gpu, "hip");
+-
+-    if (gpu.has("opencl")) {
+-      args.push_back("-gpu");
+-      args.push_back(String(gpu.get("opencl")->getU32("device")));
+-    }
+-
+-  } else { // CPU
++  if (gpus.size()) addCoreGPUArgs(args, gpus.getString(0));
++  else { // CPU
+     args.push_back("-np");
+     args.push_back(String(runningCPUs));
+   }
+@@ -684,6 +656,37 @@ void Unit::run() {
+ }
+ 
+ 
++// TEST ONLY: moved verbatim out of Unit::run() so a test can call it
++void Unit::addCoreGPUArgs(vector<string> &args, const string &id) const {
++  auto &gpu = *app.getGPUs().get(id).cast<GPUResource>();
++
++  // GPU UUID
++  if (gpu.hasString("uuid")) {
++    args.push_back("-gpu-uuid");
++    args.push_back(gpu.getString("uuid"));
++  }
++
++  // GPU platform
++  bool withCUDA = gpu.isComputeDeviceSupported("cuda", getConfig());
++  bool withHIP  = gpu.isComputeDeviceSupported("hip",  getConfig());
++  args.push_back("-gpu-platform");
++  args.push_back(withCUDA ? "cuda" : "opencl");
++
++  // Old GPU options
++  args.push_back("-gpu-vendor");
++  args.push_back(gpu.getString("type"));
++
++  addGPUArgs(args, gpu, "opencl");
++  if (withCUDA) addGPUArgs(args, gpu, "cuda");
++  if (withHIP)  addGPUArgs(args, gpu, "hip");
++
++  if (gpu.has("opencl")) {
++    args.push_back("-gpu");
++    args.push_back(String(gpu.get("opencl")->getU32("device")));
++  }
++}
++
++
+ void Unit::readInfo() {
+   string filename = getDirectory() + "/wuinfo_01.dat";
+ 
+@@ -1152,6 +1155,13 @@ void Unit::assign() {
+     << app.getConfig()->getTeam() << " from " << uri);
+   LOG_DEBUG(3, *data);
+ 
++  // TEST ONLY: log the core GPU args Unit::run() would build for these GPUs
++  for (auto &id: getGPUs()) {
++    vector<string> args;
++    addCoreGPUArgs(args, id);
++    LOG_INFO(1, "TEST core GPU args for " << id << ": " << String::join(args));
++  }
++
+   pr = app.getClient()
+     .call(uri, HTTP::Method::HTTP_POST, this, &Unit::response);
+ 
+diff --git a/src/fah/client/Unit.h b/src/fah/client/Unit.h
+index 85bfe76..fb41571 100644
+--- a/src/fah/client/Unit.h
++++ b/src/fah/client/Unit.h
+@@ -164,6 +164,8 @@ namespace FAH {
+       void setProgress(double done, double total, bool wu = false);
+       void getCore();
+       void run();
++      void addCoreGPUArgs(std::vector<std::string> &args,
++                          const std::string &id) const;
+       void readInfo();
+       void readViewerData();
+       void readViewerTop();

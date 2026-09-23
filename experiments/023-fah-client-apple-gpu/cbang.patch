@@ -1,0 +1,177 @@
+From 92edc61331f331afda62eeb785f2c7921062e363 Mon Sep 17 00:00:00 2001
+From: Amir Ayub <dev.amirayub@gmail.com>
+Date: Wed, 23 Sep 2026 21:41:50 +0300
+Subject: [PATCH] Identify Apple silicon GPUs
+
+Add VENDOR_APPLE, 0x106b, Apple's PCI vendor ID.  Map the OpenCL vendor
+ID 0x1027f00 that Apple silicon GPUs report to 0x106b.  Add
+getAppleGPUDeviceID(), which reads the SoC ID from the GPU's IOKit
+IONameMatched property.  For example "gpu,t8112" gives 0x8112 on M2.
+---
+ src/cbang/hw/GPUVendor.h       |  1 +
+ src/cbang/hw/OpenCLLibrary.cpp |  3 ++
+ src/cbang/os/osx/MacOSGPU.cpp  | 71 ++++++++++++++++++++++++++++++++++
+ src/cbang/os/osx/MacOSGPU.h    | 47 ++++++++++++++++++++++
+ 4 files changed, 122 insertions(+)
+ create mode 100644 src/cbang/os/osx/MacOSGPU.cpp
+ create mode 100644 src/cbang/os/osx/MacOSGPU.h
+
+diff --git a/src/cbang/hw/GPUVendor.h b/src/cbang/hw/GPUVendor.h
+index ee8e8498..d9011dde 100644
+--- a/src/cbang/hw/GPUVendor.h
++++ b/src/cbang/hw/GPUVendor.h
+@@ -47,6 +47,7 @@
+ CBANG_ENUM_VALUE(VENDOR_UNKNOWN, 0)
+ CBANG_ENUM_VALUE(VENDOR_AMD,     0x1002)
+ CBANG_ENUM_ALIAS(VENDOR_ATI,     VENDOR_AMD)
++CBANG_ENUM_VALUE(VENDOR_APPLE,   0x106b)
+ CBANG_ENUM_VALUE(VENDOR_NVIDIA,  0x10de)
+ CBANG_ENUM_VALUE(VENDOR_INTEL,   0x8086)
+ 
+diff --git a/src/cbang/hw/OpenCLLibrary.cpp b/src/cbang/hw/OpenCLLibrary.cpp
+index 12dfaf30..3ab612fc 100644
+--- a/src/cbang/hw/OpenCLLibrary.cpp
++++ b/src/cbang/hw/OpenCLLibrary.cpp
+@@ -336,6 +336,9 @@ int32_t OpenCLLibrary::getVendorID(void *device) {
+   // Integrated AMD cards on Apple return wrong vendor ID
+   if (vendorID == 0x1021d00) vendorID = 0x1002;
+ 
++  // Apple silicon GPUs return a non-PCI vendor ID
++  if (vendorID == 0x1027f00) vendorID = GPUVendor::VENDOR_APPLE;
++
+   return vendorID;
+ }
+ 
+diff --git a/src/cbang/os/osx/MacOSGPU.cpp b/src/cbang/os/osx/MacOSGPU.cpp
+new file mode 100644
+index 00000000..fc7cfa1a
+--- /dev/null
++++ b/src/cbang/os/osx/MacOSGPU.cpp
+@@ -0,0 +1,71 @@
++/******************************************************************************\
++
++          This file is part of the C! library.  A.K.A the cbang library.
++
++                Copyright (c) 2021-2026, Cauldron Development  Oy
++                Copyright (c) 2003-2021, Cauldron Development LLC
++                               All rights reserved.
++
++         The C! library is free software: you can redistribute it and/or
++        modify it under the terms of the GNU Lesser General Public License
++       as published by the Free Software Foundation, either version 2.1 of
++               the License, or (at your option) any later version.
++
++        The C! library is distributed in the hope that it will be useful,
++          but WITHOUT ANY WARRANTY; without even the implied warranty of
++        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++                 Lesser General Public License for more details.
++
++         You should have received a copy of the GNU Lesser General Public
++                 License along with the C! library.  If not, see
++                         <http://www.gnu.org/licenses/>.
++
++        In addition, BSD licensing may be granted on a case by case basis
++        by written permission from at least one of the copyright holders.
++           You may request written permission by emailing the authors.
++
++                  For information regarding this software email:
++                                 Joseph Coffland
++                          joseph@cauldrondevelopment.com
++
++\******************************************************************************/
++
++#ifdef __APPLE__
++
++#include "MacOSGPU.h"
++#include "MacOSString.h"
++
++#include <cbang/String.h>
++
++#include <IOKit/IOKitLib.h>
++
++using namespace cb;
++using namespace std;
++
++
++uint16_t cb::getAppleGPUDeviceID() {
++  io_iterator_t iter;
++  if (IOServiceGetMatchingServices(
++        kIOMasterPortDefault, IOServiceMatching("IOAccelerator"), &iter) !=
++      kIOReturnSuccess) return 0;
++
++  uint16_t id = 0;
++  io_service_t dev;
++  while (!id && (dev = IOIteratorNext(iter))) {
++    MacOSRef<CFTypeRef> ref(IORegistryEntryCreateCFProperty(
++      dev, CFSTR("IONameMatched"), kCFAllocatorDefault, 0));
++    IOObjectRelease(dev);
++    if (!ref || CFGetTypeID(ref) != CFStringGetTypeID()) continue;
++
++    // Expect "gpu,t" plus four hex digits, e.g. "gpu,t8112" on M2
++    string name = MacOSString::convert((CFStringRef)ref.get());
++    if (name.size() == 9 && String::startsWith(name, "gpu,t"))
++      String::parseU16("0x" + name.substr(5), id, true);
++  }
++
++  IOObjectRelease(iter);
++
++  return id;
++}
++
++#endif // __APPLE__
+diff --git a/src/cbang/os/osx/MacOSGPU.h b/src/cbang/os/osx/MacOSGPU.h
+new file mode 100644
+index 00000000..e6bb153a
+--- /dev/null
++++ b/src/cbang/os/osx/MacOSGPU.h
+@@ -0,0 +1,47 @@
++/******************************************************************************\
++
++          This file is part of the C! library.  A.K.A the cbang library.
++
++                Copyright (c) 2021-2026, Cauldron Development  Oy
++                Copyright (c) 2003-2021, Cauldron Development LLC
++                               All rights reserved.
++
++         The C! library is free software: you can redistribute it and/or
++        modify it under the terms of the GNU Lesser General Public License
++       as published by the Free Software Foundation, either version 2.1 of
++               the License, or (at your option) any later version.
++
++        The C! library is distributed in the hope that it will be useful,
++          but WITHOUT ANY WARRANTY; without even the implied warranty of
++        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++                 Lesser General Public License for more details.
++
++         You should have received a copy of the GNU Lesser General Public
++                 License along with the C! library.  If not, see
++                         <http://www.gnu.org/licenses/>.
++
++        In addition, BSD licensing may be granted on a case by case basis
++        by written permission from at least one of the copyright holders.
++           You may request written permission by emailing the authors.
++
++                  For information regarding this software email:
++                                 Joseph Coffland
++                          joseph@cauldrondevelopment.com
++
++\******************************************************************************/
++
++#pragma once
++
++#ifdef __APPLE__
++
++#include <cstdint>
++
++
++namespace cb {
++  /// @return The Apple SoC ID of the integrated GPU, e.g. 0x8112 for M2, or
++  /// 0 if none is found.  Apple silicon GPUs are not PCI devices, so this ID
++  /// stands in for the PCI device ID.
++  uint16_t getAppleGPUDeviceID();
++}
++
++#endif // __APPLE__
+-- 
+2.55.0
+

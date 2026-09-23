@@ -1,0 +1,76 @@
+scons: Entering directory `/Users/amir/lab/fah-client/fah-client-bastet'
+scons: Reading SConscript files ...
+     Compiler: clang (clang)
+     Platform: darwin
+Compiler Mode: gnu
+   Build Mode: debug
+         Arch: None
+       Jobs: 6
+Checking for C library pthread... (cached) yes
+Checking for C header file zlib.h... (cached) yes
+Checking for C library z... (cached) yes
+Checking for C header file bzlib.h... (cached) yes
+Checking for C library bz2... (cached) yes
+Checking for C header file lz4frame.h... (cached) yes
+Checking for C library lz4... (cached) yes
+Checking for C library xxhash... no
+Checking for C header file expat.h... (cached) yes
+Checking for C library expat... (cached) yes
+Checking for C header file pthread.h... (cached) yes
+Checking for C library pthread... (cached) yes
+Checking for C library dl... (cached) yes
+Checking for C library sqlite3... (cached) yes
+Checking for C header file sqlite3.h... (cached) yes
+Checking for C function sqlite3_backup_init()... (cached) yes
+Checking for C header file yaml.h... (cached) yes
+Checking for C library yaml... (cached) yes
+Checking for C library snappy... no
+Need library snappy(cached) error: no result
+Checking for C header file mysql/mysql.h... no
+Checking for C header file event2/event.h... (cached) yes
+Checking for C library event... (cached) yes
+Checking for C++ header file re2/re2.h... (cached) yes
+Checking for C library re2... (cached) yes
+Checking for C function epoll_create1()... no
+Checking for C library zstd... no
+Checking for C header file openssl/ssl.h... (cached) yes
+Checking for C library crypto... (cached) yes
+Checking for C library ssl... (cached) yes
+Checking for openssl version >= 1.1.0...(cached) yes
+Checking for C++ header file v8.h... no
+Need C++ header v8.h(cached) error: no result
+Checking for C header file pthread.h... (cached) yes
+Checking for C library pthread... (cached) yes
+Checking for framework CoreServices... (cached) yes
+Checking for framework IOKit... (cached) yes
+Checking for framework Security... (cached) yes
+Checking for framework SystemConfiguration... (cached) yes
+Checking for framework CoreFoundation... (cached) yes
+Checking for C header file valgrind/valgrind.h... no
+Checking for C header file execinfo.h... (cached) yes
+Checking for C header file bfd.h... no
+Checking for C library iberty... no
+Checking for C library sframe... no
+Checking for C library zstd... no
+Checking for C function bfd_get_error_handler()... no
+Checking for C library cbang-boost... (cached) yes
+Checking for C library cbang... (cached) yes
+Checking for C++ header file cbang/Exception.h... (cached) yes
+Checking for framework SystemConfiguration... (cached) yes
+error: no result
+scons: done reading SConscript files.
+scons: Building targets ...
+clang++ -o build/fah/client/Account.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Account.cpp
+clang++ -o build/fah/client/App.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/App.cpp
+clang++ -o build/fah/client/GPUResources.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/GPUResources.cpp
+clang++ -o build/fah/client/Group.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Group.cpp
+clang++ -o build/fah/client/Groups.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Groups.cpp
+clang++ -o build/fah/client/Remote.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Remote.cpp
+clang++ -o build/fah/client/Unit.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Unit.cpp
+clang++ -o build/fah/client/Units.o -c -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline -fno-omit-frame-pointer -Og -fPIC -DDEBUG -D_REENTRANT -D__APPLE__ -DCBANG_DEBUG_LEVEL=1 -DHAVE_CBANG -DUSING_CBANG -I/Users/amir/lab/fah-client/cbang/src -I/Users/amir/lab/fah-client/cbang/include -I/Users/amir/lab/fah-client/cbang/src/boost -I/opt/homebrew/opt/openssl@3/include -Isrc src/fah/client/Units.cpp
+build_function(["build/build_info.cpp"], [])
+rm -f build/libfahclient.a; ar rc build/libfahclient.a build/fah/client/Account.o build/fah/client/App.o build/fah/client/Config.o build/fah/client/Core.o build/fah/client/CoreProcess.o build/fah/client/CoreState.o build/fah/client/Cores.o build/fah/client/ExitCode.o build/fah/client/GPUResource.o build/fah/client/GPUResources.o build/fah/client/Group.o build/fah/client/Groups.o build/fah/client/LogTracker.o build/fah/client/NodeRemote.o build/fah/client/OS.o build/fah/client/PasskeyConstraint.o build/fah/client/Remote.o build/fah/client/RunResult.o build/fah/client/Server.o build/fah/client/Unit.o build/fah/client/UnitState.o build/fah/client/Units.o build/fah/client/WebsocketRemote.o build/fah/client/osx/OSXOSImpl.o build/build_info.o
+ranlib build/libfahclient.a
+clang++ -o fah-client -pthread build/client.o build/libfahclient.a build/libfahclient-resources.a -L/opt/homebrew/opt/openssl@3 -L/opt/homebrew/opt/openssl@3/lib -L/Users/amir/lab/fah-client/cbang/lib -lcbang -lcbang-boost -lpthread -lssl -lcrypto -lre2 -levent -lyaml -lsqlite3 -ldl -lpthread -lexpat -llz4 -lbz2 -lz -lpthread -framework CoreFoundation -framework SystemConfiguration -framework Security -framework IOKit -framework CoreServices
+ld: warning: ignoring duplicate libraries: '-lpthread'
+scons: done building targets.

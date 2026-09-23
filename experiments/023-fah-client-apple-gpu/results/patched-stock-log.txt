@@ -1,0 +1,832 @@
+*********************** Log Started 2026-09-23T18:52:06Z ***********************
+18:52:06:I1:*********************** Folding@home Client ***********************
+18:52:06:I1:    Version: 8.5.7
+18:52:06:I1:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+18:52:06:I1:        Org: foldingathome.org
+18:52:06:I1:  Copyright: 2023-2026, foldingathome.org
+18:52:06:I1:   Homepage: https://foldingathome.org/
+18:52:06:I1:    License: GPL-3.0-or-later
+18:52:06:I1:        URL: https://v8-5.foldingathome.org/
+18:52:06:I1:       Date: Sep 23 2026
+18:52:06:I1:       Time: 21:52:05
+18:52:06:I1:   Revision: fc6a5f9f0923b9b1f317d03d77ad5dfc1a419d0a
+18:52:06:I1:     Branch: master
+18:52:06:I1:   Compiler: GNU Apple LLVM 21.0.0 (clang-2100.3.34.2)
+18:52:06:I1:    Options: -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline
+18:52:06:I1:             -fno-omit-frame-pointer -Og -fPIC
+18:52:06:I1:   Platform: darwin 27.0.0
+18:52:06:I1:       Bits: 64
+18:52:06:I1:       Mode: Debug
+18:52:06:I1:       Args: --verbosity 5 --log log.txt --assignment-servers 127.0.0.1
+18:52:06:I1:             --api-server https://127.0.0.1
+18:52:06:I1:****************************** CBang ******************************
+18:52:06:I1:    Version: 1.7.2
+18:52:06:I1:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+18:52:06:I1:        Org: Cauldron Development
+18:52:06:I1:  Copyright: Cauldron Development, 2003-2026
+18:52:06:I1:   Homepage: https://cauldrondevelopment.com/
+18:52:06:I1:    License: LGPL-2.1-or-later
+18:52:06:I1:       Date: Sep 23 2026
+18:52:06:I1:       Time: 21:52:00
+18:52:06:I1:   Revision: 92edc61331f331afda62eeb785f2c7921062e363
+18:52:06:I1:     Branch: master
+18:52:06:I1:   Compiler: GNU Apple LLVM 21.0.0 (clang-2100.3.34.2)
+18:52:06:I1:    Options: -faligned-new -std=c++17 -fsigned-char -g3 -Wall -fno-inline
+18:52:06:I1:             -fno-omit-frame-pointer -Og -fPIC
+18:52:06:I1:   Platform: darwin 27.0.0
+18:52:06:I1:       Bits: 64
+18:52:06:I1:       Mode: Debug
+18:52:06:I1:***************************** System ******************************
+18:52:06:I1:        CPU: Apple M2
+18:52:06:I1:     CPU ID: Apple Family 8 Model 0 Stepping 0
+18:52:06:I1:       CPUs: 8
+18:52:06:I1:     Memory: 8.00GiB
+18:52:06:I1:Free Memory: 1.02GiB
+18:52:06:I1: OS Version: 27.0
+18:52:06:I1:Has Battery: false
+18:52:06:I1: On Battery: false
+18:52:06:I1:   Hostname: Amirs-Mac-mini.local
+18:52:06:I1: UTC Offset: 3
+18:52:06:I1:        PID: 26088
+18:52:06:I1:        CWD: /Users/amir/lab/fah-client/run-patched-stock
+18:52:06:I1:       Exec: /Users/amir/lab/fah-client/fah-client-patched
+18:52:06:I1:*******************************************************************
+18:52:06:I2:<config>
+18:52:06:I2:  <!-- Client -->
+18:52:06:I2:  <allowed-origin-exprs>
+18:52:06:I2:    https://([^./]+\.)*foldingathome\.org
+18:52:06:I2:  </allowed-origin-exprs>
+18:52:06:I2:  <on-idle v='false'/>
+18:52:06:I2:  <open-web-control v='false'/>
+18:52:06:I2:  <web-root v='fah-web-control/dist'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- Debugging -->
+18:52:06:I2:  <api-server v='https://127.0.0.1'/>
+18:52:06:I2:  <assignment-servers>
+18:52:06:I2:    127.0.0.1
+18:52:06:I2:  </assignment-servers>
+18:52:06:I2:  <debug-libevent v='false'/>
+18:52:06:I2:  <exception-locations v='true'/>
+18:52:06:I2:  <stack-traces v='true'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- HTTP Server -->
+18:52:06:I2:  <http-addresses>
+18:52:06:I2:    127.0.0.1:7396
+18:52:06:I2:  </http-addresses>
+18:52:06:I2:  <http-max-body-size v='1048576'/>
+18:52:06:I2:  <http-max-headers-size v='1048576'/>
+18:52:06:I2:  <http-trusted-proxies>
+18:52:06:I2:    127.0.0.0/8 ::1
+18:52:06:I2:  </http-trusted-proxies>
+18:52:06:I2:
+18:52:06:I2:  <!-- Logging -->
+18:52:06:I2:  <log v='log.txt'/>
+18:52:06:I2:  <log-color v='true'/>
+18:52:06:I2:  <log-crlf v='false'/>
+18:52:06:I2:  <log-date v='false'/>
+18:52:06:I2:  <log-date-periodically v='0'/>
+18:52:06:I2:  <log-debug v='true'/>
+18:52:06:I2:  <log-domain v='false'/>
+18:52:06:I2:  <log-header v='true'/>
+18:52:06:I2:  <log-level v='true'/>
+18:52:06:I2:  <log-no-info-header v='true'/>
+18:52:06:I2:  <log-rotate v='true'/>
+18:52:06:I2:  <log-rotate-compression v='NONE'/>
+18:52:06:I2:  <log-rotate-dir v='logs'/>
+18:52:06:I2:  <log-rotate-max v='90'/>
+18:52:06:I2:  <log-rotate-period v='86400'/>
+18:52:06:I2:  <log-short-level v='true'/>
+18:52:06:I2:  <log-simple-domains v='true'/>
+18:52:06:I2:  <log-thread-id v='false'/>
+18:52:06:I2:  <log-thread-prefix v='true'/>
+18:52:06:I2:  <log-time v='true'/>
+18:52:06:I2:  <log-to-screen v='true'/>
+18:52:06:I2:  <log-truncate v='false'/>
+18:52:06:I2:  <verbosity v='5'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- Project Settings -->
+18:52:06:I2:  <beta v='false'/>
+18:52:06:I2:  <cause v='any'/>
+18:52:06:I2:  <project-key v='0'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- Resource Settings -->
+18:52:06:I2:  <cpus v='4'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- Server -->
+18:52:06:I2:  <allow v='127.0.0.1 ::1'/>
+18:52:06:I2:  <connection-backlog v='128'/>
+18:52:06:I2:  <deny v='0/0 ::/0'/>
+18:52:06:I2:  <max-connections v='4294967295'/>
+18:52:06:I2:  <max-ttl v='0'/>
+18:52:06:I2:
+18:52:06:I2:  <!-- User Information -->
+18:52:06:I2:  <passkey v='*****'/>
+18:52:06:I2:  <team v='0'/>
+18:52:06:I2:  <user v='Anonymous'/>
+18:52:06:I2:</config>
+18:52:06:D3:Anchor certificate count: 157
+18:52:06:D5:Cert 0: DigiCert TLS ECC P384 Root G5
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert TLS ECC P384 Root G5
+18:52:06:D5:Cert 1: XRamp Global Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: XRamp Global Certification Authority
+18:52:06:D5:Cert 2: OISTE WISeKey Global Root GB CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: OISTE WISeKey Global Root GB CA
+18:52:06:D5:Cert 3: Amazon Root CA 2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Amazon Root CA 2
+18:52:06:D5:Cert 4: Actalis Authentication Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Actalis Authentication Root CA
+18:52:06:D5:Cert 5: ISRG Root X1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: ISRG Root X1
+18:52:06:D5:Cert 6: Apple Platform Code Signing ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Code Signing ECC Root CA - G1
+18:52:06:D5:Cert 7: ACCVRAIZ1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: ACCVRAIZ1
+18:52:06:D5:Cert 8: Certainly Root R1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certainly Root R1
+18:52:06:D5:Cert 9: Certum Trusted Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certum Trusted Root CA
+18:52:06:D5:Cert 10: TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1
+18:52:06:D5:Cert 11: GTS Root R3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GTS Root R3
+18:52:06:D5:Cert 12: Certum Trusted Network CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certum Trusted Network CA
+18:52:06:D5:Cert 13: Certainly Root E1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certainly Root E1
+18:52:06:D5:Cert 14: certSIGN ROOT CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: certSIGN ROOT CA
+18:52:06:D5:Cert 15: SwissSign Gold CA - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SwissSign Gold CA - G2
+18:52:06:D5:Cert 16: T-TeleSec GlobalRoot Class 2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: T-TeleSec GlobalRoot Class 2
+18:52:06:D5:Cert 17: Entrust.net Certification Authority (2048)
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Entrust.net Certification Authority (2048)
+18:52:06:D5:Cert 18: D-TRUST Root Class 3 CA 2 2009
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: D-TRUST Root Class 3 CA 2 2009
+18:52:06:D5:Cert 19: DigiCert Assured ID Root G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Assured ID Root G2
+18:52:06:D5:Cert 20: ePKI Root Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: ePKI Root Certification Authority
+18:52:06:D5:Cert 21: GeoTrust Primary Certification Authority - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GeoTrust Primary Certification Authority - G2
+18:52:06:D5:Cert 22: GlobalSign
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign
+18:52:06:D5:Cert 23: USERTrust RSA Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: USERTrust RSA Certification Authority
+18:52:06:D5:Cert 24: Atos TrustedRoot Root CA ECC TLS 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Atos TrustedRoot Root CA ECC TLS 2021
+18:52:06:D5:Cert 25: Sectigo Public Email Protection Root R46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Email Protection Root R46
+18:52:06:D5:Cert 26: TeliaSonera Root CA v1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: TeliaSonera Root CA v1
+18:52:06:D5:Cert 27: Starfield Class 2 Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Starfield Class 2 Certification Authority
+18:52:06:D5:Cert 28: AffirmTrust Premium ECC
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AffirmTrust Premium ECC
+18:52:06:D5:Cert 29: DigiCert High Assurance EV Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert High Assurance EV Root CA
+18:52:06:D5:Cert 30: GlobalSign Secure Mail Root E45
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign Secure Mail Root E45
+18:52:06:D5:Cert 31: TWCA Global Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: TWCA Global Root CA
+18:52:06:D5:Cert 32: OISTE WISeKey Global Root GC CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: OISTE WISeKey Global Root GC CA
+18:52:06:D5:Cert 33: Buypass Class 3 Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Buypass Class 3 Root CA
+18:52:06:D5:Cert 34: Apple Platform Developer ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Developer ECC Root CA - G1
+18:52:06:D5:Cert 35: SECOM SMIME RSA Root CA 2024
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SECOM SMIME RSA Root CA 2024
+18:52:06:D5:Cert 36: Atos TrustedRoot 2011
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Atos TrustedRoot 2011
+18:52:06:D5:Cert 37: CA Disig Root R2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: CA Disig Root R2
+18:52:06:D5:Cert 38: IdenTrust Public Sector Root CA 1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: IdenTrust Public Sector Root CA 1
+18:52:06:D5:Cert 39: Telia Root CA v2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Telia Root CA v2
+18:52:06:D5:Cert 40: SSL.com Client RSA Root CA 2022
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com Client RSA Root CA 2022
+18:52:06:D5:Cert 41: SSL.com Root Certification Authority ECC
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com Root Certification Authority ECC
+18:52:06:D5:Cert 42: Security Communication ECC RootCA1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Security Communication ECC RootCA1
+18:52:06:D5:Cert 43: AC RAIZ FNMT-RCM
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AC RAIZ FNMT-RCM
+18:52:06:D5:Cert 44: SSL.com EV Root Certification Authority RSA R2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com EV Root Certification Authority RSA R2
+18:52:06:D5:Cert 45: SECOM TLS RSA Root CA 2024
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SECOM TLS RSA Root CA 2024
+18:52:06:D5:Cert 46: SSL.com EV Root Certification Authority ECC
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com EV Root Certification Authority ECC
+18:52:06:D5:Cert 47: USERTrust ECC Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: USERTrust ECC Certification Authority
+18:52:06:D5:Cert 48: HARICA TLS RSA Root CA 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: HARICA TLS RSA Root CA 2021
+18:52:06:D5:Cert 49: Sectigo Public Time Stamping Root R46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Time Stamping Root R46
+18:52:06:D5:Cert 50: Atos TrustedRoot Root CA RSA G2 2020
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Atos TrustedRoot Root CA RSA G2 2020
+18:52:06:D5:Cert 51: GlobalSign Root E46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign Root E46
+18:52:06:D5:Cert 52: DigiCert TLS RSA4096 Root G5
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert TLS RSA4096 Root G5
+18:52:06:D5:Cert 53: DigiCert SMIME ECC P384 Root G5
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert SMIME ECC P384 Root G5
+18:52:06:D5:Cert 54: QuoVadis Root CA 3 G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: QuoVadis Root CA 3 G3
+18:52:06:D5:Cert 55: emSign ECC Root CA - G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: emSign ECC Root CA - G3
+18:52:06:D5:Cert 56: Apple Platform ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform ECC Root CA - G1
+18:52:06:D5:Cert 57: HARICA Client RSA Root CA 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: HARICA Client RSA Root CA 2021
+18:52:06:D5:Cert 58: Certum Trusted Network CA 2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certum Trusted Network CA 2
+18:52:06:D5:Cert 59: NetLock Arany (Class Gold) Főtanúsítvány
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: NetLock Arany (Class Gold) Főtanúsítvány
+18:52:06:D5:Cert 60: NAVER Global Root Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: NAVER Global Root Certification Authority
+18:52:06:D5:Cert 61: Trustwave Global Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Trustwave Global Certification Authority
+18:52:06:D5:Cert 62: Sectigo Public Email Protection Root E46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Email Protection Root E46
+18:52:06:D5:Cert 63: T-TeleSec GlobalRoot Class 3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: T-TeleSec GlobalRoot Class 3
+18:52:06:D5:Cert 64: Apple Root CA - G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Root CA - G3
+18:52:06:D5:Cert 65: QuoVadis Root CA 2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: QuoVadis Root CA 2
+18:52:06:D5:Cert 66: Microsoft RSA Root Certificate Authority 2017
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Microsoft RSA Root Certificate Authority 2017
+18:52:06:D5:Cert 67: SSL.com Client ECC Root CA 2022
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com Client ECC Root CA 2022
+18:52:06:D5:Cert 68: GlobalSign Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign Root CA
+18:52:06:D5:Cert 69: QuoVadis Root CA 2 G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: QuoVadis Root CA 2 G3
+18:52:06:D5:Cert 70: DigiCert Global Root G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Global Root G3
+18:52:06:D5:Cert 71: Entrust Root Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Entrust Root Certification Authority
+18:52:06:D5:Cert 72: Microsoft ECC Root Certificate Authority 2017
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Microsoft ECC Root Certificate Authority 2017
+18:52:06:D5:Cert 73: ISRG Root X2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: ISRG Root X2
+18:52:06:D5:Cert 74: OISTE WISeKey Global Root GA CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: OISTE WISeKey Global Root GA CA
+18:52:06:D5:Cert 75: COMODO ECC Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: COMODO ECC Certification Authority
+18:52:06:D5:Cert 76: DigiCert SMIME RSA4096 Root G5
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert SMIME RSA4096 Root G5
+18:52:06:D5:Cert 77: Apple Platform TLS RSA Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform TLS RSA Root CA - G1
+18:52:06:D5:Cert 78: GlobalSign Root R46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign Root R46
+18:52:06:D5:Cert 79: Apple Platform Developer RSA Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Developer RSA Root CA - G1
+18:52:06:D5:Cert 80: AAA Certificate Services
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AAA Certificate Services
+18:52:06:D5:Cert 81: DigiCert Global Root G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Global Root G2
+18:52:06:D5:Cert 82: GlobalSign Secure Mail Root R45
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign Secure Mail Root R45
+18:52:06:D5:Cert 83: Trustwave Global ECC P256 Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Trustwave Global ECC P256 Certification Authority
+18:52:06:D5:Cert 84: QuoVadis Root CA 3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: QuoVadis Root CA 3
+18:52:06:D5:Cert 85: Global Chambersign Root - 2008
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Global Chambersign Root - 2008
+18:52:06:D5:Cert 86: TWCA Root Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: TWCA Root Certification Authority
+18:52:06:D5:Cert 87: Chambers of Commerce Root - 2008
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Chambers of Commerce Root - 2008
+18:52:06:D5:Cert 88: Buypass Class 2 Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Buypass Class 2 Root CA
+18:52:06:D5:Cert 89: Entrust Root Certification Authority - EC1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Entrust Root Certification Authority - EC1
+18:52:06:D5:Cert 90: Hellenic Academic and Research Institutions ECC RootCA 2015
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Hellenic Academic and Research Institutions ECC RootCA 2015
+18:52:06:D5:Cert 91: Security Communication RootCA2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Security Communication RootCA2
+18:52:06:D5:Cert 92: Starfield Services Root Certificate Authority - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Starfield Services Root Certificate Authority - G2
+18:52:06:D5:Cert 93: SSL.com Root Certification Authority RSA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com Root Certification Authority RSA
+18:52:06:D5:Cert 94: SwissSign Silver CA - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SwissSign Silver CA - G2
+18:52:06:D5:Cert 95: DigiCert Assured ID Root G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Assured ID Root G3
+18:52:06:D5:Cert 96: GlobalSign
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign
+18:52:06:D5:Cert 97: GTS Root R2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GTS Root R2
+18:52:06:D5:Cert 98: Autoridad de Certificacion Firmaprofesional CIF A62634068
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Autoridad de Certificacion Firmaprofesional CIF A62634068
+18:52:06:D5:Cert 99: HiPKI Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: HiPKI Root CA - G1
+18:52:06:D5:Cert 100: Trustwave Global ECC P384 Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Trustwave Global ECC P384 Certification Authority
+18:52:06:D5:Cert 101: Atos TrustedRoot Root CA RSA TLS 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Atos TrustedRoot Root CA RSA TLS 2021
+18:52:06:D5:Cert 102: AffirmTrust Commercial
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AffirmTrust Commercial
+18:52:06:D5:Cert 103: Sectigo Public Server Authentication Root E46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Server Authentication Root E46
+18:52:06:D5:Cert 104: SecureTrust CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SecureTrust CA
+18:52:06:D5:Cert 105: Apple Platform TLS ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform TLS ECC Root CA - G1
+18:52:06:D5:Cert 106: Microsec e-Szigno Root CA 2009
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Microsec e-Szigno Root CA 2009
+18:52:06:D5:Cert 107: Apple Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Root CA
+18:52:06:D5:Cert 108: SECOM TLS ECC Root CA 2024
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SECOM TLS ECC Root CA 2024
+18:52:06:D5:Cert 109: HARICA TLS ECC Root CA 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: HARICA TLS ECC Root CA 2021
+18:52:06:D5:Cert 110: Amazon Root CA 3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Amazon Root CA 3
+18:52:06:D5:Cert 111: QuoVadis Root CA 1 G3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: QuoVadis Root CA 1 G3
+18:52:06:D5:Cert 112: GDCA TrustAUTH R5 ROOT
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GDCA TrustAUTH R5 ROOT
+18:52:06:D5:Cert 113: Amazon Root CA 1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Amazon Root CA 1
+18:52:06:D5:Cert 114: GlobalSign
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign
+18:52:06:D5:Cert 115: COMODO RSA Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: COMODO RSA Certification Authority
+18:52:06:D5:Cert 116: SSL.com TLS RSA Root CA 2022
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com TLS RSA Root CA 2022
+18:52:06:D5:Cert 117: Apple Platform Multipurpose RSA Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Multipurpose RSA Root CA - G1
+18:52:06:D5:Cert 118: Starfield Root Certificate Authority - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Starfield Root Certificate Authority - G2
+18:52:06:D5:Cert 119: COMODO Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: COMODO Certification Authority
+18:52:06:D5:Cert 120: Hellenic Academic and Research Institutions RootCA 2015
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Hellenic Academic and Research Institutions RootCA 2015
+18:52:06:D5:Cert 121: ComSign Global Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: ComSign Global Root CA
+18:52:06:D5:Cert 122: AffirmTrust Networking
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AffirmTrust Networking
+18:52:06:D5:Cert 123: Entrust Root Certification Authority - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Entrust Root Certification Authority - G2
+18:52:06:D5:Cert 124: Apple Root CA - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Root CA - G2
+18:52:06:D5:Cert 125: Apple Platform RSA Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform RSA Root CA - G1
+18:52:06:D5:Cert 126: DigiCert Trusted Root G4
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Trusted Root G4
+18:52:06:D5:Cert 127: Izenpe.com
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Izenpe.com
+18:52:06:D5:Cert 128: GTS Root R1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GTS Root R1
+18:52:06:D5:Cert 129: Sectigo Public Server Authentication Root R46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Server Authentication Root R46
+18:52:06:D5:Cert 130: D-TRUST Root Class 3 CA 2 EV 2009
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: D-TRUST Root Class 3 CA 2 EV 2009
+18:52:06:D5:Cert 131: emSign Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: emSign Root CA - G1
+18:52:06:D5:Cert 132: GLOBALTRUST 2020
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GLOBALTRUST 2020
+18:52:06:D5:Cert 133: DigiCert Assured ID Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Assured ID Root CA
+18:52:06:D5:Cert 134: Apple Platform Code Signing RSA Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Code Signing RSA Root CA - G1
+18:52:06:D5:Cert 135: GTS Root R4
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GTS Root R4
+18:52:06:D5:Cert 136: DigiCert Global Root CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: DigiCert Global Root CA
+18:52:06:D5:Cert 137: Go Daddy Root Certificate Authority - G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Go Daddy Root Certificate Authority - G2
+18:52:06:D5:Cert 138: Go Daddy Class 2 Certification Authority
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Go Daddy Class 2 Certification Authority
+18:52:06:D5:Cert 139: Hongkong Post Root CA 3
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Hongkong Post Root CA 3
+18:52:06:D5:Cert 140: Certigna
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certigna
+18:52:06:D5:Cert 141: Certum EC-384 CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certum EC-384 CA
+18:52:06:D5:Cert 142: Sectigo Public Time Stamping Root E46
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Sectigo Public Time Stamping Root E46
+18:52:06:D5:Cert 143: IdenTrust Commercial Root CA 1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: IdenTrust Commercial Root CA 1
+18:52:06:D5:Cert 144: Certum CA
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Certum CA
+18:52:06:D5:Cert 145: GlobalSign
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: GlobalSign
+18:52:06:D5:Cert 146: Amazon Root CA 4
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Amazon Root CA 4
+18:52:06:D5:Cert 147: SSL.com TLS ECC Root CA 2022
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: SSL.com TLS ECC Root CA 2022
+18:52:06:D5:Cert 148: AffirmTrust Premium
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: AffirmTrust Premium
+18:52:06:D5:Cert 149: CFCA EV ROOT
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: CFCA EV ROOT
+18:52:06:D5:Cert 150: HARICA Client ECC Root CA 2021
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: HARICA Client ECC Root CA 2021
+18:52:06:D5:Cert 151: Apple Platform Multipurpose ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Multipurpose ECC Root CA - G1
+18:52:06:D5:Cert 152: D-TRUST Root CA 3 2013
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: D-TRUST Root CA 3 2013
+18:52:06:D5:Cert 153: Entrust Root Certification Authority - G4
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Entrust Root Certification Authority - G4
+18:52:06:D5:Cert 154: Atos TrustedRoot Root CA ECC G2 2020
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Atos TrustedRoot Root CA ECC G2 2020
+18:52:06:D5:Cert 155: certSIGN ROOT CA G2
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: certSIGN ROOT CA G2
+18:52:06:D5:Cert 156: Apple Platform Bootstrap ECC Root CA - G1
+18:52:06:D5:Called SecTrustEvaluateWithError()
+18:52:06:D5:Trusting certificate: Apple Platform Bootstrap ECC Root CA - G1
+18:52:06:D3:Trusted certificate count: 157
+18:52:06:I1:Opening Database
+18:52:06:D5:SQL: PRAGMA journal_mode=WAL
+18:52:06:D5:SQL: PRAGMA locking_mode=EXCLUSIVE
+18:52:06:D5:SQL: PRAGMA synchronous=NORMAL
+18:52:06:D5:SQL: PRAGMA auto_vacuum=FULL
+18:52:06:D5:SQL: CREATE TABLE IF NOT EXISTS "config" (name TEXT PRIMARY KEY,value)
+18:52:06:D5:SQL: REPLACE INTO "config" (name, value) VALUES (@NAME, @VALUE)
+18:52:06:D5:SQL: DELETE FROM "config" WHERE name=@NAME
+18:52:06:D5:SQL: SELECT value FROM "config" WHERE name=@NAME
+18:52:06:D5:SQL: SELECT name, value FROM "config" LIMIT @LIMIT
+18:52:06:I1:Generating RSA key...........+............+.......+......+..+....+...........+....+........+.+..+....+...............+++++++++++++++++++++++++++++++++++++++++++++*....+......+...+.+..................+..+.+..+++++++++++++++++++++++++++++++++++++++++++++*....+.........................+........+...+....+...+..+...............+.............+........+......+.........................+.....+...+...+.......+......+............+..+.......+...........+....+......+..+...+...+......+....+.....................+.....+...................+.....+....+..+......+.......+........+...+....+...+..+..........+..+.+.........+.....+.........+.+..................................................+....+..............+++++-......+....+...........+....+......+...............+.....+....+..+.........+...+...+....+........+...+...+.......+..+.+.....+.+...+...+..............+++++++++++++++++++++++++++++++++++++++++++++*......+.+..............+.+.....+....+.....+................+++++++++++++++++++++++++++++++++++++++++++++*.+.+......+...+.....+.......+......+............+..+.........+......+......+.......+...+.....+.........+......+..........+.........+...+.....+......+.+...............+...+...+..+...+..................+.......+...+......+...............+......+..+.+.....+.........+.......+..........................+...............+...+.......+............+..+......+.......+...+..+..........+..+.........+.+.....+.........+.+...........+....+.....+............................+......+.....+.......+..+................+..............+...+.......+..+..........+...........+...+....+......+...........+..................+...+....+......+..+......................+..................+........+..........+.....+.........+....+..+....+...+........+.......+......+............+..+.......+......+.....+.........+.............+..+.+...+......+........+......................+...+...........+.......+...+..+...............+......................+..+.+..+..........+......+.....+.........+................+............+............+............+.....+...............+.+..+..........+......+..+.......................................+.+...+...........+.+........+....+...+...+.....+..........+......+..............+.+....................+.+..............+................+........+.......+.....+...............+....+........+................+.....+....+...+..+..................+.......+..+.+.....+......................+......+......+........+...+...+..........+..+...+....+..+...+.+...........+.............+..+.........+......+.+...+..........................+...+.+......+...+...+.........+...+..+.........+............+..................+..........+.....+....+.....+...+.......+..+....+..............+......................+...............+......+.........+.........+..+...+............+.............+.........+........+...+++++-
+18:52:07:D5:bstream_create()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_write()
+18:52:07:D5:bstream_destroy()
+18:52:07:D5:bstream_create()
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=128, 1)
+18:52:07:D5:bstream_ctrl()
+18:52:07:D5:BStream::ctrl(UNKNOWN=133, 0)
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_gets()
+18:52:07:D5:bstream_destroy()
+18:52:07:I1:F@H ID = AKM4CzHUOElj0QPubujpBwKkm4RjFHtc1VV_kXh6qTY
+18:52:07:I3:Loading default resource group
+18:52:07:D5:SQL: CREATE TABLE IF NOT EXISTS "groups" (name TEXT PRIMARY KEY,value)
+18:52:07:D5:SQL: REPLACE INTO "groups" (name, value) VALUES (@NAME, @VALUE)
+18:52:07:D5:SQL: DELETE FROM "groups" WHERE name=@NAME
+18:52:07:D5:SQL: SELECT value FROM "groups" WHERE name=@NAME
+18:52:07:D5:SQL: SELECT name, value FROM "groups" LIMIT @LIMIT
+18:52:07:D5:SQL: CREATE TABLE IF NOT EXISTS "units" (name TEXT PRIMARY KEY,value)
+18:52:07:D5:SQL: REPLACE INTO "units" (name, value) VALUES (@NAME, @VALUE)
+18:52:07:D5:SQL: DELETE FROM "units" WHERE name=@NAME
+18:52:07:D5:SQL: SELECT value FROM "units" WHERE name=@NAME
+18:52:07:D5:SQL: SELECT name, value FROM "units" LIMIT @LIMIT
+18:52:07:I3:Loaded 0 wus.
+18:52:07:I2:Listening for HTTP on 127.0.0.1:7396
+18:52:07:D4:Binding 127.0.0.1:7396
+18:52:07:D4:WS18446744073709551615:cb::WS::Websocket::close(NORMAL, Account restart)
+18:52:07:D5:OSXOSImpl::dispatch()
+18:52:07:I5:Started thread 1 on PID 26088
+18:52:07:D5:heartbeat on thread 0x1e9d2ff80 main
+18:52:07:I2:Loading gpus.json
+18:52:07:D3:Platform:OpenCL: Apple (0) Device:Apple M2 (0) Vendor:0x106b PCI:??:??:?? Compute:1.2 Driver:1.0 GPU:true
+18:52:07:D3:HIP not supported: Failed to open dynamic library '/Library/Frameworks/HIP.framework/HIP': dlopen(/Library/Frameworks/HIP.framework/HIP, 0x0001): tried: '/Library/Frameworks/HIP.framework/HIP' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Library/Frameworks/HIP.framework/HIP' (no such file), '/Library/Frameworks/HIP.framework/HIP' (no such file)
+18:52:07:I3:gpus = {
+18:52:07:I3:  "gpu:soc:0": {
+18:52:07:I3:    "vendor": 4203,
+18:52:07:I3:    "type": "apple",
+18:52:07:I3:    "description": "Apple M2",
+18:52:07:I3:    "opencl": {"platform": 0, "device": 0, "compute": "1.2", "driver": "1.0"},
+18:52:07:I3:    "device": 33042,
+18:52:07:I3:    "supported": false
+18:52:07:I3:  }
+18:52:07:I3:}
+18:52:09:D5:Event callback fd=11 flags=2
+18:52:09:D5:accept() new connection
+18:52:09:D4:New connection from 127.0.0.1:62823
+18:52:09:D4:FD-1:cb::Event::FD::setFD()
+18:52:09:D4:FD-1:cb::Event::FD::FD()
+18:52:09:D4:CON1:Connection opened
+18:52:09:D5:CON1:Accepting from 127.0.0.1:62823
+18:52:09:D4:FD-1:cb::Event::FD::setFD()
+18:52:09:D4:CON1:Connection accepted with fd 14
+18:52:09:D4:CON1:cb::HTTP::ConnIn::readHeader()
+18:52:09:D4:FD14:old events=0 new events=2
+18:52:09:D5:Event callback fd=14 flags=2
+18:52:09:D4:FD14:callback() events=2
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=1 size=1048576 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31828a0 ret=277 buf=277 finished=0 length=1048576 until='\r\n\r\n'
+18:52:09:D5:0x000 47 45 54 20 2f 61 70 69  2f 77 65 62 73 6f 63 6b   G E T   / a p i  / w e b s o c k
+18:52:09:D5:0x010 65 74 20 48 54 54 50 2f  31 2e 31 0d 0a 48 6f 73   e t   H T T P /  1 . 1\r\n H o s
+18:52:09:D5:0x020 74 3a 20 31 32 37 2e 30  2e 30 2e 31 3a 37 33 39   t :   1 2 7 . 0  . 0 . 1 : 7 3 9
+18:52:09:D5:0x030 36 0d 0a 55 70 67 72 61  64 65 3a 20 77 65 62 73   6\r\n U p g r a  d e :   w e b s
+18:52:09:D5:0x040 6f 63 6b 65 74 0d 0a 43  6f 6e 6e 65 63 74 69 6f   o c k e t\r\n C  o n n e c t i o
+18:52:09:D5:0x050 6e 3a 20 55 70 67 72 61  64 65 0d 0a 53 65 63 2d   n :   U p g r a  d e\r\n S e c -
+18:52:09:D5:0x060 57 65 62 53 6f 63 6b 65  74 2d 4b 65 79 3a 20 52   W e b S o c k e  t - K e y :   R
+18:52:09:D5:0x070 47 6b 36 34 35 6d 31 71  53 6c 78 73 57 59 30 73   G k 6 4 5 m 1 q  S l x s W Y 0 s
+18:52:09:D5:0x080 4c 37 30 46 51 3d 3d 0d  0a 53 65 63 2d 57 65 62   L 7 0 F Q = =\r \n S e c - W e b
+18:52:09:D5:0x090 53 6f 63 6b 65 74 2d 56  65 72 73 69 6f 6e 3a 20   S o c k e t - V  e r s i o n :  
+18:52:09:D5:0x0a0 31 33 0d 0a 53 65 63 2d  57 65 62 53 6f 63 6b 65   1 3\r\n S e c -  W e b S o c k e
+18:52:09:D5:0x0b0 74 2d 45 78 74 65 6e 73  69 6f 6e 73 3a 20 70 65   t - E x t e n s  i o n s :   p e
+18:52:09:D5:0x0c0 72 6d 65 73 73 61 67 65  2d 64 65 66 6c 61 74 65   r m e s s a g e  - d e f l a t e
+18:52:09:D5:0x0d0 3b 20 63 6c 69 65 6e 74  5f 6d 61 78 5f 77 69 6e   ;   c l i e n t  _ m a x _ w i n
+18:52:09:D5:0x0e0 64 6f 77 5f 62 69 74 73  0d 0a 55 73 65 72 2d 41   d o w _ b i t s \r\n U s e r - A
+18:52:09:D5:0x0f0 67 65 6e 74 3a 20 50 79  74 68 6f 6e 2f 33 2e 31   g e n t :   P y  t h o n / 3 . 1
+18:52:09:D5:0x100 34 20 77 65 62 73 6f 63  6b 65 74 73 2f 31 37 2e   4   w e b s o c  k e t s / 1 7 .
+18:52:09:D5:0x110 31 0d 0a 0d 0a                                     1\r\n\r\n
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31828a0 finished=1
+18:52:09:D4:CON1:cb::HTTP::ConnIn::processHeader()
+18:52:09:I2:REQ1:< 127.0.0.1 GET /api/websocket HTTP/1.1
+18:52:09:D5:REQ1:Host: 127.0.0.1:7396
+18:52:09:D5:REQ1:Upgrade: websocket
+18:52:09:D5:REQ1:Connection: Upgrade
+18:52:09:D5:REQ1:Sec-WebSocket-Key: RGk645m1qSlxsWY0sL70FQ==
+18:52:09:D5:REQ1:Sec-WebSocket-Version: 13
+18:52:09:D5:REQ1:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+18:52:09:D5:REQ1:User-Agent: Python/3.14 websockets/17.1
+18:52:09:D5:REQ1:
+18:52:09:D5:/api/websocket matched /api/websocket
+18:52:09:I4:REQ1:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
+18:52:09:D5:REQ1:Upgrade: websocket
+18:52:09:D5:REQ1:Connection: upgrade
+18:52:09:D5:REQ1:Sec-WebSocket-Accept: qCdSMwUQ2S7XbSyWF7oSPn/6yJQ=
+18:52:09:D5:REQ1:Date: Wed, 23 Sep 2026 18:52:09 GMT
+18:52:09:D5:REQ1:
+18:52:09:D4:CON1:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
+18:52:09:D4:FD14:cb::Event::FD::write() length=171
+18:52:09:D4:FD14:old events=2 new events=4
+18:52:09:D3:New client 127.0.0.1
+18:52:09:D4:WS1:cb::WS::Websocket::writeFrame(TEXT, 1, 878)
+18:52:09:D4:FD14:cb::Event::FD::write() length=882
+18:52:09:D4:FD14:old events=4 new events=6
+18:52:09:D3:Adding remote 127.0.0.1
+18:52:09:D4:FD14:old events=6 new events=6
+18:52:09:D5:Event callback fd=14 flags=4
+18:52:09:D4:FD14:callback() events=4
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=0 size=171 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferWrite::transfer() ret=171
+18:52:09:D4:FD14:old events=6 new events=6
+18:52:09:D5:Event callback fd=14 flags=4
+18:52:09:D4:FD14:callback() events=4
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=0 size=882 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferWrite::transfer() ret=882
+18:52:09:D4:FD14:old events=6 new events=2
+18:52:09:D5:Event callback fd=14 flags=2
+18:52:09:D4:FD14:callback() events=2
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31823a0 ret=2 buf=2 finished=0 length=2 until=''
+18:52:09:D5:0x0 88 82                                              . .
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31823a0 finished=1
+18:52:09:D4:FD14:old events=2 new events=2
+18:52:09:D4:FD14:old events=2 new events=2
+18:52:09:D5:Event callback fd=14 flags=2
+18:52:09:D4:FD14:callback() events=2
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=1 size=6 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f3182440 ret=4 buf=6 finished=0 length=6 until=''
+18:52:09:D5:0x0 88 82 7c a3 ee 60                                  . . | . . `
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f3182440 finished=1
+18:52:09:D4:WS1:cb::WS::Websocket::readHeader() opcode=CLOSE bytes=2
+18:52:09:D4:FD14:old events=2 new events=2
+18:52:09:D4:FD14:old events=2 new events=2
+18:52:09:D5:Event callback fd=14 flags=2
+18:52:09:D4:FD14:callback() events=2
+18:52:09:D4:FD14:cb::Event::FD::progressStart() read=1 size=2 time=2026-09-23T18:52:09Z
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31823a0 ret=2 buf=2 finished=0 length=2 until=''
+18:52:09:D5:0x0 7f 4b                                              . K
+18:52:09:D4:cb::Event::TransferRead::transfer() 0x75f31823a0 finished=1
+18:52:09:D5:WS1:Frame body
+18:52:09:D5:WS1:0x0 03 e8                                              . .
+18:52:09:D4:WS1:cb::WS::Websocket::close(NORMAL, )
+18:52:09:D4:WS1:cb::WS::Websocket::writeFrame(CLOSE, 1, 2)
+18:52:09:D4:FD14:cb::Event::FD::write() length=4
+18:52:09:D4:FD14:old events=2 new events=4
+18:52:09:D3:Closing client 127.0.0.1
+18:52:09:D3:Removing remote 127.0.0.1
+18:52:09:D4:Connection ended
+18:52:09:D4:FD14:cb::Event::FD::close()
+18:52:09:D4:Socket::close(14)
+18:52:09:D4:FD-1:cb::Event::FD::setFD()
+18:52:09:D4:CON1:Connection closed
+18:52:09:D4:FD-1:cb::Event::FD::~FD()
+18:52:17:D5:OSXOSImpl::finishInit() on thread 0x1e9d2ff80 main
+18:52:17:D4:consoleUserChanged() amir
+18:52:17:D5:Event callback fd=2 flags=8
+18:52:17:D3:Vacuuming database
+18:52:18:D5:SQL: VACUUM
+18:52:18:I1:Clean exit
+18:52:18:D4:Socket::close(11)
