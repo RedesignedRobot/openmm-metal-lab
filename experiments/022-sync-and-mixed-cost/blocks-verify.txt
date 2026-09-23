@@ -1,0 +1,7 @@
+# Step 1-2: Metal ctest on p2 and p3 (energy guard on base), then bitwise digests.
+ctest-p2-single sh $L/run.sh ctest $OUT $WU p2 Single
+ctest-p2-mixed sh $L/run.sh ctest $OUT $WU p2 Mixed
+ctest-p3-single sh $L/run.sh ctest $OUT $WU p3 Single
+ctest-p3-mixed sh $L/run.sh ctest $OUT $WU p3 Mixed
+bits-dhfr WORKLOADS=dhfr sh $L/run.sh bits $OUT $WU base p2 p3 p2p3
+bits-nav WORKLOADS=nav sh $L/run.sh bits $OUT $WU base p2 p3 p2p3

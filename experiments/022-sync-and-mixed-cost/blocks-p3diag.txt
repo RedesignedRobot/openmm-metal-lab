@@ -1,0 +1,5 @@
+# Why p3 alone times 3% below base on dhfr single (no GPU-time change in the kernels census):
+# base vs p3 again, plus census (mode 1) of both profiler builds, 3 interleaved rounds of 30 s.
+p3diag-r1 ROUND=1 DURATION=30 sh $L/run.sh runs $OUT $WU p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1
+p3diag-r2 ROUND=2 DURATION=30 sh $L/run.sh runs $OUT $WU p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1
+p3diag-r3 ROUND=3 DURATION=30 sh $L/run.sh runs $OUT $WU p3diag base:dhfr:single:Metal:0 p3:dhfr:single:Metal:0 base-prof:dhfr:single:Metal:1 p3-prof:dhfr:single:Metal:1

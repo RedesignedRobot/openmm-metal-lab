@@ -1,0 +1,3 @@
+# Check the build.sh fix: rebuild base with the build venv, then confirm setup.py removed nothing and
+# the shared env still imports its own openmm.
+build-fixcheck TESTS=OFF sh $L/build.sh $R/src/base $R/v/base-fixcheck $E $B && ! grep REMOVING $R/v/base-fixcheck/pythonbuild.log && $E -c "import openmm; print('shared env openmm:', openmm.__file__)"

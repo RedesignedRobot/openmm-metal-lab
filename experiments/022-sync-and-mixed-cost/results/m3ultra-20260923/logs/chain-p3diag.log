@@ -1,0 +1,19 @@
+== lease taken 20:15:36Z p3diag-r1
+20:16:13Z p3diag base dhfr single 0 Metal exit 0
+20:16:49Z p3diag p3 dhfr single 0 Metal exit 0
+20:17:24Z p3diag base-prof dhfr single 1 Metal exit 0
+20:18:00Z p3diag p3-prof dhfr single 1 Metal exit 0
+== lease released 20:18:01Z p3diag-r1 exit 0
+== lease taken 20:27:21Z p3diag-r2
+20:27:58Z p3diag p3 dhfr single 0 Metal exit 0
+20:28:33Z p3diag base-prof dhfr single 1 Metal exit 0
+20:29:09Z p3diag p3-prof dhfr single 1 Metal exit 0
+20:29:44Z p3diag base dhfr single 0 Metal exit 0
+== lease released 20:29:45Z p3diag-r2 exit 0
+== lease taken 20:30:05Z p3diag-r3
+20:30:42Z p3diag base-prof dhfr single 1 Metal exit 0
+20:31:17Z p3diag p3-prof dhfr single 1 Metal exit 0
+20:31:53Z p3diag base dhfr single 0 Metal exit 0
+20:32:28Z p3diag p3 dhfr single 0 Metal exit 0
+== lease released 20:32:29Z p3diag-r3 exit 0
+CHAIN-DONE /tmp/openmm-metal-bench/022/lab/022-sync-and-mixed-cost/blocks-p3diag.txt

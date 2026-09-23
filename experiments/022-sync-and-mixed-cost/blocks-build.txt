@@ -1,0 +1,10 @@
+# Remaining builds (base was built alone first, 37 s).  Tests only where ctest runs.
+# These ran with the first build.sh, which built the Python module with the shared env's interpreter;
+# OpenMM's setup.py then deleted the shared env's openmm (base build, 16:06Z).  build.sh now takes a
+# separate build interpreter ($B, a venv without openmm) and refuses one that can import openmm.
+build-base-prof TESTS=OFF sh $L/build.sh $R/src/base-prof $R/v/base-prof $E $B
+build-p2 TESTS=ON sh $L/build.sh $R/src/p2 $R/v/p2 $E $B
+build-p2-prof TESTS=OFF sh $L/build.sh $R/src/p2-prof $R/v/p2-prof $E $B
+build-p3 TESTS=ON sh $L/build.sh $R/src/p3 $R/v/p3 $E $B
+build-p3-prof TESTS=OFF sh $L/build.sh $R/src/p3-prof $R/v/p3-prof $E $B
+build-p2p3 TESTS=OFF sh $L/build.sh $R/src/p2p3 $R/v/p2p3 $E $B

@@ -1,0 +1,176 @@
+== lease taken 17:07:00Z energy-spread
+== lease released 17:07:52Z energy-spread exit 0
+== lease taken 17:08:04Z energy-spread
+Terminated: 15
+== lease released 17:08:40Z energy-spread exit 143
+== lease taken 17:08:52Z ctest-p2-single
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single.log:34/55 Test #120: TestMetalLocalEnergyMinimizerSingle ............***Failed    9.07 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single.log:98% tests passed, 1 tests failed out of 55
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single.log:	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single-rerun.log:1/1 Test #120: TestMetalLocalEnergyMinimizerSingle ...***Failed    6.53 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single-rerun.log:0% tests passed, 1 tests failed out of 1
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Single-rerun.log:	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+== lease released 17:12:12Z ctest-p2-single exit 0
+== lease taken 17:13:12Z p1-dhfr
+17:13:48Z p1 base-prof dhfr single 0 Metal exit 0
+17:14:24Z p1 base-prof dhfr single 1 Metal exit 0
+17:14:59Z p1 base-prof dhfr single kernels Metal exit 0
+17:15:35Z p1 base-prof dhfr mixed 1 Metal exit 0
+17:16:11Z p1 base-prof dhfr mixed kernels Metal exit 0
+17:16:46Z p1 base-prof dhfr mixed 0 Metal exit 0
+== lease released 17:16:48Z p1-dhfr exit 0
+== lease taken 17:17:48Z p1-nav
+17:18:36Z p1 base-prof nav single 0 Metal exit 0
+17:19:23Z p1 base-prof nav single 1 Metal exit 0
+17:20:10Z p1 base-prof nav single kernels Metal exit 0
+17:20:58Z p1 base-prof nav mixed 1 Metal exit 0
+17:21:46Z p1 base-prof nav mixed kernels Metal exit 0
+17:22:33Z p1 base-prof nav mixed 0 Metal exit 0
+== lease released 17:22:35Z p1-nav exit 0
+== lease taken 17:23:35Z p1-dhfr-implicit
+17:24:07Z p1 base-prof dhfr-implicit single 0 Metal exit 0
+17:24:38Z p1 base-prof dhfr-implicit single 1 Metal exit 0
+17:25:08Z p1 base-prof dhfr-implicit single kernels Metal exit 0
+17:25:40Z p1 base-prof dhfr-implicit mixed 1 Metal exit 0
+17:26:11Z p1 base-prof dhfr-implicit mixed kernels Metal exit 0
+17:26:41Z p1 base-prof dhfr-implicit mixed 0 Metal exit 0
+== lease released 17:26:43Z p1-dhfr-implicit exit 0
+== lease taken 17:31:43Z census-p2-p3
+17:32:20Z census p2-prof dhfr single 1 Metal exit 0
+17:32:56Z census p2-prof dhfr mixed 1 Metal exit 0
+17:33:43Z census p2-prof nav single 1 Metal exit 0
+17:34:32Z census p2-prof nav mixed 1 Metal exit 0
+17:35:08Z census p3-prof dhfr single kernels Metal exit 0
+17:35:44Z census p3-prof dhfr mixed kernels Metal exit 0
+17:36:32Z census p3-prof nav single kernels Metal exit 0
+17:37:20Z census p3-prof nav mixed kernels Metal exit 0
+== lease released 17:37:21Z census-p2-p3 exit 0
+CHAIN-DONE /tmp/openmm-metal-bench/022/lab/022-sync-and-mixed-cost/blocks-p1.txt
+== lease taken 17:44:21Z time-r1-dhfr
+17:45:28Z time base dhfr single 0 Metal exit 0
+17:46:34Z time base dhfr mixed 0 Metal exit 0
+17:47:40Z time p2 dhfr single 0 Metal exit 0
+17:48:46Z time p2 dhfr mixed 0 Metal exit 0
+17:49:52Z time p3 dhfr single 0 Metal exit 0
+17:50:58Z time p3 dhfr mixed 0 Metal exit 0
+17:52:04Z time p2p3 dhfr single 0 Metal exit 0
+17:53:09Z time p2p3 dhfr mixed 0 Metal exit 0
+17:54:16Z time shared dhfr single 0 OpenCL exit 0
+== lease released 17:54:17Z time-r1-dhfr exit 0
+== lease taken 17:55:17Z time-r1-nav
+17:56:36Z time base nav single 0 Metal exit 0
+17:57:52Z time base nav mixed 0 Metal exit 0
+17:59:10Z time p2 nav single 0 Metal exit 0
+18:00:28Z time p2 nav mixed 0 Metal exit 0
+18:01:46Z time p3 nav single 0 Metal exit 0
+18:03:04Z time p3 nav mixed 0 Metal exit 0
+18:04:22Z time p2p3 nav single 0 Metal exit 0
+18:05:40Z time p2p3 nav mixed 0 Metal exit 0
+18:06:59Z time shared nav single 0 OpenCL exit 0
+== lease released 18:07:00Z time-r1-nav exit 0
+== lease taken 18:19:21Z time-r1-dhfr-implicit
+18:20:23Z time base dhfr-implicit single 0 Metal exit 0
+18:21:23Z time base dhfr-implicit mixed 0 Metal exit 0
+18:22:24Z time p2 dhfr-implicit single 0 Metal exit 0
+18:23:25Z time p2 dhfr-implicit mixed 0 Metal exit 0
+18:24:25Z time p3 dhfr-implicit single 0 Metal exit 0
+18:25:27Z time p3 dhfr-implicit mixed 0 Metal exit 0
+18:26:27Z time p2p3 dhfr-implicit single 0 Metal exit 0
+18:27:28Z time p2p3 dhfr-implicit mixed 0 Metal exit 0
+18:28:29Z time shared dhfr-implicit single 0 OpenCL exit 0
+== lease released 18:28:31Z time-r1-dhfr-implicit exit 0
+== lease taken 18:29:31Z time-r2-nav
+18:30:50Z time base nav mixed 0 Metal exit 0
+18:32:08Z time p2 nav single 0 Metal exit 0
+18:33:26Z time p2 nav mixed 0 Metal exit 0
+18:34:43Z time p3 nav single 0 Metal exit 0
+18:36:01Z time p3 nav mixed 0 Metal exit 0
+18:37:19Z time p2p3 nav single 0 Metal exit 0
+18:38:37Z time p2p3 nav mixed 0 Metal exit 0
+18:39:55Z time shared nav single 0 OpenCL exit 0
+18:41:13Z time base nav single 0 Metal exit 0
+== lease released 18:41:14Z time-r2-nav exit 0
+== lease taken 18:42:14Z time-r2-dhfr-implicit
+18:43:17Z time base dhfr-implicit mixed 0 Metal exit 0
+18:44:17Z time p2 dhfr-implicit single 0 Metal exit 0
+18:45:18Z time p2 dhfr-implicit mixed 0 Metal exit 0
+18:46:19Z time p3 dhfr-implicit single 0 Metal exit 0
+18:47:20Z time p3 dhfr-implicit mixed 0 Metal exit 0
+18:48:21Z time p2p3 dhfr-implicit single 0 Metal exit 0
+18:49:21Z time p2p3 dhfr-implicit mixed 0 Metal exit 0
+18:50:22Z time shared dhfr-implicit single 0 OpenCL exit 0
+18:51:23Z time base dhfr-implicit single 0 Metal exit 0
+== lease released 18:51:24Z time-r2-dhfr-implicit exit 0
+== lease taken 18:52:24Z time-r2-dhfr
+18:53:32Z time base dhfr mixed 0 Metal exit 0
+18:54:38Z time p2 dhfr single 0 Metal exit 0
+18:55:43Z time p2 dhfr mixed 0 Metal exit 0
+18:56:49Z time p3 dhfr single 0 Metal exit 0
+18:57:55Z time p3 dhfr mixed 0 Metal exit 0
+18:59:00Z time p2p3 dhfr single 0 Metal exit 0
+19:00:06Z time p2p3 dhfr mixed 0 Metal exit 0
+19:01:11Z time shared dhfr single 0 OpenCL exit 0
+19:02:17Z time base dhfr single 0 Metal exit 0
+== lease released 19:02:18Z time-r2-dhfr exit 0
+== lease taken 19:03:18Z time-r3-dhfr-implicit
+19:04:20Z time p2 dhfr-implicit single 0 Metal exit 0
+19:05:21Z time p2 dhfr-implicit mixed 0 Metal exit 0
+19:06:21Z time p3 dhfr-implicit single 0 Metal exit 0
+19:07:22Z time p3 dhfr-implicit mixed 0 Metal exit 0
+19:08:23Z time p2p3 dhfr-implicit single 0 Metal exit 0
+19:09:23Z time p2p3 dhfr-implicit mixed 0 Metal exit 0
+19:10:24Z time shared dhfr-implicit single 0 OpenCL exit 0
+19:11:25Z time base dhfr-implicit single 0 Metal exit 0
+19:12:26Z time base dhfr-implicit mixed 0 Metal exit 0
+== lease released 19:12:27Z time-r3-dhfr-implicit exit 0
+== lease taken 19:13:27Z time-r3-dhfr
+19:14:34Z time p2 dhfr single 0 Metal exit 0
+19:15:39Z time p2 dhfr mixed 0 Metal exit 0
+19:16:45Z time p3 dhfr single 0 Metal exit 0
+19:17:51Z time p3 dhfr mixed 0 Metal exit 0
+19:18:57Z time p2p3 dhfr single 0 Metal exit 0
+19:20:02Z time p2p3 dhfr mixed 0 Metal exit 0
+19:21:08Z time shared dhfr single 0 OpenCL exit 0
+19:22:14Z time base dhfr single 0 Metal exit 0
+19:23:20Z time base dhfr mixed 0 Metal exit 0
+== lease released 19:23:21Z time-r3-dhfr exit 0
+== lease taken 19:24:21Z time-r3-nav
+19:25:39Z time p2 nav single 0 Metal exit 0
+19:26:56Z time p2 nav mixed 0 Metal exit 0
+19:28:15Z time p3 nav single 0 Metal exit 0
+19:29:32Z time p3 nav mixed 0 Metal exit 0
+19:30:50Z time p2p3 nav single 0 Metal exit 0
+19:32:07Z time p2p3 nav mixed 0 Metal exit 0
+19:33:25Z time shared nav single 0 OpenCL exit 0
+19:34:43Z time base nav single 0 Metal exit 0
+19:36:00Z time base nav mixed 0 Metal exit 0
+== lease released 19:36:01Z time-r3-nav exit 0
+CHAIN-DONE /tmp/openmm-metal-bench/022/lab/022-sync-and-mixed-cost/blocks-time.txt
+== lease taken 19:37:02Z hbonds-copy
+== lease released 19:37:02Z hbonds-copy exit 0
+== lease taken 19:38:02Z ab-r1
+19:39:09Z ab base dhfr single 0 Metal exit 0
+19:40:15Z ab shared dhfr single 0 OpenCL exit 0
+19:41:17Z ab base dhfr-hbonds single 0 Metal exit 0
+19:42:19Z ab shared dhfr-hbonds single 0 OpenCL exit 0
+19:43:25Z ab p2 dhfr single 0 Metal exit 0
+19:44:26Z ab p2 dhfr-hbonds single 0 Metal exit 0
+== lease released 19:44:28Z ab-r1 exit 0
+== lease taken 19:45:28Z ab-r2
+19:46:35Z ab shared dhfr single 0 OpenCL exit 0
+19:47:37Z ab base dhfr-hbonds single 0 Metal exit 0
+19:48:38Z ab shared dhfr-hbonds single 0 OpenCL exit 0
+19:49:44Z ab p2 dhfr single 0 Metal exit 0
+19:50:46Z ab p2 dhfr-hbonds single 0 Metal exit 0
+19:51:51Z ab base dhfr single 0 Metal exit 0
+== lease released 19:51:53Z ab-r2 exit 0
+== lease taken 19:52:53Z ab-r3
+19:53:56Z ab base dhfr-hbonds single 0 Metal exit 0
+19:54:58Z ab shared dhfr-hbonds single 0 OpenCL exit 0
+19:56:03Z ab p2 dhfr single 0 Metal exit 0
+19:57:05Z ab p2 dhfr-hbonds single 0 Metal exit 0
+19:58:11Z ab base dhfr single 0 Metal exit 0
+19:59:17Z ab shared dhfr single 0 OpenCL exit 0
+== lease released 19:59:18Z ab-r3 exit 0
+CHAIN-DONE /tmp/openmm-metal-bench/022/lab/022-sync-and-mixed-cost/blocks-ab.txt
+QUEUE-DONE

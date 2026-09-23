@@ -1,0 +1,13 @@
+p1 dhfr exit 0
+Terminated: 15
+p1 dhfr-implicit exit 143
+Terminated: 15
+restart 15:30Z after SIGTERM
+Terminated: 15
+restart 15:30Z in its own session
+p1 dhfr-implicit exit 0
+p1 nav exit 0
+p1 bench:rf exit 0
+on battery power; plug in, or set ALLOW_BATTERY=1 to time on battery
+p1 bench:pme exit 1
+P1-CHAIN-DONE

@@ -1,0 +1,6 @@
+# Step 5: CCMA A/B.  dhfr as shipped (3,072 constraints to CCMA) vs dhfr-hbonds (heavy-atom
+# constraints turned into bonds), Metal single vs OpenCL single, 3 interleaved rounds.
+hbonds-copy $R/v/base/python.sh $L/hbonds.py $WU/dhfr $WU/dhfr-hbonds > $OUT/hbonds.txt 2>&1
+ab-r1 ROUND=1 sh $L/run.sh runs $OUT $WU ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0
+ab-r2 ROUND=2 sh $L/run.sh runs $OUT $WU ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0
+ab-r3 ROUND=3 sh $L/run.sh runs $OUT $WU ab base:dhfr:single:Metal:0 shared:dhfr:single:OpenCL:0 base:dhfr-hbonds:single:Metal:0 shared:dhfr-hbonds:single:OpenCL:0 p2:dhfr:single:Metal:0 p2:dhfr-hbonds:single:Metal:0

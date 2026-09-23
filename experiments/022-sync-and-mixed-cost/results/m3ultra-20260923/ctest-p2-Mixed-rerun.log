@@ -1,0 +1,15 @@
+Test project /tmp/openmm-metal-bench/022/v/p2/build
+    Start 121: TestMetalLocalEnergyMinimizerMixed
+1/2 Test #121: TestMetalLocalEnergyMinimizerMixed .........***Failed   15.84 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+    Start 129: TestMetalMonteCarloFlexibleBarostatMixed
+2/2 Test #129: TestMetalMonteCarloFlexibleBarostatMixed ...   Passed  124.29 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) = 140.14 sec
+
+The following tests FAILED:
+	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest

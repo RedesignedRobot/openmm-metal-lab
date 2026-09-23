@@ -1,0 +1,13 @@
+Test project /tmp/openmm-metal-bench/022/v/p3/build
+    Start 121: TestMetalLocalEnergyMinimizerMixed
+1/1 Test #121: TestMetalLocalEnergyMinimizerMixed ...***Failed   10.85 sec
+exception: Assertion failure at TestLocalEnergyMinimizer.h:229
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =  10.86 sec
+
+The following tests FAILED:
+	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest

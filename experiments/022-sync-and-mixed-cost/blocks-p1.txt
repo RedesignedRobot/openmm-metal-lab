@@ -1,0 +1,9 @@
+# Step 3: P1 census on base+profiler (modes 0, 1, kernels; 30 s each), plus census of the P2 and P3
+# profiler builds.  First the energy spread (base's energies vary run to run in the bitwise runs), then
+# p2 Single ctest again: its first run had no ctest on PATH.
+energy-spread WORKLOADS='dhfr nav' sh $L/run.sh energy $OUT $WU base p2 p3 p2p3
+ctest-p2-single sh $L/run.sh ctest $OUT $WU p2 Single
+p1-dhfr WORKLOADS=dhfr DURATION=30 sh $L/run.sh p1 $OUT $WU base-prof
+p1-nav WORKLOADS=nav DURATION=30 sh $L/run.sh p1 $OUT $WU base-prof
+p1-dhfr-implicit WORKLOADS=dhfr-implicit DURATION=30 sh $L/run.sh p1 $OUT $WU base-prof
+census-p2-p3 DURATION=30 sh $L/run.sh runs $OUT $WU census p2-prof:dhfr:single:Metal:1 p2-prof:dhfr:mixed:Metal:1 p2-prof:nav:single:Metal:1 p2-prof:nav:mixed:Metal:1 p3-prof:dhfr:single:Metal:kernels p3-prof:dhfr:mixed:Metal:kernels p3-prof:nav:single:Metal:kernels p3-prof:nav:mixed:Metal:kernels

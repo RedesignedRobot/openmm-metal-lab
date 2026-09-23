@@ -1,0 +1,33 @@
+== lease taken 16:30:25Z ctest-p2-single
+== lease released 16:30:28Z ctest-p2-single exit 0
+== lease taken 16:31:28Z ctest-p2-mixed
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed.log:35/55 Test #121: TestMetalLocalEnergyMinimizerMixed ............***Failed   15.62 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed.log:37/55 Test #129: TestMetalMonteCarloFlexibleBarostatMixed ......***Failed   31.32 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed.log:96% tests passed, 2 tests failed out of 55
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed.log:	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed.log:	129 - TestMetalMonteCarloFlexibleBarostatMixed (Failed)
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed-rerun.log:1/2 Test #121: TestMetalLocalEnergyMinimizerMixed .........***Failed   15.84 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed-rerun.log:50% tests passed, 1 tests failed out of 2
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p2-Mixed-rerun.log:	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+== lease released 16:38:43Z ctest-p2-mixed exit 0
+== lease taken 16:39:43Z ctest-p3-single
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single.log:34/55 Test #120: TestMetalLocalEnergyMinimizerSingle ............***Failed    8.36 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single.log:98% tests passed, 1 tests failed out of 55
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single.log:	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single-rerun.log:1/1 Test #120: TestMetalLocalEnergyMinimizerSingle ...***Failed    7.88 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single-rerun.log:0% tests passed, 1 tests failed out of 1
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Single-rerun.log:	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+== lease released 16:43:17Z ctest-p3-single exit 0
+== lease taken 16:44:17Z ctest-p3-mixed
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed.log:34/55 Test #121: TestMetalLocalEnergyMinimizerMixed ............***Failed   10.37 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed.log:98% tests passed, 1 tests failed out of 55
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed.log:	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed-rerun.log:1/1 Test #121: TestMetalLocalEnergyMinimizerMixed ...***Failed   10.85 sec
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed-rerun.log:0% tests passed, 1 tests failed out of 1
+/tmp/openmm-metal-bench/022/results-m3ultra-20260923/ctest-p3-Mixed-rerun.log:	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+== lease released 16:48:46Z ctest-p3-mixed exit 0
+== lease taken 16:49:46Z bits-dhfr
+== lease released 16:50:45Z bits-dhfr exit 0
+== lease taken 17:03:26Z bits-nav
+== lease released 17:05:49Z bits-nav exit 0
+CHAIN-DONE /tmp/openmm-metal-bench/022/lab/022-sync-and-mixed-cost/blocks-verify.txt
