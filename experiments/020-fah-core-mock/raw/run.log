@@ -1,0 +1,27 @@
+== 2026-09-23T21:30:09Z dhfr-implicit 2000 500
+exit 0 2026-09-23T21:30:15Z
+== 2026-09-23T21:30:15Z dhfr 2000 500
+exit 0 2026-09-23T21:31:06Z
+== 2026-09-23T21:31:17Z tip4pew 2000 500
+exit 0 2026-09-23T21:31:28Z
+== 2026-09-23T21:31:28Z nav 1000 250
+exit 0 2026-09-23T21:32:52Z
+== 2026-09-23T21:32:52Z stmv 200 100
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/020/lab/mockcore.py", line 231, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/openmm-metal-bench/020/lab/mockcore.py", line 192, in main
+    wu = WorkUnit(wu_dir)
+  File "/tmp/openmm-metal-bench/020/lab/mockcore.py", line 49, in __init__
+    self.system_xml = read(f"{path}/system.xml")
+                      ~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/020/lab/mockcore.py", line 43, in read
+    return open(path).read().replace("stateCheckpoint", "State")
+           ~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/openmm-metal-bench/020/fah-wu/stmv/system.xml'
+exit 1 2026-09-23T21:32:53Z
+ALLDONE
+== 2026-09-23T22:09:32Z stmv 200 100
+exit 0 2026-09-23T22:13:03Z
+ALLDONE

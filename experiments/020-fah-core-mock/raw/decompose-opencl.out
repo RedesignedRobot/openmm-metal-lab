@@ -1,0 +1,16 @@
+== 2026-09-23T22:25:19Z stmv OpenCL
+{"platform": "Reference", "energy": {"HarmonicBondForce": 165012.2934869896, "HarmonicAngleForce": 392606.6016716449, "PeriodicTorsionForce": 503687.69100699964, "NonbondedForce direct": 61851974.80897313, "NonbondedForce reciprocal": -76952627.26122575, "CMMotionRemover": 0.0, "MonteCarloBarostat": 0.0, "total": -14039345.866085274}, "wall_s": 111.9}
+{"platform": "OpenCL:single", "energy": {"HarmonicBondForce": 165012.26879882812, "HarmonicAngleForce": 392606.4541015625, "PeriodicTorsionForce": 503687.62109375, "NonbondedForce direct": 61851993.01372746, "NonbondedForce reciprocal": -76952626.52116238, "CMMotionRemover": 0.0, "MonteCarloBarostat": 0.0, "total": -14039326.950916365}, "minus_reference": {"HarmonicBondForce": -0.024688161473022774, "HarmonicAngleForce": -0.14757008239394054, "PeriodicTorsionForce": -0.06991324963746592, "NonbondedForce direct": 18.204754322767258, "NonbondedForce reciprocal": 0.7400633692741394, "CMMotionRemover": 0.0, "MonteCarloBarostat": 0.0, "total": 18.915168909355998}, "wall_s": 5.0}
+Traceback (most recent call last):
+  File "/private/tmp/openmm-metal-bench/020/lab/decompose.py", line 63, in <module>
+    main()
+    ~~~~^^
+  File "/private/tmp/openmm-metal-bench/020/lab/decompose.py", line 56, in main
+    energies = group_energies(wu, system, names, platform, properties)
+  File "/private/tmp/openmm-metal-bench/020/lab/decompose.py", line 34, in group_energies
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: No compatible OpenCL platform is available
+exit 1 2026-09-23T22:27:38Z

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/020/lab/makewu.py", line 62, in <module>
+    stmv(sys.argv[2], sys.argv[3])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/020/lab/makewu.py", line 44, in stmv
+    prmtop = app.AmberPrmtopFile(f"{suite}/PME/Topologies/STMV.prmtop")
+  File "/tmp/openmm-metal-bench/020/venv/lib/python3.13/site-packages/openmm/app/amberprmtopfile.py", line 113, in __init__
+    prmtop = amber_file_parser.PrmtopLoader(file)
+  File "/tmp/openmm-metal-bench/020/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 122, in __init__
+    with open(inFilename, 'r') as fIn:
+         ~~~~^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/openmm-metal-bench/018/examples/benchmarks/Amber20_Benchmark_Suite/PME/Topologies/STMV.prmtop'

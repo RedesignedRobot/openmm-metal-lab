@@ -1,0 +1,12 @@
+
+
+96% tests passed, 4 tests failed out of 112
+
+Total Test time (real) = 354.95 sec
+
+The following tests FAILED:
+	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+	124 - TestMetalMonteCarloAnisotropicBarostatSingle (Failed)
+	126 - TestMetalMonteCarloBarostatSingle (Failed)
+Errors while running CTest

@@ -1,0 +1,18 @@
+110/112 Test #105: TestMetalFFTMixed ..............................   Passed    0.65 sec
+111/112 Test #111: TestMetalHarmonicAngleForceMixed ...............   Passed    0.71 sec
+112/112 Test  #67: TestMetalCommandBatchingMixed ..................   Passed    0.46 sec
+
+98% tests passed, 2 tests failed out of 112
+
+Total Test time (real) = 382.00 sec
+
+The following tests FAILED:
+	120 - TestMetalLocalEnergyMinimizerSingle (Failed)
+	121 - TestMetalLocalEnergyMinimizerMixed (Failed)
+Errors while running CTest
+1/2 Test  #59: TestMetalBrownianIntegratorMixed ......   Passed   28.82 sec
+2/2 Test #134: TestMetalNoseHooverIntegratorSingle ...   Passed   22.11 sec
+1/2 Test  #59: TestMetalBrownianIntegratorMixed ......   Passed   28.66 sec
+2/2 Test #134: TestMetalNoseHooverIntegratorSingle ...   Passed   21.59 sec
+1/2 Test  #59: TestMetalBrownianIntegratorMixed ......   Passed   29.30 sec
+2/2 Test #134: TestMetalNoseHooverIntegratorSingle ...   Passed   21.87 sec
