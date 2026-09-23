@@ -105,7 +105,7 @@
 
 <section><div class="wrap"><div class="col">
   <h3 class="sub">Accuracy against the Reference platform</h3>
-  <p>We compared forces from each GPU platform with OpenMM's Reference platform, which computes in double precision on the CPU, from the same positions. Metal's errors are identical on all three chips: 1.21e-6 on dhfr and 1.75e-6 on nav, where OpenCL gives 1.80e-6 to 1.82e-6. Energy conservation in constant-energy dynamics shows no difference beyond what the CPU platform itself shows from machine to machine. Every drift is within 1.6e-3 kT per ns per degree of freedom.</p>
+  <p>We compared forces from each GPU platform with OpenMM's Reference platform, which computes in double precision on the CPU, from the same positions. Metal's errors are identical on all three chips: 1.21e-6 on dhfr and 1.75e-6 on nav, where OpenCL gives 1.80e-6 to 1.82e-6. In 0.1 ns of constant-energy dynamics, Metal drifts no more than the CPU platform does, and the CPU alone spans &minus;53 to &minus;160 kJ/mol/ns across the three machines. Runs this short measure the protocol rather than the platform, so they are not comparable with OpenMM's published drift figures, which come from longer runs with tighter constraints.</p>
 </div>
 <div class="pair">
   <figure><!--fig:accuracy--><figcaption><span class="fn">Figure 9A.</span><b>Relative force error</b>, every run on every chip. The 2.5e-5 on dhfr-implicit comes from rounding positions to float, which every GPU platform does.</figcaption></figure>
