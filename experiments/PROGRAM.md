@@ -13,6 +13,8 @@ OpenMM's setup.py deletes whatever `openmm` its Python can import, even for `set
 Build a variant's Python module with an interpreter that has no openmm installed, never the Studio's shared
 env: on 2026-09-23 a 022 variant build wiped the shared install, which was restored with
 `ninja -C src/build PythonInstall` (restore-env.sh).
+Harnesses that keep a program off FAH servers must fail closed: the FAH client fetches api.foldingathome.org/gpus
+whenever its working directory lacks a fresh gpus.json, whatever --api-server says (023 rerun, 2026-09-23).
 
 ## Compatibility (research report 2026-09-23)
 
