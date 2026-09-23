@@ -83,28 +83,35 @@ Tests
   - testHugeSystem skips when the GPU's recommended working set is under 8 GB.
 - MacBook Pro M3 Pro (18 GPU cores), macOS 27: 107/110 on metal-upstream's tip.
   - BrownianIntegratorMixed is the stochastic failure; it passes on rerun.
-  - LocalEnergyMinimizer testLargeForces (`maxdist > 1.0`) fails in both precisions. It fails the
-    same way for OpenCL single on the unmodified base (3c9effc96) on this machine, so it predates
-    this PR. Reference and CPU pass, and Metal passes it on the M2.
+  - LocalEnergyMinimizer testLargeForces (`maxdist > 1.0`) fails in both precisions. It predates
+    this PR: OpenCL single fails the same way on the unmodified base (3c9effc96) on the M3 Pro
+    (4/4) and the M3 Ultra (3/3). On the M2 it passes, with OpenCL on the base (3/3) and with
+    Metal. Reference and CPU pass everywhere. Filed separately as <issue link>.
 
 
 FAH benchmarks
 --------------
-[REPLACE: this table is from build 5fe5b9492 on the M2 only. Swap in the three-chip results (M2,
-M3 Pro, M3 Ultra at f9347f6c5, lab experiments/017-three-chips) when they land.]
-- Host: Mac mini M2 (10 GPU cores, 8 GB).
+- Build f9347f6c5, the same harness on each Mac (lab experiments/017-three-chips), macOS 27, nice 0.
 - Clock: host wall clock (time.perf_counter) over whole steps, 60 s after a 200-step warm-up.
-- Errors: relative to Reference in double, at the work unit's start state.
+- Mean of three rounds; each round rotates the configuration order. The GPU standard deviation is
+  under 1% in 19 of 27 cells, and at most 4.3%.
 
-  ns/day                     Metal single  Metal mixed  OpenCL single    CPU   Metal/OpenCL
-  dhfr-implicit (2489 atoms)       198.25       155.18         191.42  18.39           1.04
-  dhfr, PME (23558)                 81.78        54.53          68.14  20.15           1.20
-  nav, PME (173112)                 11.27         8.49          11.01   1.53           1.02
+  ns/day                                       Metal single  Metal mixed  OpenCL single     CPU  Metal/OpenCL
+  dhfr-implicit (2489 atoms) M2 (10 GPU cores)       199.40       155.09         192.76   18.23          1.03
+                             M3 Pro (18)             377.19       318.55         374.20   30.01          1.01
+                             M3 Ultra (60)           624.81       464.23         598.19   42.31          1.04
+  dhfr, PME (23558)          M2 (10 GPU cores)        82.78        55.27          69.23   19.81          1.20
+                             M3 Pro (18)             134.62        98.92         108.11   29.25          1.25
+                             M3 Ultra (60)           135.24       102.46         105.65   28.75          1.28
+  nav, PME (173112)          M2 (10 GPU cores)        11.28         8.49          11.00    1.50          1.03
+                             M3 Pro (18)              21.16        15.93          20.98    2.49          1.01
+                             M3 Ultra (60)            45.13        36.42          44.76    4.81          1.01
 
-- Three interleaved repeats, single precision, nice 0: dhfr-implicit 199.06 ± 0.26 against
-  192.20 ± 0.40 (1.036); nav 11.29 ± 0.01 against 11.01 ± 0.01 (1.026).
-- Force and energy errors are at OpenCL's level.
-  - Force: 1.21e-6 on dhfr and 1.75e-6 against OpenCL's 1.80e-6 on nav.
-  - Energy: 2.0e-6 against 1.8e-6 on dhfr.
-  - The 2.5e-5 dhfr-implicit force error is the same on every GPU platform. It comes from
-    rounding the work unit's positions to float.
+- Errors relative to Reference in double at the work unit's start state, the same on all three
+  chips: force 1.21e-6 (dhfr) and 1.75e-6 (nav, OpenCL 1.80-1.82e-6); energy on dhfr 2.1-2.2e-6
+  (OpenCL 1.7-1.9e-6). The 2.5e-5 dhfr-implicit force error is the same on every GPU platform; it
+  comes from rounding the work unit's positions to float.
+- dhfr is no faster on the M3 Ultra than on the M3 Pro because a 23.5k-atom system doesn't fill
+  60 GPU cores. In a PME water-box sweep (same clock), a step never goes below about 0.24 ms on
+  either chip. Throughput (atoms x ns/day) reaches its plateau at about 50k atoms on the M3 Pro
+  and about 170k on the M3 Ultra. OpenCL shows the same pattern.

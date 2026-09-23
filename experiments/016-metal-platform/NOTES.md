@@ -1156,6 +1156,29 @@ tree is `metal` at f9347f6c5.
   - New test: testRelatedPowers in tests/TestCustomIntegrator.h, per-DOF `x^4+x^5` at 1e-5.
   - OpenCL C accepts `double3 t = 0.0f` through scalar widening. CUDA/HIP vector types are plain
     structs, so they likely had the same bug; unverified, since they can't be built on a Mac.
-  - Before committing, once the machines are released:
-    - build and run TestMetalCustomIntegrator in single and mixed, and TestOpenCLCustomIntegrator;
-    - mutation check: revert the one line, and mixed must fail to compile.
+  - Committed as 361452c5c after the machines were released:
+    - Laptop (-j8), $S/wt + patch: TestReferenceCustomIntegrator Done; TestOpenCLCustomIntegrator
+      single Done (mixed/double: no compatible OpenCL platform); TestMetalCustomIntegrator single and
+      mixed Done.
+    - Mini, ~/lab/openmm-metal synced (code blobs = f9347f6c5 before the sync; the two files
+      match by hash afterwards): TestMetalCustomIntegrator single and mixed Done. The build is not
+      installed, so prefix-openmm-metal / venv-metal are still f9347f6c5.
+    - There's no TestCpuCustomIntegrator: the CPU platform runs CustomIntegrator on Reference
+      kernels, which don't go through ExpressionUtilities.
+    - Mutation (the one line reverted, test kept): Metal mixed fails with "no viable conversion
+      from 'float' to 'df64_3'". Metal single and OpenCL single still pass, since both widen a
+      scalar.
+    - OPENMM_SAVE_TEMPS dump with the fix: `double3 temp9 = make_double3(0.0f);` (first power)
+      and `double3 temp10 = make_double3(0.0f);` (related power), so the test reaches the line.
+
+### 2026-09-23 — testLargeForces across chips
+
+- Mini, pristine 3c9effc96 (~/lab/base-3c9e, git archive, OpenCL tests on):
+  TestOpenCLLocalEnergyMinimizer single passes 3/3. Reference and CPU pass. OpenCL mixed/double:
+  no compatible platform.
+- Laptop M3 Pro, pristine 3c9effc96 ($S/basebuild): OpenCL single fails at :229 3/3 more (4/4 in
+  all).
+- M3 Ultra (017, f9347f6c5 build): Metal single, Metal mixed and OpenCL single fail 3/3 at :229.
+  Reference and CPU pass.
+- Conclusion: an M3-family failure in upstream code, not in ours. Issue draft updated:
+  drafts/2026-09-23-testlargeforces-issue.txt.
