@@ -38,7 +38,7 @@ Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not
 
 | # | Experiment | Status |
 |---|---|---|
-| P0 | simd_ballot findInteractingBlocks in the platform (branch metal-simd-findblocks, exp 019) | running (mini) |
+| P0 | simd_ballot findInteractingBlocks in the platform (branch metal-simd-findblocks, exp 019) | measured (M2, host clock, median of 3 interleaved rounds): benchmark.py 1.058-1.257x (apoa1rf single 58.83 -> 73.98 ns/day), FAH WUs 1.021-1.098x; ctest 110/110; forces 5e-9 rel. Commit 33728aa53. Next: fresh verifier, M3 Ultra run |
 | P1 | Instrumentation behind OPENMM_METAL_PROFILE: sync census (commits, finish, event waits, CCMA iterations), GPU busy/bubbles via completion handlers, per-kernel GPU time in a buffer-per-dispatch mode; dhfr, nav, dhfr-implicit, single and mixed | running (Studio, perf-studio; branch metal-perf-profile 32d09490d) |
 | P2 | CCMA without drains: encode block k+1 before waiting on block k, read the flag from shared memory (bitwise identical; dhfr 1.1-1.6x est.). CCMA is the only place Metal leads OpenCL: FAHBench dhfr sends 3,072 constraints to CCMA (all bonds + H-X-H angles; every non-water constraint) and leads 1.20-1.28x; benchmark.py's dhfr (HBonds, 790 SHAKE clusters, 0 CCMA) ties. Also A/B Metal vs OpenCL CCMA alone to find why | running (Studio; branch metal-perf-sync bbf599ddc, laptop ctest 107/110 = #5434 x2 + 1 stochastic) |
 | P3 | Attribute and fix the mixed-precision cost. Laptop census (indicative): computeNonbonded +39-40% in mixed (56% of nav's penalty) because force-only steps still accumulate df64 energy; SETTLE/SHAKE 4-7x, integrator 2-3x, CCMA 2x | running (Studio; branch metal-perf-p3-energy-guard 5f30ddc82) |
