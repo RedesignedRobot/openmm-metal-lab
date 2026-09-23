@@ -12,14 +12,14 @@
 
 <header class="hero"><div class="wrap">
   <div class="kicker">openmm/openmm <span>&middot; related #5397 &middot; see also #5416</span></div>
-  <h1>Add a <span class="grad">Metal</span> platform.</h1>
+  <h1>Add a <span class="accent">Metal</span> platform.</h1>
   <p class="dek">A native Metal platform for Apple GPUs. Like CUDA and HIP, it's a thin <code>ComputeContext</code> on the common compute framework, and every common kernel compiles unchanged. Plain C++ with vendored metal-cpp: no Objective-C, and no Xcode.</p>
-  <div class="byline"><b>AI use.</b> Built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. I have reviewed the code, I understand how it works, and I will answer review questions myself.</div>
+  <div class="byline">Built using Claude Fable 5.1, with a rigorous scientific and testing approach, under my direction.</div>
   <div class="stats">
     <div class="stat" style="--c:var(--blue)"><b>1.28&times;</b><span>Metal single over OpenCL single on dhfr. Never below 1.01&times;</span></div>
     <div class="stat" style="--c:var(--violet)"><b>11&times;</b><span>Metal mixed over CPU. Apple's OpenCL has no mixed precision</span></div>
     <div class="stat" style="--c:var(--teal)"><b>1.21e-6</b><span>force error on dhfr, identical to OpenCL on every chip</span></div>
-    <div class="stat" style="--c:var(--gold)"><b>6,557</b><span>lines in platforms/metal/src. HIP 5,760, CUDA 7,897</span></div>
+    <div class="stat" style="--c:var(--gold)"><b>6,507</b><span>lines in platforms/metal src and include. HIP 7,604, CUDA 7,828</span></div>
   </div>
 </div></header>
 
@@ -52,7 +52,7 @@
 
 <section><div class="wrap">
   <div class="col"><h2 style="--c:var(--teal)"><small>Accuracy</small>Against Reference in double.</h2>
-  <p>Force error matches OpenCL on all three chips: 1.21e-6 on dhfr, and 1.75e-6 on nav (OpenCL 1.80e-6). Energy error is at most 2.2e-6. df64 is within 7e-15 of a host double closed form.</p></div>
+  <p>Force error matches OpenCL on all three chips: 1.21e-6 on dhfr, and 1.75e-6 on nav (OpenCL 1.80e-6 to 1.82e-6). Energy error is at most 2.2e-6. df64 is within 7e-15 of a host double closed form.</p></div>
   <div class="pair">
     <figure><!--fig:accuracy--><figcaption><b>Relative force error</b>, every run on every chip. dhfr-implicit's 2.5e-5 comes from rounding positions to float on every GPU platform.</figcaption></figure>
     <figure><!--fig:drift--><figcaption><b>NVE drift</b> on dhfr over 0.1 ns. CPU alone spans &minus;53 to &minus;160 across the three machines.</figcaption></figure>

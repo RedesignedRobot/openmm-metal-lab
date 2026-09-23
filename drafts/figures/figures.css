@@ -15,3 +15,7 @@ svg .line { fill: none; stroke-width: 2.6; stroke-linejoin: round; stroke-lineca
 svg .ring { fill: none; stroke-width: 2; }
 svg .dot { fill-opacity: .55; stroke-width: 1.2; }
 svg .t-c-m2 { fill: var(--m2); } svg .t-c-pro { fill: var(--pro); } svg .t-c-ultra { fill: var(--ultra); }
+svg .box { fill: none; stroke: #3a3a42; stroke-width: 1; }
+svg .box-hi { fill: var(--ultra); fill-opacity: .1; stroke: var(--ultra); stroke-width: 1.5; }
+svg .box-faint { fill: none; stroke: #26262b; stroke-width: 1; stroke-dasharray: 3 4; }
+svg .t-hi { fill: var(--ultra); }

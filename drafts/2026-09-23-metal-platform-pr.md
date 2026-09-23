@@ -1,10 +1,10 @@
 # Add a Metal platform
 
-> **AI use:** built with Claude (Fable 5.1 and Opus 5.5) using a rigorous scientific and testing approach, under human supervision and direction. I have reviewed the code, I understand how it works, and I will answer review questions myself.
+> Built using Claude Fable 5.1, with a rigorous scientific and testing approach, under my direction.
 
 Related: #5397. See also #5416.
 
-This adds a native Metal platform for Apple GPUs. Like CUDA and HIP, it is a thin `ComputeContext` implementation on the common compute framework, and every common kernel compiles unchanged. It is plain C++ using metal-cpp, which is header-only and vendored in `libraries/`. There is no Objective-C, and it builds with the Command Line Tools, without Xcode. `platforms/metal/src` is 6,557 lines, compared with 5,760 for HIP, 7,897 for CUDA and 8,845 for OpenCL.
+This adds a native Metal platform for Apple GPUs. Like CUDA and HIP, it is a thin `ComputeContext` implementation on the common compute framework, and every common kernel compiles unchanged. It is plain C++ using metal-cpp, which is header-only and vendored in `libraries/`. There is no Objective-C, and it builds with the Command Line Tools, without Xcode. `platforms/metal/src` and `include` are 6,507 lines, compared with 7,604 for HIP, 7,828 for CUDA and 8,779 for OpenCL (without the vendored `opencl.hpp`).
 
 **Command buffers.** Kernels encode into one open command buffer, which is committed only when the host needs a result. TestMetalCommandBatching measures 1.01 command buffers per step without a cutoff and 2.01 with PME.
 
@@ -36,7 +36,7 @@ Throughput plateaus with system size, and OpenCL plateaus at the same level. Per
 
 ## Accuracy
 
-On all three chips the relative force error against Reference is the same as OpenCL's: 1.21e-6 on dhfr, and 1.75e-6 on nav (OpenCL 1.80e-6). The energy error is at most 2.2e-6. Against a host double closed form, df64 is within 7e-15. NVE drift on dhfr over 0.1 ns is −53 to −177 kJ/mol/ns across all platforms and chips. CPU alone spans −53 to −160 across the three machines, so run-to-run variation dominates.
+On all three chips the relative force error against Reference is the same as OpenCL's: 1.21e-6 on dhfr, and 1.75e-6 on nav (OpenCL 1.80e-6 to 1.82e-6). The energy error is at most 2.2e-6. Against a host double closed form, df64 is within 7e-15. NVE drift on dhfr over 0.1 ns is −53 to −177 kJ/mol/ns across all platforms and chips. CPU alone spans −53 to −160 across the three machines, so run-to-run variation dominates.
 
 ## Changes outside `platforms/metal`
 

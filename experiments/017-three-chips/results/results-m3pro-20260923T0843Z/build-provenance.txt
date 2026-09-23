@@ -1,0 +1,19 @@
+commit f9347f6c5619613c1b7169dc42c7aab1ba0912c0
+source: git -C /Users/amir/code/mini/openmm-metal archive --format=tar f9347f6c5
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+macOS SDK 27.0
+cmake version 4.4.3
+ninja 1.13.2
+SWIG Version 4.5.1
+doxygen 1.18.0
+python 3.13.15 numpy 2.5.3 cython 3.3.0
+micromamba 2.9.0 (sha256 of tarball in bench dir: 500f5074feb8d02c4296ef9921c3650ed2874171805a9fbb8fbb53896433646b)
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_INSTALL_PREFIX=/tmp/openmm-metal-bench/prefix -DPYTHON_EXECUTABLE=/tmp/openmm-metal-bench/env/bin/python -DOPENMM_BUILD_OPENCL_LIB=ON
+ninja -C build -j8 && ninja -C build install && ninja -C build PythonInstall (PythonInstall rerun after adding cython)
+CMAKE_CXX_FLAGS:STRING=
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+OPENMM_BUILD_CPU_LIB:BOOL=ON
+OPENMM_BUILD_METAL_LIB:BOOL=ON
+OPENMM_BUILD_OPENCL_LIB:BOOL=ON
+openmm 8.6 Unknown
+['Reference', 'CPU', 'Metal', 'OpenCL']
