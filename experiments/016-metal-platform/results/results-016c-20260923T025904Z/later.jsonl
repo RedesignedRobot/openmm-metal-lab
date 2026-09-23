@@ -1,0 +1,4 @@
+{"wu": "dhfr-implicit", "platform": "Metal", "precision": "single", "steps": 5000, "rel_force_err": 4.523925602793284e-06, "energy": -21492.43035888672, "energy_ref": -21492.441915921547, "energy_rel_err": 5.377255350142513e-07}
+{"wu": "dhfr-implicit", "platform": "Metal", "precision": "mixed", "steps": 5000, "rel_force_err": 2.8597085146771477e-05, "energy": -21603.372085186398, "energy_ref": -21603.38300434121, "energy_rel_err": 5.054372645544172e-07}
+{"wu": "dhfr-implicit", "platform": "OpenCL", "precision": "single", "steps": 5000, "rel_force_err": 5.015344487208177e-06, "energy": -21351.64111328125, "energy_ref": -21351.655290012513, "energy_rel_err": 6.639640379574794e-07}
+{"wu": "dhfr", "platform": "Metal", "precision": "single", "steps": 5000, "rel_force_err": 1.283121195580711e-06, "energy": -339521.83322992246, "energy_ref": -339522.5386283717, "energy_rel_err": 2.0776189177794085e-06}

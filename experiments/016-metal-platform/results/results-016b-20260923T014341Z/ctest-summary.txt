@@ -1,0 +1,40 @@
+ 96/108 Test  #96: TestMetalRandomMixed ...........................   Passed    0.09 sec
+        Start  97: TestMetalSettleSingle
+ 97/108 Test  #97: TestMetalSettleSingle ..........................   Passed    0.67 sec
+        Start  98: TestMetalSettleMixed
+ 98/108 Test  #98: TestMetalSettleMixed ...........................   Passed    0.81 sec
+        Start  99: TestMetalSortSingle
+ 99/108 Test  #99: TestMetalSortSingle ............................   Passed    0.43 sec
+        Start 100: TestMetalSortMixed
+100/108 Test #100: TestMetalSortMixed .............................   Passed    0.05 sec
+        Start 101: TestMetalVariableLangevinIntegratorSingle
+101/108 Test #101: TestMetalVariableLangevinIntegratorSingle ......   Passed   13.50 sec
+        Start 102: TestMetalVariableLangevinIntegratorMixed
+102/108 Test #102: TestMetalVariableLangevinIntegratorMixed .......   Passed   18.93 sec
+        Start 103: TestMetalVariableVerletIntegratorSingle
+103/108 Test #103: TestMetalVariableVerletIntegratorSingle ........   Passed    3.23 sec
+        Start 104: TestMetalVariableVerletIntegratorMixed
+104/108 Test #104: TestMetalVariableVerletIntegratorMixed .........   Passed    3.91 sec
+        Start 105: TestMetalVerletIntegratorSingle
+105/108 Test #105: TestMetalVerletIntegratorSingle ................   Passed    4.45 sec
+        Start 106: TestMetalVerletIntegratorMixed
+106/108 Test #106: TestMetalVerletIntegratorMixed .................   Passed   11.02 sec
+        Start 107: TestMetalVirtualSitesSingle
+107/108 Test #107: TestMetalVirtualSitesSingle ....................   Passed    4.17 sec
+        Start 108: TestMetalVirtualSitesMixed
+108/108 Test #108: TestMetalVirtualSitesMixed .....................   Passed   26.47 sec
+
+94% tests passed, 6 tests failed out of 108
+
+Total Test time (real) = 1251.07 sec
+
+The following tests FAILED:
+	 45 - TestMetalDPDIntegratorSingle (Failed)
+	 46 - TestMetalDPDIntegratorMixed (Failed)
+	 55 - TestMetalGayBerneForceSingle (Failed)
+	 56 - TestMetalGayBerneForceMixed (Failed)
+	 68 - TestMetalLocalEnergyMinimizerMixed (Failed)
+	 69 - TestMetalMonteCarloAnisotropicBarostatSingle (Failed)
+Errors while running CTest
+Output from these tests are in: /Users/amir/lab/openmm-metal/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
