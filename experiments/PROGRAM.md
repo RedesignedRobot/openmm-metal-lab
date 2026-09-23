@@ -5,7 +5,9 @@ queued -> running -> measured -> verified. A gain counts only with an end-to-end
 names its clock and a fresh-context verifier pass.
 
 Machines: mini (M2, main test box), laptop (M3 Pro, free after 018), Studio (M3 Ultra, final
-benchmarks only, /tmp/openmm-metal-bench). One heavy job per machine.
+benchmarks only, /tmp/openmm-metal-bench). One heavy job per machine: every build, GPU run or timed measurement
+holds that machine's lease, `mkdir /tmp/openmm-lease` (owner line inside; released right after; never
+held while editing; stale after 60 min = ask the lead).
 
 ## Compatibility (research report 2026-09-23)
 
