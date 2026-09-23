@@ -35,9 +35,9 @@ Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not
 | # | Experiment | Status |
 |---|---|---|
 | P0 | simd_ballot findInteractingBlocks in the platform (branch metal-simd-findblocks, exp 019) | running (mini) |
-| P1 | Instrumentation behind OPENMM_METAL_PROFILE: sync census (commits, finish, event waits, CCMA iterations), GPU busy/bubbles via completion handlers, per-kernel GPU time in a buffer-per-dispatch mode; dhfr, nav, dhfr-implicit, single and mixed | queued (agent writing code; machine when free) |
-| P2 | CCMA without drains: encode block k+1 before waiting on block k, read the flag from shared memory (bitwise identical; dhfr 1.1-1.6x est.). CCMA is the only place Metal leads OpenCL: FAHBench dhfr sends 3,072 constraints to CCMA (all bonds + H-X-H angles; every non-water constraint) and leads 1.20-1.28x; benchmark.py's dhfr (HBonds, 790 SHAKE clusters, 0 CCMA) ties. Also A/B Metal vs OpenCL CCMA alone to find why | queued, after P1 |
-| P3 | Attribute and fix the mixed-precision cost (unguarded df64 energy writes in bonded/GBSA, SETTLE/SHAKE in df64, CCMA iterations, IEEE decode) | queued, after P1 |
+| P1 | Instrumentation behind OPENMM_METAL_PROFILE: sync census (commits, finish, event waits, CCMA iterations), GPU busy/bubbles via completion handlers, per-kernel GPU time in a buffer-per-dispatch mode; dhfr, nav, dhfr-implicit, single and mixed | running (Studio, perf-studio; branch metal-perf-profile 32d09490d) |
+| P2 | CCMA without drains: encode block k+1 before waiting on block k, read the flag from shared memory (bitwise identical; dhfr 1.1-1.6x est.). CCMA is the only place Metal leads OpenCL: FAHBench dhfr sends 3,072 constraints to CCMA (all bonds + H-X-H angles; every non-water constraint) and leads 1.20-1.28x; benchmark.py's dhfr (HBonds, 790 SHAKE clusters, 0 CCMA) ties. Also A/B Metal vs OpenCL CCMA alone to find why | running (Studio; branch metal-perf-sync bbf599ddc, laptop ctest 107/110 = #5434 x2 + 1 stochastic) |
+| P3 | Attribute and fix the mixed-precision cost. Laptop census (indicative): computeNonbonded +39-40% in mixed (56% of nav's penalty) because force-only steps still accumulate df64 energy; SETTLE/SHAKE 4-7x, integrator 2-3x, CCMA 2x | running (Studio; branch metal-perf-p3-energy-guard 5f30ddc82) |
 | P4 | Defer the neighbor-list count wait one step with rollback on overflow (upstream-relevant) | queued |
 | P5 | Float-atomic PME spreading on Apple9+ only (~0.26 ms/step on Ultra; M2 slower) | queued |
 | P6 | Native SIMD nonbonded (exp 010) on Apple9+ | queued |
@@ -64,7 +64,7 @@ Double precision: decline.
 
 | # | Experiment | Status |
 |---|---|---|
-| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | queued (needs mini + laptop, minutes each) |
+| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | running (M3 Ultra done; M2 fix probe on the mini) |
 | E1 | Better erfc in direct-space PME via an upstream macro hook; host prediction first, then kernel A/B | queued |
 | E2 | Replace 20-point fast-math probe with domain sweep (exp on [-88,0], log near 1, ulp not relative, NaN = fail); attribute Metal-vs-OpenCL energy gap | queued |
 | E3 | Two-pass deterministic minimizer reductions (= C4) | queued |
