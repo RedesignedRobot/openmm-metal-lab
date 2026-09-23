@@ -1,0 +1,872 @@
+=== gbsa-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T13:59:24.228183+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 200514
+elapsed_time: 58.620574
+ns_per_day: 1182.138516760344
+
+
+=== gbsa-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:00:24.762500+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 136575
+elapsed_time: 59.66715
+ns_per_day: 791.0604076112232
+
+
+=== gbsa-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:01:30.935426+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 199201
+elapsed_time: 58.878304
+ns_per_day: 1169.2569405531788
+
+
+=== gbsa-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:02:32.454966+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 12099
+elapsed_time: 58.908623
+ns_per_day: 70.98136379796215
+
+
+=== rf-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:03:33.950079+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 82163
+elapsed_time: 59.674923
+ns_per_day: 475.83694075315344
+
+
+=== rf-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:04:37.869053+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 115451
+elapsed_time: 60.022576
+ns_per_day: 664.7476376222172
+
+
+=== rf-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:05:39.869935+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 9831
+elapsed_time: 59.792321
+ns_per_day: 56.82324323887677
+
+
+=== rf-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:06:41.457455+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 121604
+elapsed_time: 59.175763
+ns_per_day: 710.1951925824766
+
+
+=== pme-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:07:43.405003+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 90225
+elapsed_time: 60.201881
+ns_per_day: 517.9532513278114
+
+
+=== pme-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:08:46.189285+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 8580
+elapsed_time: 59.454903
+ns_per_day: 49.873901905112845
+
+
+=== pme-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:09:47.432250+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 92948
+elapsed_time: 59.896169
+ns_per_day: 536.3085709204539
+
+
+=== pme-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:10:49.243768+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 64958
+elapsed_time: 59.941131
+ns_per_day: 374.52554573920196
+
+
+=== apoa1rf-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:11:53.327225+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 3819
+elapsed_time: 64.780587
+ns_per_day: 20.374103741912677
+
+
+=== apoa1rf-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:13:02.090797+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 52469
+elapsed_time: 62.893313
+ns_per_day: 288.31819370049715
+
+
+=== apoa1rf-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:14:08.531328+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 38271
+elapsed_time: 62.889919
+ns_per_day: 210.31125195120697
+
+
+=== apoa1rf-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:15:17.834741+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 51025
+elapsed_time: 63.077794
+ns_per_day: 279.56335949224854
+
+
+=== apoa1pme-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:16:26.210385+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 32302
+elapsed_time: 60.810349
+ns_per_day: 183.58012054823098
+
+
+=== apoa1pme-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:17:31.073725+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 26063
+elapsed_time: 60.844381
+ns_per_day: 148.03951740424475
+
+
+=== apoa1pme-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:18:36.416865+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 31739
+elapsed_time: 60.749181
+ns_per_day: 180.5620786887645
+
+
+=== apoa1pme-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:19:41.786338+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 3147
+elapsed_time: 61.968092
+ns_per_day: 17.55101964410974
+
+
+=== apoa1ljpme-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:20:49.164758+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 19179
+elapsed_time: 61.079686
+ns_per_day: 108.51827889226539
+
+
+=== apoa1ljpme-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:21:55.200400+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 22357
+elapsed_time: 60.834671
+ns_per_day: 127.00946800550625
+
+
+=== apoa1ljpme-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:23:00.455936+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 2745
+elapsed_time: 61.234696
+ns_per_day: 15.492393397364134
+
+
+=== apoa1ljpme-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:24:05.981983+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 22570
+elapsed_time: 61.024484
+ns_per_day: 127.82069570633318
+
+
+=== amber20-dhfr-OpenCL-single: exit 1
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:25:11.930475+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+Downloading https://ambermd.org/Amber20_Benchmark_Suite.tar.gz
+Extracting Amber20_Benchmark_Suite.tar.gz
+/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py:121: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tarfh.extractall(path=dirname)
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-CPU-single: exit 1
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:25:22.132616+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-Metal-single: exit 1
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:25:22.361487+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-Metal-mixed: exit 1
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:25:22.590394+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-cellulose-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:25:24.062787+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 989
+elapsed_time: 60.597971
+ns_per_day: 5.64042647566533
+
+
+=== amber20-cellulose-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:26:48.725609+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 8463
+elapsed_time: 60.395478
+ns_per_day: 48.4276786417685
+
+
+=== amber20-cellulose-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:27:59.841522+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 7078
+elapsed_time: 60.29206
+ns_per_day: 40.571790049966765
+
+
+=== amber20-cellulose-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:29:46.404724+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 8346
+elapsed_time: 60.407953
+ns_per_day: 47.74830890230628
+
+
+=== amber20-stmv-Metal-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:31:01.622508+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 3222
+elapsed_time: 60.13954
+ns_per_day: 18.5156587496346
+
+
+=== amber20-stmv-Metal-mixed: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:32:25.526212+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+steps: 2730
+elapsed_time: 59.67729
+ns_per_day: 15.809833187800582
+
+
+=== amber20-stmv-OpenCL-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:35:51.709153+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Ultra', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 3241
+elapsed_time: 60.20757
+ns_per_day: 18.603800153369416
+
+
+=== amber20-stmv-CPU-single: ok
+hostname: MAS-Mac-Studio-Ultra.local
+timestamp: 2026-09-23T14:37:19.574507+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '28', 'DeterministicForces': 'false'}
+steps: 266
+elapsed_time: 54.458043
+ns_per_day: 1.6880812261285256
+
+

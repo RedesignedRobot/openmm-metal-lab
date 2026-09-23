@@ -1,0 +1,31 @@
+{
+    "benchmarks": [
+        {
+            "test": "amber20-dhfr",
+            "cutoff": 0.9,
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M3 Pro",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/"
+            },
+            "steps": 47026,
+            "elapsed_time": 60.976206,
+            "ns_per_day": 266.53323757138975
+        }
+    ],
+    "system": {
+        "hostname": "Laptop",
+        "timestamp": "2026-09-23T14:37:41.830433+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Pro",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

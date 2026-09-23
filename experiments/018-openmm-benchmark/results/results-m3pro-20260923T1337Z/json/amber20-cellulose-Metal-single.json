@@ -1,0 +1,31 @@
+{
+    "benchmarks": [
+        {
+            "test": "amber20-cellulose",
+            "cutoff": 0.9,
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M3 Pro",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/"
+            },
+            "steps": 3514,
+            "elapsed_time": 61.29139,
+            "ns_per_day": 19.81417618363688
+        }
+    ],
+    "system": {
+        "hostname": "Laptop",
+        "timestamp": "2026-09-23T14:20:18.240735+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Pro",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

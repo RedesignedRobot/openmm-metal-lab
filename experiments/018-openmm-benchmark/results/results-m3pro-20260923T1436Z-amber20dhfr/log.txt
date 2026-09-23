@@ -1,0 +1,84 @@
+=== amber20-dhfr-Metal-single: ok
+hostname: Laptop
+timestamp: 2026-09-23T14:36:34.528123+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Pro
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/'}
+steps: 68431
+elapsed_time: 61.245101
+ns_per_day: 386.1493117629114
+
+
+=== amber20-dhfr-Metal-mixed: ok
+hostname: Laptop
+timestamp: 2026-09-23T14:37:41.830433+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Pro
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/'}
+steps: 47026
+elapsed_time: 60.976206
+ns_per_day: 266.53323757138975
+
+
+=== amber20-dhfr-OpenCL-single: ok
+hostname: Laptop
+timestamp: 2026-09-23T14:38:48.244700+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Pro
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M3 Pro', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 67095
+elapsed_time: 61.013613
+ns_per_day: 380.0468593787421
+
+
+=== amber20-dhfr-CPU-single: ok
+hostname: Laptop
+timestamp: 2026-09-23T14:39:52.719312+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Pro
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '12', 'DeterministicForces': 'false'}
+steps: 8196
+elapsed_time: 62.541956
+ns_per_day: 45.29019847092725
+
+

@@ -1,0 +1,31 @@
+{
+    "benchmarks": [
+        {
+            "test": "apoa1pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M3 Ultra",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/"
+            },
+            "steps": 32302,
+            "elapsed_time": 60.810349,
+            "ns_per_day": 183.58012054823098
+        }
+    ],
+    "system": {
+        "hostname": "MAS-Mac-Studio-Ultra.local",
+        "timestamp": "2026-09-23T14:16:26.210385+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Ultra",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

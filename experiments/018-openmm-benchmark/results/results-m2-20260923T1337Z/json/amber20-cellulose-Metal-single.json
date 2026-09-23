@@ -1,0 +1,31 @@
+{
+    "benchmarks": [
+        {
+            "test": "amber20-cellulose",
+            "cutoff": 0.9,
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 1818,
+            "elapsed_time": 59.715728,
+            "ns_per_day": 10.52152960439501
+        }
+    ],
+    "system": {
+        "hostname": "Amirs-Mac-mini.local",
+        "timestamp": "2026-09-23T14:06:40.994046+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M2",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

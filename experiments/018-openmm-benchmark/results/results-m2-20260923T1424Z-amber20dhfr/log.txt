@@ -1,0 +1,84 @@
+=== amber20-dhfr-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:24:18.103346+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 38141
+elapsed_time: 61.54974
+ns_per_day: 214.16060571498755
+
+
+=== amber20-dhfr-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:25:24.341409+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 24765
+elapsed_time: 61.164241
+ns_per_day: 139.93117318336377
+
+
+=== amber20-dhfr-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:26:34.232216+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 37512
+elapsed_time: 61.579517
+ns_per_day: 210.52693868969445
+
+
+=== amber20-dhfr-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:27:39.791373+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-dhfr
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 5424
+elapsed_time: 61.578126
+ns_per_day: 30.441562966693727
+
+

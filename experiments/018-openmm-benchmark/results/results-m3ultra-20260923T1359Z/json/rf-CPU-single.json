@@ -1,0 +1,29 @@
+{
+    "benchmarks": [
+        {
+            "test": "rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "CPU",
+            "platform_properties": {
+                "Threads": "28",
+                "DeterministicForces": "false"
+            },
+            "steps": 9831,
+            "elapsed_time": 59.792321,
+            "ns_per_day": 56.82324323887677
+        }
+    ],
+    "system": {
+        "hostname": "MAS-Mac-Studio-Ultra.local",
+        "timestamp": "2026-09-23T14:05:39.869935+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Ultra",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

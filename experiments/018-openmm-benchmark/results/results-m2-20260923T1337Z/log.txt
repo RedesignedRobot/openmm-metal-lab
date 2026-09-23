@@ -1,0 +1,872 @@
+=== gbsa-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:37:39.219977+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 67004
+elapsed_time: 59.951423
+ns_per_day: 386.25575910016335
+
+
+=== gbsa-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:38:40.856607+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 49945
+elapsed_time: 59.417955
+ns_per_day: 290.5012802948199
+
+
+=== gbsa-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:39:44.778616+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 65648
+elapsed_time: 59.497203
+ns_per_day: 381.32798948548884
+
+
+=== gbsa-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:40:46.135053+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: gbsa
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 2.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 6089
+elapsed_time: 58.07623
+ns_per_day: 36.23441810875119
+
+
+=== rf-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:41:47.082884+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 25664
+elapsed_time: 60.325682
+ns_per_day: 147.02657485082386
+
+
+=== rf-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:42:52.513637+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 44576
+elapsed_time: 60.288319
+ns_per_day: 255.5298581139739
+
+
+=== rf-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:43:54.605203+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 4920
+elapsed_time: 58.36879
+ns_per_day: 29.13118466221417
+
+
+=== rf-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:44:55.002735+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 44499
+elapsed_time: 60.521587
+ns_per_day: 254.10527321433256
+
+
+=== pme-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:45:58.603235+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 34369
+elapsed_time: 60.289358
+ns_per_day: 197.01530741130128
+
+
+=== pme-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:47:00.911792+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 4882
+elapsed_time: 58.247506
+ns_per_day: 28.96637668915815
+
+
+=== pme-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:48:01.242354+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 35109
+elapsed_time: 60.681662
+ns_per_day: 199.95613172229855
+
+
+=== pme-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:49:04.168019+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 23588
+elapsed_time: 60.532556
+ns_per_day: 134.67154435044833
+
+
+=== apoa1rf-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:50:10.907044+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 1436
+elapsed_time: 63.189572
+ns_per_day: 7.853852847745193
+
+
+=== apoa1rf-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:51:18.428193+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 11700
+elapsed_time: 68.758147
+ns_per_day: 58.80786752441133
+
+
+=== apoa1rf-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:52:31.505854+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 7428
+elapsed_time: 65.850977
+ns_per_day: 38.98373140310431
+
+
+=== apoa1rf-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:53:45.128764+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1rf
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 1.0
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 11731
+elapsed_time: 68.587921
+ns_per_day: 59.11002317740465
+
+
+=== apoa1pme-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:54:59.316058+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 8927
+elapsed_time: 65.678436
+ns_per_day: 46.97388348285271
+
+
+=== apoa1pme-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:56:09.682919+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 6426
+elapsed_time: 63.392606
+ns_per_day: 35.03288064857279
+
+
+=== apoa1pme-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:57:18.658358+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 8782
+elapsed_time: 65.98031399999999
+ns_per_day: 45.99946584067484
+
+
+=== apoa1pme-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:58:29.132663+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1pme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 1409
+elapsed_time: 63.851259
+ns_per_day: 7.626324173185058
+
+
+=== apoa1ljpme-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T13:59:38.650700+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 4891
+elapsed_time: 63.202906
+ns_per_day: 26.744491780172257
+
+
+=== apoa1ljpme-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:00:49.795941+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 6404
+elapsed_time: 65.208623
+ns_per_day: 33.94064002854346
+
+
+=== apoa1ljpme-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:01:59.644279+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 1229
+elapsed_time: 62.972751
+ns_per_day: 6.7448601697581845
+
+
+=== apoa1ljpme-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:03:07.233239+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: apoa1ljpme
+constraints: HBonds
+hydrogen_mass: 1.5
+cutoff: 0.9
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 6333
+elapsed_time: 64.618476
+ns_per_day: 33.87088237735597
+
+
+=== amber20-dhfr-OpenCL-single: exit 1
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:04:17.543097+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+Downloading https://ambermd.org/Amber20_Benchmark_Suite.tar.gz
+Extracting Amber20_Benchmark_Suite.tar.gz
+/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py:121: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+  tarfh.extractall(path=dirname)
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-CPU-single: exit 1
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:04:25.877685+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-Metal-single: exit 1
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:04:26.111417+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-dhfr-Metal-mixed: exit 1
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:04:26.345640+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+
+=== amber20-cellulose-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:04:27.841748+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 289
+elapsed_time: 58.910594
+ns_per_day: 1.695423407205841
+
+
+=== amber20-cellulose-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:06:40.994046+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 1818
+elapsed_time: 59.715728
+ns_per_day: 10.52152960439501
+
+
+=== amber20-cellulose-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:07:58.642478+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 1419
+elapsed_time: 60.406986
+ns_per_day: 8.118372269061725
+
+
+=== amber20-cellulose-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:09:58.875285+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-cellulose
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 1773
+elapsed_time: 59.642875
+ns_per_day: 10.273629498913323
+
+
+=== amber20-stmv-Metal-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:11:20.102046+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 647
+elapsed_time: 59.283318
+ns_per_day: 3.7717726932895346
+
+
+=== amber20-stmv-Metal-mixed: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:13:18.553528+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: Metal
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+steps: 510
+elapsed_time: 59.252874
+ns_per_day: 2.974640521234463
+
+
+=== amber20-stmv-OpenCL-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:17:22.570833+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: single
+timestep_in_fs: 4.0
+platform: OpenCL
+platform_properties: {'DeviceIndex': '0', 'DeviceName': 'Apple M2', 'OpenCLPlatformIndex': '0', 'OpenCLPlatformName': 'Apple', 'Precision': 'single', 'UseCpuPme': 'false', 'DisablePmeStream': 'false'}
+steps: 624
+elapsed_time: 58.884329
+ns_per_day: 3.6623394315998734
+
+
+=== amber20-stmv-CPU-single: ok
+hostname: Amirs-Mac-mini.local
+timestamp: 2026-09-23T14:19:24.575112+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+test: amber20-stmv
+cutoff: 0.9
+constraints: HBonds
+hydrogen_mass: 1.5
+ensemble: NVT
+precision: mixed
+timestep_in_fs: 4.0
+platform: CPU
+platform_properties: {'Threads': '8', 'DeterministicForces': 'false'}
+steps: 102
+elapsed_time: 57.938646
+ns_per_day: 0.6084229168903946
+
+

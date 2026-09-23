@@ -1,0 +1,36 @@
+{"test": "gbsa", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 61.0}
+{"test": "gbsa", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 66.2}
+{"test": "gbsa", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 61.5}
+{"test": "gbsa", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 60.3}
+{"test": "rf", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 63.9}
+{"test": "rf", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 62.0}
+{"test": "rf", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 61.6}
+{"test": "rf", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 60.7}
+{"test": "pme", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 62.8}
+{"test": "pme", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 61.2}
+{"test": "pme", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 61.8}
+{"test": "pme", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 62.8}
+{"test": "apoa1rf", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 68.8}
+{"test": "apoa1rf", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 66.4}
+{"test": "apoa1rf", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 69.3}
+{"test": "apoa1rf", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 67.1}
+{"test": "apoa1pme", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 64.8}
+{"test": "apoa1pme", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 65.4}
+{"test": "apoa1pme", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 65.4}
+{"test": "apoa1pme", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 66.2}
+{"test": "apoa1ljpme", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 66.0}
+{"test": "apoa1ljpme", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 65.3}
+{"test": "apoa1ljpme", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 65.5}
+{"test": "apoa1ljpme", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 64.7}
+{"test": "amber20-dhfr", "platform": "OpenCL", "precision": "single", "status": "exit 1", "wall_s": 10.2}
+{"test": "amber20-dhfr", "platform": "CPU", "precision": "single", "status": "exit 1", "wall_s": 0.2}
+{"test": "amber20-dhfr", "platform": "Metal", "precision": "single", "status": "exit 1", "wall_s": 0.2}
+{"test": "amber20-dhfr", "platform": "Metal", "precision": "mixed", "status": "exit 1", "wall_s": 0.2}
+{"test": "amber20-cellulose", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 84.7}
+{"test": "amber20-cellulose", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 71.1}
+{"test": "amber20-cellulose", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 106.6}
+{"test": "amber20-cellulose", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 74.0}
+{"test": "amber20-stmv", "platform": "Metal", "precision": "single", "status": "ok", "wall_s": 83.9}
+{"test": "amber20-stmv", "platform": "Metal", "precision": "mixed", "status": "ok", "wall_s": 206.2}
+{"test": "amber20-stmv", "platform": "OpenCL", "precision": "single", "status": "ok", "wall_s": 87.9}
+{"test": "amber20-stmv", "platform": "CPU", "precision": "single", "status": "ok", "wall_s": 146.9}

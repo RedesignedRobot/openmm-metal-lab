@@ -1,0 +1,29 @@
+{
+    "benchmarks": [
+        {
+            "test": "amber20-stmv",
+            "cutoff": 0.9,
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "CPU",
+            "platform_properties": {
+                "Threads": "12",
+                "DeterministicForces": "false"
+            },
+            "steps": 156,
+            "elapsed_time": 58.72898,
+            "ns_per_day": 0.9180067489678859
+        }
+    ],
+    "system": {
+        "hostname": "Laptop",
+        "timestamp": "2026-09-23T14:31:41.495335+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Pro",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "benchmarks": [
+        {
+            "test": "apoa1rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "OpenCL",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M3 Ultra",
+                "OpenCLPlatformIndex": "0",
+                "OpenCLPlatformName": "Apple",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "DisablePmeStream": "false"
+            },
+            "steps": 51025,
+            "elapsed_time": 63.077794,
+            "ns_per_day": 279.56335949224854
+        }
+    ],
+    "system": {
+        "hostname": "MAS-Mac-Studio-Ultra.local",
+        "timestamp": "2026-09-23T14:15:17.834741+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Ultra",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}
