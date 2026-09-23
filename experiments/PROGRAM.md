@@ -4,8 +4,8 @@ State file for the experiment program. Each lane lists its ranked experiments; s
 queued -> running -> measured -> verified. A gain counts only with an end-to-end measurement that
 names its clock and a fresh-context verifier pass.
 
-Machines: mini (M2, main test box, `amir@100.80.58.31` over Tailscale) and Studio (M3 Ultra, only under
-/tmp/openmm-metal-bench). The laptop (M3 Pro) is the owner's working machine: edit code there, but no builds,
+Machines: Studio (M3 Ultra, main box for tests and timing since 2026-09-23, only under /tmp/openmm-metal-bench,
+everything deleted when the work is done) and mini (M2, `amir@100.80.58.31` over Tailscale). The laptop (M3 Pro) is the owner's working machine: edit code there, but no builds,
 GPU runs or timings (owner, 2026-09-23). M3 results come from the Studio. One heavy job per machine: every build, GPU run or timed measurement
 holds that machine's lease, `mkdir /tmp/openmm-lease` (owner line inside; released right after; never
 held while editing; stale after 60 min = ask the lead).
