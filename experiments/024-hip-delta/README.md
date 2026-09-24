@@ -2,7 +2,7 @@
 
 peastman plans to write the Metal platform himself, starting from CUDA or HIP, and to read ours as a reference. So the product here is a readable "HIP to Metal in N lines" diff. Every line that differs from HIP should exist because Metal needs it or because it measurably speeds things up.
 
-The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 looked for measured speedups and found none that passes the tests, so it has no commit. Stage 4 is 089374b36 and b753d9a6a: mixed precision with df64, gated against `metal` at 052eaa85b.
+The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 looked for measured speedups and found none that passes the tests, so it has no commit. Stage 4 is 089374b36 and b753d9a6a: mixed precision with df64, gated against `metal` at 052eaa85b. Round 2 followed the lead's review: f341bf739 restores the 31-argument message a test expects, 5d9e2388e throws when the IORegistry has no GPU core count, and 9074c38f1 finds the sort range in one threadgroup, which fixes apoa1ljpme's per-process spread on the M3 Ultra. The M3 Ultra tuning pass found no setting that holds 0.97x `metal` on both chips (see round 2).
 
 ## Metric
 
@@ -18,23 +18,26 @@ The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9e
 | Stage 2 cut to the minimum, 1e90e5b0a | 467 | 0 | 467 |
 | Verifier fixes, 62e1e2e95 | 464 | 0 | 464 |
 | Stage 4: mixed precision with df64, b753d9a6a | 474 | 589 (df64) | 1,063 |
+| 31-argument message restored, f341bf739 | 476 | 589 | 1,065 |
+| Throw without a GPU core count, 5d9e2388e | 478 | 589 | 1,067 |
+| Sort range in one threadgroup, 9074c38f1 | 479 | 589 | 1,068 |
 
 The table's count leaves out code a reader has to write too:
 
-- All of `platforms/metal`, CMake files and tests included, adds 995 lines at 62e1e2e95 (1,262 at aa7464387) and 1,892 at b753d9a6a, where df64.metal and TestMetalMixedPrecision.cpp are 885 of the 897 new lines. The tests are most of the difference: 249 lines added to HIP's test files and 257 in Metal-only tests (TestMetalCommandBatching, TestMetalFFT).
+- All of `platforms/metal`, CMake files and tests included, adds 995 lines at 62e1e2e95 (1,262 at aa7464387) and 1,892 at b753d9a6a (1,897 at 9074c38f1), where df64.metal and TestMetalMixedPrecision.cpp are 885 of the 897 new lines. The tests are most of the difference: 249 lines added to HIP's test files and 257 in Metal-only tests (TestMetalCommandBatching, TestMetalFFT).
 - Outside `platforms/metal` the branch through 62e1e2e95 changes 13 files, +100 and -45 lines, most of it shared with `metal`: the top-level CMakeLists.txt (12), the common kernels dpd, gayBerne and minimize and ExpressionUtilities.cpp (24), a `PRIVATE` macro in the CUDA, HIP and OpenCL common kernels (3), the vkFFT.h Metal backend patch (+10 -28, with a 12-line note), TestCheckpoints.h and TestCustomIntegrator.h (33), and the developer guide (6).
 - The `PRIVATE` line in `platforms/hip/src/kernels/common.hip` means delta.sh diffs against a HIP that is 1 line modified.
 - metal-cpp is vendored: 35,021 lines in 127 files.
 
-Stage 4 adds 38 lines and removes 24 in 6 more common files (see stage 4). Without df64 the baseline is 2,038, the number to hold stages 1 to 3 against, since they are single precision only. With mixed precision back, b753d9a6a's 1,063 compares with `metal`'s 2,721. Logs: `results/delta-*.txt`.
+Stage 4 adds 38 lines and removes 24 in 6 more common files (see stage 4). Without df64 the baseline is 2,038, the number to hold stages 1 to 3 against, since they are single precision only. With mixed precision back, b753d9a6a's 1,063 compares with `metal`'s 2,721, and 9074c38f1's 1,068 does too. Logs: `results/delta-*.txt`.
 
-## Delta per file at HEAD, b753d9a6a
+## Delta per file at HEAD, 9074c38f1
 
 The source carries no comments beyond what HIP's files already have, including their license headers. Every reason lives here instead.
 
 | File | Added | Why |
 |---|---:|---|
-| src/MetalContext.cpp | 128 | Kernel signature rewriter, 42 lines. MSL wants `device` on pointer parameters and takes scalar and vector arguments only by `constant` reference, so a value parameter becomes `constant T& _in_x` plus a copy `T x = _in_x;` at the top of the body. Preprocessor lines inside a parameter list are copied into that prologue too. Two `regex_replace` calls rename `thread`, which MSL reserves and the common kernels use as a variable name, and turn `long long` into `long`, which MSL lacks. Compile, 15 lines: `metal_stdlib` header, MSL 3.2, safe math with precise functions. getKernel, 19 lines: pipeline reflection records the byte size of each `_in_` argument. Launch, 13 lines: `setBytes` for those, `setBuffer` for the rest, into the queue's open encoder. Device, queue and properties, 16 lines, including the GPU core count from the IORegistry, which Metal doesn't report. Host memory and releases, 8 lines. Tuning, 2 lines: 12 thread blocks per core and RECIP as `fast::divide`. Mixed precision, 9 lines: df64.metal in `createModule` and `doubleToString` (stage 4). |
+| src/MetalContext.cpp | 132 | Kernel signature rewriter, 42 lines. MSL wants `device` on pointer parameters and takes scalar and vector arguments only by `constant` reference, so a value parameter becomes `constant T& _in_x` plus a copy `T x = _in_x;` at the top of the body. Preprocessor lines inside a parameter list are copied into that prologue too. Two `regex_replace` calls rename `thread`, which MSL reserves and the common kernels use as a variable name, and turn `long long` into `long`, which MSL lacks. Compile, 15 lines: `metal_stdlib` header, MSL 3.2, safe math with precise functions. getKernel, 19 lines: pipeline reflection records the byte size of each `_in_` argument. Launch, 13 lines: `setBytes` for those, `setBuffer` for the rest, into the queue's open encoder. Device, queue and properties, 18 lines, including the GPU core count from the IORegistry, which Metal doesn't report, and a throw when there is none (5d9e2388e). The 31-argument message, 2 lines (f341bf739): TestMetalCustomNonbondedForce expects it. Host memory and releases, 8 lines. Tuning, 2 lines: 12 thread blocks per core and RECIP as `fast::divide`. Mixed precision, 9 lines: df64.metal in `createModule` and `doubleToString` (stage 4). |
 | src/kernels/common.metal | 105 | CUDA names for MSL built-ins (program-scope `threadIdx` and friends, `__syncthreads`, `__threadfence`, `__shared__`), atomics (the M1 and M2 have no 64 bit atomic add, and MSL has no float atomic min or max), the `make_` names the kernels use, `f` suffix math names, erf and erfc (MSL has neither), `__float2half_ru`, realToFixedPoint without `long long`. HIP's `__expf` and `__logf` are its fast intrinsics and map to `fast::exp` and `fast::log`. `__fsqrt_rn` maps to `precise::sqrt`. HIP's `__frsqrt_rn` rounds to nearest, so mapping it to `fast::rsqrt` is not a match: it is a speed choice from the tuning table below. `MEM_FENCE` is empty: HIP's hot bonded kernels call it, and a device fence there costs time for ordering that the kernels don't need within a SIMD group. `SYNC_WARPS` is `simdgroup_barrier`. |
 | src/MetalQueue.cpp | 60 | One open command buffer and compute encoder per queue. Commits happen at upload, download, event and step boundaries. Committed buffers wait in a deque and are released once complete, and a failed buffer throws at the next commit or finish. The lock is recursive because CustomCPPForce uploads from a worker thread. Autorelease pools wrap the metal-cpp calls that return autoreleased objects, since Python threads have no pool. |
 | include/MetalQueue.h | 21 | Declarations for the above, and the `metalStream_t` typedef. `getCommitCount` and its counter, 5 lines, exist for TestMetalCommandBatching. Metal reports no count of committed command buffers, and no other API shows whether a step went out as one buffer or many. Batching is what the no-commit variant below lost 4 to 23 percent to, so the test guards it and the lines stay. |
@@ -47,9 +50,10 @@ The source carries no comments beyond what HIP's files already have, including t
 | src/kernels/intrinsics.metal | 12 | `warpSize`, `__shfl`, `__shfl_down`, `__ballot` on simd_ functions. The GB kernels shuffle 64 bit values, which `simd_shuffle` rejects, so two overloads split them into 32 bit halves. |
 | src/MetalNonbondedUtilities.cpp | 10 | Shared buffer for the interaction count, ComputeEvent, a commit before waiting on the count. Tuning: 40 force thread blocks per core, one tile per batch. |
 | src/kernels/sort.metal | 10 | `extern __shared__` becomes a `[[threadgroup(0)]]` parameter, `__threadfence()` before the last-block reduction, `max(0u, ...)` for MSL's stricter overloads. |
+| src/MetalSort.cpp | 2 | `maxThreadgroupMemoryLength` for HIP's device attribute query, and `rangeKernelBlocks = 1` (9074c38f1). HIP's computeRange reduces the per-block ranges in whichever block finishes last. On the M3 Ultra that left the PME atom sort in a slow mode in about one process in three, even with the fence. One threadgroup has no cross-threadgroup reduction. `metal` sizes this kernel the same way. See round 2. |
 | include/MetalArray.h | 6 | `metal-cpp` include and the handle typedefs `metalDevice_t`, `metalDeviceptr_t`, `metalModule_t`, `metalFunction_t`. With them HIP's declarations stay as they are. |
 | src/MetalIntegrationUtilities.cpp | 6 | CCMA's converged flag in a shared buffer, and a ComputeEvent. |
-| other 7 files | 15 | Members and includes for the above, the platform name "Metal", `maxThreadgroupMemoryLength`. |
+| other 6 files | 14 | Members and includes for the above, the platform name "Metal". |
 | src/kernels/nonbonded.metal | 0 | HIP's kernel compiles unchanged. |
 | src/kernels/df64.metal | 589, Metal only | Mixed precision, see stage 4. |
 
@@ -58,7 +62,7 @@ The source carries no comments beyond what HIP's files already have, including t
 The lead asked for no defensive code HIP doesn't have. The cut took aa7464387 from 731 added lines to 467:
 
 - Every comment we had added, 101 lines. HIP's own comments stay, including `// METAL-TODO: This may require tuning` above `numTilesInBatch`.
-- The SIMD width check in getKernel, the throw for double and mixed precision and the 8-core fallback when the IORegistry has no core count. HIP has none of these. Double and mixed precision now fail at kernel compile with "'double' is not supported in Metal".
+- The SIMD width check in getKernel, the throw for double and mixed precision and the 8-core fallback when the IORegistry has no core count. HIP has none of these. 5d9e2388e later made a missing core count throw (round 2). Double and mixed precision now fail at kernel compile with "'double' is not supported in Metal".
 - The NULL checks on a new MTLSharedEvent and a new command queue. HIP does check its error codes there. Neither returned NULL in any run here. If one does, the next call dereferences NULL instead of throwing an OpenMMException. That trade saves 4 lines. What happens without each check is under risks.
 - The pipeline error text in getKernel's exception. The message still names the kernel.
 - A hand-written word scanner (`findWord`, `replaceWord`, `isIdentifierChar`) in favor of `std::regex`.
@@ -73,7 +77,7 @@ Three removals came back after testing: `setLanguageVersion(3_2)` (see what didn
 
 A fresh-context verifier read every hunk and listed lines that were neither needed by Metal nor measured. 62e1e2e95 takes 467 to 464:
 
-- The 31-argument message, 2 lines. A kernel with too many arguments still fails to compile with an OpenMMException, and TestMetalCustomNonbondedForce now looks for the compiler's own text, "no 'buffer' resource location available".
+- The 31-argument message, 2 lines. A kernel with too many arguments still fails to compile with an OpenMMException, and TestMetalCustomNonbondedForce now looks for the compiler's own text, "no 'buffer' resource location available". f341bf739 reverts this: the lead's rule is that tests are the contract, and this cut edited a test's expectation to save 2 lines. The test and the message are back as they were.
 - The commit after the force computation in MetalKernels.cpp, 1 line. With and without it, 3 rounds of all six tests put every ratio within 0.8 percent of each other (`results/bench-fix-postcommit`). gbsa differed by 0.7 percent, so a rerun of gbsa and pme with 5 rounds of 20 seconds followed: 414.2 against 413.9 ns/day and 208.2 against 207.9, 0.06 and 0.13 percent (`results/bench-postcommit-rerun`). That is noise, so the line went.
 - The SIMD width check was already gone in 1e90e5b0a.
 - `getCommitCount` stays. See include/MetalQueue.h above.
@@ -89,7 +93,7 @@ findInteractingBlocks.metal:
 - The two `double` overloads of `collectInteractions` are deleted. MSL has no double.
 - Five `SYNC_WARPS` (`simdgroup_barrier`) where lanes of one SIMD group hand data to each other through threadgroup memory: after loading the block's positions and exclusions, at the top of the block2 loop, after collecting candidate blocks, after adding atoms to the buffer and after shifting it. HIP relies on wavefront lockstep. MSL only orders threadgroup memory between threads at a barrier. A review of the stage 2 diff flagged the missing barriers. Each sits where the whole SIMD group is converged. The final benchmark includes them.
 
-sort.metal: dynamic threadgroup memory has to be a kernel parameter, and the last-block reduction needs a device-scope fence to see other threadgroups' writes.
+sort.metal: dynamic threadgroup memory has to be a kernel parameter, and the last-block reduction needs a device-scope fence to see other threadgroups' writes. The fence wasn't enough on the M3 Ultra, so 9074c38f1 launches the range kernel as one threadgroup and the reduction never crosses threadgroups.
 
 ## Tests
 
@@ -113,6 +117,10 @@ ctest `-R TestMetal`, 2 jobs, 600 s timeout, on the M2 mini and on the M3 Ultra 
 | `metal` 052eaa85b, Mixed | M2 | 56/56 pass (`-R "TestMetal.*Mixed"`, so TestMetalMixedPrecisionSingle too) |
 | Stage 4 b753d9a6a, Single and Mixed | M2 | 109/110, TestMetalMonteCarloFlexibleBarostatSingle failed once (stochastic, see below) |
 | Stage 4 b753d9a6a, Single and Mixed | M3 Ultra | 110/110 pass. An earlier run of the same tree failed TestMetalMonteCarloFlexibleBarostatSingle once, then passed 5/5 repeats |
+| Round 2 5d9e2388e, Single and Mixed | M2 | 108/110, TestMetalMonteCarloAnisotropicBarostat Single and Mixed failed once each. Repeats of the anisotropic barostat in single precision: 5/5 pass, `metal` 052eaa85b 4/5 (`results/repeats-restore-m2.txt`) |
+| Round 2 5d9e2388e, Single and Mixed | M3 Ultra | 110/110 pass (`results/studio/ctest-5d9e.txt`) |
+| Round 2 9074c38f1, Single and Mixed | M2 | 110/110 pass (`results/ctest-rangefix.txt`). FlexibleBarostat repeats 5/5 on both trees (`results/flexible-rangefix.txt`). Force errors identical to 62e1e2e95's, energy errors within their run to run spread (`results/forces-rangefix.txt`) |
+| Round 2 9074c38f1, Single and Mixed | M3 Ultra | 110/110 pass (`results/studio/ctest-9074.txt`) |
 
 The one test `metal` has and this branch doesn't is TestMetalMixedPrecisionSingle, dropped with mixed precision. Logs: `results/ctest-*.txt` (M2) and `results/studio/ctest-*.txt` (M3 Ultra).
 
@@ -154,6 +162,8 @@ Force errors agree across the two builds and the two chips to three digits, and 
 Stage 4, b753d9a6a: single precision gives the same force errors as 62e1e2e95 to 4 digits on the M2 (`results/forces-stage4.txt`). Mixed precision gives the same force errors as single to 4 digits on both chips, and energy errors between 4.9e-08 and 1.3e-06 (`results/forces-stage4-mixed.txt`, `results/studio/forces-stage4-single.txt`, `results/studio/forces-studio-stage4-mixed-final.txt`). Mixed precision keeps forces in float, so it can't do better against Reference here. What it buys is double-float accumulation in the integrators, which `TestMetalMixedPrecision` tests directly and the Mixed variants of the integrator tests exercise.
 
 ## Benchmarks
+
+Every M3 Ultra timing here was taken on the night of 2026-09-23 to 24 UTC with the owner away. Each section gives the load the runs saw.
 
 `bench.sh` runs `examples/benchmarks/benchmark.py --platform Metal --precision single` on this branch and on `metal` 361452c5c, alternating which goes first in each round. benchmark.py times with the host clock: `datetime.now()` around `step()`, with a `getState()` to sync. Numbers are ns/day on the M2 mini, median of 3 interleaved rounds of 30 seconds. The minimum was timed before the device throw came back. That throw runs once at context creation, outside the timed steps.
 
@@ -209,7 +219,20 @@ Mixed precision, same method (`PRECISION=mixed ab.sh`, `results/bench-stage4-mix
 
 Mixed precision costs this branch 15 to 29 percent against its own single precision, and `metal` 12 to 31 percent.
 
-### M3 Ultra (owner at the keyboard, light CPU)
+9074c38f1, the one-threadgroup sort range, against `metal` 052eaa85b (`bench.sh`, 3 interleaved rounds of 30 seconds, host clock, `results/bench-rangefix`):
+
+| Test | `metal` 052eaa85b | 9074c38f1 | Ratio | `metal` rounds | 9074c38f1 rounds |
+|---|---:|---:|---:|---|---|
+| gbsa | 385.6 | 413.2 | 1.072 | 384.9 386.7 385.6 | 413.2 413.1 413.6 |
+| rf | 253.4 | 253.7 | 1.001 | 253.4 253.2 253.5 | 253.3 253.7 254.1 |
+| pme | 199.5 | 207.1 | 1.038 | 201.3 199.3 199.5 | 207.2 206.9 207.1 |
+| apoa1rf | 59.0 | 69.3 | 1.175 | 59.0 59.0 59.0 | 69.4 69.3 69.2 |
+| apoa1pme | 47.0 | 54.3 | 1.154 | 47.0 47.0 47.1 | 54.3 54.3 54.4 |
+| apoa1ljpme | 33.9 | 40.0 | 1.181 | 34.0 33.9 33.9 | 40.0 40.0 40.1 |
+
+The M2 never showed the spread. Against 5d9e2388e's 2 rounds of 15 seconds in `results/m2-tiles` (HEAD column), apoa1pme and apoa1ljpme dropped 0.7 and 1.2 percent, since one threadgroup scans all 92,224 keys. The other four tests moved 0.5 percent or less, which is inside run to run noise.
+
+### M3 Ultra (owner away)
 
 `studio/bench.sh` runs the same benchmark.py command on the Studio, interleaving the trees inside each test and reversing their order every other round. It writes the 1, 5 and 15 minute load averages before and after every run to `loads.txt`. The 1 minute load ranged from 1.2 to 7.5 in the two runs below. Three trees: `metal` 361452c5c, aa7464387 (stage 2 before the cut) and the minimum. First run (`results/studio-bench-3trees`), 3 rounds of 30 seconds:
 
@@ -236,7 +259,7 @@ Between the two runs the minimum's gap to aa7464387 changed sign on gbsa (-2.6 a
 Stage 2 itself does not hold on the M3 Ultra, before or after the cut:
 
 - gbsa is 14 to 16 percent slower than `metal`, rf 11 to 12 percent. On the M2 they are 8 percent faster and even. The tuning table was measured on the M2 only, with its 10 cores. The M3 Ultra has 60 (`gpu-core-count`), so the block counts per core give 720 thread blocks and 2,400 force blocks for 2,489 atoms in gbsa.
-- apoa1ljpme runs at a different speed in each process: 44 to 53, 72 to 99, or about 156 ns/day, against `metal`'s steady 128. The speed holds for the life of the process: 12 chunks of 200 steps vary by 15 percent or less within a process, and by a factor of 3.5 between processes (`probes/chunks.py`, `results/studio/apoa1ljpme-modes.txt`). aa7464387 shows the same spread, so the cut didn't cause it. apoa1pme has the same kind of outlier less often (107, 129, 153 against about 199). The M2 shows none of this: its apoa1ljpme rounds agree within 0.5 percent. I haven't found the cause. Something fixed at context creation decides it, since the chunks within a process agree.
+- apoa1ljpme runs at a different speed in each process: 44 to 53, 72 to 99, or about 156 ns/day, against `metal`'s steady 128. The speed holds for the life of the process: 12 chunks of 200 steps vary by 15 percent or less within a process, and by a factor of 3.5 between processes (`probes/chunks.py`, `results/studio/apoa1ljpme-modes.txt`). aa7464387 shows the same spread, so the cut didn't cause it. apoa1pme has the same kind of outlier less often (107, 129, 153 against about 199). The M2 shows none of this: its apoa1ljpme rounds agree within 0.5 percent. I haven't found the cause. Something fixed at context creation decides it, since the chunks within a process agree. Round 2 found it: HIP's multi-threadgroup range reduction in the PME atom sort, fixed in 9074c38f1. So the minimum's 156.2 and 1.217 for apoa1ljpme in the table above came from that race, not from a real speedup. The fixed branch runs apoa1ljpme at a steady 143.6 to 143.9, 1.12x `metal`.
 
 The HIP kernels were not this fast as ported. Untuned (`results/bench-stage2-untuned`, same method), the ratios were gbsa 0.55, rf 0.86, pme 0.72, apoa1rf 1.06, apoa1pme 0.83, apoa1ljpme 0.78. Closing that took five one-line changes, each screened with one round of 15 seconds (`screen.sh`, `results/screen-*`):
 
@@ -272,7 +295,7 @@ HEAD's two rounds agree within 0.6 percent, so fast math mode's 2 to 2.6 percent
 
 Fast functions gain under 1 percent on every test, inside the noise, so they aren't worth a line either.
 
-### M3 Ultra block shapes don't close the gbsa and rf gap (owner at the keyboard, light CPU)
+### M3 Ultra block shapes don't close the gbsa and rf gap (owner away)
 
 gbsa is 14 to 16 percent and rf 11 to 12 percent slower than `metal` on the M3 Ultra, while the M2 is faster or even. The tuning was done on the M2's 10 cores, so the Studio screen (`studio/screen.sh`, one run of 10 seconds per setting, 1 minute load 1.5 to 4.5, `results/studio/screen-stage3`) tried other block counts and shapes through temporary environment variables. Ratios against the mean of two HEAD runs, which themselves differ by 1.7 percent on gbsa, 1.0 on rf and 0.2 on pme:
 
@@ -333,6 +356,68 @@ delta.sh at b753d9a6a (`results/delta-stage4.txt`): 474 added lines in shared fi
 - `atomicAdd` on df64 is deleted too, since no Apple GPU has 64-bit float atomics and a df64 spans two words.
 - `fast::` and `precise::` get df64 overloads of sqrt, rsqrt, exp, log and divide, because the host maps SQRT, RECIP and friends to qualified names, and a qualified call sees only that namespace.
 
+## Round 2: the M3 Ultra
+
+The lead's gate for a tuning change: at least 0.97x `metal` 052eaa85b on every benchmark on both the M3 Ultra and the M2, with a per-GPU branch allowed only at 3 lines or fewer. No setting passes. gbsa stays at 0.86 to 0.93 on the M3 Ultra under every knob tried.
+
+The owner was away, but the Studio wasn't idle. The 1 minute load was 1.7 to 6.0 in screen 1 and 1.5 to 3.8 in screen 2, from a VM, a codegraph index, powermetrics and Chrome. Every run logs its load in `loads.txt`.
+
+### Tuning screen
+
+`studio/screen.sh`, one run of 15 seconds per setting, host clock, ratios against `metal` 052eaa85b in the same screen (`results/studio/screen-m3-1`, `screen-m3-2`). The knobs were temporary environment variables and never committed.
+
+| Setting | gbsa | rf | pme |
+|---|---:|---:|---:|
+| HEAD, screen 1 | 0.864 | 0.881 | 1.013 |
+| HEAD, screen 2 | 0.856 | 0.897 | 1.020 |
+| 2 tiles per batch | 0.935 | 0.966 | 1.026 |
+| 4 tiles per batch, screen 1 | 0.933 | 1.007 | 1.075 |
+| 4 tiles per batch, screen 2 | 0.878 | 1.077 | 1.103 |
+| 8 tiles per batch | 0.870 | 1.068 | 1.118 |
+| 16 tiles per batch | 0.890 | 1.088 | 1.050 |
+| 4 tiles, 24 thread blocks per core | 0.903 | 1.035 | 1.104 |
+| 4 tiles, 6 force blocks of 256 per core (`metal`'s shape) | 0.885 | 1.040 | 1.080 |
+| 4 tiles, 20 force blocks per core | 0.868 | 1.041 | 1.095 |
+| 4 tiles, precise `exp` and `log` | 0.880 | 1.017 | 1.109 |
+| 6 or 24 thread blocks per core, not 12 | 0.856, 0.887 | 0.875, 0.873 | 0.978, 0.986 |
+| Force blocks: 6 of 256, 12 of 128, 20, 80, 80 of 32 per core | 0.855 to 0.876 | 0.854 to 0.890 | 0.982 to 1.006 |
+| Precise `rsqrt`, divide, or `exp` and `log` | 0.851 to 0.887 | 0.851 to 0.861 | 0.964 to 1.016 |
+
+Screen 1's `metal` gbsa was 1189.6 ns/day and screen 2's 1203.1, so a single 15 second run moves about 1 percent. HEAD's rf moved 1.6 percent between the screens and 4 tiles' gbsa 5.5 percent.
+
+On the M2, 4 tiles per batch costs nothing (`results/m2-tiles`, `ab.sh`, 2 interleaved rounds of 15 seconds, host clock): against `metal` 052eaa85b it gave gbsa 1.080, rf 1.003, pme 1.040, apoa1rf 1.172, apoa1pme 1.162 and apoa1ljpme 1.191, where HEAD gave 1.081, 1.004, 1.041, 1.171, 1.161 and 1.190.
+
+The best trade-off is HIP's own line, `numTilesInBatch = numAtomBlocks < 2000 ? 4 : 1`. It gives the small systems 4 tiles and keeps 1 for apoa1's 2,882 blocks, and it takes 1 line off the delta instead of adding one. It lifts rf from 0.88 to 1.01 or better and pme to 1.07 or better on the M3 Ultra, and gbsa from 0.86 to 0.88 or 0.93. gbsa still misses 0.97, so the gate fails and the line isn't committed. I recommend it anyway: it is HIP's code, it shrinks the diff, and it helps every M3 Ultra test without costing the M2 anything. The gbsa gap is there with or without it.
+
+### Where gbsa loses
+
+`probes/split.py` builds one benchmark system, drops force classes, and times chunks in fresh contexts (`results/studio/split-probes.txt`, ns/day, host clock). gbsa with its NonbondedForce dropped, so only the GB force remains, ran 1,040 to 1,148 on this branch against 1,244 to 1,323 on `metal`, 0.82 to 0.86x. With the GB force's cutoff turned off (`SPLIT_NOCUTOFF=1`) the same system ran 1,445 to 1,455 against 1,419 to 1,425, 1.02x. So HIP's GB kernels are as fast as `metal`'s, and the gap is in building and walking the neighbor list at gbsa's 2 nm cutoff. With NonbondedForce only, this branch is faster: 3,351 to 3,362 against 3,231 to 3,236.
+
+HEAD's gbsa GB-only ranged 1,036 to 1,148 across runs, so a knob has to beat about 10 percent to show. None did: padding 0.1 (`metal`'s value) instead of HIP's 0.08, 4 to 32 tiles per batch, the force block shapes above, `__restrict__` removed, MSL 3.1, committing before the count download. Padding 0.15 gave 1,123 to 1,177 against HEAD's 1,069 to 1,106 in the same run, 5 percent, and I didn't take it further. Padding 0.05 lost about 11 percent. The list held 2,231 to 2,462 tiles with no single pairs. The gap is open. My best hypothesis: HIP's findInteractingBlocks runs 32-thread threadgroups with the five `SYNC_WARPS` barriers Metal needed, and gbsa has only 78 atom blocks, so on the M3 Ultra's 60 cores the list build is latency-bound, while the M2's 10 cores are kept busy. I haven't profiled it, and that is the next step. Closing it may mean reworking HIP's findInteractingBlocks for Apple GPUs, which grows the diff this experiment is trying to shrink.
+
+### The apoa1ljpme spread was a bug
+
+`metal` 052eaa85b ran apoa1ljpme at 128.4 to 129.6 ns/day over 5 fresh processes. This branch ran 157.9, 157.7, 157.0, 88.0 and 156.7 (`results/studio/screen-apoa1ljpme-spread`, 15 seconds each, host clock, 1 minute load 2.6 to 5.8). Earlier runs had also given 44 to 53 and 72 to 99. So the spread is ours.
+
+Narrowing it down, all with `probes/split.py`:
+
+- The speed is fixed for the life of a context. Chunks within a process agree within 10 percent, and processes differ by up to a factor of 2.6.
+- It is GPU time. The host thread used 1 to 12 percent of wall time in fast and slow processes alike.
+- apoa1rf never showed it: 297.8 to 301.5 in 6 processes. apoa1ljpme without NonbondedForce ran 1,462 to 1,489 in 6. So it's PME.
+- apoa1pme with reciprocal space only (`SPLIT_RECIPONLY=1`) made it plain: 155 to 397 ns/day across processes, against 372 to 375 for `metal` in 2 processes. A null FFT, `metal`'s FFT settings, no PME spreading, 24 thread blocks per core and the post-force commit all left a slow process in each set.
+- Skipping the PME atom sort removed it: 6 of 6 at 384 to 388. That points at `MetalSort`.
+
+PME sorts its 92,224 atoms with the bucket sort, since the list is longer than the 1,024 the single-kernel sort takes. HIP's `computeRange` splits the range search over `length/rangeKernelSize` threadgroups, and whichever finishes last reduces the partial ranges. That reads other threadgroups' device-memory writes inside the same dispatch, after a `__threadfence()`. MSL doesn't promise those are visible without `coherent(device)` buffers. My reading is that a stale minimum or maximum gives wrong bucket widths, which pile atoms into a few buckets and make the later sort kernels slow without breaking the order. I didn't dump the buckets to confirm it, and I don't know why a process keeps one mode for its lifetime. The evidence is the fix: with no cross-threadgroup reduction the spread is gone. `metal` runs this kernel as one threadgroup.
+
+9074c38f1 sets `rangeKernelBlocks = 1`, 1 line. Then 8 of 8 reciprocal-only processes ran at 367 to 372 ns/day. That is 2 percent below `metal`'s 372 to 375, since one threadgroup now scans all 92,224 keys. The 395 of the fast processes before the fix isn't a speed to hold against it: those processes ran on whatever range the race left them. benchmark.py confirms it (`studio/screen.sh`, 5 rounds of 15 seconds in fresh processes, host clock, 1 minute load 2.4 to 8.4, `results/studio/screen-rangefix`):
+
+| Test | `metal` 052eaa85b | 5d9e2388e | 5d9e2388e with one range threadgroup |
+|---|---|---|---|
+| apoa1ljpme | 128.1 to 129.0 | 156.1, 59.3, 156.4, 156.4, 67.9 | 143.6 to 143.9 |
+| apoa1pme | 182.7 to 184.1 | 156.4, 197.7, 199.4, 167.3, 199.7 | 191.1 to 193.7 |
+
+With the fix both systems are steady at 1.05 to 1.12x `metal`. That is this branch's honest number on the M3 Ultra. The earlier 156 to 158 ns/day on apoa1ljpme, and the 1.217 ratio in the stage 2 table, came from the race: computeRange read stale values, and a process ran fast or slow depending on the range it got. Neither is a speedup the code can keep.
+
 ## What didn't work
 
 - `MTL::CopyAllDevices()` returned NULL, so every test failed with "Error creating METAL stream". metal-cpp compiles the function out below a 10.11 deployment target, and OpenMM's CMake defaults to 10.7. The context now uses `MTL::CreateSystemDefaultDevice()`, as `metal` does.
@@ -353,12 +438,12 @@ delta.sh at b753d9a6a (`results/delta-stage4.txt`): 474 added lines in shared fi
 A read-only review of the stage 2 diff found these. None changes forces in the tests.
 
 - CCMA: the host resets the converged flag by writing shared memory, while the tail iterations of the previous solve can still be in the open command buffer. The verifier's reading narrows it: it needs more than 1,024 constraints (below that CCMA runs as one kernel) and a solve that hits the 150-iteration cap while converging at iteration 147 or 148. The result is one step with loose constraints. HIP has the same race with an async stream. Command batching makes it more likely. `metal` avoids it by reading `ccmaConverged` instead. Not changed, to stay with HIP.
-- sort.metal: the last-block reduction in `computeRange` reads other threadgroups' results with plain loads. `__threadfence()` orders them, but MSL only guarantees cross-threadgroup visibility for `coherent(device)` buffers. A stale value makes uneven buckets, which costs speed, not order, as long as every key still lands in a bucket. A key below a stale minimum makes a negative quotient, which `assignElementsToBuckets` converts to `unsigned int`. If Apple GPUs don't saturate that conversion to 0, the key goes to the last bucket and the order breaks. Experiment 021 found float to long conversions wrap on the M3.
+- sort.metal: the last-block reduction in `computeRange` reads other threadgroups' results with plain loads. `__threadfence()` orders them, but MSL only guarantees cross-threadgroup visibility for `coherent(device)` buffers. A stale value makes uneven buckets, which costs speed, not order, as long as every key still lands in a bucket. A key below a stale minimum makes a negative quotient, which `assignElementsToBuckets` converts to `unsigned int`. If Apple GPUs don't saturate that conversion to 0, the key goes to the last bucket and the order breaks. Experiment 021 found float to long conversions wrap on the M3. Round 2 found the stale reads in practice on the M3 Ultra, as a speed loss, and 9074c38f1 removes the cross-threadgroup reduction. The other sort kernels only read other threadgroups' writes in a later dispatch, where Metal guarantees them.
 - `__launch_bounds__` expands to nothing, and `executeKernelFlat` doesn't check the block size against the pipeline's limit. `computeBucketPositions` can ask for 1024 threads.
 
 ## Risks of the cut
 
-- A machine with no `AGXAccelerator` service in the IORegistry, such as a VM, gets a NULL core count, and `CFNumberGetValue` dereferences it. `metal` fell back to 8 cores.
+- A machine with no `AGXAccelerator` service in the IORegistry, such as a VM, throws "Error initializing Metal: the IORegistry has no GPU core count" (5d9e2388e). The cut had left a NULL dereference there. `metal` falls back to 8 cores and runs.
 - Apple GPUs run 32-wide SIMD groups. On a GPU that didn't, the kernels would compute wrong results instead of throwing.
 - A NULL shared event or command queue crashes at its next use instead of throwing.
 - `MetalEvent::wait` no longer checks its command buffer for an error. The queue reports a failed buffer at its next commit or finish.
@@ -378,5 +463,7 @@ A read-only review of the stage 2 diff found these. None changes forces in the t
 - `studio/screen.sh`: one benchmark run per knob setting on the Studio.
 - `STATE.md`: where the unattended run stands, for a restart.
 - `install.sh`, `final.sh`: rebuild and install on the mini, then ctest, forces, the FlexibleBarostat repeats and the benchmark.
+- `probes/split.py`: builds one benchmark system, optionally drops force classes, turns off cutoffs or direct space, and times chunks in fresh contexts. Round 2 used it to split gbsa and to find the apoa1 sort bug.
+- `results/studio/screen-m3-1`, `screen-m3-2`, `screen-apoa1ljpme-spread`, `split-probes.txt`, `results/m2-tiles`: round 2 logs.
 - `probes/`: MSL compile probes and `mslc.swift`, the compiler driver (`swiftc -O mslc.swift`). `rewriter-compare.cpp` runs the old and new signature rewriters over kernel files. `chunks.py` times an apoa1 system in 200-step chunks. `rfdebug.py` shows the exception benchmark.py hides. `edge.py` tries Mixed and Double precision and `DeviceIndex` "0,0". `fastacc.swift` runs `metal`'s fast math accuracy check and a wider sweep.
 - `results/`: raw logs.

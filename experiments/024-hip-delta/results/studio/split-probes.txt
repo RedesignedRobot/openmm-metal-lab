@@ -1,0 +1,592 @@
+# probes/split.py on the M3 Ultra (Studio, owner away, background load 2 to 9), host clock, ns/day per chunk
+# Trees: ref = metal 052eaa85b, hipdelta = 5d9e2388e plus temporary HD_* knobs (see README round 2).
+# Lines with { } are vm.loadavg. Blocks are in run order. apoa1pme blocks where the fast processes reach about 395 ns/day are SPLIT_RECIPONLY=1 (reciprocal space only). Upper-case lines name the HD_* knob of the block that follows.
+ref load { 1.80 2.75 3.02 }
+ref gbsa drop=none context 0: 1218.0 1219.5 1219.6
+hipdelta load { 1.97 2.77 3.02 }
+hipdelta gbsa drop=none context 0: 1070.9 1075.9 1043.1
+ref load { 2.13 2.77 3.02 }
+ref gbsa drop=GBSAOBCForce context 0: 3230.9 3231.6 3235.6
+hipdelta load { 2.28 2.79 3.03 }
+hipdelta gbsa drop=GBSAOBCForce context 0: 3361.9 3350.9 3359.1
+ref load { 2.18 2.76 3.01 }
+ref gbsa drop=NonbondedForce context 0: 1302.4 1304.5 1316.2
+hipdelta load { 2.32 2.78 3.02 }
+hipdelta gbsa drop=NonbondedForce context 0: 1058.0 1071.6 1039.9
+ref load { 2.46 2.80 3.02 }
+ref gbsa drop=GBSAOBCForce,NonbondedForce context 0: 5862.8 5929.3 5938.6
+hipdelta load { 2.66 2.84 3.04 }
+hipdelta gbsa drop=GBSAOBCForce,NonbondedForce context 0: 5574.7 5677.8 5700.7
+
+ref gbsa drop=NonbondedForce context 0: 1305.7 1306.6 1305.5
+hipdelta gbsa drop=NonbondedForce context 0: 1056.3 1078.8 1060.1
+hipdelta:HD_SIMPLEFIX=1 gbsa drop=NonbondedForce context 0: 1072.9 1083.3 1092.6
+hipdelta:HD_NORESTRICT=1 gbsa drop=NonbondedForce context 0: 1039.1 1041.3 1041.1
+hipdelta:HD_LANG31=1 gbsa drop=NonbondedForce context 0: 1075.4 1101.8 1070.7
+hipdelta:HD_COMMIT=1 gbsa drop=NonbondedForce context 0: 1062.0 1071.2 1056.4
+ref gbsa drop=NonbondedForce context 0: 1305.6 1303.9 1310.5
+ref gbsa drop=none context 0: 1219.7 1221.0 1220.3
+hipdelta gbsa drop=none context 0: 1066.1 1076.2 1060.2
+hipdelta:HD_SIMPLEFIX=1 gbsa drop=none context 0: 1073.6 1081.9 1081.8
+hipdelta:HD_NORESTRICT=1 gbsa drop=none context 0: 1068.3 1072.4 1025.5
+hipdelta:HD_LANG31=1 gbsa drop=none context 0: 1067.8 1088.0 1098.5
+hipdelta:HD_COMMIT=1 gbsa drop=none context 0: 1080.1 1078.6 1063.8
+ref gbsa drop=none context 0: 1221.1 1220.0 1224.4
+
+hipdelta gbsa drop=NonbondedForce context 0: 1036.2 1065.6 1069.1
+hipdelta:HD_NBPC=6,HD_NBSIZE=256 gbsa drop=NonbondedForce context 0: 1061.0 1068.5 1070.3
+hipdelta:HD_NBPC=12,HD_NBSIZE=128 gbsa drop=NonbondedForce context 0: 1055.9 1067.6 1086.9
+hipdelta:HD_TBPC=24 gbsa drop=NonbondedForce context 0: 1073.0 1078.6 1083.2
+hipdelta:HD_TBPC=6 gbsa drop=NonbondedForce context 0: 1088.9 1070.6 1049.6
+hipdelta:HD_TILES=4 gbsa drop=NonbondedForce context 0: 1081.9 1109.6 1113.7
+ref gbsa drop=NonbondedForce context 0: 1302.1 1306.7 1323.0
+
+ref gbsa drop=NonbondedForce context 0: 1259.2 1244.4 1261.4
+hipdelta gbsa drop=NonbondedForce context 0: 1147.6 1058.2 1059.7
+hipdelta:SPLIT_NOCUTOFF=1 gbsa drop=NonbondedForce context 0: 1445.0 1453.0 1455.1
+ref:SPLIT_NOCUTOFF=1 gbsa drop=NonbondedForce context 0: 1424.7 1419.2 1420.3
+
+ref gbsa drop=NonbondedForce context 0: 1285.2 1309.4 1316.5
+hipdelta gbsa drop=NonbondedForce context 0: 1069.0 1099.6 1105.6
+hipdelta:HD_PAD=0.1 gbsa drop=NonbondedForce context 0: 1123.2 1122.9 1106.4
+hipdelta:HD_PAD=0.15 gbsa drop=NonbondedForce context 0: 1142.1 1176.8 1123.0
+hipdelta:HD_PAD=0.05 gbsa drop=NonbondedForce context 0: 980.3 983.1 927.1
+hipdelta:HD_PRINTCOUNT=1 gbsa drop=NonbondedForce context 0: 1028.5 1036.9 1037.4
+hipdelta:HD_PRINTCOUNT=1 count tiles 2232 pairs 0 maxTiles 1560 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2231 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2249 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2296 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2340 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2362 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2374 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2392 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2403 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2423 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2437 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2462 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2457 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2452 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2442 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2435 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2420 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2409 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2394 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2389 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2375 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2372 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2364 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2362 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2352 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2344 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2340 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2339 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2337 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2336 pairs 0 maxTiles 2678 maxPairs 12445
+
+ref gbsa drop=NonbondedForce context 0: 1243.7 1246.0 1245.7
+hipdelta:HD_TILES=4 gbsa drop=NonbondedForce context 0: 1068.5 1081.5 1084.5
+hipdelta:HD_TILES=8 gbsa drop=NonbondedForce context 0: 1081.6 1065.1 1072.1
+hipdelta:HD_TILES=16 gbsa drop=NonbondedForce context 0: 1093.0 1041.8 1038.5
+hipdelta:HD_TILES=32 gbsa drop=NonbondedForce context 0: 1044.9 1053.3 1044.2
+hipdelta:HD_TILES=4,HD_PAD=0.1 gbsa drop=NonbondedForce context 0: 1103.0 1073.2 1072.4
+ref gbsa drop=none context 0: 1203.9 1195.7 1209.3
+hipdelta:HD_TILES=4 gbsa drop=none context 0: 1076.4 1108.4 1063.6
+hipdelta:HD_TILES=8 gbsa drop=none context 0: 1060.9 1070.8 1083.1
+hipdelta:HD_TILES=16 gbsa drop=none context 0: 1027.7 1114.3 1102.4
+hipdelta:HD_TILES=32 gbsa drop=none context 0: 1062.0 1093.2 1075.5
+hipdelta:HD_TILES=4,HD_PAD=0.1 gbsa drop=none context 0: 1079.8 1088.6 1074.5
+
+hipdelta:HD_PRINTCOUNT=1 apoa1ljpme drop=none context 0: 157.6 156.9 158.1
+hipdelta:HD_PRINTCOUNT=1 apoa1ljpme drop=none context 1: 156.8 157.2 156.9
+hipdelta:HD_PRINTCOUNT=1 apoa1ljpme drop=none context 2: 158.2 157.4 157.3
+hipdelta:HD_PRINTCOUNT=1 apoa1ljpme drop=none context 3: 158.7 158.1 157.9
+hipdelta:HD_PRINTCOUNT=1 apoa1ljpme drop=none context 4: 158.8 158.0 158.0
+hipdelta:HD_PRINTCOUNT=1 count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+hipdelta:HD_PRINTCOUNT=1 count tiles 28904 pairs 1000085 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29020 pairs 1016872 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29100 pairs 1036228 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29112 pairs 1030338 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29096 pairs 1026145 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28576 pairs 973169 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28974 pairs 1006190 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29013 pairs 1022220 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29042 pairs 1017927 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29017 pairs 1024880 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29041 pairs 1023982 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28905 pairs 990659 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29064 pairs 1010691 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29168 pairs 1019348 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29080 pairs 1023009 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29072 pairs 1020775 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28505 pairs 966640 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28906 pairs 997841 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28929 pairs 1006410 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28977 pairs 1012038 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28978 pairs 1009027 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 29042 pairs 1009696 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28748 pairs 983422 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28982 pairs 1000249 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28954 pairs 1007558 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28926 pairs 1002803 maxTiles 57640 maxPairs 1131510
+hipdelta:HD_PRINTCOUNT=1 count tiles 28911 pairs 1001478 maxTiles 57640 maxPairs 1131510
+
+ref normal load { 6.74 4.16 3.46 }
+ref normal apoa1ljpme drop=none context 0: 129.2 128.8 128.8
+ref background load { 6.16 4.12 3.46 }
+ref background apoa1ljpme drop=none context 0: 128.5 127.5 127.4
+hipdelta normal load { 5.26 4.05 3.44 }
+hipdelta normal apoa1ljpme drop=none context 0: 74.5 71.5 72.4
+hipdelta background load { 5.08 4.03 3.44 }
+hipdelta background apoa1ljpme drop=none context 0: 47.3 51.1 52.1
+hipdelta:HD_COMMIT=1 normal load { 4.49 3.96 3.43 }
+hipdelta:HD_COMMIT=1 normal apoa1ljpme drop=none context 0: 49.8 61.8 58.7
+hipdelta:HD_COMMIT=1 background load { 4.13 3.90 3.41 }
+hipdelta:HD_COMMIT=1 background apoa1ljpme drop=none context 0: 153.7 153.9 154.8
+
+process 1 load { 3.46 3.79 3.41 }
+apoa1ljpme drop=none context 0: 158.2 157.7
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28876 pairs 1001291 maxTiles 57640 maxPairs 1131510
+process 2 load { 3.26 3.74 3.40 }
+apoa1ljpme drop=none context 0: 44.3 46.0
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28868 pairs 998994 maxTiles 57640 maxPairs 1131510
+process 3 load { 3.08 3.69 3.39 }
+apoa1ljpme drop=none context 0: 156.7 155.9
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28927 pairs 998187 maxTiles 57640 maxPairs 1131510
+process 4 load { 3.30 3.72 3.40 }
+apoa1ljpme drop=none context 0: 156.7 156.5
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28930 pairs 996622 maxTiles 57640 maxPairs 1131510
+process 5 load { 3.19 3.69 3.39 }
+apoa1ljpme drop=none context 0: 156.8 155.5
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28941 pairs 1001133 maxTiles 57640 maxPairs 1131510
+process 6 load { 3.34 3.71 3.40 }
+apoa1ljpme drop=none context 0: 71.1 69.4
+count tiles 28373 pairs 942925 maxTiles 57640 maxPairs 461120
+count tiles 28958 pairs 994696 maxTiles 57640 maxPairs 1131510
+
+process 1 load { 3.96 3.83 3.45 }
+apoa1ljpme drop=none context 0: 76.3 79.3
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42612 pairs 0 maxTiles 57640 maxPairs 461120
+process 2 load { 4.05 3.85 3.46 }
+apoa1ljpme drop=none context 0: 55.3 52.4
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42610 pairs 0 maxTiles 57640 maxPairs 461120
+process 3 load { 3.90 3.82 3.46 }
+apoa1ljpme drop=none context 0: 153.8 152.6
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42573 pairs 0 maxTiles 57640 maxPairs 461120
+process 4 load { 4.07 3.86 3.47 }
+apoa1ljpme drop=none context 0: 57.0 55.8
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42468 pairs 0 maxTiles 57640 maxPairs 461120
+process 5 load { 7.34 4.54 3.71 }
+apoa1ljpme drop=none context 0: 51.7 49.9
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42459 pairs 0 maxTiles 57640 maxPairs 461120
+process 6 load { 10.33 5.25 3.97 }
+apoa1ljpme drop=none context 0: 66.0 67.3
+count tiles 41361 pairs 0 maxTiles 57640 maxPairs 461120
+count tiles 42690 pairs 0 maxTiles 57640 maxPairs 461120
+process 1 load { 11.03 5.48 4.06 }
+apoa1ljpme drop=none context 0: 96.4 101.3
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 34981 pairs 345343 maxTiles 57640 maxPairs 461120
+process 2 load { 14.47 6.42 4.41 }
+apoa1ljpme drop=none context 0: 78.7 73.3
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 34865 pairs 344557 maxTiles 57640 maxPairs 461120
+process 3 load { 15.55 6.77 4.55 }
+apoa1ljpme drop=none context 0: 154.5 153.1
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 35010 pairs 348115 maxTiles 57640 maxPairs 461120
+process 4 load { 16.69 7.31 4.77 }
+apoa1ljpme drop=none context 0: 78.4 78.4
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 34842 pairs 344485 maxTiles 57640 maxPairs 461120
+process 5 load { 16.88 7.50 4.85 }
+apoa1ljpme drop=none context 0: 154.1 153.8
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 34910 pairs 345324 maxTiles 57640 maxPairs 461120
+process 6 load { 17.13 7.71 4.94 }
+apoa1ljpme drop=none context 0: 154.5 153.4
+count tiles 33929 pairs 333110 maxTiles 57640 maxPairs 461120
+count tiles 34765 pairs 344695 maxTiles 57640 maxPairs 461120
+
+apoa1ljpme drop=none context 0: 46.1 46.4
+apoa1ljpme drop=none context 1: 46.4 54.7
+apoa1ljpme drop=none context 2: 51.1 51.6
+apoa1ljpme drop=none context 0: 158.5 157.5
+apoa1ljpme drop=none context 1: 157.7 157.5
+apoa1ljpme drop=none context 2: 157.9 157.1
+apoa1ljpme drop=none context 0: 80.4 96.3
+apoa1ljpme drop=none context 1: 97.5 87.8
+apoa1ljpme drop=none context 2: 95.8 98.0
+apoa1ljpme drop=none context 0: 158.4 157.3
+apoa1ljpme drop=none context 1: 158.5 157.5
+apoa1ljpme drop=none context 2: 157.9 157.5
+
+process 1 load { 4.81 6.46 4.91 }
+apoa1ljpme drop=none context 0: 156.9 156.3
+process 2 load { 4.74 6.42 4.91 }
+apoa1ljpme drop=none context 0: 157.0 156.9
+process 3 load { 4.44 6.33 4.89 }
+apoa1ljpme drop=none context 0: 47.3 49.9
+process 4 load { 4.06 6.18 4.85 }
+apoa1ljpme drop=none context 0: 158.2 157.5
+process 5 load { 4.05 6.15 4.85 }
+apoa1ljpme drop=none context 0: 156.9 156.7
+process 6 load { 3.89 6.08 4.83 }
+apoa1ljpme drop=none context 0: 67.0 65.4
+
+process 1 load { 3.19 5.68 4.73 }
+apoa1ljpme drop=none context 0: 157.7 157.2  cpu/wall 0.12 0.10
+process 2 load { 4.35 5.84 4.80 }
+apoa1ljpme drop=none context 0: 46.2 47.5  cpu/wall 0.02 0.03
+process 3 load { 4.08 5.76 4.78 }
+apoa1ljpme drop=none context 0: 158.5 157.6  cpu/wall 0.06 0.07
+process 4 load { 4.07 5.73 4.77 }
+apoa1ljpme drop=none context 0: 158.0 157.3  cpu/wall 0.07 0.07
+process 5 load { 4.23 5.71 4.78 }
+apoa1ljpme drop=none context 0: 158.7 158.1  cpu/wall 0.08 0.07
+process 6 load { 4.05 5.65 4.76 }
+apoa1ljpme drop=none context 0: 89.8 88.9  cpu/wall 0.05 0.04
+process 1 load { 3.80 5.57 4.74 }
+apoa1ljpme drop=none context 0: 130.3 129.1  cpu/wall 0.06 0.05
+process 2 load { 3.69 5.48 4.72 }
+apoa1ljpme drop=none context 0: 130.2 129.2  cpu/wall 0.05 0.05
+
+{ 3.40 5.26 4.66 }
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1466.5 1470.9  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1463.9 1471.3  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1469.1 1475.0  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1463.2 1467.5  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1484.2 1489.4  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1462.3 1475.4  cpu/wall 0.02 0.01
+hipdelta apoa1pme drop=none context 0: 116.5 114.1  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 200.1 199.7  cpu/wall 0.09 0.09
+hipdelta apoa1pme drop=none context 0: 201.0 199.8  cpu/wall 0.12 0.08
+hipdelta apoa1pme drop=none context 0: 161.6 153.7  cpu/wall 0.07 0.07
+hipdelta apoa1pme drop=none context 0: 199.6 198.9  cpu/wall 0.08 0.09
+hipdelta apoa1pme drop=none context 0: 181.2 174.1  cpu/wall 0.08 0.08
+hipdelta apoa1rf drop=none context 0: 301.5 301.4  cpu/wall 0.12 0.13
+hipdelta apoa1rf drop=none context 0: 301.1 301.5  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 298.8 297.8  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 299.6 299.5  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 301.1 300.1  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 300.3 300.3  cpu/wall 0.11 0.11
+{ 2.27 4.27 4.34 }
+
+{ 3.69 4.49 4.42 }
+hipdelta apoa1pme drop=none context 0: 219.8 210.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.2 395.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 254.7 261.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 186.2 182.9  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 174.6 175.1  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 396.3 397.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 169.9 154.8  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 266.7 267.9  cpu/wall 0.01 0.01
+ref apoa1pme drop=none context 0: 372.8 372.0  cpu/wall 0.12 0.11
+ref apoa1pme drop=none context 0: 375.0 374.6  cpu/wall 0.11 0.08
+
+{ 6.37 5.10 4.65 }
+FFTNULL
+hipdelta apoa1pme drop=none context 0: 234.0 231.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.1 396.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 192.8 192.6  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 394.7 395.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 200.3 197.3  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 395.2 396.8  cpu/wall 0.01 0.01
+FFTREF
+hipdelta apoa1pme drop=none context 0: 248.7 261.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.5 397.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 394.9 395.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 266.6 254.2  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 395.0 396.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.1 396.5  cpu/wall 0.01 0.01
+
+{ 5.14 4.74 4.54 }
+SIMPLEFIX
+hipdelta apoa1pme drop=none context 0: 395.3 396.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 163.0 170.7  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 236.7 212.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 241.7 250.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 218.8 227.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 394.7 396.4  cpu/wall 0.01 0.01
+TBPC24
+hipdelta apoa1pme drop=none context 0: 218.8 229.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.3 403.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 223.8 235.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 404.6 404.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.8 404.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.8 404.6  cpu/wall 0.01 0.01
+
+{ 8.83 5.33 4.75 }
+COMMIT
+hipdelta apoa1pme drop=none context 0: 275.3 267.2  cpu/wall 0.06 0.06
+hipdelta apoa1pme drop=none context 0: 262.3 250.7  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 396.8 397.9  cpu/wall 0.08 0.09
+hipdelta apoa1pme drop=none context 0: 397.4 397.6  cpu/wall 0.09 0.09
+hipdelta apoa1pme drop=none context 0: 399.3 398.4  cpu/wall 0.08 0.08
+hipdelta apoa1pme drop=none context 0: 176.6 159.5  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 396.6 395.6  cpu/wall 0.11 0.10
+hipdelta apoa1pme drop=none context 0: 396.1 394.7  cpu/wall 0.12 0.12
+
+apoa1pme drop=none context 0: 395.0 396.5  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 395.2 396.4  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 240.5 252.6  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 205.7 215.4  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 394.2 394.3  cpu/wall 0.01 0.01
+
+{ 3.11 4.18 4.36 }
+NOFFT
+hipdelta apoa1pme drop=none context 0: 276.3 264.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 247.4 226.5  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 251.9 279.2  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 174.7 177.3  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 261.3 268.8  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 447.8 449.6  cpu/wall 0.01 0.01
+NOSPREAD
+hipdelta apoa1pme drop=none context 0: 747.5 750.1  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 743.2 747.9  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 295.6 309.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 743.0 749.2  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 194.1 201.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 227.2 221.1  cpu/wall 0.01 0.01
+NOSORT
+hipdelta apoa1pme drop=none context 0: 384.4 385.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 386.8 386.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.0 385.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.2 386.4  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.4 387.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.4 386.0  cpu/wall 0.01 0.01
+
+{ 5.12 4.38 4.39 }
+RANGE1
+hipdelta apoa1pme drop=none context 0: 368.6 370.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 369.3 370.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 369.1 369.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 371.1 371.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 366.9 370.1  cpu/wall 0.02 0.01
+hipdelta apoa1pme drop=none context 0: 369.6 370.4  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 368.5 369.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 370.0 371.2  cpu/wall 0.01 0.01
+
+process 1 load { 3.19 5.68 4.73 }
+apoa1ljpme drop=none context 0: 157.7 157.2  cpu/wall 0.12 0.10
+process 2 load { 4.35 5.84 4.80 }
+apoa1ljpme drop=none context 0: 46.2 47.5  cpu/wall 0.02 0.03
+process 3 load { 4.08 5.76 4.78 }
+apoa1ljpme drop=none context 0: 158.5 157.6  cpu/wall 0.06 0.07
+process 4 load { 4.07 5.73 4.77 }
+apoa1ljpme drop=none context 0: 158.0 157.3  cpu/wall 0.07 0.07
+process 5 load { 4.23 5.71 4.78 }
+apoa1ljpme drop=none context 0: 158.7 158.1  cpu/wall 0.08 0.07
+process 6 load { 4.05 5.65 4.76 }
+apoa1ljpme drop=none context 0: 89.8 88.9  cpu/wall 0.05 0.04
+process 1 load { 3.80 5.57 4.74 }
+apoa1ljpme drop=none context 0: 130.3 129.1  cpu/wall 0.06 0.05
+process 2 load { 3.69 5.48 4.72 }
+apoa1ljpme drop=none context 0: 130.2 129.2  cpu/wall 0.05 0.05
+{ 3.40 5.26 4.66 }
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1466.5 1470.9  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1463.9 1471.3  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1469.1 1475.0  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1463.2 1467.5  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1484.2 1489.4  cpu/wall 0.02 0.01
+hipdelta apoa1ljpme drop=NonbondedForce context 0: 1462.3 1475.4  cpu/wall 0.02 0.01
+hipdelta apoa1pme drop=none context 0: 116.5 114.1  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 200.1 199.7  cpu/wall 0.09 0.09
+hipdelta apoa1pme drop=none context 0: 201.0 199.8  cpu/wall 0.12 0.08
+hipdelta apoa1pme drop=none context 0: 161.6 153.7  cpu/wall 0.07 0.07
+hipdelta apoa1pme drop=none context 0: 199.6 198.9  cpu/wall 0.08 0.09
+hipdelta apoa1pme drop=none context 0: 181.2 174.1  cpu/wall 0.08 0.08
+hipdelta apoa1rf drop=none context 0: 301.5 301.4  cpu/wall 0.12 0.13
+hipdelta apoa1rf drop=none context 0: 301.1 301.5  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 298.8 297.8  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 299.6 299.5  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 301.1 300.1  cpu/wall 0.12 0.12
+hipdelta apoa1rf drop=none context 0: 300.3 300.3  cpu/wall 0.11 0.11
+{ 2.27 4.27 4.34 }
+{ 3.69 4.49 4.42 }
+hipdelta apoa1pme drop=none context 0: 219.8 210.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.2 395.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 254.7 261.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 186.2 182.9  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 174.6 175.1  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 396.3 397.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 169.9 154.8  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 266.7 267.9  cpu/wall 0.01 0.01
+ref apoa1pme drop=none context 0: 372.8 372.0  cpu/wall 0.12 0.11
+ref apoa1pme drop=none context 0: 375.0 374.6  cpu/wall 0.11 0.08
+{ 6.37 5.10 4.65 }
+FFTNULL
+hipdelta apoa1pme drop=none context 0: 234.0 231.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.1 396.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 192.8 192.6  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 394.7 395.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 200.3 197.3  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 395.2 396.8  cpu/wall 0.01 0.01
+FFTREF
+hipdelta apoa1pme drop=none context 0: 248.7 261.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.5 397.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 394.9 395.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 266.6 254.2  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 395.0 396.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 395.1 396.5  cpu/wall 0.01 0.01
+{ 5.14 4.74 4.54 }
+SIMPLEFIX
+hipdelta apoa1pme drop=none context 0: 395.3 396.6  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 163.0 170.7  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 236.7 212.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 241.7 250.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 218.8 227.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 394.7 396.4  cpu/wall 0.01 0.01
+TBPC24
+hipdelta apoa1pme drop=none context 0: 218.8 229.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.3 403.9  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 223.8 235.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 404.6 404.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.8 404.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 403.8 404.6  cpu/wall 0.01 0.01
+{ 8.83 5.33 4.75 }
+COMMIT
+hipdelta apoa1pme drop=none context 0: 275.3 267.2  cpu/wall 0.06 0.06
+hipdelta apoa1pme drop=none context 0: 262.3 250.7  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 396.8 397.9  cpu/wall 0.08 0.09
+hipdelta apoa1pme drop=none context 0: 397.4 397.6  cpu/wall 0.09 0.09
+hipdelta apoa1pme drop=none context 0: 399.3 398.4  cpu/wall 0.08 0.08
+hipdelta apoa1pme drop=none context 0: 176.6 159.5  cpu/wall 0.06 0.05
+hipdelta apoa1pme drop=none context 0: 396.6 395.6  cpu/wall 0.11 0.10
+hipdelta apoa1pme drop=none context 0: 396.1 394.7  cpu/wall 0.12 0.12
+apoa1pme drop=none context 0: 395.0 396.5  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 395.2 396.4  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 240.5 252.6  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 205.7 215.4  cpu/wall 0.01 0.01
+apoa1pme drop=none context 0: 394.2 394.3  cpu/wall 0.01 0.01
+{ 3.11 4.18 4.36 }
+NOFFT
+hipdelta apoa1pme drop=none context 0: 276.3 264.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 247.4 226.5  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 251.9 279.2  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 174.7 177.3  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 261.3 268.8  cpu/wall 0.01 0.00
+hipdelta apoa1pme drop=none context 0: 447.8 449.6  cpu/wall 0.01 0.01
+NOSPREAD
+hipdelta apoa1pme drop=none context 0: 747.5 750.1  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 743.2 747.9  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 295.6 309.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 743.0 749.2  cpu/wall 0.02 0.02
+hipdelta apoa1pme drop=none context 0: 194.1 201.0  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 227.2 221.1  cpu/wall 0.01 0.01
+NOSORT
+hipdelta apoa1pme drop=none context 0: 384.4 385.3  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 386.8 386.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.0 385.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.2 386.4  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.4 387.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 385.4 386.0  cpu/wall 0.01 0.01
+{ 5.12 4.38 4.39 }
+RANGE1
+hipdelta apoa1pme drop=none context 0: 368.6 370.1  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 369.3 370.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 369.1 369.8  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 371.1 371.7  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 366.9 370.1  cpu/wall 0.02 0.01
+hipdelta apoa1pme drop=none context 0: 369.6 370.4  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 368.5 369.5  cpu/wall 0.01 0.01
+hipdelta apoa1pme drop=none context 0: 370.0 371.2  cpu/wall 0.01 0.01
+
+ref load { 1.80 2.75 3.02 }
+ref gbsa drop=none context 0: 1218.0 1219.5 1219.6
+hipdelta load { 1.97 2.77 3.02 }
+hipdelta gbsa drop=none context 0: 1070.9 1075.9 1043.1
+ref load { 2.13 2.77 3.02 }
+ref gbsa drop=GBSAOBCForce context 0: 3230.9 3231.6 3235.6
+hipdelta load { 2.28 2.79 3.03 }
+hipdelta gbsa drop=GBSAOBCForce context 0: 3361.9 3350.9 3359.1
+ref load { 2.18 2.76 3.01 }
+ref gbsa drop=NonbondedForce context 0: 1302.4 1304.5 1316.2
+hipdelta load { 2.32 2.78 3.02 }
+hipdelta gbsa drop=NonbondedForce context 0: 1058.0 1071.6 1039.9
+ref load { 2.46 2.80 3.02 }
+ref gbsa drop=GBSAOBCForce,NonbondedForce context 0: 5862.8 5929.3 5938.6
+hipdelta load { 2.66 2.84 3.04 }
+hipdelta gbsa drop=GBSAOBCForce,NonbondedForce context 0: 5574.7 5677.8 5700.7
+ref gbsa drop=NonbondedForce context 0: 1305.7 1306.6 1305.5
+hipdelta gbsa drop=NonbondedForce context 0: 1056.3 1078.8 1060.1
+hipdelta:HD_SIMPLEFIX=1 gbsa drop=NonbondedForce context 0: 1072.9 1083.3 1092.6
+hipdelta:HD_NORESTRICT=1 gbsa drop=NonbondedForce context 0: 1039.1 1041.3 1041.1
+hipdelta:HD_LANG31=1 gbsa drop=NonbondedForce context 0: 1075.4 1101.8 1070.7
+hipdelta:HD_COMMIT=1 gbsa drop=NonbondedForce context 0: 1062.0 1071.2 1056.4
+ref gbsa drop=NonbondedForce context 0: 1305.6 1303.9 1310.5
+ref gbsa drop=none context 0: 1219.7 1221.0 1220.3
+hipdelta gbsa drop=none context 0: 1066.1 1076.2 1060.2
+hipdelta:HD_SIMPLEFIX=1 gbsa drop=none context 0: 1073.6 1081.9 1081.8
+hipdelta:HD_NORESTRICT=1 gbsa drop=none context 0: 1068.3 1072.4 1025.5
+hipdelta:HD_LANG31=1 gbsa drop=none context 0: 1067.8 1088.0 1098.5
+hipdelta:HD_COMMIT=1 gbsa drop=none context 0: 1080.1 1078.6 1063.8
+ref gbsa drop=none context 0: 1221.1 1220.0 1224.4
+hipdelta gbsa drop=NonbondedForce context 0: 1036.2 1065.6 1069.1
+hipdelta:HD_NBPC=6,HD_NBSIZE=256 gbsa drop=NonbondedForce context 0: 1061.0 1068.5 1070.3
+hipdelta:HD_NBPC=12,HD_NBSIZE=128 gbsa drop=NonbondedForce context 0: 1055.9 1067.6 1086.9
+hipdelta:HD_TBPC=24 gbsa drop=NonbondedForce context 0: 1073.0 1078.6 1083.2
+hipdelta:HD_TBPC=6 gbsa drop=NonbondedForce context 0: 1088.9 1070.6 1049.6
+hipdelta:HD_TILES=4 gbsa drop=NonbondedForce context 0: 1081.9 1109.6 1113.7
+ref gbsa drop=NonbondedForce context 0: 1302.1 1306.7 1323.0
+ref gbsa drop=NonbondedForce context 0: 1259.2 1244.4 1261.4
+hipdelta gbsa drop=NonbondedForce context 0: 1147.6 1058.2 1059.7
+hipdelta:SPLIT_NOCUTOFF=1 gbsa drop=NonbondedForce context 0: 1445.0 1453.0 1455.1
+ref:SPLIT_NOCUTOFF=1 gbsa drop=NonbondedForce context 0: 1424.7 1419.2 1420.3
+ref gbsa drop=NonbondedForce context 0: 1285.2 1309.4 1316.5
+hipdelta gbsa drop=NonbondedForce context 0: 1069.0 1099.6 1105.6
+hipdelta:HD_PAD=0.1 gbsa drop=NonbondedForce context 0: 1123.2 1122.9 1106.4
+hipdelta:HD_PAD=0.15 gbsa drop=NonbondedForce context 0: 1142.1 1176.8 1123.0
+hipdelta:HD_PAD=0.05 gbsa drop=NonbondedForce context 0: 980.3 983.1 927.1
+hipdelta:HD_PRINTCOUNT=1 gbsa drop=NonbondedForce context 0: 1028.5 1036.9 1037.4
+hipdelta:HD_PRINTCOUNT=1 count tiles 2232 pairs 0 maxTiles 1560 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2231 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2249 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2296 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2340 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2362 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2374 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2392 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2403 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2423 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2437 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2462 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2457 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2452 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2442 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2435 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2420 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2409 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2394 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2389 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2375 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2372 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2364 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2362 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2352 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2344 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2340 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2339 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2337 pairs 0 maxTiles 2678 maxPairs 12445
+hipdelta:HD_PRINTCOUNT=1 count tiles 2336 pairs 0 maxTiles 2678 maxPairs 12445
+ref gbsa drop=NonbondedForce context 0: 1243.7 1246.0 1245.7
+hipdelta:HD_TILES=4 gbsa drop=NonbondedForce context 0: 1068.5 1081.5 1084.5
+hipdelta:HD_TILES=8 gbsa drop=NonbondedForce context 0: 1081.6 1065.1 1072.1
+hipdelta:HD_TILES=16 gbsa drop=NonbondedForce context 0: 1093.0 1041.8 1038.5
+hipdelta:HD_TILES=32 gbsa drop=NonbondedForce context 0: 1044.9 1053.3 1044.2
+hipdelta:HD_TILES=4,HD_PAD=0.1 gbsa drop=NonbondedForce context 0: 1103.0 1073.2 1072.4
+ref gbsa drop=none context 0: 1203.9 1195.7 1209.3
+hipdelta:HD_TILES=4 gbsa drop=none context 0: 1076.4 1108.4 1063.6
+hipdelta:HD_TILES=8 gbsa drop=none context 0: 1060.9 1070.8 1083.1
+hipdelta:HD_TILES=16 gbsa drop=none context 0: 1027.7 1114.3 1102.4
+hipdelta:HD_TILES=32 gbsa drop=none context 0: 1062.0 1093.2 1075.5
+hipdelta:HD_TILES=4,HD_PAD=0.1 gbsa drop=none context 0: 1079.8 1088.6 1074.5
