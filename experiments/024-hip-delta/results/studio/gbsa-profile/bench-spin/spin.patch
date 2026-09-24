@@ -1,0 +1,17 @@
+diff --git a/platforms/metal/src/MetalEvent.cpp b/platforms/metal/src/MetalEvent.cpp
+index a1eaa43d1..92343399c 100644
+--- a/platforms/metal/src/MetalEvent.cpp
++++ b/platforms/metal/src/MetalEvent.cpp
+@@ -49,8 +49,11 @@ void MetalEvent::enqueue() {
+ }
+ 
+ void MetalEvent::wait() {
++    // Spin, as hipEventSynchronize does by default.  Sleeping in waitUntilCompleted() delays the
++    // start of the next command buffer by tens of microseconds on some GPUs.
+     if (buffer != NULL)
+-        buffer->waitUntilCompleted();
++        while (event->signaledValue() < value && buffer->status() < MTL::CommandBufferStatusCompleted)
++            ;
+ }
+ 
+ void MetalEvent::queueWait(ComputeQueue queue) {

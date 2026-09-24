@@ -1,0 +1,190 @@
+// Lab-only GPU timing, not for upstream.
+// GPUPROF=kernels: every dispatch is committed and waited on by itself, and its command buffer's
+//   GPUEndTime - GPUStartTime is written to GPUPROF_OUT as "k <name> <grid> <block> <seconds>".
+// GPUPROF=buffers: normal batching; every committed buffer's GPU start and end go to GPUPROF_OUT
+//   as "b <start> <end> <host commit time> <first kernel> <last kernel> <host time of the scheduled handler>", and host
+//   waits as "w <what> <seconds> <start>", on mach_absolute_time, the clock GPUStartTime uses.
+// HD_WAIT picks how MetalEvent::wait() waits (probeWait below); unset keeps the tree's own wait.
+// Records are written only while GPUPROF_ON is set in the environment, so the caller can skip warm-up.
+#pragma once
+#include <Metal/Metal.hpp>
+#include <mach/mach_time.h>
+#include <cstdio>
+#include <cstdlib>
+#include <condition_variable>
+#include <cstring>
+#include <map>
+#include <memory>
+#include <mutex>
+#include <sched.h>
+#include <string>
+#include <unistd.h>
+
+namespace gpuprof {
+
+struct State {
+    int mode = 0;
+    FILE* out = NULL;
+    std::mutex lock;
+    std::map<const void*, std::string> names;
+    std::string first, last;
+    State() {
+        const char* m = getenv("GPUPROF");
+        const char* path = getenv("GPUPROF_OUT");
+        if (m == NULL || path == NULL)
+            return;
+        mode = (strcmp(m, "kernels") == 0 ? 1 : 2);
+        out = fopen(path, "w");
+    }
+    ~State() {
+        if (out != NULL)
+            fclose(out);
+    }
+};
+
+inline State& state() {
+    static State s;
+    return s;
+}
+
+inline bool on(int mode) {
+    return state().mode == mode && getenv("GPUPROF_ON") != NULL;
+}
+
+inline double hostSeconds() {
+    static mach_timebase_info_data_t timebase = {0, 0};
+    if (timebase.denom == 0)
+        mach_timebase_info(&timebase);
+    return mach_absolute_time()*(double) timebase.numer/timebase.denom*1e-9;
+}
+
+inline void setName(const void* pipeline, const std::string& name) {
+    std::lock_guard<std::mutex> guard(state().lock);
+    state().names[pipeline] = name;
+}
+
+inline std::string getName(const void* pipeline) {
+    std::lock_guard<std::mutex> guard(state().lock);
+    auto found = state().names.find(pipeline);
+    return found == state().names.end() ? "unknown" : found->second;
+}
+
+inline void write(const char* format, const char* text, double a, double b, double c) {
+    std::lock_guard<std::mutex> guard(state().lock);
+    fprintf(state().out, format, text, a, b, c);
+}
+
+// Call right after a dispatch was encoded into the queue's open buffer.
+template <class Queue>
+inline void timeDispatch(Queue& queue, const std::string& name, int grid, int block) {
+    if (on(2)) {
+        std::lock_guard<std::mutex> guard(state().lock);
+        if (state().first.empty())
+            state().first = name;
+        state().last = name;
+    }
+    if (!on(1))
+        return;
+    MTL::CommandBuffer* buffer = queue.getCommandBuffer()->retain();
+    queue.commit();
+    buffer->waitUntilCompleted();
+    std::lock_guard<std::mutex> guard(state().lock);
+    fprintf(state().out, "k %s %d %d %.9f\n", name.c_str(), grid, block, buffer->GPUEndTime()-buffer->GPUStartTime());
+    buffer->release();
+}
+
+// Call right before a buffer is committed.
+inline void watch(MTL::CommandBuffer* buffer) {
+    if (!on(2))
+        return;
+    double committed = hostSeconds();
+    std::string names;
+    {
+        std::lock_guard<std::mutex> guard(state().lock);
+        names = (state().first.empty() ? "none" : state().first)+" "+(state().last.empty() ? "none" : state().last);
+        state().first.clear();
+        state().last.clear();
+    }
+    std::shared_ptr<double> scheduled = std::make_shared<double>(0.0);
+    buffer->addScheduledHandler([scheduled](MTL::CommandBuffer*) { *scheduled = hostSeconds(); });
+    buffer->addCompletedHandler([committed, names, scheduled](MTL::CommandBuffer* done) {
+        std::lock_guard<std::mutex> guard(state().lock);
+        fprintf(state().out, "b %.9f %.9f %.9f %s %.9f\n", done->GPUStartTime(), done->GPUEndTime(), committed, names.c_str(), *scheduled);
+    });
+}
+
+struct Wait {
+    const char* what;
+    double start;
+    bool active;
+    Wait(const char* what) : what(what), start(hostSeconds()), active(on(2)) {}
+    ~Wait() {
+        if (active)
+            write("w %s %.9f %.9f %.9f\n", what, hostSeconds()-start, start, 0.0);
+    }
+};
+
+// Waits for event to reach value in the way HD_WAIT names, and returns true, or returns false to let the caller
+// do its own wait. spin: busy-wait on signaledValue. spinwait: spin, then fall through. bounded:N: spin at most
+// N us, then fall through. poll:N: sleep N us between polls. yield: sched_yield between polls. wfe: WFE between
+// polls. event: MTLSharedEvent waitUntilSignaledValue. listener: MTLSharedEventListener plus a condition variable.
+inline bool probeWait(MTL::SharedEvent* event, uint64_t value, MTL::CommandBuffer* buffer) {
+    const char* mode = getenv("HD_WAIT");
+    if (mode == NULL || buffer == NULL)
+        return false;
+    std::string m = mode;
+    int n = (m.find(':') == std::string::npos ? 0 : atoi(m.c_str()+m.find(':')+1));
+    auto pending = [&]() { return event->signaledValue() < value && buffer->status() < MTL::CommandBufferStatusCompleted; };
+    if (m == "spin" || m == "spinwait") {
+        while (pending())
+            ;
+        return m == "spin";
+    }
+    if (m.rfind("bounded", 0) == 0) {
+        double end = hostSeconds()+n*1e-6;
+        while (pending())
+            if (hostSeconds() > end)
+                return false;
+        return true;
+    }
+    if (m.rfind("poll", 0) == 0) {
+        while (pending())
+            usleep(n);
+        return true;
+    }
+    if (m == "yield") {
+        while (pending())
+            sched_yield();
+        return true;
+    }
+    if (m == "wfe") {
+        while (pending())
+            __asm__ volatile("wfe");
+        return true;
+    }
+    if (m == "event") {
+        while (!event->waitUntilSignaledValue(value, 1000) && buffer->status() < MTL::CommandBufferStatusCompleted)
+            ;
+        return true;
+    }
+    if (m == "listener") {
+        static MTL::SharedEventListener* listener = MTL::SharedEventListener::alloc()->init();
+        struct Flag {
+            std::mutex lock;
+            std::condition_variable cv;
+            bool done = false;
+        };
+        std::shared_ptr<Flag> flag = std::make_shared<Flag>();
+        event->notifyListener(listener, value, [flag](MTL::SharedEvent*, uint64_t) {
+            std::lock_guard<std::mutex> guard(flag->lock);
+            flag->done = true;
+            flag->cv.notify_one();
+        });
+        std::unique_lock<std::mutex> guard(flag->lock);
+        flag->cv.wait(guard, [&]() { return flag->done; });
+        return true;
+    }
+    return false;
+}
+
+} // namespace gpuprof

@@ -1,0 +1,10 @@
+hipdelta run 1 exit 0
+hipdelta run 2 exit 0
+hipdelta run 3 exit 1
+hipdelta run 4 exit 0
+hipdelta run 5 exit 0
+hipdelta-ref run 1 exit 0
+hipdelta-ref run 2 exit 0
+hipdelta-ref run 3 exit 0
+hipdelta-ref run 4 exit 0
+hipdelta-ref run 5 exit 0

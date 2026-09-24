@@ -1,0 +1,26 @@
+gbsa drop=NonbondedForce steps 2000 host_s 9.556518 us_per_step 4778.26 ns_per_day 72.3
+| Kernel | Grid x threadgroup | Dispatches/step | GPU us/step | Median us | Min us | Max us |
+|---|---|---:|---:|---:|---:|---:|
+| computeNonbonded | 360x256 | 1.00 | 59.76 | 59.58 | 14.25 | 87.62 |
+| computeGBSAForce1 | 360x256 | 1.00 | 50.52 | 50.29 | 45.75 | 61.46 |
+| computeBornSum | 360x256 | 1.00 | 44.40 | 44.25 | 40.71 | 52.38 |
+| computeBondedForces | 115x64 | 1.00 | 23.75 | 23.62 | 22.88 | 30.75 |
+| findBlockBounds | 2x64 | 1.00 | 12.30 | 12.12 | 11.58 | 66.71 |
+| sortShortList | 1x256 | 1.00 | 11.27 | 11.17 | 10.79 | 16.04 |
+| findBlocksWithInteractions | 10x256 | 1.00 | 10.56 | 4.00 | 3.38 | 137.71 |
+| applyShakeToPositions | 13x64 | 1.00 | 7.39 | 7.21 | 6.62 | 9.00 |
+| reduceBornForce | 39x64 | 1.00 | 7.16 | 7.12 | 6.17 | 8.88 |
+| applyShakeToVelocities | 13x64 | 1.00 | 6.64 | 6.54 | 5.88 | 9.08 |
+| removeCenterOfMassMomentum | 39x64 | 1.00 | 6.56 | 6.54 | 5.62 | 12.25 |
+| clearFourBuffers | 720x64 | 1.00 | 6.49 | 6.38 | 5.88 | 58.62 |
+| reduceBornSum | 39x64 | 1.00 | 6.10 | 6.12 | 5.04 | 63.37 |
+| sortBoxData | 39x64 | 1.00 | 6.04 | 6.04 | 5.17 | 11.38 |
+| integrateLangevinMiddlePart1 | 39x64 | 1.00 | 5.93 | 6.04 | 4.75 | 7.21 |
+| integrateLangevinMiddlePart3 | 39x64 | 1.00 | 5.79 | 5.88 | 4.75 | 8.25 |
+| calcCenterOfMassMomentum | 39x64 | 1.00 | 5.70 | 5.62 | 4.67 | 7.38 |
+| integrateLangevinMiddlePart2 | 39x64 | 1.00 | 5.33 | 5.38 | 4.38 | 10.71 |
+| computeSortKeys | 2x64 | 1.00 | 4.60 | 4.50 | 4.17 | 5.62 |
+| generateRandomNumbers | 156x64 | 0.25 | 1.92 | 7.62 | 7.17 | 8.75 |
+| computeKineticEnergy | 1x256 | 0.00 | 0.00 | 9.33 | 9.33 | 9.33 |
+| reduceEnergy | 60x256 | 0.00 | 0.00 | 8.04 | 8.04 | 8.04 |
+| total | | 19.26 | 288.23 | | | |

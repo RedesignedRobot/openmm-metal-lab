@@ -393,7 +393,159 @@ The best trade-off is HIP's own line, `numTilesInBatch = numAtomBlocks < 2000 ? 
 
 `probes/split.py` builds one benchmark system, drops force classes, and times chunks in fresh contexts (`results/studio/split-probes.txt`, ns/day, host clock). gbsa with its NonbondedForce dropped, so only the GB force remains, ran 1,040 to 1,148 on this branch against 1,244 to 1,323 on `metal`, 0.82 to 0.86x. With the GB force's cutoff turned off (`SPLIT_NOCUTOFF=1`) the same system ran 1,445 to 1,455 against 1,419 to 1,425, 1.02x. So HIP's GB kernels are as fast as `metal`'s, and the gap is in building and walking the neighbor list at gbsa's 2 nm cutoff. With NonbondedForce only, this branch is faster: 3,351 to 3,362 against 3,231 to 3,236.
 
-HEAD's gbsa GB-only ranged 1,036 to 1,148 across runs, so a knob has to beat about 10 percent to show. None did: padding 0.1 (`metal`'s value) instead of HIP's 0.08, 4 to 32 tiles per batch, the force block shapes above, `__restrict__` removed, MSL 3.1, committing before the count download. Padding 0.15 gave 1,123 to 1,177 against HEAD's 1,069 to 1,106 in the same run, 5 percent, and I didn't take it further. Padding 0.05 lost about 11 percent. The list held 2,231 to 2,462 tiles with no single pairs. The gap is open. My best hypothesis: HIP's findInteractingBlocks runs 32-thread threadgroups with the five `SYNC_WARPS` barriers Metal needed, and gbsa has only 78 atom blocks, so on the M3 Ultra's 60 cores the list build is latency-bound, while the M2's 10 cores are kept busy. I haven't profiled it, and that is the next step. Closing it may mean reworking HIP's findInteractingBlocks for Apple GPUs, which grows the diff this experiment is trying to shrink.
+HEAD's gbsa GB-only ranged 1,036 to 1,148 across runs, so a knob has to beat about 10 percent to show. None did: padding 0.1 (`metal`'s value) instead of HIP's 0.08, 4 to 32 tiles per batch, the force block shapes above, `__restrict__` removed, MSL 3.1, committing before the count download. Padding 0.15 gave 1,123 to 1,177 against HEAD's 1,069 to 1,106 in the same run, 5 percent, and I didn't take it further. Padding 0.05 lost about 11 percent. The list held 2,231 to 2,462 tiles with no single pairs. My hypothesis at the time was that HIP's findInteractingBlocks, with 32-thread threadgroups and 78 atom blocks, is latency-bound on 60 cores. The profile below rules that out: no kernel is slower in total, and the time goes to the GPU sitting idle while the host waits for the neighbor list count. NoCutoff has no count to wait for, which is why it came out even.
+
+#### Profile on the M3 Ultra (owner at the machine)
+
+The owner was using the Studio for light coding (bun, a dictation app) during these runs. Every run logs the 1 minute load average in its `loads.txt`, and I give the range with each set below.
+
+Method. Only the Command Line Tools are installed, so there is no `xctrace` and no Metal System Trace. I timed the GPU with a lab-only header, `probes/GpuProf.h`, hooked into both trees by `probes/gbprof-hd.patch` and `probes/gbprof-ref.patch`. It has two modes. In `kernels` mode every dispatch is committed and waited on by itself, and I record its command buffer's GPUEndTime minus GPUStartTime. In `buffers` mode batching is left alone, and I record each command buffer's GPU start and end, its host commit time, the first and last kernel in it, and the host's waits. GPUStartTime and GPUEndTime are on the host's `mach_absolute_time` base, so GPU and host events share one clock. `probes/gbprof.py` builds the benchmark.py gbsa system (optionally without NonbondedForce, "GB only"), runs LangevinMiddle at 4 fs with 200 warm-up steps, and records a window of steps. Its step time is `time.perf_counter` around the window. Trees: this branch 9074c38f1 and `metal` 052eaa85b, each built in its own venv under `/tmp/openmm-metal-bench/gbsa-gap`.
+
+Per kernel, `kernels` mode, 2,000 steps, round 1 of 3, full gbsa, GPU clock (`results/studio/gbsa-profile/prof1`, 1 minute load 4.6 to 11.7). One buffer per dispatch adds a floor of about 5 us to every kernel, so the totals are higher than a real step's GPU work.
+
+| Kernel | Grid x threadgroup, this branch | us/step | Grid x threadgroup, `metal` | us/step |
+|---|---|---:|---|---:|
+| computeNonbonded | 2400x64 | 54.7 | 360x256 | 72.1 |
+| computeGBSAForce1 | 720x64 | 52.1 | 360x256 | 51.0 |
+| computeBornSum | 720x64 | 45.8 | 360x256 | 47.4 |
+| computeBondedForces | 115x64 | 27.7 | 115x64 | 28.5 |
+| findBlocksWithInteractions | 78x32 | 21.6 (median 4.75, max 299) | 10x256 | 10.4 (median 4.5, max 143) |
+| sortBoxData | 39x64 | 16.5 | 39x64 | 6.2 |
+| sortShortList2 / sortShortList | 2x64 | 8.7 | 1x256 | 10.8 |
+| findBlockBounds | 78x32 | 6.3 | 2x64 | 11.9 |
+| computeSortKeys | 2x64 | 4.6 | 2x64 | 5.3 |
+| copyInteractionCounts | 1x1 | 3.7 | none | |
+| reduceBornSum, reduceBornForce | 39x64 | 14.2 | 39x64 | 13.3 |
+| integration, SHAKE, center of mass, clearing (9 kernels) | same | 55.7 | same | 52.8 |
+| Total | 20.26 dispatches/step | 311.5 | 19.26 dispatches/step | 309.5 |
+
+The three rounds gave totals of 311.5, 304.6 and 304.1 us/step on this branch and 309.5, 306.2 and 306.9 on `metal`. GB only: 292.0 to 296.1 against 286.4 to 288.2. So the GPU does the same work in both trees. The neighbor list kernels cost this branch about 61 us/step against `metal`'s 44, and the GB and nonbonded kernels give it back (153 against 170). The list runs every step in both trees; findBlocksWithInteractions returns early unless the rebuild flag is set, which is why its median is 4.5 to 4.75 us with occasional rebuilds of 140 to 300 us.
+
+Per step, both trees commit 2 command buffers and do 1 host wait on the neighbor list count. Buffer X holds the integrator's first half and the list build and ends with the count event. Buffer Y holds the forces, starting with computeBornSum and ending with computeNonbonded. The host commits Y, then waits for X with `waitUntilCompleted()` and reads the count. `finish()` waits run 0.02 times per step.
+
+Where the time goes, `buffers` mode, full gbsa, 3,000 steps per run, 2 interleaved rounds, step time on the host clock, gaps on the GPU clock (`results/studio/gbsa-profile/var3`, `var4`, 1 minute load 1.8 to 3.1):
+
+| Variant | Step, us | Y starts after X ends, median us | Host wakes after X ends, median us |
+|---|---:|---:|---:|
+| This branch | 321.1 to 335.5 | 40.1 to 42.8 | 104.9 to 112.2 |
+| `metal` | 284.1 to 286.4 | 0.4 | 89.8 to 94.2 |
+| This branch, host spins on the event | 270.2 to 273.0 | 0.4 to 0.5 | 21.5 to 23.2 |
+| This branch, spins, then `waitUntilCompleted()` | 312.9 to 319.9 | 38.2 to 38.8 | 99.1 to 99.6 |
+| `metal`, host spins on the event | 278.0 to 280.1 | 0.5 | not recorded |
+| `metal`, spins, then `waitUntilCompleted()` | 284.4 to 286.7 | 0.4 to 0.5 | 91.3 to 91.7 |
+
+On this branch the GPU sits idle for about 40 us between X and Y every step, although the host committed Y about 160 us before X finished. The host commits late for only about 2 us per step. `metal` has no such gap. The Y buffer itself is faster here (medians of 178.8 to 180.3 us against 199.6 to 200.2 on `metal`), and X is the same (66.0 to 67.1 against 65.2 to 66.2), so without the gap this branch would beat `metal` on gbsa.
+
+The gap follows the blocking wait. When the host spins on the shared event's `signaledValue` instead of sleeping in `waitUntilCompleted()`, Y starts 0.4 us after X and the step drops to 270 to 273 us, 5 percent faster than `metal`. Spinning until the signal and then calling `waitUntilCompleted()` brings the gap back, so it isn't the host arriving late; a thread blocked in `waitUntilCompleted()` on X delays the start of the Y that is already queued behind it. `metal` does the same blocking wait with no gap (see "Why `metal` has no gap" below). The gap stayed when I removed copyInteractionCounts (`HD_NOCOPY`), used 4 tiles per batch or 6 thread blocks per core (`var1`, 1 minute load 2.1 to 2.4, gap 37 to 40 us in every case). Committing after every force kernel (`var2`, `splitY`) let computeBornSum, alone in its buffer, start 0.4 us after X, and a 38 us median gap appeared before the next step's X instead.
+
+Other observations. Skipping the wait and the count read entirely (`HD_NOWAIT`) removes the gap too, but the list then never grows past its initial 1,560 tiles, so Y skips work and the 169 to 171 us steps aren't valid. Profiling one kernel per buffer hides the gap, which is why the kernel totals match. An hd-only run with no `metal` runs interleaved (`prof3-*`, 1 minute load 4.6) sometimes had a small gap and 301 to 307 us steps, so its size varies between processes, but every interleaved comparison showed it.
+
+#### Prototype: spin on the event
+
+Local branch metal-hipdelta-gbsa in the worktree `/Users/amir/code/mini/hipdelta-gbsa`, one change to `MetalEvent::wait()`, not committed or pushed:
+
+```cpp
+    if (buffer != NULL)
+        while (event->signaledValue() < value && buffer->status() < MTL::CommandBufferStatusCompleted)
+            ;
+```
+
+The status check ends the loop if the command buffer fails before its signal, where `waitUntilCompleted()` would also have returned. HIP busy-waits here too: HipContext's `getEventFlags()` never sets `hipEventBlockingSync`, so `hipEventSynchronize` spins. delta.sh: 482 added lines in shared files and 1,900 in all of platforms/metal, against 479 and 1,897 at 9074c38f1, so 3 lines with the two comment lines.
+
+Benchmark: `studio/gbsa-bench.sh`, benchmark.py `--platform Metal --precision single`, 3 interleaved rounds of 30 seconds, the tree order reversed every other round, ns/day on the host clock, owner at the machine (`results/studio/gbsa-profile/bench-spin`). The 1 minute load was 2.3 to 8.5 before every run, and it reached 16.7 during round 2's rf run on 9074c38f1, which is that tree's 571.7 outlier. Medians and ratios against `metal` 052eaa85b:
+
+| Test | `metal` | 9074c38f1 | ratio | spin prototype | ratio |
+|---|---:|---:|---:|---:|---:|
+| gbsa | 1220.6 | 1037.3 | 0.850 | 1284.4 | 1.052 |
+| rf | 707.8 | 637.6 | 0.901 | 736.2 | 1.040 |
+| pme | 543.0 | 539.4 | 0.993 | 543.4 | 1.001 |
+| apoa1rf | 287.6 | 300.7 | 1.045 | 301.4 | 1.048 |
+| apoa1pme | 184.5 | 194.3 | 1.053 | 194.8 | 1.056 |
+| apoa1ljpme | 129.0 | 144.2 | 1.118 | 145.6 | 1.129 |
+
+The prototype passes the 0.97x gate on every test, and it fixes rf too, which the tiles-per-batch line only partly did. It costs host CPU: the thread that waits now spins instead of sleeping.
+
+#### CPU cost, and waiting without spinning
+
+The spin keeps a core busy for the whole wait. Folding@home users often run CPU work next to the GPU, and laptops run on battery, so I measured host CPU for several ways to wait. `probes/gbprof.py` reports the process's CPU time (`time.process_time`, all threads) over the timed window divided by the window's wall time (`time.perf_counter`), so 1.0 is one core busy the whole time. The wait mode is chosen at run time by `HD_WAIT` in `probes/GpuProf.h`'s `probeWait`. gbsa ran 5,000 steps and apoa1pme 1,000 steps without GPU records, 2 interleaved rounds each; the gap column comes from a separate `buffers` pass of 3,000 gbsa steps (`results/studio/gbsa-profile/wait1`, 1 minute load 1.8 to 3.5, owner at the machine).
+
+| Wait | gbsa us/step | gbsa CPU cores | apoa1pme us/step | apoa1pme CPU cores | Y gap, median us |
+|---|---:|---:|---:|---:|---:|
+| `waitUntilCompleted()` (9074c38f1) | 313.8, 321.5 | 0.36 | 1776, 1778 | 0.07 | 40.0, 38.4 |
+| `metal` 052eaa85b, `waitUntilCompleted()` | 282.0, 281.2 | 0.31, 0.33 | 1864, 1868 | 0.07 | 0.4, 0.5 |
+| Spin on `signaledValue` | 269.1, 270.1 | 1.26, 1.29 | 1776, 1773 | 1.06 | 0.5, 0.4 |
+| Spin at most 50 us, then `waitUntilCompleted()` | 320.7, 319.3 | 0.53, 0.54 | 1776, 1773 | 0.10 | 40.3, 39.6 |
+| Spin at most 300 us, then `waitUntilCompleted()` | 274.1, 274.7 | 1.21, 1.20 | 1774, 1774 | 0.24 | 0.5, 0.5 |
+| Poll with `usleep(10)` | 269.7, 270.8 | 0.46, 0.44 | 1771, 1775 | 0.15, 0.16 | 0.4, 0.5 |
+| Poll with `usleep(50)` | 291.1, 292.5 | 0.44, 0.43 | 1772, 1773 | 0.10 | 0.5, 0.5 |
+| Poll with `sched_yield()` | 269.5, 269.7 | 1.26, 1.25 | 1773, 1776 | 1.04 | 0.4, 0.5 |
+| Poll with the ARM `wfe` instruction | 268.7, 268.9 | 1.28, 1.26 | 1784, 1776 | 1.05 | 0.5, 0.5 |
+| `MTLSharedEvent::waitUntilSignaledValue()` | 279.1, 281.2 | 0.45, 0.44 | 1774, 1775 | 0.08 | 0.5, 0.5 |
+| `MTLSharedEventListener` and a condition variable | 295.1, 294.4 | 0.47, 0.45 | 1774, 1771 | 0.08 | 0.5, 0.5 |
+| `metal`, `waitUntilSignaledValue()` | 278.7, 277.2 | 0.30, 0.29 | 1867, 1864 | 0.07, 0.08 | 0.4, 0.5 |
+
+Spinning costs a full core: 1.26 to 1.29 cores on gbsa against 0.36, and 1.06 on apoa1pme against 0.07, where it buys nothing because apoa1pme's GPU work dwarfs the wait. `sched_yield()` and `wfe` cost the same as the plain spin. A short bounded spin doesn't help: the host starts waiting about 160 us before X finishes, so a 50 us bound always falls through to `waitUntilCompleted()` and the gap comes back, and a bound long enough to cover the wait is a spin again. Polling every 10 us matches the spin's speed at a third of its CPU on gbsa, but doubles the CPU on apoa1pme.
+
+The fix I'd take is `waitUntilSignaledValue()` on the shared event the tree already signals. The host sleeps, the gap is gone, gbsa matches `metal` (279 to 281 us against 281 to 282), and apoa1pme's CPU stays at 0.08 cores. On gbsa it uses 0.44 cores against the blocking wait's 0.36 and `metal`'s 0.31 to 0.33, partly because steps come faster: per step that is about 125 us of CPU against 114 and 90. The call exists since macOS 12 (`API_AVAILABLE(macos(12.0))` in the SDK's MTLEvent.h). Anukari's developer found the same thing on Apple's advice: waiting on an MTLSharedEvent had much lower latency than `waitUntilCompleted` ([Huge macOS performance improvements](https://anukari.com/blog/devlog/huge-macos-performance-improvements)). `metal` gains a little from it too, 277 to 279 against 281 to 282 us.
+
+#### Why `metal` has no gap
+
+I compared what the two trees do at run time, not only their source. Every host-side step is the same (`probes/gbprof-xy.py` on `var4`, `probes/gbprof-scheduled.py` on `wait1`, 3,000 gbsa steps each, medians):
+
+- Both wait on X, the buffer that ends with the count event, and nothing later.
+- Both commit Y before the wait: Y's commit is 161.0 us before X's GPU end on this branch and 161.5 us before it on `metal`, and the wait starts about 1 us after Y's commit.
+- Both use `waitUntilCompleted()` on the command buffer, with no MTLSharedEventListener and no notify.
+- Both create the queue with a plain `newCommandQueue()` (default maximum of 64 command buffers) and buffers with a plain `commandBuffer()` (retained references, default error options). Neither tree uses a command buffer descriptor.
+- X ends the same way in both: a compute encoder, then `encodeSignalEvent`, with no blit.
+- The Metal calls each tree makes are the same set, apart from the reflection calls this branch uses to read kernel argument sizes and `metal`'s `threadExecutionWidth` query.
+- Metal reports Y as scheduled (`addScheduledHandler`) 103 us before X's end on this branch and 124 us before it on `metal`, so Y reaches the GPU in time in both.
+
+So nothing in the queue or buffer settings is different, and there is no setting to copy. On this branch the stall sits between Y being scheduled and Y starting on the GPU, and it happens only while a thread is blocked in `waitUntilCompleted()`. It also depends on what the buffer after X holds: computeBornSum alone started on time. My guess is that the driver's completion path for a waited-on buffer holds up the next buffer longer when that buffer is larger or binds more resources. I haven't tested that. Instruments' Metal System Trace, which needs full Xcode on the Studio, would show it. Either way, waiting on the event doesn't depend on the cause.
+
+#### Second prototype: wait on the event
+
+Same worktree and branch, replacing the spin (the spin's diff is `results/studio/gbsa-profile/bench-spin/spin.patch`):
+
+```cpp
+    if (buffer != NULL)
+        while (!event->waitUntilSignaledValue(value, 100) && buffer->status() < MTL::CommandBufferStatusCompleted)
+            ;
+```
+
+The 100 ms timeout and the status check make the loop return if the buffer fails before its signal, where `waitUntilCompleted()` would also have returned. delta.sh: 482 added lines in shared files and 1,900 in all of platforms/metal, 3 more than 9074c38f1, two of them the comment.
+
+Committed as 6df2b8bcb on branch metal-hipdelta-gbsa (pushed to `mini` only). Against `metal` 052eaa85b on the M3 Ultra, 3 interleaved rounds of 30 seconds, host clock, owner at the machine, 1 minute load about 2.3 to 3.4 (`results/studio/gbsa-profile/bench-wait`, `summary.txt`):
+
+| Test | `metal` ns/day | 6df2b8bcb ns/day | Ratio |
+|---|---:|---:|---:|
+| gbsa | 1229.2 | 1264.3 | 1.029 |
+| rf | 718.7 | 725.8 | 1.010 |
+| pme | 544.1 | 541.4 | 0.995 |
+| apoa1rf | 288.2 | 301.6 | 1.046 |
+| apoa1pme | 184.3 | 193.6 | 1.051 |
+| apoa1ljpme | 129.5 | 145.1 | 1.120 |
+
+Every test clears the 0.97 gate, which 9074c38f1 failed on gbsa (0.850) and rf (0.901) in the spin run. Forces against Reference are unchanged: rel|dF| is identical to 9074c38f1 on all six systems and rel|dE| moves within run-to-run noise (`results/studio/gbsa-profile/forces-wait`). The spin reached 1.052 on gbsa; the event wait gives up about 2 percent of that for no busy core. The profiling agent ended before writing this table; the lead computed it from the raw rounds with `summarize.py`.
+
+### M2 gates for 6df2b8bcb
+
+On the M2 (`results/m2-eventwait`):
+
+- ctest: 109 of 110 pass. TestMetalLangevinIntegratorMixed failed once; a rerun is pending.
+- Forces against Reference: rel|dF| 2.0e-05 to 7.7e-05 on all six systems, the same as 9074c38f1.
+- TestMetalFlexibleBarostatMixed, 5 runs each: the branch passes 4, the parent passes 5. The test is statistical, so one failure in five is not yet a signal; the Studio rerun waits for a quiet machine.
+- Speed against `metal` 052eaa85b, median of 3 rounds of 30 s, host clock:
+
+| Test | `metal` | 6df2b8bcb | Ratio |
+|---|---:|---:|---:|
+| gbsa | 384.8 | 412.6 | 1.072 |
+| rf | 253.2 | 254.5 | 1.005 |
+| pme | 199.8 | 207.2 | 1.037 |
+| apoa1rf | 58.9 | 69.2 | 1.175 |
+| apoa1pme | 47.0 | 54.4 | 1.156 |
+| apoa1ljpme | 33.9 | 40.0 | 1.181 |
+
+The M2 gains are larger than the M3 Ultra's on the big systems. The small ones stay near parity on both machines.
 
 ### The apoa1ljpme spread was a bug
 
@@ -466,4 +618,8 @@ A read-only review of the stage 2 diff found these. None changes forces in the t
 - `probes/split.py`: builds one benchmark system, optionally drops force classes, turns off cutoffs or direct space, and times chunks in fresh contexts. Round 2 used it to split gbsa and to find the apoa1 sort bug.
 - `results/studio/screen-m3-1`, `screen-m3-2`, `screen-apoa1ljpme-spread`, `split-probes.txt`, `results/m2-tiles`: round 2 logs.
 - `probes/`: MSL compile probes and `mslc.swift`, the compiler driver (`swiftc -O mslc.swift`). `rewriter-compare.cpp` runs the old and new signature rewriters over kernel files. `chunks.py` times an apoa1 system in 200-step chunks. `rfdebug.py` shows the exception benchmark.py hides. `edge.py` tries Mixed and Double precision and `DeviceIndex` "0,0". `fastacc.swift` runs `metal`'s fast math accuracy check and a wider sweep.
+- `probes/GpuProf.h`, `probes/gbprof-hd.patch`, `probes/gbprof-ref.patch`: the lab-only GPU timer and the diffs that hook it into each tree, with the temporary knobs used in the gbsa profile (`HD_SPLIT`, `HD_NOCOPY`, `HD_NOWAIT`, `HD_TILES`, `HD_TBPC`, and `HD_WAIT`, which picks the wait mode in `probeWait`). `HD_SPIN`, used for `var3` and `var4`, became `HD_WAIT=spin` and `HD_WAIT=spinwait`.
+- `probes/gbprof.py`: runs one benchmark.py system and records a window of steps. `gbprof-summary.py` prints the per-kernel table and buffer busy time, `gbprof-boundaries.py` the GPU idle time before each buffer grouped by the kernels on either side, `gbprof-gaps.py` the X to Y gap and the host's wake time, `gbprof-xy.py` each step's commit, wait and start times around X, `gbprof-scheduled.py` when Metal reports each buffer scheduled.
+- `studio/gbsa-build.sh`, `gbsa-leased.sh`, `gbsa-profile.sh`, `gbsa-variants.sh`, `gbsa-bench.sh`: the gbsa profile's build, lease, profiling runs and benchmark rounds under `/tmp/openmm-metal-bench/gbsa-gap`.
+- `results/studio/gbsa-profile/`: the gbsa profile's records (gzipped), summaries, `loads.txt` per set, and the prototype's benchmark rounds.
 - `results/`: raw logs.

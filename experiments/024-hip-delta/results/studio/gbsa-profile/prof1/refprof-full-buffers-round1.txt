@@ -1,0 +1,4 @@
+gbsa drop=none steps 5000 host_s 1.778650 us_per_step 355.73 ns_per_day 971.5
+buffers/step 2.00  GPU busy us/step 273.12  span us/step 355.67  busy/span 0.768
+host wait event: 1.00/step, 288.27 us/step, median 254.33 us
+host wait finish: 0.02/step, 1.45 us/step, median 0.12 us

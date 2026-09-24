@@ -1,0 +1,7 @@
+gbsa drop=NonbondedForce steps 5000 host_s 1.751432 us_per_step 350.29 ns_per_day 986.6
+buffers/step 2.00  GPU busy us/step 259.23  span us/step 350.23  busy/span 0.740
+idle us/step: host committed after the GPU ran dry 2.96, commit or previous end to start 88.04 (median 39.62 us)
+buffer GPU us, median of alternate buffers: 163.63 and 164.08
+event wait end minus the last GPU end before it: median 115.46 us
+host wait event: 1.00/step, 322.65 us/step, median 294.96 us
+host wait finish: 0.02/step, 1.01 us/step, median 0.17 us
