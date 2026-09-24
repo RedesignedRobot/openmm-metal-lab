@@ -3,8 +3,13 @@
 # A configuration is label=python:platform:precision[:VAR=value,...], with an absolute python path
 # (a venv made by build.sh) and optional environment settings for that run only. Every
 # (round, test, configuration) runs in a fresh process. Within a test the configurations run back to
-# back, in reversed order every other round. The GPU lease is taken per (round, test) through
-# lease.sh; wrap the whole ab.sh in one lease.sh so those calls run inside one hold. A run that
+# back, in reversed order every other round. The whole screen is one lease.sh timing hold: ab.sh
+# re-execs itself through lease.sh once, so it queues one ticket, and the per-(round, test) lease.sh
+# calls inside run at once. Inside another hold (window.sh, or your own lease.sh) it runs at once.
+# The lane comes from the outdir (/tmp/openmm-metal-bench/ultra-<lane>/...) or AB_LANE.
+# It prints an estimate first: every run is <seconds> plus the setup measured for its test on the M3
+# Ultra (twice <seconds> on the CPU platform, whose step count overshoots). Outside a window it
+# refuses a screen over 18 minutes, under lease.sh's 20 minute cap; split it by test. A run that
 # starts with a build running, or overlaps one that starts during it, is marked BUILD RUNNING in
 # loads.txt. --rerun-builds (window.sh) reruns every (round, test) with a marked run once at the end,
 # all configurations in that round's order; the replaced results move to <outdir>/replaced.
@@ -19,6 +24,7 @@ set -eu
 TOOLS=/tmp/openmm-metal-bench/ultra-tools
 BENCH=/tmp/openmm-metal-bench/ultra-base/benchmarks
 ALL=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv
+SCREEN_MAX_SECONDS=1080
 unset PYTHONPATH
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 nice_value=$(ps -o nice= -p $$ | tr -d ' ')
@@ -26,6 +32,7 @@ nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 rerun_builds=0
 [ "${1:-}" = --rerun-builds ] && { rerun_builds=1; shift; }
 [ $# -ge 5 ] || { echo "usage: ab.sh [--rerun-builds] <outdir> <rounds> <seconds> <tests|all> <configuration>..." >&2; exit 2; }
+tests_arg="$4"
 case "$1" in
 /*) out="${1%/}" ;;
 *) echo "the outdir must be an absolute path" >&2; exit 2 ;;
@@ -36,12 +43,29 @@ tests="$4"
 [ "$tests" = all ] && tests=$ALL
 tests="$(echo "$tests" | tr , ' ')"
 shift 4
+lane="$(echo "$out" | sed -n 's|^/tmp/openmm-metal-bench/\(ultra-[^/]*\)/.*|\1|p')"
+lane="${lane:-${AB_LANE:-}}"
+[ -n "$lane" ] || { echo "no lane: put the outdir under /tmp/openmm-metal-bench/ultra-<lane>/ or set AB_LANE" >&2; exit 2; }
 mkdir -p "$out"
 [ -z "$(ls -A "$out")" ] || { echo "$out is not empty; use a new outdir per run" >&2; exit 2; }
-lane="$(echo "$out" | sed -n 's|^/tmp/openmm-metal-bench/\(ultra-[^/]*\)/.*|\1|p')"
-lane="${lane:-unknown}"
+
+# Seconds of setup per run beyond the timed <seconds>, from 028's runs on the M3 Ultra: imports,
+# system build, Context, calibration steps and exit (the minimizer too for amber20).
+setup_seconds() {
+    case "$1:$2" in
+    amber20-cellulose:mixed) echo 47 ;;
+    amber20-cellulose:*) echo 12 ;;
+    amber20-stmv:*) echo 60 ;;
+    amoebapme:*) echo 20 ;;
+    amoebagk:*) echo 15 ;;
+    apoa1*:*) echo 6 ;;
+    *) echo 4 ;;
+    esac
+}
 
 labels=""
+config_lines=""
+estimate=0
 for config in "$@"; do
     label="${config%%=*}"
     IFS=: read -r python platform precision settings <<SPEC
@@ -67,8 +91,24 @@ SPEC
     fi
     info="$(cd / && "$python" -c "import openmm; print(openmm.__file__, openmm.version.git_revision)")" \
         || { echo "$python can't import openmm" >&2; exit 2; }
-    echo "$label $platform $precision settings=${settings:-none} $info $built" >> "$out/configs.txt"
+    config_lines="$config_lines$label $platform $precision settings=${settings:-none} $info $built
+"
+    for test in $tests; do
+        run=$((seconds + $(setup_seconds "$test" "$precision")))
+        [ "$platform" = CPU ] && run=$((run + seconds))
+        estimate=$((estimate + rounds * run))
+    done
 done
+if [ -z "${AB_HELD:-}" ]; then
+    echo "estimate: $rounds rounds, $(echo $tests | wc -w | tr -d ' ') tests, $# configurations, about $((estimate / 60)) min $((estimate % 60)) s"
+    [ -n "${OPENMM_WINDOW:-}" ] || [ $estimate -le $SCREEN_MAX_SECONDS ] \
+        || { echo "the estimate is over $((SCREEN_MAX_SECONDS / 60)) minutes: split the screen by test into several ab.sh calls" >&2; exit 2; }
+    rerun_flag=""
+    [ $rerun_builds = 1 ] && rerun_flag=--rerun-builds
+    export AB_HELD=1
+    exec "$TOOLS/lease.sh" "$lane" "ab.sh $out, about $(((estimate + 59) / 60)) min" "$0" $rerun_flag "$out" "$rounds" "$seconds" "$tests_arg" "$@"
+fi
+printf '%s' "$config_lines" > "$out/configs.txt"
 cat "$out/configs.txt"
 
 reversed="$(echo "$@" | tr ' ' '\n' | tail -r | tr '\n' ' ')"

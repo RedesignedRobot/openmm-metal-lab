@@ -244,3 +244,49 @@ SHAKE pos, Part3, all serial in one encoder. gbsa has no water (SHAKE only).
   gate runs on it), logs, screens, censuses and jsonl data. t4's venv still imports. M2: kept the g2 build in
   ultra-m2/mixed for further M2 checks; its sync artifacts are gone.
 - 22:38Z the g2 full gate's first ticket is 27th of 36 in the queue, waiting since 22:17Z.
+- 22:40Z lead: no freeze, no cap. g2 goes full gate, then 3x30 confirm, then infra's m2cand.sh, then
+  ultra/integrated. Timing holds carry only timing; correctness goes in its own lease.sh --correctness ticket;
+  no placeholder tickets (I have none left). Next roadmap item after g2 is gated: fused LangevinMiddle.
+- Lead's three checks on the bundle: TestMetalMixedPrecisionMixed passes on g2 (55/55). g2 changes no host code:
+  c1 touched only the integrationUtilities.cc kernel source and df64.metal. The sloppy df64 add stays by the
+  lead's condition (drift and constraints clean at 1e-8 on both chips); told the lead, who can still ask for the
+  exact add.
+- Math mode lever (assigned by the lead): branch ultra/mixed-mathmode from 6df2b8bcb, commit 5fbce452a, 12+/1-.
+  MetalContext compiles with MathModeRelaxed instead of MathModeSafe (precise functions unchanged).
+  `#pragma METAL fp math_mode(safe)` fences df64.metal (safe at its top, relaxed again at its end) and the
+  float2 compensated sums in constantPotentialCGSolver.cc (Metal never defines SUPPORTS_DOUBLE_PRECISION, so
+  it always takes that path; gated with #ifdef USE_METAL). Offline check on the M3 Ultra, `xcrun metal
+  -fmetal-math-mode=relaxed -S -emit-llvm -O2`: a TwoSum under the safe pragma keeps all six adds and subtracts
+  with no fast-math flags after inlining into a kernel, while the same function under relaxed folds to zero
+  error. Building in ultra-mixed/mm; mm-queue.sh then queues gate.sh --quick, one correctness ticket for
+  TestMetalMixedPrecision* and TestMetalConstantPotentialForce*, and two timing screens (single, mixed; gbsa,
+  rf, pme; 2 x 15 s), each in one lease.sh. Drift waits until a screen shows 3%.
+- 22:44Z mm built (5fbce452a); mm-queue.sh queued gate --quick, the ctest ticket and both screens at 22:43:56Z.
+- Math mode facts (lead's condition 1). The platform compiled with MathModeSafe and
+  MathFloatingPointFunctionsPrecise (6df2b8bcb MetalContext.cpp:484-485); the branch changes only the first.
+  Xcode-beta SDK MTLLibrary.h: Safe "disables unsafe floating-point optimizations"; Relaxed "allows aggressive,
+  unsafe floating-point optimizations but preserves infs and nans"; Fast allows all of them. CUDA builds with
+  --use_fast_math (CudaContext.cpp:135), which per the NVRTC docs (Context7) implies --ftz=true,
+  --prec-div=false, --prec-sqrt=false, --fmad=true. OpenCL does not use -cl-fast-relaxed-math: on non-Intel
+  devices it passes only -cl-mad-enable -cl-no-signed-zeros (OpenCLContext.cpp:212). So relaxed sits between
+  the two: past OpenCL (it adds reassociation, reciprocal division and approximate functions), close to CUDA's
+  approximate divide and sqrt, but it keeps INF and NaN and says nothing about denormals.
+- IR diff (condition 3, offline half), `xcrun metal -std=metal3.2 -fmetal-math-fp32-functions=precise -O2
+  -S -emit-llvm`, safe against relaxed, on x/y, 1/precise::sqrt(x), precise::sqrt(x), exp, the common.metal
+  erfc, x*y+z, (x+y)-y and fast::divide. Relaxed puts `reassoc nsz arcp contract afn` on every float op and
+  call, including the air.sqrt.f32 that precise::sqrt emits, air.exp.f32 and plain `/`, and marks the kernel
+  "unsafe-fp-math"="true" and "approx-func-fp-math"="true". (x+y)-y folds to x. fast::divide carries the same
+  five flags under safe already. So relaxed lets the GPU compiler approximate GB's precise SQRT, fuse 1/SQRT
+  into rsqrt and approximate every plain divide and exp. The IR can't show whether it does. Two runtime checks
+  answer that: TestMetalMixedPrecision (1e-12 against double, fails if df64 loses its low parts) and a 4M
+  element ulp harness (ulp/ulp.swift, 10 ops, safe and relaxed compiled from one source with precise
+  functions, each compared with the correctly rounded result, plus a TwoSum under the safe pragma inlined into
+  the relaxed kernel and one without it), queued as a --correctness ticket at 22:46Z. The kernel-level
+  unsafe-fp-math attribute is the risk the pragma can't clear: a backend that reads it could still fold the
+  fenced df64 code. profiler's 1e rsqrt arm (ticket 30130) has not run; no gain claim before I read it.
+- Known limits, commented on ultra/mixed as b8f40d855 (comments only, +3, pushed to mini). The sloppy df64 add:
+  error about 2^-47 of |x|+|y| (max 1.065 x 2^-47 over 300k float32-emulated adds with Fraction references,
+  uniform, cancelling and mixed-scale operands on [-10, 10], so about 1.5e-13 nm on 10 nm coordinates).
+  df64 division through 1/y: accurate only for 2^-126 <= |y| <= 2^126, where 1/y is a normal float. Newton
+  SETTLE: stops after 15 iterations with no error even if not converged. The gated code is still 5cc0ba5af;
+  b8f40d855 compiles to the same kernels.

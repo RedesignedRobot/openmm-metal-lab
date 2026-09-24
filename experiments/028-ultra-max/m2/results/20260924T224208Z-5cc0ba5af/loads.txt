@@ -1,0 +1,24 @@
+2026-09-24T22:42:32Z round 1 gbsa base-single load 3.36 free 75% swap 952.00M top opendirectoryd 3.5%, iStat Menus Menubar 3.4%, WindowServer 2.0%, io.tailscale.ipn.macsys.network-extension 1.8%, notifyd 0.9%
+2026-09-24T22:42:48Z round 1 gbsa cand-single load 3.00 free 75% swap 952.00M top iStat Menus Menubar 3.7%, WindowServer 1.7%, notifyd 0.3%, Tailscale 0.1%, ControlCenter 0.1%
+2026-09-24T22:43:04Z round 1 gbsa base-mixed load 2.84 free 75% swap 952.00M top mds_stores 60.0%, fseventsd 47.1%, mdworker_shared 45.9%, mds 33.3%, mdworker_shared 29.5%
+2026-09-24T22:43:20Z round 1 gbsa cand-mixed load 5.94 free 75% swap 952.00M top Python 97.8%, mdworker_shared 64.6%, mdworker_shared 58.9%, mdworker_shared 47.5%, mdworker_shared 45.9%
+2026-09-24T22:44:11Z round 1 rf base-single load 7.04 free 75% swap 952.00M top mds 77.9%, mds_stores 36.6%, mdworker_shared 25.8%, mdworker_shared 23.1%, mdworker_shared 17.5%
+2026-09-24T22:45:14Z round 1 rf cand-single load 9.67 free 75% swap 952.00M top mds 63.7%, mds_stores 39.5%, mdworker_shared 33.2%, mdworker_shared 28.5%, mdworker_shared 24.0%
+2026-09-24T22:45:31Z round 1 rf base-mixed load 9.44 free 75% swap 952.00M top mds_stores 170.4%, iStat Menus Menubar 6.6%, WindowServer 5.1%, powermetrics 1.5%, mds 1.0%
+2026-09-24T22:45:48Z round 1 rf cand-mixed load 7.85 free 75% swap 952.00M top mds_stores 338.4%, mds 10.7%, powermetrics 0.9%, iStat Menus Menubar 0.6%, WindowServer 0.5%
+2026-09-24T22:46:05Z round 1 pme base-single load 8.92 free 75% swap 952.00M top mdworker_shared 56.0%, mdworker_shared 43.4%, mds 41.0%, mdworker_shared 35.9%, mdworker_shared 34.0%
+2026-09-24T22:46:22Z round 1 pme cand-single load 8.37 free 75% swap 952.00M top mds_stores 100.3%, amsengagementd 0.4%, clocksyncd 0.2%, ControlCenter 0.2%, Tailscale 0.1%
+2026-09-24T22:46:39Z round 1 pme base-mixed load 7.55 free 75% swap 952.00M top mds_stores 101.3%, iStat Menus Menubar 1.6%, WindowServer 0.9%, bluetoothd 0.4%, sharingd 0.3%
+2026-09-24T22:46:56Z round 1 pme cand-mixed load 7.43 free 75% swap 952.00M top mediaanalysisd 123.3%, mds_stores 115.5%, iStat Menus Menubar 0.4%, clocksyncd 0.2%, ControlCenter 0.2%
+2026-09-24T22:47:13Z round 2 gbsa cand-mixed load 6.80 free 75% swap 952.00M top sysmond 6.6%, iStat Menus Menubar 1.6%, WindowServer 1.1%, opendirectoryd 0.9%, notifyd 0.7%
+2026-09-24T22:47:29Z round 2 gbsa base-mixed load 5.73 free 75% swap 952.00M top sysmond 7.0%, WindowServer 0.4%, iStat Menus Menubar 0.3%, clocksyncd 0.2%, mDNSResponder 0.2%
+2026-09-24T22:47:46Z round 2 gbsa cand-single load 5.12 free 75% swap 952.00M top launchd 14.5%, WindowServer 1.0%, iStat Menus Menubar 0.9%, notifyd 0.3%, mds_stores 0.3%
+2026-09-24T22:48:02Z round 2 gbsa base-single load 4.22 free 75% swap 952.00M top history 3.2%, iStat Menus Menubar 2.2%, powermetrics 2.1%, WindowServer 1.3%, powermetrics 1.0%
+2026-09-24T22:48:18Z round 2 rf cand-mixed load 3.87 free 75% swap 952.00M top clocksyncd 0.3%, WindowServer 0.1%, Tailscale 0.1%, ControlCenter 0.1%, iStat Menus Menubar 0.1%
+2026-09-24T22:48:35Z round 2 rf base-mixed load 3.74 free 75% swap 952.00M top opendirectoryd 3.2%, io.tailscale.ipn.macsys.network-extension 3.1%, iStat Menus Menubar 2.4%, WindowServer 1.8%, logd 0.8%
+2026-09-24T22:48:52Z round 2 rf cand-single load 3.31 free 75% swap 952.00M top sysmond 6.9%, iStat Menus Menubar 4.1%, powermetrics 3.4%, WindowServer 3.3%, notifyd 0.2%
+2026-09-24T22:49:09Z round 2 rf base-single load 3.32 free 75% swap 952.00M top powermetrics 3.4%, iStat Menus Menubar 0.7%, WindowServer 0.4%, bluetoothd 0.4%, ControlCenter 0.2%
+2026-09-24T22:49:26Z round 2 pme cand-mixed load 3.01 free 75% swap 952.00M top iStat Menus Menubar 4.3%, powermetrics 3.4%, WindowServer 3.4%, PerfPowerServices 0.8%, clocksyncd 0.2%
+2026-09-24T22:49:42Z round 2 pme base-mixed load 2.92 free 75% swap 952.00M top mds_stores 0.5%, mds 0.4%, iStat Menus Menubar 0.2%, clocksyncd 0.1%, ControlCenter 0.1%
+2026-09-24T22:49:59Z round 2 pme cand-single load 2.86 free 75% swap 952.00M top sysmond 6.5%, iStat Menus Menubar 6.5%, powermetrics 3.3%, WindowServer 2.5%, sh 0.4%
+2026-09-24T22:50:16Z round 2 pme base-single load 2.88 free 75% swap 952.00M top iStat Menus Menubar 3.5%, powermetrics 3.5%, WindowServer 2.2%, launchd 1.0%, ControlCenter 0.2%

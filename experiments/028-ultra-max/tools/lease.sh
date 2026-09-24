@@ -18,6 +18,9 @@
 # Lead and infra only, never lanes: LEASE_TICKET_US=<16 digits> dates the ticket instead of the clock,
 # so a restarted job keeps its original place (and window.sh goes next), and --cap SECONDS replaces the
 # 20 minute cap (window.sh's hold).
+# A timing hold carries only timing (RULES.md). When the GPU of an outer timing hold (not nested, not
+# the window) reads under 10% for 60 s straight, lease.sh writes one line to the holder's stderr and to
+# /tmp/openmm-lease-idle.log, and warns again after the GPU has been busy.
 # usage: lease.sh [--correctness] [--cap SECONDS] <lane> <what> <command...>
 #        lease.sh --status
 set -eu
@@ -29,6 +32,10 @@ HAND_LEASE_MAX_SECONDS=$((CAP_SECONDS + 60))
 MAX_MEMBERS=3
 BUILDS='clang|clang\+\+|ninja|cc1plus'
 TICKET='[0-9]+-[A-Za-z0-9_.-]+-[0-9]+'
+IDLE_LOG=/tmp/openmm-lease-idle.log
+IDLE_POLL_SECONDS=5
+IDLE_WARN_SECONDS=60
+IDLE_BELOW_PERCENT=10
 
 now_us() {
     perl -MTime::HiRes=gettimeofday -e '($s, $us) = gettimeofday; printf "%d%06d\n", $s, $us'
@@ -117,8 +124,27 @@ can_join() {
     [ $members -ge 1 ] && [ $members -lt $MAX_MEMBERS ]
 }
 
+# Warns once per stretch of IDLE_WARN_SECONDS with the GPU under IDLE_BELOW_PERCENT, the same
+# ioreg reading as the lead's sampler.
+watch_idle() {
+    idle=0
+    while sleep $IDLE_POLL_SECONDS; do
+        util="$(ioreg -r -d 1 -w 0 -c IOAccelerator | grep -o '"Device Utilization %"=[0-9]*' | head -1 | cut -d= -f2)"
+        if [ "${util:-100}" -ge $IDLE_BELOW_PERCENT ]; then
+            idle=0
+            continue
+        fi
+        idle=$((idle + IDLE_POLL_SECONDS))
+        [ $idle -eq $IDLE_WARN_SECONDS ] || continue
+        line="$(date -u +%H:%M:%SZ) lease.sh: GPU under $IDLE_BELOW_PERCENT% for $IDLE_WARN_SECONDS s in the timing hold of $lane ($what). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets."
+        echo "$line" >&2
+        echo "$line" >> "$IDLE_LOG"
+    done
+}
+
 # The last member out removes the lease.
 leave() {
+    [ -z "$watcher" ] || kill "$watcher" 2>/dev/null || true
     rm -f "$LEASE/members/$$"
     if rmdir "$LEASE/members" 2>/dev/null; then
         rm -rf "$LEASE"
@@ -232,7 +258,12 @@ if [ $role = primary ]; then
     [ $timing = 1 ] || touch "$LEASE/correctness"
 fi
 rm -f "$QUEUE/$ticket"
+watcher=""
 trap leave EXIT
+if [ $timing = 1 ] && [ -z "${OPENMM_WINDOW:-}" ]; then
+    watch_idle &
+    watcher=$!
+fi
 export OPENMM_LEASE_PID=$$
 # perl runs the command in its own process group, so the cap and a signal stop all of it, python included.
 perl -e '

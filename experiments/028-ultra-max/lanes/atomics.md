@@ -97,3 +97,7 @@ Bonded (d8ab45b2b) now waits on probe 1a, so I dropped the two bonded screen tic
 ### 22:36Z keep rule covers both chips; M2 checks requested
 
 The lead clarified RULES line 11: keep a change that gains 3% or more on at least one test on either chip, M3 Ultra or M2, and costs no more than 1% on any test on either. Words and bonded both need an M2 check before either is judged. I sent the lead words 4be61f9b6 (ultra/atomics) and bonded d8ab45b2b (ultra/atomics-bonded), both on mini, each against 71a602b43. The words gbsa gate waits on the M2 number too. On the M3 Ultra, gbsa's roughly 3,000 tiles barely fill the nonbonded kernel's 2,400 threadgroups (10 x 4 x 60 cores), so it is not atomic bound (1-atomic probe 1.051). On the M2 there are 400 threadgroups, so words may win there, and a gate that turns words off for gbsa would give that up.
+
+### 22:45Z research pitfall check: both branches clean
+
+Research read words and bonded against the code and found no pitfall. The word placement is exact, the carry is counted once per wrap, the fold is its own dispatch and clears the words, and the energy-only kernel writes no words. The bonded barriers sit in uniform flow, and LOCAL_SIZE is always 64. One follow-up for later: ultra/plugins (0b6380669) packs value arguments into one struct when a kernel passes 31 bindings. Once that merges, MetalBondedUtilities' argument count (9 fixed, 6 of them values) is conservative and turns chunking off for kernels that would still fit. That costs speed, not correctness, so I'll recount after the merge if bonded is kept.

@@ -1,0 +1,7 @@
+check started 2026-09-24T22:42:08Z, 2 rounds of 15 s, tests gbsa,rf,pme
+clock: benchmark.py host clock, datetime.now() around step()
+base /Users/amir/lab/ultra-m2/base: commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:53:05Z steps venv 10s, configure 3s, ninja -j4 159s (1391 edges), install+python 26s 
+  loads /Users/amir/lab/ultra-m2/base/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM /Users/amir/lab/ultra-m2/base/prefix/lib/libOpenMM.dylib Metal /Users/amir/lab/ultra-m2/base/prefix/lib/plugins/libOpenMMMetal.dylib
+cand /Users/amir/lab/ultra-m2/cand: commit 5cc0ba5af3bf362d8ca3a3dbf79040695149fa8e src 8c6d9cc8cbf8a408275c55448c3955c138a9390d toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:42:08Z steps venv 0s, configure 1s, ninja -j4 3s (131 edges), install+python 4s 
+  loads /Users/amir/lab/ultra-m2/cand/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM /Users/amir/lab/ultra-m2/cand/prefix/lib/libOpenMM.dylib Metal /Users/amir/lab/ultra-m2/cand/prefix/lib/plugins/libOpenMMMetal.dylib
+total 505 s

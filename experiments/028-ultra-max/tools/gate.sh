@@ -3,15 +3,15 @@
 # 1. forces.py, Metal single and mixed against Reference on gbsa, rf, pme, apoa1rf, apoa1pme and
 #    apoa1ljpme, compared with ultra-base/forces.txt (see forces.py for the rule). A minute or two.
 # 2. Without --quick: ctest -R TestMetal at -j2, about 10 minutes on ultra-base, 20 with the plugin
-#    tests. The tests are split round-robin into parts of at most 30, and each part runs in its own
-#    lease hold through gate-ctest.sh, so no hold nears lease.sh's 20 minute cap. A failed
-#    statistical test (gate-ctest.sh's list, or a failure that says "This test is stochastic") is
-#    rerun up to 3 times in the same hold and passes if a rerun passes; the verdict line says on
+#    tests. The tests are split round-robin into parts of at most 30, each run by gate-ctest.sh.
+#    A failed statistical test (gate-ctest.sh's list, or a failure that says "This test is
+#    stochastic") is rerun up to 3 times and passes if a rerun passes; the verdict line says on
 #    which attempt. Any other failure fails the gate. Every listed test must have run.
 # --quick is the R&D gate: screen a candidate only after it passes. The full gate is for a candidate
 # that screened at 3% or more, and for the integrated build.
-# Each step takes the GPU lease through lease.sh --correctness (no wait for builds, since nothing
-# here is timed), so don't hold the lease when you call this. It
+# The whole gate is one lease.sh --correctness hold with a 45 minute cap: gate.sh queues one ticket,
+# then forces and every ctest part run inside the hold. Other correctness tickets at the head of the
+# queue still join it, up to 3 members. Don't call it inside your own lease.sh. It
 # refuses a tree whose src changed after build.sh. Logs go to <dir>/gate-<time>/. The last line is
 # PASS or FAIL.
 #   /bin/sh -c 'nohup /tmp/openmm-metal-bench/ultra-tools/gate.sh --quick /tmp/openmm-metal-bench/ultra-<lane> > /tmp/openmm-metal-bench/ultra-<lane>/gate.out 2>&1 < /dev/null &'
@@ -20,6 +20,7 @@ set -eu
 TOOLS=/tmp/openmm-metal-bench/ultra-tools
 BASE=/tmp/openmm-metal-bench/ultra-base
 PART_TESTS=30
+GATE_CAP_SECONDS=2700
 export PATH=/tmp/openmm-metal-bench/env/bin:$PATH
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 unset PYTHONPATH
@@ -35,6 +36,12 @@ dir="${dir%/venv}"
 [ "$(sed -n 's/^src //p' "$dir/BUILT")" = "$("$TOOLS/srchash.sh" "$dir")" ] || { echo "$dir/src changed after build.sh; rebuild first" >&2; exit 2; }
 [ -f "$BASE/forces.txt" ] || { echo "$BASE/forces.txt is missing" >&2; exit 2; }
 lane="$(basename "$dir")"
+if [ -z "${GATE_HELD:-}" ]; then
+    quick_flag=""
+    [ $quick = 1 ] && quick_flag=--quick
+    export GATE_HELD=1
+    exec "$TOOLS/lease.sh" --correctness --cap $GATE_CAP_SECONDS "$lane" "gate.sh${quick_flag:+ $quick_flag} $dir" "$0" $quick_flag "$dir"
+fi
 out="$dir/gate-$(date -u +%Y%m%dT%H%M%SZ)"
 mkdir -p "$out"
 echo "gate$([ $quick = 1 ] && echo " --quick") $dir, $(sed -n 's/^commit //p' "$dir/BUILT"), logs in $out"

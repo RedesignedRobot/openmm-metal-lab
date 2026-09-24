@@ -12,6 +12,8 @@
 # 3. <rounds> rounds of <seconds> s through ab.sh, all configurations interleaved. Every run logs the
 #    load and the Hyperscale VM's CPU first. A (round, test) with a run that overlapped a build runs
 #    again at the end (ab.sh --rerun-builds). Then summary.txt.
+# 4. With --cpu, the CPU baselines: 1 round of <seconds> s of pme and apoa1pme on the baseline build's
+#    CPU platform (mixed) into <outdir>/cpu, then cpu-summary.txt. The first window needs it once.
 # Each build is name=dir:precisions, with precisions from single, mixed and opencl. The first build
 # is the baseline; its opencl run is the denominator of every Metal/OpenCL ratio. summary.txt has each
 # Metal configuration against the baseline's OpenCL, and each other build against the baseline's same
@@ -19,7 +21,7 @@
 # --estimate prints the expected wall time and exits. --rounds N changes the 3 rounds. --smoke is the
 # end-to-end check of this script: 1 round of 5 s, at most 1 minute of preflight.
 #   /bin/sh -c 'nohup /tmp/openmm-metal-bench/ultra-tools/window.sh /tmp/openmm-metal-bench/ultra-infra/w1 all base=/tmp/openmm-metal-bench/ultra-base:single,mixed,opencl int=/tmp/openmm-metal-bench/ultra-integrated:single,mixed > /tmp/openmm-metal-bench/ultra-infra/w1.out 2>&1 < /dev/null &'
-# usage: window.sh [--estimate] [--rounds N | --smoke] <outdir> <tests|all> <name=dir:precisions>...
+# usage: window.sh [--estimate] [--cpu] [--rounds N | --smoke] <outdir> <tests|all> <name=dir:precisions>...
 set -eu
 export LC_ALL=C
 TOOLS=/tmp/openmm-metal-bench/ultra-tools
@@ -27,7 +29,8 @@ QUEUE=/tmp/openmm-lease-queue
 WINDOW=/tmp/openmm-window
 TICKET='[0-9]+-[A-Za-z0-9_.-]+-[0-9]+'
 ALL=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv
-USAGE="usage: window.sh [--estimate] [--rounds N | --smoke] <outdir> <tests|all> <name=dir:precisions>..."
+USAGE="usage: window.sh [--estimate] [--cpu] [--rounds N | --smoke] <outdir> <tests|all> <name=dir:precisions>..."
+CPU_TESTS=pme,apoa1pme
 LOAD_MAX=3
 BUILDS='clang|clang\+\+|ninja|cc1plus'
 
@@ -42,16 +45,18 @@ per_run() {
     esac
 }
 
-# Sets rounds, seconds, preflight_max, estimate, out, tests, configs, pairs and total from the
+# Sets rounds, seconds, preflight_max, estimate, cpu, out, tests, configs, pairs, base_dir and total from the
 # arguments, leaving the script's own "$@" for the re-run under the lease.
 parse() {
     rounds=3
     seconds=30
     preflight_max=600
     estimate=0
+    cpu=0
     while :; do
         case "${1:-}" in
         --estimate) estimate=1; shift ;;
+        --cpu) cpu=1; shift ;;
         --rounds) rounds="${2:-}"; shift 2 ;;
         --smoke) rounds=1; seconds=5; preflight_max=60; shift ;;
         *) break ;;
@@ -75,7 +80,7 @@ parse() {
         precisions="${dir##*:}"
         dir="${dir%:*}"
         [ -x "$dir/venv/bin/python" ] || { echo "$dir/venv/bin/python is missing" >&2; exit 2; }
-        [ -n "$base" ] || base="$name"
+        [ -n "$base" ] || { base="$name"; base_dir="$dir"; }
         for precision in $(echo "$precisions" | tr , ' '); do
             case "$precision" in
             single|mixed) platform=Metal ;;
@@ -96,10 +101,15 @@ parse() {
         done
     done
     total=$((total * rounds))
+    [ $cpu = 1 ] || return 0
+    # A CPU-platform run times up to twice <seconds> (benchmark.py's step count overshoots).
+    for test in $(echo "$CPU_TESTS" | tr , ' '); do
+        total=$((total + $(per_run "$test" mixed) - 30 + 2 * seconds))
+    done
 }
 
 parse "$@"
-[ -n "${OPENMM_WINDOW:-}" ] || echo "estimate: $rounds rounds of $seconds s, $(echo $configs | wc -w | tr -d ' ') configurations, $(echo "$tests" | tr , ' ' | wc -w | tr -d ' ') tests, about $((total / 60)) minutes"
+[ -n "${OPENMM_WINDOW:-}" ] || echo "estimate: $rounds rounds of $seconds s, $(echo $configs | wc -w | tr -d ' ') configurations, $(echo "$tests" | tr , ' ' | wc -w | tr -d ' ') tests$([ $cpu = 1 ] && echo ", the CPU arm"), about $((total / 60)) minutes"
 [ $estimate = 1 ] && exit 0
 nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 [ "$nice_value" = 0 ] || { echo "running at nice $nice_value, not 0: launch through /bin/sh -c 'nohup ...'" >&2; exit 2; }
@@ -141,3 +151,6 @@ cat "$out/preflight.txt"
 "$TOOLS/ab.sh" --rerun-builds "$out/ab" $rounds $seconds "$tests" $configs
 echo "end $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$out/preflight.txt"
 /tmp/openmm-metal-bench/ultra-base/venv/bin/python "$TOOLS/summarize.py" "$out/ab" $pairs | tee "$out/summary.txt"
+[ $cpu = 1 ] || exit 0
+"$TOOLS/ab.sh" --rerun-builds "$out/cpu" 1 $seconds $CPU_TESTS "$base-cpu=$base_dir/venv/bin/python:CPU:mixed"
+/tmp/openmm-metal-bench/ultra-base/venv/bin/python "$TOOLS/summarize.py" "$out/cpu" | tee "$out/cpu-summary.txt"
