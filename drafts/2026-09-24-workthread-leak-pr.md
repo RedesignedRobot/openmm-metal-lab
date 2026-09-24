@@ -1,6 +1,8 @@
-# WorkThread leak PR (draft, not posted)
+# WorkThread leak PR
 
-Branch: fix-workthread-leak, commit 8813e8542 on origin/master (laptop worktree /Users/amir/code/mini/wt-workthread). Not pushed to the fork.
+Posted 2026-09-24 ~15:40Z as https://github.com/openmm/openmm/pull/5436 from RedesignedRobot:fix-workthread-leak (8813e8542). Disclosure line per the owner: Fable 5.1.
+
+Branch: fix-workthread-leak, commit 8813e8542 on origin/master (laptop worktree /Users/amir/code/mini/wt-workthread). Pushed to the fork.
 
 Title: Delete the WorkThread when a ComputeContext is destroyed
 
@@ -17,7 +19,7 @@ Tested on my M2 with 3,000 Contexts created and destroyed in one process:
 
 The OpenCL Single tests give the same results before and after.
 
-Using Claude, I wrote and tested this.
+Using Claude Fable 5.1, I wrote and tested this.
 
 ## Evidence
 
