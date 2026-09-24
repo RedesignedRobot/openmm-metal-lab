@@ -1,0 +1,18 @@
+# benchmark.py --test apoa1ljpme --seconds 10, hipdelta minimum before the device throw came back, 8 processes, M3 Ultra
+# columns: vm.loadavg before, ns/day
+{ 3.06 2.59 2.52 } 52.8424
+{ 2.81 2.56 2.51 } 78.2832
+{ 2.45 2.49 2.49 } 47.7062
+{ 3.12 2.63 2.54 } 53.0694
+{ 3.45 2.73 2.58 } 73.0138
+{ 3.50 2.77 2.59 } 157.273
+{ 3.87 2.88 2.63 } 156.951
+{ 4.39 3.05 2.70 } 46.7093
+
+# probes/chunks.py apoa1ljpme 12: ns/day for each 200-step chunk, one line per process
+# first four lines hipdelta, last line ref (metal 361452c5c)
+apoa1ljpme 52 49 47 53 48 50 54 51 50 49 51 52
+apoa1ljpme 46 45 43 45 43 43 44 45 44 45 43 41
+apoa1ljpme 157 156 156 156 155 156 155 156 156 156 156 155
+apoa1ljpme 99 95 99 98 102 97 92 105 98 101 102 99
+apoa1ljpme 133 129 129 128 127 129 128 128 128 129 128 128

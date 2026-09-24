@@ -1,0 +1,4 @@
+{'Precision': 'single'} energy 0.5 kJ/mol
+{'Precision': 'mixed'} exception Error compiling program: program_source:42:9: error: 'double' is not supported in Metal
+{'Precision': 'double'} exception Error compiling program: program_source:38:9: error: 'double' is not supported in Metal
+{'DeviceIndex': '0,0'} exception The METAL platform does not support multiple devices

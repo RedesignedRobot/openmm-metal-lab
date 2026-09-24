@@ -1,0 +1,120 @@
+Test project /tmp/openmm-metal-bench/hipdelta/hipdelta/build
+      Start 236: TestMetalCustomNonbondedForceSingle
+      Start 250: TestMetalMonteCarloAnisotropicBarostatSingle
+ 1/54 Test #236: TestMetalCustomNonbondedForceSingle ............   Passed    9.88 sec
+      Start 252: TestMetalMonteCarloFlexibleBarostatSingle
+ 2/54 Test #252: TestMetalMonteCarloFlexibleBarostatSingle ......   Passed  112.12 sec
+      Start 251: TestMetalMonteCarloBarostatSingle
+ 3/54 Test #250: TestMetalMonteCarloAnisotropicBarostatSingle ...   Passed  125.98 sec
+      Start 234: TestMetalCustomIntegratorSingle
+ 4/54 Test #234: TestMetalCustomIntegratorSingle ................   Passed   39.62 sec
+      Start 259: TestMetalQTBIntegratorSingle
+ 5/54 Test #251: TestMetalMonteCarloBarostatSingle ..............   Passed   46.81 sec
+      Start 218: TestMetalBrownianIntegratorSingle
+ 6/54 Test #218: TestMetalBrownianIntegratorSingle ..............   Passed   38.65 sec
+      Start 255: TestMetalNoseHooverIntegratorSingle
+ 7/54 Test #259: TestMetalQTBIntegratorSingle ...................   Passed   42.41 sec
+      Start 266: TestMetalVariableLangevinIntegratorSingle
+ 8/54 Test #266: TestMetalVariableLangevinIntegratorSingle ......***Failed   13.81 sec
+      Start 217: TestMetalAndersenThermostatSingle
+ 9/54 Test #217: TestMetalAndersenThermostatSingle ..............   Passed   13.50 sec
+      Start 224: TestMetalConstantPotentialForceSingle
+10/54 Test #255: TestMetalNoseHooverIntegratorSingle ............   Passed   27.96 sec
+      Start 239: TestMetalDispersionPMESingle
+11/54 Test #239: TestMetalDispersionPMESingle ...................   Passed    6.90 sec
+      Start 240: TestMetalEwaldSingle
+12/54 Test #224: TestMetalConstantPotentialForceSingle ..........   Passed   10.27 sec
+      Start 249: TestMetalLocalEnergyMinimizerSingle
+13/54 Test #240: TestMetalEwaldSingle ...........................   Passed    7.73 sec
+      Start 238: TestMetalDPDIntegratorSingle
+14/54 Test #249: TestMetalLocalEnergyMinimizerSingle ............   Passed   12.13 sec
+      Start 269: TestMetalVirtualSitesSingle
+15/54 Test #238: TestMetalDPDIntegratorSingle ...................   Passed    9.61 sec
+      Start 235: TestMetalCustomManyParticleForceSingle
+16/54 Test #269: TestMetalVirtualSitesSingle ....................   Passed    6.19 sec
+      Start 247: TestMetalLangevinIntegratorSingle
+17/54 Test #235: TestMetalCustomManyParticleForceSingle .........   Passed    7.68 sec
+      Start 254: TestMetalNonbondedForceSingle
+18/54 Test #254: TestMetalNonbondedForceSingle ..................   Passed    5.93 sec
+      Start 248: TestMetalLangevinMiddleIntegratorSingle
+19/54 Test #247: TestMetalLangevinIntegratorSingle ..............   Passed    9.90 sec
+      Start 268: TestMetalVerletIntegratorSingle
+20/54 Test #268: TestMetalVerletIntegratorSingle ................   Passed    6.82 sec
+      Start 242: TestMetalGBSAOBCForceSingle
+21/54 Test #248: TestMetalLangevinMiddleIntegratorSingle ........   Passed    8.21 sec
+      Start 267: TestMetalVariableVerletIntegratorSingle
+22/54 Test #242: TestMetalGBSAOBCForceSingle ....................   Passed    4.99 sec
+      Start 232: TestMetalCustomGBForceSingle
+23/54 Test #267: TestMetalVariableVerletIntegratorSingle ........   Passed    4.81 sec
+      Start 216: TestMetalATMForceSingle
+24/54 Test #232: TestMetalCustomGBForceSingle ...................   Passed    3.25 sec
+      Start 246: TestMetalLCPOForceSingle
+25/54 Test #216: TestMetalATMForceSingle ........................   Passed    3.45 sec
+      Start 223: TestMetalCompoundIntegratorSingle
+26/54 Test #246: TestMetalLCPOForceSingle .......................   Passed    3.29 sec
+      Start 230: TestMetalCustomCompoundBondForceSingle
+27/54 Test #223: TestMetalCompoundIntegratorSingle ..............   Passed    3.06 sec
+      Start 227: TestMetalCustomCPPForceSingle
+28/54 Test #227: TestMetalCustomCPPForceSingle ..................   Passed    1.22 sec
+      Start 220: TestMetalCMMotionRemoverSingle
+29/54 Test #230: TestMetalCustomCompoundBondForceSingle .........   Passed    2.60 sec
+      Start 243: TestMetalGayBerneForceSingle
+30/54 Test #220: TestMetalCMMotionRemoverSingle .................   Passed    1.46 sec
+      Start 233: TestMetalCustomHbondForceSingle
+31/54 Test #243: TestMetalGayBerneForceSingle ...................   Passed    0.76 sec
+      Start 256: TestMetalOrientationRestraintForceSingle
+32/54 Test #233: TestMetalCustomHbondForceSingle ................   Passed    0.82 sec
+      Start 228: TestMetalCustomCVForceSingle
+33/54 Test #256: TestMetalOrientationRestraintForceSingle .......   Passed    1.15 sec
+      Start 262: TestMetalRMSDForceSingle
+34/54 Test #228: TestMetalCustomCVForceSingle ...................   Passed    0.87 sec
+      Start 221: TestMetalCheckpointsSingle
+35/54 Test #262: TestMetalRMSDForceSingle .......................   Passed    0.89 sec
+      Start 241: TestMetalFFTSingle
+36/54 Test #241: TestMetalFFTSingle .............................   Passed    0.51 sec
+      Start 264: TestMetalSettleSingle
+37/54 Test #221: TestMetalCheckpointsSingle .....................   Passed    0.95 sec
+      Start 261: TestMetalRGForceSingle
+38/54 Test #261: TestMetalRGForceSingle .........................   Passed    0.55 sec
+      Start 258: TestMetalPythonForceSingle
+39/54 Test #264: TestMetalSettleSingle ..........................   Passed    0.91 sec
+      Start 237: TestMetalCustomTorsionForceSingle
+40/54 Test #258: TestMetalPythonForceSingle .....................   Passed    0.42 sec
+      Start 229: TestMetalCustomCentroidBondForceSingle
+41/54 Test #237: TestMetalCustomTorsionForceSingle ..............   Passed    0.60 sec
+      Start 219: TestMetalCMAPTorsionForceSingle
+42/54 Test #229: TestMetalCustomCentroidBondForceSingle .........   Passed    0.54 sec
+      Start 263: TestMetalRandomSingle
+43/54 Test #263: TestMetalRandomSingle ..........................   Passed    0.40 sec
+      Start 225: TestMetalCustomAngleForceSingle
+44/54 Test #219: TestMetalCMAPTorsionForceSingle ................   Passed    0.63 sec
+      Start 231: TestMetalCustomExternalForceSingle
+45/54 Test #225: TestMetalCustomAngleForceSingle ................   Passed    0.44 sec
+      Start 222: TestMetalCommandBatchingSingle
+46/54 Test #231: TestMetalCustomExternalForceSingle .............   Passed    0.53 sec
+      Start 265: TestMetalSortSingle
+47/54 Test #222: TestMetalCommandBatchingSingle .................   Passed    0.47 sec
+      Start 226: TestMetalCustomBondForceSingle
+48/54 Test #265: TestMetalSortSingle ............................   Passed    0.66 sec
+      Start 245: TestMetalHarmonicBondForceSingle
+49/54 Test #226: TestMetalCustomBondForceSingle .................   Passed    0.64 sec
+      Start 260: TestMetalRBTorsionForceSingle
+50/54 Test #245: TestMetalHarmonicBondForceSingle ...............   Passed    0.34 sec
+      Start 257: TestMetalPeriodicTorsionForceSingle
+51/54 Test #260: TestMetalRBTorsionForceSingle ..................   Passed    0.55 sec
+      Start 253: TestMetalMultipleForcesSingle
+52/54 Test #257: TestMetalPeriodicTorsionForceSingle ............   Passed    0.52 sec
+      Start 244: TestMetalHarmonicAngleForceSingle
+53/54 Test #253: TestMetalMultipleForcesSingle ..................   Passed    0.32 sec
+54/54 Test #244: TestMetalHarmonicAngleForceSingle ..............   Passed    0.42 sec
+
+98% tests passed, 1 tests failed out of 54
+
+Total Test time (real) = 302.72 sec
+
+The following tests FAILED:
+	266 - TestMetalVariableLangevinIntegratorSingle (Failed)
+Errors while running CTest
+Output from these tests are in: /tmp/openmm-metal-bench/hipdelta/hipdelta/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+elapsed 303 s
