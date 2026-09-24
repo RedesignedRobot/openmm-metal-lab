@@ -1,0 +1,19 @@
+Darwin M3 Pro 27.2.0 Darwin Kernel Version 27.2.0: Sun Sep 13 19:46:58 PDT 2026; root:xnu-13432.40.162~92/RELEASE_ARM64_T6030 arm64
+ProductName:		macOS
+ProductVersion:		27.2
+BuildVersion:		26B5091g
+Apple M3 Pro
+38654705664
+12
+      Chipset Model: Apple M3 Pro
+      Total Number of Cores: 18
+commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0
+openmm 8.6 /tmp/openmm-metal-bench/env/lib/python3.13/site-packages/openmm/__init__.py
+cb2dec8f1c61ab0716367ec49561c9e0ad854db4ace5e9d512e7d162959cf25e  /tmp/openmm-metal-bench/src/examples/benchmarks/benchmark.py
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+27.0
+benchmarks run under nice -n 10
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=37552227)	51%; discharging; 2:41 remaining present: true
+ lowpowermode         0
+20:03  up  8:20, 2 users, load averages: 2.09 3.11 4.25

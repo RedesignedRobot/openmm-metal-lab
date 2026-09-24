@@ -1,0 +1,20 @@
+test           atoms platform precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489 Metal    single     2.468e-05  8.567e-02  7.269e-07
+gbsa            2489 Metal    mixed      2.468e-05  8.567e-02  6.124e-07
+gbsa            2489 OpenCL   single     2.469e-05  8.865e-02  6.402e-07
+rf             23558 Metal    single     2.213e-05  7.340e-01  2.231e-07
+rf             23558 Metal    mixed      2.213e-05  7.340e-01  2.094e-07
+rf             23558 OpenCL   single     2.213e-05  7.341e-01  2.478e-07
+pme            23558 Metal    single     2.048e-05  3.918e-01  1.270e-06
+pme            23558 Metal    mixed      2.048e-05  3.918e-01  1.202e-06
+pme            23558 OpenCL   single     2.049e-05  3.917e-01  9.571e-07
+apoa1rf        92224 Metal    single     5.987e-05  1.327e+00  4.772e-08
+apoa1rf        92224 Metal    mixed      5.987e-05  1.327e+00  4.871e-08
+apoa1rf        92224 OpenCL   single     5.987e-05  1.327e+00  2.136e-08
+apoa1pme       92224 Metal    single     7.747e-05  7.200e-01  5.778e-07
+apoa1pme       92224 Metal    mixed      7.747e-05  7.200e-01  5.871e-07
+apoa1pme       92224 OpenCL   single     7.747e-05  7.198e-01  3.597e-07
+apoa1ljpme     92224 Metal    single     7.747e-05  7.229e-01  6.120e-07
+apoa1ljpme     92224 Metal    mixed      7.747e-05  7.229e-01  6.179e-07
+apoa1ljpme     92224 OpenCL   single     7.747e-05  7.227e-01  4.401e-07
+exit 0

@@ -1,0 +1,34 @@
+{
+    "benchmarks": [
+        {
+            "test": "rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "OpenCL",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M3 Pro",
+                "OpenCLPlatformIndex": "0",
+                "OpenCLPlatformName": "Apple",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "DisablePmeStream": "false"
+            },
+            "steps": 39517,
+            "elapsed_time": 29.940013,
+            "ns_per_day": 456.1479382123179
+        }
+    ],
+    "system": {
+        "hostname": "M3 Pro",
+        "timestamp": "2026-09-24T17:41:55.884507+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Pro",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

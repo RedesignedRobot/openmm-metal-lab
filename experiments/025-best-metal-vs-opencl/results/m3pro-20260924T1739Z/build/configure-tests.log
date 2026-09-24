@@ -1,0 +1,16 @@
+CMake Warning (policy) at CMakeLists.txt:15 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-author or -Wno-policy to
+suppress it.
+
+CMake Warning (author) at CMakeLists.txt:21 (PROJECT):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-author to suppress it.
+
+-- Configuring done (0.3s)
+-- Generating done (0.6s)
+-- Build files have been written to: /tmp/openmm-metal-bench/build

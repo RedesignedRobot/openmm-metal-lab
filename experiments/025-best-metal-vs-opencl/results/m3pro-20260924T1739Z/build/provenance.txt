@@ -1,0 +1,14 @@
+micromamba 2.9.0 tarball sha256 500f5074feb8d02c4296ef9921c3650ed2874171805a9fbb8fbb53896433646b, env: conda-forge python=3.13 numpy=2.5.3 cython=3.3.0 setuptools scipy cmake=4.4.3 ninja=1.13.2 swig=4.5.1 doxygen=1.18.0
+  cmake            4.4.3         hf91ab31_0            conda-forge
+  cython           3.3.0         py313hbbd9ce8_0       conda-forge
+  doxygen          1.18.0        py310h3226bdb_0       conda-forge
+  ninja            1.13.2        h3feff0a_1            conda-forge
+  numpy            2.5.3         py313h24c19cf_0       conda-forge
+  python           3.13.15       hb59dee6_103_cp313    conda-forge
+  scipy            1.18.1        py313hccac1f9_0       conda-forge
+  setuptools       84.0.0        pyh332efcf_0          conda-forge
+  swig             4.5.1         h55aefed_1            conda-forge
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+macOS SDK 27.0
+Amber20_Benchmark_Suite.tar.gz sha256 7fee3a02f85f0eb1d07b6eb8902516947f29774ac870dbe17a7cb134d916f401
+then: cmake -S src -B build -DBUILD_TESTING=ON; ninja -C build TestMetalMonteCarloFlexibleBarostat (test binary only, links the build-tree libs)

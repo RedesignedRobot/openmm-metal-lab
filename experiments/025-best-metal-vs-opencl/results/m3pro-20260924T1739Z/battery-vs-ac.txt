@@ -1,0 +1,32 @@
+Battery (NI 10, 51% to 23%) against AC (NI 0), same round and order. ns/day, host clock (datetime.now).
+battery/AC per run; AC spread = (max-min)/median over AC rounds 1-3.
+test              config          bat r1/AC r1 bat r2/AC r2 bat r3/AC r3  AC spread
+gbsa              metal-single           1.005        1.046        0.976       0.7%
+gbsa              metal-mixed            0.999        1.010        0.956       0.5%
+gbsa              opencl-single          1.004        1.004        0.977       0.4%
+rf                metal-single           0.999        1.028                    0.4%
+rf                metal-mixed            1.003        1.035                    0.6%
+rf                opencl-single          1.008        1.015                    0.7%
+pme               metal-single           1.004        1.006                    0.3%
+pme               metal-mixed            1.001        1.014                    0.1%
+pme               opencl-single          1.004        1.013                    0.1%
+apoa1rf           metal-single           1.002        1.001                    0.2%
+apoa1rf           metal-mixed            1.000        1.001                    0.1%
+apoa1rf           opencl-single          1.001        1.001                    0.2%
+apoa1pme          metal-single           1.001        1.005                    0.5%
+apoa1pme          metal-mixed            1.002        1.003                    0.1%
+apoa1pme          opencl-single          0.995        1.003                    0.2%
+apoa1ljpme        metal-single           0.998        1.002                    0.3%
+apoa1ljpme        metal-mixed            1.001        1.005                    0.3%
+apoa1ljpme        opencl-single          1.001        1.009                    0.6%
+amber20-dhfr      metal-single           0.998        1.001                    0.7%
+amber20-dhfr      metal-mixed            0.999        1.002                    3.7%
+amber20-dhfr      opencl-single          0.998        0.997                    1.8%
+amber20-cellulose metal-single           0.996        1.000                    1.8%
+amber20-cellulose metal-mixed            0.989        0.994                    1.2%
+amber20-cellulose opencl-single          1.000        0.996                    0.4%
+
+Low Power Mode: off for both runs. pmset -g showed lowpowermode 0 before the battery run
+(battery-partial/host.txt) and after the AC run (ac/host-after.txt), and pmset -g custom listed 0
+for both the battery and AC profiles. Neither loads.txt logged it per run.
+The battery round 3 column covers only gbsa, the one test round 3 finished before the stop.

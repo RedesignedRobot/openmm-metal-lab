@@ -1,0 +1,47 @@
+test                 metal-mixed  metal-single opencl-single
+gbsa                      691.60        851.60        743.21
+rf                        410.33        570.52        456.90
+pme                       329.41        425.77        357.68
+apoa1rf                   126.97        160.99        115.33
+apoa1pme                   96.37        114.71         90.96
+apoa1ljpme                 73.52         83.81         65.90
+amber20-dhfr              339.31        447.41        383.65
+amber20-cellulose          20.68         23.52         19.78
+
+rounds, metal-mixed:
+  gbsa               694.13 691.60 690.79
+  rf                 408.06 410.33 410.43
+  pme                329.50 329.41 329.15
+  apoa1rf            126.90 126.97 127.08
+  apoa1pme           96.37 96.37 96.31
+  apoa1ljpme         73.57 73.38 73.52
+  amber20-dhfr       339.30 339.31 351.88
+  amber20-cellulose  20.69 20.68 20.43
+rounds, metal-single:
+  gbsa               856.02 851.60 850.04
+  rf                 570.30 570.52 572.40
+  pme                425.77 426.40 425.31
+  apoa1rf            160.91 161.15 160.99
+  apoa1pme           114.82 114.22 114.71
+  apoa1ljpme         83.93 83.81 83.69
+  amber20-dhfr       447.41 446.63 449.57
+  amber20-cellulose  23.52 23.52 23.11
+rounds, opencl-single:
+  gbsa               746.18 742.99 743.21
+  rf                 456.15 459.12 456.90
+  pme                357.64 357.68 358.10
+  apoa1rf            115.23 115.50 115.33
+  apoa1pme           90.96 90.87 91.03
+  apoa1ljpme         65.94 65.52 65.90
+  amber20-dhfr       383.42 383.65 390.34
+  amber20-cellulose  19.78 19.81 19.73
+
+test                metal-single/opencl-single   metal-mixed/opencl-single    metal-mixed/metal-single
+gbsa                                     1.146                       0.931                       0.812
+rf                                       1.249                       0.898                       0.719
+pme                                      1.190                       0.921                       0.774
+apoa1rf                                  1.396                       1.101                       0.789
+apoa1pme                                 1.261                       1.059                       0.840
+apoa1ljpme                               1.272                       1.116                       0.877
+amber20-dhfr                             1.166                       0.884                       0.758
+amber20-cellulose                        1.189                       1.046                       0.879
