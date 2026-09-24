@@ -250,3 +250,7 @@ In a94e50b43 the Coulomb and dispersion chains still share pmeGrid1 and pmeGrid2
 ### 22:52Z research: ultra/pme pitfall check is clean
 
 research checked 71a602b43 and 17929e631. Skipping the sort is safe: the kernels read only `.x` of pmeAtomGridIndex (pme.cc:43, :272), so the identity order uploaded in commonInitialize holds across reorderAtoms. The float atomic helper is gated by supportsFamily(Apple9), and the language version stays 3_2. The branch merges with the other seven lanes with no textual conflict.
+
+### 22:55Z profiler: raising the 720-group grid cap moves nothing
+
+profiler's tbpc24 probe raised executeKernel's cap from 12 to 24 thread blocks per core (720 to 1440 groups). The ratios against the same build at 12, 2 x 15 s, were pme 0.997 and apoa1pme 1.010 (gbsa 1.005, rf 0.993). Correction from profiler: on pme the spread runs 369 x 64, under the cap, so tbpc24 never touched it there. Only apoa1pme and larger run at the 720 x 64 cap, and apoa1pme moved +1.0% (rounds 1.005 and 1.016). So the cap doesn't bound gridSpreadCharge end to end on apoa1pme. A faster spread has to change the work per thread; more threads alone don't help. Their per-kernel census of tbpc24 (ticket 91086) will show whether the spread kernel itself moved.

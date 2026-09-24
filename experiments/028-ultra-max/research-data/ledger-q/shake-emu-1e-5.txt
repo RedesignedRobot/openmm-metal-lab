@@ -1,0 +1,4 @@
+tol 1e-05 nH 1 base: max rel len err 4.996e-06  p99 4.603e-06  median 1.086e-07 | exit residual/tol median 0.019 p90 0.436 max 0.996 | mixed iters mean 3.04
+tol 1e-05 nH 1 warm: max rel len err 4.994e-06  p99 4.602e-06  median 1.080e-07 | exit residual/tol median 0.019 p90 0.437 max 0.996 | mixed iters mean 1.00
+tol 1e-05 nH 3 base: max rel len err 5.013e-06  p99 4.778e-06  median 3.993e-07 | exit residual/tol median 0.080 p90 0.616 max 1.000 | mixed iters mean 4.05
+tol 1e-05 nH 3 warm: max rel len err 5.012e-06  p99 4.778e-06  median 3.995e-07 | exit residual/tol median 0.080 p90 0.615 max 0.999 | mixed iters mean 1.00

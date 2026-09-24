@@ -101,3 +101,64 @@ The lead clarified RULES line 11: keep a change that gains 3% or more on at leas
 ### 22:45Z research pitfall check: both branches clean
 
 Research read words and bonded against the code and found no pitfall. The word placement is exact, the carry is counted once per wrap, the fold is its own dispatch and clears the words, and the energy-only kernel writes no words. The bonded barriers sit in uniform flow, and LOCAL_SIZE is always 64. One follow-up for later: ultra/plugins (0b6380669) packs value arguments into one struct when a kernel passes 31 bindings. Once that merges, MetalBondedUtilities' argument count (9 fixed, 6 of them values) is conservative and turns chunking off for kernels that would still fit. That costs speed, not correctness, so I'll recount after the merge if bonded is kept.
+
+### 23:03Z pid rule
+
+RULES line 57: stop my own processes only by pids recorded at launch, never pkill, killall or a kill over a ps or pgrep match. Earlier kills today used explicit pids of my own lease tickets, but I found those pids with ps. From now on the Studio file ultra-atomics/pids.txt records each job's pid at queue time, and a ticket's name ends in its lease.sh pid. Every kill comes from that file.
+
+### 23:08Z profiler: raising the grid cap buys nothing
+
+Profiler raised executeKernel's cap from 12 to 24 thread blocks per core (720 to 1,440 groups). benchmark.py, 2 x 15 s against the same build: gbsa 1.005, rf 0.993, pme 0.997, apoa1pme 1.010. computeBondedForces runs at the 720 x 64 cap, but more groups alone do not help. A per-kernel census of that probe is queued as 91086. If computeBondedForces moves little there, the bonded kernel is limited by its atomic op count or memory traffic, not by occupancy, which is the case the chunked kernel targets.
+
+### 23:18Z probe 1a result (counters, M3 Ultra, single)
+
+Setup: force evaluations only (Verlet 1e-9 ps, no constraints), 3 s windows, loads 3.7 to 5.8. Per-kernel values are each kernel's own start-to-end span in us per step (profiler's convention). The step is the mean of the unprofiled windows A and C, host clock. Speedups and drops are against base (71a602b43 plus the profiler hooks). 1 atomic and plain give wrong forces and exist only to price the atomics.
+
+| test | row | base | 1 atomic | plain | words | 1 atomic | plain | words |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| apoa1rf | computeBondedForces | 176.0 | 80.9 | 29.4 | 323.6 | 54% less | 83% less | 84% more |
+| apoa1rf | computeNonbonded | 513.0 | 286.6 | 313.1 | 490.4 | 44% less | 39% less | 4% less |
+| apoa1rf | foldForceWords | | | | 21.4 | | | |
+| apoa1rf | step | 818.5 | 498.8 | 469.9 | 740.6 | 1.641x | 1.742x | 1.105x |
+| rf | computeBondedForces | 27.4 | 16.8 | 17.3 | 28.6 | 39% less | 37% less | 5% more |
+| rf | computeNonbonded | 147.9 | 79.1 | 89.5 | 124.1 | 47% less | 39% less | 16% less |
+| rf | foldForceWords | | | | 9.1 | | | |
+| rf | step | 289.6 | 294.8 | 271.4 | 271.6 | 0.982x | 1.067x | 1.067x |
+| apoa1pme | computeBondedForces | 253.4 | 114.8 | 38.6 | 354.1 | 55% less | 85% less | 40% more |
+| apoa1pme | computeNonbonded | 411.5 | 266.9 | 294.1 | 575.8 | 35% less | 29% less | 40% more |
+| apoa1pme | foldForceWords | | | | 22.1 | | | |
+| apoa1pme | step | 1242.1 | 965.8 | 906.9 | 1234.8 | 1.286x | 1.370x | 1.006x |
+| cellulose | computeBondedForces | 955.8 | 458.4 | 129.9 | 1520.4 | 52% less | 86% less | 59% more |
+| cellulose | computeNonbonded | 1683.5 | 1361.0 | 1455.6 | 2475.1 | 19% less | 14% less | 47% more |
+| cellulose | foldForceWords | | | | 70.9 | | | |
+| cellulose | step | 4475.6 | 3671.2 | 3417.8 | 4531.9 | 1.219x | 1.309x | 0.988x |
+| gbsa | computeBondedForces | 26.0 | | | 40.3 | | | 55% more |
+| gbsa | computeNonbonded | 53.8 | | | 59.3 | | | 10% more |
+| gbsa | foldForceWords | | | | 5.6 | | | |
+| gbsa | step | 245.4 | | | 250.5 | | | 0.980x |
+| pme | computeBondedForces | 41.5 | | | 80.4 | | | 94% more |
+| pme | computeNonbonded | 117.6 | | | 129.2 | | | 10% more |
+| pme | foldForceWords | | | | 9.1 | | | |
+| pme | step | 410.9 | | | 418.8 | | | 0.981x |
+
+Against the lead's thresholds:
+- Chunked bonded is a go. computeBondedForces falls 83% (apoa1rf) and 86% (cellulose) under plain RMW, against a 50% bar. The bonded kernel's time is mostly atomics.
+- x-resident is a go. computeNonbonded falls 44% under 1 atomic on apoa1rf, against a 25% bar. It falls 35% on apoa1pme, 47% on rf and 19% on cellulose.
+- The whole step with a single atomic is 1.64x on apoa1rf, 1.29x on apoa1pme and 1.22x on cellulose. Atomics are about a fifth to two fifths of the step.
+
+The atomic microbenchmark (ub-2.txt, 288k tiles, median of 5, no ALU work) gives emulation 1,490 us, one returning 32-bit atomic (k_ret) 1,025 us, words 1,523 us, one non-returning atomic 876 us and plain 220 us. With 400 FMAs per tile: emulation 2,637, k_ret 2,348 and words 2,816. Per add, words costs as much as the emulation. Its placement ALU and its spread over five word planes eat all of the returning atomic's saving.
+
+Where the words gain comes from: overlap, not fewer atomic ops. The words arm's spans exceed its overlap-attributed times: bonded is 323.6 us span against 173.8 attributed on apoa1rf, and base is 176.0 against 142.3. One step's dispatch timeline on apoa1rf shows it:
+- In base, computeBondedForces runs from 52 to 226 us, and computeNonbonded starts at 226.3, after it.
+- In words, computeNonbonded starts at 111.4 us, right after copyInteractionCounts, and computeBondedForces runs from 142.5 to 648.7 us alongside it.
+
+The MetalQueue encoder is serial, but the driver lets dispatches overlap unless they share a tracked writable buffer. Bonded and nonbonded both write the long force buffer, so Metal serializes them, although atomic adds commute. Words moves nonbonded's writes to another buffer, which removes that dependency. Encoder busy time drops by 87 us on apoa1rf and 86 us on apoa1pme. The fold then gives back 21 to 71 us, and on gbsa and pme the fold (5.6 and 9.1 us) is the whole loss. The same overlap without the words or the fold would come from not tracking the long force buffer as a hazard between force kernels, with an explicit fence before its readers. I'm raising that with the lead as a new candidate.
+
+gate --quick on 4be61f9b6: PASS. Bonded screens requeued (pids 34122, 34354) now that 1a says go.
+
+### 23:30Z overlap candidate routed to dispatch; bonded census queued
+
+The bonded and nonbonded overlap is the design's orchestration Design 3 (accumulate hazard class on a concurrent encoder), which the dispatch lane owns, so I sent the lead the data point instead of starting it. Apple's MTLComputeCommandEncoder.h says memoryBarrier "on a serial encoder is allowed, but ignored", so an explicit fence needs the concurrent encoder, as Design 3 says. The profiler patch gives every dispatch its own encoder only while GPUPROF_ON is set, so windows A and C run with the normal serial encoder. Yet A and C show the same 78 us words gain on apoa1rf. Either the serial encoder already overlaps dispatches that share no tracked writable buffer, or words' adds are cheaper in the real kernel than in the microbenchmark. The words nonbonded span (490 us, while sharing the GPU with bonded) against base's 513 hints that both are true.
+
+For the lead's census rule (bonded moves 20% or more but the step gains under 3%), bbp.sh builds profiler-hooked plugins in src-bp and build-bp, with no tests and no install: plugins-prof-bonded (d8ab45b2b) and plugins-prof-b0 (71a602b43). Every file the patch leaves alone is checked against git. It waits for /tmp/openmm-window. Census 1b (p1a/run1b.sh, counters, force evaluations only, the same method as 1a) is queued as its own lease, pid 87308. It covers apoa1rf, apoa1pme, cellulose, pme, gbsa and rf, and refuses to run unless both plugins match bbp.sh's md5s.
+bbp.sh done at 23:33Z: plugins-prof-bonded md5 92a20a60 (bondedPad present, profiler hooks present), plugins-prof-b0 md5 35f2507f (no bondedPad, hooks present). The untouched files matched git in both arms.

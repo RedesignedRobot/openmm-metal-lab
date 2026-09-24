@@ -28,17 +28,26 @@ for run in toc.iter("run"):
     if summary is not None:
         for field in summary:
             print(f"- {field.tag}: {(field.text or '').strip()}")
+    seen = {}
     for table in run.iter("table"):
         schema = table.get("schema")
-        attributes = ", ".join(f"{k}={v}" for k, v in table.attrib.items() if k != "schema")
-        xpath = f'/trace-toc/run[@number="{number}"]/data/table[@schema="{schema}"]'
-        if attributes:
-            xpath = xpath[:-1] + "".join(f' and @{k}="{v}"' for k, v in table.attrib.items() if k != "schema") + "]"
-        with tempfile.NamedTemporaryFile(suffix=".xml", delete=False) as handle:
-            path = handle.name
+        # Attribute values can hold double quotes (swift-table does), which no XPath string literal survives, so a
+        # table is addressed by its schema and its position among the tables of that schema.
+        seen[schema] = seen.get(schema, 0) + 1
+        xpath = f'(/trace-toc/run[@number="{number}"]/data/table[@schema="{schema}"])[{seen[schema]}]'
+        attributes = ", ".join(f"{k}={v}" for k, v in table.attrib.items() if k not in ("schema", "swift-table"))
+        folder = tempfile.mkdtemp()
+        path = os.path.join(folder, "table.xml")
         try:
             subprocess.run(["xcrun", "xctrace", "export", "--input", trace, "--xpath", xpath, "--output", path],
                            check=True, capture_output=True)
+        except subprocess.CalledProcessError as error:
+            print(f"\n### {schema}: export failed, exit {error.returncode}: {error.stderr.decode().strip()[:200]}")
+            if os.path.exists(path):
+                os.remove(path)
+            os.rmdir(folder)
+            continue
+        try:
             columns, rows, texts, sample = [], 0, {}, []
             for _, element in ET.iterparse(path, events=("end",)):
                 if element.get("id") is not None:
@@ -55,7 +64,8 @@ for run in toc.iter("run"):
                         sample.append(values)
                     element.clear()
         finally:
-            os.unlink(path)
+            os.remove(path)
+            os.rmdir(folder)
         print(f"\n### {schema}" + (f" ({attributes})" if attributes else "") + f", {rows} rows")
         print("\n| mnemonic | name | engineering type | " + " | ".join(f"row {i+1}" for i in range(len(sample))) + " |")
         print("|---|---|---|" + "---|" * len(sample))

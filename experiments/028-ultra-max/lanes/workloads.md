@@ -12,6 +12,19 @@ Sources: experiments/028-ultra-max/workloads/ in the lab (copied 23:00Z, sha256 
 - sampler.sh: every 20 s while this lane holds the lease, logs load, owner, VM CPU, top 6 processes and any build to psamples.txt, so the CPU platform's own %CPU shows during its runs. Stop it with `touch /tmp/openmm-metal-bench/ultra-workloads/sampler.stop`.
 - wl-ab.sh (retired 22:52Z): ab.sh's loop plus a build wait before each (round, test), one ticket per (round, test). Its top.txt was taken before the lease wait. Replaced by ultra-tools/ab.sh wrapped in one lease.sh.
 
+## My Studio processes (stop only by these pids, RULES line 57)
+
+| pid | What |
+|---|---|
+| 46003 | lease.sh ticket: item 1 round 1 amber20-dhfr (parent wl-ab.sh is dead) |
+| 26490 | lease.sh ticket: aggregate throughput (agg1) |
+| 26792 | lease.sh ticket: item 1 round 1 amber20-cellulose (item1-cell) |
+| 27230 | lease.sh ticket: item 3 sync |
+| 27542 | lease.sh ticket: item 4 ctx |
+| 27861 | lease.sh ticket: item 5 min200 |
+| 28247 | lease.sh ticket: item 5 minconv |
+| 26488 | sampler.sh (stop with `touch /tmp/openmm-metal-bench/ultra-workloads/sampler.stop`, no kill needed) |
+
 ## Log
 
 - 19:51Z item 1 launched: `wl-ab.sh mixed-vs-cpu 3 30 pme,apoa1pme,amber20-dhfr,amber20-cellulose` with mmixed (Metal mixed), cpu (CPU platform, benchmark.py forces mixed) and msingle (Metal single). CPU platform Threads default is 28. First launch killed while it waited for the lease (pgrep regex bug on clang++), relaunched 19:53Z; no run had started.
@@ -21,6 +34,7 @@ Sources: experiments/028-ultra-max/workloads/ in the lab (copied 23:00Z, sha256 
 - 22:52Z killed wl-ab.sh 3012, chain.sh 7013 and the old sampler. Kept lease.sh 46003 (queue position 10): with its parent dead it is one hold that runs item 1 round 1 amber20-dhfr through ab-test.sh and ends.
 - 22:53Z dropped the build waits from wl-run.sh (lease.sh no longer waits for builds, and a wait inside a hold idles the GPU). New sampler.sh (stops on sampler.stop) logs the VM's CPU too.
 - 22:55Z queued six wrapped tickets, positions 49 to 54: agg1 (aggregate throughput), item1-cell (ab.sh, round 1 cellulose), sync.jsonl, ctx.jsonl (3 rounds), min200.jsonl, minconv.jsonl (2 rounds).
+- 23:10Z infra's ab.sh now logs, for every CPU run, the platform's default thread count and every 5 s the benchmark's %CPU, the busiest other process and the VM, and marks CPU BUSY beside any process over 100%. The per-run sampling lives in ab-test.sh, which both item1-cell (through ab.sh) and ticket 46003 call when their holds start, so both get it.
 - ultra-base was rebuilt with the Xcode-beta SDK 20:35 to 20:37Z. Round 1 pme (20:10Z) ran on the Command Line Tools build and stands as a screen; round 1 apoa1pme (21:55Z) ran on the beta build.
 - 19:55Z item 2 measured (a device query, no GPU work). One 10-line C file compiled on the Studio with xcrun clang for about a second; no timing of mine overlapped it.
 

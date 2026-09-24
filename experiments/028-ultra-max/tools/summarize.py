@@ -4,8 +4,8 @@ usage: python3 summarize.py <outdir> [numerator/denominator ...]
 Prints the median ns/day per test and configuration label, then each configuration's rounds with
 their spread, (max-min)/median. Each numerator/denominator pair of labels adds a ratio of the two
 medians per test, followed by the lowest and highest ratio within a single round, which shows how far
-one interleaved round can move it. Runs that wrote no result, runs that overlapped a build, the 1
-minute load range and the Hyperscale VM's CPU come from loads.txt. A (round, test) that ab.sh
+one interleaved round can move it. Runs that wrote no result, runs that overlapped a build, CPU
+runs beside a busy process, the 1 minute load range and the Hyperscale VM's CPU come from loads.txt. A (round, test) that ab.sh
 --rerun-builds ran again drops its earlier entries from both lists.
 """
 import glob
@@ -76,16 +76,19 @@ if os.path.exists(loads_path):
     lines = open(loads_path).read().splitlines()
     loads = [float(m.group(1)) for line in lines if (m := re.search(r" load \{ ([\d.]+)", line))]
     vm = [int(m.group(1)) for line in lines if (m := re.search(r" vm (\d+)%", line))]
-    missing, builds = [], []
+    missing, builds, busy = [], [], []
     for line in lines:
         if m := re.search(r" rerun round (\d+) (\S+):", line):
             replaced = f" round {m.group(1)} {m.group(2)} "
             missing = [kept for kept in missing if replaced not in kept]
             builds = [kept for kept in builds if replaced not in kept]
+            busy = [kept for kept in busy if replaced not in kept]
         elif "NO RESULT" in line:
             missing.append(line)
         elif "BUILD RUNNING" in line:
             builds.append(line)
+        elif "CPU BUSY" in line:
+            busy.append(line)
     if loads:
         print(f"1 minute load before {len(loads)} runs: {min(loads):.2f} to {max(loads):.2f}")
     if vm:
@@ -96,3 +99,7 @@ if os.path.exists(loads_path):
     print(f"runs that overlapped a build: {len(builds)}")
     for line in builds:
         print("  " + line.split(" top ")[0])
+    if busy:
+        print(f"CPU runs beside a process over 100% CPU: {len(busy)}")
+        for line in busy:
+            print("  " + line)

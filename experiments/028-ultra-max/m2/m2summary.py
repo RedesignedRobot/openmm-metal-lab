@@ -15,10 +15,11 @@ import re
 import statistics
 import sys
 
-TESTS = ["gbsa", "rf", "pme", "apoa1rf", "apoa1pme", "apoa1ljpme", "amber20-dhfr", "amber20-cellulose"]
+TESTS = ["gbsa", "rf", "pme", "apoa1rf", "apoa1pme", "apoa1ljpme", "amber20-dhfr", "amber20-cellulose", "amoebagk", "amoebapme"]
 PRECISIONS = ["single", "mixed"]
 SPEED_FLAG = 0.97
 FOOTPRINT_FLAG_MB = 32
+SPOTLIGHT_BUSY_PERCENT = 50
 FOOTPRINT_FLAG_PCT = 3.0
 MB = 1024*1024
 
@@ -96,10 +97,15 @@ if os.path.exists(loads_path):
     lines = open(loads_path).read().splitlines()
     loads = [float(m.group(1)) for l in lines if (m := re.search(r" load ([\d.]+)", l))]
     frees = [int(m.group(1)) for l in lines if (m := re.search(r" free (\d+)%", l))]
+    spotlight = [int(m.group(1)) for l in lines if (m := re.search(r" spotlight (\d+)%", l))]
     builds = [l for l in lines if "BUILD RUNNING" in l]
     no_result = [l for l in lines if "NO RESULT" in l]
     if loads:
         print(f"1-minute load before {len(loads)} runs: {min(loads):.2f} to {max(loads):.2f}; memory free {min(frees)}% to {max(frees)}%")
+    if spotlight:
+        busy = sum(1 for cpu in spotlight if cpu >= SPOTLIGHT_BUSY_PERCENT)
+        print(f"Spotlight CPU before {len(spotlight)} runs: {min(spotlight)}% to {max(spotlight)}%; "
+              f"runs that started with Spotlight at {SPOTLIGHT_BUSY_PERCENT}% or more: {busy}")
     print(f"runs that started with a build running: {len(builds)}; runs with no result: {len(no_result)}")
 print()
 for line in verdicts:

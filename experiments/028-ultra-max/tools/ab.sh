@@ -11,7 +11,8 @@
 # Ultra (twice <seconds> on the CPU platform, whose step count overshoots). Outside a window it
 # refuses a screen over 18 minutes, under lease.sh's 20 minute cap; split it by test. A run that
 # starts with a build running, or overlaps one that starts during it, is marked BUILD RUNNING in
-# loads.txt. --rerun-builds (window.sh) reruns every (round, test) with a marked run once at the end,
+# loads.txt, and a CPU-platform run beside a busy process is marked CPU BUSY (ab-test.sh).
+# --rerun-builds (window.sh) reruns every (round, test) with a marked run once at the end,
 # all configurations in that round's order; the replaced results move to <outdir>/replaced.
 # benchmark.py times with the host clock: datetime.now() around step(), plus a getState() sync.
 # The load averages, the Hyperscale VM's CPU and the top 5 CPU processes before every run go to
@@ -25,7 +26,7 @@ TOOLS=/tmp/openmm-metal-bench/ultra-tools
 BENCH=/tmp/openmm-metal-bench/ultra-base/benchmarks
 ALL=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv
 SCREEN_MAX_SECONDS=1080
-unset PYTHONPATH
+unset PYTHONPATH OPENMM_CPU_THREADS
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 [ "$nice_value" = 0 ] || { echo "running at nice $nice_value, not 0: launch through /bin/sh -c 'nohup ...'" >&2; exit 2; }
@@ -125,7 +126,7 @@ while [ "$r" -le "$rounds" ]; do
     r=$((r+1))
 done
 if [ $rerun_builds = 1 ]; then
-    for run in $(sed -n 's/^[^ ]* round \([0-9]*\) \([^ ]*\) .*BUILD RUNNING.*/\1:\2/p' "$out/loads.txt" | sort -u); do
+    for run in $(sed -En 's/^[^ ]* round ([0-9]+) ([^ ]+) .*(BUILD RUNNING|CPU BUSY).*/\1:\2/p' "$out/loads.txt" | sort -u); do
         r="${run%%:*}"
         test="${run#*:}"
         order="$*"
@@ -134,7 +135,7 @@ if [ $rerun_builds = 1 ]; then
         for label in $labels; do
             mv "$out/$label-$test-round$r.json" "$out/replaced/" 2>/dev/null || true
         done
-        echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) rerun round $r $test: a build overlapped it" | tee -a "$out/loads.txt"
+        echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) rerun round $r $test: a build or a busy CPU overlapped it" | tee -a "$out/loads.txt"
         export AB_OUT="$out" AB_ROUND="$r" AB_TEST="$test" AB_SECONDS="$seconds"
         "$TOOLS/lease.sh" "$lane" "ab.sh $out rerun round $r $test" "$TOOLS/ab-test.sh" $order \
             || echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) rerun round $r $test ended with exit $?" | tee -a "$out/loads.txt"

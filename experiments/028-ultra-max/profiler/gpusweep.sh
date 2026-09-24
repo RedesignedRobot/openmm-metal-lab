@@ -5,6 +5,11 @@
 # stop prof.py, replay the capture with profile run --gpu-state high --exec serial, and list the shader, dispatch and
 # encoder costs and the counters. GPUPROF=split labels every pipeline and gives window B, the captured one, one labeled
 # encoder per kernel. Starts no new config after 13 minutes, so the hold stays under 20.
+# Retired 2026-09-24 23:23Z, broken: prof.py exits about 6 s after window A prints (windows B and C at PROF_SECONDS=3),
+# before gpucapture attaches, so gpucapture waits on a dead pid until its 120 s timeout with the lease held and the GPU
+# idle (xtrace hold, 23:21Z). It also runs under timeout(1) in its own process group, which lease.sh's group stop misses.
+# Before reuse: make prof.py wait on a go file until gpucapture reports attached, check the pid before capturing, and
+# fail in seconds.
 D=/tmp/openmm-metal-bench/ultra-profiler
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 out="$1"; configs="$2"

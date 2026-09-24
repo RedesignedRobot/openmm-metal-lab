@@ -290,3 +290,34 @@ SHAKE pos, Part3, all serial in one encoder. gbsa has no water (SHAKE only).
   df64 division through 1/y: accurate only for 2^-126 <= |y| <= 2^126, where 1/y is a normal float. Newton
   SETTLE: stops after 15 iterations with no error even if not converged. The gated code is still 5cc0ba5af;
   b8f40d855 compiles to the same kernels.
+- 23:08Z roadmap 6, fused LangevinMiddle, on local branch ultra/mixed-fused (not pushed), two commits on
+  b8f40d855. ad72b91f6 moves the SETTLE and SHAKE math of integrationUtilities.cc into per-cluster device
+  functions and leaves the four kernels as load, call, store wrappers (bodies moved verbatim; SETTLE positions
+  take the inverse masses as an argument instead of reading velm). 468a5b026 adds
+  platforms/metal/src/kernels/fusedLangevinMiddle.metal: one thread per unit, SETTLE clusters, then SHAKE
+  clusters, then unconstrained atoms, running Part1, the velocity constraint, Part2, the position constraint and
+  Part3 in registers with the same per-atom expressions and random[randomIndex+atom]. velm, posq and
+  posqCorrection are read and written once; posDelta and oldDelta never touch device memory. It is compiled with
+  integrationUtilities.cc and the IntegrationUtilities defines (now a member), on first use.
+  CommonIntegrateLangevinMiddleStepKernel gets a virtual integrate(tol); MetalIntegrateLangevinMiddleStepKernel
+  calls MetalIntegrationUtilities::integrateLangevinMiddle and falls back to the five dispatches when any
+  constraint uses CCMA or in double precision. The params array is bound on every call, so a CompoundIntegrator
+  with two LangevinMiddle integrators gets its own scales. CM remover fold and RNG fold are not in this commit.
+  Lines: ad72b91f6 +607/-573 (whitespace-blind +150/-116), 468a5b026 +219/-10.
+- 23:09Z f1 (468a5b026) built on the M3 Ultra; offline compile of the assembled source (mkmetal.py plus the new
+  file, xcrun metal -std=metal3.2) is clean in single and mixed. Queued as two --correctness tickets (54 and 55
+  in the queue): f1-check.sh (single posq/velm after 100 steps bitwise against t4 = 5cc0ba5af, t4 twice for
+  repeatability, DeterministicForces on, gbsa and rf; mixed largest difference; constraints.py 1e-8 on pme and
+  gbsa, mixed and single; drift.py lm0 = LangevinMiddle at zero friction, 50 ps, 1e-8, amber20-dhfr and gbsa,
+  mixed) and the ctests LangevinMiddle, Settle, MixedPrecision, VirtualSites, CompoundIntegrator, Checkpoints,
+  CMMotionRemover, MonteCarloBarostat. M2: ultra-m2/fused building; m2-correct-fused.sh runs the same checks
+  against ultra-m2/mixed (5cc0ba5af) under /tmp/openmm-lease when the build ends. No timing yet.
+- 23:27Z fresh-context review (adversarial reviewer, read only) of 468a5b026 found a critical bug before any GPU
+  run: the host fills settleAtoms with mm_int4(a, b, c, 0) (IntegrationUtilities.cpp:181, 186, 191), so the
+  fused kernel's 4-slot loops treated slot 3 of every SETTLE unit as atom 0 and gave atom 0 an unconstrained,
+  racy step from every SETTLE thread. The unfused SETTLE kernels only read .x/.y/.z, so nothing else saw it. Fix:
+  atoms.w = -1 after the SETTLE load. The reviewer also flagged OpenCL's C99 inline rule for the four large
+  helpers, so they are now plain DEVICE functions like the CCMA helpers. History rewritten on the unpushed
+  branch: ac4d0fcb4 (refactor) and cf1d7fc14 (fused kernel) replace ad72b91f6 and 468a5b026; the M2 check was
+  stopped before it ran. f1 and ultra-m2/fused rebuilt at cf1d7fc14; the queued f1-check.sh now refuses any other
+  build. The bitwise check covers water through rf; TestMetalSettle is in the ctest ticket.

@@ -9,7 +9,8 @@
 #    round. benchmark.py times with the host clock: datetime.now() around step().
 #    Each run goes through /usr/bin/time -l (peak memory footprint and maximum resident set size).
 #    Before each run: wait up to 5 minutes for any build to end, then log the 1-minute load,
-#    memory_pressure's free percentage, swap use and the top 5 CPU processes to loads.txt.
+#    memory_pressure's free percentage, swap use, Spotlight's CPU (mds, mds_stores and mdworker
+#    processes, summed) and the top 5 CPU processes to loads.txt.
 # 3. m2summary.py: one table per candidate (ratios, footprint deltas, gate verdict) in summary.txt.
 # Labels are the tree names (base, cand, cand2, ...).
 # The GPU lease /tmp/openmm-lease is taken per step (forces) and per (round, test), with an owner
@@ -41,6 +42,7 @@ nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 fail() { echo "$*" >&2; echo "CHECK FAILED"; exit 2; }
 utc() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 free_pct() { memory_pressure -Q | sed -n 's/.*free percentage: \([0-9]*\)%.*/\1/p'; }
+spotlight_pct() { ps -Aco pcpu=,comm= | awk '$2 ~ /^(mds|mds_stores|mdworker|mdworker_shared|mdsync|mdbulkimport)$/ { s += $1 } END { printf "%.0f", s }'; }
 check_tree() {
     [ -x "$1/venv/bin/python" ] && [ -f "$1/BUILT" ] || fail "$1 has no venv or BUILT: m2build.sh is running there, or failed"
     now_hash="$(cd "$1/src" && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 shasum | shasum | cut -c1-40)"
@@ -161,7 +163,7 @@ while [ $r -le "$rounds" ]; do
             note=""
             pgrep -x "$BUILDS" > /dev/null && note=" BUILD RUNNING after ${waited} s wait"
             top="$(ps -Aro pcpu=,comm= | head -5 | awk '{ cpu = $1; $1 = ""; n = split($0, path, "/"); printf "%s %s%%, ", path[n], cpu }')"
-            echo "$(utc) round $r $test $label load $(sysctl -n vm.loadavg | awk '{print $2}') free $(free_pct)% swap $(sysctl -n vm.swapusage | awk '{print $6}')$note top ${top%, }" >> "$out/loads.txt"
+            echo "$(utc) round $r $test $label load $(sysctl -n vm.loadavg | awk '{print $2}') free $(free_pct)% swap $(sysctl -n vm.swapusage | awk '{print $6}')$note spotlight $(spotlight_pct)% top ${top%, }" >> "$out/loads.txt"
             run0=$(date +%s)
             /usr/bin/time -l -o "$out/$name.time" perl -e 'alarm shift; exec @ARGV' $((seconds + 900)) \
                 "$python" benchmark.py --platform Metal --precision "$precision" --test "$test" --seconds "$seconds" \

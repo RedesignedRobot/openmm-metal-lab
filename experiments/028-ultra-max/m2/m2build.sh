@@ -91,13 +91,17 @@ CC="ccache clang" CXX="ccache clang++" nice -n 10 ninja -C "$dir/build" PythonIn
 t_install=$(( $(now) - t0 ))
 cd /
 "$dir/venv/bin/python" - "$dir" <<'PY'
+import os
 import sys
 import openmm
 from openmm import version
 names = sorted(openmm.Platform.getPlatform(i).getName() for i in range(openmm.Platform.getNumPlatforms()))
 print(openmm.__file__, version.git_revision, version.openmm_library_path, names)
-assert openmm.__file__.startswith(sys.argv[1] + "/venv/"), "openmm imported from outside the venv"
-assert version.openmm_library_path == sys.argv[1] + "/prefix/lib", "openmm_library_path is not this prefix"
+# Real paths: /Users/amir/lab/ultra-m2 is a symlink to ultra-m2.noindex, which Spotlight skips, and
+# python reports the venv under the real path.
+tree = os.path.realpath(sys.argv[1])
+assert os.path.realpath(openmm.__file__).startswith(tree + "/venv/"), "openmm imported from outside the venv"
+assert os.path.realpath(version.openmm_library_path) == tree + "/prefix/lib", "openmm_library_path is not this prefix"
 assert names == ["CPU", "Metal", "OpenCL", "Reference"], "a platform failed to load: " + str(openmm.Platform.getPluginLoadFailures())
 PY
 hash="$(cd "$dir/src" && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 shasum | shasum | cut -c1-40)"

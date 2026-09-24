@@ -12,8 +12,11 @@
 # 3. <rounds> rounds of <seconds> s through ab.sh, all configurations interleaved. Every run logs the
 #    load and the Hyperscale VM's CPU first. A (round, test) with a run that overlapped a build runs
 #    again at the end (ab.sh --rerun-builds). Then summary.txt.
-# 4. With --cpu, the CPU baselines: 1 round of <seconds> s of pme and apoa1pme on the baseline build's
-#    CPU platform (mixed) into <outdir>/cpu, then cpu-summary.txt. The first window needs it once.
+# 4. With --cpu, the CPU baselines: <rounds> rounds of <seconds> s of pme, apoa1pme and amber20-dhfr on
+#    the baseline build's CPU platform (mixed) into <outdir>/cpu, then cpu-summary.txt. The main
+#    screen has the same tests on Metal in the same hold. ab.sh reruns a CPU run beside a process
+#    over 100% once at the end; one still marked stays, flagged in cpu-summary.txt with that process's
+#    name and peak %CPU. The first window needs it once.
 # Each build is name=dir:precisions, with precisions from single, mixed and opencl. The first build
 # is the baseline; its opencl run is the denominator of every Metal/OpenCL ratio. summary.txt has each
 # Metal configuration against the baseline's OpenCL, and each other build against the baseline's same
@@ -30,7 +33,7 @@ WINDOW=/tmp/openmm-window
 TICKET='[0-9]+-[A-Za-z0-9_.-]+-[0-9]+'
 ALL=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv
 USAGE="usage: window.sh [--estimate] [--cpu] [--rounds N | --smoke] <outdir> <tests|all> <name=dir:precisions>..."
-CPU_TESTS=pme,apoa1pme
+CPU_TESTS=pme,apoa1pme,amber20-dhfr
 LOAD_MAX=3
 BUILDS='clang|clang\+\+|ninja|cc1plus'
 
@@ -104,7 +107,7 @@ parse() {
     [ $cpu = 1 ] || return 0
     # A CPU-platform run times up to twice <seconds> (benchmark.py's step count overshoots).
     for test in $(echo "$CPU_TESTS" | tr , ' '); do
-        total=$((total + $(per_run "$test" mixed) - 30 + 2 * seconds))
+        total=$((total + rounds * ($(per_run "$test" mixed) - 30 + 2 * seconds)))
     done
 }
 
@@ -152,5 +155,5 @@ cat "$out/preflight.txt"
 echo "end $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$out/preflight.txt"
 /tmp/openmm-metal-bench/ultra-base/venv/bin/python "$TOOLS/summarize.py" "$out/ab" $pairs | tee "$out/summary.txt"
 [ $cpu = 1 ] || exit 0
-"$TOOLS/ab.sh" --rerun-builds "$out/cpu" 1 $seconds $CPU_TESTS "$base-cpu=$base_dir/venv/bin/python:CPU:mixed"
+"$TOOLS/ab.sh" --rerun-builds "$out/cpu" $rounds $seconds $CPU_TESTS "$base-cpu=$base_dir/venv/bin/python:CPU:mixed"
 /tmp/openmm-metal-bench/ultra-base/venv/bin/python "$TOOLS/summarize.py" "$out/cpu" | tee "$out/cpu-summary.txt"
