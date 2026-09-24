@@ -37,6 +37,10 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
 
+## peastman on #5397, 2026-09-24 15:28Z
+
+"Let's focus on the benchmark.py benchmarks ... A 40% speedup is worth doing a lot of work for. An 8% speedup isn't." (Earlier, 23 Sep 19:17Z: AI-generated code can't be used directly, only as a reference.) Owner's choice: measure first, then reply. Running: fah-precision (does FAH need mixed precision, which Apple OpenCL can't do) and best-metal (metal-hipdelta-fast = 6df2b8bcb + P0 simd_ballot, then benchmark.py vs OpenCL from the same tree on the M2, exp 025). M3 Ultra timings wait until the owner's 18 agents on the Studio are done. Gate notes: 6df2b8bcb M2 ctest 109/110 (TestMetalLangevinIntegratorMixed, rerun pending), Studio 109/110 (FlexibleBarostatMixed, rerun pending; /tmp/openmm-metal-bench/evwait kept for it).
+
 ## Resumed 2026-09-24 09:17 UTC
 
 - GitHub: no new activity on #5397, cbang#213, #455, #303 at 09:17 UTC. Session cron polls every 2 hours (read only).
