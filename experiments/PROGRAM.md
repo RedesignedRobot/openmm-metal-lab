@@ -37,6 +37,15 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
 
+## Paused 2026-09-24 19:15Z (owner switching accounts). Resume here.
+
+Every agent is stopped. The Studio and this laptop are clean, with no leases held. Still running by itself on the M2: best-metal's detached chains (leased.sh PIDs 53071, 56892 and 58596, log ~/lab/fast/phase3.log). The full benchmark.py run of 6df2b8bcb covers Metal single, Metal mixed, OpenCL single and `metal`+P0 single, 3 rounds of 30 s, 8 tests. After it: the forces check on the timed libs (out/m2-full/checks), a nonbonded launch-shape screen (~/lab/fast/out/m2-screen3) and metalp0 amber20-dhfr with scipy (~/lab/fast/dhfr-p0.log). All should finish by about 19:55Z and release the lease.
+To resume:
+1. On the M2, check that the lease is gone. Copy ~/lab/fast/out/m2-full, m2-screen3 and the logs into 025/results/m2-<stamp>/ with hostnames replaced by "M2", compute the medians, commit, then delete ~/lab/fast. The screen 1 and 2 notes are in ~/lab/fast/out/screen1.log and screen2.log. Screen 2 found `metal`+P0 1.041 to 1.072x 6df2b8bcb on pme, apoa1rf, apoa1pme and cellulose.
+2. Restart the profiler lane (026-per-step-profile), M3 Ultra only. Measure the per-step wall time, GPU busy time, gap, dispatches, waits and top kernels on all 8 tests, single and mixed. Also run amber20-stmv (Metal single and mixed against OpenCL single), OpenCL amoebagk and amoebapme on the Ultra, and A/B probes: UseBlockingSync=false, the nonbonded launch shape, and the block count scaled to 60 cores. Nothing was measured before the stop.
+3. Restart the metal-plugins lane (027). The laptop worktree /Users/amir/code/mini/hipdelta-plugins is on branch metal-hipdelta-plugins at 6df2b8bcb, with an uncommitted plugins/amoeba/platforms/metal/ and 027/port.sh. Port AMOEBA, then Drude, then RPMD, from HIP. Build and test on the M2 only.
+4. Then the core optimization lanes, chosen by the profile. The #5397 reply is held until the optimized numbers are in. The owner's focus is M3 Ultra maximum performance. The M3 Pro is skipped.
+
 ## Optimization pass, decided 2026-09-24 19:15Z
 
 benchmark.py, 6df2b8bcb, Metal single over OpenCL single: M3 Pro 1.15 to 1.40, M2 about 0.99 to 1.18, M3 Ultra 1.02 to 1.13 (025). Metal mixed runs at 0.72 to 0.88x Metal single, and OpenCL can't run mixed on any Apple GPU (no cl_khr_fp64). Only one test clears peastman's 40% bar. The owner's decisions: the #5397 reply waits for the optimized numbers. Any change that measures is allowed in the hipdelta tree: keep it if it gains 3% or more on at least one chip and costs no more than 1% on any, and track the added lines. The headline table per chip is the fastest build that passes the gates, timed on AC at nice 0, as the median of 3 rounds. Step 1 is 026-per-step-profile: wall time, GPU busy time and gap per step, per-kernel shares and the mixed-over-single cost map, on all three chips, before any kernel work.
