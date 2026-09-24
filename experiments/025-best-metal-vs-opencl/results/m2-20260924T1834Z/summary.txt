@@ -1,0 +1,55 @@
+test                 metal-mixed  metal-singlemetalp0-single opencl-single
+gbsa                      320.67        414.15        388.38        381.47
+rf                        178.78        253.90        279.32        255.76
+pme                       154.85        207.65        216.17        196.91
+apoa1rf                    53.70         69.30         74.03         59.33
+apoa1pme                   44.15         54.13         56.16         46.03
+apoa1ljpme                 34.35         40.05         38.48         34.03
+amber20-dhfr              158.63        216.09                      209.96
+amber20-cellulose          10.00         11.69         12.30         10.26
+
+rounds, metal-mixed:
+  gbsa               321.16 320.67 320.13
+  rf                 179.00 178.78 178.40
+  pme                154.85 155.45 154.77
+  apoa1rf            53.70 53.76 53.67
+  apoa1pme           44.17 44.15 44.06
+  apoa1ljpme         34.35 34.39 34.34
+  amber20-dhfr       158.63 158.54 159.09
+  amber20-cellulose  10.00 10.03 9.94
+rounds, metal-single:
+  gbsa               418.55 413.96 414.15
+  rf                 253.96 253.90 253.86
+  pme                207.65 207.79 206.90
+  apoa1rf            69.34 69.22 69.30
+  apoa1pme           54.13 54.09 54.23
+  apoa1ljpme         40.11 40.03 40.05
+  amber20-dhfr       216.09 215.98 217.85
+  amber20-cellulose  11.72 11.69 11.58
+rounds, metalp0-single:
+  gbsa               388.38 385.09 388.73
+  rf                 279.32 278.97 280.09
+  pme                216.09 216.17 216.36
+  apoa1rf            74.16 73.87 74.03
+  apoa1pme           56.13 56.16 56.25
+  apoa1ljpme         38.44 38.48 38.53
+  amber20-cellulose  12.30 12.31 12.30
+rounds, opencl-single:
+  gbsa               382.70 378.46 381.47
+  rf                 255.76 255.79 255.43
+  pme                197.07 196.91 196.70
+  apoa1rf            59.17 59.33 59.36
+  apoa1pme           46.03 46.00 46.10
+  apoa1ljpme         34.10 34.00 34.03
+  amber20-dhfr       209.96 210.91 207.74
+  amber20-cellulose  10.27 10.26 10.26
+
+test                metal-single/opencl-single   metal-mixed/opencl-single metalp0-single/metal-single
+gbsa                                     1.086                       0.841                       0.938
+rf                                       0.993                       0.699                       1.100
+pme                                      1.055                       0.786                       1.041
+apoa1rf                                  1.168                       0.905                       1.068
+apoa1pme                                 1.176                       0.959                       1.037
+apoa1ljpme                               1.177                       1.010                       0.961
+amber20-dhfr                             1.029                       0.756                            
+amber20-cellulose                        1.139                       0.974                       1.053

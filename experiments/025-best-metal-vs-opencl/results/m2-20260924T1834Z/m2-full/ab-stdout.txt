@@ -1,0 +1,985 @@
+hostname: M2
+timestamp: 2026-09-24T18:34:31.910092+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      418.555
+hostname: M2
+timestamp: 2026-09-24T18:35:03.399331+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      321.161
+hostname: M2
+timestamp: 2026-09-24T18:35:38.832645+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        OpenCL     382.701
+hostname: M2
+timestamp: 2026-09-24T18:36:10.146097+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      388.376
+hostname: M2
+timestamp: 2026-09-24T18:36:41.249143+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      253.959
+hostname: M2
+timestamp: 2026-09-24T18:37:13.611285+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                mixed       HBonds        1.5            4         NVT        Metal      179
+hostname: M2
+timestamp: 2026-09-24T18:37:48.151471+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        OpenCL     255.756
+hostname: M2
+timestamp: 2026-09-24T18:38:20.428789+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      279.323
+hostname: M2
+timestamp: 2026-09-24T18:38:52.331596+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      207.651
+hostname: M2
+timestamp: 2026-09-24T18:39:24.386134+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               mixed       HBonds        1.5            4         NVT        Metal      154.85
+hostname: M2
+timestamp: 2026-09-24T18:39:57.690453+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        OpenCL     197.071
+hostname: M2
+timestamp: 2026-09-24T18:40:29.925358+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      216.087
+hostname: M2
+timestamp: 2026-09-24T18:41:02.002120+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      69.3405
+hostname: M2
+timestamp: 2026-09-24T18:41:36.970274+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           mixed       HBonds        1.5            4         NVT        Metal      53.7031
+hostname: M2
+timestamp: 2026-09-24T18:42:14.341285+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        OpenCL     59.17
+hostname: M2
+timestamp: 2026-09-24T18:42:52.861132+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      74.1611
+hostname: M2
+timestamp: 2026-09-24T18:43:29.175336+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      54.133
+hostname: M2
+timestamp: 2026-09-24T18:44:04.023048+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          mixed       HBonds        1.5            4         NVT        Metal      44.172
+hostname: M2
+timestamp: 2026-09-24T18:44:39.672280+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        OpenCL     46.0303
+hostname: M2
+timestamp: 2026-09-24T18:45:17.067085+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      56.1327
+hostname: M2
+timestamp: 2026-09-24T18:45:52.489827+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      40.1122
+hostname: M2
+timestamp: 2026-09-24T18:46:27.255663+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        mixed       HBonds        1.5            4         NVT        Metal      34.3535
+hostname: M2
+timestamp: 2026-09-24T18:47:03.022558+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        OpenCL     34.0974
+hostname: M2
+timestamp: 2026-09-24T18:47:39.847648+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      38.4417
+hostname: M2
+timestamp: 2026-09-24T18:48:15.621630+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      216.086
+hostname: M2
+timestamp: 2026-09-24T18:48:52.131295+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      158.628
+hostname: M2
+timestamp: 2026-09-24T18:49:30.065905+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     209.963
+hostname: M2
+timestamp: 2026-09-24T18:50:03.993132+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+hostname: M2
+timestamp: 2026-09-24T18:50:04.244225+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      11.717
+hostname: M2
+timestamp: 2026-09-24T18:50:52.074182+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose mixed       HBonds        1.5            4         NVT        Metal      9.99913
+hostname: M2
+timestamp: 2026-09-24T18:52:24.467241+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        OpenCL     10.2654
+hostname: M2
+timestamp: 2026-09-24T18:53:12.152404+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      12.3045
+hostname: M2
+timestamp: 2026-09-24T18:54:00.671500+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      385.094
+hostname: M2
+timestamp: 2026-09-24T18:54:32.070124+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        OpenCL     378.461
+hostname: M2
+timestamp: 2026-09-24T18:55:02.828661+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      320.668
+hostname: M2
+timestamp: 2026-09-24T18:55:34.036734+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      413.964
+hostname: M2
+timestamp: 2026-09-24T18:56:04.775223+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      278.974
+hostname: M2
+timestamp: 2026-09-24T18:56:36.444977+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        OpenCL     255.795
+hostname: M2
+timestamp: 2026-09-24T18:57:08.161901+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                mixed       HBonds        1.5            4         NVT        Metal      178.775
+hostname: M2
+timestamp: 2026-09-24T18:57:40.218213+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      253.9
+hostname: M2
+timestamp: 2026-09-24T18:58:12.201690+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      216.167
+hostname: M2
+timestamp: 2026-09-24T18:58:44.177430+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        OpenCL     196.913
+hostname: M2
+timestamp: 2026-09-24T18:59:15.730076+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               mixed       HBonds        1.5            4         NVT        Metal      155.447
+hostname: M2
+timestamp: 2026-09-24T18:59:47.699995+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      207.787
+hostname: M2
+timestamp: 2026-09-24T19:00:19.796608+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      73.8721
+hostname: M2
+timestamp: 2026-09-24T19:00:56.306805+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        OpenCL     59.3266
+hostname: M2
+timestamp: 2026-09-24T19:01:34.754235+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           mixed       HBonds        1.5            4         NVT        Metal      53.763
+hostname: M2
+timestamp: 2026-09-24T19:02:09.291641+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      69.2224
+hostname: M2
+timestamp: 2026-09-24T19:02:43.974517+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      56.161
+hostname: M2
+timestamp: 2026-09-24T19:03:19.345269+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        OpenCL     46.0004
+hostname: M2
+timestamp: 2026-09-24T19:03:56.441538+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          mixed       HBonds        1.5            4         NVT        Metal      44.1511
+hostname: M2
+timestamp: 2026-09-24T19:04:30.935757+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      54.0926
+hostname: M2
+timestamp: 2026-09-24T19:05:05.230608+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      38.4768
+hostname: M2
+timestamp: 2026-09-24T19:05:40.620968+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        OpenCL     33.9956
+hostname: M2
+timestamp: 2026-09-24T19:06:16.866287+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        mixed       HBonds        1.5            4         NVT        Metal      34.3871
+hostname: M2
+timestamp: 2026-09-24T19:06:51.438548+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      40.0283
+hostname: M2
+timestamp: 2026-09-24T19:07:25.679631+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+hostname: M2
+timestamp: 2026-09-24T19:07:25.934644+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     210.906
+hostname: M2
+timestamp: 2026-09-24T19:07:59.643089+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      158.535
+hostname: M2
+timestamp: 2026-09-24T19:08:35.358347+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      215.981
+hostname: M2
+timestamp: 2026-09-24T19:09:08.776890+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      12.3092
+hostname: M2
+timestamp: 2026-09-24T19:09:55.308784+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        OpenCL     10.265
+hostname: M2
+timestamp: 2026-09-24T19:10:46.494525+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose mixed       HBonds        1.5            4         NVT        Metal      10.0261
+hostname: M2
+timestamp: 2026-09-24T19:12:14.256572+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      11.6889
+hostname: M2
+timestamp: 2026-09-24T19:13:05.038521+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      414.153
+hostname: M2
+timestamp: 2026-09-24T19:13:35.806504+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      320.13
+hostname: M2
+timestamp: 2026-09-24T19:14:07.097219+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        OpenCL     381.474
+hostname: M2
+timestamp: 2026-09-24T19:14:37.938951+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      388.726
+hostname: M2
+timestamp: 2026-09-24T19:15:08.488563+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      253.856
+hostname: M2
+timestamp: 2026-09-24T19:15:40.425451+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                mixed       HBonds        1.5            4         NVT        Metal      178.397
+hostname: M2
+timestamp: 2026-09-24T19:16:12.433804+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        OpenCL     255.429
+hostname: M2
+timestamp: 2026-09-24T19:16:44.430441+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      280.091
+hostname: M2
+timestamp: 2026-09-24T19:17:16.143471+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      206.903
+hostname: M2
+timestamp: 2026-09-24T19:17:48.117405+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               mixed       HBonds        1.5            4         NVT        Metal      154.773
+hostname: M2
+timestamp: 2026-09-24T19:18:20.049428+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        OpenCL     196.696
+hostname: M2
+timestamp: 2026-09-24T19:18:51.877113+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      216.358
+hostname: M2
+timestamp: 2026-09-24T19:19:23.800300+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      69.2959
+hostname: M2
+timestamp: 2026-09-24T19:19:58.331207+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           mixed       HBonds        1.5            4         NVT        Metal      53.6651
+hostname: M2
+timestamp: 2026-09-24T19:20:32.989769+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        OpenCL     59.3574
+hostname: M2
+timestamp: 2026-09-24T19:21:11.008325+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      74.0336
+hostname: M2
+timestamp: 2026-09-24T19:21:47.044501+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      54.2265
+hostname: M2
+timestamp: 2026-09-24T19:22:21.446054+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          mixed       HBonds        1.5            4         NVT        Metal      44.0619
+hostname: M2
+timestamp: 2026-09-24T19:22:55.591372+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        OpenCL     46.1041
+hostname: M2
+timestamp: 2026-09-24T19:23:32.248899+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      56.2496
+hostname: M2
+timestamp: 2026-09-24T19:24:07.607930+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      40.0451
+hostname: M2
+timestamp: 2026-09-24T19:24:42.133631+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        mixed       HBonds        1.5            4         NVT        Metal      34.338
+hostname: M2
+timestamp: 2026-09-24T19:25:16.361624+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        OpenCL     34.0285
+hostname: M2
+timestamp: 2026-09-24T19:25:53.048855+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      38.5269
+hostname: M2
+timestamp: 2026-09-24T19:26:28.458462+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      217.848
+hostname: M2
+timestamp: 2026-09-24T19:27:01.649698+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      159.094
+hostname: M2
+timestamp: 2026-09-24T19:27:37.616141+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     207.742
+hostname: M2
+timestamp: 2026-09-24T19:28:11.139034+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+    runOneTest(test, args)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+    system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
+                                         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+    inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
+hostname: M2
+timestamp: 2026-09-24T19:28:11.413170+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      11.5843
+hostname: M2
+timestamp: 2026-09-24T19:29:00.125409+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose mixed       HBonds        1.5            4         NVT        Metal      9.94081
+hostname: M2
+timestamp: 2026-09-24T19:30:28.483053+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        OpenCL     10.259
+hostname: M2
+timestamp: 2026-09-24T19:31:15.623589+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      12.3025
+/Users/amir/lab/fast/out/m2-full

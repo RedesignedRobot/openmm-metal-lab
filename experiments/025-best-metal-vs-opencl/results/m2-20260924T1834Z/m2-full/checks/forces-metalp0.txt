@@ -1,0 +1,7 @@
+test           atoms platform precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489 Metal    single     2.467e-05  8.583e-02  5.195e-07
+rf             23558 Metal    single     2.213e-05  7.343e-01  2.407e-07
+pme            23558 Metal    single     2.048e-05  3.920e-01  1.192e-06
+apoa1rf        92224 Metal    single     5.987e-05  1.327e+00  1.063e-07
+apoa1pme       92224 Metal    single     7.747e-05  7.197e-01  8.073e-07
+apoa1ljpme     92224 Metal    single     7.747e-05  7.226e-01  1.059e-06

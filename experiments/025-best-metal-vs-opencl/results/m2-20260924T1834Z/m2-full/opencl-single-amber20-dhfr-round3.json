@@ -1,0 +1,34 @@
+{
+    "benchmarks": [
+        {
+            "test": "amber20-dhfr",
+            "cutoff": 0.9,
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "OpenCL",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "OpenCLPlatformIndex": "0",
+                "OpenCLPlatformName": "Apple",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "DisablePmeStream": "false"
+            },
+            "steps": 18438,
+            "elapsed_time": 30.673478,
+            "ns_per_day": 207.74210215092006
+        }
+    ],
+    "system": {
+        "hostname": "M2",
+        "timestamp": "2026-09-24T19:27:37.616141+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M2",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}
