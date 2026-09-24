@@ -25,17 +25,25 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 
 | # | Experiment | Status |
 |---|---|---|
-| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | running (branch metal-fah-readiness; mini or Studio) |
-| C2 | Mock FAH core loop: XML WU -> Metal mixed -> checkpointState.xml -> reload, bitwise continuity, FAH state tests vs Reference (dhfr, nav, TIP4P-Ew, >1M atoms) | running (exp 020; mini or Studio) |
+| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | verified (metal-fah-readiness c1cf7a005, 8a70205c1, d2cff0eeb; 110/112 on M3 Ultra, the 2 are #5434; not rebased onto `metal` 052eaa85b) |
+| C2 | Mock FAH core loop: XML WU -> Metal mixed -> checkpointState.xml -> reload, bitwise continuity, FAH state tests vs Reference (dhfr, nav, TIP4P-Ew, >1M atoms) | measured (exp 020): 4/5 WUs pass; stmv misses dPE 10 on Metal (15.5) and OpenCL single (18.9) alike, direct space, mechanism open |
 | C3 | df64 sin/cos/pow/atan2/erf (QTB and CustomIntegrator in mixed) | queued |
 | C4 | Mixed minimizer two-pass reduction (nav mixed 264 s -> target <100 s on M2) | queued |
 | C5 | 31 buffer-slot limit: pack scalar args / argument buffers (CustomNonbonded >12 params, HIPPO 33 slots) | queued |
 | C6 | Drude and RPMD Metal plugins (thin glue, port OpenCL tests) | queued |
 | C7 | AMOEBA/HIPPO plugin (PRIVATE sweep + glue; after C5) | queued |
 | C8 | Packaging: conda-forge osx-arm64 toolchain, runtime gate on older macOS | queued |
-| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stopped after stage 2, waiting for the lead: 731 added lines, 54/54 Single tests, benchmark.py 1.00 to 1.19 of `metal` on the M2 (mini, branch metal-hipdelta aa7464387) |
+| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stages 1-4 done, verified through stage 2 (mini metal-hipdelta 9074c38f1): 479 added lines + 589 df64, 110/110 Single+Mixed on M2 and M3 Ultra, M2 1.00 to 1.18x `metal`; M3 Ultra gbsa 0.86 to 0.93x (neighbor list build, open); stage 4 not yet verified by a fresh agent |
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
+
+## Paused 2026-09-24 ~08:20 UTC (owner offline). Resume here.
+
+- Upstream: #5435 merged 2026-09-24 02:46Z (#5434 closed). #5397: my FAHBench-vs-benchmark.py answer and test offer posted 05:23Z, awaiting peastman. cbang#213, fah-client-bastet#455 and the #303 comment posted 2026-09-23 20:42Z, no replies yet. Public text is first person singular.
+- `metal` (laptop, local only) is at 052eaa85b = P2 CCMA pipelining + P3 energy guard (exp 022, verified; ctest parity with base).
+- No agents or background jobs running. Studio keeps only env/prefix/src/bin and rebuild scripts under /tmp/openmm-metal-bench (1.0 GB, owner's choice). Leases free.
+- Next: (1) fresh verifier on 024 stage 4 and its 6 common-code files, including OpenCL ctest; (2) profile the M3 Ultra gbsa neighbor-list gap; decide on HIP's numTilesInBatch line; (3) rebase metal-fah-readiness onto `metal`; (4) poll #5397, cbang#213, #455, #303 (read only, show replies to the owner); (5) final cleanup of laptop scratch worktrees and mini ~/lab/hipdelta* when 024 is closed.
+- Agent monitors missed job completion twice on 2026-09-23/24; the lead should poll lease and process state directly rather than trust an agent's monitor.
 
 ## Performance
 
