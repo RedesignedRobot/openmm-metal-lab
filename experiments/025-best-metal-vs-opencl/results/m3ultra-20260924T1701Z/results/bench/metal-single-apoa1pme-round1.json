@@ -1,0 +1,35 @@
+{
+    "benchmarks": [
+        {
+            "test": "apoa1pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M3 Ultra",
+                "UseBlockingSync": "true",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 16905,
+            "elapsed_time": 30.053935,
+            "ns_per_day": 194.39610819681346
+        }
+    ],
+    "system": {
+        "hostname": "M3 Ultra",
+        "timestamp": "2026-09-24T17:53:11.349009+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Ultra",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

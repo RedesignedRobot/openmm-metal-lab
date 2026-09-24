@@ -1,0 +1,3 @@
+platform 0 device 0: Apple M3 Ultra, OpenCL 1.2 
+  cl_khr_fp64 absent, cl_amd_fp64 absent, CL_DEVICE_DOUBLE_FP_CONFIG 0x0
+  extensions: cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event cl_khr_byte_addressable_store cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_3d_image_writes cl_khr_image2d_from_buffer cl_khr_depth_images 
