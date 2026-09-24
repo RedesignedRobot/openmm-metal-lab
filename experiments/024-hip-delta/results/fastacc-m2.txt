@@ -1,0 +1,9 @@
+device Apple M2
+probe rsqrt max error 5.892594145848113e-08 -> fast
+probe recip max error 7.239411736622136e-08 -> fast
+probe exp max error 3.21636076036372e-07 -> fast
+probe log max error 6.084397297558256e-07 -> fast
+sweep 1e-4..1e4 rsqrt max relative error 8.547972425449867e-08
+sweep 1e-4..1e4 recip max relative error 8.877792994354128e-08
+sweep 1e-4..1e4 exp max relative error 3.7320779087888563e-06
+sweep 1e-4..1e4 log max relative error 5.697371642358893e-05

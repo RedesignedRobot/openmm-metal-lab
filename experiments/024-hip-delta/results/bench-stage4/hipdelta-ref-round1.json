@@ -1,0 +1,126 @@
+{
+    "benchmarks": [
+        {
+            "test": "gbsa",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 2.0,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 33469,
+            "elapsed_time": 29.646555,
+            "ns_per_day": 390.1595446755955
+        },
+        {
+            "test": "rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 22138,
+            "elapsed_time": 30.167188,
+            "ns_per_day": 253.61637286179933
+        },
+        {
+            "test": "pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 17309,
+            "elapsed_time": 30.017124,
+            "ns_per_day": 199.2859275925302
+        },
+        {
+            "test": "apoa1rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 5850,
+            "elapsed_time": 34.271373,
+            "ns_per_day": 58.992675898920055
+        },
+        {
+            "test": "apoa1pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 4433,
+            "elapsed_time": 32.625035,
+            "ns_per_day": 46.959177208545526
+        },
+        {
+            "test": "apoa1ljpme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "single",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceName": "Apple M2",
+                "Precision": "single",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/"
+            },
+            "steps": 3140,
+            "elapsed_time": 32.021141,
+            "ns_per_day": 33.889610616935855
+        }
+    ],
+    "system": {
+        "hostname": "Amirs-Mac-mini.local",
+        "timestamp": "2026-09-24T04:20:31.590751+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M2",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "benchmarks": [
+        {
+            "test": "gbsa",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 2.0,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 27879,
+            "elapsed_time": 30.013147,
+            "ns_per_day": 321.0253959706391
+        },
+        {
+            "test": "rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 15699,
+            "elapsed_time": 30.359539,
+            "ns_per_day": 178.7106978139556
+        },
+        {
+            "test": "pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 13439,
+            "elapsed_time": 30.000418,
+            "ns_per_day": 154.81512290928745
+        },
+        {
+            "test": "apoa1rf",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 1.0,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 4782,
+            "elapsed_time": 30.703347,
+            "ns_per_day": 53.82667889595228
+        },
+        {
+            "test": "apoa1pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 3893,
+            "elapsed_time": 30.433452,
+            "ns_per_day": 44.20861622927297
+        },
+        {
+            "test": "apoa1ljpme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "Metal",
+            "platform_properties": {
+                "DeviceIndex": "0",
+                "DeviceName": "Apple M2",
+                "UseBlockingSync": "true",
+                "Precision": "mixed",
+                "UseCpuPme": "false",
+                "TempDirectory": "/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/",
+                "DisablePmeStream": "true",
+                "DeterministicForces": "false"
+            },
+            "steps": 3034,
+            "elapsed_time": 30.280743,
+            "ns_per_day": 34.62763116479671
+        }
+    ],
+    "system": {
+        "hostname": "Amirs-Mac-mini.local",
+        "timestamp": "2026-09-24T05:12:21.133422+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M2",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

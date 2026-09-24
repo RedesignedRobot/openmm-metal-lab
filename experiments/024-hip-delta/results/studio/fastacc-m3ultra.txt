@@ -1,0 +1,9 @@
+device Apple M3 Ultra
+probe rsqrt max error 5.142708316765959e-08 -> fast
+probe recip max error 5.116011169115916e-08 -> fast
+probe exp max error 3.21636076036372e-07 -> fast
+probe log max error 1.47931484870222e-07 -> fast
+sweep 1e-4..1e4 rsqrt max relative error 7.589189918127902e-08
+sweep 1e-4..1e4 recip max relative error 7.635022692699921e-08
+sweep 1e-4..1e4 exp max relative error 3.695637191015776e-06
+sweep 1e-4..1e4 log max relative error 2.6755442078917406e-07

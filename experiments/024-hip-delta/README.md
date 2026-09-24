@@ -2,7 +2,7 @@
 
 peastman plans to write the Metal platform himself, starting from CUDA or HIP, and to read ours as a reference. So the product here is a readable "HIP to Metal in N lines" diff. Every line that differs from HIP should exist because Metal needs it or because it measurably speeds things up.
 
-The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 (measured speedups) and stage 4 (mixed precision) are in progress.
+The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 looked for measured speedups and found none that passes the tests, so it has no commit. Stage 4 is 089374b36 and b753d9a6a: mixed precision with df64, gated against `metal` at 052eaa85b.
 
 ## Metric
 
@@ -17,23 +17,24 @@ The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9e
 | Stage 2 plus the destructor fix, aa7464387 | 731 | 0 | 731 |
 | Stage 2 cut to the minimum, 1e90e5b0a | 467 | 0 | 467 |
 | Verifier fixes, 62e1e2e95 | 464 | 0 | 464 |
+| Stage 4: mixed precision with df64, b753d9a6a | 474 | 589 (df64) | 1,063 |
 
 The table's count leaves out code a reader has to write too:
 
-- All of `platforms/metal`, CMake files and tests included, adds 995 lines at 62e1e2e95 (1,262 at aa7464387). The tests are most of the difference: 249 lines added to HIP's test files and 257 in Metal-only tests (TestMetalCommandBatching, TestMetalFFT).
-- Outside `platforms/metal` the branch changes 13 files, +100 and -45 lines, most of it shared with `metal`: the top-level CMakeLists.txt (12), the common kernels dpd, gayBerne and minimize and ExpressionUtilities.cpp (24), a `PRIVATE` macro in the CUDA, HIP and OpenCL common kernels (3), the vkFFT.h Metal backend patch (+10 -28, with a 12-line note), TestCheckpoints.h and TestCustomIntegrator.h (33), and the developer guide (6).
+- All of `platforms/metal`, CMake files and tests included, adds 995 lines at 62e1e2e95 (1,262 at aa7464387) and 1,892 at b753d9a6a, where df64.metal and TestMetalMixedPrecision.cpp are 885 of the 897 new lines. The tests are most of the difference: 249 lines added to HIP's test files and 257 in Metal-only tests (TestMetalCommandBatching, TestMetalFFT).
+- Outside `platforms/metal` the branch through 62e1e2e95 changes 13 files, +100 and -45 lines, most of it shared with `metal`: the top-level CMakeLists.txt (12), the common kernels dpd, gayBerne and minimize and ExpressionUtilities.cpp (24), a `PRIVATE` macro in the CUDA, HIP and OpenCL common kernels (3), the vkFFT.h Metal backend patch (+10 -28, with a 12-line note), TestCheckpoints.h and TestCustomIntegrator.h (33), and the developer guide (6).
 - The `PRIVATE` line in `platforms/hip/src/kernels/common.hip` means delta.sh diffs against a HIP that is 1 line modified.
 - metal-cpp is vendored: 35,021 lines in 127 files.
 
-Without df64 the baseline is 2,038. Stage 2 is single precision only, so it has no mixed precision to compare with df64. Logs: `results/delta-*.txt`.
+Stage 4 adds 38 lines and removes 24 in 6 more common files (see stage 4). Without df64 the baseline is 2,038, the number to hold stages 1 to 3 against, since they are single precision only. With mixed precision back, b753d9a6a's 1,063 compares with `metal`'s 2,721. Logs: `results/delta-*.txt`.
 
-## Delta per file at HEAD
+## Delta per file at HEAD, b753d9a6a
 
 The source carries no comments beyond what HIP's files already have, including their license headers. Every reason lives here instead.
 
 | File | Added | Why |
 |---|---:|---|
-| src/MetalContext.cpp | 119 | Kernel signature rewriter, 42 lines. MSL wants `device` on pointer parameters and takes scalar and vector arguments only by `constant` reference, so a value parameter becomes `constant T& _in_x` plus a copy `T x = _in_x;` at the top of the body. Preprocessor lines inside a parameter list are copied into that prologue too. Two `regex_replace` calls rename `thread`, which MSL reserves and the common kernels use as a variable name, and turn `long long` into `long`, which MSL lacks. Compile, 15 lines: `metal_stdlib` header, MSL 3.2, safe math with precise functions. getKernel, 19 lines: pipeline reflection records the byte size of each `_in_` argument. Launch, 13 lines: `setBytes` for those, `setBuffer` for the rest, into the queue's open encoder. Device, queue and properties, 16 lines, including the GPU core count from the IORegistry, which Metal doesn't report. Host memory and releases, 8 lines. Tuning, 2 lines: 12 thread blocks per core and RECIP as `fast::divide`. |
+| src/MetalContext.cpp | 128 | Kernel signature rewriter, 42 lines. MSL wants `device` on pointer parameters and takes scalar and vector arguments only by `constant` reference, so a value parameter becomes `constant T& _in_x` plus a copy `T x = _in_x;` at the top of the body. Preprocessor lines inside a parameter list are copied into that prologue too. Two `regex_replace` calls rename `thread`, which MSL reserves and the common kernels use as a variable name, and turn `long long` into `long`, which MSL lacks. Compile, 15 lines: `metal_stdlib` header, MSL 3.2, safe math with precise functions. getKernel, 19 lines: pipeline reflection records the byte size of each `_in_` argument. Launch, 13 lines: `setBytes` for those, `setBuffer` for the rest, into the queue's open encoder. Device, queue and properties, 16 lines, including the GPU core count from the IORegistry, which Metal doesn't report. Host memory and releases, 8 lines. Tuning, 2 lines: 12 thread blocks per core and RECIP as `fast::divide`. Mixed precision, 9 lines: df64.metal in `createModule` and `doubleToString` (stage 4). |
 | src/kernels/common.metal | 105 | CUDA names for MSL built-ins (program-scope `threadIdx` and friends, `__syncthreads`, `__threadfence`, `__shared__`), atomics (the M1 and M2 have no 64 bit atomic add, and MSL has no float atomic min or max), the `make_` names the kernels use, `f` suffix math names, erf and erfc (MSL has neither), `__float2half_ru`, realToFixedPoint without `long long`. HIP's `__expf` and `__logf` are its fast intrinsics and map to `fast::exp` and `fast::log`. `__fsqrt_rn` maps to `precise::sqrt`. HIP's `__frsqrt_rn` rounds to nearest, so mapping it to `fast::rsqrt` is not a match: it is a speed choice from the tuning table below. `MEM_FENCE` is empty: HIP's hot bonded kernels call it, and a device fence there costs time for ordering that the kernels don't need within a SIMD group. `SYNC_WARPS` is `simdgroup_barrier`. |
 | src/MetalQueue.cpp | 60 | One open command buffer and compute encoder per queue. Commits happen at upload, download, event and step boundaries. Committed buffers wait in a deque and are released once complete, and a failed buffer throws at the next commit or finish. The lock is recursive because CustomCPPForce uploads from a worker thread. Autorelease pools wrap the metal-cpp calls that return autoreleased objects, since Python threads have no pool. |
 | include/MetalQueue.h | 21 | Declarations for the above, and the `metalStream_t` typedef. `getCommitCount` and its counter, 5 lines, exist for TestMetalCommandBatching. Metal reports no count of committed command buffers, and no other API shows whether a step went out as one buffer or many. Batching is what the no-commit variant below lost 4 to 23 percent to, so the test guards it and the lines stay. |
@@ -41,7 +42,7 @@ The source carries no comments beyond what HIP's files already have, including t
 | src/MetalArray.cpp | 17 | Shared storage buffers of at least 16 bytes (Metal can't create empty buffers). Upload and download finish the queue and then memcpy. copyTo is a blit in the open command buffer. |
 | src/MetalEvent.cpp | 17 | MTLSharedEvent signal and wait. A failed buffer is reported by the queue's next commit, not by the event. |
 | src/MetalFFT3D.cpp | 17 | VkFFT's Metal backend. vkFFT.h compiles the metal-cpp implementation into the file that includes it, so only this file includes it, and the header forward-declares a wrapper struct. VkFFT compiles with fast math, so `useLUT` takes twiddle factors from a table. VkFFT's Metal backend only encodes into a given encoder, so the FFT goes into the open one. |
-| include/MetalContext.h | 14 | Host vector typedefs (`int2`, `float4`, `uint1`) that HIP gets from its runtime headers, `getCurrentStream` returning the queue, the reflection map, two capability getters that return false. |
+| include/MetalContext.h | 15 | Host vector typedefs (`int2`, `float4`, `uint1`) that HIP gets from its runtime headers, `getCurrentStream` returning the queue, the reflection map, a 64-bit atomics getter that returns false, `getSupportsDoublePrecision` returning `useMixedPrecision` and the `doubleToString` override (stage 4). |
 | src/kernels/findInteractingBlocks.metal | 14 | See kernel rewrites below. |
 | src/kernels/intrinsics.metal | 12 | `warpSize`, `__shfl`, `__shfl_down`, `__ballot` on simd_ functions. The GB kernels shuffle 64 bit values, which `simd_shuffle` rejects, so two overloads split them into 32 bit halves. |
 | src/MetalNonbondedUtilities.cpp | 10 | Shared buffer for the interaction count, ComputeEvent, a commit before waiting on the count. Tuning: 40 force thread blocks per core, one tile per batch. |
@@ -50,6 +51,7 @@ The source carries no comments beyond what HIP's files already have, including t
 | src/MetalIntegrationUtilities.cpp | 6 | CCMA's converged flag in a shared buffer, and a ComputeEvent. |
 | other 7 files | 15 | Members and includes for the above, the platform name "Metal", `maxThreadgroupMemoryLength`. |
 | src/kernels/nonbonded.metal | 0 | HIP's kernel compiles unchanged. |
+| src/kernels/df64.metal | 589, Metal only | Mixed precision, see stage 4. |
 
 ### Removed in the cut, and why
 
@@ -106,6 +108,11 @@ ctest `-R TestMetal`, 2 jobs, 600 s timeout, on the M2 mini and on the M3 Ultra 
 | Stage 2 minimum 1e90e5b0a, Single | M3 Ultra | 54/54 pass |
 | Verifier fixes 62e1e2e95, Single | M2 | 53/54, TestMetalMonteCarloAnisotropicBarostatSingle failed once (stochastic, see below) |
 | Verifier fixes 62e1e2e95, Single | M3 Ultra | 54/54 pass |
+| Stage 3 fast math mode b46bf2193 (dropped), Single | M2 | 53/54, TestMetalConstantPotentialForceSingle fails 3/3: conjugate gradient not converged |
+| Stage 3 fast math mode b46bf2193 (dropped), Single | M3 Ultra | 51/54, the same ConstantPotential failure plus the flexible and anisotropic barostats |
+| `metal` 052eaa85b, Mixed | M2 | 56/56 pass (`-R "TestMetal.*Mixed"`, so TestMetalMixedPrecisionSingle too) |
+| Stage 4 b753d9a6a, Single and Mixed | M2 | 109/110, TestMetalMonteCarloFlexibleBarostatSingle failed once (stochastic, see below) |
+| Stage 4 b753d9a6a, Single and Mixed | M3 Ultra | 110/110 pass. An earlier run of the same tree failed TestMetalMonteCarloFlexibleBarostatSingle once, then passed 5/5 repeats |
 
 The one test `metal` has and this branch doesn't is TestMetalMixedPrecisionSingle, dropped with mixed precision. Logs: `results/ctest-*.txt` (M2) and `results/studio/ctest-*.txt` (M3 Ultra).
 
@@ -121,8 +128,9 @@ Four of the five full runs after the fixes had one stochastic test fail, a diffe
 | TestMetalMonteCarloBarostatSingle (M2, 1e90e5b0a) | expected 1.5, found 1.3472 (TestMonteCarloBarostat.h:141) | 5/5 pass | 5/5 pass |
 | TestMetalMonteCarloFlexibleBarostatSingle (M2) | passed in the full run | 5/5 pass | 5/5 pass |
 | TestMetalMonteCarloAnisotropicBarostatSingle (M2, 62e1e2e95) | expected 3, found 4.098 (TestMonteCarloAnisotropicBarostat.h:302) | 13/15 pass | 12/15 pass, `metal` 052eaa85b |
+| TestMetalMonteCarloFlexibleBarostatSingle (M2, b753d9a6a; M3 Ultra, the first stage 4 run) | expected 3, found 3.648 (TestMonteCarloFlexibleBarostat.h:233, M3 Ultra) | 4/5 pass (M2), 5/5 pass (M3 Ultra) | 4/5 pass, `metal` 052eaa85b (M2) |
 
-Logs: `results/repeats-stage2-min.txt` (M2), `results/studio/repeats-studio.txt`, `results/flexible-stage2-min.txt`, `results/repeats-fix-m2.txt` (62e1e2e95, 15 interleaved runs per tree). Nothing in the cut touches the random number kernels. A harness that runs the old and the new signature rewriter over all 73 kernel files (`probes/rewriter-compare.cpp`) finds identical output apart from 3 raw `EXTRA_ARGS` and `PARAMETER_ARGUMENTS` placeholders, which the host code replaces before the rewriter sees them.
+Logs: `results/repeats-stage2-min.txt` (M2), `results/studio/repeats-studio.txt`, `results/flexible-stage2-min.txt`, `results/repeats-fix-m2.txt` (62e1e2e95, 15 interleaved runs per tree), `results/repeats-stage4-flexible-m2.txt`, `results/studio/repeats-stage4-flexible.txt`. Nothing in the cut touches the random number kernels. A harness that runs the old and the new signature rewriter over all 73 kernel files (`probes/rewriter-compare.cpp`) finds identical output apart from 3 raw `EXTRA_ARGS` and `PARAMETER_ARGUMENTS` placeholders, which the host code replaces before the rewriter sees them.
 
 The first two M3 Ultra runs of the cut failed to compile most kernels (`results/studio/ctest-min1.txt`, `ctest-min2.txt`): the regex rewriter lost newlines around preprocessor lines inside a parameter list (see what didn't work). Run min3 failed TestMetalCustomNonbondedForce, which wants the 31-argument message, so that came back. Runs min4 and min5 had no device throw, min5 after restoring MSL 3.2. Run min6 is 1e90e5b0a. There `probes/edge.py` gets "The METAL platform does not support multiple devices" for `DeviceIndex` "0,0", and Mixed and Double precision fail to compile with "'double' is not supported in Metal" (`results/studio/edge-after.txt`).
 
@@ -141,7 +149,9 @@ A few tests ran under `MTL_DEBUG_LAYER=1` (HarmonicBondForce, Sort, NonbondedFor
 | apoa1pme | 92,224 | 7.75e-05 | 7.4e-07 | 7.8e-07 | 5.8e-07 | 5.9e-07 |
 | apoa1ljpme | 92,224 | 7.75e-05 | 1.0e-06 | 1.1e-06 | 6.1e-07 | 5.9e-07 |
 
-Force errors agree across the two builds and the two chips to three digits, and to four on each chip. Energy errors are within a factor of 1.2 of `metal`'s everywhere. `metal` switches to the same fast functions as this branch only when a runtime accuracy check passes. This branch dropped that check and uses them unconditionally, so the M3 Ultra run below is the only test of fast math beyond the M2. The apoa1 systems have more than 90,000 atoms, so they also cover the large block path of the neighbor list.
+Force errors agree across the two builds and the two chips to three digits, and to four on each chip. Energy errors are within a factor of 1.2 of `metal`'s everywhere. `metal` switches to the same fast functions as this branch only when a runtime accuracy check passes. This branch dropped that check and uses them unconditionally. The check picks the fast versions on both chips here (see fast math accuracy under stage 3). The apoa1 systems have more than 90,000 atoms, so they also cover the large block path of the neighbor list.
+
+Stage 4, b753d9a6a: single precision gives the same force errors as 62e1e2e95 to 4 digits on the M2 (`results/forces-stage4.txt`). Mixed precision gives the same force errors as single to 4 digits on both chips, and energy errors between 4.9e-08 and 1.3e-06 (`results/forces-stage4-mixed.txt`, `results/studio/forces-stage4-single.txt`, `results/studio/forces-studio-stage4-mixed-final.txt`). Mixed precision keeps forces in float, so it can't do better against Reference here. What it buys is double-float accumulation in the integrators, which `TestMetalMixedPrecision` tests directly and the Mixed variants of the integrator tests exercise.
 
 ## Benchmarks
 
@@ -174,6 +184,30 @@ aa7464387 (`results/bench-stage2-final`):
 | apoa1ljpme | 33.9 | 40.5 | 1.193 | 33.9 33.9 33.9 | 40.5 40.5 40.4 |
 
 Rounds vary by 1 percent or less. rf ties. Everything else is 4 to 19 percent faster than `metal`.
+
+b753d9a6a, stage 4, against the current `metal` 052eaa85b (`ab.sh`, same method, `results/bench-stage4`). Single precision runs the same code as 62e1e2e95, and the ratios match 62e1e2e95's own run (`results/bench-fix-postcommit`, the variant without the post-force commit) within 0.4 percent:
+
+| Test | `metal` 052eaa85b | b753d9a6a | Ratio | `metal` rounds | b753d9a6a rounds |
+|---|---:|---:|---:|---|---|
+| gbsa | 389.0 | 415.6 | 1.069 | 390.2 386.4 389.0 | 417.8 415.6 413.4 |
+| rf | 253.5 | 253.3 | 0.999 | 253.6 253.5 253.5 | 254.6 252.7 253.3 |
+| pme | 199.2 | 207.9 | 1.044 | 199.3 198.9 199.2 | 208.2 207.9 207.6 |
+| apoa1rf | 59.0 | 69.3 | 1.175 | 59.0 58.9 59.0 | 69.3 69.3 69.4 |
+| apoa1pme | 47.0 | 54.5 | 1.161 | 47.0 47.0 46.9 | 54.7 54.4 54.5 |
+| apoa1ljpme | 33.9 | 40.5 | 1.193 | 33.9 33.9 33.9 | 40.5 40.5 40.4 |
+
+Mixed precision, same method (`PRECISION=mixed ab.sh`, `results/bench-stage4-mixed`). Both builds run df64 in the integrators, so this compares the rest of the code under mixed precision:
+
+| Test | `metal` 052eaa85b | b753d9a6a | Ratio | `metal` rounds | b753d9a6a rounds |
+|---|---:|---:|---:|---|---|
+| gbsa | 305.2 | 321.2 | 1.052 | 305.2 304.8 305.2 | 322.7 321.2 321.0 |
+| rf | 175.6 | 178.9 | 1.019 | 175.6 175.7 175.6 | 180.2 178.9 178.7 |
+| pme | 150.2 | 155.4 | 1.034 | 149.6 150.3 150.2 | 155.4 155.4 154.8 |
+| apoa1rf | 47.1 | 53.8 | 1.142 | 47.1 47.2 47.1 | 53.6 53.8 53.8 |
+| apoa1pme | 39.1 | 44.2 | 1.130 | 39.1 39.1 39.1 | 44.3 44.2 44.2 |
+| apoa1ljpme | 29.7 | 34.6 | 1.165 | 29.7 29.7 29.7 | 34.6 34.6 34.6 |
+
+Mixed precision costs this branch 15 to 29 percent against its own single precision, and `metal` 12 to 31 percent.
 
 ### M3 Ultra (owner at the keyboard, light CPU)
 
@@ -221,6 +255,84 @@ A hybrid run located the gap before tuning: this branch's host layer with `metal
 
 Committing the nonbonded kernel before waiting on the interaction count is 3 lines that HIP doesn't have. Without them (`results/bench-variant-nocommit`, 3 rounds, all tuning in place) gbsa was 0.84, pme 0.90, rf 0.84, apoa1rf 1.11 and apoa1pme 1.11 against `metal`. That is 4 to 23 percent slower than HEAD, so the lines stay.
 
+## Stage 3: measured speedups
+
+No stage 3 commit. The one candidate that sped up the M2 fails a test, and nothing else beat run to run noise on either chip.
+
+### Fast math mode fails TestMetalConstantPotentialForce
+
+HIP compiles its kernels with `-O3 -ffast-math`. This branch compiles in safe math mode and maps only HIP's fast intrinsics to `fast::`. Switching the library to `MTL::MathModeFast`, with functions still precise, is a one-line change. The M2 screen (`ab.sh`, 2 interleaved rounds of 15 seconds, host clock, `results/screen-stage3-fastmath`), ratios against HEAD:
+
+| Variant | gbsa | rf | pme | apoa1pme |
+|---|---:|---:|---:|---:|
+| Fast math mode | 1.020 | 0.997 | 1.026 | 1.023 |
+| Fast functions (`MTL::MathFloatingPointFunctionsFast`) | 1.008 | 1.004 | 1.008 | 1.002 |
+
+HEAD's two rounds agree within 0.6 percent, so fast math mode's 2 to 2.6 percent is real on the M2. Committed as b46bf2193, it passed forces (`results/forces-stage3.txt`, force errors equal to HEAD's to 3 digits) but failed ctest: TestMetalConstantPotentialForceSingle throws "Constant potential conjugate gradient iterations not converged", 3 times out of 3 (`results/ctest-stage3.txt`, `results/repeats-stage3-constantpotential.txt`). Fast mode allows reassociation and assumes finite values. I didn't trace which kernel of the solve breaks. Fixing it would mean safe mode for some kernels and fast for others, which grows the diff, so the commit is dropped. It stays on the local branch `metal-hipdelta-fastmode` and was never pushed. Fast mode would also break stage 4, since df64 needs safe mode.
+
+Fast functions gain under 1 percent on every test, inside the noise, so they aren't worth a line either.
+
+### M3 Ultra block shapes don't close the gbsa and rf gap (owner at the keyboard, light CPU)
+
+gbsa is 14 to 16 percent and rf 11 to 12 percent slower than `metal` on the M3 Ultra, while the M2 is faster or even. The tuning was done on the M2's 10 cores, so the Studio screen (`studio/screen.sh`, one run of 10 seconds per setting, 1 minute load 1.5 to 4.5, `results/studio/screen-stage3`) tried other block counts and shapes through temporary environment variables. Ratios against the mean of two HEAD runs, which themselves differ by 1.7 percent on gbsa, 1.0 on rf and 0.2 on pme:
+
+| Setting | gbsa | rf | pme |
+|---|---:|---:|---:|
+| 6 blocks of 256 per core (`metal`'s shape) | 1.012 | 1.022 | 0.988 |
+| 12 blocks of 128 | 1.017 | 1.020 | 0.955 |
+| 20 blocks of 64 | 1.019 | 1.014 | 0.963 |
+| 80 blocks of 64 | 1.019 | 1.009 | 0.926 |
+| 40 blocks of 128 | 0.995 | 1.003 | 0.961 |
+| Fast functions | 0.999 | 1.003 | 0.935 |
+| Fast math mode | 1.003 | 1.008 | 1.002 |
+| 6 thread blocks per core, not 12 | 0.996 | 0.994 | 0.978 |
+| 24 thread blocks per core | 0.994 | 0.989 | 0.989 |
+
+The best setting gains 2 percent, against a 14 percent gap, and costs pme. The load rose from 2 to 4.5 during the pme runs, so pme's losses are partly noise, but none of these is a win. The gap is in the kernels, not the launch shape. I didn't try `metal`'s nonbonded kernels: they need `metal`'s nonbonded host code, a few hundred lines, and on the M2 they were slower (the hybrid in stage 2 gave gbsa 0.83).
+
+### Fast math accuracy on both GPUs
+
+`probes/fastacc.swift` runs `metal`'s runtime check, the one this branch dropped: `fast::rsqrt`, `fast::divide`, `fast::exp` and `fast::log` on 20 values from 1e-4 up by factors of pi, taking a fast function only if its error is below 1e-6. It then sweeps 1e6 values from 1e-4 to 1e4 (`results/fastacc-m2.txt`, `results/studio/fastacc-m3ultra.txt`):
+
+| Function | Check, M2 | Check, M3 Ultra | Sweep, M2 | Sweep, M3 Ultra |
+|---|---:|---:|---:|---:|
+| rsqrt | 5.9e-08 | 5.1e-08 | 8.5e-08 | 7.6e-08 |
+| divide | 7.2e-08 | 5.1e-08 | 8.9e-08 | 7.6e-08 |
+| exp | 3.2e-07 | 3.2e-07 | 3.7e-06 | 3.7e-06 |
+| log | 6.1e-07 | 1.5e-07 | 5.7e-05 | 2.7e-07 |
+
+`metal`'s check picks the fast version of all four on both chips, so dropping it changes nothing on these two. The sweep errors are relative. The M2's log error of 5.7e-05 is at arguments just outside the 1e-3 band the sweep skips around 1, where log itself is about 1e-3, so the absolute error there is about 6e-08. The M3 Ultra's fast log is more accurate near 1. Chips other than these two are untested.
+
+## Stage 4: mixed precision with df64
+
+Apple GPUs have no double precision, so stage 2 dropped Mixed and Double. Stage 4 brings Mixed back as its own layer, in two commits on 62e1e2e95: 089374b36 changes common code and b753d9a6a adds the Metal part. Double stays unsupported.
+
+HIP's host code already handles mixed precision: it allocates double arrays, passes doubles to `setArg` and defines `mixed` as `double`. So the Metal layer only has to give the kernels a type called `double`. In mixed precision `createModule` puts `df64.metal` after `using namespace metal;`. That's `metal`'s double-float type with its comments removed, 589 lines. Its last 8 lines are `#define double df64` and the same for `double2` to `double4` and `make_double2` to `make_double4`. Device and constant memory hold df64 values as IEEE doubles: every load decodes and every store encodes. So the host code, the kernel arguments and the downloads see ordinary doubles, and no host code changes for them.
+
+| Change | Lines | Why |
+|---|---:|---|
+| `df64.metal` | 589 | The double-float type, from `metal` |
+| MetalContext.cpp, `createModule` | 2 | Include df64.metal in mixed precision |
+| MetalContext.cpp/.h, `doubleToString` | 8 | A double constant a float can't hold becomes `df64(hi, lo)`. Without it, `(double) 0.1` in a kernel is only float accurate |
+| MetalContext.h, `getSupportsDoublePrecision` | 1 changed | Returns `useMixedPrecision`, so kernels that test for double support take their mixed paths |
+| ComputeContext.h, `doubleToString` virtual | 1 changed | So Metal can override it |
+| integrationUtilities.cc, noseHooverIntegrator.cc | 8 changed | `cond ? mixedValue : 0` is ambiguous when `mixed` is a class, so the 0 becomes `(mixed) 0`. Plain doubles don't care |
+| CommonMinimizeKernel.h/.cpp, minimize.cc | 29 added, 15 removed | Metal has no 64-bit atomics. Instead of throwing, the minimizer runs its reductions into doubles in a single thread block, from `metal`. The stale comment that Metal only supports single precision goes |
+| TestMetalMixedPrecision.cpp | 296 | `metal`'s df64 tests: arithmetic, conversions, IEEE storage round trips, math functions, and the compile errors for deleted functions |
+| tests/CMakeLists.txt | 3 | Register each Metal test in mixed precision too. QTBIntegrator calls `cos` on mixed values, which df64 deletes, so its mixed test expects that compile error, as on `metal` |
+
+delta.sh at b753d9a6a (`results/delta-stage4.txt`): 474 added lines in shared files (10 more than 62e1e2e95), 589 in df64.metal, and 1,892 in all of `platforms/metal` (897 more). Outside `platforms/metal`, stage 4 adds 38 lines and removes 24 across 6 common files.
+
+### df64 design, moved from the stripped comments
+
+- A df64 is the unevaluated sum hi + lo of two floats with hi = RN(hi + lo), a double-word number (Definition 1.4 in Joldes, Muller, Popescu, "Tight and rigorous error bounds for basic building blocks of double-word arithmetic", ACM TOMS 44(2), 2017, JMP below). It has 48 significand bits and the float exponent range. Apple GPUs flush float subnormals, so full precision holds down to about 2^-102, and below that it degrades to float.
+- Relative error bounds, u = 2^-24, without over- or underflow: df64 + df64 is JMP Algorithm 6, 3u^2 + 13u^3. df64 * df64 is Algorithm 12, 4u^2 (Muller and Rideau, ACM TOMS 48(1), 2022, Theorem 2.8). df64 / df64 is Algorithm 17, 15u^2 + 56u^3. df64 + float, * float and / float are Algorithms 4, 9 and 15, with 2u^2, 2u^2 and 3u^2.
+- sqrt is one correction of `precise::sqrt` (bound 25/8 u^2). `metal::sqrt` under safe math is off by an ulp on about a quarter of inputs on the M3, which breaks the bound. exp and log are a Taylor series with argument reduction and a Newton-style correction on top of the float log.
+- df64 needs safe math mode. Fast and relaxed modes allow reassociation, which folds the error terms of two-sum and two-product to zero. This branch compiles in safe mode already, and stage 3 kept it that way.
+- sin, cos, tan, their inverses, the hyperbolic functions, erf, erfc and pow have no df64 versions. They're deleted, so a mixed argument is a compile error instead of a silent narrowing to float.
+- `atomicAdd` on df64 is deleted too, since no Apple GPU has 64-bit float atomics and a df64 spans two words.
+- `fast::` and `precise::` get df64 overloads of sqrt, rsqrt, exp, log and divide, because the host maps SQRT, RECIP and friends to qualified names, and a qualified call sees only that namespace.
+
 ## What didn't work
 
 - `MTL::CopyAllDevices()` returned NULL, so every test failed with "Error creating METAL stream". metal-cpp compiles the function out below a 10.11 deployment target, and OpenMM's CMake defaults to 10.7. The context now uses `MTL::CreateSystemDefaultDevice()`, as `metal` does.
@@ -234,6 +346,7 @@ Committing the nonbonded kernel before waiting on the interaction count is 3 lin
 - `MAX_BITS_FOR_PAIRS` 0 (no single pairs) and `metal`'s 256-thread force blocks were slower than HIP's defaults.
 - Leaving the MSL language version to the OS default. The C++ tests pass that way, but the Python module compiled every kernel as an older MSL: program-scope `[[thread_position_in_threadgroup]]` variables, `atomic_float` and `nextafter` were all errors. The default seems to follow the SDK the host executable was built with, and Python's is older. benchmark.py skips a test whose context throws, so the first Studio benchmark wrote empty results for this branch without an error. `setLanguageVersion(3_2)` is back, and `studio/bench.sh` now logs a run that produced no result.
 - The first regex rewriter joined a parameter to the preprocessor line after it (`constant mixed& _in_tol#ifdef ...`). After a first fix it joined a preprocessor line to the parameter after it (`#ifdef USE_LARGE_BLOCKSdevice ...`). The first came from `regex_match` dropping the whitespace around a parameter, the second from copying a directive without its newline. 54 of 54 tests failed on the M3 Ultra, then 28 of 54. It also read `real4 periodicBoxVecZ EXTRA_ARGS` as a type and a name. Directive lines now keep their newline, and trailing capitalized macro names stay after the parameter.
+- Fast math mode, HIP's own setting (stage 3). 2 to 2.6 percent faster on the M2, but the constant potential solve stops converging.
 
 ## Review findings not fixed
 
@@ -249,6 +362,8 @@ A read-only review of the stage 2 diff found these. None changes forces in the t
 - Apple GPUs run 32-wide SIMD groups. On a GPU that didn't, the kernels would compute wrong results instead of throwing.
 - A NULL shared event or command queue crashes at its next use instead of throwing.
 - `MetalEvent::wait` no longer checks its command buffer for an error. The queue reports a failed buffer at its next commit or finish.
+- Mixed precision covers what `metal`'s df64 covers. A custom force or integrator that calls sin, cos, pow or the other deleted functions on a mixed value fails to compile in mixed precision, as QTBIntegrator does. Double precision stays unsupported.
+- The minimizer's mixed precision reductions run in one thread block of `getMaxThreadBlockSize()` threads. Only mixed precision takes that path. I didn't time it against single precision's atomics.
 - `std::regex` costs little: the M2 ctest took 236 s against 234 s for aa7464387 (`results/ctest-stage2-min.txt`, `results/ctest-stage2-final.txt`).
 
 ## Files
@@ -259,6 +374,9 @@ A read-only review of the stage 2 diff found these. None changes forces in the t
 - `forces.py`: Metal against Reference.
 - `bench.sh`, `summarize.py`: interleaved benchmark rounds and their medians.
 - `screen.sh`: one benchmark round per setting of temporary environment knobs.
+- `ab.sh`: interleaved rounds of several variants on the mini, each a tree plus environment settings. `PRECISION` sets the precision.
+- `studio/screen.sh`: one benchmark run per knob setting on the Studio.
+- `STATE.md`: where the unattended run stands, for a restart.
 - `install.sh`, `final.sh`: rebuild and install on the mini, then ctest, forces, the FlexibleBarostat repeats and the benchmark.
-- `probes/`: MSL compile probes and `mslc.swift`, the compiler driver (`swiftc -O mslc.swift`). `rewriter-compare.cpp` runs the old and new signature rewriters over kernel files. `chunks.py` times an apoa1 system in 200-step chunks. `rfdebug.py` shows the exception benchmark.py hides. `edge.py` tries Mixed and Double precision and `DeviceIndex` "0,0".
+- `probes/`: MSL compile probes and `mslc.swift`, the compiler driver (`swiftc -O mslc.swift`). `rewriter-compare.cpp` runs the old and new signature rewriters over kernel files. `chunks.py` times an apoa1 system in 200-step chunks. `rfdebug.py` shows the exception benchmark.py hides. `edge.py` tries Mixed and Double precision and `DeviceIndex` "0,0". `fastacc.swift` runs `metal`'s fast math accuracy check and a wider sweep.
 - `results/`: raw logs.

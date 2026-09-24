@@ -1,0 +1,50 @@
+file                                            added removed
+src/MetalArray.cpp                                 17      47
+src/MetalContext.cpp                              128     308
+src/MetalEvent.cpp                                 17      11
+src/MetalFFT3D.cpp                                 17      55
+src/MetalIntegrationUtilities.cpp                   6      15
+src/MetalKernel.cpp                                 1       5
+src/MetalKernelFactory.cpp                          0      34
+src/MetalKernels.cpp                                0       7
+src/MetalKernelSources.cpp.in                       0       0
+src/MetalKernelSources.h.in                         0       0
+src/MetalNonbondedUtilities.cpp                    10      18
+src/MetalPlatform.cpp                              21      32
+src/MetalProgram.cpp                                0       0
+src/MetalQueue.cpp                                 60       9
+src/MetalSort.cpp                                   1       2
+src/kernels/common.metal                          105      18
+src/kernels/findInteractingBlocks.metal            14      19
+src/kernels/intrinsics.metal                       12      36
+src/kernels/nonbonded.metal                         0       0
+src/kernels/sort.metal                             10      14
+src/kernels/vectorOps.metal                         0     246
+include/MetalArray.h                                6       1
+include/MetalBondedUtilities.h                      0       0
+include/MetalContext.h                             15      44
+include/MetalEvent.h                                3       2
+include/MetalExpressionUtilities.h                  0       0
+include/MetalFFT3D.h                                4       7
+include/MetalForceInfo.h                            0       0
+include/MetalIntegrationUtilities.h                 2       2
+include/MetalKernel.h                               0       0
+include/MetalKernelFactory.h                        0       0
+include/MetalKernels.h                              0       0
+include/MetalNonbondedUtilities.h                   2       2
+include/MetalPlatform.h                             2       2
+include/MetalProgram.h                              0       0
+include/MetalQueue.h                               21       6
+include/MetalSort.h                                 0       0
+
+metal-only file                                 lines
+src/kernels/df64.metal                            589
+
+hip file with no metal counterpart              lines
+src/MetalParallelKernels.cpp                      307
+src/kernels/parallel.metal                         13
+include/MetalParallelKernels.h                    160
+
+added lines in shared files                       474
+lines in metal-only files                         589
+added lines in all of platforms/metal            1892
