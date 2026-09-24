@@ -25,7 +25,7 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 
 | # | Experiment | Status |
 |---|---|---|
-| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | verified (metal-fah-readiness c1cf7a005, 8a70205c1, d2cff0eeb; 110/112 on M3 Ultra, the 2 are #5434; not rebased onto `metal` 052eaa85b) |
+| C1 | Accept DeviceIndex ("0"), DisablePmeStream, DeterministicForces as validated properties (a FAH core passes them; today "Illegal property name") | verified (metal-fah-readiness rebased onto `metal` 052eaa85b 2026-09-24: 664adfdc0, ab6d6bb48, 0c69ccfe1, clean; M3 Ultra ctest -j4 109/112: the 2 LocalEnergyMinimizer are #5434, TestMetalConstantPotentialForceSingle failed once at TestConstantPotentialForce.h:1107 then passed 25 of 25, 5 alone and 20 as 4 concurrent copies; old head kept as metal-fah-readiness-pre-rebase) |
 | C2 | Mock FAH core loop: XML WU -> Metal mixed -> checkpointState.xml -> reload, bitwise continuity, FAH state tests vs Reference (dhfr, nav, TIP4P-Ew, >1M atoms) | measured (exp 020): 4/5 WUs pass; stmv misses dPE 10 on Metal (15.5) and OpenCL single (18.9) alike, direct space, mechanism open |
 | C3 | df64 sin/cos/pow/atan2/erf (QTB and CustomIntegrator in mixed) | queued |
 | C4 | Mixed minimizer two-pass reduction (nav mixed 264 s -> target <100 s on M2) | queued |
@@ -36,6 +36,12 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 | C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stages 1-4 done, verified through stage 2 (mini metal-hipdelta 9074c38f1): 479 added lines + 589 df64, 110/110 Single+Mixed on M2 and M3 Ultra, M2 1.00 to 1.18x `metal`; M3 Ultra gbsa 0.86 to 0.93x (neighbor list build, open); stage 4 not yet verified by a fresh agent |
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
+
+## Resumed 2026-09-24 09:17 UTC
+
+- GitHub: no new activity on #5397, cbang#213, #455, #303 at 09:17 UTC. Session cron polls every 2 hours (read only).
+- Running: verify-024s4 (fresh verifier, M2, stage 4 plus common code plus OpenCL ctest) and gbsa-gap (per-kernel GPU profile on the M3 Ultra, owner at the machine).
+- Open: TestMetalConstantPotentialForceSingle failed 1 in 26 runs on `metal` plus the C1 commits (an electrode charge unchanged after one step). The C1 commits only parse properties, so it predates them. Check `metal` and the Metal constant potential solver for a race.
 
 ## Paused 2026-09-24 ~08:20 UTC (owner offline). Resume here.
 
