@@ -45,3 +45,11 @@ Two lead messages arrived after the round 2 work: restore the message (done, f34
 - [x] M2 gates on 9074c38f1: ctest 110/110, forces identical, flexible 5/5 both trees, bench 1.001 to 1.181 vs `metal` 052eaa85b. Pushed 9074c38f1 to mini metal-hipdelta 07:56 UTC per the lead.
 - [x] lab committed and pushed to mini main, report sent to the lead
 - 06:45 UTC lead: push 9074c38f1 if its M2 gates pass; write the 157 figure up as a race artifact; recommend the numTilesInBatch line, don't commit it. README done for that.
+
+## Fresh verification of stage 4 (2026-09-24, verify-024s4, M2)
+
+- Verified at 9074c38f1. Metal ctest Single+Mixed 109/110 on the first run; TestMetalBrownianIntegratorSingle (stochastic, 303.45 vs 300) passed 5/5 on this branch and on `metal` 052eaa85b. Reference trips the same 1 percent tolerance in 1 of 40 samples.
+- OpenCL ctest, 9074c38f1 vs merge base 3c9effc96: same status on all 191 tests. 66/66 Single pass; the 123 Mixed/Double fail on both with no fp64. So the new mixed casts and the single-block minimizer are untested on OpenCL.
+- Review: casts keep types on CUDA/HIP/OpenCL; ExpressionUtilities fix also fixes a latent CUDA compile error; computeRange with one threadgroup has no cross-threadgroup read left, and sort.metal was the only last-block pattern.
+- For a PR: doubleToString virtual changes ComputeContext's vtable; OpenCL devices with fp64 but no int64 atomics now run mixed minimization instead of throwing; TestMetalQTBIntegratorMixed passes by matching the expected compile error.
+- df64: dhfr pme minimizer, 300 iterations, mixed 1.17e-6 relative vs Reference; mixed takes 13.6 s vs 3.3 s single (host clock), from one-threadgroup reductions.

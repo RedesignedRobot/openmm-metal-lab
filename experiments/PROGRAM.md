@@ -33,14 +33,14 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 | C6 | Drude and RPMD Metal plugins (thin glue, port OpenCL tests) | queued |
 | C7 | AMOEBA/HIPPO plugin (PRIVATE sweep + glue; after C5) | queued |
 | C8 | Packaging: conda-forge osx-arm64 toolchain, runtime gate on older macOS | queued |
-| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stages 1-4 done, verified through stage 2 (mini metal-hipdelta 9074c38f1): 479 added lines + 589 df64, 110/110 Single+Mixed on M2 and M3 Ultra, M2 1.00 to 1.18x `metal`; M3 Ultra gbsa 0.86 to 0.93x (neighbor list build, open); stage 4 not yet verified by a fresh agent |
+| C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stages 1-4 done, verified through stage 2 (mini metal-hipdelta 9074c38f1): 479 added lines + 589 df64, 110/110 Single+Mixed on M2 and M3 Ultra, M2 1.00 to 1.18x `metal`; M3 Ultra gbsa 0.86 to 0.93x (neighbor list build, open); stage 4 verified 2026-09-24 by verify-024s4 on the M2 (Metal ctest 109/110 then 5/5 on the stochastic Brownian test, same on `metal`; OpenCL ctest identical status to the merge base on all 191 tests, 66/66 Single; common code reviewed; range fix has no cross-threadgroup read left; df64 minimizer 1.17e-6 vs Reference). Notes for a PR: doubleToString virtual changes ComputeContext's vtable (plugins rebuild); OpenCL devices with fp64 but no int64 atomics now run mixed minimization instead of throwing; Metal mixed minimization 4x slower than single (one-threadgroup reductions, = C4) |
 
 Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
 
 ## Resumed 2026-09-24 09:17 UTC
 
 - GitHub: no new activity on #5397, cbang#213, #455, #303 at 09:17 UTC. Session cron polls every 2 hours (read only).
-- Running: verify-024s4 (fresh verifier, M2, stage 4 plus common code plus OpenCL ctest) and gbsa-gap (per-kernel GPU profile on the M3 Ultra, owner at the machine).
+- verify-024s4 finished 09:59 UTC: stage 4 verified (C9 row). Running: gbsa-gap (per-kernel GPU profile on the M3 Ultra, owner at the machine).
 - Open: TestMetalConstantPotentialForceSingle failed 1 in 26 runs on `metal` plus the C1 commits (an electrode charge unchanged after one step). The C1 commits only parse properties, so it predates them. Check `metal` and the Metal constant potential solver for a race.
 
 ## Paused 2026-09-24 ~08:20 UTC (owner offline). Resume here.
