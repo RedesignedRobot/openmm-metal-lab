@@ -1,0 +1,15 @@
+M2 check 20260924T205646Z-6df2b8bcb: candidate 6df2b8bcb033 against base 6df2b8bcb033
+clock: benchmark.py host clock, datetime.now() around step(); ns/day is the median of rounds
+forces gate: PASS
+
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     402.17     397.96  0.990  0.990..0.990       65       65     -0   -0.6       88       87  
+gbsa               mixed      313.92     310.94  0.991  0.991..0.991       68       67     -1   -1.1       91       91  
+amber20-dhfr       single     212.73     212.80  1.000  1.000..1.000      144      137     -7   -4.8      157      150  
+amber20-dhfr       mixed      157.55     157.64  1.001  1.001..1.001      146      146     +0   +0.1      156      156  
+
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l, median of rounds
+1-minute load before 8 runs: 2.68 to 3.68; memory free 58% to 59%
+runs that started with a build running: 0; runs with no result: 0
+
+verdict PASS: gate PASS; slower: none; footprint growth: none; missing: none

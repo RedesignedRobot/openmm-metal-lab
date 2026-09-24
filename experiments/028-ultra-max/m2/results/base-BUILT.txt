@@ -1,0 +1,5 @@
+commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0
+src 0844e9e44035809d2ab828860e05130f0b24d36a
+toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+built 2026-09-24T20:53:05Z
+steps venv 10s, configure 3s, ninja -j4 159s (1391 edges), install+python 26s

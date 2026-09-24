@@ -1,0 +1,23 @@
+M2 check 20260924T213607Z-6df2b8bcb, base 6df2b8bcb033
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand: 6df2b8bcb033 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     398.80     397.87  0.998  0.998..0.998       65       65     -0   -0.0       87       87  
+gbsa               mixed      310.64     310.34  0.999  0.999..0.999       66       68     +1   +2.0       90       91  
+pme                single     203.28     205.37  1.010  1.010..1.010      122      124     +2   +1.6      135      137  
+pme                mixed      154.10     154.25  1.001  1.001..1.001      128      126     -2   -1.6      142      140  
+
+cand2: 6df2b8bcb033 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     398.80     398.81  1.000  1.000..1.000       65       65     -0   -0.6       87       87  
+gbsa               mixed      310.64     309.39  0.996  0.996..0.996       66       66     -0   -0.4       90       90  
+pme                single     203.28     203.37  1.000  1.000..1.000      122      125     +3   +2.7      135      138  
+pme                mixed      154.10     153.23  0.994  0.994..0.994      128      128     +0   +0.3      142      142  
+
+1-minute load before 12 runs: 3.10 to 3.46; memory free 77% to 77%
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand 6df2b8bcb033 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+verdict cand2 6df2b8bcb033 PASS: gate PASS; slower: none; footprint growth: none; missing: none

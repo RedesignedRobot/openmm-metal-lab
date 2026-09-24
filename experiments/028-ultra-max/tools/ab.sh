@@ -1,0 +1,103 @@
+#!/bin/sh
+# Runs on the M3 Ultra at nice 0: interleaved benchmark.py rounds over any number of configurations.
+# A configuration is label=python:platform:precision[:VAR=value,...], with an absolute python path
+# (a venv made by build.sh) and optional environment settings for that run only. Every
+# (round, test, configuration) runs in a fresh process. Within a test the configurations run back to
+# back, in reversed order every other round. The GPU lease is taken per (round, test) through
+# lease.sh; wrap the whole ab.sh in one lease.sh so those calls run inside one hold. A run that
+# starts with a build running, or overlaps one that starts during it, is marked BUILD RUNNING in
+# loads.txt. --rerun-builds (window.sh) reruns every (round, test) with a marked run once at the end,
+# all configurations in that round's order; the replaced results move to <outdir>/replaced.
+# benchmark.py times with the host clock: datetime.now() around step(), plus a getState() sync.
+# The load averages, the Hyperscale VM's CPU and the top 5 CPU processes before every run go to
+# <outdir>/loads.txt; each configuration's openmm, revision and build go to <outdir>/configs.txt.
+# <outdir> must be new or empty. <tests> is a comma list, or "all" for the 9 benchmark.py tests. A run that writes no result
+# is logged as NO RESULT; a run over <seconds>+900 s is killed.
+#   /bin/sh -c 'nohup /tmp/openmm-metal-bench/ultra-tools/ab.sh /tmp/openmm-metal-bench/ultra-<lane>/ab1 2 15 gbsa,rf,pme base=/tmp/openmm-metal-bench/ultra-base/venv/bin/python:Metal:single mine=/tmp/openmm-metal-bench/ultra-<lane>/venv/bin/python:Metal:single > /tmp/openmm-metal-bench/ultra-<lane>/ab1.out 2>&1 < /dev/null &'
+# usage: ab.sh [--rerun-builds] <outdir> <rounds> <seconds> <tests|all> <configuration>...
+set -eu
+TOOLS=/tmp/openmm-metal-bench/ultra-tools
+BENCH=/tmp/openmm-metal-bench/ultra-base/benchmarks
+ALL=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv
+unset PYTHONPATH
+export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
+nice_value=$(ps -o nice= -p $$ | tr -d ' ')
+[ "$nice_value" = 0 ] || { echo "running at nice $nice_value, not 0: launch through /bin/sh -c 'nohup ...'" >&2; exit 2; }
+rerun_builds=0
+[ "${1:-}" = --rerun-builds ] && { rerun_builds=1; shift; }
+[ $# -ge 5 ] || { echo "usage: ab.sh [--rerun-builds] <outdir> <rounds> <seconds> <tests|all> <configuration>..." >&2; exit 2; }
+case "$1" in
+/*) out="${1%/}" ;;
+*) echo "the outdir must be an absolute path" >&2; exit 2 ;;
+esac
+rounds="$2"
+seconds="$3"
+tests="$4"
+[ "$tests" = all ] && tests=$ALL
+tests="$(echo "$tests" | tr , ' ')"
+shift 4
+mkdir -p "$out"
+[ -z "$(ls -A "$out")" ] || { echo "$out is not empty; use a new outdir per run" >&2; exit 2; }
+lane="$(echo "$out" | sed -n 's|^/tmp/openmm-metal-bench/\(ultra-[^/]*\)/.*|\1|p')"
+lane="${lane:-unknown}"
+
+labels=""
+for config in "$@"; do
+    label="${config%%=*}"
+    IFS=: read -r python platform precision settings <<SPEC
+${config#*=}
+SPEC
+    case "$label" in
+    ""|*[!A-Za-z0-9_.-]*) echo "bad label '$label' in $config: use letters, digits, '.', '_' and '-'" >&2; exit 2 ;;
+    esac
+    case " $labels " in *" $label "*) echo "label $label is used twice" >&2; exit 2 ;; esac
+    labels="$labels $label"
+    case "$python" in /*) ;; *) echo "python must be an absolute path in $config" >&2; exit 2 ;; esac
+    [ -x "$python" ] || { echo "$python is not executable" >&2; exit 2; }
+    case "$platform:$precision" in Metal:single|Metal:mixed|OpenCL:single|CPU:single|CPU:mixed) ;;
+    *) echo "platform:precision $platform:$precision is not one of Metal:single, Metal:mixed, OpenCL:single, CPU:*" >&2; exit 2 ;;
+    esac
+    dir="${python%/venv/bin/python}"
+    built="not a build.sh tree"
+    if [ "$dir" != "$python" ] && [ -d "$dir/build" ]; then
+        [ -f "$dir/BUILT" ] || { echo "$dir/BUILT is missing: a build.sh is running there, or the last one failed" >&2; exit 2; }
+        [ "$(sed -n 's/^src //p' "$dir/BUILT")" = "$("$TOOLS/srchash.sh" "$dir")" ] \
+            || { echo "$dir/src changed after build.sh; rebuild before timing $label" >&2; exit 2; }
+        built="$(tr '\n' ' ' < "$dir/BUILT")"
+    fi
+    info="$(cd / && "$python" -c "import openmm; print(openmm.__file__, openmm.version.git_revision)")" \
+        || { echo "$python can't import openmm" >&2; exit 2; }
+    echo "$label $platform $precision settings=${settings:-none} $info $built" >> "$out/configs.txt"
+done
+cat "$out/configs.txt"
+
+reversed="$(echo "$@" | tr ' ' '\n' | tail -r | tr '\n' ' ')"
+cd "$BENCH"
+r=1
+while [ "$r" -le "$rounds" ]; do
+    order="$*"
+    [ $((r % 2)) -eq 0 ] && order="$reversed"
+    for test in $tests; do
+        export AB_OUT="$out" AB_ROUND="$r" AB_TEST="$test" AB_SECONDS="$seconds"
+        "$TOOLS/lease.sh" "$lane" "ab.sh $out round $r $test" "$TOOLS/ab-test.sh" $order \
+            || echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) round $r $test ended with exit $?" | tee -a "$out/loads.txt"
+    done
+    r=$((r+1))
+done
+if [ $rerun_builds = 1 ]; then
+    for run in $(sed -n 's/^[^ ]* round \([0-9]*\) \([^ ]*\) .*BUILD RUNNING.*/\1:\2/p' "$out/loads.txt" | sort -u); do
+        r="${run%%:*}"
+        test="${run#*:}"
+        order="$*"
+        [ $((r % 2)) -eq 0 ] && order="$reversed"
+        mkdir -p "$out/replaced"
+        for label in $labels; do
+            mv "$out/$label-$test-round$r.json" "$out/replaced/" 2>/dev/null || true
+        done
+        echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) rerun round $r $test: a build overlapped it" | tee -a "$out/loads.txt"
+        export AB_OUT="$out" AB_ROUND="$r" AB_TEST="$test" AB_SECONDS="$seconds"
+        "$TOOLS/lease.sh" "$lane" "ab.sh $out rerun round $r $test" "$TOOLS/ab-test.sh" $order \
+            || echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) rerun round $r $test ended with exit $?" | tee -a "$out/loads.txt"
+    done
+fi
+echo "done $out"

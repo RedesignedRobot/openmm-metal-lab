@@ -1,0 +1,14 @@
+M2 base baseline, 2026-09-24T20:54:31Z, 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.579e-02  5.750e-07
+gbsa            2489     mixed  2.467e-05  8.579e-02  6.137e-07
+rf             23558    single  2.213e-05  7.342e-01  2.337e-07
+rf             23558     mixed  2.213e-05  7.342e-01  2.216e-07
+pme            23558    single  2.048e-05  3.920e-01  1.296e-06
+pme            23558     mixed  2.048e-05  3.920e-01  1.330e-06
+apoa1rf        92224    single  5.987e-05  1.327e+00  1.004e-07
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07
+apoa1pme       92224    single  7.747e-05  7.197e-01  7.385e-07
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.105e-06
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06
