@@ -1,5 +1,5 @@
 === pme-single-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T15:59:19.543430+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -20,7 +20,7 @@ ns_per_day: 200.16251964199944
 
 
 === pme-single-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:00:21.282581+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -41,7 +41,7 @@ ns_per_day: 217.2353921475872
 
 
 === pme-mixed-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:01:24.765721+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -62,7 +62,7 @@ ns_per_day: 142.92509493991736
 
 
 === pme-mixed-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:02:27.932040+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -83,7 +83,7 @@ ns_per_day: 134.904479471887
 
 
 === apoa1rf-single-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:13:39.270441+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -104,7 +104,7 @@ ns_per_day: 58.83492854314978
 
 
 === apoa1rf-single-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:14:52.030220+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -125,7 +125,7 @@ ns_per_day: 73.91605891614653
 
 
 === apoa1rf-mixed-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:16:02.574141+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -146,7 +146,7 @@ ns_per_day: 45.20375706991309
 
 
 === apoa1rf-mixed-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:17:13.267097+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -167,7 +167,7 @@ ns_per_day: 38.97883974574796
 
 
 === apoa1pme-single-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:18:25.151393+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -188,7 +188,7 @@ ns_per_day: 47.04448363906225
 
 
 === apoa1pme-single-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:19:33.963341+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -209,7 +209,7 @@ ns_per_day: 56.15567340566491
 
 
 === apoa1pme-mixed-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:20:42.256736+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -230,7 +230,7 @@ ns_per_day: 39.986994311905995
 
 
 === apoa1pme-mixed-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:21:50.536426+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -251,7 +251,7 @@ ns_per_day: 35.04366882152519
 
 
 === amber20-cellulose-single-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:23:01.086308+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -272,7 +272,7 @@ ns_per_day: 10.509915724401239
 
 
 === amber20-cellulose-single-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:24:23.243901+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -293,7 +293,7 @@ ns_per_day: 12.254816030008676
 
 
 === amber20-cellulose-mixed-after-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:25:45.399972+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -314,7 +314,7 @@ ns_per_day: 9.153020348890308
 
 
 === amber20-cellulose-mixed-before-r1: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:27:36.116777+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -359,7 +359,7 @@ ns_per_day: 8.123964622931048
 {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "mixed", "ns_per_day": 8.486476035819443, "steps": 3000, "wall_s": 61.09, "rel_force_err": 1.7526770633087135e-06, "energy": -1720826.8787748637, "energy_ref": -1720827.7931792985, "energy_rel_err": 5.313747479409549e-07, "clock": "host wall, whole steps"}
 
 === pme-single-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:40:06.769901+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -380,7 +380,7 @@ ns_per_day: 199.68954376032355
 
 
 === pme-single-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:41:09.029714+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -401,7 +401,7 @@ ns_per_day: 216.76663609847702
 
 
 === pme-mixed-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:42:12.609541+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -422,7 +422,7 @@ ns_per_day: 142.55147833963377
 
 
 === pme-mixed-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:43:16.578296+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -443,7 +443,7 @@ ns_per_day: 134.7377498214872
 
 
 === apoa1rf-single-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:44:23.469590+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -464,7 +464,7 @@ ns_per_day: 58.8095024958344
 
 
 === apoa1rf-single-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:45:35.993459+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -485,7 +485,7 @@ ns_per_day: 73.98013209905963
 
 
 === apoa1rf-mixed-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:46:46.084727+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -506,7 +506,7 @@ ns_per_day: 45.12802958185892
 
 
 === apoa1rf-mixed-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:47:56.209134+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -527,7 +527,7 @@ ns_per_day: 39.00311706358593
 
 
 === apoa1pme-single-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:49:09.232266+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -548,7 +548,7 @@ ns_per_day: 46.96305015126565
 
 
 === apoa1pme-single-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:50:19.224135+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -569,7 +569,7 @@ ns_per_day: 56.096496956851304
 
 
 === apoa1pme-mixed-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:51:27.909349+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -590,7 +590,7 @@ ns_per_day: 39.86105196528418
 
 
 === apoa1pme-mixed-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:52:37.351832+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -611,7 +611,7 @@ ns_per_day: 35.01386253339832
 
 
 === amber20-cellulose-single-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:53:47.553467+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -632,7 +632,7 @@ ns_per_day: 10.509217133972411
 
 
 === amber20-cellulose-single-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:55:04.168149+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -653,7 +653,7 @@ ns_per_day: 12.303272444465424
 
 
 === amber20-cellulose-mixed-after-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:56:25.788280+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -674,7 +674,7 @@ ns_per_day: 9.151870369145465
 
 
 === amber20-cellulose-mixed-before-r2: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T16:58:17.730060+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -719,7 +719,7 @@ ns_per_day: 8.141174509251687
 {"wu": "nav", "atoms": 173112, "platform": "Metal", "precision": "mixed", "ns_per_day": 8.491842157606017, "steps": 3000, "wall_s": 61.05, "rel_force_err": 1.7526770633087135e-06, "energy": -1720826.8787748665, "energy_ref": -1720827.7931792985, "energy_rel_err": 5.313747463173364e-07, "clock": "host wall, whole steps"}
 
 === pme-single-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:10:47.320655+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -740,7 +740,7 @@ ns_per_day: 199.444375120383
 
 
 === pme-single-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:11:49.584524+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -761,7 +761,7 @@ ns_per_day: 217.1470427250136
 
 
 === pme-mixed-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:12:52.970073+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -782,7 +782,7 @@ ns_per_day: 142.51350685757612
 
 
 === pme-mixed-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:13:56.319217+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -803,7 +803,7 @@ ns_per_day: 134.75086451714336
 
 
 === apoa1rf-single-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:15:02.493521+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -824,7 +824,7 @@ ns_per_day: 58.878251318342016
 
 
 === apoa1rf-single-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:16:15.072436+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -845,7 +845,7 @@ ns_per_day: 73.98428347202123
 
 
 === apoa1rf-mixed-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:17:25.227835+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -866,7 +866,7 @@ ns_per_day: 45.12368218320603
 
 
 === apoa1rf-mixed-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:18:35.330626+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -887,7 +887,7 @@ ns_per_day: 38.969319130014206
 
 
 === apoa1pme-single-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:19:46.735316+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -908,7 +908,7 @@ ns_per_day: 46.97585105052288
 
 
 === apoa1pme-single-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:20:56.695875+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -929,7 +929,7 @@ ns_per_day: 56.11350035636618
 
 
 === apoa1pme-mixed-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:22:05.313657+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -950,7 +950,7 @@ ns_per_day: 39.97847508604066
 
 
 === apoa1pme-mixed-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:23:12.826923+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -971,7 +971,7 @@ ns_per_day: 35.05141355460073
 
 
 === amber20-cellulose-single-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:24:23.769529+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -992,7 +992,7 @@ ns_per_day: 10.512664791270293
 
 
 === amber20-cellulose-single-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:25:44.742074+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -1013,7 +1013,7 @@ ns_per_day: 12.301767585299602
 
 
 === amber20-cellulose-mixed-after-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:27:05.543644+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2
@@ -1034,7 +1034,7 @@ ns_per_day: 9.160033348812792
 
 
 === amber20-cellulose-mixed-before-r3: ok
-hostname: Amirs-Mac-mini.local
+hostname: M2
 timestamp: 2026-09-23T17:28:55.513067+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M2

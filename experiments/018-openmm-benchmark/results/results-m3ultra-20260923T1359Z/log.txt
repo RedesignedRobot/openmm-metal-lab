@@ -1,5 +1,5 @@
 === gbsa-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T13:59:24.228183+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -20,7 +20,7 @@ ns_per_day: 1182.138516760344
 
 
 === gbsa-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:00:24.762500+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -41,7 +41,7 @@ ns_per_day: 791.0604076112232
 
 
 === gbsa-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:01:30.935426+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -62,7 +62,7 @@ ns_per_day: 1169.2569405531788
 
 
 === gbsa-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:02:32.454966+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -83,7 +83,7 @@ ns_per_day: 70.98136379796215
 
 
 === rf-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:03:33.950079+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -104,7 +104,7 @@ ns_per_day: 475.83694075315344
 
 
 === rf-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:04:37.869053+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -125,7 +125,7 @@ ns_per_day: 664.7476376222172
 
 
 === rf-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:05:39.869935+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -146,7 +146,7 @@ ns_per_day: 56.82324323887677
 
 
 === rf-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:06:41.457455+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -167,7 +167,7 @@ ns_per_day: 710.1951925824766
 
 
 === pme-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:07:43.405003+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -188,7 +188,7 @@ ns_per_day: 517.9532513278114
 
 
 === pme-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:08:46.189285+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -209,7 +209,7 @@ ns_per_day: 49.873901905112845
 
 
 === pme-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:09:47.432250+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -230,7 +230,7 @@ ns_per_day: 536.3085709204539
 
 
 === pme-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:10:49.243768+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -251,7 +251,7 @@ ns_per_day: 374.52554573920196
 
 
 === apoa1rf-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:11:53.327225+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -272,7 +272,7 @@ ns_per_day: 20.374103741912677
 
 
 === apoa1rf-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:13:02.090797+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -293,7 +293,7 @@ ns_per_day: 288.31819370049715
 
 
 === apoa1rf-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:14:08.531328+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -314,7 +314,7 @@ ns_per_day: 210.31125195120697
 
 
 === apoa1rf-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:15:17.834741+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -335,7 +335,7 @@ ns_per_day: 279.56335949224854
 
 
 === apoa1pme-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:16:26.210385+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -356,7 +356,7 @@ ns_per_day: 183.58012054823098
 
 
 === apoa1pme-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:17:31.073725+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -377,7 +377,7 @@ ns_per_day: 148.03951740424475
 
 
 === apoa1pme-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:18:36.416865+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -398,7 +398,7 @@ ns_per_day: 180.5620786887645
 
 
 === apoa1pme-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:19:41.786338+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -419,7 +419,7 @@ ns_per_day: 17.55101964410974
 
 
 === apoa1ljpme-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:20:49.164758+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -440,7 +440,7 @@ ns_per_day: 108.51827889226539
 
 
 === apoa1ljpme-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:21:55.200400+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -461,7 +461,7 @@ ns_per_day: 127.00946800550625
 
 
 === apoa1ljpme-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:23:00.455936+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -482,7 +482,7 @@ ns_per_day: 15.492393397364134
 
 
 === apoa1ljpme-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:24:05.981983+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -503,7 +503,7 @@ ns_per_day: 127.82069570633318
 
 
 === amber20-dhfr-OpenCL-single: exit 1
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:25:11.930475+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -556,7 +556,7 @@ Traceback (most recent call last):
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
 
 === amber20-dhfr-CPU-single: exit 1
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:25:22.132616+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -605,7 +605,7 @@ Traceback (most recent call last):
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
 
 === amber20-dhfr-Metal-single: exit 1
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:25:22.361487+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -654,7 +654,7 @@ Traceback (most recent call last):
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
 
 === amber20-dhfr-Metal-mixed: exit 1
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:25:22.590394+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -703,7 +703,7 @@ Traceback (most recent call last):
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
 
 === amber20-cellulose-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:25:24.062787+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -724,7 +724,7 @@ ns_per_day: 5.64042647566533
 
 
 === amber20-cellulose-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:26:48.725609+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -745,7 +745,7 @@ ns_per_day: 48.4276786417685
 
 
 === amber20-cellulose-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:27:59.841522+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -766,7 +766,7 @@ ns_per_day: 40.571790049966765
 
 
 === amber20-cellulose-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:29:46.404724+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -787,7 +787,7 @@ ns_per_day: 47.74830890230628
 
 
 === amber20-stmv-Metal-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:31:01.622508+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -808,7 +808,7 @@ ns_per_day: 18.5156587496346
 
 
 === amber20-stmv-Metal-mixed: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:32:25.526212+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -829,7 +829,7 @@ ns_per_day: 15.809833187800582
 
 
 === amber20-stmv-OpenCL-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:35:51.709153+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
@@ -850,7 +850,7 @@ ns_per_day: 18.603800153369416
 
 
 === amber20-stmv-CPU-single: ok
-hostname: MAS-Mac-Studio-Ultra.local
+hostname: M3 Ultra
 timestamp: 2026-09-23T14:37:19.574507+00:00
 openmm_version: 8.6.0.dev-Unknown
 cpuinfo: Apple M3 Ultra
