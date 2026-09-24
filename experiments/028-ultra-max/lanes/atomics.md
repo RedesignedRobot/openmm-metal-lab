@@ -1,6 +1,6 @@
 # Lane: atomics (force accumulation)
 
-Worktree /Users/amir/code/mini/ultra-atomics, branch ultra/atomics off 6df2b8bcb. Studio scratch /tmp/openmm-metal-bench/ultra-atomics. Started 2026-09-24 19:23Z, hard cap 23:53Z.
+Worktree /Users/amir/code/mini/ultra-atomics, branch ultra/atomics off 6df2b8bcb. Studio scratch /tmp/openmm-metal-bench/ultra-atomics. Started 2026-09-24 19:23Z. No end time (lead, 22:40Z): the lane runs until the lead says stop.
 
 ## How accumulation works today
 
@@ -89,3 +89,11 @@ On the lead's call, the bonded commit now sits alone on 71a602b43 as d8ab45b2b o
 ### 22:26Z words fold: where it can go, and a probe addition
 
 No kernel that always runs reads the long force buffer between computeNonbonded and the integrator. MetalCalcForcesAndEnergyKernel::finishComputation runs bonded, nonbonded, the post computations, virtual sites and reduceEnergy. Only the first two always run. After them come the integrator kernels and getState, and those are common code, so folding there means editing every consumer. That leaves the lead's second choice, a gate on a system property. gbsa is CutoffNonPeriodic at 2.0 nm with a neighbor list, so a no-neighbor-list gate would not exclude it. Before picking the property, I need to know whether gbsa's -1.7% (and pme's -0.8%) sits in the fold dispatch or in the words nonbonded kernel. So job1 (not yet started) now also profiles gbsa and pme on base and words only, about 1.5 min more. Base arm check: plugins-p0 and plugins-prof carry the forceWords.metal source string because the cmake glob embeds it, but 71a602b43's MetalNonbondedUtilities never compiles or dispatches it. plugins-b0 (bonded screen) has no trace of it.
+
+### 22:33Z queue reshuffled on the lead's order: 1a, then words, then bonded
+
+Bonded (d8ab45b2b) now waits on probe 1a, so I dropped the two bonded screen tickets. Only the bonded --correctness check stays queued. I also dropped screen1: it was an unwrapped ab.sh whose per-run tickets requeue at the back, and the new words screen covers it. Words (4be61f9b6) has never been screened on 71a602b43. It is queued as two wrapped holds under 15 min each: wsa (rf, gbsa) and wsb (pme), 2 rounds of 15 s, three arms. ultra-base is at 6df2b8bcb, which lacks 71a602b43's PME spreading change. So the pme column needs p0 (71a602b43 nonbonded in the words tree) to isolate words, and ultra-base stays as the arm the lead asked for. wscreen.sh refuses to run if the words or p0 dylib md5 changed. Per the lead, the old rf words column (1.069, next to a lo-probe rf of 1.019 where an earlier run read 1.192) is noise until wsa repeats it. The monitor prints the 1a table when job1's process exits.
+
+### 22:36Z keep rule covers both chips; M2 checks requested
+
+The lead clarified RULES line 11: keep a change that gains 3% or more on at least one test on either chip, M3 Ultra or M2, and costs no more than 1% on any test on either. Words and bonded both need an M2 check before either is judged. I sent the lead words 4be61f9b6 (ultra/atomics) and bonded d8ab45b2b (ultra/atomics-bonded), both on mini, each against 71a602b43. The words gbsa gate waits on the M2 number too. On the M3 Ultra, gbsa's roughly 3,000 tiles barely fill the nonbonded kernel's 2,400 threadgroups (10 x 4 x 60 cores), so it is not atomic bound (1-atomic probe 1.051). On the M2 there are 400 threadgroups, so words may win there, and a gate that turns words off for gbsa would give that up.

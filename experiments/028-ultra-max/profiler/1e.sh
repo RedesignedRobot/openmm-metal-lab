@@ -3,8 +3,10 @@
 # Arms: base (the profiling build), kill (gbsa-kill.patch: fast rsqrt, per-atom 1/B) and rsqrt (gbsa-kill-rsqrt-only.patch),
 # both patches rebased on gpuprof.patch and built by build-patch.sh into prefix-1e and prefix-1e-rsqrt.
 # First forces against Reference per arm with forces.py's own code, TESTS narrowed to gbsa (single and mixed), which is
-# also the kernel compile check. Then a counters census of the three arms on gbsa, 3 repeats. Read it after the lease
-# with census.py census/1e; forces-<arm>.txt hold the forces tables.
+# also the kernel compile check. Then gbsakill.sh times base, kill and rsqrt end to end on gbsa single and mixed
+# (ab.sh, 2 rounds of 15 s, into census/1e/ab), and a counters census of the three arms on gbsa, 3 repeats, prices the
+# kernels. Read it after the lease with census.py census/1e and ultra-tools/summarize.py census/1e/ab; forces-<arm>.txt
+# hold the forces tables.
 D=/tmp/openmm-metal-bench/ultra-profiler
 out=$D/census/1e
 forces=/tmp/openmm-metal-bench/ultra-tools/forces.py
@@ -30,4 +32,5 @@ exec(compile(narrowed, path, "exec"))
 ' "$forces" "$D/src/examples/benchmarks" "$out/forces-$name.txt" /tmp/openmm-metal-bench/ultra-base/forces.txt > "$out/forces-$name.log" 2>&1 \
         || echo "forces $name exit $?"
 done
+"$D/tools/gbsakill.sh" "$out/ab" || echo "gbsakill exit $?"
 "$D/tools/census.sh" "$out" single gbsa 3 base "kill:$kill" "rsqrt:$rsqrt"

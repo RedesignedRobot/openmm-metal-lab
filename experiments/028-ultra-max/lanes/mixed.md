@@ -1,6 +1,6 @@
 # Lane: mixed precision (df64 cost)
 
-Worktree /Users/amir/code/mini/ultra-mixed, branch ultra/mixed from 6df2b8bcb. Studio scratch
+Worktree /Users/amir/code/mini/ultra-mixed, branch ultra/mixed from 6df2b8bcb. M3 Ultra scratch
 /tmp/openmm-metal-bench/ultra-mixed. Started 2026-09-24 19:15Z.
 
 ## Starting point
@@ -22,9 +22,9 @@ SHAKE pos, Part3, all serial in one encoder. gbsa has no water (SHAKE only).
 ## Log
 
 - 19:33Z census build (6df2b8bcb plus a lab-only patch, OPENMM_METAL_CENSUS=1 gives each dispatch its
-  own command buffer and sums GPUEnd-GPUStart per kernel name) started on the Studio.
+  own command buffer and sums GPUEnd-GPUStart per kernel name) started on the M3 Ultra.
 - 19:40Z census of 6df2b8bcb (each dispatch in its own command buffer, GPU us per step, so absolute
-  numbers include ~5 us of buffer overhead per kernel; census-base/ on the Studio). Mixed minus single:
+  numbers include ~5 us of buffer overhead per kernel; census-base/ on the M3 Ultra). Mixed minus single:
   pme 234 us = SETTLE pos +59, SETTLE vel +42, SHAKE pos +46, SHAKE vel +38, Langevin Part1-3 +37,
   COM calc/remove +8. gbsa 126 us = SHAKE pos +46, vel +39, Part1-3 +36. apoa1pme 283 us, same kernels.
   Forces (nonbonded, PME, bonded, GBSA) cost the same in both precisions. SHAKE takes ~50 us in mixed on
@@ -204,3 +204,43 @@ SHAKE pos, Part3, all serial in one encoder. gbsa has no water (SHAKE only).
   build overlap. Median ns/day: gbsa 837.7 / 918.4 (1.096, rounds 1.094 to 1.099), rf 482.1 / 566.0 (1.174,
   rounds 1.152 to 1.196), pme 401.9 / 448.8 (1.117, rounds 1.116 to 1.117). confirmB's c1-c4 stack with the
   warm start gave 1.102, 1.151 and 1.107, so dropping c3 costs at most about 0.6% on gbsa, inside the noise.
+- 22:35Z pass 4 correctness, g2 5cc0ba5af (t4) on the M3 Ultra, 1e-8, 50 ps, kT/ns/dof, base from pass 3:
+  dhfr verlet s1 -7.8e-4 (base -1.7e-4), s2 -2.6e-4 (-5.0e-4), vv s1 -5e-6 (+7.3e-4), s2 +5.9e-4 (-4.8e-4);
+  gbsa verlet 0.149 / 0.133 (0.143 / 0.134), vv 0.122 / 0.076 (0.142 / 0.147). Constraints: SHAKE max 2.26e-8
+  pme and 2.25e-8 gbsa, the same as base; 5.0e-6 at 1e-5, the same as base; SETTLE 3.08e-8. Forces against
+  Reference: PASS. ctest TestMetal*Mixed: 55 of 55.
+- Incident: pass 4's guard looked for " 0 tests failed", but this ctest prints "100% tests passed out of 55"
+  with no failure count when nothing fails, so it ran ctest --rerun-failed. t4 had no LastTestsFailed.log,
+  and with no log --rerun-failed runs the whole suite (446 tests, one at a time). It ran for 3 min 51 s inside
+  my own hold, then I killed it; one orphaned TestOpenCLCustomIntegrator ran about 35 s into ultra-plugins'
+  correctness hold before I killed it too. Reported to the lead.
+- 22:36Z pushed to mini: ultra/mixed = 5cc0ba5af (c1 b86a3649f 90+/57-, c2 1adbfc3b4 15+/17-, c4 3dfd569d7 78+,
+  gate 5cc0ba5af 104+/14-; 216+/17- in total). Local only: ultra/mixed-g1 (6c97bd5de, with the warm start) and
+  ultra/mixed-c5-dropped. Messaged the lead. Mixed ratios against ultra-base (screenG2): gbsa 1.096, rf 1.174,
+  pme 1.117. Full gate on t4 queued at 22:17:22Z.
+- Learnings:
+  - ctest --rerun-failed is not "rerun if anything failed". After a clean run it reruns the last failures if an
+    older LastTestsFailed.log survives (ctest doesn't delete it), and runs every test if there is none. Rerun
+    by name from the failed list in the first run's output, or not at all.
+  - A float increment applied once breaks mixed precision's contract (TestMetalMixedPrecision wants one step
+    to match double to 1e-12). Moving work to real only works where a mixed check follows and iterates.
+  - Per-commit screens pay off: the bundle looked like one win, but the warm start (108 lines) gained nothing
+    measurable and cost SHAKE accuracy at 1e-8.
+  - Sync every tree before starting any build (21:25Z). Launch remote waiters from a script file, not nested
+    quotes, and check ps once: a launch that printed nothing did run, and the checks ran twice (22:04Z).
+- Where the rest of the gap is (census of c4, GPU us/step, mixed minus single). pme: 132 us left of 234 =
+  SHAKE pos +26 and vel +25, SETTLE pos +20 and vel +18, Langevin Part1-3 +35, COM calc and remove +8. gbsa:
+  98 us left of 126 = SHAKE +25 and +25, Part1-3 +32, COM +7. c3's census confirms the screen: SHAKE pos
+  35.5 to 33.2 us, the rest flat. Levers I didn't get to, for whoever picks this up:
+  - SHAKE still costs 31 to 33 us per call on every system size, so one thread's dependency chain sets it. A
+    mixed residual needs posDelta and the old positions, which the kernels read as IEEE double and convert to
+    df64. Storing mixed as a float pair (the "float plus correction" lever) would remove those conversions,
+    but posDelta and velm are shared with host code that expects double, so it touches the whole platform.
+  - Langevin Part1-3 (+35 us): c5 showed the kick must stay in double. Part1 and Part3 bracket the constraint
+    kernels, so fusing them needs the constraints inside the same dispatch, which only works where every
+    cluster fits in one threadgroup.
+- 22:37Z M3 Ultra cleanup: removed cen, cen2, cen4, cand and their prefixes and venvs, t2, t3, t5, the c1 build
+  at the lane root (src, build, prefix, venv, BUILT), metalcheck, pp and the sync tarballs; kept t4 (the full
+  gate runs on it), logs, screens, censuses and jsonl data. t4's venv still imports. M2: kept the g2 build in
+  ultra-m2/mixed for further M2 checks; its sync artifacts are gone.
+- 22:38Z the g2 full gate's first ticket is 27th of 36 in the queue, waiting since 22:17Z.

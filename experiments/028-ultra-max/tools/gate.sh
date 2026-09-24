@@ -8,8 +8,8 @@
 #    statistical test (gate-ctest.sh's list, or a failure that says "This test is stochastic") is
 #    rerun up to 3 times in the same hold and passes if a rerun passes; the verdict line says on
 #    which attempt. Any other failure fails the gate. Every listed test must have run.
-# --quick is the R&D gate: screen a candidate only after it passes. The full gate is for freeze
-# candidates and the integrated build.
+# --quick is the R&D gate: screen a candidate only after it passes. The full gate is for a candidate
+# that screened at 3% or more, and for the integrated build.
 # Each step takes the GPU lease through lease.sh --correctness (no wait for builds, since nothing
 # here is timed), so don't hold the lease when you call this. It
 # refuses a tree whose src changed after build.sh. Logs go to <dir>/gate-<time>/. The last line is

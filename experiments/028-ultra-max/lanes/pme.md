@@ -223,3 +223,17 @@ While splitvar waits for the lease I wrote the production form of the split plus
 
 Builds: the M3 Ultra tree is ultra-pme/cand3 (build.sh), and the M2 tree is ~/lab/ultra-pme/passon, with the core threshold forced to 1 (lab only) for the bitwise check against 17929e631 (m2passon.sh). I also changed splitvar.sh before its hold: the splitb arm became skipi (serial, interpolation skipped), because the design's kill rule needs B/A = splitskipi/skipi.
 
+
+### 22:37Z M2: a94e50b43 forced on is bitwise identical to 17929e631 (m2passon1.log)
+
+The M2 tree passon is a94e50b43 with MinCoresForPmePass set to 1 (lab only), so the split and the fold run on Apple8, where every force sum is fixed point. splitcheck.py against the cand tree (17929e631), max|diff|:
+
+| test | precision | forces, step 0 | forces, step 50 | positions, step 50 | energy, step 50 |
+|---|---|---|---|---|---|
+| pme | single | 0 | 0 | 0 | 0 |
+| apoa1pme | single | 0 | 0 | 0 | 0 |
+| apoa1ljpme | single | 0 | 0 | 0 | 0 |
+| pme | mixed | 0 | 0 | 0 | 9.3e-10 kJ/mol |
+| apoa1ljpme | mixed | 0 | 0 | 0 | 1.9e-9 kJ/mol |
+
+That the path actually ran here is inferred from the build (threshold 1, 10 cores, PME, no PME queue, no CPU PME), not observed: identical forces can't tell on from off. The M3 Ultra runs it by default, so its forces check and the full gate's ctest cover the on path with float atomics. The screen is queued as three holds after splitvar (cand3screen.sh, tickets ultra-pme-9936, -10065 and -10207): part 1 is forces against Reference, then pme, apoa1pme, apoa1ljpme and amber20-dhfr single; part 2 is cellulose and stmv single; part 3 is the three PME tests in mixed. Each is cand3 against cand2, 2 x 15 s.
