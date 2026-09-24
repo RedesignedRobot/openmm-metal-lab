@@ -533,8 +533,8 @@ On the M2 (`results/m2-eventwait`):
 
 - ctest: 109 of 110 pass. TestMetalLangevinIntegratorMixed failed once ("Expected 9.97736, found 10.8367", a check the test marks stochastic), then passed 5 of 5 on the branch and 5 of 5 on the parent, interleaved.
 - Forces against Reference: rel|dF| 2.0e-05 to 7.7e-05 on all six systems, the same as 9074c38f1.
-- TestMetalFlexibleBarostatMixed, 5 runs each: the branch passes 4, the parent passes 5. The test is statistical, so one failure in five is not yet a signal; the Studio rerun waits for a quiet machine.
-- Speed against `metal` 052eaa85b, median of 3 rounds of 30 s, host clock:
+- TestMetalMonteCarloFlexibleBarostat, single precision, 5 runs each: the branch passes 4, the parent passes 5. The test is statistical and has failed 1 in 5 on the parent before (stage 4 row above), so this is not a signal yet. A 10-run repeat on the M3 Ultra is running.
+- Speed against `metal` 052eaa85b, median of 3 rounds of 30 s, host clock. The run did not record its nice value, and zsh starts background jobs over ssh at nice 5, so the absolute ns/day may be niced. Both builds ran interleaved in the same process tree, so the ratios compare like with like:
 
 | Test | `metal` | 6df2b8bcb | Ratio |
 |---|---:|---:|---:|
