@@ -1,0 +1,27 @@
+test                        base         bits0       p0metal
+pme                       207.58        197.41        217.73
+apoa1rf                    69.37         65.76         74.35
+apoa1pme                   54.27         52.30         56.51
+amber20-cellulose          11.76         11.60         12.32
+
+rounds, base:
+  pme                208.00 207.15
+  apoa1rf            69.31 69.42
+  apoa1pme           54.16 54.37
+  amber20-cellulose  11.80 11.73
+rounds, bits0:
+  pme                197.56 197.25
+  apoa1rf            65.79 65.73
+  apoa1pme           52.18 52.43
+  amber20-cellulose  11.60 11.59
+rounds, p0metal:
+  pme                217.17 218.29
+  apoa1rf            74.30 74.41
+  apoa1pme           56.40 56.62
+  amber20-cellulose  12.32 12.33
+
+test                                bits0/base                p0metal/base
+pme                                      0.951                       1.049
+apoa1rf                                  0.948                       1.072
+apoa1pme                                 0.964                       1.041
+amber20-cellulose                        0.986                       1.047

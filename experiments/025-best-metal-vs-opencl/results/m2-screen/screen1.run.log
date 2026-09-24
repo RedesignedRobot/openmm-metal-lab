@@ -1,0 +1,80 @@
+== default
+test           atoms    rel|dF|    max|dF|    rel|dE|
+gbsa            2489  2.467e-05  8.579e-02  7.859e-07
+rf             23558  2.213e-05  7.342e-01  1.842e-07
+pme            23558  2.048e-05  3.920e-01  1.192e-06
+apoa1rf        92224  5.987e-05  1.327e+00  7.115e-08
+== FB_TGS=64
+test           atoms    rel|dF|    max|dF|    rel|dE|
+gbsa            2489  2.467e-05  8.579e-02  5.889e-07
+rf             23558  2.213e-05  7.342e-01  2.054e-07
+pme            23558  2.048e-05  3.920e-01  1.296e-06
+apoa1rf        92224  5.987e-05  1.327e+00  7.115e-08
+== FB_TGS=256
+test           atoms    rel|dF|    max|dF|    rel|dE|
+gbsa            2489  2.467e-05  8.579e-02  6.499e-07
+rf             23558  2.213e-05  7.342e-01  2.266e-07
+pme            23558  2.048e-05  3.920e-01  1.452e-06
+apoa1rf        92224  5.987e-05  1.327e+00  8.873e-08
+== FB_P0=1 FB_TGS=256
+test           atoms    rel|dF|    max|dF|    rel|dE|
+gbsa            2489  2.467e-05  8.579e-02  5.167e-07
+rf             23558  2.213e-05  7.342e-01  2.337e-07
+pme            23558  2.048e-05  3.921e-01  1.296e-06
+apoa1rf        92224  5.987e-05  1.327e+00  1.122e-07
+== FB_P0=1 FB_TGS=256 FB_GRID=120
+test           atoms    rel|dF|    max|dF|    rel|dE|
+gbsa            2489  2.467e-05  8.579e-02  6.471e-07
+rf             23558  2.213e-05  7.342e-01  2.054e-07
+pme            23558  2.048e-05  3.921e-01  1.348e-06
+apoa1rf        92224  5.987e-05  1.327e+00  1.063e-07
+test                        base            p0        p0g120           scr          t256           t64
+gbsa                      416.49        417.34        419.12        416.15        413.10        413.70
+rf                        255.27        251.88        251.01        254.08        252.09        254.13
+pme                       207.73        203.56        204.36        207.51        205.82        207.44
+apoa1rf                    69.09         70.12         69.28         69.07         68.51         69.79
+apoa1pme                   54.11         54.34         53.77         54.07         53.79         54.45
+
+rounds, base:
+  gbsa               416.49
+  rf                 255.27
+  pme                207.73
+  apoa1rf            69.09
+  apoa1pme           54.11
+rounds, p0:
+  gbsa               417.34
+  rf                 251.88
+  pme                203.56
+  apoa1rf            70.12
+  apoa1pme           54.34
+rounds, p0g120:
+  gbsa               419.12
+  rf                 251.01
+  pme                204.36
+  apoa1rf            69.28
+  apoa1pme           53.77
+rounds, scr:
+  gbsa               416.15
+  rf                 254.08
+  pme                207.51
+  apoa1rf            69.07
+  apoa1pme           54.07
+rounds, t256:
+  gbsa               413.10
+  rf                 252.09
+  pme                205.82
+  apoa1rf            68.51
+  apoa1pme           53.79
+rounds, t64:
+  gbsa               413.70
+  rf                 254.13
+  pme                207.44
+  apoa1rf            69.79
+  apoa1pme           54.45
+
+test                                  scr/base                     t64/scr                    t256/scr                      p0/scr                  p0g120/scr
+gbsa                                     0.999                       0.994                       0.993                       1.003                       1.007
+rf                                       0.995                       1.000                       0.992                       0.991                       0.988
+pme                                      0.999                       1.000                       0.992                       0.981                       0.985
+apoa1rf                                  1.000                       1.010                       0.992                       1.015                       1.003
+apoa1pme                                 0.999                       1.007                       0.995                       1.005                       0.995
