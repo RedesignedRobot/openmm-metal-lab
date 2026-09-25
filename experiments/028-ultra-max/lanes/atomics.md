@@ -162,3 +162,112 @@ The bonded and nonbonded overlap is the design's orchestration Design 3 (accumul
 
 For the lead's census rule (bonded moves 20% or more but the step gains under 3%), bbp.sh builds profiler-hooked plugins in src-bp and build-bp, with no tests and no install: plugins-prof-bonded (d8ab45b2b) and plugins-prof-b0 (71a602b43). Every file the patch leaves alone is checked against git. It waits for /tmp/openmm-window. Census 1b (p1a/run1b.sh, counters, force evaluations only, the same method as 1a) is queued as its own lease, pid 87308. It covers apoa1rf, apoa1pme, cellulose, pme, gbsa and rf, and refuses to run unless both plugins match bbp.sh's md5s.
 bbp.sh done at 23:33Z: plugins-prof-bonded md5 92a20a60 (bondedPad present, profiler hooks present), plugins-prof-b0 md5 35f2507f (no bondedPad, hooks present). The untouched files matched git in both arms.
+
+### 23:55Z untracked force buffer: inventory, plan, hazard probe queued
+
+Lead item 1. The inventory below is for 71a602b43 (p0), where computeNonbonded adds straight into the long buffer and there is no fold. Paths are under platforms/.
+
+Benchmark path, in step order:
+- common/src/ComputeContext.cpp:224 clearAutoclearBuffers, from metal/src/MetalKernels.cpp:61. Overwrites the long buffer with zeros in the same dispatch as energyBuffer (entries 0 and 1 of the autoclear list, metal/src/MetalContext.cpp:359-360). Command buffer 1.
+- Neighbor list build, then copyInteractionCounts and downloadCountEvent->enqueue() (metal/src/MetalNonbondedUtilities.cpp:424), which commits command buffer 1. None touch the long buffer.
+- PME only: gridInterpolateForce, common/src/CommonCalcNonbondedForce.cpp:808 (arg) and :1033 (dispatch), kernels/pme.cc:346-354. Plain +=, because Metal's PME stream is off by default (metal/src/MetalPlatform.cpp:137). Command buffer 2, before bonded.
+- gbsa only: computeGBSAForce1, common/src/CommonKernels.cpp:2054 (arg) and :2102. ATOMIC_ADD. It also does a plain += on energyBuffer. Command buffer 2, before bonded.
+- computeBondedForces, common/src/BondedUtilities.cpp:175, dispatched at :207 from MetalKernels.cpp:75. ATOMIC_ADD. It also writes energyBuffer unconditionally (:123).
+- computeNonbonded, metal/src/MetalNonbondedUtilities.cpp:316. ATOMIC_ADD. The no-energy variant binds energyBuffer but never writes it. Then commit of command buffer 2 and a CPU wait on the count event from command buffer 1.
+- distributeForcesFromVirtualSites, metal/src/MetalIntegrationUtilities.cpp:157. Read, then ATOMIC_ADD or plain +=. Returns early on the six systems (no virtual sites).
+- integrateLangevinMiddlePart1, common/src/CommonKernels.cpp:3149 (arg) and :3190. Read. Command buffer 3. No constraint kernel reads the buffer.
+
+Off the timed path:
+- Host download: getForces, CommonKernels.cpp:289.
+- Blit copies: saveCoordinates and restoreCoordinates, CommonKernels.cpp:4327 and :4355 (barostat).
+- Minimizer: CommonMinimizeKernel.cpp:216 (read) and :225 (ATOMIC_ADD).
+- timeShiftVelocities: IntegrationUtilities.cpp:957 and :997 (read).
+- Other integrators: Verlet, Brownian, VariableVerlet, VariableLangevin and DPD read it (CommonKernels.cpp:3078, 3233, 3317, 3334, 3425, 3449, 3604). CustomIntegrator reads it and blit-copies it (CommonIntegrateCustomStepKernel.cpp:459, 550, 670, 685). NoseHoover and QTB read it (CommonIntegrateNoseHooverStepKernel.cpp:154, CommonIntegrateQTBStepKernel.cpp:125).
+- Plain += writers, all in force execute() before bonded:
+  - Ewald: CommonCalcNonbondedForce.cpp:762
+  - LJPME interpolate: :869
+  - CustomCV addForces: CommonKernels.cpp:2669
+  - RMSD: :3780
+  - OrientationRestraint: :4076
+  - ATM hybridForce: :4555
+  - CustomGB per-particle: CommonCalcCustomGBForceKernel.cpp:953, and :971 reads then overwrites
+  - ConstantPotential: CommonCalcConstantPotentialForce.cpp:1255 and :1500
+- Plain += writers in post computations, after nonbonded:
+  - CPU PME: CommonCalcNonbondedForce.cpp:128
+  - CustomCPPForce: CommonKernels.cpp:4706
+  - PythonForce: :4859 and :4867
+- ATOMIC_ADD writers in execute():
+  - CustomCentroidBond: CommonKernels.cpp:1898
+  - GayBerne: :2349 and :2373
+  - LCPO: :2947
+  - RG: :3970
+  - CustomManyParticle: CommonCalcCustomManyParticleForceKernel.cpp:401
+  - CustomGB N2: CommonCalcCustomGBForceKernel.cpp:914
+  - CustomHbond: CommonCalcCustomHbondForceKernel.cpp:463
+  - CustomNonbonded interaction groups: CommonCalcCustomNonbondedForceKernel.cpp:673
+- Plugins:
+  - AMOEBA: AmoebaCommonKernels.cpp. Atomics at 506, 678, 1928, 1941, 1953, 2300, 2635 and 3090. Plain += or -= at 654, 811, 824, 2775, 2794 and 2883. Vdw blit-copies the buffer out and back around its own nonbonded utilities at 2185 and 2191.
+  - Drude reads it (CommonDrudeKernels.cpp:274, 429 and 444) and downloads it (:510).
+  - RPMD reads it (CommonRpmdKernels.cpp:198).
+
+The only hazards that matter are the plain writers and the readers. Atomic adds commute with each other.
+
+Plan, pending the probe. Untracking the whole buffer would need a fence at every pass and command-buffer boundary with a force user on both sides. That is every row above. The smaller shape keeps the long buffer tracked for everyone except bonded:
+- computeBondedForces binds an untracked alias. The alias is a second MTLBuffer made with newBufferWithBytesNoCopy over the same pages. The feature turns off when the contents aren't page aligned or allocatedSize can't hold the page-rounded length.
+- Bonded runs in its own pass. The pass before it updates fence Fin, which covers PME's plain +=. Bonded waits on Fin and updates Fout.
+- Nonbonded gets its own pass, which does not wait on Fout, so bonded and nonbonded can overlap.
+- The next pass that touches the buffer waits on Fout. On the benchmark path that is the first pass of command buffer 3, because command buffer 2 commits right after nonbonded.
+- clear before bonded, and bonded before the next clear, are ordered already by energyBuffer. It is tracked, written by the clear, and written by bonded in every call.
+
+Per MTLComputeCommandEncoder.h:246-259, drivers may delay fence updates to the end of an encoder and wait at its start. So fences only work at pass granularity, which needs dispatch's splitPass (c515f3b34, not on 71a602b43) plus a fence hook on pass boundaries.
+
+Fallback that needs no queue API: a tracked alias with two 1-thread dispatches around bonded. A fork binds orig and alias, then bonded binds only the alias, then a join binds both. This works only if the serial encoder already overlaps dispatches that share no tracked buffer object.
+
+Hazard probe hz ($L/hz.mm, pid 33678, timing lease). It uses two 1-simdgroup dispatches in one command buffer. A producer spins and then writes x. A consumer reads x first and then spins. Overlap shows as about 1x the spin time, and a missed order shows as a stale read. The probe measures:
+- whether a serial encoder overlaps dispatches that share no tracked buffer
+- whether an unwritten `device` argument or a shared `const` one serializes them
+- whether a tracked alias object and an untracked one are ordered against the original
+- untracked buffers in one encoder, in passes with and without a fence, and across command buffers with a fence
+- the cost of a 1-thread dispatch, a pass split and a pass with a fence
+
+The design waits for its result.
+
+### 00:10Z x-resident design note (lead item 4, no GPU)
+
+Nonbonded had already built x-resident as 1eb207c25 on ultra/nonbonded-xres at 23:48Z: +31 -10 in nonbonded.metal, on top of 6d72c3ae9. gate --quick passed and the screen is queued. So this note is the design written against that commit.
+
+What stays resident. Nothing goes in threadgroup memory. A neighbor-list tile's x block belongs to one simdgroup, so the x-side force stays in that simdgroup's registers (3 per lane) until the next tile has a different x. That is exactly what 1eb207c25 does. Sharing it across the two simdgroups of a 64-thread group would need a threadgroup barrier per flush, and the two simdgroups rarely hold the same x. The j side can't stay resident, because each tile brings 32 new j atoms.
+
+Atomics per lane per neighbor-list tile:
+- Before: 6 emulated 64-bit adds, 3 on x and 3 on j. That is about 9 to 12 32-bit atomic ops, since the high word is written whenever the value is negative or carries.
+- After: 3 on j plus 3 x-adds per run of same-x tiles.
+
+findBlocksWithInteractions stores a block row in batches of (BUFFER_SIZE-32)/32 = 7 tiles, plus one partial batch at the row's end. Each batch lands at an atomicAdd slot (findInteractingBlocks.metal:587, :614), so runs average about 6 to 7 tiles.
+
+Estimates, where W is the number of warps (4,800 on the M3 Ultra, 800 on the M2) and T is tiles per warp:
+
+| test | M3 Ultra T | M3 Ultra adds per tile | M2 T | M2 adds per tile |
+|---|---:|---:|---:|---:|
+| apoa1rf, apoa1pme (about 78k tiles) | about 16 | about 3.6 (-39%) | about 98 | about 3.5 (-42%) |
+| cellulose | about 70 | about 3.5 (-42%) | | about 3.4 |
+| rf, pme | about 4 | about 4.2 (-30%) | | about 3.6 |
+| gbsa | under 1 | unchanged | | |
+
+These are estimates. The census row for computeNonbonded settles them.
+
+Correctness problem in 1eb207c25: it breaks DeterministicForces. It sums the x force of several tiles in float and converts once at the flush. Which tiles share a flush depends on where each batch landed, and that comes from the atomicAdd slot allocation in findBlocksWithInteractions, which changes from run to run. So the float sums, and the forces' last bits, change between runs of the same state. Today each tile's force is converted on its own, and fixed-point sums are exact, so the list order doesn't matter.
+
+Proposed fix, about 6 lines:
+- Keep the x-side accumulator as 3 mm_long in registers.
+- Each tile adds realToFixedPoint(force) into them, then zeroes the float force.
+- The flush does one atomicAdd of the long sum.
+
+Integer adds are exact mod 2^64, so the result is bitwise identical to base, not only within rounding. The gate can then check equality against the base build. The cost per tile is 3 conversions, which base already pays, plus 3 register 64-bit adds. The alternative, disabling x-resident when deterministicForces is set, keeps the nondeterminism in the default mode. The lead's check (forces x5 bitwise under DeterministicForces) would fail it, and tests that compare two evaluations of the same state could flake.
+
+Conflicts:
+- Words (4be61f9b6, on hold) edits the same six atomicAdd sites, at p0 nonbonded.metal:221-223, 229-231, 435-437 and 440-442. x-resident changes when the x add fires, and words changes how the add is done. They compose. If words comes back, it rebases onto x-resident with the long accumulator. The flush then adds a long, so words would need a 64-bit entry point, which it lacks today.
+- The untracked force buffer: no kernel conflict, because it only changes the host binding and pass order for bonded. The gains are sub-additive, though. x-resident shortens computeNonbonded, which leaves less time for bonded to hide under. Screen x-resident first, then untracked on top.
+- Chunked bonded (d8ab45b2b): no conflict. It lives in a different kernel and file.
+- HIPPO: no conflict. Its own kernel source never compiles nonbonded.metal. It shares the argument layout, and the kernel signature is unchanged.
+
+00:15Z cleanup: I deleted plugins-base, -defer, -lo, -plain, -twonr and -words (CLT era) and plugins-prof-lo and -prof-plain (1a done). No queued job reads them. I kept plugins-prof and -prof-words in case words is revisited.

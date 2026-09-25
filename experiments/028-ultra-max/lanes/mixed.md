@@ -321,3 +321,82 @@ SHAKE pos, Part3, all serial in one encoder. gbsa has no water (SHAKE only).
   branch: ac4d0fcb4 (refactor) and cf1d7fc14 (fused kernel) replace ad72b91f6 and 468a5b026; the M2 check was
   stopped before it ran. f1 and ultra-m2/fused rebuilt at cf1d7fc14; the queued f1-check.sh now refuses any other
   build. The bitwise check covers water through rf; TestMetalSettle is in the ctest ticket.
+- 23:40Z relaxed math (5fbce452a), the two checks the lead asked for before its screens count as clean. Offline
+  IR on the M3 Ultra (xcrun metal -std=metal3.2 -fmetal-math-fp32-functions=precise -O2 -S -emit-llvm, sources
+  assembled by mkmetal.py from the 5fbce452a tree).
+  NaN and Inf: the SDK's MTLLibrary.h:263 says MTLMathModeRelaxed "Allows aggressive, unsafe floating-point
+  optimizations but preserves infs and nans". A probe kernel (isnan, isinf, isfinite, v != v, !(v > 0)) agrees:
+  relaxed flags each op reassoc nsz arcp contract afn with "unsafe-fp-math"="true", no nnan or ninf, and keeps
+  every check including the fcmp uno; fast sets "no-nans-fp-math" and "no-infs-fp-math" and deletes v != v.
+  GPU-side NaN or Inf code in the Metal and common kernels is only df64.metal (safe by pragma) and
+  common.metal:79 (nextafter toward a constant INFINITY in __float2half_ru). The isfinite calls in
+  CommonMinimizeKernel.cpp and MetalContext.cpp:570 run on the host. Nothing to fence.
+  realToFixedPoint (common.metal:127): probe IR in single, safe against relaxed, is the same op for op once the
+  fast-math flags are stripped. Its float ops are x - trunc(x) and a multiply by 2^32, both exact, so no
+  reordering the flags allow can change the bits; the accumulation itself is integer atomics.
+  Energy reductions: reduceEnergy (utilities.cc:77) compiled mixed under relaxed has 16 fadd and 24 fsub, none
+  with a flag, so df64.metal's safe pragma survives inlining into a relaxed kernel. Every mixed energy sum
+  (per-thread energy, reduceEnergy, reduceEnergyPair in noseHooverChain.cc:154) goes through those df64
+  operators; I checked reduceEnergy's IR and infer the rest from the shared operators. The final sum in
+  MetalContext::reduceEnergy is double on the host. Single energy sums are plain float and may reassociate
+  inside a thread; the compiler fixes that order at build time, so run-to-run determinism holds.
+  Constant potential CG solver compensated sums (constantPotentialCGSolver.cc, sizes defined by hand): every
+  fadd, fsub, fmul and fdiv after the pragma is unflagged. The only flagged ops are three exact fnegs and the
+  plain float tree reductions reduceReal and reduceBlockSums1/2 above the pragma, which are not compensated. The
+  pragma stays in force to the end of the file, so all solver kernels compile safe; conservative, left as is.
+  erfc: common.metal's erfc and erf (ERFC in pme.cc:176 and 230, erf in the exclusion correction) and the
+  Abramowitz and Stegun erfc inlined in coulombLennardJones.cc:19-20 (PME direct) and constantPotential*.cc.
+  Safe already contracts each Horner statement into llvm.fmuladd; relaxed emits separate fmul and fadd flagged
+  contract and leaves fusing to the GPU backend, adds afn to the precise exp call and arcp to the reciprocal.
+  The A and S form already uses fast::divide and fast::exp. What the backend does with those flags is invisible
+  in AIR, so the queued ULP ticket (48454, 4M inputs, safe against relaxed on the GPU) now also runs the A and
+  S erfc with the Metal RECIP and EXP, next to erfc, exp, sqrt, 1/sqrt and the divides.
+  Other exact-rounding code: a search for Kahan, compensat and two_sum over the Metal and common kernels and
+  the plugins finds only df64.metal and constantPotentialCGSolver.cc.
+  nsz: findInteractingBlocks.metal:119-120 feed floats to atomicMin/atomicMax as uint bit patterns, where -0.0
+  would read as the largest value. The input is the sum of 0.5*(maxPos-minPos) terms with no negation in the
+  chain; checked by reading only.
+  Verdict: no fence needed. Open items: the ULP ticket (backend fusing, afn exp, arcp), quick forces in mm-gate,
+  the ctests, and profiler's 1e rsqrt arm before any gain claim.
+- 23:50Z M2 rule break, mine: I built ultra-m2/fused on the M2 myself (23:26:40-51Z, inside atomics' c23 hold for
+  cellulose round 1; infra flags that run) and armed two M2 lease waiters (m2-correct-fused.sh 14111 with child
+  14599, m2check mixed vs fused 14872) that raced other lanes for each release. Stopped all three by pid after
+  checking each command; none held the lease. Every M2 run now goes to infra as a request: sent the fused request
+  (cf1d7fc14 against g2 5cc0ba5af: posq/velm bitwise, constraints, lm0 drift, the 8 integrator ctests, m2check
+  gbsa, rf, pme in single and mixed). No M2 result for fused yet.
+- 23:40Z addendum: ULP ticket 48454 now runs the rebuilt harness (A and S erfc added, offline compile clean in
+  safe and relaxed); it had not started when the binary was swapped.
+- 23:46Z (M3 Ultra clock) the lead asked me to restart my correctness tickets under the current lease.sh so they
+  join infra's correctness burst. Each was stopped by pid after checking its command, then started again with
+  the same command and log: g2 full gate on t4 23691 -> 44408 (gate.sh, one --correctness hold, cap 2700 s); mm
+  gate --quick 9159 and its forces ticket 9333 -> 48420; mm ctests 9161 -> 48430; f1-check 89350 -> 48439; ULP
+  48454 -> 48479. The shared hold was full (6 members) at restart. Timing tickets 9167, 9177, 54863 unchanged.
+- infra: g2 5cc0ba5af is in ultra/integrated. The lead dropped the fused LangevinMiddle M2 request in the 02:00Z
+  endgame, so fused (cf1d7fc14) has no M2 result; its M3 Ultra check and screen stay queued.
+- 23:53Z relaxed math (5fbce452a) results on the M3 Ultra: gate --quick PASS (forces against Reference, single
+  and mixed); TestMetal(MixedPrecision|ConstantPotentialForce) 4/4 pass. GPU ULP harness, 4M inputs, safe
+  against relaxed: x/y, precise::sqrt, exp, precise::divide identical; 1/precise::sqrt differs in 1146605
+  outputs by up to 2 ulp (both modes within 1 ulp of exact); 1/x and fast::divide(1,x) differ by up to 1 ulp
+  (relaxed 1 ulp from exact, safe 0); common.metal erfc differs in 182456 outputs by up to 7 ulp; the PME
+  direct A and S erfc differs in 2863146 outputs by up to 50 ulp, max error against the same formula in double
+  24 ulp safe and 44 ulp relaxed (relative; the harness does not report where, and the approximation itself
+  is good to 1.5e-7 absolute). two_sum's error term is exact with the safe pragma and destroyed without it
+  (3462676 outputs wrong), which confirms both the need for the df64 fence and that it works. The backend does
+  act on the flags (rsqrt, reciprocal, polynomial fusing); forces still pass the gate. Screens still queued.
+- 23:53Z f1 (cf1d7fc14) against t4 (5cc0ba5af) on the M3 Ultra: single posq/velm after 100 steps bitwise
+  identical on gbsa and rf (t4 against itself also identical). Mixed: gbsa max position difference 9.7e-10 nm
+  (49 atoms), rf 1.27e-5 nm (all atoms, velocities 5.5e-4), consistent with rounding differences growing over
+  100 steps in a 23k-atom water box; the fused kernel keeps positions and deltas in df64 registers where the
+  unfused path rounds them to IEEE double in device memory. constraints.py 1e-8 over 200 steps: pme and gbsa,
+  single identical to t4, mixed equal to 7 digits (SETTLE max rel length 3.0848e-8 both). ctests 15/16:
+  TestMetalMonteCarloBarostatMixed failed at TestMonteCarloBarostat.h:607 (expected 10, found 11.0055; the
+  test calls itself stochastic). Rerun x3 queued (--correctness, pid 42075, logs/f1-baro.out). Drift pending.
+- 23:56Z f1 lm0 drift, 50 ps, 1e-8, seed 1, mixed: amber20-dhfr t4 +0.53 kJ/ns (rms 39.0 kJ), f1 -216.5 kJ/ns
+  (rms 46.0 kJ); gbsa t4 2817, f1 2879 kJ/ns. The dhfr f1 value sits outside the 50 ps dhfr spread from earlier
+  passes (about -60 to +115 kJ/ns for verlet and vv at 1e-8), so f1 is not cleared. Queued seeds 2 to 5 for both
+  builds (f1-drift.sh, --correctness, pid 52616, f1-drift-seeds.jsonl) to see whether the gap is seed noise.
+- Correction from the lead (replaces the infra note above): g2 is not in ultra/integrated; it is only in trial
+  merge 30b10557b (ultra/trial, no GPU time), and it merges on the lead's go once its own full gate (44408)
+  passes. The fused M2 request stands, in infra's M2 queue after dispatch's kcap.
+- f1 lm0 dhfr drift seed 2: t4 -255.7 kJ/ns, f1 -8.0 kJ/ns, so seed 1's f1 -216.5 looks like seed noise.
+  Seeds 3 to 5 and the dhfr bitwise check (61606) pending.

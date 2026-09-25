@@ -1,0 +1,312 @@
+## rf (dhfr, cutoff 1.0): N=23558 blocks=737 rc=1.0 exclusion tiles=1253  (1 s)
+   hist columns: share of tiles in runs of length 1, 2, 3-4, 5-8, 9-16, 17+
+mb4 B1: tiles 9783  flush groups 1741  rows 732  tiles/row 13.36  tiles/group 5.62  in-range singles 111083  64-bit adds/step 2751645  x-side share 0.341
+   bound, one SIMD group per flush group: x adds removed 0.822; per row: 0.925
+   as written stride ultra W=4800 tiles/warp  2.04  runs 9782  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.04  runs 5699  mean run 1.72  x adds removed 0.417  of all adds 0.142  y lane repeats 0.0000  hist 0.177 0.788 0.035 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 12.23  runs 9777  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 12.23  runs 2402  mean run 4.07  x adds removed 0.754  of all adds 0.258  y lane repeats 0.0000  hist 0.040 0.067 0.233 0.658 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  2.04  runs 9783  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.04  runs 5157  mean run 1.90  x adds removed 0.473  of all adds 0.161  y lane repeats 0.0000  hist 0.070 0.883 0.047 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 12.23  runs 9783  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 12.23  runs 1461  mean run 6.70  x adds removed 0.851  of all adds 0.290  y lane repeats 0.0000  hist 0.015 0.031 0.081 0.272 0.601 0.000
+mb4 B2: tiles 10126  flush groups 2116  rows 732  tiles/row 13.83  tiles/group 4.79  in-range singles 111083  64-bit adds/step 2784573  x-side share 0.349
+   bound, one SIMD group per flush group: x adds removed 0.791; per row: 0.928
+   as written stride ultra W=4800 tiles/warp  2.11  runs 10114  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.11  runs 5910  mean run 1.71  x adds removed 0.416  of all adds 0.145  y lane repeats 0.0000  hist 0.199 0.705 0.096 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 12.66  runs 10118  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 12.66  runs 2756  mean run 3.67  x adds removed 0.728  of all adds 0.254  y lane repeats 0.0000  hist 0.053 0.094 0.265 0.588 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  2.11  runs 10126  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.11  runs 5199  mean run 1.95  x adds removed 0.487  of all adds 0.170  y lane repeats 0.0000  hist 0.071 0.796 0.133 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 12.66  runs 10126  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 12.66  runs 1468  mean run 6.90  x adds removed 0.855  of all adds 0.298  y lane repeats 0.0000  hist 0.014 0.026 0.084 0.241 0.635 0.000
+mb4 B4: tiles 10786  flush groups 2943  rows 732  tiles/row 14.73  tiles/group 3.66  in-range singles 111083  64-bit adds/step 2847933  x-side share 0.364
+   bound, one SIMD group per flush group: x adds removed 0.727; per row: 0.932
+   as written stride ultra W=4800 tiles/warp  2.25  runs 10786  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.25  runs 6438  mean run 1.68  x adds removed 0.403  of all adds 0.147  y lane repeats 0.0000  hist 0.250 0.581 0.169 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 13.48  runs 10782  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 13.48  runs 3512  mean run 3.07  x adds removed 0.674  of all adds 0.245  y lane repeats 0.0000  hist 0.093 0.123 0.314 0.471 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  2.25  runs 10786  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.25  runs 5221  mean run 2.07  x adds removed 0.516  of all adds 0.188  y lane repeats 0.0000  hist 0.063 0.654 0.283 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 13.48  runs 10786  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 13.48  runs 1470  mean run 7.34  x adds removed 0.864  of all adds 0.314  y lane repeats 0.0000  hist 0.012 0.024 0.070 0.229 0.664 0.000
+mb0 B1: tiles 13974  flush groups 2306  rows 733  tiles/row 19.06  tiles/group 6.06  in-range singles 0  64-bit adds/step 2890896  x-side share 0.464
+   bound, one SIMD group per flush group: x adds removed 0.835; per row: 0.948
+   as written stride ultra W=4800 tiles/warp  2.91  runs 13958  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.91  runs 6341  mean run 2.20  x adds removed 0.546  of all adds 0.253  y lane repeats 0.0000  hist 0.119 0.248 0.633 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 17.47  runs 13949  mean run 1.00  x adds removed 0.002  of all adds 0.001  y lane repeats 0.0000  hist 0.996 0.004 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 17.47  runs 2971  mean run 4.70  x adds removed 0.787  of all adds 0.365  y lane repeats 0.0000  hist 0.025 0.048 0.156 0.767 0.004 0.000
+   by x       stride ultra W=4800 tiles/warp  2.91  runs 13974  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.91  runs 5269  mean run 2.65  x adds removed 0.623  of all adds 0.289  y lane repeats 0.0000  hist 0.035 0.121 0.844 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 17.47  runs 13974  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 17.47  runs 1489  mean run 9.38  x adds removed 0.893  of all adds 0.415  y lane repeats 0.0000  hist 0.008 0.011 0.049 0.149 0.445 0.337
+mb0 B2: tiles 14328  flush groups 2692  rows 733  tiles/row 19.55  tiles/group 5.32  in-range singles 0  64-bit adds/step 2924880  x-side share 0.470
+   bound, one SIMD group per flush group: x adds removed 0.812; per row: 0.949
+   as written stride ultra W=4800 tiles/warp  2.98  runs 14310  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.997 0.003 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.98  runs 6608  mean run 2.17  x adds removed 0.539  of all adds 0.253  y lane repeats 0.0000  hist 0.133 0.234 0.633 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 17.91  runs 14310  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.997 0.003 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 17.91  runs 3335  mean run 4.30  x adds removed 0.767  of all adds 0.361  y lane repeats 0.0000  hist 0.035 0.064 0.199 0.702 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  2.98  runs 14328  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.98  runs 5277  mean run 2.72  x adds removed 0.632  of all adds 0.297  y lane repeats 0.0000  hist 0.034 0.076 0.891 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 17.91  runs 14328  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 17.91  runs 1488  mean run 9.63  x adds removed 0.896  of all adds 0.421  y lane repeats 0.0000  hist 0.006 0.013 0.049 0.147 0.435 0.351
+mb0 B4: tiles 15012  flush groups 3499  rows 733  tiles/row 20.48  tiles/group 4.29  in-range singles 0  64-bit adds/step 2990544  x-side share 0.482
+   bound, one SIMD group per flush group: x adds removed 0.767; per row: 0.951
+   as written stride ultra W=4800 tiles/warp  3.13  runs 14994  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  3.13  runs 7206  mean run 2.08  x adds removed 0.520  of all adds 0.251  y lane repeats 0.0000  hist 0.166 0.251 0.583 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 18.77  runs 14995  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 18.77  runs 4135  mean run 3.63  x adds removed 0.725  of all adds 0.349  y lane repeats 0.0000  hist 0.062 0.087 0.257 0.591 0.003 0.000
+   by x       stride ultra W=4800 tiles/warp  3.13  runs 15012  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  3.13  runs 5296  mean run 2.83  x adds removed 0.647  of all adds 0.312  y lane repeats 0.0000  hist 0.032 0.061 0.907 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 18.77  runs 15012  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 18.77  runs 1500  mean run 10.01  x adds removed 0.900  of all adds 0.434  y lane repeats 0.0000  hist 0.007 0.013 0.038 0.131 0.416 0.394
+## pme (dhfr, cutoff 0.9): N=23558 blocks=737 rc=0.9 exclusion tiles=1253  (1 s)
+   hist columns: share of tiles in runs of length 1, 2, 3-4, 5-8, 9-16, 17+
+mb4 B1: tiles 7354  flush groups 1377  rows 729  tiles/row 10.09  tiles/group 5.34  in-range singles 104306  64-bit adds/step 2244435  x-side share 0.315
+   bound, one SIMD group per flush group: x adds removed 0.813; per row: 0.901
+   as written stride ultra W=4800 tiles/warp  1.53  runs 7354  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  1.53  runs 5290  mean run 1.39  x adds removed 0.281  of all adds 0.088  y lane repeats 0.0000  hist 0.439 0.561 0.000 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp  9.19  runs 7346  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0001  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp  9.19  runs 2044  mean run 3.60  x adds removed 0.722  of all adds 0.227  y lane repeats 0.0000  hist 0.053 0.097 0.285 0.565 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  1.53  runs 7354  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  1.53  runs 5056  mean run 1.45  x adds removed 0.312  of all adds 0.098  y lane repeats 0.0000  hist 0.375 0.625 0.000 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp  9.19  runs 7354  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp  9.19  runs 1445  mean run 5.09  x adds removed 0.804  of all adds 0.253  y lane repeats 0.0000  hist 0.025 0.043 0.164 0.405 0.362 0.000
+mb4 B2: tiles 7703  flush groups 1786  rows 729  tiles/row 10.57  tiles/group 4.31  in-range singles 104306  64-bit adds/step 2277939  x-side share 0.325
+   bound, one SIMD group per flush group: x adds removed 0.768; per row: 0.905
+   as written stride ultra W=4800 tiles/warp  1.60  runs 7703  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  1.60  runs 5462  mean run 1.41  x adds removed 0.291  of all adds 0.094  y lane repeats 0.0000  hist 0.418 0.582 0.000 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp  9.63  runs 7686  mean run 1.00  x adds removed 0.002  of all adds 0.001  y lane repeats 0.0001  hist 0.996 0.004 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp  9.63  runs 2400  mean run 3.21  x adds removed 0.688  of all adds 0.223  y lane repeats 0.0000  hist 0.074 0.123 0.338 0.466 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  1.60  runs 7703  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  1.60  runs 5076  mean run 1.52  x adds removed 0.341  of all adds 0.111  y lane repeats 0.0000  hist 0.318 0.682 0.000 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp  9.63  runs 7703  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp  9.63  runs 1456  mean run 5.29  x adds removed 0.811  of all adds 0.263  y lane repeats 0.0000  hist 0.022 0.043 0.144 0.409 0.381 0.000
+mb4 B4: tiles 8279  flush groups 2630  rows 729  tiles/row 11.36  tiles/group 3.15  in-range singles 104306  64-bit adds/step 2333235  x-side share 0.341
+   bound, one SIMD group per flush group: x adds removed 0.682; per row: 0.912
+   as written stride ultra W=4800 tiles/warp  1.72  runs 8279  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  1.72  runs 5892  mean run 1.41  x adds removed 0.288  of all adds 0.098  y lane repeats 0.0000  hist 0.423 0.577 0.000 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 10.35  runs 8275  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 10.35  runs 3158  mean run 2.62  x adds removed 0.619  of all adds 0.211  y lane repeats 0.0000  hist 0.123 0.182 0.377 0.316 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  1.72  runs 8279  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  1.72  runs 5092  mean run 1.63  x adds removed 0.385  of all adds 0.131  y lane repeats 0.0000  hist 0.230 0.770 0.000 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 10.35  runs 8279  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 10.35  runs 1463  mean run 5.66  x adds removed 0.823  of all adds 0.280  y lane repeats 0.0000  hist 0.020 0.036 0.121 0.381 0.443 0.000
+mb0 B1: tiles 10937  flush groups 1866  rows 733  tiles/row 14.92  tiles/group 5.86  in-range singles 0  64-bit adds/step 2305308  x-side share 0.455
+   bound, one SIMD group per flush group: x adds removed 0.829; per row: 0.933
+   as written stride ultra W=4800 tiles/warp  2.28  runs 10931  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.28  runs 5838  mean run 1.87  x adds removed 0.466  of all adds 0.212  y lane repeats 0.0000  hist 0.148 0.612 0.240 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 13.67  runs 10924  mean run 1.00  x adds removed 0.001  of all adds 0.001  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 13.67  runs 2499  mean run 4.38  x adds removed 0.772  of all adds 0.351  y lane repeats 0.0000  hist 0.031 0.060 0.182 0.727 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  2.28  runs 10937  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.28  runs 5231  mean run 2.09  x adds removed 0.522  of all adds 0.238  y lane repeats 0.0000  hist 0.065 0.612 0.324 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 13.67  runs 10937  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 13.67  runs 1475  mean run 7.41  x adds removed 0.865  of all adds 0.394  y lane repeats 0.0000  hist 0.012 0.020 0.066 0.264 0.638 0.000
+mb0 B2: tiles 11284  flush groups 2268  rows 733  tiles/row 15.39  tiles/group 4.98  in-range singles 0  64-bit adds/step 2338620  x-side share 0.463
+   bound, one SIMD group per flush group: x adds removed 0.799; per row: 0.935
+   as written stride ultra W=4800 tiles/warp  2.35  runs 11272  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.35  runs 6085  mean run 1.85  x adds removed 0.461  of all adds 0.213  y lane repeats 0.0000  hist 0.172 0.547 0.281 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 14.11  runs 11273  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.998 0.002 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 14.11  runs 2888  mean run 3.91  x adds removed 0.744  of all adds 0.345  y lane repeats 0.0000  hist 0.045 0.082 0.238 0.632 0.002 0.000
+   by x       stride ultra W=4800 tiles/warp  2.35  runs 11284  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.35  runs 5224  mean run 2.16  x adds removed 0.537  of all adds 0.249  y lane repeats 0.0000  hist 0.056 0.554 0.390 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 14.11  runs 11284  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 14.11  runs 1481  mean run 7.62  x adds removed 0.869  of all adds 0.402  y lane repeats 0.0000  hist 0.012 0.021 0.064 0.236 0.668 0.000
+mb0 B4: tiles 11916  flush groups 3095  rows 733  tiles/row 16.26  tiles/group 3.85  in-range singles 0  64-bit adds/step 2399292  x-side share 0.477
+   bound, one SIMD group per flush group: x adds removed 0.740; per row: 0.938
+   as written stride ultra W=4800 tiles/warp  2.48  runs 11908  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  2.48  runs 6647  mean run 1.79  x adds removed 0.442  of all adds 0.211  y lane repeats 0.0000  hist 0.221 0.462 0.317 0.000 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 14.89  runs 11908  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0001  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 14.89  runs 3694  mean run 3.23  x adds removed 0.690  of all adds 0.329  y lane repeats 0.0000  hist 0.082 0.112 0.301 0.504 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  2.48  runs 11916  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  2.48  runs 5245  mean run 2.27  x adds removed 0.560  of all adds 0.267  y lane repeats 0.0000  hist 0.051 0.439 0.511 0.000 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 14.89  runs 11916  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 14.89  runs 1482  mean run 8.04  x adds removed 0.876  of all adds 0.417  y lane repeats 0.0000  hist 0.010 0.018 0.058 0.208 0.705 0.000
+## apoa1rf (apoa1 capture, cutoff 1.0): N=92224 blocks=2882 rc=1.0 exclusion tiles=5213  (5 s)
+   hist columns: share of tiles in runs of length 1, 2, 3-4, 5-8, 9-16, 17+
+mb4 B1: tiles 37652  flush groups 6644  rows 2860  tiles/row 13.17  tiles/group 5.67  in-range singles 396816  64-bit adds/step 10476870  x-side share 0.345
+   bound, one SIMD group per flush group: x adds removed 0.824; per row: 0.924
+   as written stride ultra W=4800 tiles/warp  7.84  runs 37648  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  7.84  runs 10585  mean run 3.56  x adds removed 0.719  of all adds 0.248  y lane repeats 0.0000  hist 0.052 0.099 0.300 0.549 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 47.06  runs 37651  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 47.06  runs 7287  mean run 5.17  x adds removed 0.806  of all adds 0.278  y lane repeats 0.0000  hist 0.017 0.036 0.118 0.828 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  7.84  runs 37652  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  7.84  runs 7293  mean run 5.16  x adds removed 0.806  of all adds 0.278  y lane repeats 0.0000  hist 0.021 0.040 0.130 0.808 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 47.06  runs 37652  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 47.06  runs 3596  mean run 10.47  x adds removed 0.904  of all adds 0.312  y lane repeats 0.0000  hist 0.005 0.012 0.038 0.135 0.402 0.408
+mb4 B2: tiles 39048  flush groups 8226  rows 2860  tiles/row 13.65  tiles/group 4.75  in-range singles 396816  64-bit adds/step 10610886  x-side share 0.353
+   bound, one SIMD group per flush group: x adds removed 0.789; per row: 0.927
+   as written stride ultra W=4800 tiles/warp  8.13  runs 39047  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  8.13  runs 11960  mean run 3.26  x adds removed 0.694  of all adds 0.245  y lane repeats 0.0000  hist 0.069 0.121 0.320 0.489 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 48.81  runs 39043  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 48.81  runs 8837  mean run 4.42  x adds removed 0.774  of all adds 0.273  y lane repeats 0.0000  hist 0.032 0.059 0.179 0.730 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  8.13  runs 39048  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0001  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  8.13  runs 7315  mean run 5.34  x adds removed 0.813  of all adds 0.287  y lane repeats 0.0000  hist 0.019 0.038 0.129 0.740 0.074 0.000
+   by x       stride m2    W= 800 tiles/warp 48.81  runs 39048  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 48.81  runs 3601  mean run 10.84  x adds removed 0.908  of all adds 0.321  y lane repeats 0.0000  hist 0.004 0.010 0.037 0.134 0.397 0.419
+mb4 B4: tiles 41643  flush groups 11880  rows 2860  tiles/row 14.56  tiles/group 3.51  in-range singles 396816  64-bit adds/step 10860006  x-side share 0.368
+   bound, one SIMD group per flush group: x adds removed 0.715; per row: 0.931
+   as written stride ultra W=4800 tiles/warp  8.68  runs 41627  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  8.68  runs 15327  mean run 2.72  x adds removed 0.632  of all adds 0.233  y lane repeats 0.0000  hist 0.116 0.171 0.356 0.357 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 52.05  runs 41631  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 52.05  runs 12442  mean run 3.35  x adds removed 0.701  of all adds 0.258  y lane repeats 0.0000  hist 0.072 0.116 0.279 0.533 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  8.68  runs 41643  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  8.68  runs 7326  mean run 5.68  x adds removed 0.824  of all adds 0.303  y lane repeats 0.0000  hist 0.017 0.033 0.112 0.487 0.351 0.000
+   by x       stride m2    W= 800 tiles/warp 52.05  runs 41643  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 52.05  runs 3616  mean run 11.52  x adds removed 0.913  of all adds 0.336  y lane repeats 0.0000  hist 0.004 0.008 0.032 0.114 0.369 0.474
+mb0 B1: tiles 53117  flush groups 8826  rows 2867  tiles/row 18.53  tiles/group 6.02  in-range singles 0  64-bit adds/step 11064189  x-side share 0.461
+   bound, one SIMD group per flush group: x adds removed 0.834; per row: 0.946
+   as written stride ultra W=4800 tiles/warp 11.07  runs 53102  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 11.07  runs 12858  mean run 4.13  x adds removed 0.758  of all adds 0.349  y lane repeats 0.0000  hist 0.037 0.069 0.214 0.680 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 66.40  runs 53101  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 66.40  runs 9485  mean run 5.60  x adds removed 0.821  of all adds 0.379  y lane repeats 0.0000  hist 0.013 0.025 0.081 0.881 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 11.07  runs 53117  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 11.07  runs 7403  mean run 7.18  x adds removed 0.861  of all adds 0.397  y lane repeats 0.0000  hist 0.010 0.021 0.070 0.240 0.660 0.000
+   by x       stride m2    W= 800 tiles/warp 66.40  runs 53117  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 66.40  runs 3616  mean run 14.69  x adds removed 0.932  of all adds 0.430  y lane repeats 0.0000  hist 0.003 0.005 0.019 0.072 0.247 0.654
+mb0 B2: tiles 54445  flush groups 10326  rows 2867  tiles/row 18.99  tiles/group 5.27  in-range singles 0  64-bit adds/step 11191677  x-side share 0.467
+   bound, one SIMD group per flush group: x adds removed 0.810; per row: 0.947
+   as written stride ultra W=4800 tiles/warp 11.34  runs 54407  mean run 1.00  x adds removed 0.001  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 11.34  runs 14177  mean run 3.84  x adds removed 0.740  of all adds 0.345  y lane repeats 0.0000  hist 0.047 0.084 0.243 0.625 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 68.06  runs 54441  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 68.06  runs 10964  mean run 4.97  x adds removed 0.799  of all adds 0.373  y lane repeats 0.0000  hist 0.022 0.041 0.128 0.810 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 11.34  runs 54445  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 11.34  runs 7405  mean run 7.35  x adds removed 0.864  of all adds 0.403  y lane repeats 0.0000  hist 0.009 0.020 0.066 0.226 0.679 0.000
+   by x       stride m2    W= 800 tiles/warp 68.06  runs 54445  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 68.06  runs 3611  mean run 15.08  x adds removed 0.934  of all adds 0.436  y lane repeats 0.0000  hist 0.002 0.005 0.018 0.067 0.245 0.664
+mb0 B4: tiles 57160  flush groups 13764  rows 2867  tiles/row 19.94  tiles/group 4.15  in-range singles 0  64-bit adds/step 11452317  x-side share 0.479
+   bound, one SIMD group per flush group: x adds removed 0.759; per row: 0.950
+   as written stride ultra W=4800 tiles/warp 11.91  runs 57137  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 11.91  runs 17372  mean run 3.29  x adds removed 0.696  of all adds 0.334  y lane repeats 0.0000  hist 0.074 0.119 0.299 0.509 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 71.45  runs 57139  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 71.45  runs 14363  mean run 3.98  x adds removed 0.749  of all adds 0.359  y lane repeats 0.0000  hist 0.045 0.077 0.222 0.655 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 11.91  runs 57160  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 11.91  runs 7430  mean run 7.69  x adds removed 0.870  of all adds 0.417  y lane repeats 0.0000  hist 0.009 0.019 0.060 0.200 0.712 0.000
+   by x       stride m2    W= 800 tiles/warp 71.45  runs 57160  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 71.45  runs 3636  mean run 15.72  x adds removed 0.936  of all adds 0.449  y lane repeats 0.0000  hist 0.002 0.004 0.017 0.055 0.238 0.685
+## apoa1pme (apoa1 capture, cutoff 0.9): N=92224 blocks=2882 rc=0.9 exclusion tiles=5213  (4 s)
+   hist columns: share of tiles in runs of length 1, 2, 3-4, 5-8, 9-16, 17+
+mb4 B1: tiles 28488  flush groups 5354  rows 2854  tiles/row 9.98  tiles/group 5.32  in-range singles 376357  64-bit adds/step 8597439  x-side share 0.318
+   bound, one SIMD group per flush group: x adds removed 0.812; per row: 0.900
+   as written stride ultra W=4800 tiles/warp  5.93  runs 28485  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  5.93  runs 9244  mean run 3.08  x adds removed 0.676  of all adds 0.215  y lane repeats 0.0000  hist 0.073 0.131 0.373 0.422 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 35.61  runs 28476  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 35.61  runs 5998  mean run 4.75  x adds removed 0.789  of all adds 0.251  y lane repeats 0.0000  hist 0.024 0.049 0.154 0.773 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  5.93  runs 28488  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  5.93  runs 7185  mean run 3.96  x adds removed 0.748  of all adds 0.238  y lane repeats 0.0000  hist 0.037 0.069 0.219 0.675 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 35.61  runs 28488  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 35.61  runs 3568  mean run 7.98  x adds removed 0.875  of all adds 0.278  y lane repeats 0.0000  hist 0.009 0.021 0.067 0.223 0.533 0.148
+mb4 B2: tiles 29879  flush groups 7018  rows 2854  tiles/row 10.47  tiles/group 4.26  in-range singles 376357  64-bit adds/step 8730975  x-side share 0.329
+   bound, one SIMD group per flush group: x adds removed 0.765; per row: 0.904
+   as written stride ultra W=4800 tiles/warp  6.22  runs 29877  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  6.22  runs 10685  mean run 2.80  x adds removed 0.642  of all adds 0.211  y lane repeats 0.0000  hist 0.099 0.159 0.394 0.347 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 37.35  runs 29878  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 37.35  runs 7626  mean run 3.92  x adds removed 0.745  of all adds 0.245  y lane repeats 0.0000  hist 0.046 0.078 0.235 0.641 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  6.22  runs 29879  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  6.22  runs 7208  mean run 4.15  x adds removed 0.759  of all adds 0.249  y lane repeats 0.0000  hist 0.032 0.063 0.206 0.698 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 37.35  runs 29879  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 37.35  runs 3573  mean run 8.36  x adds removed 0.880  of all adds 0.289  y lane repeats 0.0000  hist 0.007 0.017 0.061 0.213 0.525 0.176
+mb4 B4: tiles 32472  flush groups 10900  rows 2854  tiles/row 11.38  tiles/group 2.98  in-range singles 376357  64-bit adds/step 8979903  x-side share 0.347
+   bound, one SIMD group per flush group: x adds removed 0.664; per row: 0.912
+   as written stride ultra W=4800 tiles/warp  6.76  runs 32458  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  6.76  runs 14068  mean run 2.31  x adds removed 0.567  of all adds 0.197  y lane repeats 0.0000  hist 0.166 0.223 0.384 0.226 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 40.59  runs 32460  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 40.59  runs 11427  mean run 2.84  x adds removed 0.648  of all adds 0.225  y lane repeats 0.0000  hist 0.106 0.158 0.339 0.397 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  6.76  runs 32472  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  6.76  runs 7211  mean run 4.50  x adds removed 0.778  of all adds 0.270  y lane repeats 0.0000  hist 0.027 0.052 0.183 0.739 0.000 0.000
+   by x       stride m2    W= 800 tiles/warp 40.59  runs 32472  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 40.59  runs 3567  mean run 9.10  x adds removed 0.890  of all adds 0.309  y lane repeats 0.0000  hist 0.006 0.011 0.052 0.178 0.522 0.231
+mb0 B1: tiles 41766  flush groups 7200  rows 2864  tiles/row 14.58  tiles/group 5.80  in-range singles 0  64-bit adds/step 8886189  x-side share 0.451
+   bound, one SIMD group per flush group: x adds removed 0.828; per row: 0.931
+   as written stride ultra W=4800 tiles/warp  8.70  runs 41766  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  8.70  runs 11174  mean run 3.74  x adds removed 0.732  of all adds 0.330  y lane repeats 0.0000  hist 0.046 0.089 0.276 0.589 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 52.21  runs 41758  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 52.21  runs 7866  mean run 5.31  x adds removed 0.812  of all adds 0.366  y lane repeats 0.0000  hist 0.016 0.029 0.105 0.849 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp  8.70  runs 41766  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  8.70  runs 7350  mean run 5.68  x adds removed 0.824  of all adds 0.372  y lane repeats 0.0000  hist 0.017 0.034 0.111 0.474 0.364 0.000
+   by x       stride m2    W= 800 tiles/warp 52.21  runs 41766  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 52.21  runs 3628  mean run 11.51  x adds removed 0.913  of all adds 0.412  y lane repeats 0.0000  hist 0.004 0.009 0.031 0.121 0.344 0.491
+mb0 B2: tiles 43184  flush groups 8796  rows 2864  tiles/row 15.08  tiles/group 4.91  in-range singles 0  64-bit adds/step 9022317  x-side share 0.459
+   bound, one SIMD group per flush group: x adds removed 0.796; per row: 0.934
+   as written stride ultra W=4800 tiles/warp  9.00  runs 43182  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  9.00  runs 12648  mean run 3.41  x adds removed 0.707  of all adds 0.325  y lane repeats 0.0000  hist 0.062 0.108 0.302 0.527 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 53.98  runs 43179  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 53.98  runs 9454  mean run 4.57  x adds removed 0.781  of all adds 0.359  y lane repeats 0.0000  hist 0.028 0.054 0.164 0.752 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  9.00  runs 43184  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  9.00  runs 7339  mean run 5.88  x adds removed 0.830  of all adds 0.381  y lane repeats 0.0000  hist 0.015 0.031 0.105 0.335 0.514 0.000
+   by x       stride m2    W= 800 tiles/warp 53.98  runs 43184  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 53.98  runs 3614  mean run 11.95  x adds removed 0.916  of all adds 0.421  y lane repeats 0.0000  hist 0.003 0.008 0.031 0.107 0.350 0.502
+mb0 B4: tiles 45823  flush groups 12392  rows 2864  tiles/row 16.00  tiles/group 3.70  in-range singles 0  64-bit adds/step 9275661  x-side share 0.474
+   bound, one SIMD group per flush group: x adds removed 0.730; per row: 0.937
+   as written stride ultra W=4800 tiles/warp  9.55  runs 45810  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp  9.55  runs 15864  mean run 2.89  x adds removed 0.654  of all adds 0.310  y lane repeats 0.0000  hist 0.100 0.153 0.349 0.399 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 57.28  runs 45805  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 0.999 0.001 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 57.28  runs 12951  mean run 3.54  x adds removed 0.717  of all adds 0.340  y lane repeats 0.0000  hist 0.062 0.103 0.265 0.569 0.001 0.000
+   by x       stride ultra W=4800 tiles/warp  9.55  runs 45823  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp  9.55  runs 7368  mean run 6.22  x adds removed 0.839  of all adds 0.398  y lane repeats 0.0000  hist 0.013 0.028 0.095 0.307 0.557 0.000
+   by x       stride m2    W= 800 tiles/warp 57.28  runs 45823  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 57.28  runs 3611  mean run 12.69  x adds removed 0.921  of all adds 0.437  y lane repeats 0.0000  hist 0.003 0.006 0.024 0.094 0.332 0.541
+cellulose box vectors [[25.923, 0.0, 0.0], [0.0, 12.4558, 0.0], [0.0, 0.0, 12.3502]]
+cellulose residues 110283 waters 105855 atoms 408609
+## cellulose (amber20-cellulose, cutoff 0.9): N=408609 blocks=12770 rc=0.9 exclusion tiles=22228  (28 s)
+   hist columns: share of tiles in runs of length 1, 2, 3-4, 5-8, 9-16, 17+
+mb4 B1: tiles 133357  flush groups 24603  rows 12660  tiles/row 10.53  tiles/group 5.42  in-range singles 1840682  64-bit adds/step 40329924  x-side share 0.317
+   bound, one SIMD group per flush group: x adds removed 0.816; per row: 0.905
+   as written stride ultra W=4800 tiles/warp 27.78  runs 133355  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 27.78  runs 28497  mean run 4.68  x adds removed 0.786  of all adds 0.250  y lane repeats 0.0000  hist 0.028 0.051 0.142 0.779 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 166.70  runs 133349  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 166.70  runs 25247  mean run 5.28  x adds removed 0.811  of all adds 0.257  y lane repeats 0.0000  hist 0.018 0.032 0.095 0.854 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 27.78  runs 133357  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 27.78  runs 17018  mean run 7.84  x adds removed 0.872  of all adds 0.277  y lane repeats 0.0000  hist 0.010 0.021 0.066 0.235 0.530 0.138
+   by x       stride m2    W= 800 tiles/warp 166.70  runs 133357  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 166.70  runs 13393  mean run 9.96  x adds removed 0.900  of all adds 0.286  y lane repeats 0.0000  hist 0.005 0.011 0.036 0.158 0.523 0.267
+mb4 B2: tiles 139347  flush groups 31913  rows 12660  tiles/row 11.01  tiles/group 4.37  in-range singles 1840682  64-bit adds/step 40904964  x-side share 0.327
+   bound, one SIMD group per flush group: x adds removed 0.771; per row: 0.909
+   as written stride ultra W=4800 tiles/warp 29.03  runs 139335  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 29.03  runs 35615  mean run 3.91  x adds removed 0.744  of all adds 0.243  y lane repeats 0.0000  hist 0.047 0.081 0.227 0.645 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 174.18  runs 139343  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 174.18  runs 32529  mean run 4.28  x adds removed 0.767  of all adds 0.251  y lane repeats 0.0000  hist 0.036 0.063 0.193 0.708 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 29.03  runs 139347  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 29.03  runs 17013  mean run 8.19  x adds removed 0.878  of all adds 0.287  y lane repeats 0.0000  hist 0.008 0.019 0.062 0.222 0.522 0.167
+   by x       stride m2    W= 800 tiles/warp 174.18  runs 139347  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 174.18  runs 13386  mean run 10.41  x adds removed 0.904  of all adds 0.296  y lane repeats 0.0000  hist 0.003 0.010 0.034 0.146 0.506 0.302
+mb4 B4: tiles 149709  flush groups 46564  rows 12660  tiles/row 11.83  tiles/group 3.22  in-range singles 1840682  64-bit adds/step 41899716  x-side share 0.343
+   bound, one SIMD group per flush group: x adds removed 0.689; per row: 0.915
+   as written stride ultra W=4800 tiles/warp 31.19  runs 149703  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 31.19  runs 49889  mean run 3.00  x adds removed 0.667  of all adds 0.229  y lane repeats 0.0000  hist 0.093 0.140 0.333 0.434 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 187.14  runs 149694  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 187.14  runs 47116  mean run 3.18  x adds removed 0.685  of all adds 0.235  y lane repeats 0.0000  hist 0.080 0.125 0.319 0.476 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 31.19  runs 149709  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 31.19  runs 17090  mean run 8.76  x adds removed 0.886  of all adds 0.304  y lane repeats 0.0000  hist 0.007 0.016 0.053 0.197 0.507 0.220
+   by x       stride m2    W= 800 tiles/warp 187.14  runs 149709  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 187.14  runs 13405  mean run 11.17  x adds removed 0.910  of all adds 0.312  y lane repeats 0.0000  hist 0.003 0.007 0.027 0.126 0.465 0.372
+mb0 B1: tiles 197104  flush groups 33747  rows 12700  tiles/row 15.52  tiles/group 5.84  in-range singles 0  64-bit adds/step 41516331  x-side share 0.456
+   bound, one SIMD group per flush group: x adds removed 0.829; per row: 0.936
+   as written stride ultra W=4800 tiles/warp 41.06  runs 197103  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 41.06  runs 37740  mean run 5.22  x adds removed 0.809  of all adds 0.369  y lane repeats 0.0000  hist 0.017 0.035 0.106 0.842 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 246.38  runs 197082  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 246.38  runs 34407  mean run 5.73  x adds removed 0.825  of all adds 0.376  y lane repeats 0.0000  hist 0.011 0.022 0.073 0.894 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 41.06  runs 197104  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 41.06  runs 17197  mean run 11.46  x adds removed 0.913  of all adds 0.416  y lane repeats 0.0000  hist 0.004 0.010 0.033 0.111 0.342 0.501
+   by x       stride m2    W= 800 tiles/warp 246.38  runs 197104  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 246.38  runs 13447  mean run 14.66  x adds removed 0.932  of all adds 0.425  y lane repeats 0.0000  hist 0.002 0.005 0.017 0.061 0.245 0.671
+mb0 B2: tiles 203106  flush groups 40585  rows 12700  tiles/row 15.99  tiles/group 5.00  in-range singles 0  64-bit adds/step 42092523  x-side share 0.463
+   bound, one SIMD group per flush group: x adds removed 0.800; per row: 0.937
+   as written stride ultra W=4800 tiles/warp 42.31  runs 203085  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 42.31  runs 44420  mean run 4.57  x adds removed 0.781  of all adds 0.362  y lane repeats 0.0000  hist 0.029 0.054 0.160 0.756 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 253.88  runs 203091  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 253.88  runs 41222  mean run 4.93  x adds removed 0.797  of all adds 0.369  y lane repeats 0.0000  hist 0.022 0.042 0.130 0.806 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 42.31  runs 203106  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 42.31  runs 17190  mean run 11.82  x adds removed 0.915  of all adds 0.424  y lane repeats 0.0000  hist 0.004 0.008 0.032 0.105 0.338 0.513
+   by x       stride m2    W= 800 tiles/warp 253.88  runs 203106  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 253.88  runs 13462  mean run 15.09  x adds removed 0.934  of all adds 0.433  y lane repeats 0.0000  hist 0.001 0.004 0.016 0.058 0.241 0.679
+mb0 B4: tiles 214224  flush groups 54818  rows 12700  tiles/row 16.87  tiles/group 3.91  in-range singles 0  64-bit adds/step 43159851  x-side share 0.476
+   bound, one SIMD group per flush group: x adds removed 0.744; per row: 0.941
+   as written stride ultra W=4800 tiles/warp 44.63  runs 214201  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  ultra W=4800 tiles/warp 44.63  runs 58373  mean run 3.67  x adds removed 0.728  of all adds 0.347  y lane repeats 0.0000  hist 0.060 0.090 0.242 0.607 0.000 0.000
+   as written stride m2    W= 800 tiles/warp 267.78  runs 214203  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   as written chunk  m2    W= 800 tiles/warp 267.78  runs 55423  mean run 3.87  x adds removed 0.741  of all adds 0.353  y lane repeats 0.0000  hist 0.052 0.079 0.223 0.645 0.000 0.000
+   by x       stride ultra W=4800 tiles/warp 44.63  runs 214224  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  ultra W=4800 tiles/warp 44.63  runs 17228  mean run 12.43  x adds removed 0.920  of all adds 0.438  y lane repeats 0.0000  hist 0.003 0.007 0.027 0.097 0.320 0.546
+   by x       stride m2    W= 800 tiles/warp 267.78  runs 214224  mean run 1.00  x adds removed 0.000  of all adds 0.000  y lane repeats 0.0000  hist 1.000 0.000 0.000 0.000 0.000 0.000
+   by x       chunk  m2    W= 800 tiles/warp 267.78  runs 13446  mean run 15.93  x adds removed 0.937  of all adds 0.447  y lane repeats 0.0000  hist 0.001 0.003 0.013 0.051 0.231 0.701

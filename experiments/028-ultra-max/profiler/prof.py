@@ -37,6 +37,7 @@ for item in filter(None, os.environ.get("PROF_PROPS", "").split(",")):
     properties[key] = value
 platform = mm.Platform.getPlatformByName(platformName)
 context = mm.Context(system, integrator, platform, properties)
+print(f"openmm {mm.__file__} plugins {' '.join(n for n in mm.pluginLoadedLibNames if platformName in n)}", flush=True)
 context.setPositions(positions)
 if test.startswith("amber"):
     mm.LocalEnergyMinimizer.minimize(context, 100*unit.kilojoules_per_mole/unit.nanometer)

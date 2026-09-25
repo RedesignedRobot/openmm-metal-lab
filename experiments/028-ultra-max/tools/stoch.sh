@@ -45,7 +45,7 @@ done
     echo "failures over $runs runs of ctest -R '$regex' -j2"
     for dir in "$@"; do
         name="$(basename "$dir")"
-        finished="$(cat "$out/$name"-run*.txt | grep -c 'tests passed, .* out of' || true)"
+        finished="$(cat "$out/$name"-run*.txt | grep -c 'tests passed.* out of' || true)"
         echo "$name: $finished of $runs runs finished"
         cat "$out/$name"-run*.txt | sed -n 's/^.*Test *#[0-9]*: \([A-Za-z0-9_]*\) .*\*\*\*.*$/\1/p' | sort | uniq -c | sed 's/^/  /'
     done

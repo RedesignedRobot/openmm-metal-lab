@@ -17,7 +17,7 @@ log="$out/ctest-$part.txt"
 verdicts="$out/verdict-$part.txt"
 : > "$verdicts"
 ctest --test-dir "$dir/build" --tests-from-file "$out/tests-$part.txt" -j2 --timeout 600 --output-on-failure > "$log" 2>&1 || true
-ran="$(sed -n 's/.*tests passed, .* out of \([0-9]*\)$/\1/p' "$log")"
+ran="$(sed -n 's/.*tests passed.* out of \([0-9]*\)$/\1/p' "$log")"
 expected="$(wc -l < "$out/tests-$part.txt" | tr -d ' ')"
 [ "$ran" = "$expected" ] || echo "FAIL part $part: ctest finished ${ran:-no} of $expected tests, see $log" >> "$verdicts"
 # output_of <name>: the lines ctest printed after the test's failed result line, up to the next test's line.

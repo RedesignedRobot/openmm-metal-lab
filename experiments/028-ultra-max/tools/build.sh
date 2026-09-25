@@ -1,7 +1,7 @@
 #!/bin/sh
 # Runs on the M3 Ultra: configures, builds and installs the tree in <dir>/src (put there by sync.sh)
 # the way ultra-base is built: Xcode-beta's toolchain, Release, Metal, OpenCL, Python and tests on,
-# C and Fortran wrappers off, `nice -n 10` and 6 jobs as RULES.md asks. It makes <dir>/build,
+# C and Fortran wrappers off, `nice -n 10` and 20 jobs as RULES.md asks. It makes <dir>/build,
 # <dir>/prefix and <dir>/venv, whose python imports this tree's openmm and sees numpy, scipy, Cython
 # and setuptools from the shared env. A build dir configured with another SDK is removed and
 # configured again; prefix stays until the install overwrites it, so runs of the old build keep
@@ -20,7 +20,7 @@ esac
 ENV=/tmp/openmm-metal-bench/env
 WINDOW=/tmp/openmm-window
 SITE=$ENV/lib/python3.13/site-packages
-JOBS=6
+JOBS=20
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 export PATH=$ENV/bin:$PATH
 unset PYTHONPATH

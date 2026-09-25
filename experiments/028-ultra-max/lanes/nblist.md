@@ -121,3 +121,31 @@ Per-commit screen on cand2 (lead, 23:08Z): n2a (17929e631 + ec464a484, f7d307c3d
 - Offline kernel check: `mslcheck.py` (scratch dir) builds the findInteractingBlocks module source the way `MetalContext::createModule` does and compiles it with `xcrun metal`, CPU only. All knob combinations compile, with and without periodic boxes and large blocks.
 - Queued: diag2 (correctness hold: forces with `NB_UNROLL=0`, `NB_STAGEBOX=1`, MAX_BITS 0 plus unroll, batch 4 plus unroll; md100 at MAX_BITS 0 and 2), job3 (timing hold: isolated phase times for K3 on gbsa, rf and pme at batch 1 and 4, and for K3 and K4 on apoa1rf and apoa1pme), screen-mb (ab.sh, MAX_BITS 4, 2, 1, 0 on pme, rf, dhfr, apoa1pme, apoa1rf, apoa1ljpme, 2 x 15 s). Queue depth is 57 to 59, about 3 hours.
 - Why MAX_BITS matters on Metal: every single pair costs six 64-bit fixed-point atomicAdds in computeNonbonded, and common.metal emulates each with two 32-bit atomics. Tiles pay three per atom per tile, not per pair. HIP's rule (4 below 100k atoms for RDNA) was tuned for hardware 64-bit atomics.
+
+### 23:55Z gated rebuild chain (roadmap 7a, early-exit variant) as a knob
+
+- Lab commit 2aa9b53d7 on ultra/nblist-dev2 (+164/-28 over 6 files, knob code included), built as `t5`. `NB_GATE=1`, read per Context:
+  - findBlockBounds checks the displacement trigger (and the host's forceRebuild) and sets a one-int gate, zeroing the interaction counts on a rebuild.
+  - computeSortKeys, the nine block-sort kernels, sortBoxData and findBlocks return at once while the gate is 0. MetalSort compiles `SORT_GATE` only for the nblist block sorter; other sorts don't change.
+  - sortBoxData runs one thread per block instead of per atom, since the atom check moved out. Its thread 0 publishes the gate to `rebuildNeighborList`, which keeps CustomNonbondedForce interaction groups working, and resets the size range.
+  - copyInteractionCounts clears the gate at the end of the chain. The flag can't be cleared at the start, because findBlockBounds sets it from many threadgroups.
+- An adversarial review of the diff found no correctness bug. It checked arg order, the signature rewriter with `#if` params, races, first step, the tile-overflow retry, and the knob-off path matching 8eb9895b8. The one-thread-per-block launch was its suggestion.
+- The phase labels shift with the gate, so compare the sum of bounds, sort, boxdata and find between gate off and on, not each phase. The atom check moves from boxdata into bounds.
+- diag3 (correctness hold, joined during the burst): 200 fixed-seed MD steps each, gate off twice and gate on once. Final positions are bit-identical on rf (short-list sort) and apoa1rf (bucket sort, large blocks). pme is inconclusive because gate off vs off already differs (0.2 nm after 200 steps). Energies differ in the third decimal even off vs off, so they aren't compared. The script's ctest step found no ctest on PATH; diag3b reruns it (nonbonded, custom nonbonded, GBSA, CustomGB, ConstantPotential and Ewald tests, `NB_GATE=1`).
+- Gate configs were added to the queued jobs: diag2 now runs forces with the gate and md100 with the gate, in place of md100 at MAX_BITS 2. job3 now times `g1` and batch 4 plus gate on gbsa, rf and pme, and `g1` on apoa1rf and apoa1pme.
+
+### 00:05Z gate checks pass, zero-threadgroup indirect dispatch works, two candidate commits
+
+- diag3b: all 12 nblist-related ctests pass with `NB_GATE=1`: NonbondedForce, CustomNonbondedForce (interaction groups read `rebuildNeighborList`), GBSAOBC, CustomGB, ConstantPotential and Ewald, each single and mixed.
+- `NB_GATE=2` (lab commit 5432c3dd1, tree `t6`): the gate holds findBlocks' indirect dispatch arguments. findBlockBounds writes the threadgroup count on a rebuild, copyInteractionCounts zeroes it, and findBlocks goes through a new `MetalContext::executeKernelIndirect`.
+- diag4 on `t6` answers the native design's open question: a zero-threadgroup indirect dispatch is a no-op on the M3 Ultra. Over 200 fixed-seed steps, about half of them with zero findBlocks threadgroups, final positions match gate-off bit for bit on rf and apoa1rf. Forces with `NB_GATE=2` pass against Reference on all six tests in single and mixed. The M2 (Apple8) still needs the same check.
+- Candidate branch ultra/nblist-gate on ultra/nblist (e342bc02f), gate compiled in with no knob:
+  - ca1b8f595 "Skip the neighbor list chain when no rebuild is needed" (+120/-57). The sortBoxData trigger is gone and the gate is the only path. MetalSort gets an optional gate buffer that only the block sorter uses.
+  - 2073479ee "Launch findBlocks through an indirect dispatch" (+37/-7).
+  - Building as `t7` and `t8`. Next: quick gates, md100 (the trigger moved), then one ab.sh screen of e342bc02f, ca1b8f595 and 2073479ee.
+- Queued before this and still pending: job4 (timing on `t6`: isolated phases and ns/day for g0, g1, g2, batch 4 plus g1/g2), job3 (also has g1).
+
+### 00:02Z quick gates pass on both gate candidates; md100 baseline missing
+- gate --quick PASS on t7 (ca1b8f595) and t8 (2073479ee): forces vs Reference ok on all six tests, single and mixed, rel|dF| equal to base to 4 digits.
+- ultra-base/forces-md100.txt does not exist yet (infra's md100 baseline, ticket 54081, has not landed), so forces.py --md 100 against it fails to open the file. diag2's md100 steps will fail the same way. Requeued diag5 without a baseline, with e342bc02f as the control, so the three md100 tables compare directly.
+- Queued: screen-gate (ab.sh 2x15 s, gbsa, rf, pme, apoa1rf, apoa1pme, apoa1ljpme; e342 vs gate vs ind, about 12 min).

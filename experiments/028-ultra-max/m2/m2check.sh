@@ -169,7 +169,9 @@ while [ $r -le "$rounds" ]; do
                 "$python" benchmark.py --platform Metal --precision "$precision" --test "$test" --seconds "$seconds" \
                 --style table --outfile "$out/$name.json" > "$out/$name.log" 2>&1 || true
             echo "$(utc) $name $(( $(date +%s) - run0 )) s" >> "$out/durations.txt"
-            [ -s "$out/$name.json" ] || echo "$(utc) NO RESULT $name" | tee -a "$out/loads.txt"
+            # benchmark.py writes the system block before it runs, so a failed run can leave an empty benchmarks list.
+            "$python" -c 'import json, sys; sys.exit(0 if json.load(open(sys.argv[1]))["benchmarks"] else 1)' "$out/$name.json" 2>/dev/null \
+                || echo "$(utc) NO RESULT $name" | tee -a "$out/loads.txt"
         done
         release_lease
     done

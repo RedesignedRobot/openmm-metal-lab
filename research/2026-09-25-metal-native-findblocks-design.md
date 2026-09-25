@@ -1,15 +1,15 @@
 # Native Metal design: findBlocksWithInteractions and the rebuild trigger, experiment 028
 
-2026-09-25, research lane (read-only). Base 6df2b8bcb, Metal single, M3 Ultra unless marked. Code is `platforms/metal/src/kernels/findInteractingBlocks.metal` in the base tree (cited as `fib:line`). Tiers: **verified** means I read the code, doc or data file; **reported** means another lane's log says so; **inference** means my model or reasoning. Data and scripts: `experiments/028-ultra-max/research-data/rebuild-rate/` (CPU replay of the trigger) and `research-data/findblocks-emu/` (a numpy emulator of the kernel on real positions).
+2026-09-25, research lane (read-only). Revised at 23:45Z against nblist's `NB_TIME` knob scan (`lanes/nblist.md` 23:12Z, dev tree 163f2838e): the model's R, design 2's (a) and (c), design 3, wrap at batch 1 and the padding rule changed. Base 6df2b8bcb, Metal single, M3 Ultra unless marked. Code is `platforms/metal/src/kernels/findInteractingBlocks.metal` in the base tree (cited as `fib:line`). Tiers: **verified** means I read the code, doc or data file; **reported** means another lane's log says so; **inference** means my model or reasoning. Data and scripts: `experiments/028-ultra-max/research-data/rebuild-rate/` (CPU replay of the trigger) and `research-data/findblocks-emu/` (a numpy emulator of the kernel on real positions).
 
 ## Answer
 
-findBlocks has two regimes on this GPU. At dhfr size (737 rows, about 12 SIMD groups per core) it is a latency-bound serial chain, and the longest row sets the time. At apoa1 and up (2882 rows and more) the summed work sets it. So the fixes split in two.
+findBlocks has two regimes on this GPU. At batch 1 on dhfr size (737 rows, about 12 SIMD groups per core) it is a latency-bound serial chain, and the longest row sets the time. Everywhere else, apoa1 and up at batch 1 and dhfr size at batch 4, the summed work sets it, spread over about 11-12 SIMD groups per core. So batch 4 fixes the tail once, and after that only less work helps.
 
-1. Row tail, dhfr size and gbsa only. Turn on the batch that HIP ships (4 SIMD groups per row below 2000 blocks, `HipNonbondedUtilities.cpp:273`; Metal hard-codes 1 with a METAL-TODO, `MetalNonbondedUtilities.cpp:263-264`, both verified). The emulator puts dhfr's longest SIMD group at 38% of today's candidates and 45% of today's modeled work, for 10-13% more tiles. My model predicts 35-55% off each rebuild on rf, pme and amber20-dhfr and nothing on apoa1. Pick the batch by rows per core, not HIP's block count, or the M2 pays the tile cost for nothing.
-2. Per-candidate cost, every size. Three changes, each copying a shape CUDA already has or the nblist lane has already built as a knob. (a) Carry each candidate's atom block and center from stage 1 and prefetch its positions (`NB_PREFETCH`). (b) Replace HIP's serial ffs loop with CUDA's unrolled 32-atom mask (new, about 15 lines). (c) Reserve single pairs once per flush, not once per candidate (`NB_PAIRBUF`, CUDA's `saveSinglePairs`). In the model these three take 50-70% off at dhfr size. At apoa1 the gain depends on which bound is real, and the kill tests below tell them apart.
-3. Don't merge the wrap commit 0669fddab on its own. In the emulator it moves the longest row onto the few large blocks at the end of the size order. The longest row gets longer on both sizes (pme 117 to 205 candidates, apoa1rf 148 to 263), and the modeled time is flat or worse at batch 1. A hybrid rule (wrap among regular blocks, triangle for the large tail) does work at dhfr size, but batch 4 gets the same tail with a one-line change.
-4. Keep the padding at 0.08. The rebuild interval is a staircase: every second step on every explicit test at 0.08, every third from 0.14. The step up costs 15-16% more tiles, pays 1-3% on rf today, and loses everywhere once items 1 and 2 land.
+1. Row tail, dhfr size and gbsa only. Turn on the batch that HIP ships (4 SIMD groups per row below 2000 blocks, `HipNonbondedUtilities.cpp:273`; Metal hard-codes 1 with a METAL-TODO, `MetalNonbondedUtilities.cpp:263-264`, both verified). The emulator puts dhfr's longest SIMD group at 38% of today's candidates and 45% of today's modeled work, for 10-13% more tiles. Measured on pme (`NB_TIME`): 43% off each rebuild (280.7 to 160.6 us) for 2.7% more computeNonbonded time. Pick the batch by rows per core, not HIP's block count, or the M2 pays the tile cost for nothing; nonbonded's 6d72c3ae9 (batch 4 below 32 x cores blocks) does that.
+2. Less work per rebuild, every size. This is the only lever left once batch 4 lands. Of the three per-candidate changes, two are measured dead: (a) prefetching each candidate's positions (`NB_PREFETCH`) is 2-3% slower everywhere, and (c) reserving single pairs once per flush (`NB_PAIRBUF`) gains 7% on pme but loses 6% on apoa1pme. (b), CUDA's unrolled 32-atom mask in place of HIP's serial ffs loop, is queued as `NB_UNROLL` (job3). The measured work cut is MAX_BITS 0, which takes 18% off each rebuild on pme and 12% on apoa1pme and changes computeNonbonded too (see "computeNonbonded cost of list shape").
+3. Don't merge the wrap commit 0669fddab. Measured, it is 13% faster than the triangle on pme at batch 1 (the model said flat or worse) and 34% slower on apoa1pme, where it moves the longest row onto the large blocks at the end of the size order (131 to 279 candidates). At batch 4 it gains nothing on pme (164.1 against 160.6 us) and costs 4% computeNonbonded. The hybrid rule (design 3) is dead for the same reason: at batch 4 the kernel is sum-bound, and ownership only reshapes the longest group.
+4. Padding is open again, and my first rule was wrong. The rebuild interval is a staircase: every second step on every explicit test at 0.08, every third from 0.12-0.14. More padding adds tiles, but on PME it makes computeNonbonded cheaper, because it moves in-range pairs out of the single-pair path. At batch 4 the model gives pme about -23 us per step at 0.12 and -32 at 0.16, mostly from the rebuild rate. The batch 4 whole-step screen and md100 decide.
 5. Trigger: no change to the criterion. Moving it and gating the chain is the study's design 2 and stays as written. My replay confirms its inputs. Stage the large-block window in sortBoxData (apoa1rf 30.8 us/step, every step) through threadgroup memory. That is worth about 2% on the apoa1 tests.
 
 ## Current cost
@@ -20,6 +20,7 @@ findBlocks has two regimes on this GPU. At dhfr size (737 rows, about 12 SIMD gr
 - Per rebuild, from buffers mode: rf 294 us, pme 191, apoa1rf 542, apoa1pme 348, amber20-dhfr 200, cellulose 1005, stmv 2047.
 - Counters mode (`lanes/nblist.md:13-21`) gives rf 305 and apoa1rf 578, which agree with buffers mode within 4-7%. On the PME tests it gives 275 for pme, 687 for apoa1pme and about 2x buffers mode on cellulose and stmv.
 - The two modes disagree by up to 2x on every PME test. I calibrate only on the two RF numbers, where they agree. The nblist lane's `NB_TIME` (one command buffer per phase) is the arbiter.
+- `NB_TIME` (`lanes/nblist.md` 23:12Z, median of rebuild steps) gives pme 280.7 us (candidate sort paths) and 268.5 (base sort paths), apoa1pme 619.9 and 544.9, apoa1ljpme 788.6 and 571.2. `NB_TIME` commits each phase without a host wait (163f2838e `MetalNonbondedUtilities.cpp:50-75`), so a phase shares the GPU with any command buffer it doesn't depend on. On apoa1 the PME atom sort runs on every rebuild step, so the apoa1 numbers are upper bounds. On pme it runs every second step, and rebuilds with and without it differ by -8% to +10% with no consistent sign, so the pme numbers stand (`research-data/findblocks-emu/lsort.py`).
 
 **Rebuild rate against padding (verified, CPU replay of the Metal trigger `fib:189-202`, 400-600 steps per test, `research-data/rebuild-rate/disp-run1.txt`).**
 
@@ -76,42 +77,66 @@ I cost each SIMD group's work as 150 cycles per 32-block chunk scanned, 900 per 
 - the longest SIMD group;
 - the summed work over 60 cores x R overlapping SIMD groups.
 
-Two free parameters fit the two trusted points: a 1.45x scale and R of about 15. rf comes out at 300 us per rebuild, tail-bound (207 raw longest group against 90 raw summed). apoa1rf comes out at 560, sum-bound (269 raw longest against 385 raw summed).
+My first fit used the two RF points from the census: a 1.45x scale and R of about 15. `NB_TIME` on pme refits both. Batch 1 gives a 1.59x scale (280.7 us against 177 raw), and batch 4 gives R of about 11.6 (160.6 us against 70.1 raw ms summed, 60 cores). With those numbers every pme point lands where the two terms say, if the terms add near the crossover instead of taking the max:
 
-A two-parameter fit to two points validates nothing. It ranks the designs and makes falsifiable predictions, and `NB_TIME` checks them. Raw model numbers (us, before the 1.45 scale), tiles, and longest-group candidates at pad 0.08, from `emu2-*.txt`:
+- batch 4 and wrap at batch 4 sit on the sum term: 160.6 and 164.1 measured, against 125 and 100 from the longest group scaled;
+- batch 2 and wrap at batch 2 sit 14-17% above both terms (214.2 and 180.1 measured, longest group 188 and 154, sum 160 and 154);
+- wrap at batch 1 measured 245.5, below the 299 the longest group predicts. The per-candidate weight is too high, which the prefetch result also says: hiding the two dependent loads bought nothing.
 
-| scheme | pme longest cand | pme model | pme tiles | rf model | rf tiles | apoa1rf model | apoa1rf tiles | apoa1pme model | apoa1pme tiles |
-|---|---|---|---|---|---|---|---|---|---|
-| triangle, batch 1 (base) | 117 | 177 | 7,376 | 207 | 9,832 | 269 | 37,641 | 233 | 28,488 |
-| triangle, batch 2 | 70 | 118 | 7,716 | 132 | 10,177 | 190 | 39,085 | 143 | 29,879 |
-| triangle, batch 4 | 45 | 79 | 8,302 | 93 | 10,800 | 115 | 41,691 | 101 | 32,472 |
-| wrap (0669fddab), batch 1 | 205 | 188 | 7,540 | 211 | 10,017 | 267 | 38,984 | 263 | 29,395 |
-| wrap, batch 4 | 59 | 63 | 8,578 | 70 | 11,122 | 114 | 43,214 | 93 | 33,570 |
-| hybrid, batch 1 | 94 | 134 | 7,517 | 155 | 9,997 | 268 | 38,324 | 242 | 29,000 |
-| hybrid, batch 2 | 56 | 80 | 7,871 | 96 | 10,372 | 188 | 39,743 | 151 | 30,386 |
+What caps R at about 12 is open: threadgroup slots or memory per core (about 1.8 KB per 32-thread group here), or issue. `NB_FBTG` 64 and 128 at batch 4 tell a threadgroup cap apart; `NB_TIME_WAIT` removes the overlap. Not the single-pair counter (apoa1pme at batch 1 already takes one candidate atomic per 7 ns, and the pair buffer made it slower) and not bandwidth (about 35 MB per dhfr rebuild from L2-resident arrays, about 220 GB/s).
 
-- Summed work (raw ms): pme 70.1 for triangle and 67.5 for wrap; rf 82.0 and 79.0; apoa1rf 351.3 and 328.9; apoa1pme 305.0 and 284.9. At R=15 the sum term is about 77, 90, 385 and 334 raw us.
-- So on apoa1 no ownership or batch change can beat the sum term. Only cheaper candidates can.
+Raw model numbers (us, before the scale), tiles, and longest-group candidates at pad 0.08, from `emu2-*.txt`, with the pme `NB_TIME` per rebuild:
+
+| scheme | pme longest cand | pme model | pme measured | pme tiles | rf model | rf tiles | apoa1rf model | apoa1rf tiles | apoa1pme model | apoa1pme tiles |
+|---|---|---|---|---|---|---|---|---|---|---|
+| triangle, batch 1 (base) | 117 | 177 | 280.7 | 7,376 | 207 | 9,832 | 269 | 37,641 | 233 | 28,488 |
+| triangle, batch 2 | 70 | 118 | 214.2 | 7,716 | 132 | 10,177 | 190 | 39,085 | 143 | 29,879 |
+| triangle, batch 4 | 45 | 79 | 160.6 | 8,302 | 93 | 10,800 | 115 | 41,691 | 101 | 32,472 |
+| wrap (0669fddab), batch 1 | 205 | 188 | 245.5 | 7,540 | 211 | 10,017 | 267 | 38,984 | 263 | 29,395 |
+| wrap, batch 2 | | 97 | 180.1 | 7,913 | | | | | | |
+| wrap, batch 4 | 59 | 63 | 164.1 | 8,578 | 70 | 11,122 | 114 | 43,214 | 93 | 33,570 |
+| hybrid, batch 1 | 94 | 134 | | 7,517 | 155 | 9,997 | 268 | 38,324 | 242 | 29,000 |
+| hybrid, batch 2 | 56 | 80 | | 7,871 | 96 | 10,372 | 188 | 39,743 | 151 | 30,386 |
+
+- Summed work (raw ms): pme 70.1 for triangle and 67.5 for wrap; rf 82.0 and 79.0; apoa1rf 351.3 and 328.9; apoa1pme 305.0 and 284.9. At R=11.6 the sum term is about 101, 118, 505 and 438 raw us.
+- So on apoa1, and at dhfr size once batch 4 lands, no ownership or batch change can beat the sum term. Only less work can.
+
+## computeNonbonded cost of list shape (measured against emulated counts)
+
+The list findBlocks writes sets computeNonbonded's work, so every findBlocks knob has a nonbonded price. `emu3.py` replays the list on the same positions and counts, per config: tiles, filled slots, active j-steps (steps where any lane has r < rc, so the SIMD group runs the interaction body, `nonbonded.metal:322-344` at 163f2838e), single pairs, and single pairs inside the real cutoff (only those run the body and the six 64-bit atomicAdds, `:451-495`; each 64-bit add is one or two 32-bit atomics, `common.metal:57-67`). Verified counts, `research-data/findblocks-emu/emu3-out.txt`:
+
+| dhfr (pme test), rc 0.9 | tiles | active steps per tile | single pairs | in range |
+|---|---|---|---|---|
+| pad 0.08, MAX_BITS 4, batch 1 | 7,354 | 31.4 | 262,291 | 104,306 (40%) |
+| batch 4 | 8,279 | 30.0 | same | same |
+| MAX_BITS 0 | 10,937 | 30.4 | 0 | 0 |
+| pad 0.12 | 8,115 | 31.3 | 278,665 | 67,005 (24%) |
+| pad 0.16 | 8,910 | 31.2 | 294,072 | 41,195 (14%) |
+
+apoa1 (rc 0.9) moves the same way: tiles 28,488 / 41,766 at MAX_BITS 0 / 31,370 and 34,433 at pad 0.12 and 0.16; in-range singles 376k / 0 / 237k / 146k.
+
+- Tiles have no cheap steps. Even the tiles MAX_BITS 0 adds run 28 of 32 steps, though 209k of the slots it adds on apoa1 have no in-range pair. So a tile costs about 32 full bodies whatever it holds.
+- `nonbonded` does not depend on list age: flat within 1% at ages 0 to 4 steps (`age.py`). The padding effect is list shape.
+- A linear model per test (tiles, filled slots, in-range singles, all singles) fits the 9 measured configs within noise (rms 0.5, 0.8 and 1.6 us on pme, apoa1pme and apoa1ljpme; `fit.py`). Batch 4 adds only empty slots, so it prices a tile cleanly: 3.6 ns on pme, 1.5 on apoa1pme, 6.9 on apoa1ljpme (GPU time, us per 1000 tiles).
+- After the tile term, the rest of each config's change differs between apoa1ljpme and apoa1pme by 0.22-0.27 ns per in-range single removed, steady across padding 0.12, 0.16 and MAX_BITS 0. The fitted in-range single costs 0.25-0.29 ns on PME and 0.045 on LJPME.
+
+Mechanism (inference). PME's body is cheap, so computeNonbonded is bound by the atomic and memory path. An in-range single pair costs six emulated 64-bit atomics and two gathers for one interaction; the same pair inside a tile shares its slot's atomics with the slot's other pairs. Break-even is about 0.6 in-range pairs per atom2, so nearly every single is cheaper in a tile, and more padding or MAX_BITS 0 speed the kernel up. LJPME's body is heavier (a tile costs 4.6x as much on apoa1ljpme as on apoa1pme), so the kernel is ALU-bound: single-pair atomics hide under other SIMD groups' ALU work, and every added tile costs 32 full steps. Break-even there is about 4 pairs, which is why MAX_BITS 4 wins on LJPME and more padding costs it. Register pressure would push the other way, making LJPME singles dearer. Zero-code check: ALU against memory limiter counters on computeNonbonded for apoa1pme and apoa1ljpme.
+
+Rule this gives: MAX_BITS 0 for cheap bodies (Coulomb with PME, RF or plain cutoff, plus LJ), 4 for heavy ones (LJPME; CustomNonbondedForce and softcore untested). The choice is per NonbondedUtilities, because every nonbonded force compiles into one kernel. The model predicts MAX_BITS 1 or 2 beats 0 by 2-4% on PME (pme 103.0-104.2 us against 106.4; apoa1pme 352-353 against 367.5), because out-of-range singles cost less than a slot; screen-mb tests that. The mb0 point is the model's only anchor without singles, and leave-one-out misses it, so treat those as predictions.
 - Hybrid means wrap ownership among blocks below the first size bin that holds a block with more than 1.5x the median size (tail: 8 blocks on dhfr, 245 on apoa1rf); pairs involving the tail stay with the smaller block, as in the triangle.
 
 ## Design 1: batch by rows per core (dhfr size and gbsa)
 
 **Native levers.** None new. It is more SIMD groups in flight, and the kernel already supports it: `NUM_TILES_IN_BATCH`, and warp w of a row takes every B-th chunk (`fib:337`, `fib:385`). Each SIMD group keeps its own tile buffer in its own threadgroup at `NB_FBTG` 32 (`fib:330`).
 
-**Mechanism.** Set `numTilesInBatch` from rows per core, not from the block count:
+**Mechanism.** Set `numTilesInBatch` from rows per core, not from the block count. Batching pays while the longest row outlasts the sum term, which with the longest row at about 2x the mean holds below about 2 x R x cores blocks (about 1,400 on the M3 Ultra). nonbonded's 6d72c3ae9 uses B = 4 below 32 x cores (1,920 on the Ultra, 320 on the M2), which splits every benchmark test the same way: B=4 for gbsa (78 blocks) and the dhfr-size tests (737), 1 for apoa1 and up, and 1 on the M2 for everything except gbsa. At dhfr size batch 4 already reaches the sum term, so batch 8 buys nothing.
 
-- B = 4 when numBlocks < 15 x cores;
-- B = 2 below 30 x cores;
-- else 1.
+**Measured gain (`NB_TIME`, pme).** Per rebuild 280.7 to 214.2 us at batch 2 (-24%) and 160.6 at batch 4 (-43%); the early exit rises from 5.9 to 9.5 us, because 4x the threadgroups launch with their full threadgroup memory. computeNonbonded rises 2.7% (124.4 to 127.8 us), not the 12.6% the tile count suggested: batch 4's extra tiles are mostly empty slots, which skip the atom2 atomics. apoa1pme at batch 4 gains 7% against the base sort paths or 18% against the candidate's (the gap between those two rows is unexplained process state, nblist 23:12Z) and costs 1.4% nonbonded; apoa1ljpme costs 6%.
 
-On the M3 Ultra that gives B=4 for gbsa (78 blocks) and the dhfr-size tests (737), and 1 for apoa1 and up. On the M2 (10 cores) it gives 1 for everything except gbsa. The thresholds come from R of about 15 (inference) and should be retuned from K1.
-
-**Expected gain (inference, model).** Per rebuild: rf 300 to 135 us, pme 257 to 115, amber20-dhfr similar (-35 to -55% given R uncertainty). Tiles grow 9.8% on rf and 12.6% on pme, because every SIMD group flushes its own partial tile.
-
-Whole step:
+Whole step at batch 4 (my arithmetic from the model before the scan; the screen supersedes it):
 
 - rf: -81 us of findBlocks against +15 us of computeNonbonded (149.6 us x 9.8%), net about -66 us, 13-14%;
-- pme: -53 to -76 against +15, net 6-10%;
+- pme: measured parts give -58 us of findBlocks per step (rebuild -60, early exit +1.8) and +3.4 us of computeNonbonded, about 9% of a 600 us step;
 - amber20-dhfr: about 4% (-37 us against +15);
 - gbsa: the 77-candidate first row splits over 3 chunks, so about -60% per rebuild, which at 8% rebuilds is about 10 us of 292 (3%);
 - apoa1 and up: none, and HIP agrees (batch 1 at 2000 blocks and up).
@@ -129,8 +154,9 @@ Whole step:
 **Kill test (K1).** Zero code: `NB_TIME` per-phase times of findBlocks on rf, pme and apoa1pme at `NB_BATCH` 1, 2, 4, and `NB_WRAP` 0/1 at batch 1. nblist's job2 already queues most of this.
 
 - Predictions: rf and pme batch 4 at -35 to -55% per rebuild, batch 2 at -25 to -36%, wrap at batch 1 within 10% of base on rf and pme, apoa1pme batch 4 within 10%.
-- Kill batch 4 for a size class if the per-rebuild saving times 0.5 is less than 1.5x the computeNonbonded growth, or if the ns/day screen regresses on any of rf, pme, dhfr, gbsa.
-- If apoa1pme batch 4 gains more than 20%, my tail-versus-sum split is wrong, and the rule should be block count, as HIP does.
+- Result on pme (23:12Z): batch 4 -43% (inside), batch 2 -24% (just outside), wrap at batch 1 -13% (outside; the model's per-candidate weight is too high). apoa1pme batch 4: -7% or -18% depending on the reference row. rf is not in the scan.
+- Kill batch 4 for a size class if the per-rebuild saving times 0.5 is less than 1.5x the computeNonbonded growth, or if the ns/day screen regresses on any of rf, pme, dhfr, gbsa. pme passes the first test (60 us against 3.4).
+- If apoa1pme batch 4 gains more than 20%, my tail-versus-sum split is wrong, and the rule should be block count, as HIP does. It didn't cross 20%, but the model predicts no gain there, so even 7% is a partial miss, and the apoa1 numbers are upper bounds. The isolated `NB_TIME_WAIT` run decides.
 
 ## Design 2: a cheap candidate (prefetch, unrolled mask, flush-time singles)
 
@@ -146,12 +172,10 @@ Whole step:
 - (b) Unrolled mask, new. In the singlePeriodicCopy path (every benchmark row takes it: dhfr's 0.5 x box minus the largest block half-size is 1.68 nm, above 0.97), replace `fib:526-532` with the 32-step unrolled loop over `posBuffer[j]`, same fma form and same `collectInteractions`. Then add `interacts &= atomFlags`. The mask keeps the result bit-identical to the ffs loop, because the ffs loop only ever tests set bits. A variant switches on the warp-uniform `popcount(atomFlags) > 8`. That keeps the ffs loop for sparse candidates if the unrolled form costs more issue slots on apoa1, where k averages 18.8 and 32 x 5 instructions is about break-even with 18.8 x 11.
 - (c) Flush-time singles, `NB_PAIRBUF` (built). This is CUDA's shape: keep each buffered atom's interaction mask, decide single pairs at flush with simd_prefix_exclusive_sum, and reserve with one atomicAdd per flush. Atomics on `interactionCount[1]` fall from 104k to about 7k per apoa1rf rebuild. The 4 ballots and 8 popcounts per candidate at `fib:546-553` move to flush time.
 
-**Expected gain (inference, model).** Candidate cost falls from about 900 to about 400 cycles with (a), the mask from 60 x k to about 200 flat with (b), and the single atomic from 600 to about 50 with (c).
+**Measured (`NB_TIME`, batch 1).** (a) prefetch: pme +2.4%, apoa1pme +2.1%, apoa1ljpme +2.0% per rebuild, against a predicted -15 to -30%. (c) pair buffer 128: pme -7.4%, apoa1pme +6.5%, apoa1ljpme -4.3%. Both are dead. The model's 900 cycles per candidate, mostly two dependent load levels, was wrong: other SIMD groups already hide those loads. The mask (b) is the piece left, and gbsa, where k is near 32, is where it should show first. The prediction below for (b) stands until K3 runs.
 
-- rf's longest row: 303k to 84k cycles (-72%).
-- At dhfr size, all three together: -50 to -70% per rebuild before batching. Stacked on design 1 the kernel becomes sum-bound at about 60-90 us per rebuild on rf.
-- gbsa: (b) alone takes about two thirds off each candidate, because k is near 32.
-- apoa1: -30 to -50% if the kernel is latency-sum-bound (my R model); -5 to -15% if it is issue-bound. My estimated issue floor is 170-290 us per rebuild, at 200-250 fixed instructions per candidate plus the mask.
+- (b) takes the mask from 60 x k cycles to about 200 flat (inference). gbsa: about two thirds off each candidate.
+- apoa1: the kernel is sum-bound, so (b) gains in proportion to the mask's share of total work, which the emulator can't price after the (a) miss.
 
 **Apple8 (M2) fallback.** Same code. Everything is Apple7 or lower. On the M2's 10 cores the kernel is sum-bound at every size, so expect the apoa1-like result there.
 
@@ -169,11 +193,14 @@ Whole step:
   - Predictions: prefetch -15 to -30% on rf and pme (the model's longest row: -21%), pair buffer -5 to -15%.
   - If prefetch gains under 10% on apoa1pme while gaining over 15% on pme, apoa1 is issue-bound. Then apoa1's lever is instruction count, which means (b) with the popcount switch plus (c).
   - Kill (c) if it gains under 5% on apoa1pme, where the one-address atomic is busiest.
+  - Result (job2, 23:12Z): prefetch lost 2-3% everywhere and the pair buffer lost 6% on apoa1pme. Both killed.
 - **K3:** unrolled mask at thresholds 0 (always), 8 and 33 (never), on the same tests, with the tile sets compared.
   - Predictions: gbsa -40% or more, rf and pme -20 to -40% (model: -37% on the longest row), apoa1pme within 5%.
   - Kill if rf and pme gain under 10%.
 
-## Design 3: hybrid ownership, if the tile cost of batch 4 matters
+## Design 3: hybrid ownership (dead)
+
+Killed by the 23:12Z scan. At batch 4 dhfr size sits on the sum term, and wrap at batch 4 measured 164.1 us against the triangle's 160.6. Hybrid at batch 2 would sit near wrap at batch 2 (180.1 measured), above batch 4, to save about 430 tiles (about 1.5 us of computeNonbonded at 3.6 ns per tile). The original design follows for the record.
 
 **Mechanism.** Rows below K scan a wrap window of K/2 blocks inside [0, K), then the whole tail [K, NB). Rows at K and above scan the triangle.
 
@@ -216,21 +243,17 @@ Whole step:
 
 **Where it runs.** Move it into findBlockBounds and gate the chain with it (study design 2, unchanged). It saves the block sort on non-rebuild steps and is the control plane the dual list needs.
 
-**Padding decision rule (inference, emulator plus replay).** Going from 0.08 to 0.14 (T=2 to T=3 on the explicit tests):
+**Padding decision rule (emulator plus replay plus `NB_TIME`).** My first rule priced the extra tiles as computeNonbonded growth (+15.5% tiles as +15.5% N) and said every test loses once C halves. The scan refutes the premise. Measured at batch 1 (`NB_TIME`, pad 0.08 / 0.12 / 0.16):
 
-- Costs: +15.3-15.9% tiles, +8.3-8.9% single pairs, and +8.5-10% per-rebuild work.
-- Per step: findBlocks falls by about C x (0.5 - 1.095 x r_0.14) and computeNonbonded grows by about 0.155 x N.
-- It pays when C > about 1.15 N.
+- rebuild rate 0.50 / 0.36 / 0.30 on pme, 0.50 / 0.36 / 0.29 on apoa1pme, 0.50 / 0.35 / 0.29 on apoa1ljpme;
+- findBlocks per rebuild +3 to 5% and +7 to 9%;
+- computeNonbonded: pme 124.4 / 120.1 / 117.4 us, apoa1pme 423.1 / 397.2 / 388.5, apoa1ljpme 446.6 / 473.3 / 507.4.
 
-At today's costs:
+Tiles do grow (+10% and +21%), but in-range single pairs fall 36% and 61%, and on PME a single costs more than the slot that replaces it (see "computeNonbonded cost of list shape"). So per step: findBlocks falls by C x (0.5 - r x w), with w the per-rebuild growth, and computeNonbonded moves by the list-shape model's delta, negative on PME at MAX_BITS 4 and positive on LJPME.
 
-- rf: -44 + 23 = -21 us/step (4%);
-- pme: -26 + 19 = -7 (1%);
-- apoa1rf: -94 + 74 = -20 (2%);
-- apoa1pme: -48 + 64 = +16 (loss);
-- amber20-dhfr at 0.14: -24 + 19 = -5.
+At batch 4 on pme (model, findBlocks per rebuild scaled from batch 1 to about 168 and 177 us): computeNonbonded 127.8 measured, 122.9 at 0.12, 121.3 at 0.16, for about -23 and -32 us per step against batch 4 at 0.08, most of it from the rebuild rate. At MAX_BITS 0 the nonbonded side turns into a cost (109.9 / 114.8 / 120.2 predicted), because every extra pair goes into tiles, and the net shrinks to about -10 us.
 
-After designs 1 and 2 halve C or better, every test loses. **Kill test (K5):** run it last, after K1-K3 land. Screen `NB_PAD=140` against 80 on rf, pme, apoa1rf, apoa1pme and dhfr, and ship only if ns/day improves on all five. I expect it to fail.
+**Kill test (K5):** whole-step screen at batch 4 of `NB_PAD` 120 and 160 against 80 on rf, pme and dhfr, then with MAX_BITS 0, plus md100 and an M2 memory look. Ship a padding only where ns/day improves; I now expect pme-size PME tests to pass at MAX_BITS 4 and apoa1ljpme to lose on computeNonbonded.
 
 **Numbers for the study's dual list (design 1 there).**
 
@@ -239,10 +262,10 @@ After designs 1 and 2 halve C or better, every test loses. **Kill test (K5):** r
 
 ## Rejected
 
-1. **Wrap ownership (0669fddab) as the tail fix at batch 1.** Emulator: the longest row grows on both sizes. On apoa1pme it grows from 131 to 279 candidates, because the large blocks sorted last now own half their big neighbor shells. p99 improves on dhfr (109 to 91), but the kernel waits for the max. Batch 4 fixes the tail. Keep 0669fddab only if K1 shows it gaining on its own.
+1. **Wrap ownership (0669fddab).** On apoa1pme the longest row grows from 131 to 279 candidates, because the large blocks sorted last now own half their big neighbor shells; measured 34% slower per rebuild. On pme it is 13% faster at batch 1, but batch 4 is faster still, and wrap on top of batch 4 adds nothing (164.1 against 160.6 us) while costing 4% computeNonbonded.
 2. **Loading the block's own first atom into padding lanes** (`fib:48`): 0.7% fewer candidates on dhfr, 0 tiles.
 3. **Padding below 0.08:** T=1 cliff, 3-6% margin at rc 0.9.
-4. **Padding 0.14 now:** see the decision rule. It loses on apoa1pme today and on everything after designs 1 and 2.
+4. **Padding above 0.08 on LJPME:** computeNonbonded rises 6% at 0.12 and 14% at 0.16 on apoa1ljpme, because its extra tiles cost full ALU steps and its singles are cheap. The rebuild saving may still cover it; the whole-step screen decides.
 5. **Lookahead rebuild overlapped with the current step.**
    - Keeping T=2 needs the list to cover a 2-step lag: pad above 2 x D(2)max = 0.136 nm at rc 0.9, +16-21% tiles.
    - It needs the concurrent encoder, which the lead stopped at 21:30Z (`lanes/dispatch.md:31`).
@@ -257,11 +280,13 @@ After designs 1 and 2 halve C or better, every test loses. **Kill test (K5):** r
 
 ## Order of work (for the nblist lane, which owns the code)
 
-K1 and K2 run on knobs that exist, and job2 already covers most of K1. Then comes K3 (one dev commit) and K4 (one small commit). Ship design 1 with the rows-per-core rule, (a) and (c) if K2 passes, and (b) if K3 passes. Design 3 and K5 come last, and only if their preconditions hold.
+K1 and K2 ran in job2 (23:12Z): design 1 passes on pme, (a) and (c) are dead, design 3 is dead. K3 (`NB_UNROLL`) and K4 (`NB_STAGEBOX`) are queued in job3, with `NB_TIME_WAIT` isolating each phase. Ship design 1 with the rows-per-core rule (6d72c3ae9), (b) if K3 passes, MAX_BITS by body cost after screen-mb, and a padding only after K5.
 
 ## Sources
 
 - Code (verified): `platforms/metal/src/kernels/findInteractingBlocks.metal:21` (half BoundingBox), `:48`, `:161-202`, `:306`, `:337`, `:385`, `:430-449`, `:473-495`, `:526-557`, `:572-599`. `MetalNonbondedUtilities.cpp:70`, `:263-264`, `:417-420`. `MetalContext.cpp:176` (AMD_RDNA, so 32-wide), `:594-611`. `common.metal:19`. `platforms/hip/src/HipNonbondedUtilities.cpp:273`. `platforms/cuda/src/kernels/findInteractingBlocks.cu:188-216`, `:456-476`, `:495`, `:521`.
 - Lab data (verified): `experiments/009-neighbour-list/README.md` (captures, validation counts, threadgroup memory finding). `research-data/rebuild-rate/disp-run1.txt`. `research-data/findblocks-emu/emu-cap.txt`, `emu-dhfr.txt`, `emu2-cap.txt`, `emu2-dhfr.txt`.
-- Lane logs (reported): `lanes/profiler.md:122-130`, `:148`, `:291`, `:312`. `lanes/nblist.md:13-21`, `:55`. `lanes/dispatch.md:31`.
+- Lane logs (reported): `lanes/profiler.md:122-130`, `:148`, `:291`, `:312`. `lanes/nblist.md:13-21`, `:55`, `:84-111` (job2 `NB_TIME` knob scan; raw per-phase records `job2-times.txt` in the nblist lane's Studio dir). `lanes/dispatch.md:31`.
+- Code at 163f2838e (verified): `MetalNonbondedUtilities.cpp:50-75` (`NB_TIME`), `:96-97` (2400 x 64 computeNonbonded launch), `nonbonded.metal:239-253`, `:322-344`, `:434-441`, `:451-495`; `common.metal:57-67` (64-bit atomicAdd as one or two 32-bit atomics).
+- Scripts (research-data/findblocks-emu/): `emu3.py` and `emu3-out.txt` (list-shape counts), `fit.py` and `fit2.py` (cost fit, leave-one-out, predictions), `age.py`, `lsort.py`, `means.py` (read the job2 records).
 - Pall, Zhmurov, Bauer, Abraham, Lundborg, Gray, Hess, Lindahl, "Heterogeneous parallelization and acceleration of molecular dynamics simulations in GROMACS", J. Chem. Phys. 153, 134110 (2020), arXiv:2006.09167, sections V.B, V.D, V.E, V.F (verified in the PDF).

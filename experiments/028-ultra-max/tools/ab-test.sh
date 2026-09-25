@@ -61,5 +61,8 @@ SPEC
     [ -z "$build_note" ] && [ -e "$AB_OUT/.build-seen" ] \
         && echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) round $AB_ROUND $AB_TEST $label BUILD RUNNING during the run" >> "$AB_OUT/loads.txt"
     rm -f "$AB_OUT/.build-seen"
-    [ -s "$result" ] || echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) NO RESULT round $AB_ROUND $AB_TEST $label" | tee -a "$AB_OUT/loads.txt"
+    # benchmark.py writes the system block to --outfile before it runs, so a run that fails later
+    # leaves a non-empty file with an empty benchmarks list.
+    "$python" -c 'import json, sys; sys.exit(0 if json.load(open(sys.argv[1]))["benchmarks"] else 1)' "$result" 2>/dev/null \
+        || echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) NO RESULT round $AB_ROUND $AB_TEST $label" | tee -a "$AB_OUT/loads.txt"
 done

@@ -254,3 +254,24 @@ research checked 71a602b43 and 17929e631. Skipping the sort is safe: the kernels
 ### 22:55Z profiler: raising the 720-group grid cap moves nothing
 
 profiler's tbpc24 probe raised executeKernel's cap from 12 to 24 thread blocks per core (720 to 1440 groups). The ratios against the same build at 12, 2 x 15 s, were pme 0.997 and apoa1pme 1.010 (gbsa 1.005, rf 0.993). Correction from profiler: on pme the spread runs 369 x 64, under the cap, so tbpc24 never touched it there. Only apoa1pme and larger run at the 720 x 64 cap, and apoa1pme moved +1.0% (rounds 1.005 and 1.016). So the cap doesn't bound gridSpreadCharge end to end on apoa1pme. A faster spread has to change the work per thread; more threads alone don't help. Their per-kernel census of tbpc24 (ticket 91086) will show whether the spread kernel itself moved.
+
+### 23:31Z Tickets pruned (Studio queue 61 deep)
+
+- Ticket 17 (cand3 part 1) is stopped by its pid and folded into ticket 8. Ticket 8 was splitvar, the lab-tree split probe. splitvar.sh is rewritten in place to run cand3screen.sh part 1: cand3 5bfc934b6 against cand2, pme, apoa1pme, apoa1ljpme and amber20-dhfr single, 2 x 15 s. That asks the probe's question (does the split pass pay?) of the production code. The kill rule's skip-interpolation arms go with it.
+- cand3screen.sh is timing only now. The forces check moved out, since RULES keeps correctness and timing in separate holds, and cand3's full gate runs forces.py anyway. Parts 2 (cellulose, stmv) and 3 (mixed) keep tickets 18 and 19. I stop them if part 1 shows no 3% gain.
+- lab2 is now bf09b5e99 (lab/pmepass3): cand3 plus PME_LAB_DISP_GRIDS and PME_LAB_SPLIT_BONDED (a splitPass() between bonded and nonbonded, so bonded may run beside the list build and the PME pass). lab2screen.sh (ticket 28, timing only, about 14 minutes): apoa1ljpme with cand3, dispg and bsplit, then pme and apoa1pme with cand3 and bsplit. It replaces splitvar's pmefb arm.
+- The pair's credit tickets 3, 4 and 5 (base against cand2 on dhfr and cellulose, on stmv, and on the PME tests mixed) are unchanged. None has a 71a602b43-alone arm, because no such tree is built on the M3 Ultra.
+
+### 23:34Z cand2 full gate running; part 1's FAIL is a parser bug
+
+infra: the gate's "FAIL part 1: ctest finished no of 28" came from gate-ctest.sh. ctest 4.4.3 prints "100% tests passed out of 28" when nothing fails, and the parser only knew the ", N tests failed out of" form. ctest-1.txt shows all 28 passed. The parser was fixed at 23:32:49Z, before parts 3 and 4. Part 2 may show the same false FAIL. infra will recompute the verdict from the logs.
+
+### 23:37Z M2 work goes through infra from here
+
+RULES loop 2: infra is the M2's only owner. From now on, every M2 build, check, screen or profile I need is a request to infra, naming the commit, tests, precisions and the question. I have no process running on the M2; the last one, m2passon1, finished at 22:37Z. The trees in ~/lab/ultra-pme (base, cand, lab, passon) stay as they are until infra says otherwise.
+
+### 23:45Z cand2 (71a602b43 + 17929e631) full gate: PASS
+
+gate-20260924T232518Z, one correctness hold. The log's last line says FAIL, but only because of the old ctest parser (see 23:34Z), and infra's corrected verdict is PASS. I checked the logs myself. ctest ran 110 tests in 4 parts, and each part's last line is "100% tests passed" (28, 28, 27, 27). forces-verdict.txt has 12 of 12 rows ok (apoa1pme and apoa1ljpme rel|dF| 7.747e-05 in single and mixed). The pair adds 33 lines and removes 18 in 4 files: 71a602b43 adds 4 lines, and 17929e631 adds 29 and removes 18. infra is taking it into ultra/integrated.
+
+The repeatability check the lead asked for is running now as a correctness hold (repeat2.sh, lease pid 31753). It runs forces.py three times in fresh processes with the Apple9 default (float spread), then once with DeterministicForces=true on the same build, and tabulates rel|dF| and max|dF| per row.

@@ -12,9 +12,12 @@
 # cc1plus) runs says BUILD RUNNING in the owner line. --correctness marks work whose result doesn't
 # depend on timing (forces, ctest, drift); gate.sh uses it. Never use it for a timing or a profile.
 # Correctness holds share the GPU: when the ticket at the head is --correctness and the lease is a
-# correctness hold with fewer than 3 members, it joins that hold. A timing ticket waits for an empty
+# correctness hold with fewer than 6 members, it joins that hold. A timing ticket waits for an empty
 # lease, and nothing behind it joins, so timings stay exclusive and FIFO order holds. The lease is
 # released when its last member ends; /tmp/openmm-lease/members lists them.
+# During a correctness burst (/tmp/openmm-burst exists; the lead or infra creates and removes it), any
+# queued --correctness ticket joins a correctness hold with room, even behind a timing ticket. Timing
+# tickets then wait until the burst file is gone and the hold empties.
 # Lead and infra only, never lanes: LEASE_TICKET_US=<16 digits> dates the ticket instead of the clock,
 # so a restarted job keeps its original place (and window.sh goes next), and --cap SECONDS replaces the
 # 20 minute cap (window.sh's hold).
@@ -29,7 +32,8 @@ LEASE=/tmp/openmm-lease
 QUEUE=/tmp/openmm-lease-queue
 CAP_SECONDS=1200
 HAND_LEASE_MAX_SECONDS=$((CAP_SECONDS + 60))
-MAX_MEMBERS=3
+MAX_MEMBERS=6
+BURST=/tmp/openmm-burst
 BUILDS='clang|clang\+\+|ninja|cc1plus'
 TICKET='[0-9]+-[A-Za-z0-9_.-]+-[0-9]+'
 IDLE_LOG=/tmp/openmm-lease-idle.log
@@ -163,6 +167,7 @@ if [ "${1:-}" = --status ]; then
     else
         echo "holder: none"
     fi
+    [ -e "$BURST" ] && echo "correctness burst: queued correctness tickets join a correctness hold with room"
     echo "build processes: $(pgrep -x "$BUILDS" | wc -l | tr -d ' ')"
     echo "queue, oldest first:"
     now=$(now_us)
@@ -238,6 +243,10 @@ while :; do
         step=1
         pause=0.1
     else
+        if [ $timing = 0 ] && [ -e "$BURST" ] && can_join && { owner_line > "$LEASE/members/$$"; } 2>/dev/null; then
+            role=member
+            break
+        fi
         step=10
         pause=1
     fi

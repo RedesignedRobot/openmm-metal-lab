@@ -110,3 +110,107 @@ Worktree /Users/amir/code/mini/ultra-dispatch, branch ultra/dispatch from 6df2b8
 - 23:27Z. Studio: t10 built at a350c48df (23:23Z). Queued gate-kstep.sh (md100 on t10 in one --correctness hold, then the full gate.sh on t10, not --quick) and screen7 (ab.sh, poll t2 against waitfree+k t10, single and mixed, gbsa, rf, pme and amber20-dhfr, 2 x 15 s, estimate 10 min). About 58 tickets ahead. No drift.py or constraints.py: nothing in the series touches constraints or integration.
 - M2: merged the two waiting jobs into one (kcap/m2kboth.sh) to save an M2 session. Once infra's 7-test m2check (cand, cand2, cand3) ends, it builds kcap (a350c48df), runs TestMetalCommandBatching on kcand (9828f1832, no in-flight cap) and kcap under the M2 lease with full output in <tree>/test.out, then one m2check of poll, kcand and kcap on gbsa, rf and pme. kcand against kcap in one session isolates the cap's effect on time and footprint.
 - 23:28Z. M2 cleanup: deleted the kstep tree (screen done, results in checks/20260924T225209Z-17fc67494) and dispatch-prof's build, prefix, venv and src; its profile records stay in dispatch-prof/prof (28 MB).
+- 23:34Z. Lead messages, received together. The regression bar is 1% (RULES line 11), not 0.5%. No wall-clock caps. The M2 has one owner, infra, with one queue, so I send every M2 build, check or profile as a request. Stop processes only by recorded pid. Get the onebuf M2 profile before any more k-step timing. Add a step(1) loop with 1 ms of host work, which k-step must not slow. Waitfree admission should follow nblist's maxBits. atomics is taking the force buffer out of hazard tracking. Design 3 is back as a paper plan only.
+- onebuf is a dead end on the M2: gbsa 1.005 / 1.008, rf 1.002 / 1.001, pme 0.997 / 1.002 over base, against a predicted 2.3 to 2.9% (22:44Z entry). Dropping the X to Y boundary didn't remove its 20 to 40 us, so either the per-buffer cost model is wrong or the cost moved to the next boundary. The M2 profile of base and onebuf decides between them.
+- M2: stopped my m2kboth.sh (pid 15010) before it built anything and removed its script. Sent infra three requests. A: gpuprof buffers of prof/base 188840b78 and prof/onebuf 21dd28601 (new branch, onebuf cfc9547f3 plus the same hooks, cherry-picked cleanly) on rf and gbsa single. B: TestMetalCommandBatching on kcand and kcap. C, held until A reads: m2check poll, kcand, kcap on gbsa, rf and pme, and hostwork.py poll vs kcap.
+- Studio: stopped gate-kstep.sh (2031) so the full gate wouldn't queue at the back only after md100. md100 keeps its ticket (2090), and the t10 full gate has its own (gate.sh, 61357). Queued hostwork1 (75486): hostwork.py, 2000 x (step(1) plus 1 ms of busy host work) and a getState, on poll t2 and waitfree+k t10, single and mixed, gbsa, rf, pme and amber20-dhfr, 3 rounds in one timing hold, about 9 min. Kept screen6, prof1, t8-test and the t2 gate. screen7 and hostwork1 are about 6 h out, and I'll stop them if the M2 profile says the gap moves.
+- Admission already follows maxBits. a08243d4b moved the MAX_BITS_FOR_PAIRS choice out of createKernelsForGroups() into getMaxBitsForPairs(), which sets both the kernel define and the admission bound. So nblist's MAX_BITS 0 edit belongs there, and it will conflict with that block at merge. With maxBits 0, rf and pme need about 36 MB of tiles, still over the M2's 22 MB budget.
+- For atomics' untracked force buffer. Apple's docs say an intrapass barrier orders only commands in the same pass, while a fence orders passes on one queue, including passes in other command buffers, as long as the producer is committed first. Every variant (base, poll, onebuf, waitfree) commits in computeInteractions() between nonbonded, the last force writer, and reduceForces, the first reader. copyTo() is a blit pass. k-step puts up to 8 steps in one pass, so the next step's clear follows this step's readers inside the pass, and the idle commit can end a pass between any two kernels. Offered a queue-owned MTLFence (each new encoder waits on it, each endEncoding updates it) if atomics needs one. The count wait reads the pinned count buffer after an encoded event signal, and download() finishes the queue first, so neither relies on tracking.
+- Tail commit stays a thread rather than a completion handler, as the lead suggested checking. The handler would need the queue lock. The host holds that lock while encoding and during the in-flight cap's wait. Blocking on it from Metal's callback queue risks deadlock, and skipping loses the commit when step(n) returns right after.
+- To do: findBlocks' early exit launches every threadgroup with full threadgroup memory on non-rebuild steps. That costs 27 us on apoa1 and 6 us on pme, about 1.5% of an apoa1pme step (nblist's scan). It's a target for an indirect or zero-threadgroup skip.
+
+### Design 3 paper plan (23:58Z). Nothing is built.
+
+The dispatch inventory comes from a read-only research pass over the profiler's base 6df2b8bcb counters records (ultra-profiler/p1, 3,492 to 11,891 steps per test) and the source.
+- Every test runs the same shape each step: COM (2 dispatches), one autoclear, the neighbor-list chain (6 dispatches plus a blit with the short-list sort, or 10 with the bucket sort), the test's own force kernels, then bonded, then nonbonded, then the integrator (5 or 7).
+- Rebuild and non-rebuild steps issue the same dispatches.
+- Mean dispatches per step: gbsa 20.25, rf 18.25, apoa1rf 22.25, pme and dhfr 27.25, apoa1pme 31.26, cellulose 31.30.
+
+Accumulate-only writers of longForceBuffer (atomic adds only, no plain access to it in the kernel):
+- computeBondedForces (BondedUtilities.cpp:161-163).
+- computeNonbonded (nonbonded.metal:221-231, 435-442, 491-496).
+- computeGBSAForce1 (gbsaObc.cc:518-527). It is also accumulate-only on bornForce.
+- computeBornSum is accumulate-only on bornSum.
+
+Not accumulate-only:
+- gridInterpolateForce does a plain `+=` on longForceBuffer (pme.cc:351-353). Its atomic branch (pme.cc:347-349) compiles only with USE_PME_STREAM, and DisablePmeStream defaults to true (MetalPlatform.cpp:137).
+- energyBuffer has no accumulate class at all. computeBondedForces, computeGBSAForce1 and reduceBornForce each do a plain `energyBuffer[GLOBAL_ID] +=` (BondedUtilities.cpp:123, gbsaObc.cc:744, gbsaObcReductions.cc:57), even on force-only steps.
+- The only reader of longForceBuffer in the step is integrateLangevinMiddlePart1.
+
+True edges:
+- The clear goes before every writer.
+- The neighbor-list chain goes before nonbonded and the GBSA pair kernels.
+- The Born chain: computeBornSum, reduceBornSum, computeGBSAForce1, reduceBornForce, then computeNonbonded.
+- The PME chain: atom sort, spread, finishSpread, FFT, convolution, FFT, then interpolate.
+- All force writers go before Part1, and the integrator chain stays in order.
+- Each step's readers go before the next step's clear.
+
+False edges that serial order enforces today:
+- Bonded against everything between the clear and Part1: the neighbor-list chain and nonbonded in every test, the GBSA chain in gbsa, the PME chain in the PME tests.
+- The neighbor-list chain against the PME chain.
+- In gbsa, bonded stays tied to computeGBSAForce1 and reduceBornForce by the energyBuffer writes, so gbsa gains nothing from any version of this.
+
+Settle first: does the serial encoder overlap dispatches that share no tracked writable buffer? Apple's header says serial dispatches "are executed in dispatched order" (MTLCommandBuffer.h:228-229). Barriers on a serial encoder are "allowed, but ignored" (MTLComputeCommandEncoder.h:317, 324). The evidence points both ways:
+- Profiler block 1 found one encoder per dispatch 4 to 6% faster on apoa1pme, cellulose and stmv, which says passes overlap under tracking and the serial encoder doesn't.
+- atomics' words gain shows up in unprofiled windows too, which would say the opposite, unless words' kernels are simply cheaper there.
+
+Experiment 0 decides it. It's a standalone C++ microbenchmark on metal-cpp, no OpenMM, about 150 lines, in one timing hold under 2 minutes on each chip (the M2 through infra).
+- Kernel: one threadgroup of 32 threads, an FMA chain of about 200 us, then one relaxed atomic add into its buffer. Two copies fit side by side on 10 or 60 cores.
+- Each case is one command buffer. Time is GPUEndTime minus GPUStartTime, median of 50. Two kernels under 1.2x one kernel count as overlap; over 1.8x count as serial.
+- Cases:
+  - S1: serial encoder, A writes X, B writes Y.
+  - S2: A and B write the same tracked X.
+  - S3: B writes X2, where X and X2 are two newBuffer(pointer, length, options, deallocator) wrappers of one page-aligned allocation.
+  - S4: X untracked.
+  - S5: S1 with X also bound to B at an index B's function doesn't declare.
+  - P1 to P3: S1 to S3 with A and B in separate encoders of one command buffer.
+  - C1: concurrent encoder, A and B both write X.
+  - C2: C1 with memoryBarrier(resources: X) between them.
+- Ordering checks, not timed. A spins, then writes a sentinel through X2. A 1-thread join dispatch binds X and X2. D reads through X and must see the sentinel 100 times out of 100. Repeat with S4 plus a barrier, to see whether the barrier really is ignored.
+
+Designs by outcome:
+- D3a, if S1 and S3 overlap and the join orders: aliasing inside the serial encoder.
+  - Allocate longForceBuffer from page-aligned shared memory and wrap it twice: F, which is today's buffer, and Fb. computeBondedForces binds Fb, and everything else binds F.
+  - Tracking then lets bonded run beside the neighbor-list chain, the PME chain and nonbonded, and keeps every true edge. The clear gets Fb as a size-0 autoclear entry, so bonded waits for it.
+  - A 1-thread join kernel binds F and Fb after nonbonded, so Part1 waits for both writers.
+  - No barriers, no fences, no concurrent encoder. Tracking also keeps working across k-step's and the idle committer's arbitrary buffer splits.
+  - Cost is one dependent dispatch per step, about 1.9 us (lab 008).
+- D3b, if S1 is serial but P1 and P3 overlap: the same aliasing, with bonded in its own compute encoder. That's 2 more encoder boundaries per step, priced by P against S.
+- D3c, if only C1 overlaps: the concurrent encoder as the design doc wrote it, with the barriers below.
+
+Admission for D3a and D3b:
+- Bonded on Fb races any plain access to F between the clear and the join. So interpolate must switch to its atomic branch through a Metal-only define that doesn't also move PME to its own queue.
+- Aliasing applies only when every force in the System is on a list whose kernels were read as accumulate-only: the bonded forces, NonbondedForce, GBSAOBCForce and CMMotionRemover. Anything else keeps today's single buffer.
+- energyBuffer stays one tracked buffer, so on energy steps tracking orders bonded as it does today.
+- Admit per device, only where bonded is a large share of the step. On 10 cores, nonbonded alone fills the M2.
+
+Barriers for D3c, per step on the concurrent encoder:
+- gbsa: 18 of 20 dispatches (all but bonded and one COM dispatch sit on a chain).
+- rf: 16 of 18.
+- apoa1rf: 20 of 22.
+- pme and dhfr: about 22 of 27.
+- apoa1pme and cellulose: about 26 of 31.
+
+The gbsa cost is measured, not modeled. auto lost 8.1% on gbsa with barriers on 74% of dispatches (screen2, 21:10Z), about 23 us over 15 barriers, or 1.6 us each.
+- gbsa: D3c would put barriers on 18 dispatches, about 29 us or 10% of the step, to hide at most bonded's 26 us. So gbsa stays serial under every variant.
+- rf: 16 barriers cost about 26 us, against bonded's 27 us.
+- D3a costs gbsa nothing, since gbsa isn't admitted.
+
+Expected gain. This is bounded by the bonded span the overlap hides, and bonded competes for the same cores.
+- Base spans from probe 1a, counters mode: apoa1rf 176 us of 818 (21%), apoa1pme 253 of 1242 (20%), cellulose 956 of 4476 (21%).
+- With chunked bonded d8ab45b2b at atomics' estimated 5x less: about 35, 50 and 190 us, roughly 4% each. D3a's ceiling after chunking is 3 to 4% on those three and 0 to 1% on rf, pme and dhfr.
+- D3c after chunking: cellulose 190 minus 26 x 1.6 is about 150 us, or 3% at best. apoa1rf and apoa1pme come out near 0. So D3c is dead once chunking lands.
+
+Build gate:
+- The lead's gate: census 1b (ticket 87308) shows bonded with d8ab45b2b at 5% or more of the step on apoa1rf, apoa1pme or cellulose.
+- I'd add that experiment 0 shows S3 or P3 overlapping.
+
+Correctness plan once built:
+- A bitwise force diff against serial Metal on rf, gbsa and apoa1rf. Integer adds commute, so these must match exactly. Add apoa1pme and cellulose for the atomic interpolate.
+- The bitwise run in TestMetalCommandBatching.
+- Forces against Reference after 100 MD steps.
+- The full gate.
+
+Size: D3a is about 60 lines (aliased allocation, the Fb binding, the join kernel, admission) plus the interpolate define.
+
+Relation to atomics' direct fix, an untracked force buffer plus a fence: it depends on the same experiment 0 (case S4). An untracked F needs a fence at every pass boundary between the clear, the writers and the readers. It also needs the reader-to-next-clear edge. Under k-step, that edge falls inside one pass, where only a barrier works, and a serial encoder ignores barriers. Aliasing keeps tracking and needs neither.

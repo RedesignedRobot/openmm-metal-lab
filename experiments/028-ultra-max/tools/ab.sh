@@ -17,8 +17,8 @@
 # benchmark.py times with the host clock: datetime.now() around step(), plus a getState() sync.
 # The load averages, the Hyperscale VM's CPU and the top 5 CPU processes before every run go to
 # <outdir>/loads.txt; each configuration's openmm, revision and build go to <outdir>/configs.txt.
-# <outdir> must be new or empty. <tests> is a comma list, or "all" for the 9 benchmark.py tests. A run that writes no result
-# is logged as NO RESULT; a run over <seconds>+900 s is killed.
+# <outdir> must be new or empty. <tests> is a comma list, or "all" for the 9 benchmark.py tests. A run whose result file is
+# missing or has an empty benchmarks list is logged as NO RESULT; a run over <seconds>+900 s is killed.
 #   /bin/sh -c 'nohup /tmp/openmm-metal-bench/ultra-tools/ab.sh /tmp/openmm-metal-bench/ultra-<lane>/ab1 2 15 gbsa,rf,pme base=/tmp/openmm-metal-bench/ultra-base/venv/bin/python:Metal:single mine=/tmp/openmm-metal-bench/ultra-<lane>/venv/bin/python:Metal:single > /tmp/openmm-metal-bench/ultra-<lane>/ab1.out 2>&1 < /dev/null &'
 # usage: ab.sh [--rerun-builds] <outdir> <rounds> <seconds> <tests|all> <configuration>...
 set -eu
