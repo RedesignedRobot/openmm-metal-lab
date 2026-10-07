@@ -24,18 +24,18 @@ Frozen ultra-int028, commit 7484d7bef. Clock: xctrace sampled GPU shader spans, 
 
 | Test | Precision | VkFFT_main (6 spans) | reciprocalConvolution | computeBondedForces | integrateLangevinMiddleFused | Raw trace / reduction |
 |---|---|---:|---:|---:|---:|---|
-| pme | single | 33.89 | 3.57 | 68.47 | 15.49 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single-steady.json) |
-| pme | mixed | 33.80 | 3.35 | 69.39 | 53.53 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed-steady.json) |
-| apoa1pme | single | 57.98 | 6.42 | 122.64 | 15.34 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-steady.json) |
-| apoa1pme | mixed | 63.19 | 6.35 | 120.97 | 82.31 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed-steady.json) |
-| amber20-dhfr | single | 31.30 | 3.12 | 75.20 | 15.23 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single-steady.json) |
-| amber20-dhfr | mixed | 25.92 | 2.56 | 66.44 | 52.96 | [trace](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed.trace), [CSV](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed-steady.csv), [window](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed-steady.json) |
+| pme | single | 33.89 | 3.57 | 68.47 | 15.49 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-single-steady.json`) |
+| pme | mixed | 33.80 | 3.35 | 69.39 | 53.53 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/pme-mixed-steady.json`) |
+| apoa1pme | single | 57.98 | 6.42 | 122.64 | 15.34 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-steady.json`) |
+| apoa1pme | mixed | 63.19 | 6.35 | 120.97 | 82.31 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-mixed-steady.json`) |
+| amber20-dhfr | single | 31.30 | 3.12 | 75.20 | 15.23 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-single-steady.json`) |
+| amber20-dhfr | mixed | 25.92 | 2.56 | 66.44 | 52.96 | trace (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed.trace`), CSV (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed-steady.csv`), window (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/amber20-dhfr-mixed-steady.json`) |
 
 The fused kernel includes integration plus SHAKE/SETTLE constraints. Its full span is an upper bound for constraints, not an isolated constraint cost. There are no separate constraint shaders in these selected windows. VkFFT uses the same shader function name for six dispatches; the reported span is their sum. Bonded is the existing combined computeBondedForces shader, including exclusions. Sampled spans are not the host critical path. Builds were present during these captures; no throughput or keep-rule conclusion comes from these traces.
 
 ## CPU cost and overlap probes
 
-CPU-only clock: `std::chrono::steady_clock`, 20 workers, 20 warmup pairs then 200 measured pairs. These use the exact validated transform loops without shared-event waits; input normalization is outside the timed spans. Raw [CPU cost output](/tmp/openmm-metal-bench/ultra-m29-unified/profile-candidate/cpu-fft-cost.txt). No build processes were reported at the profiling lease start.
+CPU-only clock: `std::chrono::steady_clock`, 20 workers, 20 warmup pairs then 200 measured pairs. These use the exact validated transform loops without shared-event waits; input normalization is outside the timed spans. Raw CPU cost output (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-candidate/cpu-fft-cost.txt`). No build processes were reported at the profiling lease start.
 
 | Grid / test | Forward median µs | Inverse median µs | Sum of medians µs | Baseline GPU FFT µs/step |
 |---|---:|---:|---:|---:|
@@ -45,7 +45,7 @@ CPU-only clock: `std::chrono::steady_clock`, 20 workers, 20 warmup pairs then 20
 
 These diagnostic costs use different clocks and execution environments; their ratio is not the A/B throughput ratio. CPU arithmetic plus its three dispatch_apply stages already costs much more than the GPU work removed. Handoff elimination alone cannot remove this cost.
 
-The candidate apoa1pme trace has 199 paired reciprocal windows in the selected second. Spread-end to convolution-start averages 1860.803 µs, including 524.395 µs of GPU nonbonded overlap. Convolution-end to interpolation-start averages 1892.335 µs, with no nonbonded overlap. The corresponding baseline windows average 77.815 and 59.968 µs, with no nonbonded overlap. This establishes that overlap occurs but leaves most of the reciprocal window exposed. It does not isolate event wakeup time or prove a power/thermal cause. Raw [candidate paired windows](/tmp/openmm-metal-bench/ultra-m29-unified/profile-candidate/apoa1pme-single-overlap.json), [baseline paired windows](/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-overlap.json).
+The candidate apoa1pme trace has 199 paired reciprocal windows in the selected second. Spread-end to convolution-start averages 1860.803 µs, including 524.395 µs of GPU nonbonded overlap. Convolution-end to interpolation-start averages 1892.335 µs, with no nonbonded overlap. The corresponding baseline windows average 77.815 and 59.968 µs, with no nonbonded overlap. This establishes that overlap occurs but leaves most of the reciprocal window exposed. It does not isolate event wakeup time or prove a power/thermal cause. Raw candidate paired windows (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-candidate/apoa1pme-single-overlap.json`), baseline paired windows (`/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-overlap.json`).
 
 The candidate pme trace drops some shader records (0.92 spread and 0.80 convolution spans per nonbonded dispatch in the selected window), so its paired-window reduction is retained only as a diagnostic. Candidate apoa1pme also has about 3% missing convolution records; paired-window sample counts are explicit. No sampled shader total is used as the throughput verdict.
 
@@ -57,16 +57,16 @@ Two 15 s rounds per arm, medians of ns/day. Denominators are frozen ultra-int028
 
 | Test | Precision | Candidate ns/day | / int028 Metal same precision | / int028 OpenCL single | Raw ab.sh outdir |
 |---|---|---:|---:|---:|---|
-| pme | single | 150.232 | 0.1665 | 0.2871 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| pme | mixed | 136.914 | 0.1733 | 0.2617 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| apoa1pme | single | 65.453 | 0.2173 | 0.3607 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| apoa1pme | mixed | 62.325 | 0.2320 | 0.3435 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| apoa1ljpme | single | 46.466 | 0.1937 | 0.3721 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| apoa1ljpme | mixed | 42.207 | 0.1938 | 0.3380 | [screen-small](/tmp/openmm-metal-bench/ultra-m29-unified/screen-small) |
-| amber20-dhfr | single | 146.107 | 0.1533 | 0.2567 | [screen-dhfr-quiet](/tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet) |
-| amber20-dhfr | mixed | 129.985 | 0.1588 | 0.2284 | [screen-dhfr-quiet](/tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet) |
-| amber20-cellulose | single | 25.002 | 0.3049 | 0.5292 | [screen-cellulose](/tmp/openmm-metal-bench/ultra-m29-unified/screen-cellulose) |
-| amber20-cellulose | mixed | 23.989 | 0.3220 | 0.5078 | [screen-cellulose](/tmp/openmm-metal-bench/ultra-m29-unified/screen-cellulose) |
+| pme | single | 150.232 | 0.1665 | 0.2871 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| pme | mixed | 136.914 | 0.1733 | 0.2617 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| apoa1pme | single | 65.453 | 0.2173 | 0.3607 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| apoa1pme | mixed | 62.325 | 0.2320 | 0.3435 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| apoa1ljpme | single | 46.466 | 0.1937 | 0.3721 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| apoa1ljpme | mixed | 42.207 | 0.1938 | 0.3380 | screen-small (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-small`) |
+| amber20-dhfr | single | 146.107 | 0.1533 | 0.2567 | screen-dhfr-quiet (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet`) |
+| amber20-dhfr | mixed | 129.985 | 0.1588 | 0.2284 | screen-dhfr-quiet (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet`) |
+| amber20-cellulose | single | 25.002 | 0.3049 | 0.5292 | screen-cellulose (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-cellulose`) |
+| amber20-cellulose | mixed | 23.989 | 0.3220 | 0.5078 | screen-cellulose (`/tmp/openmm-metal-bench/ultra-m29-unified/screen-cellulose`) |
 
 Load caveats: screen-small had no BUILD RUNNING rows, but heavy unrelated Node/Bun activity affected its dhfr first round and its second round. Quiet first-round apoa1pme single was still only 0.2259x int028. The original dhfr result was 0.130x single and 0.165x mixed. Cellulose had no build overlap, with load 4.72–8.21 and other background CPU activity.
 
@@ -76,7 +76,7 @@ The dhfr follow-up directory retains its original name `screen-dhfr-quiet`, but 
 
 M2, four queried performance cores, 8 GiB RAM, macOS 27.2. Two 15 s rounds on the same candidate source hash as the Ultra. Baseline commit 7484d7bef, source hash 962ac562afadf240b808b9ceb7f8c07518d41eb9; candidate source hash 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7. Clock: benchmark.py host `datetime.now()` around `step()`. Memory: median peak footprint from `/usr/bin/time -l`, converted to MiB.
 
-Raw remote check: `~/lab/ultra-m2.noindex/checks/20260926T191932Z-7484d7bef`. Local [raw artifacts](/tmp/openmm-metal-bench/ultra-m29-unified/m2-check) and [official summary](/tmp/openmm-metal-bench/ultra-m29-unified/m2-check/summary.txt).
+Raw remote check: `~/lab/ultra-m2.noindex/checks/20260926T191932Z-7484d7bef`. Local raw artifacts (`/tmp/openmm-metal-bench/ultra-m29-unified/m2-check`) and official summary (`/tmp/openmm-metal-bench/ultra-m29-unified/m2-check/summary.txt`).
 
 | Test | Precision | Base ns/day | CPU FFT ns/day | Ratio | Peak footprint MiB, base → CPU |
 |---|---|---:|---:|---:|---:|
@@ -103,11 +103,11 @@ forces gate cand-m29-unified-84469ab524 PASS, 20 s
 
 ## Validation
 
-Source disposition: [cpu-fft-prototype.patch](/tmp/openmm-metal-bench/ultra-m29-unified/cpu-fft-prototype.patch) exactly matched all six edited files before its checked reverse application. [cleanup.txt](/tmp/openmm-metal-bench/ultra-m29-unified/cleanup.txt) records the clean worktree. The measured source and installed build remain under this run's directory, source hash 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7.
+Source disposition: cpu-fft-prototype.patch (`/tmp/openmm-metal-bench/ultra-m29-unified/cpu-fft-prototype.patch`) exactly matched all six edited files before its checked reverse application. cleanup.txt (`/tmp/openmm-metal-bench/ultra-m29-unified/cleanup.txt`) records the clean worktree. The measured source and installed build remain under this run's directory, source hash 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7.
 
 Native build/typecheck: MetalCpuFFT.cpp compiled to a native object with CMake's flags; cpu-fft-typecheck.log records exit 0. The official build has also compiled MetalCpuFFT.cpp and linked libOpenMMMetal.dylib. Full build and installation completed at 17:17:39Z, source hash 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7.
 CPU-only direct-DFT and 3D spectral/roundtrip oracle: PASS, maximum normalized error 7.74860382e-7 (cpu-oracle.log). GPU FFT oracle: PASS, TestMetalFFTSingle (1.24 s), 100% tests passed out of 1.
-gate.sh --quick: PASS. All twelve force rows (six systems, single and mixed) reported ok; exact verdict line: `PASS`. See [gate verdict](/tmp/openmm-metal-bench/ultra-m29-unified/gate-20260926T173535Z/forces-verdict.txt) and after-ready.log.
+gate.sh --quick: PASS. All twelve force rows (six systems, single and mixed) reported ok; exact verdict line: `PASS`. See gate verdict (`/tmp/openmm-metal-bench/ultra-m29-unified/gate-20260926T173535Z/forces-verdict.txt`) and after-ready.log.
 forces.py --md 100: PASS (exit 0). All twelve system/precision rows reported ok. Raw forces-md100.txt and after-ready.log retain the exact rows and cutoff reconciliation diagnostics.
 
 Exact md100 verdict rows from after-ready.log:

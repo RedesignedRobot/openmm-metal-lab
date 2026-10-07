@@ -11,3 +11,5 @@ experiments/029-2x-moonshots/hosts.env
 
 # Raw numpy arrays stay in the bench, not in git
 experiments/**/results/**/*.npz
+# except the four small r3-pmebig arrays that its checkPmePencils.py reads
+!experiments/029-2x-moonshots/lanes/results/r3-pmebig/*.npz

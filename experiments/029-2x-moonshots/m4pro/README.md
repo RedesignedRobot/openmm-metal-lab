@@ -1,6 +1,6 @@
 # M4 Pro check, 2026-10-01
 
-This was a one-off check of whether trunk runs on an M4 Pro. The M4 Pro is a MacBook Pro 14 (Mac16,8) that belongs to a family member, and it isn't a program host. I copied the trunk build 734ce92d5 (`ultra-integrated`, Xcode-beta 27.2) from the Studio and ran it unmodified. Nothing was rebuilt for the M4.
+This was a one-off check of whether trunk runs on an M4 Pro. The M4 Pro is a MacBook Pro 14 (Mac16,8) reached over SSH, and it isn't a program host. I copied the trunk build 734ce92d5 (`ultra-integrated`, Xcode-beta 27.2) from the Studio and ran it unmodified. Nothing was rebuilt for the M4.
 
 Short answer: it works. The forces gate passed, and so did 58 of 58 core C++ tests. Metal beat OpenCL on every benchmark row. The M4 takes every Apple9 code path tuned on the M3 Ultra. The only difference is that the policies scaled by GPU core count see 16 cores instead of 60.
 
@@ -47,7 +47,7 @@ GPU clock (sudo powermetrics, gpu_power, 250 ms samples, `raw/powermetrics-busy.
 
 ## Correctness
 
-- Forces: `tools/forces.py` against the double-precision Reference, 6 systems, single and mixed. All 12 rows passed against the Ultra's trunk gate table (`gate-20260930T065657Z/forces.txt`). rel|dF| matches the Ultra to 3 or 4 digits: apoa1pme single is 7.676e-05 on both, and gbsa is 2.468e-05 against 2.472e-05. See `raw/forces-m4pro.txt`.
+- Forces: `tools/forces.py` against the double-precision Reference, 6 systems, single and mixed. All 12 rows passed against the Ultra's trunk gate table (`raw/forces-ultra-gate-20260930T065657Z.txt`). rel|dF| matches the Ultra to 3 or 4 digits: apoa1pme single is 7.676e-05 on both, and gbsa is 2.468e-05 against 2.472e-05. See `raw/forces-m4pro.txt`.
 - C++ tests: 29 TestMetal binaries, each in single and mixed, 58 of 58 PASS, 647 s wall (`raw/ctest.txt`, `m4ctest.sh`). The set was NonbondedForce, CustomNonbondedForce, Ewald, FFT, Sort, GBSAOBCForce, CustomGBForce, the bonded forces, Settle, VirtualSites, the Langevin, Verlet and Custom integrators, MonteCarloBarostat, MixedPrecision, LocalEnergyMinimizer, CommandBatching, MultipleForces, Checkpoints, DispersionPME, GayBerneForce, AmoebaMultipoleForce, AmoebaGeneralizedKirkwoodForce, DrudeForce and Rpmd.
 - Not run: the full gate (the other 38 TestMetal binaries), md100, DeterministicForces and listcheck.
 
@@ -98,6 +98,6 @@ The batch-4 row matters. gbsa (78 blocks) and rf and pme (737 blocks) get batch-
 
 The build is relocatable enough to copy between Apple Silicon Macs with no Xcode, swig or Metal compiler on the target. Kernels compile at load time through Metal.framework.
 1. On the target, create `~/openmm-m4check`, then `ln -s ~/openmm-m4check /tmp/openmm-metal-bench`, so the absolute rpaths and the compiled-in plugin path resolve.
-2. From the Studio's bench, stream `env`, `ultra-integrated/{prefix,venv,pydeps,BUILT}`, `ultra-integrated/build/*.dylib` and `ultra-integrated/build/TestMetal*` (595 MB) into it. Add `ultra-base/benchmarks/{benchmark.py,*.pdb}`, `tools/forces.py`, `tools/cutoff_pairs.py` and the trunk gate's `forces.txt`.
+2. From the Studio's bench, stream `env`, `ultra-integrated/{prefix,venv,pydeps,BUILT}`, `ultra-integrated/build/*.dylib` and `ultra-integrated/build/TestMetal*` (595 MB) into it. Add `ultra-base/benchmarks/{benchmark.py,*.pdb}`, `tools/forces.py`, `tools/cutoff_pairs.py` and the trunk gate's `forces.txt` (kept here as `raw/forces-ultra-gate-20260930T065657Z.txt`).
 3. `. m4env.sh` sets `DYLD_FALLBACK_LIBRARY_PATH` to `env/lib`, because the `_openmm` rpath points at the Studio's env path. It also sets `OPENMM_PLUGIN_DIR` and `$PY`. Then run `forces.py`, `m4ctest.sh` and `m4bench.sh`. macOS has no `timeout`, so the scripts use Homebrew's `gtimeout`.
-4. The machine is on the office LAN only (no Tailscale), and the Studio has no key for it. This transfer streamed through a third Mac over SSH and stored nothing on it.
+4. The Studio had no direct SSH route to the M4 Pro, so the files streamed through another Mac over SSH, which stored nothing.

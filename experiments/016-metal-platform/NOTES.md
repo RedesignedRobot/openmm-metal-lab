@@ -1,11 +1,13 @@
-# 016 — Native Metal platform (milestone A, single precision)
+# 016: Native Metal platform (milestone A, single precision)
 
-Working copy: `~/code/mini/openmm-metal`, branch `metal` (off 3c9effc). Mini: M2, 10 GPU cores, 8 GB,
+History: the test counts in this log are stale. Current results are in the repository README.
+
+Working copy: an openmm clone on the M2 mini, branch `metal` (off 3c9effc). Mini: M2, 10 GPU cores, 8 GB,
 macOS 27, CLT only. Build prefix `~/lab/prefix-openmm-metal`, Python `~/lab/venv-metal`.
 
 ## Running log
 
-### 2026-09-23 — host code complete, pre-build checks
+### 2026-09-23, host code complete, pre-build checks
 
 - MetalNonbondedUtilities converted from the OpenCL version to the ComputeKernel API. Kernel
   arguments are added in order (`addArg()` placeholders for the box arguments), because Metal
@@ -30,7 +32,7 @@ macOS 27, CLT only. Build prefix `~/lab/prefix-openmm-metal`, Python `~/lab/venv
 - Common-code edit: `minimize.cc` `atomicAddMixed` gains an `__METAL_VERSION__` branch
   (float atomic add). Without it the LBFGS minimizer hits its `#error`.
 
-### 2026-09-23 — first mini build and test suite
+### 2026-09-23, first mini build and test suite
 
 - Build: CLT only, `ninja -j4`, Release, arm64. Clean after local syntax and MSL-harness checks.
 - `ctest -R TestMetal -j1`: 50 of 54 passed (529 s total). The four failures:
@@ -55,7 +57,7 @@ macOS 27, CLT only. Build prefix `~/lab/prefix-openmm-metal`, Python `~/lab/venv
 - Rerun after the fixes (`ctest -R` on the 5 affected tests): Checkpoints, CommandBatching and
   AnisotropicBarostat pass; DPD and GayBerne fail. Net result: 52 of 54.
 
-### 2026-09-23 — FAH work units (commit afa4268d1, installed into prefix-openmm-metal / venv-metal)
+### 2026-09-23, FAH work units (commit afa4268d1, installed into prefix-openmm-metal / venv-metal)
 
 `fahwu.py <wu> <platform> single 60`, run one at a time with no build running. Clock: host wall,
 whole steps, after a 200-step warm-up. Errors are against Reference in double precision.
@@ -129,7 +131,7 @@ Same clock and method, Metal single, 60 s per WU.
      rebuilt. Upstream would have to accept it in a release that already breaks the plugin ABI, or
      Metal would need another route (for example a hook in the expression code generator).
 
-### 2026-09-23 — room for df64 mixed precision (commit 8dc19ec55)
+### 2026-09-23, room for df64 mixed precision (commit 8dc19ec55)
 
 Follows the 015 integration note.
 - `MetalContext::createLibrary` now emits `#include <metal_stdlib>` and `using namespace metal;`
@@ -154,7 +156,7 @@ Follows the 015 integration note.
   - FAH Metal single, host wall clock: dhfr 63.89 ns/day (was 64.02), dhfr-implicit 117.36
     (was 116.95). Errors unchanged.
 
-### 2026-09-23 — fast math functions per accuracy probe (commit 2401c28f9)
+### 2026-09-23, fast math functions per accuracy probe (commit 2401c28f9)
 
 - New `kernels/utilities.metal`: `determineFastAccuracy` evaluates fast::sqrt, fast::rsqrt,
   fast::divide(1, x), fast::exp, fast::log on OpenCL's 20 probe values (1e-4·π^k).
@@ -167,7 +169,7 @@ Follows the 015 integration note.
   mini (mini on hold).
 - The new .metal file is picked up by FILE(GLOB): the mini build dir needs `cmake .` before ninja.
 
-### 2026-09-23 — milestone B: mixed precision via df64 (commits 373424395, 5f9214a52)
+### 2026-09-23, milestone B: mixed precision via df64 (commits 373424395, 5f9214a52)
 
 Integrates 015 (503fca4) with IEEE storage.
 - `kernels/df64.metal` is 015's df64.metal restricted to IEEE storage. The pair-storage `#else`
@@ -204,7 +206,7 @@ Integrates 015 (503fca4) with IEEE storage.
   DPD/GayBerne (queued).
 - Pending the mini: build, ctest single + mixed, FAH mixed vs CPU vs Metal single, dhfr NVE drift.
 
-### 2026-09-23 — review blockers (commits 20a2b206d..7c93f96e2)
+### 2026-09-23, review blockers (commits 20a2b206d..7c93f96e2)
 
 Each claim checked before fixing; nothing run on the mini (hold). Local verification only:
 clang -fsyntax-only on all touched sources and tests.
@@ -334,7 +336,7 @@ clang -fsyntax-only on all touched sources and tests.
   picked by hand. Scratchpad scripts: syncheck.sh (library, c++17), syncheck-tests11.sh (tests,
   gnu++11).
 
-### 2026-09-23 — mixed-mode math stayed in float (commit 353d6432e)
+### 2026-09-23, mixed-mode math stayed in float (commit 353d6432e)
 
 Found on the mini: TestMetalCustomIntegratorMixed failed to compile (`df64_3 / df64_3`). Chasing it
 turned up a wider, silent bug.
@@ -371,7 +373,7 @@ turned up a wider, silent bug.
 - Learning: when a type has implicit narrowing, audit every qualified-namespace call the host
   defines, and census each runtime choice of the defines, not just their defaults.
 
-### 2026-09-23 — milestone B on the mini (build 353d6432e, installed to prefix-openmm-metal / venv-metal)
+### 2026-09-23, milestone B on the mini (build 353d6432e, installed to prefix-openmm-metal / venv-metal)
 
 `mini-b.sh` (in this directory) runs one job at a time with no build running. Results are in
 `~/lab/results-016b-20260923T014341Z` on the mini. The first attempt
@@ -441,7 +443,7 @@ least-squares slope. Clock for wall_s: host wall.
   field and the constraint tolerance, not by integration arithmetic.
 - A longer run would be needed to separate the platforms.
 
-### 2026-09-23 — FAH-path sweep and float fallbacks (commits d671b0767, 135f194ca, 5fe5b9492)
+### 2026-09-23, FAH-path sweep and float fallbacks (commits d671b0767, 135f194ca, 5fe5b9492)
 
 The review decision on known gaps 1–3 above: df64 transcendentals are deferred, provided the
 FAH path never hits the gaps. Make the gaps loud where that's cheap, and add checks that turn CI
@@ -561,7 +563,7 @@ red if mixed silently falls back to float.
   Correction (dba2bfa16): the global half tested nothing on the device, because ComputeGlobal runs on
   the host in double. The test now has one per-DOF step, `v = 0.1*v+g` with the global g = 1.3.
 
-### 2026-09-23 — full plan on build 5fe5b9492 (installed to prefix-openmm-metal / venv-metal)
+### 2026-09-23, full plan on build 5fe5b9492 (installed to prefix-openmm-metal / venv-metal)
 
 `mini-b.sh 016c`, results in `~/lab/results-016c-20260923T025904Z/` on the mini. One job at a
 time with no build running; the thermal log is clean.
@@ -637,7 +639,7 @@ Within 1% of 016b everywhere, as expected: the FAH path's programs didn't change
   ~1e-13, and CMMotionRemover and SETTLE are float upstream. Free particles with a closed form avoid
   all three.
 
-### 2026-09-23 — follow-ups on build bdc6a74bc (f3a7b1af4, bdc6a74bc; installed to prefix-openmm-metal / venv-metal)
+### 2026-09-23, follow-ups on build bdc6a74bc (f3a7b1af4, bdc6a74bc; installed to prefix-openmm-metal / venv-metal)
 
 **QTB and the error message (f3a7b1af4).**
 - TestMetalQTBIntegratorMixed expects the error (see "Test wrappers vs OpenCL").
@@ -755,7 +757,7 @@ number is shown.
 - LocalEnergyMinimizerMixed gets the same expect-the-error treatment as QTB (8829d724c). Checked on
   the mini with `ctest -R TestMetalLocalEnergyMinimizer`: "100% tests passed out of 2".
 
-### 2026-09-23 — fixes from the verifier on 8829d724c (dba2bfa16, 5722f98a7; installed to prefix-openmm-metal / venv-metal)
+### 2026-09-23, fixes from the verifier on 8829d724c (dba2bfa16, 5722f98a7; installed to prefix-openmm-metal / venv-metal)
 
 **1. Constants test, per-DOF only (dba2bfa16).**
 - The global half of testExpressionConstants tested nothing on the device: ComputeGlobal steps are
@@ -852,7 +854,7 @@ dhfr (PME; E_ref −337089.634 kJ/mol; float rounding is negligible):
 - The same as 016d at nice 5 (1.037 and 1.026). With the mini otherwise idle, nice 5 cost nothing
   measurable, so the 016c/d/e numbers stand.
 
-### 2026-09-23 — DPDIntegrator and GayBerneForce: PRIVATE address space (commit 677e98030)
+### 2026-09-23, DPDIntegrator and GayBerneForce: PRIVATE address space (commit 677e98030)
 
 - dpd.cc and gayBerne.cc pass pointers to a thread's own variables (`RandomState*`, `int*
   neighborBuffer`, `AtomData*`, `real (*m)[3]`, `real3* force1`, ...). MSL needs an address space on
@@ -890,7 +892,7 @@ dhfr (PME; E_ref −337089.634 kJ/mol; float rounding is negligible):
 - Not covered: AMOEBA and other plugins pass unqualified private pointers too (for example
   gkPairForce1.cc `real3* force`). They need PRIVATE when those plugins get Metal platforms.
 
-### 2026-09-23 — energy minimization in mixed precision: single-block reductions (option A)
+### 2026-09-23, energy minimization in mixed precision: single-block reductions (option A)
 
 - Problem: in mixed precision the LBFGS minimizer sums into doubles with `atomicAddMixed`, which
   needs 64-bit float atomics (CUDA/HIP `atomicAdd`, OpenCL a 64-bit CAS). Metal has neither, so
@@ -1073,7 +1075,7 @@ host sequence in CommonMinimizeKernel.cpp:
   specific way named (here `(long) hi`, and floor without lo), rebuild just the test target, watch
   it fail, then restore.
 
-### 2026-09-23 — upstream-shaped history (local branch `metal-upstream`, not pushed)
+### 2026-09-23, upstream-shaped history (local branch `metal-upstream`, not pushed)
 
 Ten trailer-free commits on 3c9effc96. `git diff metal metal-upstream` is empty (0 bytes), so the
 tree is `metal` at f9347f6c5.
@@ -1139,7 +1141,7 @@ tree is `metal` at f9347f6c5.
 - AI_POLICY.md (author only). Disclosure in the PR, plus the author confirms they understand the code
   and have the legal right to submit it, and answers review questions without AI.
 
-### 2026-09-23 — docs commits on `metal` (b64ed233a, 87d9bc487, 55a34bad4), related-powers fix (uncommitted)
+### 2026-09-23, docs commits on `metal` (b64ed233a, 87d9bc487, 55a34bad4), related-powers fix (uncommitted)
 
 - Docs only, no builds (the laptop is busy with the three-chip benchmark, and the verifier has
   the mini):
@@ -1169,7 +1171,7 @@ tree is `metal` at f9347f6c5.
     - OPENMM_SAVE_TEMPS dump with the fix: `double3 temp9 = make_double3(0.0f);` (first power)
       and `double3 temp10 = make_double3(0.0f);` (related power), so the test reaches the line.
 
-### 2026-09-23 — testLargeForces across chips
+### 2026-09-23, testLargeForces across chips
 
 - Mini, pristine 3c9effc96 (~/lab/base-3c9e, git archive, OpenCL tests on):
   TestOpenCLLocalEnergyMinimizer single passes 3/3. Reference and CPU pass. OpenCL mixed/double:

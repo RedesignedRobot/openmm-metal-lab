@@ -46,7 +46,7 @@ Window 1 (int b69efb0fe against base 6df2b8bcb, dedicated GPU, 3 rounds of 30 s,
 | amber20-cellulose | 1.209 | 1.224 | 1.366 | 1.248 |
 | amber20-stmv | 1.236 | 1.244 | 1.414 | 1.290 |
 
-Window 2 (7484d7bef against 6df2b8bcb, M3 Ultra, dedicated GPU, 3 rounds of 30 s, benchmark.py host clock): 135 runs, no missing results, no build overlaps. Medians below were regenerated from `windows/w2/ab` and match the archived summary.
+Window 2 (7484d7bef against 6df2b8bcb, M3 Ultra, dedicated GPU, 3 rounds of 30 s, benchmark.py host clock): 135 runs, no missing results, no build overlaps. Medians below were regenerated from `windows/w2/ab` and match the archived summary. The GPU was dedicated to the window, but the CPU was not: a background VM used 4% to 162% CPU before the runs (`windows/w2/summary.txt`). gbsa and rf are host-bound, so their M3 Ultra ratios carry that noise.
 
 | Test | OpenCL single ns/day | Metal single ns/day | Metal mixed ns/day | single/OpenCL | mixed/OpenCL |
 | --- | ---: | ---: | ---: | ---: | ---: |

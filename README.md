@@ -4,6 +4,8 @@ Measurements and experiments behind a native Metal platform for OpenMM on Apple 
 
 The platform code is on branch [`pub/metal-platform`](https://github.com/RedesignedRobot/openmm/tree/pub/metal-platform) of the fork RedesignedRobot/openmm. This repository holds the evidence: benchmark runs, kernel studies, correctness checks and the scripts that produced them.
 
+Upstream status: [openmm#5488](https://github.com/openmm/openmm/pull/5488) is the OpenMM team's own Metal platform, and this work feeds data and fixes into it. Two fixes from here are merged upstream ([openmm#5435](https://github.com/openmm/openmm/pull/5435) and [#5436](https://github.com/openmm/openmm/pull/5436)), and [openmm#5397](https://github.com/openmm/openmm/issues/5397) is the discussion thread.
+
 ## Results
 
 Every number is OpenMM's own `examples/benchmarks/benchmark.py`, timed with its host wall clock, as the median of interleaved rounds. OpenCL is Apple's OpenCL platform in single precision.
@@ -11,7 +13,11 @@ Every number is OpenMM's own `examples/benchmarks/benchmark.py`, timed with its 
 | Chip | Metal build | Method | Metal single / OpenCL | Metal mixed / OpenCL | Raw data |
 | --- | --- | --- | --- | --- | --- |
 | M3 Ultra, 60-core GPU | 7484d7bef, OpenCL from 6df2b8bcb | 3 rounds of 30 s, 2026-09-25 | 1.401x (gbsa) to 1.894x (apoa1ljpme) | 1.087x (gbsa) to 1.719x (apoa1ljpme) | `experiments/028-ultra-max/windows/w2/summary.txt` |
-| M2, 10-core GPU, 8 GB | 5071882fa, both platforms | 3 rounds of 30 s, 2026-09-30 | 1.301x (gbsa) to 1.509x (apoa1rf) | 1.215x to 1.353x | `experiments/029-2x-moonshots/lanes/results/r3-fah-m2-table/summary.txt` |
+| M2, 10-core GPU, 8 GB | 5071882fa, both platforms | 3 rounds of 30 s, 2026-09-29 | 1.301x (gbsa) to 1.509x (apoa1rf) | 1.215x (rf, amber20-dhfr) to 1.353x (apoa1rf) | `experiments/029-2x-moonshots/lanes/results/r3-fah-m2-table/summary.txt`, medians only, written by `experiments/029-2x-moonshots/fah/prof/m2table.sh`; the per-round output was not kept |
+
+The measured builds are commits from my private history, so these hashes don't resolve on GitHub. `pub/metal-platform` is a later squash of the same work with the experiment switches removed. The exact commit, source hash and toolchain of each M3 Ultra build are in `experiments/028-ultra-max/windows/w2/ab/configs.txt`.
+
+The GPU was dedicated to the window, but the CPU was not: a background VM used 4% to 162% CPU before the runs (`experiments/028-ultra-max/windows/w2/summary.txt`). gbsa and rf are host-bound, so their M3 Ultra ratios carry that noise.
 
 Both rows cover the nine standard tests: gbsa, rf, pme, apoa1rf, apoa1pme, apoa1ljpme, amber20-dhfr, amber20-cellulose and amber20-stmv. On the M3 Ultra, Metal mixed runs pme 17.5x faster than the CPU platform (780.29 against 44.58 ns/day, `experiments/028-ultra-max/windows/w2/cpu-summary.txt`).
 
@@ -48,6 +54,7 @@ Each `experiments/NNN-name/` directory holds one question, its method, its raw r
 | 023 | Teaching fah-client to detect an Apple GPU |
 | 024 | Metal as the smallest diff from the HIP platform |
 | 025 | The best Metal build against OpenCL, with force gates |
+| 026 | Skipped: no experiment has this number |
 | 027 | History: a port of the plugins, replaced by the plugin work in 028 |
 | 028 | The M3 Ultra optimisation round: `FINAL-REPORT.md`, and `DEAD-ENDS.md` for what didn't work and why |
 | 029 | Toward 2x OpenCL, and Folding@home readiness (`README.md`, `fah/GAPS.md`) |
@@ -56,7 +63,18 @@ Each `experiments/NNN-name/` directory holds one question, its method, its raw r
 
 ## Reproduce a benchmark
 
-Build OpenMM from the `pub/metal-platform` branch with CMake. On an arm64 Mac, `OPENMM_BUILD_METAL_LIB` is on by default. Then, from `examples/benchmarks` in that tree:
+Build and install OpenMM from the `pub/metal-platform` branch. On an arm64 Mac, `OPENMM_BUILD_METAL_LIB` is on by default. Use a fresh Python environment with no other OpenMM in it, because the Python install step removes any `openmm` it can import.
+
+```sh
+git clone -b pub/metal-platform https://github.com/RedesignedRobot/openmm.git
+cd openmm && mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$HOME/openmm-metal"
+make -j8 install
+make PythonInstall
+python -c "import openmm as mm; print([mm.Platform.getPlatform(i).getName() for i in range(mm.Platform.getNumPlatforms())])"
+```
+
+The last line must list `Metal`. If it doesn't, Python is loading a different OpenMM, or the Mac has no supported GPU. Then, from `examples/benchmarks` in the source tree:
 
 ```sh
 python benchmark.py --platform Metal --precision single --test pme --seconds 30
@@ -73,4 +91,4 @@ Mac mini with M2: 8 CPU cores, 10 GPU cores, 8 GB. MacBook Pro with M3 Pro: 12 C
 
 ## License
 
-MIT, see `LICENSE`. Files under any `kernels/` directory that were copied or translated from OpenMM (the `.cl` and `.cc` sources, their `.metal` translations, and the `openmm-capture.patch` files) stay under OpenMM's own licences, MIT and LGPL as marked upstream at https://github.com/openmm/openmm. VkFFT and metal-cpp are fetched at build time and are not part of this repository.
+MIT, see `LICENSE`. Files copied, translated or patched from OpenMM (MIT and LGPL), cbang (LGPL) or fah-client-bastet (GPL) keep their upstream licences wherever they sit in this tree. That covers the `.patch` files, the kernel dumps and the copied sources. The platform branch vendors VkFFT (MIT) and metal-cpp (Apache 2.0) with their notices.

@@ -12,10 +12,12 @@ Upstream bases:
 
 | Repo | Base SHA | Date | Patch |
 | --- | --- | --- | --- |
-| cbang | 12fa35b852f62a7fac035bad5c1750c9881fd3b8 | 2026-09-19 | `cbang.patch`, 4 files, +122 |
-| fah-client-bastet | d85c21a88d0fcca138783cb16b9684e960e0fe04 | 2026-09-11 | `fah-client-bastet.patch`, 1 file, +23 |
+| cbang | 12fa35b852f62a7fac035bad5c1750c9881fd3b8 | 2026-09-19 | `cbang.patch`, 2 files, +2 |
+| fah-client-bastet | d85c21a88d0fcca138783cb16b9684e960e0fe04 | 2026-09-11 | `fah-client-bastet.patch`, 1 file, +47 |
 
 Both are `git format-patch` output and apply with `git am` onto those SHAs. I checked that on fresh clones.
+
+Upstream since then: the cbang half merged as CauldronDevelopmentLLC/cbang#213 on 2026-09-28. The client half, FoldingAtHome/fah-client-bastet#455, was closed the same day when jcoffland reimplemented detection upstream with the OS-specific parts in cbang. The Metal follow-ups are open as CauldronDevelopmentLLC/cbang#215 and FoldingAtHome/fah-client-bastet#459.
 
 ## What broke
 

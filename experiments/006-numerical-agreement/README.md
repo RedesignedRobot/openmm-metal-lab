@@ -1,5 +1,7 @@
 # Numerical agreement: Metal translation versus Apple OpenCL
 
+History: the erfc paragraph is wrong and is corrected in `REVIEW-NOTE.md`. Read that first.
+
 ## Question
 
 When a real OpenMM GPU program is compiled as Metal using the experiment 005 platform prelude and mechanical signature and vector literal rewrites, does it compute the same numerical results as the same program compiled by Apple's OpenCL runtime on identical input buffers?

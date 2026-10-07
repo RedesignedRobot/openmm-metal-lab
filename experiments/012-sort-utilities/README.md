@@ -1,5 +1,7 @@
 # Experiment 012: Sort and utility kernels
 
+History: `results.md` lists the M3 Ultra on macOS 15. It ran macOS 27, the same build as the M2.
+
 ## Question
 
 How do OpenMM sort and utility kernels perform when translated from Apple OpenCL to Metal on Apple Silicon, does a Metal native bitonic sort outperform the translated OpenMM bucket sort, and are atom reordering kernels present on GPU in upstream OpenMM master?

@@ -6,7 +6,7 @@ Selected candidate: the isolated two-pass minimizer, source `61bbcc20f958bde9d4d
 
 ## Census first
 
-Frozen baseline: `/tmp/openmm-metal-bench/ultra-int028`, commit `7484d7bef401f813dc871c1e156578954606d4ea`. Raw baseline instrumentation, manifests, source blobs and timings: [census](/tmp/openmm-metal-bench/ultra-m29-mixed/census). Instrumented GPU times are microseconds per step, not benchmark throughput.
+Frozen baseline: `/tmp/openmm-metal-bench/ultra-int028`, commit `7484d7bef401f813dc871c1e156578954606d4ea`. Raw baseline instrumentation, manifests, source blobs and timings: census (`/tmp/openmm-metal-bench/ultra-m29-mixed/census`). Instrumented GPU times are microseconds per step, not benchmark throughput.
 
 | Measurement | Single | Mixed | Mixed excess |
 |---|---:|---:|---:|
@@ -18,7 +18,7 @@ Frozen baseline: `/tmp/openmm-metal-bench/ultra-int028`, commit `7484d7bef401f81
 
 The fused integrator accounts for **75.1%** of mixed excess. Isolated SHAKE’s matching excess identifies its serial dependency chain as the main target. COM contributes another **10.1%**. Splitting the kernels adds dispatches and removes overlap, so isolated times are not additive. The census overlapped build load; the interleaved ab.sh screens below supply the throughput verdict.
 
-V1’s instrumented mixed integrator falls to 53.628 microseconds, about 20% lower, but mixed COM calculation/removal remain 9.695/11.237 microseconds. The bundled fold did not deliver a measured COM gain. Raw: [census-v1](/tmp/openmm-metal-bench/ultra-m29-mixed/census-v1).
+V1’s instrumented mixed integrator falls to 53.628 microseconds, about 20% lower, but mixed COM calculation/removal remain 9.695/11.237 microseconds. The bundled fold did not deliver a measured COM gain. Raw: census-v1 (`/tmp/openmm-metal-bench/ultra-m29-mixed/census-v1`).
 
 ## Architecture and ratio evidence
 
@@ -74,7 +74,7 @@ Changed production files:
 - `platforms/common/src/CommonMinimizeKernel.cpp`: capability selection, workspace binding and two-pass dispatch.
 - `platforms/common/src/kernels/minimize.cc`: per-block partials and final reduction.
 
-Raw delivery: [minimizer.patch](/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer.patch). The final worktree matches `/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/src` for all three files. Its native build is the C++ compile/type check; `git diff --check` passes.
+Raw delivery: minimizer.patch (`/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer.patch`). The final worktree matches `/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/src` for all three files. Its native build is the C++ compile/type check; `git diff --check` passes.
 
 Each minimization uses apoa1pme, tolerance 10, a 200-iteration cap, one warm-up iteration and restored starting positions. Wall time includes the final energy/force retrieval. This is a fixed-cap measurement, not convergence to tolerance 10: final RMS forces remain about 567–569 on baseline and candidate. CPU uses its default thread setting (28 on M3 Ultra).
 
@@ -84,11 +84,11 @@ Each minimization uses apoa1pme, tolerance 10, a 200-iteration cap, one warm-up 
 | M3 Ultra, 3x30 s | 0.859485 | 7.849194 | 0.854147 | 0.862600 | 5.828598 | 1.010 | 9.099 |
 | M2, 2 rounds | 2.581078 | 9.801247 | 2.185420 | 2.763095 | 11.051670 | 1.264 | 3.547 |
 
-Raw directories: [initial M3](/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer), [M3 confirmation](/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-confirm), [M2 wall times](/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-m2). The confirmation repeats each arm from restored positions for at least 30 measured seconds in each of three interleaved rounds; every sample is retained. Candidate mixed round medians are 0.771472/0.862600/0.983202 seconds. External compilation/indexing overlapped, so this is **not a certified quiet-load confirmation**. The final GPU-time budget limits the round to these queued results; no further timing round is started.
+Raw directories: initial M3 (`/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer`), M3 confirmation (`/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-confirm`), M2 wall times (`/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-m2`). The confirmation repeats each arm from restored positions for at least 30 measured seconds in each of three interleaved rounds; every sample is retained. Candidate mixed round medians are 0.771472/0.862600/0.983202 seconds. External compilation/indexing overlapped, so this is **not a certified quiet-load confirmation**. The final GPU-time budget limits the round to these queued results; no further timing round is started.
 
 ## M2 standard check
 
-Raw directory: [minimizer-m2-check](/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-m2-check), copied from `~/lab/ultra-m2.noindex/checks/20260926T203122Z-7484d7bef`. All nine standard tests ran at 2x15 s, both precisions, with a passing force gate. No builds overlapped. The worst median ratio is 0.996449, within the 1% cost limit.
+Raw directory: minimizer-m2-check (`/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-m2-check`), copied from `~/lab/ultra-m2.noindex/checks/20260926T203122Z-7484d7bef`. All nine standard tests ran at 2x15 s, both precisions, with a passing force gate. No builds overlapped. The worst median ratio is 0.996449, within the 1% cost limit.
 
 | Test | Single / baseline | Mixed / baseline |
 |---|---:|---:|
