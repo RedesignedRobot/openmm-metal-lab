@@ -1,20 +1,20 @@
-2026-09-27T07:29:42Z round 1 rf base-single load { 4.14 13.41 17.08 } vm 5% top superwhisper 17.4%, Finder 12.3%, sysmond 4.6%, com.apple.Virtualization.VirtualMachine 3.1%, com.apple.Virtualization.VirtualMachine 2.1%
-2026-09-27T07:29:58Z round 1 rf k8-single load { 3.61 12.69 16.73 } vm 4% top superwhisper 18.7%, powermetrics 4.6%, WindowServer 2.1%,  claude 1.9%, com.apple.Virtualization.VirtualMachine 1.9%
-2026-09-27T07:30:15Z round 1 rf k32-single load { 4.06 12.36 16.54 } vm 9% top superwhisper 16.7%, com.apple.Virtualization.VirtualMachine 8.9%, sysmond 4.8%,  (bun) 4.7%, com.apple.Virtualization.VirtualMachine 4.5%
-2026-09-27T07:30:32Z round 1 rf c32-single load { 3.72 11.88 16.30 } vm 14% top superwhisper 16.4%, com.apple.Virtualization.VirtualMachine 10.1%, sysmond 8.4%,  claude 6.9%, com.apple.Virtualization.VirtualMachine 3.6%
-2026-09-27T07:30:48Z round 1 rf ki-single load { 3.57 11.32 16.00 } vm 5% top superwhisper 17.0%, WindowServer 8.5%, sysmond 5.5%, com.apple.Virtualization.VirtualMachine 3.5%, com.apple.Virtualization.VirtualMachine 2.4%
-2026-09-27T07:31:05Z round 1 rf base-mixed load { 3.22 10.86 15.75 } vm 11% top superwhisper 16.2%, Finder 9.5%, powermetrics 7.9%, com.apple.Virtualization.VirtualMachine 7.3%,  claude 6.7%
-2026-09-27T07:31:21Z round 1 rf k8-mixed load { 3.85 10.64 15.59 } vm 6% top superwhisper 18.8%, sysmond 4.7%, com.apple.Virtualization.VirtualMachine 2.9%,  claude 2.8%,  claude 2.4%
-2026-09-27T07:31:38Z round 1 rf k32-mixed load { 4.41 10.32 15.36 } vm 11% top superwhisper 19.2%, Finder 8.5%, sysmond 7.7%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 5.4%
-2026-09-27T07:31:58Z round 1 rf c32-mixed load { 3.79 9.90 15.12 } vm 12% top superwhisper 18.3%, com.apple.Virtualization.VirtualMachine 7.1%, com.apple.Virtualization.VirtualMachine 5.0%, sysmond 4.5%, sh 2.4%
-2026-09-27T07:32:14Z round 1 rf ki-mixed load { 3.51 9.43 14.83 } vm 4% top superwhisper 17.4%, sysmond 4.9%,  claude 3.9%, iStat Menus Menubar 3.7%, WindowServer 3.7%
-2026-09-27T07:32:33Z round 2 rf ki-mixed load { 2.66 8.85 14.50 } vm 5% top superwhisper 17.6%, sysmond 4.7%, com.apple.Virtualization.VirtualMachine 3.1%, com.apple.Virtualization.VirtualMachine 2.3%, sh 2.2%
-2026-09-27T07:32:50Z round 2 rf c32-mixed load { 2.81 8.58 14.30 } vm 6% top superwhisper 18.2%, WindowServer 8.3%, sysmond 5.7%,  claude 3.5%, iStat Menus Menubar 3.0%
-2026-09-27T07:33:06Z round 2 rf k32-mixed load { 2.61 8.26 14.08 } vm 6% top superwhisper 18.7%, com.apple.Virtualization.VirtualMachine 3.7%, sysmond 3.6%, com.apple.Virtualization.VirtualMachine 1.9%, WindowServer 1.7%
-2026-09-27T07:33:23Z round 2 rf k8-mixed load { 2.67 8.00 13.89 } vm 18% top superwhisper 17.6%, com.apple.Virtualization.VirtualMachine 9.8%, com.apple.Virtualization.VirtualMachine 4.7%, sysmond 4.6%, iStat Menus Menubar 3.5%
-2026-09-27T07:33:39Z round 2 rf base-mixed load { 2.42 7.59 13.61 } vm 7% top superwhisper 18.0%, iStat Menus Menubar 6.3%,  claude 4.3%,  claude 4.0%, WindowServer 4.0%
-2026-09-27T07:33:56Z round 2 rf ki-single load { 2.76 7.42 13.44 } vm 7% top superwhisper 17.8%, WindowServer 7.9%, com.apple.Virtualization.VirtualMachine 4.9%, sysmond 4.9%, Finder 3.6%
-2026-09-27T07:34:12Z round 2 rf c32-single load { 3.08 7.25 13.27 } vm 6% top launchd 32.8%, superwhisper 19.1%, Finder 10.5%, com.apple.Virtualization.VirtualMachine 3.6%, com.apple.Virtualization.VirtualMachine 2.0%
-2026-09-27T07:34:29Z round 2 rf k32-single load { 2.90 6.94 13.02 } vm 8% top superwhisper 17.1%, powermetrics 8.1%, Finder 6.8%, sysmond 4.4%, com.apple.Virtualization.VirtualMachine 3.5%
-2026-09-27T07:34:45Z round 2 rf k8-single load { 3.35 6.84 12.88 } vm 4% top superwhisper 15.9%, Finder 8.5%, com.apple.Virtualization.VirtualMachine 2.0%, com.apple.Virtualization.VirtualMachine 2.0%, WindowServer 1.8%
-2026-09-27T07:35:01Z round 2 rf base-single load { 3.16 6.62 12.70 } vm 10% top superwhisper 16.5%, WindowServer 13.5%, com.apple.Virtualization.VirtualMachine 7.8%,  claude 5.0%, powermetrics 4.4%
+2026-09-27T07:29:42Z round 1 rf base-single load { 4.14 13.41 17.08 } vm 5% top other 17.4%, other 12.3%, other 4.6%, com.apple.Virtualization.VirtualMachine 3.1%, com.apple.Virtualization.VirtualMachine 2.1%
+2026-09-27T07:29:58Z round 1 rf k8-single load { 3.61 12.69 16.73 } vm 4% top other 18.7%, powermetrics 4.6%, WindowServer 2.1%,  other 1.9%, com.apple.Virtualization.VirtualMachine 1.9%
+2026-09-27T07:30:15Z round 1 rf k32-single load { 4.06 12.36 16.54 } vm 9% top other 16.7%, com.apple.Virtualization.VirtualMachine 8.9%, other 4.8%,  other 4.7%, com.apple.Virtualization.VirtualMachine 4.5%
+2026-09-27T07:30:32Z round 1 rf c32-single load { 3.72 11.88 16.30 } vm 14% top other 16.4%, com.apple.Virtualization.VirtualMachine 10.1%, other 8.4%,  other 6.9%, com.apple.Virtualization.VirtualMachine 3.6%
+2026-09-27T07:30:48Z round 1 rf ki-single load { 3.57 11.32 16.00 } vm 5% top other 17.0%, WindowServer 8.5%, other 5.5%, com.apple.Virtualization.VirtualMachine 3.5%, com.apple.Virtualization.VirtualMachine 2.4%
+2026-09-27T07:31:05Z round 1 rf base-mixed load { 3.22 10.86 15.75 } vm 11% top other 16.2%, other 9.5%, powermetrics 7.9%, com.apple.Virtualization.VirtualMachine 7.3%,  other 6.7%
+2026-09-27T07:31:21Z round 1 rf k8-mixed load { 3.85 10.64 15.59 } vm 6% top other 18.8%, other 4.7%, com.apple.Virtualization.VirtualMachine 2.9%,  other 2.8%,  other 2.4%
+2026-09-27T07:31:38Z round 1 rf k32-mixed load { 4.41 10.32 15.36 } vm 11% top other 19.2%, other 8.5%, other 7.7%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 5.4%
+2026-09-27T07:31:58Z round 1 rf c32-mixed load { 3.79 9.90 15.12 } vm 12% top other 18.3%, com.apple.Virtualization.VirtualMachine 7.1%, com.apple.Virtualization.VirtualMachine 5.0%, other 4.5%, other 2.4%
+2026-09-27T07:32:14Z round 1 rf ki-mixed load { 3.51 9.43 14.83 } vm 4% top other 17.4%, other 4.9%,  other 3.9%, other 3.7%, WindowServer 3.7%
+2026-09-27T07:32:33Z round 2 rf ki-mixed load { 2.66 8.85 14.50 } vm 5% top other 17.6%, other 4.7%, com.apple.Virtualization.VirtualMachine 3.1%, com.apple.Virtualization.VirtualMachine 2.3%, other 2.2%
+2026-09-27T07:32:50Z round 2 rf c32-mixed load { 2.81 8.58 14.30 } vm 6% top other 18.2%, WindowServer 8.3%, other 5.7%,  other 3.5%, other 3.0%
+2026-09-27T07:33:06Z round 2 rf k32-mixed load { 2.61 8.26 14.08 } vm 6% top other 18.7%, com.apple.Virtualization.VirtualMachine 3.7%, other 3.6%, com.apple.Virtualization.VirtualMachine 1.9%, WindowServer 1.7%
+2026-09-27T07:33:23Z round 2 rf k8-mixed load { 2.67 8.00 13.89 } vm 18% top other 17.6%, com.apple.Virtualization.VirtualMachine 9.8%, com.apple.Virtualization.VirtualMachine 4.7%, other 4.6%, other 3.5%
+2026-09-27T07:33:39Z round 2 rf base-mixed load { 2.42 7.59 13.61 } vm 7% top other 18.0%, other 6.3%,  other 4.3%,  other 4.0%, WindowServer 4.0%
+2026-09-27T07:33:56Z round 2 rf ki-single load { 2.76 7.42 13.44 } vm 7% top other 17.8%, WindowServer 7.9%, com.apple.Virtualization.VirtualMachine 4.9%, other 4.9%, other 3.6%
+2026-09-27T07:34:12Z round 2 rf c32-single load { 3.08 7.25 13.27 } vm 6% top other 32.8%, other 19.1%, other 10.5%, com.apple.Virtualization.VirtualMachine 3.6%, com.apple.Virtualization.VirtualMachine 2.0%
+2026-09-27T07:34:29Z round 2 rf k32-single load { 2.90 6.94 13.02 } vm 8% top other 17.1%, powermetrics 8.1%, other 6.8%, other 4.4%, com.apple.Virtualization.VirtualMachine 3.5%
+2026-09-27T07:34:45Z round 2 rf k8-single load { 3.35 6.84 12.88 } vm 4% top other 15.9%, other 8.5%, com.apple.Virtualization.VirtualMachine 2.0%, com.apple.Virtualization.VirtualMachine 2.0%, WindowServer 1.8%
+2026-09-27T07:35:01Z round 2 rf base-single load { 3.16 6.62 12.70 } vm 10% top other 16.5%, WindowServer 13.5%, com.apple.Virtualization.VirtualMachine 7.8%,  other 5.0%, powermetrics 4.4%

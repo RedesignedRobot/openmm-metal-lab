@@ -20,7 +20,7 @@ core() {
     env -i PATH=/usr/bin:/bin MINICORE_CRASH_IN_WRITE=${MINICORE_CRASH_IN_WRITE:-} nice -n 19 /usr/sbin/taskpolicy -b "$bundle/minicore" "$@"
 }
 
-# Nothing on the Studio gets deleted without the owner's yes (2026-09-28), so the out dir must be new.
+# These scripts never delete anything, so the out dir must be new.
 [ -e "$out" ] && { echo "$out exists; pick a new out dir"; exit 2; }
 mkdir -p "$out/killed"
 

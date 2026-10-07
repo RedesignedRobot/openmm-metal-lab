@@ -88,7 +88,7 @@ def census(tl, al, cut, P2=None):
         out[f"empty{w}_all_padding"] = out[f"ch{w}_pad"]/out[f"ch{w}"]
         # Chunks of real atoms only: the rate a mask adds over simply stopping at the tile's last filled slot.
         out[f"empty{w}_real"] = (out[f"ch{w}_empty"]-out[f"ch{w}_pad"])/(out[f"ch{w}"]-out[f"ch{w}_pad"])
-    # Instruction model per tile: base 1600, 8x4 masked units 960 s + 600 (Astra, Q2 r1).
+    # Instruction model per tile: base 1600, 8x4 masked units 960 s + 600 (consult, Q2 r1).
     out["base_instr_per_useful"] = 1600*out["tiles"]/out["useful0"]
     out["unit_instr_per_useful"] = (960*out["s"]+600)*out["tiles"]/out["useful0"]
     return out

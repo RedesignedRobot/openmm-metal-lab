@@ -4,7 +4,7 @@
 #    when the current hold ends and every queued ticket keeps its place behind it. It holds the lease
 #    for the whole window (lease.sh --cap: twice the estimate plus the preflight plus 10 minutes, in
 #    place of the 20 minute cap), which blocks every lane's GPU work, and puts up /tmp/openmm-window:
-#    build.sh waits while it exists, and RULES.md tells lanes not to build. Releasing the lease at the
+#    build.sh waits while it exists, and lanes don't build during a window. Releasing the lease at the
 #    end reopens the queue. Nothing of anyone else's is stopped: the background VM and other jobs run
 #    on and are logged.
 # 2. Preflight inside the hold: waits up to 10 minutes for running builds to end and the 1 minute

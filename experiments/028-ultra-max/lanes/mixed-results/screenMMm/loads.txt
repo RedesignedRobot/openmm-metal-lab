@@ -1,12 +1,12 @@
-2026-09-25T01:03:58Z round 1 gbsa base load { 3.43 3.50 3.67 } vm 9% top superwhisper 22.6%, chrome-headless-shell 12.1%, com.apple.Virtualization.VirtualMachine 10.0%, powermetrics 8.8%, sysmond 4.8%
-2026-09-25T01:04:17Z round 1 gbsa mm load { 3.13 3.43 3.64 } vm 12% top superwhisper 20.4%, ContextStoreAgent 18.6%, coreaudiod 14.0%, com.apple.Virtualization.VirtualMachine 11.5%, mediaremoted 7.2%
-2026-09-25T01:04:39Z round 1 rf base load { 3.40 3.47 3.65 } vm 3% top superwhisper 21.1%, bun 19.2%, WindowServer 2.9%, com.apple.Virtualization.VirtualMachine 2.8%, ghostty 2.1%
-2026-09-25T01:04:56Z round 1 rf mm load { 3.22 3.43 3.63 } vm 6% top superwhisper 21.4%, iStat Menus Menubar 6.7%, com.apple.Virtualization.VirtualMachine 5.5%, WindowServer 3.9%,  claude 2.3%
-2026-09-25T01:05:17Z round 1 pme base load { 2.49 3.25 3.56 } vm 11% top superwhisper 19.5%, com.apple.Virtualization.VirtualMachine 10.9%, sysmond 3.7%, iStat Menus Menubar 2.8%, WindowServer 2.4%
-2026-09-25T01:05:33Z round 1 pme mm load { 2.51 3.20 3.54 } vm 10% top superwhisper 18.9%, sysmond 7.9%, com.apple.Virtualization.VirtualMachine 6.7%,  claude 4.0%, WindowServer 2.8%
-2026-09-25T01:05:51Z round 2 gbsa mm load { 2.26 3.11 3.50 } vm 6% top superwhisper 21.9%,  claude 5.9%, com.apple.Virtualization.VirtualMachine 5.6%, sysmond 5.0%, sh 1.3%
-2026-09-25T01:06:08Z round 2 gbsa base load { 1.82 2.96 3.43 } vm 3% top superwhisper 22.1%, sysmond 4.2%,  claude 3.1%, com.apple.Virtualization.VirtualMachine 3.0%, WindowServer 1.5%
-2026-09-25T01:06:24Z round 2 rf mm load { 1.80 2.90 3.40 } vm 4% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 7.6%, sysmond 5.1%, WindowServer 1.6%, sh 1.6%
-2026-09-25T01:06:41Z round 2 rf base load { 2.29 2.95 3.41 } vm 5% top superwhisper 21.7%, sysmond 7.3%, com.apple.Virtualization.VirtualMachine 6.7%, powermetrics 4.8%,  claude 2.7%
-2026-09-25T01:06:57Z round 2 pme mm load { 2.44 2.94 3.40 } vm 8% top superwhisper 23.1%, com.apple.Virtualization.VirtualMachine 8.4%, WindowServer 1.1%, sh 1.0%, iStat Menus Menubar 1.0%
-2026-09-25T01:07:14Z round 2 pme base load { 2.62 2.95 3.40 } vm 7% top superwhisper 18.5%, com.apple.Virtualization.VirtualMachine 6.6%,  claude 5.4%, sysmond 4.9%, WindowServer 2.1%
+2026-09-25T01:03:58Z round 1 gbsa base load { 3.43 3.50 3.67 } vm 9% top other 22.6%, other 12.1%, com.apple.Virtualization.VirtualMachine 10.0%, powermetrics 8.8%, other 4.8%
+2026-09-25T01:04:17Z round 1 gbsa mm load { 3.13 3.43 3.64 } vm 12% top other 20.4%, other 18.6%, other 14.0%, com.apple.Virtualization.VirtualMachine 11.5%, other 7.2%
+2026-09-25T01:04:39Z round 1 rf base load { 3.40 3.47 3.65 } vm 3% top other 21.1%, other 19.2%, WindowServer 2.9%, com.apple.Virtualization.VirtualMachine 2.8%, other 2.1%
+2026-09-25T01:04:56Z round 1 rf mm load { 3.22 3.43 3.63 } vm 6% top other 21.4%, other 6.7%, com.apple.Virtualization.VirtualMachine 5.5%, WindowServer 3.9%,  other 2.3%
+2026-09-25T01:05:17Z round 1 pme base load { 2.49 3.25 3.56 } vm 11% top other 19.5%, com.apple.Virtualization.VirtualMachine 10.9%, other 3.7%, other 2.8%, WindowServer 2.4%
+2026-09-25T01:05:33Z round 1 pme mm load { 2.51 3.20 3.54 } vm 10% top other 18.9%, other 7.9%, com.apple.Virtualization.VirtualMachine 6.7%,  other 4.0%, WindowServer 2.8%
+2026-09-25T01:05:51Z round 2 gbsa mm load { 2.26 3.11 3.50 } vm 6% top other 21.9%,  other 5.9%, com.apple.Virtualization.VirtualMachine 5.6%, other 5.0%, other 1.3%
+2026-09-25T01:06:08Z round 2 gbsa base load { 1.82 2.96 3.43 } vm 3% top other 22.1%, other 4.2%,  other 3.1%, com.apple.Virtualization.VirtualMachine 3.0%, WindowServer 1.5%
+2026-09-25T01:06:24Z round 2 rf mm load { 1.80 2.90 3.40 } vm 4% top other 20.7%, com.apple.Virtualization.VirtualMachine 7.6%, other 5.1%, WindowServer 1.6%, other 1.6%
+2026-09-25T01:06:41Z round 2 rf base load { 2.29 2.95 3.41 } vm 5% top other 21.7%, other 7.3%, com.apple.Virtualization.VirtualMachine 6.7%, powermetrics 4.8%,  other 2.7%
+2026-09-25T01:06:57Z round 2 pme mm load { 2.44 2.94 3.40 } vm 8% top other 23.1%, com.apple.Virtualization.VirtualMachine 8.4%, WindowServer 1.1%, other 1.0%, other 1.0%
+2026-09-25T01:07:14Z round 2 pme base load { 2.62 2.95 3.40 } vm 7% top other 18.5%, com.apple.Virtualization.VirtualMachine 6.6%,  other 5.4%, other 4.9%, WindowServer 2.1%

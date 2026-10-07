@@ -1,4 +1,4 @@
-"""Forces after 100 MD steps against Reference, for neighbor list changes (RULES.md Phases).
+"""Forces after 100 MD steps against Reference, for neighbor list changes.
 
 Runs 100 LangevinMiddle steps on Metal from the benchmark.py positions, then compares the forces of
 that running context, whose neighbor list was built during the steps, with Reference at the same

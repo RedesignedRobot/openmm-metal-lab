@@ -268,7 +268,7 @@ Dead ends I'd skip:
 ## Conflicts and open questions
 
 - The Feature Set Tables say Apple9 has "the full set of 64-bit atomic operations", while MSL 4.1 defines only max and min for atomic_ulong. I trust the spec for what compiles. A probe of `atomic_max_explicit((device atomic_ulong*)p, v, memory_order_relaxed)` on the M3 Ultra would settle it in 5 minutes.
-- Lab 008's overview says the M3 Ultra has "32 CPU cores, 80 GPU cores". RULES.md and the IORegistry-based code say 28 and 60. 008's M3 Ultra rows came from some machine, so anyone quoting them should check which one.
+- Lab 008's overview says the M3 Ultra has "32 CPU cores, 80 GPU cores". The lab's machine notes and the IORegistry-based code say 28 and 60. 008's M3 Ultra rows came from some machine, so anyone quoting them should check which one.
 - metal-benchmarks' microarchitecture numbers are M1 and M2. Apple9's dynamic caching and concurrent FP32, FP16 and int issue change occupancy and the instruction mix, so treat them as a floor.
 - Classic counter sample buffers returning zeros on macOS 26 is one bug report. It's unverified on 27.2.
 - Whether `memoryBarrier(resources:)` in a concurrent encoder is scoped to those resources or is a full barrier is unverified. Probe it before designing two interleaved chains in one encoder.

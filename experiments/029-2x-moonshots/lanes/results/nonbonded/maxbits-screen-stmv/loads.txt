@@ -1,11 +1,11 @@
-2026-09-26T18:21:57Z round 1 amber20-stmv base-s load { 4.42 4.98 5.12 } vm 8% top node 100.1%, superwhisper 23.3%, powermetrics 11.0%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 5.8%
-2026-09-26T18:22:35Z round 1 amber20-stmv cand-s load { 3.86 4.77 5.03 } vm 11% top node 126.9%, superwhisper 24.1%, Finder 15.0%, com.apple.Virtualization.VirtualMachine 6.5%, WindowServer 4.9%
-2026-09-26T18:23:12Z round 1 amber20-stmv cl-s load { 3.46 4.57 4.95 } vm 14% top node 98.6%, launchd 86.2%, superwhisper 22.6%, com.apple.Virtualization.VirtualMachine 9.0%, iStat Menus Menubar 7.4%
-2026-09-26T18:23:54Z round 1 amber20-stmv base-m load { 3.53 4.45 4.89 } vm 11% top node 99.7%, superwhisper 20.8%, Finder 13.7%, com.apple.Virtualization.VirtualMachine 5.6%, com.apple.Virtualization.VirtualMachine 5.3%
+2026-09-26T18:21:57Z round 1 amber20-stmv base-s load { 4.42 4.98 5.12 } vm 8% top other 100.1%, other 23.3%, powermetrics 11.0%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 5.8%
+2026-09-26T18:22:35Z round 1 amber20-stmv cand-s load { 3.86 4.77 5.03 } vm 11% top other 126.9%, other 24.1%, other 15.0%, com.apple.Virtualization.VirtualMachine 6.5%, WindowServer 4.9%
+2026-09-26T18:23:12Z round 1 amber20-stmv cl-s load { 3.46 4.57 4.95 } vm 14% top other 98.6%, other 86.2%, other 22.6%, com.apple.Virtualization.VirtualMachine 9.0%, other 7.4%
+2026-09-26T18:23:54Z round 1 amber20-stmv base-m load { 3.53 4.45 4.89 } vm 11% top other 99.7%, other 20.8%, other 13.7%, com.apple.Virtualization.VirtualMachine 5.6%, com.apple.Virtualization.VirtualMachine 5.3%
 2026-09-26T18:26:41Z round 1 amber20-stmv base-m BUILD RUNNING during the run
-2026-09-26T18:26:41Z round 1 amber20-stmv cand-m load { 8.34 5.60 5.22 } BUILD RUNNING vm 16% top clang 99.7%, node 74.3%, superwhisper 26.1%, com.apple.Virtualization.VirtualMachine 11.2%, powermetrics 7.9%
-2026-09-26T18:29:33Z round 2 amber20-stmv cand-m load { 4.49 4.92 5.00 } vm 12% top mds 52.0%, superwhisper 23.1%, Finder 11.5%, com.apple.Virtualization.VirtualMachine 9.9%,  (bun) 9.1%
-2026-09-26T18:32:23Z round 2 amber20-stmv base-m load { 2.25 3.74 4.49 } vm 13% top spotlightknowledged 98.9%, superwhisper 22.9%, com.apple.Virtualization.VirtualMachine 7.5%, com.apple.Virtualization.VirtualMachine 6.1%, iStat Menus Menubar 5.2%
-2026-09-26T18:35:00Z round 2 amber20-stmv cl-s load { 1.99 2.96 4.04 } vm 43% top spotlightknowledged 100.0%, com.apple.Virtualization.VirtualMachine 38.0%, superwhisper 22.6%, Finder 8.7%, iStat Menus Menubar 8.0%
-2026-09-26T18:35:42Z round 2 amber20-stmv cand-s load { 2.56 2.96 3.99 } vm 9% top spotlightknowledged 99.9%, superwhisper 24.0%, powermetrics 7.8%, Finder 7.2%, launchd 6.3%
-2026-09-26T18:36:20Z round 2 amber20-stmv base-s load { 2.53 2.90 3.92 } vm 10% top spotlightknowledged 99.8%, superwhisper 24.3%, com.apple.Virtualization.VirtualMachine 7.2%, WindowServer 4.2%, com.apple.Virtualization.VirtualMachine 2.8%
+2026-09-26T18:26:41Z round 1 amber20-stmv cand-m load { 8.34 5.60 5.22 } BUILD RUNNING vm 16% top clang 99.7%, other 74.3%, other 26.1%, com.apple.Virtualization.VirtualMachine 11.2%, powermetrics 7.9%
+2026-09-26T18:29:33Z round 2 amber20-stmv cand-m load { 4.49 4.92 5.00 } vm 12% top other 52.0%, other 23.1%, other 11.5%, com.apple.Virtualization.VirtualMachine 9.9%,  other 9.1%
+2026-09-26T18:32:23Z round 2 amber20-stmv base-m load { 2.25 3.74 4.49 } vm 13% top other 98.9%, other 22.9%, com.apple.Virtualization.VirtualMachine 7.5%, com.apple.Virtualization.VirtualMachine 6.1%, other 5.2%
+2026-09-26T18:35:00Z round 2 amber20-stmv cl-s load { 1.99 2.96 4.04 } vm 43% top other 100.0%, com.apple.Virtualization.VirtualMachine 38.0%, other 22.6%, other 8.7%, other 8.0%
+2026-09-26T18:35:42Z round 2 amber20-stmv cand-s load { 2.56 2.96 3.99 } vm 9% top other 99.9%, other 24.0%, powermetrics 7.8%, other 7.2%, other 6.3%
+2026-09-26T18:36:20Z round 2 amber20-stmv base-s load { 2.53 2.90 3.92 } vm 10% top other 99.8%, other 24.3%, com.apple.Virtualization.VirtualMachine 7.2%, WindowServer 4.2%, com.apple.Virtualization.VirtualMachine 2.8%

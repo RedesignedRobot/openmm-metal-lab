@@ -1,10 +1,10 @@
-2026-09-25T01:11:48Z round 1 amoebagk before-single load { 2.56 2.77 3.19 } vm 11% top superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 11.4%, sysmond 4.7%, sh 3.1%,  claude 1.5%
-2026-09-25T01:12:09Z round 1 amoebagk cand-single load { 2.10 2.66 3.13 } vm 5% top superwhisper 24.5%, com.apple.Virtualization.VirtualMachine 6.7%, sysmond 5.6%, sh 2.9%, Microsoft Update Assistant 2.9%
-2026-09-25T01:12:30Z round 1 amoebagk before-mixed load { 2.66 2.74 3.15 } vm 4% top bun 22.3%, node 21.8%, ContextStoreAgent 20.9%, superwhisper 19.6%, powermetrics 12.0%
-2026-09-25T01:12:55Z round 1 amoebagk cand-mixed load { 2.49 2.70 3.13 } vm 9% top superwhisper 24.0%, com.apple.Virtualization.VirtualMachine 9.3%, powermetrics 4.7%, sh 3.5%,  claude 1.8%
-2026-09-25T01:13:22Z round 1 amoebagk opencl-single load { 2.64 2.71 3.12 } vm 10% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 10.3%, sysmond 5.6%, sh 3.6%,  claude 3.0%
-2026-09-25T01:13:42Z round 2 amoebagk opencl-single load { 2.30 2.63 3.08 } vm 9% top superwhisper 24.5%, com.apple.Virtualization.VirtualMachine 8.4%, sysmond 4.9%, iStat Menus Menubar 4.5%,  claude 3.6%
-2026-09-25T01:14:02Z round 2 amoebagk cand-mixed load { 1.83 2.50 3.02 } vm 8% top superwhisper 23.6%, com.apple.Virtualization.VirtualMachine 8.0%, sh 3.4%, WindowServer 2.6%,  claude 2.5%
-2026-09-25T01:14:22Z round 2 amoebagk before-mixed load { 2.22 2.54 3.02 } vm 2% top node 105.6%, superwhisper 21.6%, trustd 4.7%, io.tailscale.ipn.macsys.network-extension 3.7%, sysmond 3.7%
-2026-09-25T01:14:42Z round 2 amoebagk cand-single load { 2.43 2.56 3.02 } vm 8% top superwhisper 26.0%, com.apple.Virtualization.VirtualMachine 7.6%, sysmond 4.9%, sh 3.7%, WindowServer 1.6%
-2026-09-25T01:15:02Z round 2 amoebagk before-single load { 2.62 2.59 3.02 } vm 8% top superwhisper 23.1%, com.apple.Virtualization.VirtualMachine 7.8%, mdworker_shared 6.3%, sh 3.3%,  claude 2.3%
+2026-09-25T01:11:48Z round 1 amoebagk before-single load { 2.56 2.77 3.19 } vm 11% top other 22.1%, com.apple.Virtualization.VirtualMachine 11.4%, other 4.7%, other 3.1%,  other 1.5%
+2026-09-25T01:12:09Z round 1 amoebagk cand-single load { 2.10 2.66 3.13 } vm 5% top other 24.5%, com.apple.Virtualization.VirtualMachine 6.7%, other 5.6%, other 2.9%, other 2.9%
+2026-09-25T01:12:30Z round 1 amoebagk before-mixed load { 2.66 2.74 3.15 } vm 4% top other 22.3%, other 21.8%, other 20.9%, other 19.6%, powermetrics 12.0%
+2026-09-25T01:12:55Z round 1 amoebagk cand-mixed load { 2.49 2.70 3.13 } vm 9% top other 24.0%, com.apple.Virtualization.VirtualMachine 9.3%, powermetrics 4.7%, other 3.5%,  other 1.8%
+2026-09-25T01:13:22Z round 1 amoebagk opencl-single load { 2.64 2.71 3.12 } vm 10% top other 21.8%, com.apple.Virtualization.VirtualMachine 10.3%, other 5.6%, other 3.6%,  other 3.0%
+2026-09-25T01:13:42Z round 2 amoebagk opencl-single load { 2.30 2.63 3.08 } vm 9% top other 24.5%, com.apple.Virtualization.VirtualMachine 8.4%, other 4.9%, other 4.5%,  other 3.6%
+2026-09-25T01:14:02Z round 2 amoebagk cand-mixed load { 1.83 2.50 3.02 } vm 8% top other 23.6%, com.apple.Virtualization.VirtualMachine 8.0%, other 3.4%, WindowServer 2.6%,  other 2.5%
+2026-09-25T01:14:22Z round 2 amoebagk before-mixed load { 2.22 2.54 3.02 } vm 2% top other 105.6%, other 21.6%, other 4.7%, other 3.7%, other 3.7%
+2026-09-25T01:14:42Z round 2 amoebagk cand-single load { 2.43 2.56 3.02 } vm 8% top other 26.0%, com.apple.Virtualization.VirtualMachine 7.6%, other 4.9%, other 3.7%, WindowServer 1.6%
+2026-09-25T01:15:02Z round 2 amoebagk before-single load { 2.62 2.59 3.02 } vm 8% top other 23.1%, com.apple.Virtualization.VirtualMachine 7.8%, other 6.3%, other 3.3%,  other 2.3%

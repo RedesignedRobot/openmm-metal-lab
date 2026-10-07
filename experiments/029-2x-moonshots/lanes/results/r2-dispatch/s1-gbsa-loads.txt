@@ -1,45 +1,45 @@
-2026-09-27T06:51:59Z round 1 gbsa base-single load { 7.34 10.55 10.57 } vm 17% top python 453.2%, node 99.3%, superwhisper 13.5%, com.apple.Virtualization.VirtualMachine 13.4%, iStat Menus Menubar 3.8%
-2026-09-27T06:52:17Z round 1 gbsa k8-single load { 6.33 10.11 10.41 } vm 9% top python 441.2%, node 100.1%, WindowServer 16.8%, superwhisper 13.0%, com.apple.Virtualization.VirtualMachine 4.5%
-2026-09-27T06:52:33Z round 1 gbsa k32-single load { 7.03 10.08 10.40 } vm 4% top node 100.0%, backupd 99.4%, WindowServer 23.5%, superwhisper 13.2%, sysmond 6.9%
-2026-09-27T06:52:50Z round 1 gbsa c32-single load { 7.81 10.08 10.39 } vm 16% top python 618.3%, node 296.1%, Python 93.3%, backupd 48.0%, fseventsd 36.7%
+2026-09-27T06:51:59Z round 1 gbsa base-single load { 7.34 10.55 10.57 } vm 17% top python 453.2%, other 99.3%, other 13.5%, com.apple.Virtualization.VirtualMachine 13.4%, other 3.8%
+2026-09-27T06:52:17Z round 1 gbsa k8-single load { 6.33 10.11 10.41 } vm 9% top python 441.2%, other 100.1%, WindowServer 16.8%, other 13.0%, com.apple.Virtualization.VirtualMachine 4.5%
+2026-09-27T06:52:33Z round 1 gbsa k32-single load { 7.03 10.08 10.40 } vm 4% top other 100.0%, other 99.4%, WindowServer 23.5%, other 13.2%, other 6.9%
+2026-09-27T06:52:50Z round 1 gbsa c32-single load { 7.81 10.08 10.39 } vm 16% top python 618.3%, other 296.1%, Python 93.3%, other 48.0%, other 36.7%
 2026-09-27T06:53:07Z round 1 gbsa c32-single BUILD RUNNING during the run
-2026-09-27T06:53:07Z round 1 gbsa ki-single load { 9.80 10.35 10.48 } BUILD RUNNING vm 11% top python 617.9%, node 245.5%, clang 78.7%, clang 76.1%, clang 75.9%
-2026-09-27T06:53:23Z round 1 gbsa base-mixed load { 10.15 10.40 10.49 } BUILD RUNNING vm 6% top node 100.0%, clang 55.9%, clang 48.3%, backupd 47.1%,  (ld) 38.6%
-2026-09-27T06:53:40Z round 1 gbsa k8-mixed load { 9.56 10.27 10.44 } BUILD RUNNING vm 7% top node 100.4%, python 99.1%, swig 99.1%, clang 99.0%, backupd 49.2%
-2026-09-27T06:53:56Z round 1 gbsa k32-mixed load { 9.43 10.20 10.42 } BUILD RUNNING vm 4% top python 98.7%, clang 96.9%, backupd 45.2%, WindowServer 26.7%, superwhisper 19.5%
-2026-09-27T06:54:17Z round 1 gbsa c32-mixed load { 7.63 9.72 10.24 } BUILD RUNNING vm 6% top node 101.4%, python 100.0%, clang 99.5%, backupd 39.2%, WindowServer 23.9%
-2026-09-27T06:54:33Z round 1 gbsa ki-mixed load { 7.25 9.53 10.16 } BUILD RUNNING vm 7% top python 100.0%, clang 99.9%, node 99.9%, backupd 38.8%, WindowServer 20.0%
-2026-09-27T06:54:55Z round 2 gbsa ki-mixed load { 6.93 9.31 10.06 } BUILD RUNNING vm 5% top clang 82.5%, node 74.1%, backupd 40.9%, superwhisper 19.5%, WindowServer 14.0%
-2026-09-27T06:55:11Z round 2 gbsa c32-mixed load { 6.28 9.04 9.96 } vm 10% top node 179.9%, backupd 42.4%, WindowServer 25.8%, superwhisper 19.5%, com.apple.Virtualization.VirtualMachine 6.2%
-2026-09-27T06:55:27Z round 2 gbsa k32-mixed load { 5.58 8.70 9.81 } vm 8% top node 101.9%, python 99.7%, backupd 86.8%, bird 33.6%, WindowServer 22.9%
-2026-09-27T06:55:44Z round 2 gbsa k8-mixed load { 5.47 8.52 9.73 } vm 7% top backupd 194.3%, node 136.0%, python 98.5%, WindowServer 24.2%, superwhisper 19.7%
-2026-09-27T06:56:00Z round 2 gbsa base-mixed load { 5.20 8.31 9.63 } vm 8% top node 100.3%, python 100.0%, WindowServer 26.8%, superwhisper 19.8%, backupd 14.6%
-2026-09-27T06:56:16Z round 2 gbsa ki-single load { 5.72 8.23 9.57 } vm 10% top node 123.4%, python 100.0%, WindowServer 25.0%, superwhisper 20.3%, Finder 9.5%
-2026-09-27T06:56:32Z round 2 gbsa c32-single load { 5.19 7.99 9.46 } vm 7% top node 100.0%, python 99.0%, WindowServer 24.4%, superwhisper 20.4%, Finder 10.2%
-2026-09-27T06:56:49Z round 2 gbsa k32-single load { 4.78 7.76 9.35 } vm 6% top backupd 143.8%, node 105.2%, python 99.0%, WindowServer 20.3%, superwhisper 18.5%
-2026-09-27T06:57:05Z round 2 gbsa k8-single load { 5.20 7.72 9.31 } vm 6% top node 100.0%, backupd 92.5%, WindowServer 23.8%, superwhisper 18.2%, powermetrics 11.8%
+2026-09-27T06:53:07Z round 1 gbsa ki-single load { 9.80 10.35 10.48 } BUILD RUNNING vm 11% top python 617.9%, other 245.5%, clang 78.7%, clang 76.1%, clang 75.9%
+2026-09-27T06:53:23Z round 1 gbsa base-mixed load { 10.15 10.40 10.49 } BUILD RUNNING vm 6% top other 100.0%, clang 55.9%, clang 48.3%, other 47.1%,  (ld) 38.6%
+2026-09-27T06:53:40Z round 1 gbsa k8-mixed load { 9.56 10.27 10.44 } BUILD RUNNING vm 7% top other 100.4%, python 99.1%, swig 99.1%, clang 99.0%, other 49.2%
+2026-09-27T06:53:56Z round 1 gbsa k32-mixed load { 9.43 10.20 10.42 } BUILD RUNNING vm 4% top python 98.7%, clang 96.9%, other 45.2%, WindowServer 26.7%, other 19.5%
+2026-09-27T06:54:17Z round 1 gbsa c32-mixed load { 7.63 9.72 10.24 } BUILD RUNNING vm 6% top other 101.4%, python 100.0%, clang 99.5%, other 39.2%, WindowServer 23.9%
+2026-09-27T06:54:33Z round 1 gbsa ki-mixed load { 7.25 9.53 10.16 } BUILD RUNNING vm 7% top python 100.0%, clang 99.9%, other 99.9%, other 38.8%, WindowServer 20.0%
+2026-09-27T06:54:55Z round 2 gbsa ki-mixed load { 6.93 9.31 10.06 } BUILD RUNNING vm 5% top clang 82.5%, other 74.1%, other 40.9%, other 19.5%, WindowServer 14.0%
+2026-09-27T06:55:11Z round 2 gbsa c32-mixed load { 6.28 9.04 9.96 } vm 10% top other 179.9%, other 42.4%, WindowServer 25.8%, other 19.5%, com.apple.Virtualization.VirtualMachine 6.2%
+2026-09-27T06:55:27Z round 2 gbsa k32-mixed load { 5.58 8.70 9.81 } vm 8% top other 101.9%, python 99.7%, other 86.8%, other 33.6%, WindowServer 22.9%
+2026-09-27T06:55:44Z round 2 gbsa k8-mixed load { 5.47 8.52 9.73 } vm 7% top other 194.3%, other 136.0%, python 98.5%, WindowServer 24.2%, other 19.7%
+2026-09-27T06:56:00Z round 2 gbsa base-mixed load { 5.20 8.31 9.63 } vm 8% top other 100.3%, python 100.0%, WindowServer 26.8%, other 19.8%, other 14.6%
+2026-09-27T06:56:16Z round 2 gbsa ki-single load { 5.72 8.23 9.57 } vm 10% top other 123.4%, python 100.0%, WindowServer 25.0%, other 20.3%, other 9.5%
+2026-09-27T06:56:32Z round 2 gbsa c32-single load { 5.19 7.99 9.46 } vm 7% top other 100.0%, python 99.0%, WindowServer 24.4%, other 20.4%, other 10.2%
+2026-09-27T06:56:49Z round 2 gbsa k32-single load { 4.78 7.76 9.35 } vm 6% top other 143.8%, other 105.2%, python 99.0%, WindowServer 20.3%, other 18.5%
+2026-09-27T06:57:05Z round 2 gbsa k8-single load { 5.20 7.72 9.31 } vm 6% top other 100.0%, other 92.5%, WindowServer 23.8%, other 18.2%, powermetrics 11.8%
 2026-09-27T06:57:21Z round 2 gbsa k8-single BUILD RUNNING during the run
-2026-09-27T06:57:21Z round 2 gbsa base-single load { 5.60 7.67 9.26 } BUILD RUNNING vm 6% top backupd 142.0%, node 141.0%, WindowServer 26.7%, superwhisper 18.9%, Finder 9.7%
+2026-09-27T06:57:21Z round 2 gbsa base-single load { 5.60 7.67 9.26 } BUILD RUNNING vm 6% top other 142.0%, other 141.0%, WindowServer 26.7%, other 18.9%, other 9.7%
 2026-09-27T06:57:37Z rerun round 1 gbsa: a build or a busy CPU overlapped it
-2026-09-27T06:57:37Z round 1 gbsa base-single load { 10.87 8.85 9.65 } vm 8% top node 275.3%, backupd 94.2%, WindowServer 24.3%, superwhisper 17.8%, mdworker_shared 6.9%
-2026-09-27T06:57:54Z round 1 gbsa k8-single load { 9.90 8.74 9.60 } vm 6% top node 100.0%, WindowServer 24.9%, superwhisper 17.9%, com.apple.Virtualization.VirtualMachine 4.6%, backupd 4.4%
-2026-09-27T06:58:10Z round 1 gbsa k32-single load { 8.51 8.49 9.50 } vm 7% top node 615.3%, python 99.2%, backupd 94.6%, WindowServer 24.2%, superwhisper 18.2%
-2026-09-27T06:58:26Z round 1 gbsa c32-single load { 8.23 8.43 9.46 } vm 48% top node 99.3%, python 99.0%, com.apple.Virtualization.VirtualMachine 45.2%, backupd 40.8%, WindowServer 25.8%
-2026-09-27T06:58:42Z round 1 gbsa ki-single load { 12.44 9.35 9.76 } vm 6% top node 100.4%, python 98.8%, python 92.1%, backupd 50.3%, WindowServer 19.5%
-2026-09-27T06:58:59Z round 1 gbsa base-mixed load { 10.50 9.07 9.65 } vm 8% top node 101.0%, python 99.9%, backupd 55.8%, WindowServer 27.7%, superwhisper 19.4%
-2026-09-27T06:59:15Z round 1 gbsa k8-mixed load { 9.35 8.88 9.58 } vm 6% top backupd 147.6%, node 100.0%, python 100.0%, WindowServer 23.0%, superwhisper 16.3%
-2026-09-27T06:59:32Z round 1 gbsa k32-mixed load { 9.09 8.86 9.55 } vm 11% top backupd 139.6%, python 122.8%, node 100.0%, node 99.6%, WindowServer 24.1%
-2026-09-27T06:59:48Z round 1 gbsa c32-mixed load { 8.19 8.67 9.47 } vm 5% top node 100.4%, python 99.6%, backupd 77.9%, WindowServer 24.5%, superwhisper 18.3%
-2026-09-27T07:00:04Z round 1 gbsa ki-mixed load { 7.48 8.49 9.39 } vm 6% top node 101.1%, python 99.8%, backupd 90.3%, TGOnDeviceInferenceProviderService 49.0%, modelcatalogd 46.1%
+2026-09-27T06:57:37Z round 1 gbsa base-single load { 10.87 8.85 9.65 } vm 8% top other 275.3%, other 94.2%, WindowServer 24.3%, other 17.8%, other 6.9%
+2026-09-27T06:57:54Z round 1 gbsa k8-single load { 9.90 8.74 9.60 } vm 6% top other 100.0%, WindowServer 24.9%, other 17.9%, com.apple.Virtualization.VirtualMachine 4.6%, other 4.4%
+2026-09-27T06:58:10Z round 1 gbsa k32-single load { 8.51 8.49 9.50 } vm 7% top other 615.3%, python 99.2%, other 94.6%, WindowServer 24.2%, other 18.2%
+2026-09-27T06:58:26Z round 1 gbsa c32-single load { 8.23 8.43 9.46 } vm 48% top other 99.3%, python 99.0%, com.apple.Virtualization.VirtualMachine 45.2%, other 40.8%, WindowServer 25.8%
+2026-09-27T06:58:42Z round 1 gbsa ki-single load { 12.44 9.35 9.76 } vm 6% top other 100.4%, python 98.8%, python 92.1%, other 50.3%, WindowServer 19.5%
+2026-09-27T06:58:59Z round 1 gbsa base-mixed load { 10.50 9.07 9.65 } vm 8% top other 101.0%, python 99.9%, other 55.8%, WindowServer 27.7%, other 19.4%
+2026-09-27T06:59:15Z round 1 gbsa k8-mixed load { 9.35 8.88 9.58 } vm 6% top other 147.6%, other 100.0%, python 100.0%, WindowServer 23.0%, other 16.3%
+2026-09-27T06:59:32Z round 1 gbsa k32-mixed load { 9.09 8.86 9.55 } vm 11% top other 139.6%, python 122.8%, other 100.0%, other 99.6%, WindowServer 24.1%
+2026-09-27T06:59:48Z round 1 gbsa c32-mixed load { 8.19 8.67 9.47 } vm 5% top other 100.4%, python 99.6%, other 77.9%, WindowServer 24.5%, other 18.3%
+2026-09-27T07:00:04Z round 1 gbsa ki-mixed load { 7.48 8.49 9.39 } vm 6% top other 101.1%, python 99.8%, other 90.3%, other 49.0%, other 46.1%
 2026-09-27T07:00:20Z rerun round 2 gbsa: a build or a busy CPU overlapped it
-2026-09-27T07:00:20Z round 2 gbsa ki-mixed load { 6.54 8.23 9.29 } vm 6% top node 98.5%, backupd 34.1%, WindowServer 25.8%, superwhisper 19.5%, Finder 9.5%
-2026-09-27T07:00:37Z round 2 gbsa c32-mixed load { 6.51 8.11 9.22 } vm 6% top backupd 149.5%, node 105.6%, Python 99.0%, fseventsd 40.4%, Finder 21.7%
+2026-09-27T07:00:20Z round 2 gbsa ki-mixed load { 6.54 8.23 9.29 } vm 6% top other 98.5%, other 34.1%, WindowServer 25.8%, other 19.5%, other 9.5%
+2026-09-27T07:00:37Z round 2 gbsa c32-mixed load { 6.51 8.11 9.22 } vm 6% top other 149.5%, other 105.6%, Python 99.0%, other 40.4%, other 21.7%
 2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
-2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6% top corespotlightd 135.8%, node 111.3%, backupd 71.1%, clang 45.5%, WindowServer 23.4%
-2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6% top corespotlightd 152.7%, node 99.0%, swig 91.8%, TGOnDeviceInferenceProviderService 48.3%, aned 31.9%
-2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8% top backupd 142.3%, node 99.9%, clang 99.1%, WindowServer 19.2%, superwhisper 16.9%
-2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5% top node 102.9%, clang 98.8%, WindowServer 23.9%, superwhisper 14.3%, Finder 9.9%
-2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4% top node 163.5%, clang 99.3%, WindowServer 27.7%, superwhisper 20.7%, sysmond 4.7%
-2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5% top mds_stores 103.9%, node 100.4%, Python 97.0%, clang 63.2%, doxygen 59.8%
-2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8% top node 99.2%, clang 33.7%, ld 32.0%, ld 29.0%, ld 20.4%
-2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7% top node 99.2%, swig 54.7%, ld 34.3%, Finder 29.7%, python 26.1%
+2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6% top other 135.8%, other 111.3%, other 71.1%, clang 45.5%, WindowServer 23.4%
+2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6% top other 152.7%, other 99.0%, swig 91.8%, other 48.3%, other 31.9%
+2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8% top other 142.3%, other 99.9%, clang 99.1%, WindowServer 19.2%, other 16.9%
+2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5% top other 102.9%, clang 98.8%, WindowServer 23.9%, other 14.3%, other 9.9%
+2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4% top other 163.5%, clang 99.3%, WindowServer 27.7%, other 20.7%, other 4.7%
+2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5% top other 103.9%, other 100.4%, Python 97.0%, clang 63.2%, other 59.8%
+2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8% top other 99.2%, clang 33.7%, ld 32.0%, ld 29.0%, ld 20.4%
+2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7% top other 99.2%, swig 54.7%, ld 34.3%, other 29.7%, python 26.1%

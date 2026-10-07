@@ -1,12 +1,12 @@
-2026-09-27T19:11:17Z round 1 gbsa f2 load { 2.97 3.44 4.24 } vm 6% top spotlightknowledged 100.0%, superwhisper 19.1%, Finder 5.2%, sysmond 4.3%, com.apple.Virtualization.VirtualMachine 4.1%
-2026-09-27T19:11:34Z round 1 gbsa f3 load { 2.91 3.40 4.21 } vm 5% top spotlightknowledged 99.9%, superwhisper 15.9%, sysmond 7.0%, WindowServer 4.3%, com.apple.Virtualization.VirtualMachine 3.4%
-2026-09-27T19:11:50Z round 1 gbsa v load { 3.39 3.48 4.23 } vm 4% top spotlightknowledged 98.8%, superwhisper 15.9%, WindowServer 2.3%,  claude 2.2%, com.apple.Virtualization.VirtualMachine 2.2%
-2026-09-27T19:12:06Z round 1 gbsa f2m load { 3.42 3.48 4.21 } vm 6% top spotlightknowledged 99.9%, superwhisper 19.2%,  claude 15.8%, sysmond 6.0%,  claude 4.0%
-2026-09-27T19:12:23Z round 1 gbsa f3m load { 3.39 3.47 4.19 } vm 6% top spotlightknowledged 99.6%, superwhisper 18.9%, Finder 12.8%, WindowServer 5.6%,  claude 5.2%
-2026-09-27T19:12:39Z round 1 gbsa vm load { 3.53 3.50 4.19 } vm 5% top spotlightknowledged 99.7%, superwhisper 19.9%, powermetrics 10.5%,  claude 4.3%, WindowServer 3.5%
-2026-09-27T19:12:56Z round 2 gbsa vm load { 3.03 3.38 4.13 } vm 10% top spotlightknowledged 99.6%, WindowServer 23.9%, superwhisper 18.4%, powermetrics 12.3%, mdworker_shared 7.0%
-2026-09-27T19:13:12Z round 2 gbsa f3m load { 3.10 3.38 4.11 } vm 5% top spotlightknowledged 99.7%, superwhisper 20.1%, WindowServer 13.4%, sysmond 5.1%, iStat Menus Menubar 5.0%
-2026-09-27T19:13:28Z round 2 gbsa f2m load { 3.44 3.44 4.12 } vm 3% top spotlightknowledged 100.0%, superwhisper 19.4%, Finder 13.9%, sysmond 4.5%, powermetrics 3.9%
-2026-09-27T19:13:44Z round 2 gbsa v load { 3.12 3.37 4.09 } vm 3% top spotlightknowledged 100.0%, superwhisper 18.4%, Finder 3.0%, WindowServer 2.1%, com.apple.Virtualization.VirtualMachine 1.9%
-2026-09-27T19:14:00Z round 2 gbsa f3 load { 3.28 3.40 4.08 } vm 4% top spotlightknowledged 99.9%, superwhisper 14.5%, powermetrics 12.0%, WindowServer 10.2%, sysmond 5.3%
-2026-09-27T19:14:17Z round 2 gbsa f2 load { 2.83 3.29 4.03 } vm 4% top spotlightknowledged 100.0%, superwhisper 16.6%, sysmond 9.4%, WindowServer 8.7%,  claude 4.6%
+2026-09-27T19:11:17Z round 1 gbsa f2 load { 2.97 3.44 4.24 } vm 6% top other 100.0%, other 19.1%, other 5.2%, other 4.3%, com.apple.Virtualization.VirtualMachine 4.1%
+2026-09-27T19:11:34Z round 1 gbsa f3 load { 2.91 3.40 4.21 } vm 5% top other 99.9%, other 15.9%, other 7.0%, WindowServer 4.3%, com.apple.Virtualization.VirtualMachine 3.4%
+2026-09-27T19:11:50Z round 1 gbsa v load { 3.39 3.48 4.23 } vm 4% top other 98.8%, other 15.9%, WindowServer 2.3%,  other 2.2%, com.apple.Virtualization.VirtualMachine 2.2%
+2026-09-27T19:12:06Z round 1 gbsa f2m load { 3.42 3.48 4.21 } vm 6% top other 99.9%, other 19.2%,  other 15.8%, other 6.0%,  other 4.0%
+2026-09-27T19:12:23Z round 1 gbsa f3m load { 3.39 3.47 4.19 } vm 6% top other 99.6%, other 18.9%, other 12.8%, WindowServer 5.6%,  other 5.2%
+2026-09-27T19:12:39Z round 1 gbsa vm load { 3.53 3.50 4.19 } vm 5% top other 99.7%, other 19.9%, powermetrics 10.5%,  other 4.3%, WindowServer 3.5%
+2026-09-27T19:12:56Z round 2 gbsa vm load { 3.03 3.38 4.13 } vm 10% top other 99.6%, WindowServer 23.9%, other 18.4%, powermetrics 12.3%, other 7.0%
+2026-09-27T19:13:12Z round 2 gbsa f3m load { 3.10 3.38 4.11 } vm 5% top other 99.7%, other 20.1%, WindowServer 13.4%, other 5.1%, other 5.0%
+2026-09-27T19:13:28Z round 2 gbsa f2m load { 3.44 3.44 4.12 } vm 3% top other 100.0%, other 19.4%, other 13.9%, other 4.5%, powermetrics 3.9%
+2026-09-27T19:13:44Z round 2 gbsa v load { 3.12 3.37 4.09 } vm 3% top other 100.0%, other 18.4%, other 3.0%, WindowServer 2.1%, com.apple.Virtualization.VirtualMachine 1.9%
+2026-09-27T19:14:00Z round 2 gbsa f3 load { 3.28 3.40 4.08 } vm 4% top other 99.9%, other 14.5%, powermetrics 12.0%, WindowServer 10.2%, other 5.3%
+2026-09-27T19:14:17Z round 2 gbsa f2 load { 2.83 3.29 4.03 } vm 4% top other 100.0%, other 16.6%, other 9.4%, WindowServer 8.7%,  other 4.6%

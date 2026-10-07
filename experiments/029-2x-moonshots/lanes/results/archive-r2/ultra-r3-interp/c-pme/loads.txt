@@ -1,12 +1,12 @@
-2026-09-28T08:54:48Z round 1 pme mine-single load { 3.17 4.26 4.76 } vm 109% top com.apple.Virtualization.VirtualMachine 107.2%, superwhisper 21.2%, AirPlayXPCHelper 17.0%, WindowServer 14.2%, powermetrics 12.2%
-2026-09-28T08:55:20Z round 1 pme base-single load { 4.90 4.56 4.85 } vm 13% top mds_stores 27.1%, AirPlayXPCHelper 18.3%, superwhisper 18.3%, WindowServer 15.3%, bun 10.7%
-2026-09-28T08:55:52Z round 1 pme mine-mixed load { 3.69 4.32 4.75 } vm 6% top AirPlayXPCHelper 20.5%, superwhisper 18.8%, VTEncoderXPCService 4.5%, com.apple.Virtualization.VirtualMachine 4.5%, WindowServer 4.1%
-2026-09-28T08:56:29Z round 1 pme base-mixed load { 3.74 4.22 4.69 } vm 6% top WindowServer 23.0%, AirPlayXPCHelper 17.9%, superwhisper 17.8%, VTEncoderXPCService 10.2%, iStat Menus Menubar 7.7%
-2026-09-28T08:57:05Z round 2 pme base-mixed load { 2.88 3.96 4.58 } vm 8% top AirPlayXPCHelper 21.1%, superwhisper 19.4%, sysmond 6.6%, WindowServer 4.8%, VTEncoderXPCService 4.6%
-2026-09-28T08:57:37Z round 2 pme mine-mixed load { 2.80 3.83 4.51 } vm 7% top node 62.0%, superwhisper 19.2%, AirPlayXPCHelper 16.7%, sysmond 6.6%, com.apple.Virtualization.VirtualMachine 5.3%
-2026-09-28T08:58:13Z round 2 pme base-single load { 2.62 3.69 4.43 } vm 11% top superwhisper 18.7%, WindowServer 15.5%, AirPlayXPCHelper 12.1%, com.apple.Virtualization.VirtualMachine 8.1%, sysmond 5.5%
-2026-09-28T08:58:45Z round 2 pme mine-single load { 2.37 3.51 4.34 } vm 11% top AirPlayXPCHelper 19.4%, superwhisper 19.1%, powermetrics 10.8%, iStat Menus Menubar 7.9%, com.apple.Virtualization.VirtualMachine 6.7%
-2026-09-28T08:59:17Z round 3 pme mine-single load { 2.48 3.42 4.27 } vm 21% top superwhisper 20.0%, AirPlayXPCHelper 19.6%, com.apple.Virtualization.VirtualMachine 9.2%, WindowServer 8.2%, identityservicesd 6.8%
-2026-09-28T08:59:48Z round 3 pme base-single load { 2.23 3.27 4.18 } vm 8% top superwhisper 20.4%, AirPlayXPCHelper 18.1%, com.apple.Virtualization.VirtualMachine 6.8%, WindowServer 5.9%, iStat Menus Menubar 5.0%
-2026-09-28T09:00:20Z round 3 pme mine-mixed load { 2.21 3.16 4.11 } vm 8% top superwhisper 19.9%, AirPlayXPCHelper 18.7%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 5.2%, WindowServer 3.8%
-2026-09-28T09:00:53Z round 3 pme base-mixed load { 3.48 3.34 4.13 } vm 12% top mediaanalysisd 170.5%, AirPlayXPCHelper 21.3%, superwhisper 21.1%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 6.0%
+2026-09-28T08:54:48Z round 1 pme mine-single load { 3.17 4.26 4.76 } vm 109% top com.apple.Virtualization.VirtualMachine 107.2%, other 21.2%, other 17.0%, WindowServer 14.2%, powermetrics 12.2%
+2026-09-28T08:55:20Z round 1 pme base-single load { 4.90 4.56 4.85 } vm 13% top other 27.1%, other 18.3%, other 18.3%, WindowServer 15.3%, other 10.7%
+2026-09-28T08:55:52Z round 1 pme mine-mixed load { 3.69 4.32 4.75 } vm 6% top other 20.5%, other 18.8%, other 4.5%, com.apple.Virtualization.VirtualMachine 4.5%, WindowServer 4.1%
+2026-09-28T08:56:29Z round 1 pme base-mixed load { 3.74 4.22 4.69 } vm 6% top WindowServer 23.0%, other 17.9%, other 17.8%, other 10.2%, other 7.7%
+2026-09-28T08:57:05Z round 2 pme base-mixed load { 2.88 3.96 4.58 } vm 8% top other 21.1%, other 19.4%, other 6.6%, WindowServer 4.8%, other 4.6%
+2026-09-28T08:57:37Z round 2 pme mine-mixed load { 2.80 3.83 4.51 } vm 7% top other 62.0%, other 19.2%, other 16.7%, other 6.6%, com.apple.Virtualization.VirtualMachine 5.3%
+2026-09-28T08:58:13Z round 2 pme base-single load { 2.62 3.69 4.43 } vm 11% top other 18.7%, WindowServer 15.5%, other 12.1%, com.apple.Virtualization.VirtualMachine 8.1%, other 5.5%
+2026-09-28T08:58:45Z round 2 pme mine-single load { 2.37 3.51 4.34 } vm 11% top other 19.4%, other 19.1%, powermetrics 10.8%, other 7.9%, com.apple.Virtualization.VirtualMachine 6.7%
+2026-09-28T08:59:17Z round 3 pme mine-single load { 2.48 3.42 4.27 } vm 21% top other 20.0%, other 19.6%, com.apple.Virtualization.VirtualMachine 9.2%, WindowServer 8.2%, other 6.8%
+2026-09-28T08:59:48Z round 3 pme base-single load { 2.23 3.27 4.18 } vm 8% top other 20.4%, other 18.1%, com.apple.Virtualization.VirtualMachine 6.8%, WindowServer 5.9%, other 5.0%
+2026-09-28T09:00:20Z round 3 pme mine-mixed load { 2.21 3.16 4.11 } vm 8% top other 19.9%, other 18.7%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 5.2%, WindowServer 3.8%
+2026-09-28T09:00:53Z round 3 pme base-mixed load { 3.48 3.34 4.13 } vm 12% top other 170.5%, other 21.3%, other 21.1%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 6.0%

@@ -16,4 +16,4 @@ for path in paths:
     print(path.stem, energies[0] == energies[1], energies[2] == energies[3], energies[0] == energies[2], base, mine, paired, cross, good)
     failed |= not good
 if failed:
-    raise SystemExit('Energy exceeds liaison tolerance')
+    raise SystemExit('Energy exceeds the brief tolerance')

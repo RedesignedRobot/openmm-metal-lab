@@ -1,6 +1,4 @@
-# GayBerne torque PR (posted 2026-09-27 as openmm/openmm#5441, with the full collaboration credit line)
-
-Branch: `upstream/gayberne-torque` bb3479d19 on openmm/openmm master ccc08b118, pushed to `private` only. To open it, push the branch to `fork` (RedesignedRobot/openmm) and opens the PR against openmm/openmm master.
+# GayBerne torque PR, openmm/openmm#5441
 
 Prior reports: none. `gh search issues/prs` on openmm/openmm for "GayBerne", "Gay-Berne", "gay berne", "GayBerneForce", "GayBerne torque", "GayBerne energy conservation", "GayBerne drift", "ellipsoid torque" returned only #1553 (the original implementation, 2016), #4312 (quaternion access) and unrelated hits. The line dates to the original implementation (Reference a783b996f 2017 rename of 2016 code, common kernel 222b3bb40 2016).
 

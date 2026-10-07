@@ -1,6 +1,6 @@
 #!/bin/sh
 # Runs on the M3 Ultra: configure, build and install the profiling tree under /tmp/openmm-metal-bench/ultra-profiler.
-# The venv has no other openmm, so setup.py can't touch the shared env. Xcode-beta toolchain, nice 10, -j6 (RULES.md).
+# The venv has no other openmm, so setup.py can't touch the shared env. Xcode-beta toolchain, nice 10, -j6.
 # build-xb is a fresh build dir because the first build (build/) used the Command Line Tools SDK.
 set -e
 D=/tmp/openmm-metal-bench/ultra-profiler

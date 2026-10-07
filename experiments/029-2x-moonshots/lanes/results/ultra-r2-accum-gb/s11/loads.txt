@@ -1,12 +1,12 @@
-2026-09-27T18:41:18Z round 1 gbsa f load { 6.48 9.66 7.63 } vm 6% top spotlightknowledged 100.0%, superwhisper 20.5%, WindowServer 7.9%, signpost_reporter 5.0%, iStat Menus Menubar 3.9%
-2026-09-27T18:41:34Z round 1 gbsa v load { 5.99 9.40 7.57 } vm 4% top spotlightknowledged 99.8%, superwhisper 20.7%, WindowServer 4.9%, Finder 4.8%, sysmond 4.7%
-2026-09-27T18:41:51Z round 1 gbsa base load { 5.45 9.06 7.49 } vm 77% top spotlightknowledged 99.0%, com.apple.Virtualization.VirtualMachine 74.4%, superwhisper 19.4%, limactl 8.8%, WindowServer 6.3%
-2026-09-27T18:42:07Z round 1 gbsa fm load { 5.37 8.88 7.45 } vm 5% top spotlightknowledged 99.9%, superwhisper 18.4%, sysmond 4.5%, iStat Menus Menubar 4.2%, io.tailscale.ipn.macsys.network-extension 3.7%
-2026-09-27T18:42:24Z round 1 gbsa vm load { 5.16 8.66 7.40 } vm 153% top com.apple.Virtualization.VirtualMachine 143.9%, spotlightknowledged 99.9%, superwhisper 19.3%, WindowServer 6.7%, com.apple.Virtualization.VirtualMachine 5.7%
-2026-09-27T18:42:40Z round 1 gbsa basem load { 5.57 8.57 7.39 } vm 147% top com.apple.Virtualization.VirtualMachine 128.3%, spotlightknowledged 100.0%, signpost_reporter 22.3%, superwhisper 18.4%, com.apple.Virtualization.VirtualMachine 18.4%
-2026-09-27T18:42:55Z round 2 gbsa basem load { 5.33 8.33 7.33 } vm 148% top com.apple.Virtualization.VirtualMachine 137.3%, spotlightknowledged 100.0%, Finder 23.1%, superwhisper 20.8%, signpost_reporter 10.7%
-2026-09-27T18:43:11Z round 2 gbsa vm load { 4.72 8.05 7.24 } vm 133% top com.apple.Virtualization.VirtualMachine 143.9%, spotlightknowledged 100.0%, superwhisper 18.2%, sysmond 11.5%, WindowServer 8.3%
-2026-09-27T18:43:27Z round 2 gbsa fm load { 4.80 7.90 7.20 } vm 133% top com.apple.Virtualization.VirtualMachine 129.9%, spotlightknowledged 99.9%, superwhisper 19.9%, WindowServer 5.9%,  claude 5.0%
-2026-09-27T18:43:43Z round 2 gbsa base load { 4.55 7.69 7.14 } vm 128% top com.apple.Virtualization.VirtualMachine 125.3%, spotlightknowledged 100.0%, superwhisper 20.0%, sysmond 5.3%,  claude 4.1%
-2026-09-27T18:44:00Z round 2 gbsa v load { 4.34 7.49 7.08 } vm 130% top com.apple.Virtualization.VirtualMachine 126.4%, spotlightknowledged 100.0%, superwhisper 19.4%, signpost_reporter 19.1%, Finder 5.3%
-2026-09-27T18:44:16Z round 2 gbsa f load { 4.35 7.28 7.01 } vm 149% top com.apple.Virtualization.VirtualMachine 143.5%, spotlightknowledged 99.6%, signpost_reporter 89.2%, superwhisper 21.0%, WindowServer 5.9%
+2026-09-27T18:41:18Z round 1 gbsa f load { 6.48 9.66 7.63 } vm 6% top other 100.0%, other 20.5%, WindowServer 7.9%, other 5.0%, other 3.9%
+2026-09-27T18:41:34Z round 1 gbsa v load { 5.99 9.40 7.57 } vm 4% top other 99.8%, other 20.7%, WindowServer 4.9%, other 4.8%, other 4.7%
+2026-09-27T18:41:51Z round 1 gbsa base load { 5.45 9.06 7.49 } vm 77% top other 99.0%, com.apple.Virtualization.VirtualMachine 74.4%, other 19.4%, other 8.8%, WindowServer 6.3%
+2026-09-27T18:42:07Z round 1 gbsa fm load { 5.37 8.88 7.45 } vm 5% top other 99.9%, other 18.4%, other 4.5%, other 4.2%, other 3.7%
+2026-09-27T18:42:24Z round 1 gbsa vm load { 5.16 8.66 7.40 } vm 153% top com.apple.Virtualization.VirtualMachine 143.9%, other 99.9%, other 19.3%, WindowServer 6.7%, com.apple.Virtualization.VirtualMachine 5.7%
+2026-09-27T18:42:40Z round 1 gbsa basem load { 5.57 8.57 7.39 } vm 147% top com.apple.Virtualization.VirtualMachine 128.3%, other 100.0%, other 22.3%, other 18.4%, com.apple.Virtualization.VirtualMachine 18.4%
+2026-09-27T18:42:55Z round 2 gbsa basem load { 5.33 8.33 7.33 } vm 148% top com.apple.Virtualization.VirtualMachine 137.3%, other 100.0%, other 23.1%, other 20.8%, other 10.7%
+2026-09-27T18:43:11Z round 2 gbsa vm load { 4.72 8.05 7.24 } vm 133% top com.apple.Virtualization.VirtualMachine 143.9%, other 100.0%, other 18.2%, other 11.5%, WindowServer 8.3%
+2026-09-27T18:43:27Z round 2 gbsa fm load { 4.80 7.90 7.20 } vm 133% top com.apple.Virtualization.VirtualMachine 129.9%, other 99.9%, other 19.9%, WindowServer 5.9%,  other 5.0%
+2026-09-27T18:43:43Z round 2 gbsa base load { 4.55 7.69 7.14 } vm 128% top com.apple.Virtualization.VirtualMachine 125.3%, other 100.0%, other 20.0%, other 5.3%,  other 4.1%
+2026-09-27T18:44:00Z round 2 gbsa v load { 4.34 7.49 7.08 } vm 130% top com.apple.Virtualization.VirtualMachine 126.4%, other 100.0%, other 19.4%, other 19.1%, other 5.3%
+2026-09-27T18:44:16Z round 2 gbsa f load { 4.35 7.28 7.01 } vm 149% top com.apple.Virtualization.VirtualMachine 143.5%, other 99.6%, other 89.2%, other 21.0%, WindowServer 5.9%

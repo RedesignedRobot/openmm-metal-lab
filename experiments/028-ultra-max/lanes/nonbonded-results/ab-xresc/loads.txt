@@ -1,5 +1,5 @@
-2026-09-25T02:40:07Z round 1 amber20-cellulose tiles load { 5.15 5.12 4.27 } vm 2% top node 99.8%, bun 28.0%, superwhisper 23.2%, iStat Menus Menubar 3.9%, sysmond 3.2%
-2026-09-25T02:40:33Z round 1 amber20-cellulose xres load { 4.09 4.87 4.20 } vm 8% top io.tailscale.ipn.macsys.network-extension 26.0%, superwhisper 24.0%, com.apple.Virtualization.VirtualMachine 9.9%, bun 7.0%, sysmond 4.9%
-2026-09-25T02:41:00Z round 2 amber20-cellulose xres load { 4.88 5.02 4.28 } vm 4% top xctrace 70.9%, superwhisper 22.6%,  rsync 12.1%, io.tailscale.ipn.macsys.network-extension 6.6%, powermetrics 4.8%
+2026-09-25T02:40:07Z round 1 amber20-cellulose tiles load { 5.15 5.12 4.27 } vm 2% top other 99.8%, other 28.0%, other 23.2%, other 3.9%, other 3.2%
+2026-09-25T02:40:33Z round 1 amber20-cellulose xres load { 4.09 4.87 4.20 } vm 8% top other 26.0%, other 24.0%, com.apple.Virtualization.VirtualMachine 9.9%, other 7.0%, other 4.9%
+2026-09-25T02:41:00Z round 2 amber20-cellulose xres load { 4.88 5.02 4.28 } vm 4% top xctrace 70.9%, other 22.6%,  other 12.1%, other 6.6%, powermetrics 4.8%
 2026-09-25T02:41:25Z round 2 amber20-cellulose xres BUILD RUNNING during the run
-2026-09-25T02:41:25Z round 2 amber20-cellulose tiles load { 5.36 5.17 4.36 } BUILD RUNNING vm 8% top  grep 99.3%, superwhisper 25.0%, powermetrics 13.0%, com.apple.Virtualization.VirtualMachine 8.9%, sysmond 4.6%
+2026-09-25T02:41:25Z round 2 amber20-cellulose tiles load { 5.36 5.17 4.36 } BUILD RUNNING vm 8% top  other 99.3%, other 25.0%, powermetrics 13.0%, com.apple.Virtualization.VirtualMachine 8.9%, other 4.6%

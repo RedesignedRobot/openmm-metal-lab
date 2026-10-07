@@ -1,12 +1,12 @@
-2026-09-28T09:55:54Z round 1 apoa1pme mine-single load { 4.18 3.75 4.05 } vm 5% top WindowServer 27.2%, AirPlayXPCHelper 21.7%, superwhisper 17.8%, VTEncoderXPCService 10.0%, Google Chrome Helper 5.9%
-2026-09-28T09:56:28Z round 1 apoa1pme base-single load { 3.47 3.61 3.98 } vm 8% top WindowServer 44.7%, AirPlayXPCHelper 28.5%, superwhisper 27.6%, VTEncoderXPCService 9.9%, com.apple.Virtualization.VirtualMachine 7.4%
-2026-09-28T09:57:02Z round 1 apoa1pme mine-mixed load { 5.23 4.09 4.14 } vm 101% top com.apple.Virtualization.VirtualMachine 72.2%, superwhisper 20.9%, WindowServer 20.3%, AirPlayXPCHelper 17.6%, powermetrics 12.5%
-2026-09-28T09:57:41Z round 1 apoa1pme base-mixed load { 4.02 3.90 4.07 } vm 13% top WindowServer 25.8%, AirPlayXPCHelper 19.6%, superwhisper 19.2%, com.apple.Virtualization.VirtualMachine 7.6%, VTEncoderXPCService 6.4%
-2026-09-28T09:58:19Z round 2 apoa1pme base-mixed load { 3.37 3.78 4.02 } vm 5% top WindowServer 30.6%, AirPlayXPCHelper 24.6%, superwhisper 19.8%, VTEncoderXPCService 9.7%, sysmond 8.2%
-2026-09-28T09:58:53Z round 2 apoa1pme mine-mixed load { 4.58 4.05 4.11 } vm 7% top superwhisper 22.3%, AirPlayXPCHelper 19.1%, WindowServer 17.0%, VTEncoderXPCService 6.9%, Google Chrome Helper 6.3%
-2026-09-28T09:59:31Z round 2 apoa1pme base-single load { 3.33 3.82 4.02 } vm 5% top superwhisper 21.9%, WindowServer 17.5%, AirPlayXPCHelper 17.0%, powermetrics 7.9%, VTEncoderXPCService 7.4%
-2026-09-28T10:00:05Z round 2 apoa1pme mine-single load { 2.85 3.66 3.96 } vm 4% top superwhisper 19.7%, WindowServer 16.7%, AirPlayXPCHelper 16.2%, sysmond 7.9%, Google Chrome Helper 6.5%
-2026-09-28T10:00:40Z round 3 apoa1pme mine-single load { 2.64 3.51 3.89 } vm 3% top WindowServer 19.9%, superwhisper 17.8%, AirPlayXPCHelper 16.5%, sysmond 6.7%, Google Chrome Helper 6.2%
-2026-09-28T10:01:14Z round 3 apoa1pme base-single load { 3.55 3.60 3.90 } vm 19% top backupd 99.5%, WindowServer 29.9%, AirPlayXPCHelper 24.5%, superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 14.0%
-2026-09-28T10:01:48Z round 3 apoa1pme mine-mixed load { 4.92 3.91 4.00 } vm 6% top backupd 51.5%, WindowServer 47.6%, superwhisper 33.1%, AirPlayXPCHelper 29.2%, VTEncoderXPCService 9.9%
-2026-09-28T10:02:21Z round 3 apoa1pme base-mixed load { 4.85 4.00 4.03 } vm 6% top backupd 40.9%, WindowServer 28.9%, AirPlayXPCHelper 23.9%, superwhisper 19.5%, powermetrics 7.6%
+2026-09-28T09:55:54Z round 1 apoa1pme mine-single load { 4.18 3.75 4.05 } vm 5% top WindowServer 27.2%, other 21.7%, other 17.8%, other 10.0%, other 5.9%
+2026-09-28T09:56:28Z round 1 apoa1pme base-single load { 3.47 3.61 3.98 } vm 8% top WindowServer 44.7%, other 28.5%, other 27.6%, other 9.9%, com.apple.Virtualization.VirtualMachine 7.4%
+2026-09-28T09:57:02Z round 1 apoa1pme mine-mixed load { 5.23 4.09 4.14 } vm 101% top com.apple.Virtualization.VirtualMachine 72.2%, other 20.9%, WindowServer 20.3%, other 17.6%, powermetrics 12.5%
+2026-09-28T09:57:41Z round 1 apoa1pme base-mixed load { 4.02 3.90 4.07 } vm 13% top WindowServer 25.8%, other 19.6%, other 19.2%, com.apple.Virtualization.VirtualMachine 7.6%, other 6.4%
+2026-09-28T09:58:19Z round 2 apoa1pme base-mixed load { 3.37 3.78 4.02 } vm 5% top WindowServer 30.6%, other 24.6%, other 19.8%, other 9.7%, other 8.2%
+2026-09-28T09:58:53Z round 2 apoa1pme mine-mixed load { 4.58 4.05 4.11 } vm 7% top other 22.3%, other 19.1%, WindowServer 17.0%, other 6.9%, other 6.3%
+2026-09-28T09:59:31Z round 2 apoa1pme base-single load { 3.33 3.82 4.02 } vm 5% top other 21.9%, WindowServer 17.5%, other 17.0%, powermetrics 7.9%, other 7.4%
+2026-09-28T10:00:05Z round 2 apoa1pme mine-single load { 2.85 3.66 3.96 } vm 4% top other 19.7%, WindowServer 16.7%, other 16.2%, other 7.9%, other 6.5%
+2026-09-28T10:00:40Z round 3 apoa1pme mine-single load { 2.64 3.51 3.89 } vm 3% top WindowServer 19.9%, other 17.8%, other 16.5%, other 6.7%, other 6.2%
+2026-09-28T10:01:14Z round 3 apoa1pme base-single load { 3.55 3.60 3.90 } vm 19% top other 99.5%, WindowServer 29.9%, other 24.5%, other 21.8%, com.apple.Virtualization.VirtualMachine 14.0%
+2026-09-28T10:01:48Z round 3 apoa1pme mine-mixed load { 4.92 3.91 4.00 } vm 6% top other 51.5%, WindowServer 47.6%, other 33.1%, other 29.2%, other 9.9%
+2026-09-28T10:02:21Z round 3 apoa1pme base-mixed load { 4.85 4.00 4.03 } vm 6% top other 40.9%, WindowServer 28.9%, other 23.9%, other 19.5%, powermetrics 7.6%

@@ -1,15 +1,15 @@
-2026-09-27T14:41:16Z round 1 gbsa u load { 17.62 16.33 16.59 } vm 7% top python 560.8%, tsc 537.4%, tsgolint 309.2%, node 116.4%, node 102.0%
+2026-09-27T14:41:16Z round 1 gbsa u load { 17.62 16.33 16.59 } vm 7% top python 560.8%, other 537.4%, other 309.2%, other 116.4%, other 102.0%
 2026-09-27T14:41:17Z NO RESULT round 1 gbsa u
-2026-09-27T14:41:17Z round 1 gbsa t load { 17.33 16.30 16.58 } vm 10% top tsc 830.8%, python 512.6%, node 112.3%, node 96.1%, Finder 23.6%
-2026-09-27T14:41:34Z round 1 gbsa base load { 16.41 16.15 16.52 } vm 5% top python 649.1%, node 114.7%, node 100.4%, superwhisper 14.9%, Finder 11.1%
-2026-09-27T14:41:50Z round 1 gbsa um load { 15.28 15.91 16.43 } vm 10% top python 529.7%, bun 134.9%, node 106.8%, tsc 88.7%, mediaanalysisd 43.3%
+2026-09-27T14:41:17Z round 1 gbsa t load { 17.33 16.30 16.58 } vm 10% top other 830.8%, python 512.6%, other 112.3%, other 96.1%, other 23.6%
+2026-09-27T14:41:34Z round 1 gbsa base load { 16.41 16.15 16.52 } vm 5% top python 649.1%, other 114.7%, other 100.4%, other 14.9%, other 11.1%
+2026-09-27T14:41:50Z round 1 gbsa um load { 15.28 15.91 16.43 } vm 10% top python 529.7%, other 134.9%, other 106.8%, other 88.7%, other 43.3%
 2026-09-27T14:41:51Z NO RESULT round 1 gbsa um
-2026-09-27T14:41:51Z round 1 gbsa tm load { 15.28 15.91 16.43 } vm 7% top python 493.7%, node 102.6%, mediaanalysisd 96.2%, mds_stores 95.0%, superwhisper 14.0%
+2026-09-27T14:41:51Z round 1 gbsa tm load { 15.28 15.91 16.43 } vm 7% top python 493.7%, other 102.6%, other 96.2%, other 95.0%, other 14.0%
 2026-09-27T14:42:07Z round 1 gbsa tm BUILD RUNNING during the run
-2026-09-27T14:42:07Z round 1 gbsa basem load { 17.72 16.37 16.57 } BUILD RUNNING vm 5% top python 237.4%, node 101.6%, superwhisper 20.1%,  claude 10.1%, Finder 10.0%
-2026-09-27T14:42:24Z round 2 gbsa basem load { 21.88 17.41 16.95 } BUILD RUNNING vm 9% top python 494.5%, node 119.1%, node 84.9%, node 79.1%, python 67.1%
-2026-09-27T14:42:40Z round 2 gbsa tm load { 19.12 17.03 16.82 } vm 7% top python 649.5%, node 99.2%, superwhisper 19.1%,  claude 9.3%, powermetrics 8.0%
-2026-09-27T14:42:56Z round 2 gbsa um load { 19.13 17.11 16.85 } vm 4% top python 645.0%, node 100.0%, superwhisper 18.5%,  claude 10.4%, sysmond 5.2%
-2026-09-27T14:43:13Z round 2 gbsa base load { 17.08 16.77 16.73 } vm 14% top python 630.6%, node 98.4%, node 88.1%, node 47.8%, superwhisper 19.4%
-2026-09-27T14:43:29Z round 2 gbsa t load { 15.46 16.42 16.61 } vm 14% top python 647.7%, node 139.0%, superwhisper 19.2%,  claude 11.0%, WindowServer 7.9%
-2026-09-27T14:43:45Z round 2 gbsa u load { 14.86 16.24 16.54 } vm 8% top python 674.1%, node 94.3%, superwhisper 15.2%, WindowServer 10.3%,  claude 4.4%
+2026-09-27T14:42:07Z round 1 gbsa basem load { 17.72 16.37 16.57 } BUILD RUNNING vm 5% top python 237.4%, other 101.6%, other 20.1%,  other 10.1%, other 10.0%
+2026-09-27T14:42:24Z round 2 gbsa basem load { 21.88 17.41 16.95 } BUILD RUNNING vm 9% top python 494.5%, other 119.1%, other 84.9%, other 79.1%, python 67.1%
+2026-09-27T14:42:40Z round 2 gbsa tm load { 19.12 17.03 16.82 } vm 7% top python 649.5%, other 99.2%, other 19.1%,  other 9.3%, powermetrics 8.0%
+2026-09-27T14:42:56Z round 2 gbsa um load { 19.13 17.11 16.85 } vm 4% top python 645.0%, other 100.0%, other 18.5%,  other 10.4%, other 5.2%
+2026-09-27T14:43:13Z round 2 gbsa base load { 17.08 16.77 16.73 } vm 14% top python 630.6%, other 98.4%, other 88.1%, other 47.8%, other 19.4%
+2026-09-27T14:43:29Z round 2 gbsa t load { 15.46 16.42 16.61 } vm 14% top python 647.7%, other 139.0%, other 19.2%,  other 11.0%, WindowServer 7.9%
+2026-09-27T14:43:45Z round 2 gbsa u load { 14.86 16.24 16.54 } vm 8% top python 674.1%, other 94.3%, other 15.2%, WindowServer 10.3%,  other 4.4%

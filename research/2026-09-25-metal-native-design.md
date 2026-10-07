@@ -881,7 +881,7 @@ Unit table of about 16 B per unit: under 1 MB for apoa1 and about 6 to 8 MB for 
 
 #### Correctness risks
 
-The kernel must reproduce the stage order and semantics exactly: SETTLE and SHAKE on velocities use posq before Part3; velocity.w == 0 atoms are skipped; the random index is base plus atom index; tolerance and the 15-iteration SHAKE cap are unchanged. posDelta is no longer written, so every other reader must be audited (CustomIntegrator and CCMA use it, but those paths keep the common kernel). The fused kernel must also be compiled in as the default, chosen by the constraint topology. Checks: in single precision, compare posq and velm after 100 steps against base with the same seed, bitwise or to a few ulp, on gbsa, rf and pme. The arithmetic per atom is identical, so any larger difference is a bug. For mixed, run drift.py and constraints.py at 1e-8 on both chips, as RULES.md requires.
+The kernel must reproduce the stage order and semantics exactly: SETTLE and SHAKE on velocities use posq before Part3; velocity.w == 0 atoms are skipped; the random index is base plus atom index; tolerance and the 15-iteration SHAKE cap are unchanged. posDelta is no longer written, so every other reader must be audited (CustomIntegrator and CCMA use it, but those paths keep the common kernel). The fused kernel must also be compiled in as the default, chosen by the constraint topology. Checks: in single precision, compare posq and velm after 100 steps against base with the same seed, bitwise or to a few ulp, on gbsa, rf and pme. The arithmetic per atom is identical, so any larger difference is a bug. For mixed, run drift.py and constraints.py at 1e-8 on both chips.
 
 #### Prototype size
 

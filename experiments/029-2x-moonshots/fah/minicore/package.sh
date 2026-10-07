@@ -9,7 +9,7 @@ prefix=$1
 bundle=$2
 src=$(cd "$(dirname "$0")" && pwd)
 
-# Nothing on the Studio gets deleted without the owner's yes (2026-09-28), so the bundle dir must be new.
+# These scripts never delete anything, so the bundle dir must be new.
 [ -e "$bundle" ] && { echo "$bundle exists; pick a new bundle dir"; exit 2; }
 mkdir -p "$bundle/lib" "$bundle/plugins"
 clang++ -std=c++17 -O2 -mmacosx-version-min=15.0 -Wall -Wno-reorder-ctor -Wno-unused-function -I"$prefix/include" \

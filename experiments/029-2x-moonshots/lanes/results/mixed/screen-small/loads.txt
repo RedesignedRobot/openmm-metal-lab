@@ -1,32 +1,32 @@
-2026-09-26T18:11:52Z round 1 gbsa baseS load { 2.86 2.47 4.73 } vm 12% top superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 7.0%, com.apple.Virtualization.VirtualMachine 5.4%, sysmond 3.4%, sh 2.1%
-2026-09-26T18:12:08Z round 1 gbsa baseM load { 3.19 2.56 4.72 } vm 14% top superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 10.9%, io.tailscale.ipn.macsys.network-extension 3.8%, com.apple.Virtualization.VirtualMachine 2.9%, WindowServer 2.8%
-2026-09-26T18:12:25Z round 1 gbsa mineS load { 3.36 2.64 4.70 } vm 11% top superwhisper 21.4%, com.apple.Virtualization.VirtualMachine 11.1%, sysmond 3.6%, WindowServer 3.2%, powermetrics 3.0%
+2026-09-26T18:11:52Z round 1 gbsa baseS load { 2.86 2.47 4.73 } vm 12% top other 21.0%, com.apple.Virtualization.VirtualMachine 7.0%, com.apple.Virtualization.VirtualMachine 5.4%, other 3.4%, other 2.1%
+2026-09-26T18:12:08Z round 1 gbsa baseM load { 3.19 2.56 4.72 } vm 14% top other 22.1%, com.apple.Virtualization.VirtualMachine 10.9%, other 3.8%, com.apple.Virtualization.VirtualMachine 2.9%, WindowServer 2.8%
+2026-09-26T18:12:25Z round 1 gbsa mineS load { 3.36 2.64 4.70 } vm 11% top other 21.4%, com.apple.Virtualization.VirtualMachine 11.1%, other 3.6%, WindowServer 3.2%, powermetrics 3.0%
 2026-09-26T18:12:41Z round 1 gbsa mineS BUILD RUNNING during the run
-2026-09-26T18:12:42Z round 1 gbsa mineM load { 4.16 2.84 4.73 } BUILD RUNNING vm 13% top corespotlightd 108.9%, clang 76.3%, clang 75.6%, clang 73.3%, clang 67.5%
-2026-09-26T18:12:58Z round 1 gbsa opencl load { 7.67 3.65 4.99 } BUILD RUNNING vm 16% top clang 57.6%, clang 55.7%,  (ld) 21.0%, superwhisper 19.0%,  (ld) 15.2%
-2026-09-26T18:13:14Z round 1 rf baseS load { 7.29 3.84 5.03 } BUILD RUNNING vm 16% top swig 99.6%, clang 99.3%, superwhisper 20.5%, com.apple.Virtualization.VirtualMachine 12.7%, WindowServer 5.1%
-2026-09-26T18:13:30Z round 1 rf baseM load { 9.78 4.57 5.26 } BUILD RUNNING vm 12% top python 99.9%, superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 10.3%, WindowServer 1.8%, com.apple.Virtualization.VirtualMachine 1.4%
-2026-09-26T18:13:47Z round 1 rf mineS load { 8.12 4.46 5.21 } BUILD RUNNING vm 8% top clang 99.6%, superwhisper 18.2%, usernoted 15.3%, com.apple.Virtualization.VirtualMachine 7.2%, sysmond 4.0%
-2026-09-26T18:14:04Z round 1 rf mineM load { 7.05 4.45 5.19 } BUILD RUNNING vm 8% top clang 100.0%, superwhisper 19.7%,  (bun) 9.6%, com.apple.Virtualization.VirtualMachine 4.9%, powermetrics 4.6%
-2026-09-26T18:14:23Z round 1 rf opencl load { 6.16 4.37 5.15 } BUILD RUNNING vm 11% top clang 99.2%, superwhisper 21.2%, com.apple.Virtualization.VirtualMachine 9.5%, WindowServer 2.5%, com.apple.Virtualization.VirtualMachine 1.3%
-2026-09-26T18:14:40Z round 1 pme baseS load { 5.34 4.30 5.10 } vm 12% top superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 16.8%, powermetrics 12.4%, spotlightknowledged.updater 9.9%, syspolicyd 9.7%
-2026-09-26T18:14:57Z round 1 pme baseM load { 4.67 4.20 5.06 } vm 13% top superwhisper 20.9%, com.apple.Virtualization.VirtualMachine 5.9%, com.apple.Virtualization.VirtualMachine 5.1%, sysmond 4.9%, WindowServer 4.0%
-2026-09-26T18:15:13Z round 1 pme mineS load { 4.37 4.16 5.02 } vm 12% top superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 8.3%, com.apple.Virtualization.VirtualMachine 4.0%, WindowServer 2.2%, sh 1.0%
-2026-09-26T18:15:30Z round 1 pme mineM load { 3.68 4.02 4.95 } vm 8% top superwhisper 20.6%, com.apple.Virtualization.VirtualMachine 6.6%, sysmond 3.9%, iStat Menus Menubar 2.8%, WindowServer 2.5%
-2026-09-26T18:15:48Z round 1 pme opencl load { 3.53 3.97 4.92 } vm 13% top superwhisper 22.6%, com.apple.Virtualization.VirtualMachine 7.4%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 2.7%,  claude 2.4%
-2026-09-26T18:16:05Z round 2 gbsa opencl load { 3.54 3.94 4.88 } vm 10% top superwhisper 21.1%, com.apple.Virtualization.VirtualMachine 7.3%, com.apple.Virtualization.VirtualMachine 2.4%, sh 2.0%, WindowServer 1.3%
-2026-09-26T18:16:20Z round 2 gbsa mineM load { 3.93 4.00 4.89 } vm 11% top superwhisper 22.7%, com.apple.Virtualization.VirtualMachine 9.3%, com.apple.Virtualization.VirtualMachine 1.8%, WindowServer 1.5%, sysmond 1.0%
-2026-09-26T18:16:37Z round 2 gbsa mineS load { 4.11 4.04 4.89 } vm 14% top superwhisper 23.2%, com.apple.Virtualization.VirtualMachine 8.7%, WindowServer 4.2%, iStat Menus Menubar 4.2%, sysmond 4.1%
-2026-09-26T18:16:53Z round 2 gbsa baseM load { 3.86 3.99 4.85 } vm 11% top IMDPersistenceAgent 75.2%, imagent 21.6%, superwhisper 17.1%, com.apple.Virtualization.VirtualMachine 7.2%, sysmond 7.1%
-2026-09-26T18:17:10Z round 2 gbsa baseS load { 3.49 3.89 4.80 } vm 10% top superwhisper 19.0%, authd 7.3%, com.apple.Virtualization.VirtualMachine 7.1%, SystemUIServer 5.5%, opendirectoryd 4.4%
-2026-09-26T18:17:27Z round 2 rf opencl load { 3.25 3.81 4.75 } vm 12% top signpost_reporter 22.3%, superwhisper 18.1%, com.apple.Virtualization.VirtualMachine 8.2%, iStat Menus Menubar 4.9%, sysmond 4.6%
-2026-09-26T18:17:43Z round 2 rf mineM load { 3.13 3.76 4.72 } vm 13% top spotlightknowledged 25.2%, superwhisper 22.9%, com.apple.Virtualization.VirtualMachine 10.5%, corespotlightd 3.9%, launchd 3.1%
+2026-09-26T18:12:42Z round 1 gbsa mineM load { 4.16 2.84 4.73 } BUILD RUNNING vm 13% top other 108.9%, clang 76.3%, clang 75.6%, clang 73.3%, clang 67.5%
+2026-09-26T18:12:58Z round 1 gbsa opencl load { 7.67 3.65 4.99 } BUILD RUNNING vm 16% top clang 57.6%, clang 55.7%,  (ld) 21.0%, other 19.0%,  (ld) 15.2%
+2026-09-26T18:13:14Z round 1 rf baseS load { 7.29 3.84 5.03 } BUILD RUNNING vm 16% top swig 99.6%, clang 99.3%, other 20.5%, com.apple.Virtualization.VirtualMachine 12.7%, WindowServer 5.1%
+2026-09-26T18:13:30Z round 1 rf baseM load { 9.78 4.57 5.26 } BUILD RUNNING vm 12% top python 99.9%, other 19.8%, com.apple.Virtualization.VirtualMachine 10.3%, WindowServer 1.8%, com.apple.Virtualization.VirtualMachine 1.4%
+2026-09-26T18:13:47Z round 1 rf mineS load { 8.12 4.46 5.21 } BUILD RUNNING vm 8% top clang 99.6%, other 18.2%, other 15.3%, com.apple.Virtualization.VirtualMachine 7.2%, other 4.0%
+2026-09-26T18:14:04Z round 1 rf mineM load { 7.05 4.45 5.19 } BUILD RUNNING vm 8% top clang 100.0%, other 19.7%,  other 9.6%, com.apple.Virtualization.VirtualMachine 4.9%, powermetrics 4.6%
+2026-09-26T18:14:23Z round 1 rf opencl load { 6.16 4.37 5.15 } BUILD RUNNING vm 11% top clang 99.2%, other 21.2%, com.apple.Virtualization.VirtualMachine 9.5%, WindowServer 2.5%, com.apple.Virtualization.VirtualMachine 1.3%
+2026-09-26T18:14:40Z round 1 pme baseS load { 5.34 4.30 5.10 } vm 12% top other 20.3%, com.apple.Virtualization.VirtualMachine 16.8%, powermetrics 12.4%, other 9.9%, other 9.7%
+2026-09-26T18:14:57Z round 1 pme baseM load { 4.67 4.20 5.06 } vm 13% top other 20.9%, com.apple.Virtualization.VirtualMachine 5.9%, com.apple.Virtualization.VirtualMachine 5.1%, other 4.9%, WindowServer 4.0%
+2026-09-26T18:15:13Z round 1 pme mineS load { 4.37 4.16 5.02 } vm 12% top other 19.8%, com.apple.Virtualization.VirtualMachine 8.3%, com.apple.Virtualization.VirtualMachine 4.0%, WindowServer 2.2%, other 1.0%
+2026-09-26T18:15:30Z round 1 pme mineM load { 3.68 4.02 4.95 } vm 8% top other 20.6%, com.apple.Virtualization.VirtualMachine 6.6%, other 3.9%, other 2.8%, WindowServer 2.5%
+2026-09-26T18:15:48Z round 1 pme opencl load { 3.53 3.97 4.92 } vm 13% top other 22.6%, com.apple.Virtualization.VirtualMachine 7.4%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 2.7%,  other 2.4%
+2026-09-26T18:16:05Z round 2 gbsa opencl load { 3.54 3.94 4.88 } vm 10% top other 21.1%, com.apple.Virtualization.VirtualMachine 7.3%, com.apple.Virtualization.VirtualMachine 2.4%, other 2.0%, WindowServer 1.3%
+2026-09-26T18:16:20Z round 2 gbsa mineM load { 3.93 4.00 4.89 } vm 11% top other 22.7%, com.apple.Virtualization.VirtualMachine 9.3%, com.apple.Virtualization.VirtualMachine 1.8%, WindowServer 1.5%, other 1.0%
+2026-09-26T18:16:37Z round 2 gbsa mineS load { 4.11 4.04 4.89 } vm 14% top other 23.2%, com.apple.Virtualization.VirtualMachine 8.7%, WindowServer 4.2%, other 4.2%, other 4.1%
+2026-09-26T18:16:53Z round 2 gbsa baseM load { 3.86 3.99 4.85 } vm 11% top other 75.2%, other 21.6%, other 17.1%, com.apple.Virtualization.VirtualMachine 7.2%, other 7.1%
+2026-09-26T18:17:10Z round 2 gbsa baseS load { 3.49 3.89 4.80 } vm 10% top other 19.0%, other 7.3%, com.apple.Virtualization.VirtualMachine 7.1%, other 5.5%, other 4.4%
+2026-09-26T18:17:27Z round 2 rf opencl load { 3.25 3.81 4.75 } vm 12% top other 22.3%, other 18.1%, com.apple.Virtualization.VirtualMachine 8.2%, other 4.9%, other 4.6%
+2026-09-26T18:17:43Z round 2 rf mineM load { 3.13 3.76 4.72 } vm 13% top other 25.2%, other 22.9%, com.apple.Virtualization.VirtualMachine 10.5%, other 3.9%, other 3.1%
 2026-09-26T18:17:59Z round 2 rf mineM BUILD RUNNING during the run
-2026-09-26T18:17:59Z round 2 rf mineS load { 4.84 4.10 4.82 } BUILD RUNNING vm 10% top spotlightknowledged 84.4%, clang 81.9%, clang 80.8%, clang 77.2%, clang 64.5%
-2026-09-26T18:18:15Z round 2 rf baseM load { 6.50 4.50 4.95 } BUILD RUNNING vm 10% top spotlightknowledged 84.6%, clang 82.9%, clang 82.5%, clang 82.3%, clang 79.7%
-2026-09-26T18:18:32Z round 2 rf baseS load { 10.47 5.48 5.29 } BUILD RUNNING vm 11% top spotlightknowledged 99.6%, clang 99.6%, superwhisper 21.3%, powermetrics 11.5%, com.apple.Virtualization.VirtualMachine 8.2%
-2026-09-26T18:18:48Z round 2 pme opencl load { 9.10 5.43 5.27 } BUILD RUNNING vm 13% top ld 55.3%, ld 47.0%, superwhisper 24.8%, com.apple.Virtualization.VirtualMachine 11.4%, iStat Menus Menubar 5.2%
-2026-09-26T18:19:05Z round 2 pme mineM load { 7.83 5.39 5.27 } vm 10% top superwhisper 22.5%, com.apple.Virtualization.VirtualMachine 5.4%, iStat Menus Menubar 4.6%, WindowServer 4.4%, sysmond 3.6%
-2026-09-26T18:19:21Z round 2 pme mineS load { 6.91 5.31 5.24 } vm 27% top ScreenTimeAgent 69.8%, com.apple.Virtualization.VirtualMachine 25.3%, superwhisper 21.6%, cloudd 12.4%, trustd 5.0%
-2026-09-26T18:19:38Z round 2 pme baseM load { 6.66 5.33 5.24 } vm 18% top superwhisper 23.3%, WindowServer 17.3%, com.apple.Virtualization.VirtualMachine 15.2%, Finder 7.2%, ScreenTimeAgent 4.6%
-2026-09-26T18:19:54Z round 2 pme baseS load { 5.55 5.16 5.19 } vm 7% top Finder 110.2%, superwhisper 15.6%, bun 10.8%, WindowServer 7.6%, com.apple.Virtualization.VirtualMachine 5.0%
+2026-09-26T18:17:59Z round 2 rf mineS load { 4.84 4.10 4.82 } BUILD RUNNING vm 10% top other 84.4%, clang 81.9%, clang 80.8%, clang 77.2%, clang 64.5%
+2026-09-26T18:18:15Z round 2 rf baseM load { 6.50 4.50 4.95 } BUILD RUNNING vm 10% top other 84.6%, clang 82.9%, clang 82.5%, clang 82.3%, clang 79.7%
+2026-09-26T18:18:32Z round 2 rf baseS load { 10.47 5.48 5.29 } BUILD RUNNING vm 11% top other 99.6%, clang 99.6%, other 21.3%, powermetrics 11.5%, com.apple.Virtualization.VirtualMachine 8.2%
+2026-09-26T18:18:48Z round 2 pme opencl load { 9.10 5.43 5.27 } BUILD RUNNING vm 13% top ld 55.3%, ld 47.0%, other 24.8%, com.apple.Virtualization.VirtualMachine 11.4%, other 5.2%
+2026-09-26T18:19:05Z round 2 pme mineM load { 7.83 5.39 5.27 } vm 10% top other 22.5%, com.apple.Virtualization.VirtualMachine 5.4%, other 4.6%, WindowServer 4.4%, other 3.6%
+2026-09-26T18:19:21Z round 2 pme mineS load { 6.91 5.31 5.24 } vm 27% top other 69.8%, com.apple.Virtualization.VirtualMachine 25.3%, other 21.6%, other 12.4%, other 5.0%
+2026-09-26T18:19:38Z round 2 pme baseM load { 6.66 5.33 5.24 } vm 18% top other 23.3%, WindowServer 17.3%, com.apple.Virtualization.VirtualMachine 15.2%, other 7.2%, other 4.6%
+2026-09-26T18:19:54Z round 2 pme baseS load { 5.55 5.16 5.19 } vm 7% top other 110.2%, other 15.6%, other 10.8%, WindowServer 7.6%, com.apple.Virtualization.VirtualMachine 5.0%

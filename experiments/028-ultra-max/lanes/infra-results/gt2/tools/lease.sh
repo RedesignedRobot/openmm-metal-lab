@@ -107,7 +107,7 @@ clear_dead_lease() {
     rm -rf "$LEASE"
 }
 
-# A correctness hold takes the head's correctness job while it has fewer than MAX_MEMBERS members.
+# A correctness hold takes the window's correctness job while it has fewer than MAX_MEMBERS members.
 can_join() {
     [ -f "$LEASE/correctness" ] || return 1
     members=0

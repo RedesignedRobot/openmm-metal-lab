@@ -10,7 +10,7 @@ prefix=$1
 bundle=$2
 src=$(cd "$(dirname "$0")" && pwd)
 
-# Nothing on the Studio gets deleted without the owner's yes (2026-09-28), so the bundle dir must be new.
+# These scripts never delete anything, so the bundle dir must be new.
 [ -e "$bundle" ] && { echo "$bundle exists; pick a new bundle dir"; exit 2; }
 mkdir -p "$bundle"
 # force_load keeps every object of libOpenMM_static.a: the serialization proxies register from an

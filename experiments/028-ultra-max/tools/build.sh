@@ -1,7 +1,7 @@
 #!/bin/sh
 # Runs on the M3 Ultra: configures, builds and installs the tree in <dir>/src (put there by sync.sh)
 # the way ultra-base is built: Xcode-beta's toolchain, Release, Metal, OpenCL, Python and tests on,
-# C and Fortran wrappers off, as RULES.md asks. cmake and ninja run under `taskpolicy -b` (Darwin
+# C and Fortran wrappers off. cmake and ninja run under `taskpolicy -b` (Darwin
 # background priority, which keeps them on the 8 efficiency cores) and `nice -n 10`, with 8 jobs:
 # nice alone let a -j20 build take the performance cores from a timing hold. It makes <dir>/build,
 # <dir>/prefix and <dir>/venv, whose python imports this tree's openmm and sees numpy, scipy, Cython

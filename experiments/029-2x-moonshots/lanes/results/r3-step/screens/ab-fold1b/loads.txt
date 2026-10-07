@@ -1,18 +1,18 @@
-2026-09-29T10:08:30Z round 1 amber20-dhfr base_s load { 11.35 8.56 6.55 } vm 19% top superwhisper 32.4%,  claude 17.3%, WindowServer 14.4%,  claude 12.2%, com.apple.Virtualization.VirtualMachine 10.8%
-2026-09-29T10:08:50Z round 1 amber20-dhfr fold_s load { 9.11 8.23 6.47 } vm 16% top superwhisper 30.4%, WindowServer 10.9%, Google Chrome Helper 9.6%, com.apple.Virtualization.VirtualMachine 9.1%, powermetrics 7.8%
-2026-09-29T10:09:10Z round 1 amber20-dhfr base_m load { 7.73 7.98 6.43 } vm 16% top superwhisper 32.0%, WindowServer 11.9%, Google Chrome Helper 10.0%, com.apple.Virtualization.VirtualMachine 9.6%, com.apple.Virtualization.VirtualMachine 8.7%
-2026-09-29T10:09:35Z round 1 amber20-dhfr fold_m load { 6.26 7.60 6.33 } vm 21% top superwhisper 30.1%, WindowServer 12.3%, com.apple.Virtualization.VirtualMachine 12.0%, Google Chrome Helper 10.5%, com.apple.Virtualization.VirtualMachine 8.6%
-2026-09-29T10:10:01Z round 1 apoa1rf base_s load { 5.23 7.25 6.24 } vm 20% top superwhisper 31.9%, WindowServer 16.5%, powermetrics 13.9%, Google Chrome Helper 10.8%, com.apple.Virtualization.VirtualMachine 10.3%
-2026-09-29T10:10:22Z round 1 apoa1rf fold_s load { 4.98 7.07 6.20 } vm 14% top superwhisper 30.1%, WindowServer 14.4%, Google Chrome Helper 10.5%, com.apple.Virtualization.VirtualMachine 9.3%, Google Chrome Helper (Renderer) 6.5%
-2026-09-29T10:10:43Z round 1 apoa1rf base_m load { 4.34 6.79 6.12 } vm 13% top launchd 54.8%, superwhisper 33.6%, WindowServer 12.4%, Google Chrome Helper 11.2%, Google Chrome Helper (Renderer) 7.3%
-2026-09-29T10:11:08Z round 1 apoa1rf fold_m load { 3.94 6.45 6.02 } vm 33% top superwhisper 31.8%, com.apple.Virtualization.VirtualMachine 16.9%, WindowServer 16.4%, com.apple.Virtualization.VirtualMachine 16.3%,  claude 11.4%
-2026-09-29T10:11:34Z round 2 amber20-dhfr fold_m load { 3.66 6.18 5.93 } vm 21% top superwhisper 31.5%, com.apple.Virtualization.VirtualMachine 18.7%, WindowServer 12.4%, Google Chrome Helper 10.7%, com.apple.Virtualization.VirtualMachine 7.3%
-2026-09-29T10:11:58Z round 2 amber20-dhfr base_m load { 3.65 6.02 5.88 } vm 13% top backupd 98.6%, superwhisper 26.2%, WindowServer 12.5%, Google Chrome Helper (Renderer) 12.3%, Google Chrome Helper 8.3%
-2026-09-29T10:12:23Z round 2 amber20-dhfr fold_s load { 3.83 5.87 5.83 } vm 25% top backupd 234.1%, spotlightknowledged.updater 82.6%, superwhisper 23.9%, cfprefsd 17.9%, WindowServer 9.3%
-2026-09-29T10:12:42Z round 2 amber20-dhfr base_s load { 4.73 5.93 5.85 } vm 10% top spotlightknowledged.updater 84.0%, corespotlightd 27.8%, backupd 27.7%, superwhisper 22.2%, cfprefsd 15.3%
-2026-09-29T10:13:02Z round 2 apoa1rf fold_m load { 4.74 5.85 5.82 } vm 16% top backupd 63.8%, superwhisper 31.7%, WindowServer 14.5%, Google Chrome Helper (Renderer) 14.3%, Google Chrome Helper 10.1%
+2026-09-29T10:08:30Z round 1 amber20-dhfr base_s load { 11.35 8.56 6.55 } vm 19% top other 32.4%,  other 17.3%, WindowServer 14.4%,  other 12.2%, com.apple.Virtualization.VirtualMachine 10.8%
+2026-09-29T10:08:50Z round 1 amber20-dhfr fold_s load { 9.11 8.23 6.47 } vm 16% top other 30.4%, WindowServer 10.9%, other 9.6%, com.apple.Virtualization.VirtualMachine 9.1%, powermetrics 7.8%
+2026-09-29T10:09:10Z round 1 amber20-dhfr base_m load { 7.73 7.98 6.43 } vm 16% top other 32.0%, WindowServer 11.9%, other 10.0%, com.apple.Virtualization.VirtualMachine 9.6%, com.apple.Virtualization.VirtualMachine 8.7%
+2026-09-29T10:09:35Z round 1 amber20-dhfr fold_m load { 6.26 7.60 6.33 } vm 21% top other 30.1%, WindowServer 12.3%, com.apple.Virtualization.VirtualMachine 12.0%, other 10.5%, com.apple.Virtualization.VirtualMachine 8.6%
+2026-09-29T10:10:01Z round 1 apoa1rf base_s load { 5.23 7.25 6.24 } vm 20% top other 31.9%, WindowServer 16.5%, powermetrics 13.9%, other 10.8%, com.apple.Virtualization.VirtualMachine 10.3%
+2026-09-29T10:10:22Z round 1 apoa1rf fold_s load { 4.98 7.07 6.20 } vm 14% top other 30.1%, WindowServer 14.4%, other 10.5%, com.apple.Virtualization.VirtualMachine 9.3%, other 6.5%
+2026-09-29T10:10:43Z round 1 apoa1rf base_m load { 4.34 6.79 6.12 } vm 13% top other 54.8%, other 33.6%, WindowServer 12.4%, other 11.2%, other 7.3%
+2026-09-29T10:11:08Z round 1 apoa1rf fold_m load { 3.94 6.45 6.02 } vm 33% top other 31.8%, com.apple.Virtualization.VirtualMachine 16.9%, WindowServer 16.4%, com.apple.Virtualization.VirtualMachine 16.3%,  other 11.4%
+2026-09-29T10:11:34Z round 2 amber20-dhfr fold_m load { 3.66 6.18 5.93 } vm 21% top other 31.5%, com.apple.Virtualization.VirtualMachine 18.7%, WindowServer 12.4%, other 10.7%, com.apple.Virtualization.VirtualMachine 7.3%
+2026-09-29T10:11:58Z round 2 amber20-dhfr base_m load { 3.65 6.02 5.88 } vm 13% top other 98.6%, other 26.2%, WindowServer 12.5%, other 12.3%, other 8.3%
+2026-09-29T10:12:23Z round 2 amber20-dhfr fold_s load { 3.83 5.87 5.83 } vm 25% top other 234.1%, other 82.6%, other 23.9%, other 17.9%, WindowServer 9.3%
+2026-09-29T10:12:42Z round 2 amber20-dhfr base_s load { 4.73 5.93 5.85 } vm 10% top other 84.0%, other 27.8%, other 27.7%, other 22.2%, other 15.3%
+2026-09-29T10:13:02Z round 2 apoa1rf fold_m load { 4.74 5.85 5.82 } vm 16% top other 63.8%, other 31.7%, WindowServer 14.5%, other 14.3%, other 10.1%
 2026-09-29T10:13:25Z round 2 apoa1rf fold_m BUILD RUNNING during the run
-2026-09-29T10:13:27Z round 2 apoa1rf base_m load { 4.59 5.72 5.78 } vm 21% top fseventsd 58.9%, superwhisper 25.3%, backupd 23.5%, com.apple.Virtualization.VirtualMachine 13.1%, WindowServer 10.3%
-2026-09-29T10:13:53Z round 2 apoa1rf fold_s load { 3.91 5.47 5.68 } vm 29% top backupd 73.1%, superwhisper 33.9%, com.apple.Virtualization.VirtualMachine 18.1%, WindowServer 14.1%, Google Chrome Helper 12.4%
-2026-09-29T10:14:14Z round 2 apoa1rf base_s load { 3.93 5.34 5.63 } vm 28% top mediaanalysisd 513.8%, backupd 59.8%, superwhisper 27.8%, spotlightknowledged.updater 23.5%, com.apple.Virtualization.VirtualMachine 11.3%
+2026-09-29T10:13:27Z round 2 apoa1rf base_m load { 4.59 5.72 5.78 } vm 21% top other 58.9%, other 25.3%, other 23.5%, com.apple.Virtualization.VirtualMachine 13.1%, WindowServer 10.3%
+2026-09-29T10:13:53Z round 2 apoa1rf fold_s load { 3.91 5.47 5.68 } vm 29% top other 73.1%, other 33.9%, com.apple.Virtualization.VirtualMachine 18.1%, WindowServer 14.1%, other 12.4%
+2026-09-29T10:14:14Z round 2 apoa1rf base_s load { 3.93 5.34 5.63 } vm 28% top other 513.8%, other 59.8%, other 27.8%, other 23.5%, com.apple.Virtualization.VirtualMachine 11.3%
 2026-09-29T10:14:34Z builds: BUILD RUNNING on 1 of 16 timed runs (loads.txt); timing hold of gpuq job 31 (r3-step): 0 builds paused

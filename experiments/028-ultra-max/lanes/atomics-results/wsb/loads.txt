@@ -1,6 +1,6 @@
-2026-09-25T00:55:37Z round 1 pme base load { 2.67 2.91 3.68 } vm 4% top chrome-headless-shell 114.5%, superwhisper 20.9%, powermetrics 7.8%, com.apple.Virtualization.VirtualMachine 4.2%, sh 3.0%
-2026-09-25T00:55:54Z round 1 pme p0 load { 3.04 2.98 3.69 } vm 6% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 5.6%, sysmond 4.9%, sh 3.6%,  claude 3.5%
-2026-09-25T00:56:11Z round 1 pme words load { 4.95 3.40 3.82 } vm 2% top chrome-headless-shell 133.4%, superwhisper 21.9%, iStat Menus Menubar 5.6%, sysmond 5.3%, sh 3.1%
-2026-09-25T00:56:28Z round 2 pme words load { 4.32 3.34 3.79 } vm 2% top node 68.8%, superwhisper 23.2%, sysmond 8.8%, bun 6.7%, sh 3.7%
-2026-09-25T00:56:45Z round 2 pme p0 load { 3.88 3.29 3.76 } vm 8% top superwhisper 21.7%, com.apple.Virtualization.VirtualMachine 8.1%, sysmond 7.8%,  codex 3.6%, sh 2.8%
-2026-09-25T00:57:01Z round 2 pme base load { 3.63 3.27 3.74 } vm 6% top superwhisper 22.1%, sysmond 10.3%, com.apple.Virtualization.VirtualMachine 5.7%, sh 3.6%,  claude 3.0%
+2026-09-25T00:55:37Z round 1 pme base load { 2.67 2.91 3.68 } vm 4% top other 114.5%, other 20.9%, powermetrics 7.8%, com.apple.Virtualization.VirtualMachine 4.2%, other 3.0%
+2026-09-25T00:55:54Z round 1 pme p0 load { 3.04 2.98 3.69 } vm 6% top other 20.7%, com.apple.Virtualization.VirtualMachine 5.6%, other 4.9%, other 3.6%,  other 3.5%
+2026-09-25T00:56:11Z round 1 pme words load { 4.95 3.40 3.82 } vm 2% top other 133.4%, other 21.9%, other 5.6%, other 5.3%, other 3.1%
+2026-09-25T00:56:28Z round 2 pme words load { 4.32 3.34 3.79 } vm 2% top other 68.8%, other 23.2%, other 8.8%, other 6.7%, other 3.7%
+2026-09-25T00:56:45Z round 2 pme p0 load { 3.88 3.29 3.76 } vm 8% top other 21.7%, com.apple.Virtualization.VirtualMachine 8.1%, other 7.8%,  other 3.6%, other 2.8%
+2026-09-25T00:57:01Z round 2 pme base load { 3.63 3.27 3.74 } vm 6% top other 22.1%, other 10.3%, com.apple.Virtualization.VirtualMachine 5.7%, other 3.6%,  other 3.0%

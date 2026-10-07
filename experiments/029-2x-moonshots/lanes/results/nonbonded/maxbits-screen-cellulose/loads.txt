@@ -1,11 +1,11 @@
-2026-09-26T18:00:56Z round 1 amber20-cellulose base-s load { 4.62 5.45 7.77 } vm 9% top superwhisper 21.4%, com.apple.Virtualization.VirtualMachine 7.5%, backupd 7.3%, sysmond 6.2%, com.apple.Virtualization.VirtualMachine 3.3%
-2026-09-26T18:01:22Z round 1 amber20-cellulose cand-s load { 3.28 5.08 7.56 } vm 12% top superwhisper 25.7%, com.apple.Virtualization.VirtualMachine 8.2%, backupd 6.0%,  claude 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
-2026-09-26T18:01:47Z round 1 amber20-cellulose cl-s load { 2.70 4.80 7.39 } vm 12% top superwhisper 22.4%, com.apple.Virtualization.VirtualMachine 7.8%, com.apple.Virtualization.VirtualMachine 3.9%, WindowServer 2.5%, sysmond 0.9%
-2026-09-26T18:02:14Z round 1 amber20-cellulose base-m load { 2.92 4.65 7.25 } vm 11% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 7.0%, com.apple.Virtualization.VirtualMachine 3.6%, WindowServer 2.5%, sh 1.1%
+2026-09-26T18:00:56Z round 1 amber20-cellulose base-s load { 4.62 5.45 7.77 } vm 9% top other 21.4%, com.apple.Virtualization.VirtualMachine 7.5%, other 7.3%, other 6.2%, com.apple.Virtualization.VirtualMachine 3.3%
+2026-09-26T18:01:22Z round 1 amber20-cellulose cand-s load { 3.28 5.08 7.56 } vm 12% top other 25.7%, com.apple.Virtualization.VirtualMachine 8.2%, other 6.0%,  other 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-26T18:01:47Z round 1 amber20-cellulose cl-s load { 2.70 4.80 7.39 } vm 12% top other 22.4%, com.apple.Virtualization.VirtualMachine 7.8%, com.apple.Virtualization.VirtualMachine 3.9%, WindowServer 2.5%, other 0.9%
+2026-09-26T18:02:14Z round 1 amber20-cellulose base-m load { 2.92 4.65 7.25 } vm 11% top other 21.8%, com.apple.Virtualization.VirtualMachine 7.0%, com.apple.Virtualization.VirtualMachine 3.6%, WindowServer 2.5%, other 1.1%
 2026-09-26T18:03:15Z round 1 amber20-cellulose base-m BUILD RUNNING during the run
-2026-09-26T18:03:15Z round 1 amber20-cellulose cand-m load { 2.80 4.28 6.93 } BUILD RUNNING vm 11% top clang 69.1%, backupd 44.5%, textcomposerd 33.9%, modelcatalogd 30.5%, contactsd 27.8%
-2026-09-26T18:04:21Z round 2 amber20-cellulose cand-m load { 3.76 4.54 6.85 } vm 10% top backupd 66.9%, superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 7.4%, fileproviderd 4.7%,  codex 4.2%
-2026-09-26T18:05:19Z round 2 amber20-cellulose base-m load { 2.34 3.96 6.47 } vm 12% top python 98.6%, superwhisper 22.3%, bun 8.8%, com.apple.Virtualization.VirtualMachine 8.6%, sysmond 5.4%
-2026-09-26T18:06:19Z round 2 amber20-cellulose cl-s load { 1.48 3.41 6.09 } vm 10% top superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 8.5%,  claude 7.9%, WindowServer 2.5%, com.apple.Virtualization.VirtualMachine 1.7%
-2026-09-26T18:06:46Z round 2 amber20-cellulose cand-s load { 1.18 3.19 5.93 } vm 15% top superwhisper 24.6%, com.apple.Virtualization.VirtualMachine 12.6%, powermetrics 11.8%, sysmond 7.8%, WindowServer 3.8%
-2026-09-26T18:07:11Z round 2 amber20-cellulose base-s load { 1.59 3.12 5.83 } vm 14% top speechmaintenanced 97.3%, superwhisper 21.1%, com.apple.Virtualization.VirtualMachine 11.7%, sysmond 9.4%,  codex 4.8%
+2026-09-26T18:03:15Z round 1 amber20-cellulose cand-m load { 2.80 4.28 6.93 } BUILD RUNNING vm 11% top clang 69.1%, other 44.5%, other 33.9%, other 30.5%, other 27.8%
+2026-09-26T18:04:21Z round 2 amber20-cellulose cand-m load { 3.76 4.54 6.85 } vm 10% top other 66.9%, other 21.8%, com.apple.Virtualization.VirtualMachine 7.4%, other 4.7%,  other 4.2%
+2026-09-26T18:05:19Z round 2 amber20-cellulose base-m load { 2.34 3.96 6.47 } vm 12% top python 98.6%, other 22.3%, other 8.8%, com.apple.Virtualization.VirtualMachine 8.6%, other 5.4%
+2026-09-26T18:06:19Z round 2 amber20-cellulose cl-s load { 1.48 3.41 6.09 } vm 10% top other 22.1%, com.apple.Virtualization.VirtualMachine 8.5%,  other 7.9%, WindowServer 2.5%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-26T18:06:46Z round 2 amber20-cellulose cand-s load { 1.18 3.19 5.93 } vm 15% top other 24.6%, com.apple.Virtualization.VirtualMachine 12.6%, powermetrics 11.8%, other 7.8%, WindowServer 3.8%
+2026-09-26T18:07:11Z round 2 amber20-cellulose base-s load { 1.59 3.12 5.83 } vm 14% top other 97.3%, other 21.1%, com.apple.Virtualization.VirtualMachine 11.7%, other 9.4%,  other 4.8%

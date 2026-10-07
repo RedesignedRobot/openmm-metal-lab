@@ -1,19 +1,19 @@
-2026-09-29T07:47:47Z round 1 gbsa off load { 11.82 6.67 4.41 } vm 5% top superwhisper 23.9%, node 22.6%, WindowServer 18.8%, AirPlayXPCHelper 14.9%, VTEncoderXPCService 10.3%
-2026-09-29T07:48:10Z round 1 gbsa q load { 9.07 6.45 4.40 } FOREIGN GPU 20% vm 8% top node 138.5%, WindowServer 48.4%, AirPlayXPCHelper 25.1%, superwhisper 22.5%, VTEncoderXPCService 14.9%
-2026-09-29T07:48:34Z round 1 gbsa s1 load { 6.76 6.12 4.34 } FOREIGN GPU 20% vm 5% top WindowServer 48.7%, node 45.3%, superwhisper 39.6%, AirPlayXPCHelper 21.2%, VTEncoderXPCService 7.3%
-2026-09-29T07:48:57Z round 1 rf off load { 5.70 5.92 4.30 } vm 9% top node 68.9%, WindowServer 40.4%, spotlightknowledged.updater 28.0%, AirPlayXPCHelper 20.9%, superwhisper 20.7%
-2026-09-29T07:49:20Z round 1 rf q load { 4.98 5.73 4.28 } FOREIGN GPU 13% vm 5% top node 59.6%, WindowServer 27.7%, superwhisper 20.4%, AirPlayXPCHelper 19.6%, VTEncoderXPCService 8.0%
-2026-09-29T07:49:41Z round 1 rf s1 load { 4.55 5.59 4.26 } vm 5% top node 144.4%, superwhisper 22.5%, WindowServer 20.5%, AirPlayXPCHelper 14.3%, VTEncoderXPCService 9.0%
-2026-09-29T07:50:04Z round 2 gbsa s1 load { 4.20 5.43 4.24 } FOREIGN GPU 7% vm 7% top node 172.7%, superwhisper 21.9%, WindowServer 18.0%, AirPlayXPCHelper 13.5%, VTEncoderXPCService 8.1%
-2026-09-29T07:50:26Z round 2 gbsa q load { 4.37 5.38 4.25 } vm 7% top node 38.5%, superwhisper 25.2%, WindowServer 20.7%, AirPlayXPCHelper 15.3%, VTEncoderXPCService 6.5%
-2026-09-29T07:50:48Z round 2 gbsa off load { 4.39 5.31 4.25 } FOREIGN GPU 19% vm 6% top node 76.4%, TGOnDeviceInferenceProviderService 46.6%, modelcatalogd 45.7%, WindowServer 43.2%, superwhisper 32.2%
-2026-09-29T07:51:09Z round 2 rf s1 load { 4.20 5.21 4.24 } vm 6% top node 100.4%, superwhisper 22.8%, WindowServer 15.7%, AirPlayXPCHelper 12.9%, Google Chrome Helper 5.8%
-2026-09-29T07:51:30Z round 2 rf q load { 4.09 5.11 4.23 } FOREIGN GPU 20% vm 6% top node 89.3%, WindowServer 47.6%, superwhisper 42.4%, AirPlayXPCHelper 23.5%, VTEncoderXPCService 7.6%
-2026-09-29T07:51:51Z round 2 rf off load { 4.79 5.20 4.28 } FOREIGN GPU 10% vm 6% top node 94.0%, WindowServer 36.6%, superwhisper 21.4%, AirPlayXPCHelper 20.4%, tccd 11.4%
-2026-09-29T07:52:13Z round 3 gbsa off load { 4.27 5.05 4.25 } FOREIGN GPU 15% vm 5% top node 94.4%, launchd 35.2%, WindowServer 21.5%, superwhisper 20.7%, AirPlayXPCHelper 16.3%
-2026-09-29T07:52:32Z round 3 gbsa q load { 4.12 4.97 4.24 } FOREIGN GPU 20% vm 8% top node 91.2%, WindowServer 48.2%, superwhisper 39.2%, AirPlayXPCHelper 26.2%, VTEncoderXPCService 18.7%
-2026-09-29T07:52:54Z round 3 gbsa s1 load { 5.49 5.20 4.34 } FOREIGN GPU 19% vm 4% top node 79.9%, WindowServer 46.2%, AirPlayXPCHelper 29.9%, superwhisper 26.0%, VTEncoderXPCService 10.2%
-2026-09-29T07:53:17Z round 3 rf off load { 4.79 5.06 4.31 } FOREIGN GPU 6% vm 6% top launchd 98.2%, node 98.2%, superwhisper 24.2%, AirPlayXPCHelper 19.0%, WindowServer 7.5%
-2026-09-29T07:53:39Z round 3 rf q load { 5.48 5.20 4.38 } FOREIGN GPU 22% vm 4% top node 91.8%, WindowServer 45.3%, AirPlayXPCHelper 27.6%, superwhisper 22.9%, Google Chrome Helper 16.8%
-2026-09-29T07:54:01Z round 3 rf s1 load { 4.60 5.02 4.34 } vm 11% top node 94.9%, WindowServer 24.4%, superwhisper 24.1%, AirPlayXPCHelper 15.5%, com.apple.Virtualization.VirtualMachine 10.1%
+2026-09-29T07:47:47Z round 1 gbsa off load { 11.82 6.67 4.41 } vm 5% top other 23.9%, other 22.6%, WindowServer 18.8%, other 14.9%, other 10.3%
+2026-09-29T07:48:10Z round 1 gbsa q load { 9.07 6.45 4.40 } FOREIGN GPU 20% vm 8% top other 138.5%, WindowServer 48.4%, other 25.1%, other 22.5%, other 14.9%
+2026-09-29T07:48:34Z round 1 gbsa s1 load { 6.76 6.12 4.34 } FOREIGN GPU 20% vm 5% top WindowServer 48.7%, other 45.3%, other 39.6%, other 21.2%, other 7.3%
+2026-09-29T07:48:57Z round 1 rf off load { 5.70 5.92 4.30 } vm 9% top other 68.9%, WindowServer 40.4%, other 28.0%, other 20.9%, other 20.7%
+2026-09-29T07:49:20Z round 1 rf q load { 4.98 5.73 4.28 } FOREIGN GPU 13% vm 5% top other 59.6%, WindowServer 27.7%, other 20.4%, other 19.6%, other 8.0%
+2026-09-29T07:49:41Z round 1 rf s1 load { 4.55 5.59 4.26 } vm 5% top other 144.4%, other 22.5%, WindowServer 20.5%, other 14.3%, other 9.0%
+2026-09-29T07:50:04Z round 2 gbsa s1 load { 4.20 5.43 4.24 } FOREIGN GPU 7% vm 7% top other 172.7%, other 21.9%, WindowServer 18.0%, other 13.5%, other 8.1%
+2026-09-29T07:50:26Z round 2 gbsa q load { 4.37 5.38 4.25 } vm 7% top other 38.5%, other 25.2%, WindowServer 20.7%, other 15.3%, other 6.5%
+2026-09-29T07:50:48Z round 2 gbsa off load { 4.39 5.31 4.25 } FOREIGN GPU 19% vm 6% top other 76.4%, other 46.6%, other 45.7%, WindowServer 43.2%, other 32.2%
+2026-09-29T07:51:09Z round 2 rf s1 load { 4.20 5.21 4.24 } vm 6% top other 100.4%, other 22.8%, WindowServer 15.7%, other 12.9%, other 5.8%
+2026-09-29T07:51:30Z round 2 rf q load { 4.09 5.11 4.23 } FOREIGN GPU 20% vm 6% top other 89.3%, WindowServer 47.6%, other 42.4%, other 23.5%, other 7.6%
+2026-09-29T07:51:51Z round 2 rf off load { 4.79 5.20 4.28 } FOREIGN GPU 10% vm 6% top other 94.0%, WindowServer 36.6%, other 21.4%, other 20.4%, other 11.4%
+2026-09-29T07:52:13Z round 3 gbsa off load { 4.27 5.05 4.25 } FOREIGN GPU 15% vm 5% top other 94.4%, other 35.2%, WindowServer 21.5%, other 20.7%, other 16.3%
+2026-09-29T07:52:32Z round 3 gbsa q load { 4.12 4.97 4.24 } FOREIGN GPU 20% vm 8% top other 91.2%, WindowServer 48.2%, other 39.2%, other 26.2%, other 18.7%
+2026-09-29T07:52:54Z round 3 gbsa s1 load { 5.49 5.20 4.34 } FOREIGN GPU 19% vm 4% top other 79.9%, WindowServer 46.2%, other 29.9%, other 26.0%, other 10.2%
+2026-09-29T07:53:17Z round 3 rf off load { 4.79 5.06 4.31 } FOREIGN GPU 6% vm 6% top other 98.2%, other 98.2%, other 24.2%, other 19.0%, WindowServer 7.5%
+2026-09-29T07:53:39Z round 3 rf q load { 5.48 5.20 4.38 } FOREIGN GPU 22% vm 4% top other 91.8%, WindowServer 45.3%, other 27.6%, other 22.9%, other 16.8%
+2026-09-29T07:54:01Z round 3 rf s1 load { 4.60 5.02 4.34 } vm 11% top other 94.9%, WindowServer 24.4%, other 24.1%, other 15.5%, com.apple.Virtualization.VirtualMachine 10.1%
 2026-09-29T07:54:22Z builds: none ran during the 18 timed runs; timing hold of gpuq job 11 (ultra-r2-mixed): 0 builds paused

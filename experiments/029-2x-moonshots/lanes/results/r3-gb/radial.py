@@ -1,4 +1,4 @@
-"""Radial-table accuracy study (astra idea 2), CPU only. For every distinct (offset radius i, scaled radius j) pair
+"""Radial-table accuracy study (consult idea 2), CPU only. For every distinct (offset radius i, scaled radius j) pair
 in gbsa, compare the float32 analytic Born-sum term and a cubic Hermite table in float32 against float64 analytic
 values, on a dense r grid over (0, cutoff)."""
 import os, sys

@@ -1,72 +1,72 @@
-2026-09-25T02:35:54Z round 1 gbsa base-single load 2.08 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 8.6%, iStat Menus Menubar 5.1%, VTDecoderXPCService 3.0%, WindowServer 1.0%, powermetrics 0.3%
-2026-09-25T02:36:10Z round 1 gbsa cand-single load 2.44 free 68% swap 875.44M spotlight 0% top WallpaperAerialsExtension 7.6%, WindowServer 5.1%, VTDecoderXPCService 3.3%, powermetrics 3.3%, Computer Name 1.1%
-2026-09-25T02:36:26Z round 1 gbsa cand2-single load 2.78 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 8.7%, VTDecoderXPCService 3.3%, sysmond 3.0%, powermetrics 2.1%, iStat Menus Menubar 1.5%
-2026-09-25T02:36:42Z round 1 gbsa base-mixed load 2.58 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 7.3%, iStat Menus Menubar 4.4%, VTDecoderXPCService 3.3%, sysmond 3.0%, WindowServer 1.6%
-2026-09-25T02:36:58Z round 1 gbsa cand-mixed load 2.91 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 11.2%, sysmond 7.0%, iStat Menus Menubar 5.3%, VTDecoderXPCService 3.3%, WindowServer 1.6%
-2026-09-25T02:37:15Z round 1 gbsa cand2-mixed load 2.41 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 7.7%, sysmond 7.0%, VTDecoderXPCService 3.2%, opendirectoryd 2.3%, notifyd 1.0%
-2026-09-25T02:37:31Z round 1 rf base-single load 2.24 free 70% swap 875.44M spotlight 0% top iStat Menus Menubar 8.5%, WallpaperAerialsExtension 7.9%,  (zsh) 3.6%, VTDecoderXPCService 3.3%, sysmond 3.0%
-2026-09-25T02:37:48Z round 1 rf cand-single load 2.14 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 9.3%, powermetrics 3.6%, VTDecoderXPCService 3.2%, iStat Menus Menubar 1.2%, WindowServer 0.5%
-2026-09-25T02:38:05Z round 1 rf cand2-single load 2.01 free 70% swap 875.44M spotlight 0% top WallpaperAerialsExtension 9.6%, sysmond 7.0%, opendirectoryd 3.8%,  sshd-session: user [postauth] 3.7%, VTDecoderXPCService 3.1%
-2026-09-25T02:38:22Z round 1 rf base-mixed load 2.02 free 70% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.7%, iStat Menus Menubar 3.9%, VTDecoderXPCService 3.2%, io.tailscale.ipn.macsys.network-extension 3.0%, powermetrics 1.2%
-2026-09-25T02:38:39Z round 1 rf cand-mixed load 1.81 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.0%,  sshd-session: user [postauth] 7.3%, opendirectoryd 4.2%, VTDecoderXPCService 2.9%, notifyd 0.7%
-2026-09-25T02:38:56Z round 1 rf cand2-mixed load 1.78 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.8%, Tailscale 3.6%, iStat Menus Menubar 3.1%, VTDecoderXPCService 2.9%, io.tailscale.ipn.macsys.network-extension 1.8%
-2026-09-25T02:39:14Z round 1 pme base-single load 2.05 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.0%, sysmond 7.0%,  sshd-session: user [postauth] 4.2%, iStat Menus Menubar 4.1%, VTDecoderXPCService 2.6%
-2026-09-25T02:39:31Z round 1 pme cand-single load 2.25 free 68% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.3%,  sshd-session: [accepted] 7.0%, VTDecoderXPCService 2.6%, iStat Menus Menubar 1.8%,  sshd-auth: [session-auth] 1.1%
-2026-09-25T02:39:48Z round 1 pme cand2-single load 2.14 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.6%,  sshd-session: user [postauth] 5.4%, VTDecoderXPCService 3.0%, opendirectoryd 2.4%, io.tailscale.ipn.macsys.network-extension 0.6%
-2026-09-25T02:40:05Z round 1 pme base-mixed load 2.22 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.5%, VTDecoderXPCService 2.6%, iStat Menus Menubar 2.4%, WindowServer 0.8%, launchd 0.4%
-2026-09-25T02:40:22Z round 1 pme cand-mixed load 2.37 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.3%,  sshd-session: user [postauth] 7.5%, opendirectoryd 3.8%, VTDecoderXPCService 2.8%, io.tailscale.ipn.macsys.network-extension 0.9%
-2026-09-25T02:40:39Z round 1 pme cand2-mixed load 2.40 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.7%, iStat Menus Menubar 4.3%, VTDecoderXPCService 2.7%, WindowServer 2.2%, bluetoothd 1.1%
-2026-09-25T02:40:56Z round 1 apoa1rf base-single load 2.52 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 7.1%, VTDecoderXPCService 3.3%,  sshd-session: user [postauth] 2.7%, opendirectoryd 1.5%, powermetrics 0.9%
-2026-09-25T02:41:16Z round 1 apoa1rf cand-single load 2.36 free 71% swap 867.44M spotlight 0% top launchd 20.7%, WallpaperAerialsExtension 9.3%, sysmond 6.6%, VTDecoderXPCService 3.4%, powermetrics 2.1%
-2026-09-25T02:41:35Z round 1 apoa1rf cand2-single load 2.26 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 6.0%, VTDecoderXPCService 3.1%, sysmond 3.0%, notifyd 0.4%, powermetrics 0.3%
-2026-09-25T02:41:55Z round 1 apoa1rf base-mixed load 2.55 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.3%, sysmond 6.6%, VTDecoderXPCService 3.0%, powermetrics 0.9%, notifyd 0.7%
-2026-09-25T02:42:15Z round 1 apoa1rf cand-mixed load 2.03 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 6.5%, VTDecoderXPCService 2.6%, iStat Menus Menubar 1.6%, io.tailscale.ipn.macsys.network-extension 1.2%, notifyd 0.6%
-2026-09-25T02:42:35Z round 1 apoa1rf cand2-mixed load 1.83 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.7%, sysmond 7.2%, iStat Menus Menubar 4.3%, VTDecoderXPCService 3.5%, WindowServer 1.0%
-2026-09-25T02:42:55Z round 1 apoa1pme base-single load 1.69 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.6%, sysmond 7.2%, VTDecoderXPCService 3.4%, powermetrics 1.3%, iStat Menus Menubar 1.2%
-2026-09-25T02:43:14Z round 1 apoa1pme cand-single load 1.36 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.7%, iStat Menus Menubar 4.0%, VTDecoderXPCService 3.1%, WindowServer 1.9%,  sshd-session: user [postauth] 1.7%
-2026-09-25T02:43:34Z round 1 apoa1pme cand2-single load 1.52 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.8%, trustd 5.1%, iStat Menus Menubar 5.0%, dasd 4.5%, io.tailscale.ipn.macsys.network-extension 3.7%
-2026-09-25T02:43:54Z round 1 apoa1pme base-mixed load 1.48 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.6%, sysmond 7.1%, VTDecoderXPCService 2.8%, powermetrics 1.7%, powermetrics 0.9%
-2026-09-25T02:44:13Z round 1 apoa1pme cand-mixed load 1.43 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.2%,  sshd-session: [accepted] 7.8%, VTDecoderXPCService 2.8%,  sshd-auth: [session-auth] 0.9%, launchd 0.8%
-2026-09-25T02:44:33Z round 1 apoa1pme cand2-mixed load 1.77 free 72% swap 867.44M spotlight 0% top sysmond 30.7%, WallpaperAerialsExtension 10.3%, launchd 9.4%, systemstats 5.7%, VTDecoderXPCService 2.9%
-2026-09-25T02:44:53Z round 1 amber20-dhfr base-single load 1.79 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.9%, VTDecoderXPCService 2.8%, powermetrics 1.2%, notifyd 0.5%, launchd 0.4%
-2026-09-25T02:45:11Z round 1 amber20-dhfr cand-single load 1.90 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.9%, iStat Menus Menubar 3.1%, VTDecoderXPCService 2.8%, powermetrics 0.7%, WindowServer 0.5%
-2026-09-25T02:45:29Z round 1 amber20-dhfr cand2-single load 2.05 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.9%,  sshd-session: [accepted] 10.8%, VTDecoderXPCService 2.8%, powermetrics 2.2%, launchd 1.4%
-2026-09-25T02:45:48Z round 1 amber20-dhfr base-mixed load 1.88 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.1%, VTDecoderXPCService 2.7%, iStat Menus Menubar 2.2%, WindowServer 0.7%, powermetrics 0.4%
-2026-09-25T02:46:09Z round 1 amber20-dhfr cand-mixed load 2.29 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.3%, sysmond 3.6%, VTDecoderXPCService 3.3%, powermetrics 1.2%, notifyd 0.4%
-2026-09-25T02:46:29Z round 1 amber20-dhfr cand2-mixed load 1.79 free 72% swap 867.44M spotlight 0% top sysmond 7.0%, WallpaperAerialsExtension 5.9%, VTDecoderXPCService 2.6%,  ps 0.6%, sh 0.5%
-2026-09-25T02:46:51Z round 2 gbsa cand2-mixed load 2.30 free 68% swap 867.44M spotlight 0% top WallpaperAerialsExtension 7.0%, VTDecoderXPCService 3.2%, powermetrics 1.2%, launchd 0.4%, WindowServer 0.4%
-2026-09-25T02:47:07Z round 2 gbsa cand-mixed load 2.53 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 7.8%, sysmond 7.0%, VTDecoderXPCService 2.8%, iStat Menus Menubar 0.5%, notifyd 0.3%
-2026-09-25T02:47:23Z round 2 gbsa base-mixed load 2.71 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.2%, sysmond 6.6%, iStat Menus Menubar 5.4%, VTDecoderXPCService 3.1%, WindowServer 1.4%
-2026-09-25T02:47:40Z round 2 gbsa cand2-single load 2.69 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.0%, sysmond 6.7%, VTDecoderXPCService 3.3%, powermetrics 2.7%, powermetrics 0.5%
-2026-09-25T02:47:56Z round 2 gbsa cand-single load 2.21 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.7%, sysmond 6.6%, VTDecoderXPCService 2.9%, iStat Menus Menubar 1.0%, sh 0.4%
-2026-09-25T02:48:12Z round 2 gbsa base-single load 2.16 free 70% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.2%, VTDecoderXPCService 3.1%, powermetrics 1.2%, notifyd 0.4%, iStat Menus Menubar 0.3%
-2026-09-25T02:48:28Z round 2 rf cand2-mixed load 2.58 free 71% swap 867.44M spotlight 0% top photoanalysisd 98.5%, sysmond 6.5%, WallpaperAerialsExtension 5.2%, VTDecoderXPCService 2.0%, iStat Menus Menubar 0.8%
-2026-09-25T02:48:45Z round 2 rf cand-mixed load 2.36 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.9%, sysmond 6.7%, VTDecoderXPCService 2.7%, powermetrics 2.1%, iStat Menus Menubar 1.1%
-2026-09-25T02:49:02Z round 2 rf base-mixed load 2.69 free 72% swap 867.44M spotlight 0% top photolibraryd 100.9%, managedcorespotlightd 44.0%, WallpaperAerialsExtension 12.1%, loginwindow 6.8%, WindowServer 5.3%
-2026-09-25T02:49:19Z round 2 rf cand2-single load 2.48 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.0%, VTDecoderXPCService 2.8%, analyticsd 1.8%, bluetoothd 1.5%, cfprefsd 0.6%
-2026-09-25T02:49:36Z round 2 rf cand-single load 2.34 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.8%, sysmond 7.1%, VTDecoderXPCService 2.5%, iStat Menus Menubar 1.7%, WindowServer 0.6%
-2026-09-25T02:49:52Z round 2 rf base-single load 2.55 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.6%, VTDecoderXPCService 2.5%, logd 0.4%, iStat Menus Menubar 0.3%, notifyd 0.3%
-2026-09-25T02:50:09Z round 2 pme cand2-mixed load 2.65 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.5%, VTDecoderXPCService 2.7%, notifyd 0.3%, iStat Menus Menubar 0.3%, sh 0.2%
-2026-09-25T02:50:26Z round 2 pme cand-mixed load 2.62 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.2%, iStat Menus Menubar 4.9%, VTDecoderXPCService 2.7%, WindowServer 1.6%, ControlCenter 0.2%
-2026-09-25T02:50:43Z round 2 pme base-mixed load 2.32 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.8%, VTDecoderXPCService 2.6%, iStat Menus Menubar 1.3%, WindowServer 0.4%, notifyd 0.3%
-2026-09-25T02:51:00Z round 2 pme cand2-single load 2.23 free 69% swap 867.44M spotlight 0% top sysmond 7.2%, WallpaperAerialsExtension 6.9%, loginwindow 6.2%, WindowServer 5.9%, VTDecoderXPCService 3.5%
-2026-09-25T02:51:17Z round 2 pme cand-single load 2.32 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.1%, VTDecoderXPCService 3.1%, clocksyncd 1.0%, iStat Menus Menubar 0.7%, WindowServer 0.6%
-2026-09-25T02:51:34Z round 2 pme base-single load 2.11 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 6.7%, VTDecoderXPCService 3.3%, iStat Menus Menubar 3.0%, WindowServer 0.3%, clocksyncd 0.2%
-2026-09-25T02:51:51Z round 2 apoa1rf cand2-mixed load 2.20 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 7.6%, sysmond 6.6%, VTDecoderXPCService 3.4%, powermetrics 2.1%, iStat Menus Menubar 1.1%
-2026-09-25T02:52:11Z round 2 apoa1rf cand-mixed load 2.28 free 70% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.5%, VTDecoderXPCService 3.2%, iStat Menus Menubar 2.1%, powermetrics 0.9%, WindowServer 0.8%
-2026-09-25T02:52:30Z round 2 apoa1rf base-mixed load 2.14 free 69% swap 867.44M spotlight 0% top history 46.3%, WallpaperAerialsExtension 9.2%, sysmond 6.8%, iStat Menus Menubar 4.3%, VTDecoderXPCService 3.0%
-2026-09-25T02:52:50Z round 2 apoa1rf cand2-single load 1.80 free 69% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.9%, iStat Menus Menubar 6.8%, WindowServer 5.5%, VTDecoderXPCService 3.4%, sysmond 3.0%
-2026-09-25T02:53:10Z round 2 apoa1rf cand-single load 1.62 free 69% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.6%, VTDecoderXPCService 2.9%, powermetrics 1.4%, powermetrics 0.7%, com.bjango.istatmenus.daemon 0.4%
-2026-09-25T02:53:29Z round 2 apoa1rf base-single load 2.09 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.6%, sysmond 7.4%,  sshd-session: user [postauth] 3.1%, VTDecoderXPCService 2.8%, opendirectoryd 1.4%
-2026-09-25T02:53:49Z round 2 apoa1pme cand2-mixed load 2.57 free 71% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.1%, VTDecoderXPCService 2.4%, iStat Menus Menubar 2.2%, WindowServer 1.0%, analyticsd 0.7%
-2026-09-25T02:54:09Z round 2 apoa1pme cand-mixed load 2.19 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.2%, sysmond 6.7%, VTDecoderXPCService 2.7%, powermetrics 2.1%, bluetoothd 1.8%
-2026-09-25T02:54:28Z round 2 apoa1pme base-mixed load 2.00 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.1%, sysmond 3.6%, VTDecoderXPCService 2.7%, iStat Menus Menubar 1.6%, io.tailscale.ipn.macsys.network-extension 1.0%
-2026-09-25T02:54:48Z round 2 apoa1pme cand2-single load 1.88 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 10.7%, iStat Menus Menubar 3.0%, VTDecoderXPCService 2.9%, WindowServer 0.5%, notifyd 0.4%
-2026-09-25T02:55:07Z round 2 apoa1pme cand-single load 1.96 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 12.2%, iStat Menus Menubar 3.5%, VTDecoderXPCService 2.8%, powermetrics 2.0%, WindowServer 1.2%
-2026-09-25T02:55:27Z round 2 apoa1pme base-single load 1.60 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.6%, VTDecoderXPCService 2.9%, powermetrics 2.0%, logd 0.4%, notifyd 0.3%
-2026-09-25T02:55:46Z round 2 amber20-dhfr cand2-mixed load 1.58 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 11.6%, launchd 5.4%, VTDecoderXPCService 3.2%, io.tailscale.ipn.macsys.network-extension 1.6%, powermetrics 0.8%
-2026-09-25T02:56:07Z round 2 amber20-dhfr cand-mixed load 1.52 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 7.1%, iStat Menus Menubar 6.2%, powermetrics 3.6%, VTDecoderXPCService 3.5%, WindowServer 1.7%
-2026-09-25T02:56:28Z round 2 amber20-dhfr base-mixed load 1.45 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 8.5%, VTDecoderXPCService 3.4%, sh 0.3%, notifyd 0.3%, clocksyncd 0.2%
-2026-09-25T02:56:48Z round 2 amber20-dhfr cand2-single load 2.11 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.1%, VTDecoderXPCService 2.5%, iStat Menus Menubar 1.3%, WindowServer 0.4%, logd 0.4%
-2026-09-25T02:57:06Z round 2 amber20-dhfr cand-single load 1.64 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.8%, VTDecoderXPCService 3.3%, sh 0.3%, clocksyncd 0.2%, notifyd 0.2%
-2026-09-25T02:57:24Z round 2 amber20-dhfr base-single load 1.85 free 72% swap 867.44M spotlight 0% top WallpaperAerialsExtension 9.9%, sysmond 7.1%, VTDecoderXPCService 3.5%, iStat Menus Menubar 3.3%, WindowServer 0.9%
+2026-09-25T02:35:54Z round 1 gbsa base-single load 2.08 free 70% swap 875.44M spotlight 0% top other 8.6%, other 5.1%, other 3.0%, WindowServer 1.0%, powermetrics 0.3%
+2026-09-25T02:36:10Z round 1 gbsa cand-single load 2.44 free 68% swap 875.44M spotlight 0% top other 7.6%, WindowServer 5.1%, other 3.3%, powermetrics 3.3%, other 1.1%
+2026-09-25T02:36:26Z round 1 gbsa cand2-single load 2.78 free 70% swap 875.44M spotlight 0% top other 8.7%, other 3.3%, other 3.0%, powermetrics 2.1%, other 1.5%
+2026-09-25T02:36:42Z round 1 gbsa base-mixed load 2.58 free 70% swap 875.44M spotlight 0% top other 7.3%, other 4.4%, other 3.3%, other 3.0%, WindowServer 1.6%
+2026-09-25T02:36:58Z round 1 gbsa cand-mixed load 2.91 free 70% swap 875.44M spotlight 0% top other 11.2%, other 7.0%, other 5.3%, other 3.3%, WindowServer 1.6%
+2026-09-25T02:37:15Z round 1 gbsa cand2-mixed load 2.41 free 70% swap 875.44M spotlight 0% top other 7.7%, other 7.0%, other 3.2%, other 2.3%, other 1.0%
+2026-09-25T02:37:31Z round 1 rf base-single load 2.24 free 70% swap 875.44M spotlight 0% top other 8.5%, other 7.9%,  other 3.6%, other 3.3%, other 3.0%
+2026-09-25T02:37:48Z round 1 rf cand-single load 2.14 free 70% swap 875.44M spotlight 0% top other 9.3%, powermetrics 3.6%, other 3.2%, other 1.2%, WindowServer 0.5%
+2026-09-25T02:38:05Z round 1 rf cand2-single load 2.01 free 70% swap 875.44M spotlight 0% top other 9.6%, other 7.0%, other 3.8%,  other 3.7%, other 3.1%
+2026-09-25T02:38:22Z round 1 rf base-mixed load 2.02 free 70% swap 867.44M spotlight 0% top other 9.7%, other 3.9%, other 3.2%, other 3.0%, powermetrics 1.2%
+2026-09-25T02:38:39Z round 1 rf cand-mixed load 1.81 free 72% swap 867.44M spotlight 0% top other 10.0%,  other 7.3%, other 4.2%, other 2.9%, other 0.7%
+2026-09-25T02:38:56Z round 1 rf cand2-mixed load 1.78 free 72% swap 867.44M spotlight 0% top other 12.8%, other 3.6%, other 3.1%, other 2.9%, other 1.8%
+2026-09-25T02:39:14Z round 1 pme base-single load 2.05 free 72% swap 867.44M spotlight 0% top other 12.0%, other 7.0%,  other 4.2%, other 4.1%, other 2.6%
+2026-09-25T02:39:31Z round 1 pme cand-single load 2.25 free 68% swap 867.44M spotlight 0% top other 9.3%,  other 7.0%, other 2.6%, other 1.8%,  other 1.1%
+2026-09-25T02:39:48Z round 1 pme cand2-single load 2.14 free 72% swap 867.44M spotlight 0% top other 10.6%,  other 5.4%, other 3.0%, other 2.4%, other 0.6%
+2026-09-25T02:40:05Z round 1 pme base-mixed load 2.22 free 71% swap 867.44M spotlight 0% top other 9.5%, other 2.6%, other 2.4%, WindowServer 0.8%, other 0.4%
+2026-09-25T02:40:22Z round 1 pme cand-mixed load 2.37 free 72% swap 867.44M spotlight 0% top other 11.3%,  other 7.5%, other 3.8%, other 2.8%, other 0.9%
+2026-09-25T02:40:39Z round 1 pme cand2-mixed load 2.40 free 72% swap 867.44M spotlight 0% top other 12.7%, other 4.3%, other 2.7%, WindowServer 2.2%, other 1.1%
+2026-09-25T02:40:56Z round 1 apoa1rf base-single load 2.52 free 72% swap 867.44M spotlight 0% top other 7.1%, other 3.3%,  other 2.7%, other 1.5%, powermetrics 0.9%
+2026-09-25T02:41:16Z round 1 apoa1rf cand-single load 2.36 free 71% swap 867.44M spotlight 0% top other 20.7%, other 9.3%, other 6.6%, other 3.4%, powermetrics 2.1%
+2026-09-25T02:41:35Z round 1 apoa1rf cand2-single load 2.26 free 71% swap 867.44M spotlight 0% top other 6.0%, other 3.1%, other 3.0%, other 0.4%, powermetrics 0.3%
+2026-09-25T02:41:55Z round 1 apoa1rf base-mixed load 2.55 free 71% swap 867.44M spotlight 0% top other 10.3%, other 6.6%, other 3.0%, powermetrics 0.9%, other 0.7%
+2026-09-25T02:42:15Z round 1 apoa1rf cand-mixed load 2.03 free 72% swap 867.44M spotlight 0% top other 6.5%, other 2.6%, other 1.6%, other 1.2%, other 0.6%
+2026-09-25T02:42:35Z round 1 apoa1rf cand2-mixed load 1.83 free 72% swap 867.44M spotlight 0% top other 8.7%, other 7.2%, other 4.3%, other 3.5%, WindowServer 1.0%
+2026-09-25T02:42:55Z round 1 apoa1pme base-single load 1.69 free 72% swap 867.44M spotlight 0% top other 8.6%, other 7.2%, other 3.4%, powermetrics 1.3%, other 1.2%
+2026-09-25T02:43:14Z round 1 apoa1pme cand-single load 1.36 free 72% swap 867.44M spotlight 0% top other 10.7%, other 4.0%, other 3.1%, WindowServer 1.9%,  other 1.7%
+2026-09-25T02:43:34Z round 1 apoa1pme cand2-single load 1.52 free 72% swap 867.44M spotlight 0% top other 12.8%, other 5.1%, other 5.0%, other 4.5%, other 3.7%
+2026-09-25T02:43:54Z round 1 apoa1pme base-mixed load 1.48 free 72% swap 867.44M spotlight 0% top other 11.6%, other 7.1%, other 2.8%, powermetrics 1.7%, powermetrics 0.9%
+2026-09-25T02:44:13Z round 1 apoa1pme cand-mixed load 1.43 free 72% swap 867.44M spotlight 0% top other 8.2%,  other 7.8%, other 2.8%,  other 0.9%, other 0.8%
+2026-09-25T02:44:33Z round 1 apoa1pme cand2-mixed load 1.77 free 72% swap 867.44M spotlight 0% top other 30.7%, other 10.3%, other 9.4%, other 5.7%, other 2.9%
+2026-09-25T02:44:53Z round 1 amber20-dhfr base-single load 1.79 free 72% swap 867.44M spotlight 0% top other 11.9%, other 2.8%, powermetrics 1.2%, other 0.5%, other 0.4%
+2026-09-25T02:45:11Z round 1 amber20-dhfr cand-single load 1.90 free 71% swap 867.44M spotlight 0% top other 11.9%, other 3.1%, other 2.8%, powermetrics 0.7%, WindowServer 0.5%
+2026-09-25T02:45:29Z round 1 amber20-dhfr cand2-single load 2.05 free 72% swap 867.44M spotlight 0% top other 10.9%,  other 10.8%, other 2.8%, powermetrics 2.2%, other 1.4%
+2026-09-25T02:45:48Z round 1 amber20-dhfr base-mixed load 1.88 free 72% swap 867.44M spotlight 0% top other 10.1%, other 2.7%, other 2.2%, WindowServer 0.7%, powermetrics 0.4%
+2026-09-25T02:46:09Z round 1 amber20-dhfr cand-mixed load 2.29 free 72% swap 867.44M spotlight 0% top other 9.3%, other 3.6%, other 3.3%, powermetrics 1.2%, other 0.4%
+2026-09-25T02:46:29Z round 1 amber20-dhfr cand2-mixed load 1.79 free 72% swap 867.44M spotlight 0% top other 7.0%, other 5.9%, other 2.6%,  ps 0.6%, other 0.5%
+2026-09-25T02:46:51Z round 2 gbsa cand2-mixed load 2.30 free 68% swap 867.44M spotlight 0% top other 7.0%, other 3.2%, powermetrics 1.2%, other 0.4%, WindowServer 0.4%
+2026-09-25T02:47:07Z round 2 gbsa cand-mixed load 2.53 free 71% swap 867.44M spotlight 0% top other 7.8%, other 7.0%, other 2.8%, other 0.5%, other 0.3%
+2026-09-25T02:47:23Z round 2 gbsa base-mixed load 2.71 free 71% swap 867.44M spotlight 0% top other 8.2%, other 6.6%, other 5.4%, other 3.1%, WindowServer 1.4%
+2026-09-25T02:47:40Z round 2 gbsa cand2-single load 2.69 free 71% swap 867.44M spotlight 0% top other 10.0%, other 6.7%, other 3.3%, powermetrics 2.7%, powermetrics 0.5%
+2026-09-25T02:47:56Z round 2 gbsa cand-single load 2.21 free 71% swap 867.44M spotlight 0% top other 8.7%, other 6.6%, other 2.9%, other 1.0%, other 0.4%
+2026-09-25T02:48:12Z round 2 gbsa base-single load 2.16 free 70% swap 867.44M spotlight 0% top other 9.2%, other 3.1%, powermetrics 1.2%, other 0.4%, other 0.3%
+2026-09-25T02:48:28Z round 2 rf cand2-mixed load 2.58 free 71% swap 867.44M spotlight 0% top other 98.5%, other 6.5%, other 5.2%, other 2.0%, other 0.8%
+2026-09-25T02:48:45Z round 2 rf cand-mixed load 2.36 free 72% swap 867.44M spotlight 0% top other 8.9%, other 6.7%, other 2.7%, powermetrics 2.1%, other 1.1%
+2026-09-25T02:49:02Z round 2 rf base-mixed load 2.69 free 72% swap 867.44M spotlight 0% top other 100.9%, other 44.0%, other 12.1%, other 6.8%, WindowServer 5.3%
+2026-09-25T02:49:19Z round 2 rf cand2-single load 2.48 free 72% swap 867.44M spotlight 0% top other 11.0%, other 2.8%, other 1.8%, other 1.5%, other 0.6%
+2026-09-25T02:49:36Z round 2 rf cand-single load 2.34 free 71% swap 867.44M spotlight 0% top other 11.8%, other 7.1%, other 2.5%, other 1.7%, WindowServer 0.6%
+2026-09-25T02:49:52Z round 2 rf base-single load 2.55 free 71% swap 867.44M spotlight 0% top other 9.6%, other 2.5%, other 0.4%, other 0.3%, other 0.3%
+2026-09-25T02:50:09Z round 2 pme cand2-mixed load 2.65 free 71% swap 867.44M spotlight 0% top other 11.5%, other 2.7%, other 0.3%, other 0.3%, other 0.2%
+2026-09-25T02:50:26Z round 2 pme cand-mixed load 2.62 free 72% swap 867.44M spotlight 0% top other 11.2%, other 4.9%, other 2.7%, WindowServer 1.6%, other 0.2%
+2026-09-25T02:50:43Z round 2 pme base-mixed load 2.32 free 72% swap 867.44M spotlight 0% top other 9.8%, other 2.6%, other 1.3%, WindowServer 0.4%, other 0.3%
+2026-09-25T02:51:00Z round 2 pme cand2-single load 2.23 free 69% swap 867.44M spotlight 0% top other 7.2%, other 6.9%, other 6.2%, WindowServer 5.9%, other 3.5%
+2026-09-25T02:51:17Z round 2 pme cand-single load 2.32 free 72% swap 867.44M spotlight 0% top other 8.1%, other 3.1%, other 1.0%, other 0.7%, WindowServer 0.6%
+2026-09-25T02:51:34Z round 2 pme base-single load 2.11 free 72% swap 867.44M spotlight 0% top other 6.7%, other 3.3%, other 3.0%, WindowServer 0.3%, other 0.2%
+2026-09-25T02:51:51Z round 2 apoa1rf cand2-mixed load 2.20 free 72% swap 867.44M spotlight 0% top other 7.6%, other 6.6%, other 3.4%, powermetrics 2.1%, other 1.1%
+2026-09-25T02:52:11Z round 2 apoa1rf cand-mixed load 2.28 free 70% swap 867.44M spotlight 0% top other 8.5%, other 3.2%, other 2.1%, powermetrics 0.9%, WindowServer 0.8%
+2026-09-25T02:52:30Z round 2 apoa1rf base-mixed load 2.14 free 69% swap 867.44M spotlight 0% top other 46.3%, other 9.2%, other 6.8%, other 4.3%, other 3.0%
+2026-09-25T02:52:50Z round 2 apoa1rf cand2-single load 1.80 free 69% swap 867.44M spotlight 0% top other 11.9%, other 6.8%, WindowServer 5.5%, other 3.4%, other 3.0%
+2026-09-25T02:53:10Z round 2 apoa1rf cand-single load 1.62 free 69% swap 867.44M spotlight 0% top other 8.6%, other 2.9%, powermetrics 1.4%, powermetrics 0.7%, other 0.4%
+2026-09-25T02:53:29Z round 2 apoa1rf base-single load 2.09 free 71% swap 867.44M spotlight 0% top other 8.6%, other 7.4%,  other 3.1%, other 2.8%, other 1.4%
+2026-09-25T02:53:49Z round 2 apoa1pme cand2-mixed load 2.57 free 71% swap 867.44M spotlight 0% top other 9.1%, other 2.4%, other 2.2%, WindowServer 1.0%, other 0.7%
+2026-09-25T02:54:09Z round 2 apoa1pme cand-mixed load 2.19 free 72% swap 867.44M spotlight 0% top other 10.2%, other 6.7%, other 2.7%, powermetrics 2.1%, other 1.8%
+2026-09-25T02:54:28Z round 2 apoa1pme base-mixed load 2.00 free 72% swap 867.44M spotlight 0% top other 12.1%, other 3.6%, other 2.7%, other 1.6%, other 1.0%
+2026-09-25T02:54:48Z round 2 apoa1pme cand2-single load 1.88 free 72% swap 867.44M spotlight 0% top other 10.7%, other 3.0%, other 2.9%, WindowServer 0.5%, other 0.4%
+2026-09-25T02:55:07Z round 2 apoa1pme cand-single load 1.96 free 72% swap 867.44M spotlight 0% top other 12.2%, other 3.5%, other 2.8%, powermetrics 2.0%, WindowServer 1.2%
+2026-09-25T02:55:27Z round 2 apoa1pme base-single load 1.60 free 72% swap 867.44M spotlight 0% top other 9.6%, other 2.9%, powermetrics 2.0%, other 0.4%, other 0.3%
+2026-09-25T02:55:46Z round 2 amber20-dhfr cand2-mixed load 1.58 free 72% swap 867.44M spotlight 0% top other 11.6%, other 5.4%, other 3.2%, other 1.6%, powermetrics 0.8%
+2026-09-25T02:56:07Z round 2 amber20-dhfr cand-mixed load 1.52 free 72% swap 867.44M spotlight 0% top other 7.1%, other 6.2%, powermetrics 3.6%, other 3.5%, WindowServer 1.7%
+2026-09-25T02:56:28Z round 2 amber20-dhfr base-mixed load 1.45 free 72% swap 867.44M spotlight 0% top other 8.5%, other 3.4%, other 0.3%, other 0.3%, other 0.2%
+2026-09-25T02:56:48Z round 2 amber20-dhfr cand2-single load 2.11 free 72% swap 867.44M spotlight 0% top other 9.1%, other 2.5%, other 1.3%, WindowServer 0.4%, other 0.4%
+2026-09-25T02:57:06Z round 2 amber20-dhfr cand-single load 1.64 free 72% swap 867.44M spotlight 0% top other 9.8%, other 3.3%, other 0.3%, other 0.2%, other 0.2%
+2026-09-25T02:57:24Z round 2 amber20-dhfr base-single load 1.85 free 72% swap 867.44M spotlight 0% top other 9.9%, other 7.1%, other 3.5%, other 3.3%, WindowServer 0.9%

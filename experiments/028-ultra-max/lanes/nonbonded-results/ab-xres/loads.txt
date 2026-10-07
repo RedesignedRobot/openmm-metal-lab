@@ -1,16 +1,16 @@
-2026-09-25T02:18:46Z round 1 apoa1rf tiles load { 10.44 4.20 3.09 } vm 20% top xctrace 497.5%, node 91.3%, superwhisper 20.4%, com.apple.Virtualization.VirtualMachine 19.7%, bun 9.5%
-2026-09-25T02:19:10Z round 1 apoa1rf xres load { 11.34 4.85 3.36 } vm 7% top xctrace 237.9%, node 30.8%, superwhisper 21.9%, com.apple.dt.instruments.dtsecurity 6.4%, sysmond 5.1%
-2026-09-25T02:19:29Z round 1 rf tiles load { 9.11 4.76 3.36 } vm 7% top superwhisper 22.9%, com.apple.Virtualization.VirtualMachine 10.1%, sysmond 6.2%, sh 2.1%,  claude 1.8%
-2026-09-25T02:19:46Z round 1 rf xres load { 7.74 4.68 3.35 } vm 30% top com.apple.Virtualization.VirtualMachine 29.9%, superwhisper 21.4%, sysmond 7.4%,  claude 2.5%, sh 1.2%
-2026-09-25T02:20:03Z round 1 pme tiles load { 6.25 4.53 3.33 } vm 3% top node 100.6%, superwhisper 20.9%, authd 15.5%, trustd 13.3%, SystemUIServer 10.3%
-2026-09-25T02:20:20Z round 1 pme xres load { 5.52 4.46 3.32 } vm 2% top mds_stores 118.6%, node 99.7%,  tar 38.3%, mds 37.9%, mdworker_shared 21.4%
-2026-09-25T02:20:37Z round 1 apoa1pme tiles load { 5.04 4.40 3.32 } vm 4% top node 102.4%, superwhisper 21.4%, iStat Menus Menubar 4.5%, com.apple.Virtualization.VirtualMachine 3.5%, WindowServer 3.4%
-2026-09-25T02:20:55Z round 1 apoa1pme xres load { 4.52 4.33 3.32 } vm 3% top node 99.4%, superwhisper 21.6%, sysmond 7.7%, iStat Menus Menubar 7.4%, WindowServer 3.6%
-2026-09-25T02:21:14Z round 2 apoa1rf xres load { 3.74 4.16 3.28 } vm 9% top superwhisper 22.2%, com.apple.Virtualization.VirtualMachine 9.3%, sysmond 5.5%, iStat Menus Menubar 3.2%, sh 2.3%
-2026-09-25T02:21:33Z round 2 apoa1rf tiles load { 3.49 4.07 3.27 } vm 1% top node 105.0%, superwhisper 23.3%, bun 19.0%, sysmond 15.5%, WindowServer 2.5%
-2026-09-25T02:21:52Z round 2 rf xres load { 3.40 4.02 3.26 } vm 4% top node 100.0%,  node 28.7%, node 18.9%, superwhisper 18.7%, node 11.6%
-2026-09-25T02:22:08Z round 2 rf tiles load { 3.23 3.93 3.25 } vm 2% top searchpartyuseragent 123.2%, node 108.7%, trustd 52.6%, triald 42.0%, SystemUIServer 31.3%
-2026-09-25T02:22:25Z round 2 pme xres load { 3.25 3.90 3.25 } vm 2% top node 100.0%, superwhisper 18.2%, sysmond 2.8%, com.apple.Virtualization.VirtualMachine 2.1%, WindowServer 2.0%
-2026-09-25T02:22:42Z round 2 pme tiles load { 3.34 3.89 3.26 } vm 4% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 4.0%, sysmond 2.8%,  claude 1.3%, sh 1.0%
-2026-09-25T02:22:58Z round 2 apoa1pme xres load { 3.36 3.87 3.26 } vm 10% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 10.5%, sysmond 7.4%,  claude 2.9%, powermetrics 1.9%
-2026-09-25T02:23:17Z round 2 apoa1pme tiles load { 3.07 3.77 3.24 } vm 2% top chrome-headless-shell 115.4%, superwhisper 23.5%, sysmond 4.7%,  claude 3.5%, com.apple.Virtualization.VirtualMachine 1.9%
+2026-09-25T02:18:46Z round 1 apoa1rf tiles load { 10.44 4.20 3.09 } vm 20% top xctrace 497.5%, other 91.3%, other 20.4%, com.apple.Virtualization.VirtualMachine 19.7%, other 9.5%
+2026-09-25T02:19:10Z round 1 apoa1rf xres load { 11.34 4.85 3.36 } vm 7% top xctrace 237.9%, other 30.8%, other 21.9%, com.apple.dt.instruments.dtsecurity 6.4%, other 5.1%
+2026-09-25T02:19:29Z round 1 rf tiles load { 9.11 4.76 3.36 } vm 7% top other 22.9%, com.apple.Virtualization.VirtualMachine 10.1%, other 6.2%, other 2.1%,  other 1.8%
+2026-09-25T02:19:46Z round 1 rf xres load { 7.74 4.68 3.35 } vm 30% top com.apple.Virtualization.VirtualMachine 29.9%, other 21.4%, other 7.4%,  other 2.5%, other 1.2%
+2026-09-25T02:20:03Z round 1 pme tiles load { 6.25 4.53 3.33 } vm 3% top other 100.6%, other 20.9%, other 15.5%, other 13.3%, other 10.3%
+2026-09-25T02:20:20Z round 1 pme xres load { 5.52 4.46 3.32 } vm 2% top other 118.6%, other 99.7%,  other 38.3%, other 37.9%, other 21.4%
+2026-09-25T02:20:37Z round 1 apoa1pme tiles load { 5.04 4.40 3.32 } vm 4% top other 102.4%, other 21.4%, other 4.5%, com.apple.Virtualization.VirtualMachine 3.5%, WindowServer 3.4%
+2026-09-25T02:20:55Z round 1 apoa1pme xres load { 4.52 4.33 3.32 } vm 3% top other 99.4%, other 21.6%, other 7.7%, other 7.4%, WindowServer 3.6%
+2026-09-25T02:21:14Z round 2 apoa1rf xres load { 3.74 4.16 3.28 } vm 9% top other 22.2%, com.apple.Virtualization.VirtualMachine 9.3%, other 5.5%, other 3.2%, other 2.3%
+2026-09-25T02:21:33Z round 2 apoa1rf tiles load { 3.49 4.07 3.27 } vm 1% top other 105.0%, other 23.3%, other 19.0%, other 15.5%, WindowServer 2.5%
+2026-09-25T02:21:52Z round 2 rf xres load { 3.40 4.02 3.26 } vm 4% top other 100.0%,  other 28.7%, other 18.9%, other 18.7%, other 11.6%
+2026-09-25T02:22:08Z round 2 rf tiles load { 3.23 3.93 3.25 } vm 2% top other 123.2%, other 108.7%, other 52.6%, other 42.0%, other 31.3%
+2026-09-25T02:22:25Z round 2 pme xres load { 3.25 3.90 3.25 } vm 2% top other 100.0%, other 18.2%, other 2.8%, com.apple.Virtualization.VirtualMachine 2.1%, WindowServer 2.0%
+2026-09-25T02:22:42Z round 2 pme tiles load { 3.34 3.89 3.26 } vm 4% top other 20.7%, com.apple.Virtualization.VirtualMachine 4.0%, other 2.8%,  other 1.3%, other 1.0%
+2026-09-25T02:22:58Z round 2 apoa1pme xres load { 3.36 3.87 3.26 } vm 10% top other 20.7%, com.apple.Virtualization.VirtualMachine 10.5%, other 7.4%,  other 2.9%, powermetrics 1.9%
+2026-09-25T02:23:17Z round 2 apoa1pme tiles load { 3.07 3.77 3.24 } vm 2% top other 115.4%, other 23.5%, other 4.7%,  other 3.5%, com.apple.Virtualization.VirtualMachine 1.9%

@@ -1,12 +1,12 @@
-2026-09-28T09:06:55Z round 1 gbsa rl8 load { 5.79 4.74 4.51 } vm 4% top backupd 29.4%, superwhisper 19.2%, AirPlayXPCHelper 18.2%, IntelligencePlatformComputeService 14.7%, WindowServer 6.5%
-2026-09-28T09:07:12Z round 1 gbsa rl4 load { 4.83 4.59 4.47 } vm 6% top mediaanalysisd 179.0%, AirPlayXPCHelper 22.9%, superwhisper 21.7%, ghostty 19.3%,  claude 19.1%
-2026-09-28T09:07:29Z round 1 gbsa rl16 load { 4.34 4.49 4.43 } vm 6% top mediaanalysisd 176.9%, superwhisper 22.6%, AirPlayXPCHelper 20.6%, WindowServer 7.1%, spotlightknowledged 5.3%
-2026-09-28T09:07:45Z round 1 gbsa rl32 load { 4.48 4.52 4.44 } vm 4% top mediaanalysisd 172.6%, superwhisper 22.9%, AirPlayXPCHelper 20.6%,  claude 6.5%, sysmond 6.4%
-2026-09-28T09:08:02Z round 1 gbsa rl8m load { 4.47 4.50 4.44 } vm 24% top mediaanalysisd 178.0%, com.apple.Virtualization.VirtualMachine 22.0%, AirPlayXPCHelper 20.8%, superwhisper 20.5%, spotlightknowledged 4.0%
-2026-09-28T09:08:23Z round 1 gbsa rl16m load { 4.12 4.42 4.41 } vm 7% top mediaanalysisd 122.6%, superwhisper 22.5%, AirPlayXPCHelper 21.2%, VTEncoderXPCService 4.4%, com.apple.Virtualization.VirtualMachine 3.9%
-2026-09-28T09:08:39Z round 2 gbsa rl16m load { 3.72 4.32 4.37 } vm 4% top mediaanalysisd 169.1%, AirPlayXPCHelper 22.2%, superwhisper 21.0%, spotlightknowledged 6.6%, WindowServer 6.2%
-2026-09-28T09:08:56Z round 2 gbsa rl8m load { 4.10 4.37 4.39 } vm 12% top mediaanalysisd 176.1%, superwhisper 17.9%, AirPlayXPCHelper 17.6%, sysmond 7.9%, com.apple.Virtualization.VirtualMachine 6.3%
-2026-09-28T09:09:12Z round 2 gbsa rl32 load { 4.82 4.52 4.44 } vm 14% top mediaanalysisd 184.9%, superwhisper 20.0%, AirPlayXPCHelper 19.0%, com.apple.Virtualization.VirtualMachine 8.0%, sysmond 5.5%
-2026-09-28T09:09:28Z round 2 gbsa rl16 load { 4.61 4.49 4.43 } vm 5% top mediaanalysisd 187.8%, superwhisper 21.7%, AirPlayXPCHelper 20.5%, sysmond 5.4%, spotlightknowledged 4.3%
-2026-09-28T09:09:45Z round 2 gbsa rl4 load { 4.70 4.52 4.44 } vm 5% top mediaanalysisd 182.9%, superwhisper 22.9%, AirPlayXPCHelper 20.1%, WindowServer 3.8%,  claude 3.7%
-2026-09-28T09:10:01Z round 2 gbsa rl8 load { 4.62 4.51 4.44 } vm 5% top mediaanalysisd 157.6%, superwhisper 21.0%, AirPlayXPCHelper 20.2%, iStat Menus Menubar 6.8%, WindowServer 6.7%
+2026-09-28T09:06:55Z round 1 gbsa rl8 load { 5.79 4.74 4.51 } vm 4% top other 29.4%, other 19.2%, other 18.2%, other 14.7%, WindowServer 6.5%
+2026-09-28T09:07:12Z round 1 gbsa rl4 load { 4.83 4.59 4.47 } vm 6% top other 179.0%, other 22.9%, other 21.7%, other 19.3%,  other 19.1%
+2026-09-28T09:07:29Z round 1 gbsa rl16 load { 4.34 4.49 4.43 } vm 6% top other 176.9%, other 22.6%, other 20.6%, WindowServer 7.1%, other 5.3%
+2026-09-28T09:07:45Z round 1 gbsa rl32 load { 4.48 4.52 4.44 } vm 4% top other 172.6%, other 22.9%, other 20.6%,  other 6.5%, other 6.4%
+2026-09-28T09:08:02Z round 1 gbsa rl8m load { 4.47 4.50 4.44 } vm 24% top other 178.0%, com.apple.Virtualization.VirtualMachine 22.0%, other 20.8%, other 20.5%, other 4.0%
+2026-09-28T09:08:23Z round 1 gbsa rl16m load { 4.12 4.42 4.41 } vm 7% top other 122.6%, other 22.5%, other 21.2%, other 4.4%, com.apple.Virtualization.VirtualMachine 3.9%
+2026-09-28T09:08:39Z round 2 gbsa rl16m load { 3.72 4.32 4.37 } vm 4% top other 169.1%, other 22.2%, other 21.0%, other 6.6%, WindowServer 6.2%
+2026-09-28T09:08:56Z round 2 gbsa rl8m load { 4.10 4.37 4.39 } vm 12% top other 176.1%, other 17.9%, other 17.6%, other 7.9%, com.apple.Virtualization.VirtualMachine 6.3%
+2026-09-28T09:09:12Z round 2 gbsa rl32 load { 4.82 4.52 4.44 } vm 14% top other 184.9%, other 20.0%, other 19.0%, com.apple.Virtualization.VirtualMachine 8.0%, other 5.5%
+2026-09-28T09:09:28Z round 2 gbsa rl16 load { 4.61 4.49 4.43 } vm 5% top other 187.8%, other 21.7%, other 20.5%, other 5.4%, other 4.3%
+2026-09-28T09:09:45Z round 2 gbsa rl4 load { 4.70 4.52 4.44 } vm 5% top other 182.9%, other 22.9%, other 20.1%, WindowServer 3.8%,  other 3.7%
+2026-09-28T09:10:01Z round 2 gbsa rl8 load { 4.62 4.51 4.44 } vm 5% top other 157.6%, other 21.0%, other 20.2%, other 6.8%, WindowServer 6.7%

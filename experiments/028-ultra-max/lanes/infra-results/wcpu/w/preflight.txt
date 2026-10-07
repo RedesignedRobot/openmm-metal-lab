@@ -3,14 +3,14 @@ holder: window 2026-09-24T23:11:19Z dedicated window /tmp/openmm-metal-bench/ult
 build processes: 0
 queue, oldest first:
  %CPU   PID COMMAND
- 66.7 16538 rsync --server --delete-before -c -l -p -r -W --dirs . src/
- 45.6 16537 rsync -rlpc --delete .stage/ src/
- 33.9   566 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+ 66.7 16538 other
+ 45.6 16537 other
+ 33.9   566 other
  27.3 13834 /tmp/openmm-metal-bench/ultra-profiler/venv/bin/python benchmark.py --platform Metal --precision single --test rf --seconds 15 --style table --outfi
  23.1   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
- 22.1  1290 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 18.8   790 /usr/libexec/sysmond
- 13.2   591 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
- 10.2  1106 /System/Library/CoreServices/MenuBarAgent.app/Contents/MacOS/MenuBarAgent
-  5.9 90735 claude --dangerously-skip-permissions
+ 22.1  1290 other
+ 18.8   790 other
+ 13.2   591 other
+ 10.2  1106 other
+  5.9 90735 other
 end 2026-09-24T23:11:21Z

@@ -10,7 +10,7 @@ for the GPU and then runs the work itself in its own process group, which it rep
 
 Classes, highest first: merge (gate.sh merge path), window (once its not-before is due), correctness,
 timing, then build. merge and correctness share the GPU, up to MAX_SHARED jobs; window and timing have
-it alone. At night (00:00-07:00 UTC, the owner's timing slot) timing ranks above correctness. By day, once
+it alone. At night (00:00-07:00 UTC, the reserved timing slot) timing ranks above correctness. By day, once
 a timing job has waited STARVE_SECONDS, correctness starts nothing new until it runs. Within a class,
 the lane served least recently goes first, then FIFO. A timing or correctness job whose estimate would
 run past a queued window's not-before waits; shorter ones backfill. A due window drains the GPU and

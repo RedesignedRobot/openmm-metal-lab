@@ -4,14 +4,14 @@ correctness burst: queued correctness tickets join a correctness hold with room
 build processes: 0
 queue, oldest first:
  %CPU   PID COMMAND
- 20.6  1290 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 20.6  1290 other
   8.2 14409 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
   4.4 53653 /bin/sh /tmp/openmm-metal-bench/ultra-tools/window.sh --cpu /tmp/openmm-metal-bench/ultra-infra/w2 all base=/tmp/openmm-metal-bench/ultra-base:singl
-  4.3 90735 claude --dangerously-skip-permissions
+  4.3 90735 other
   1.4   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
-  1.2  1387 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
-  0.4   832 /usr/libexec/searchpartyd
-  0.4   629 /usr/sbin/notifyd
-  0.3   611 /usr/libexec/locationd
-  0.3  1057 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+  1.2  1387 other
+  0.4   832 other
+  0.4   629 other
+  0.3   611 other
+  0.3  1057 other
 end 2026-09-25T12:08:10Z

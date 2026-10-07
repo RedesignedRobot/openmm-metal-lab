@@ -29,7 +29,7 @@ for unit in gbsa neq tip3p-hmr tip4pew; do
     done
 done
 
-# Output dirs must be new: nothing on the Studio gets deleted without the owner's yes (2026-09-28).
+# Output dirs must be new: these scripts never delete anything.
 require_new() {
     for d in "$@"; do
         [ -e "$d" ] && { echo "$d exists; pick a new work dir"; exit 2; }

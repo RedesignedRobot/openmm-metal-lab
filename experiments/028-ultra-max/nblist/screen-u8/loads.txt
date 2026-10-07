@@ -9,12 +9,12 @@
 2026-09-25T05:58:51Z round 1 apoa1rf s2t4 load { 11.63 14.30 12.86 } BUILD RUNNING vm 7% top clang 88.3%, clang 85.6%, clang 85.0%, clang 84.9%, clang 84.3%
 2026-09-25T05:59:09Z round 1 apoa1rf u8 load { 10.89 13.96 12.77 } BUILD RUNNING vm 9% top clang 88.7%, clang 85.8%, clang 84.7%, clang 80.3%, clang 80.3%
 2026-09-25T05:59:28Z round 1 apoa1pme s2t4 load { 10.82 13.80 12.73 } BUILD RUNNING vm 11% top clang 87.9%, clang 87.1%, clang 86.9%, clang 86.5%, clang 85.3%
-2026-09-25T05:59:47Z round 1 apoa1pme u8 load { 10.96 13.63 12.70 } BUILD RUNNING vm 4% top swig 90.0%, superwhisper 20.9%, com.apple.Virtualization.VirtualMachine 8.2%,  (cmake) 7.8%,  ninja 7.5%
-2026-09-25T06:00:05Z round 1 apoa1ljpme s2t4 load { 8.92 12.99 12.49 } BUILD RUNNING vm 8% top python 99.1%, superwhisper 23.0%, com.apple.Virtualization.VirtualMachine 8.2%,  claude 3.8%, sh 3.7%
-2026-09-25T06:00:24Z round 1 apoa1ljpme u8 load { 7.36 12.37 12.28 } BUILD RUNNING vm 11% top clang 99.6%, superwhisper 22.4%, com.apple.Virtualization.VirtualMachine 10.9%,  claude 4.2%, sh 3.7%
-2026-09-25T06:00:43Z round 2 gbsa u8 load { 6.09 11.85 12.09 } BUILD RUNNING vm 7% top clang 99.4%, superwhisper 21.5%, com.apple.Virtualization.VirtualMachine 7.3%, iStat Menus Menubar 5.5%, WindowServer 4.9%
-2026-09-25T06:00:59Z round 2 gbsa s2t4 load { 5.25 11.38 11.92 } BUILD RUNNING vm 5% top clang 99.9%, superwhisper 20.9%, com.apple.Virtualization.VirtualMachine 5.4%, sh 3.1%,  claude 2.6%
-2026-09-25T06:01:15Z round 2 rf u8 load { 5.66 11.05 11.79 } BUILD RUNNING vm 6% top clang 99.5%, superwhisper 22.5%, com.apple.Virtualization.VirtualMachine 6.1%,  claude 5.4%, powermetrics 4.9%
+2026-09-25T05:59:47Z round 1 apoa1pme u8 load { 10.96 13.63 12.70 } BUILD RUNNING vm 4% top swig 90.0%, other 20.9%, com.apple.Virtualization.VirtualMachine 8.2%,  (cmake) 7.8%,  ninja 7.5%
+2026-09-25T06:00:05Z round 1 apoa1ljpme s2t4 load { 8.92 12.99 12.49 } BUILD RUNNING vm 8% top python 99.1%, other 23.0%, com.apple.Virtualization.VirtualMachine 8.2%,  other 3.8%, other 3.7%
+2026-09-25T06:00:24Z round 1 apoa1ljpme u8 load { 7.36 12.37 12.28 } BUILD RUNNING vm 11% top clang 99.6%, other 22.4%, com.apple.Virtualization.VirtualMachine 10.9%,  other 4.2%, other 3.7%
+2026-09-25T06:00:43Z round 2 gbsa u8 load { 6.09 11.85 12.09 } BUILD RUNNING vm 7% top clang 99.4%, other 21.5%, com.apple.Virtualization.VirtualMachine 7.3%, other 5.5%, WindowServer 4.9%
+2026-09-25T06:00:59Z round 2 gbsa s2t4 load { 5.25 11.38 11.92 } BUILD RUNNING vm 5% top clang 99.9%, other 20.9%, com.apple.Virtualization.VirtualMachine 5.4%, other 3.1%,  other 2.6%
+2026-09-25T06:01:15Z round 2 rf u8 load { 5.66 11.05 11.79 } BUILD RUNNING vm 6% top clang 99.5%, other 22.5%, com.apple.Virtualization.VirtualMachine 6.1%,  other 5.4%, powermetrics 4.9%
 2026-09-25T06:01:32Z round 2 rf s2t4 load { 4.99 10.64 11.63 } BUILD RUNNING vm 10% top clang 90.8%, clang 90.7%, clang 90.4%, clang 90.3%, clang 89.5%
 2026-09-25T06:01:48Z round 2 pme u8 load { 6.09 10.61 11.60 } BUILD RUNNING vm 10% top clang 89.1%, clang 88.2%, clang 88.0%, clang 86.5%, clang 77.8%
 2026-09-25T06:02:05Z round 2 pme s2t4 load { 6.98 10.52 11.54 } BUILD RUNNING vm 8% top clang 88.8%, clang 86.2%, clang 82.6%, clang 75.2%, clang 54.3%
@@ -37,16 +37,16 @@
 2026-09-25T06:06:19Z round 1 apoa1pme u8 load { 10.99 10.73 11.35 } BUILD RUNNING vm 11% top clang 89.7%, clang 88.7%, clang 88.1%, clang 87.7%, clang 87.6%
 2026-09-25T06:06:37Z rerun round 1 apoa1rf: a build or a busy CPU overlapped it
 2026-09-25T06:06:38Z round 1 apoa1rf s2t4 load { 11.34 10.82 11.37 } BUILD RUNNING vm 10% top clang 88.9%, clang 88.5%, clang 88.3%, clang 88.0%, clang 88.0%
-2026-09-25T06:06:56Z round 1 apoa1rf u8 load { 14.94 11.64 11.65 } BUILD RUNNING vm 9% top swig 79.3%, superwhisper 22.3%, com.apple.Virtualization.VirtualMachine 8.7%,  ninja 6.9%, opendirectoryd 6.0%
+2026-09-25T06:06:56Z round 1 apoa1rf u8 load { 14.94 11.64 11.65 } BUILD RUNNING vm 9% top swig 79.3%, other 22.3%, com.apple.Virtualization.VirtualMachine 8.7%,  ninja 6.9%, other 6.0%
 2026-09-25T06:07:15Z rerun round 1 gbsa: a build or a busy CPU overlapped it
-2026-09-25T06:07:15Z round 1 gbsa s2t4 load { 12.09 11.21 11.49 } BUILD RUNNING vm 6% top python 87.9%, superwhisper 23.1%, com.apple.Virtualization.VirtualMachine 9.3%, iStat Menus Menubar 6.3%, sysmond 4.8%
-2026-09-25T06:07:31Z round 1 gbsa u8 load { 10.00 10.79 11.34 } BUILD RUNNING vm 18% top clang 99.8%, superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 17.9%, powermetrics 13.0%, history 5.1%
+2026-09-25T06:07:15Z round 1 gbsa s2t4 load { 12.09 11.21 11.49 } BUILD RUNNING vm 6% top python 87.9%, other 23.1%, com.apple.Virtualization.VirtualMachine 9.3%, other 6.3%, other 4.8%
+2026-09-25T06:07:31Z round 1 gbsa u8 load { 10.00 10.79 11.34 } BUILD RUNNING vm 18% top clang 99.8%, other 22.1%, com.apple.Virtualization.VirtualMachine 17.9%, powermetrics 13.0%, other 5.1%
 2026-09-25T06:07:48Z rerun round 1 pme: a build or a busy CPU overlapped it
-2026-09-25T06:07:48Z round 1 pme s2t4 load { 8.38 10.39 11.18 } BUILD RUNNING vm 5% top clang 99.9%, superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 5.2%, iStat Menus Menubar 4.9%, WindowServer 4.5%
-2026-09-25T06:08:05Z round 1 pme u8 load { 7.22 9.99 11.02 } BUILD RUNNING vm 8% top clang 99.8%, superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 7.4%, iStat Menus Menubar 5.6%, WindowServer 5.0%
+2026-09-25T06:07:48Z round 1 pme s2t4 load { 8.38 10.39 11.18 } BUILD RUNNING vm 5% top clang 99.9%, other 21.0%, com.apple.Virtualization.VirtualMachine 5.2%, other 4.9%, WindowServer 4.5%
+2026-09-25T06:08:05Z round 1 pme u8 load { 7.22 9.99 11.02 } BUILD RUNNING vm 8% top clang 99.8%, other 19.8%, com.apple.Virtualization.VirtualMachine 7.4%, other 5.6%, WindowServer 5.0%
 2026-09-25T06:08:21Z rerun round 1 rf: a build or a busy CPU overlapped it
-2026-09-25T06:08:21Z round 1 rf s2t4 load { 6.67 9.73 10.91 } BUILD RUNNING vm 8% top clang 99.3%, superwhisper 22.3%, com.apple.Virtualization.VirtualMachine 7.9%,  claude 7.6%, sysmond 4.5%
-2026-09-25T06:08:38Z round 1 rf u8 load { 6.08 9.45 10.79 } BUILD RUNNING vm 8% top  cmake 20.8%, superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 8.2%, iStat Menus Menubar 4.6%, WindowServer 4.3%
+2026-09-25T06:08:21Z round 1 rf s2t4 load { 6.67 9.73 10.91 } BUILD RUNNING vm 8% top clang 99.3%, other 22.3%, com.apple.Virtualization.VirtualMachine 7.9%,  other 7.6%, other 4.5%
+2026-09-25T06:08:38Z round 1 rf u8 load { 6.08 9.45 10.79 } BUILD RUNNING vm 8% top  cmake 20.8%, other 20.7%, com.apple.Virtualization.VirtualMachine 8.2%, other 4.6%, WindowServer 4.3%
 2026-09-25T06:08:54Z rerun round 2 amber20-dhfr: a build or a busy CPU overlapped it
 2026-09-25T06:08:54Z round 2 amber20-dhfr u8 load { 6.77 9.43 10.76 } BUILD RUNNING vm 9% top clang 92.2%, clang 91.8%, clang 91.3%, clang 86.8%, clang 85.0%
 2026-09-25T06:09:11Z round 2 amber20-dhfr s2t4 load { 8.12 9.56 10.77 } BUILD RUNNING vm 9% top clang 85.6%, clang 85.6%, clang 84.9%, clang 84.2%, clang 83.9%

@@ -1,228 +1,228 @@
 2026-09-24T21:09:09Z round 1 gbsa ubase load { 4.06 5.03 7.77 }
  %CPU COMMAND
  98.4 ../venv/bin/python ../tools/summarize.py amber20-dhfr-mixed-counters.txt amber20-dhfr-mixed-counters.rec.gz 8
- 21.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  5.5 claude --dangerously-skip-permissions
-  4.6 /usr/libexec/sysmond
+ 21.9 other
+  5.5 other
+  4.6 other
 2026-09-24T21:09:26Z round 1 gbsa base load { 4.03 4.98 7.70 }
  %CPU COMMAND
  98.6 ../venv/bin/python ../tools/summarize.py gbsa-mixed-counters.txt gbsa-mixed-counters.rec.gz 8
  98.4 ../venv/bin/python ../tools/summarize.py gbsa-mixed-counters.txt gbsa-mixed-counters.rec.gz 8
- 13.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 11.6 claude --dangerously-skip-permissions
+ 13.4 other
+ 11.6 other
 2026-09-24T21:09:42Z round 1 gbsa tiles4 load { 4.38 5.01 7.66 }
  %CPU COMMAND
 100.0 ../venv/bin/python ../tools/summarize.py rf-mixed-counters.txt rf-mixed-counters.rec.gz 8
  99.1 ../venv/bin/python ../tools/summarize.py gbsa-mixed-counters.txt gbsa-mixed-counters.rec.gz 8
- 19.8 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 19.1 claude --dangerously-skip-permissions
+ 19.8 other
+ 19.1 other
 2026-09-24T21:09:58Z round 1 gbsa tgp load { 4.80 5.07 7.64 }
  %CPU COMMAND
-103.1 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
- 21.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 12.0 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
- 11.8 claude --dangerously-skip-permissions
+103.1 other
+ 21.7 other
+ 12.0 other
+ 11.8 other
 2026-09-24T21:10:14Z round 1 gbsa tgpa load { 5.04 5.10 7.59 }
  %CPU COMMAND
-380.2 ~/code/wt/lean-contracts/node_modules/.bun/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typesc
- 16.8 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  6.5 claude --dangerously-skip-permissions
+380.2 other
+ 16.8 other
+  6.5 other
   3.2 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:10:30Z round 1 gbsa nobr load { 5.23 5.15 7.56 }
  %CPU COMMAND
- 17.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  7.3 claude --dangerously-skip-permissions
+ 17.4 other
+  7.3 other
   5.2 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
-  4.8 /usr/libexec/sysmond
+  4.8 other
 2026-09-24T21:10:46Z round 1 rf ubase load { 4.81 5.06 7.49 }
  %CPU COMMAND
- 75.1 /usr/libexec/spotlightknowledged.updater -u
- 18.1 /usr/sbin/cfprefsd agent
- 12.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  5.6 claude --dangerously-skip-permissions
+ 75.1 other
+ 18.1 other
+ 12.3 other
+  5.6 other
 2026-09-24T21:11:02Z round 1 rf base load { 4.54 4.99 7.42 }
  %CPU COMMAND
- 96.5 /usr/libexec/spotlightknowledged.updater -u
- 19.7 /usr/sbin/cfprefsd agent
- 14.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  6.7 claude --dangerously-skip-permissions
+ 96.5 other
+ 19.7 other
+ 14.3 other
+  6.7 other
 2026-09-24T21:11:19Z round 1 rf tiles4 load { 4.13 4.86 7.32 }
  %CPU COMMAND
-140.8 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/core
- 34.7 /usr/libexec/spotlightknowledged.updater -u
+140.8 other
+ 34.7 other
  18.5 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
- 16.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 16.0 other
 2026-09-24T21:11:36Z round 1 rf tgp load { 3.80 4.75 7.23 }
  %CPU COMMAND
- 19.2 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  6.1 claude --dangerously-skip-permissions
+ 19.2 other
+  6.1 other
   4.3 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
   3.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
 2026-09-24T21:11:52Z round 1 rf tgpa load { 3.34 4.60 7.14 }
  %CPU COMMAND
- 40.8 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
- 20.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 14.7 claude --dangerously-skip-permissions
+ 40.8 other
+ 20.7 other
+ 14.7 other
   6.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
 2026-09-24T21:12:09Z round 1 rf nobr load { 3.61 4.58 7.07 }
  %CPU COMMAND
  49.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
  21.6 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/Ma
- 21.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 10.1 /usr/libexec/sysmond
+ 21.3 other
+ 10.1 other
 2026-09-24T21:12:26Z round 1 pme ubase load { 3.34 4.47 6.98 }
  %CPU COMMAND
- 19.5 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  8.9 claude --dangerously-skip-permissions
+ 19.5 other
+  8.9 other
   8.8 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
   3.2 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:12:42Z round 1 pme base load { 3.40 4.43 6.93 }
  %CPU COMMAND
- 19.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 11.9 claude --dangerously-skip-permissions
+ 19.9 other
+ 11.9 other
   3.7 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
   1.9 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:12:59Z round 1 pme tiles4 load { 3.92 4.48 6.89 }
  %CPU COMMAND
-106.6 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
- 20.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 11.8 claude --dangerously-skip-permissions
+106.6 other
+ 20.4 other
+ 11.8 other
   9.3 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:13:16Z round 1 pme tgp load { 3.70 4.40 6.82 }
  %CPU COMMAND
- 75.5 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fsev
- 25.4 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
- 24.9 git worktree remove --force ~/code/wt/lean-access
- 20.8 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 75.5 other
+ 25.4 other
+ 24.9 other
+ 20.8 other
 2026-09-24T21:13:32Z round 1 pme tgpa load { 3.96 4.43 6.79 }
  %CPU COMMAND
- 80.9 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
- 20.8 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
- 20.2 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 17.2 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
+ 80.9 other
+ 20.8 other
+ 20.2 other
+ 17.2 other
 2026-09-24T21:13:49Z round 1 pme nobr load { 4.01 4.42 6.73 }
  %CPU COMMAND
- 19.8 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 15.1 claude --dangerously-skip-permissions
+ 19.8 other
+ 15.1 other
   8.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
-  6.2 /Library/SystemExtensions/EFF36BBF-C16F-4436-8D2B-5BBBD753B347/io.tailscale.ipn.macsys.network-extension.systemext
+  6.2 other
 2026-09-24T21:14:06Z round 1 apoa1rf ubase load { 3.57 4.30 6.64 }
  %CPU COMMAND
- 18.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  9.0 claude --dangerously-skip-permissions
+ 18.7 other
+  9.0 other
   6.9 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
   4.2 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
 2026-09-24T21:14:25Z round 1 apoa1rf base load { 3.80 4.30 6.59 }
  %CPU COMMAND
- 54.3 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fsev
- 17.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 16.2 git hash-object --stdin-paths
- 15.3 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
+ 54.3 other
+ 17.9 other
+ 16.2 other
+ 15.3 other
 2026-09-24T21:14:44Z round 1 apoa1rf tiles4 load { 4.11 4.34 6.56 }
  %CPU COMMAND
-639.2 ~/code/wt/lean-contracts/node_modules/.bun/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typesc
- 95.0 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
- 19.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 18.7 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+639.2 other
+ 95.0 other
+ 19.9 other
+ 18.7 other
 2026-09-24T21:15:02Z round 1 apoa1rf tgp load { 4.94 4.52 6.57 }
  %CPU COMMAND
- 23.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 23.3 other
  11.5 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
- 10.6 claude --dangerously-skip-permissions
+ 10.6 other
   3.3 /tmp/openmm-metal-bench/ultra-dispatch/t2/venv/bin/python - /tmp/openmm-metal-bench/ultra-dispatch/t2
 2026-09-24T21:15:21Z round 1 apoa1rf tgpa load { 4.84 4.52 6.52 }
  %CPU COMMAND
- 21.1 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 21.1 other
  11.4 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
-  7.2 /Library/SystemExtensions/EFF36BBF-C16F-4436-8D2B-5BBBD753B347/io.tailscale.ipn.macsys.network-extension.systemext
-  7.1 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
+  7.2 other
+  7.1 other
 2026-09-24T21:15:40Z round 1 apoa1rf nobr load { 4.50 4.45 6.45 }
  %CPU COMMAND
-513.2 ~/code/wt/lean-contracts/node_modules/.bun/@typescript+typescript-darwin-arm64@7.0.2/node_modules/@typesc
- 93.1 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 22.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 10.1 /usr/libexec/sysmond
+513.2 other
+ 93.1 other
+ 22.3 other
+ 10.1 other
 2026-09-24T21:15:59Z round 1 apoa1pme ubase load { 5.42 4.64 6.47 }
  %CPU COMMAND
-266.7 /opt/homebrew/Cellar/node/26.9.0/bin/node --experimental-import-meta-resolve --require ~/code/wt/lean-con
-266.0 /opt/homebrew/Cellar/node/26.9.0/bin/node --experimental-import-meta-resolve --require ~/code/wt/lean-con
-265.7 /opt/homebrew/Cellar/node/26.9.0/bin/node --experimental-import-meta-resolve --require ~/code/wt/lean-con
-259.8 /opt/homebrew/Cellar/node/26.9.0/bin/node --experimental-import-meta-resolve --require ~/code/wt/lean-con
+266.7 other
+266.0 other
+265.7 other
+259.8 other
 2026-09-24T21:16:18Z round 1 apoa1pme base load { 5.16 4.62 6.43 }
  %CPU COMMAND
- 99.6 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 20.5 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  8.5 claude --dangerously-skip-permissions
-  7.8 /usr/libexec/sysmond
+ 99.6 other
+ 20.5 other
+  8.5 other
+  7.8 other
 2026-09-24T21:16:37Z round 1 apoa1pme tiles4 load { 4.49 4.50 6.35 }
  %CPU COMMAND
- 99.5 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 20.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 15.2 claude --dangerously-skip-permissions
+ 99.5 other
+ 20.0 other
+ 15.2 other
   6.0 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
 2026-09-24T21:16:55Z round 1 apoa1pme tgp load { 5.74 4.77 6.40 }
  %CPU COMMAND
-132.6 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/core
- 87.1 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 82.3 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_
- 33.7 /opt/homebrew/Cellar/node/26.9.0/bin/node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON ~/code/wt/lean-c
+132.6 other
+ 87.1 other
+ 82.3 other
+ 33.7 other
 2026-09-24T21:17:14Z round 1 apoa1pme tgpa load { 5.31 4.74 6.35 }
  %CPU COMMAND
-100.0 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 22.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 12.1 claude --dangerously-skip-permissions
+100.0 other
+ 22.0 other
+ 12.1 other
   4.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:17:33Z round 1 apoa1pme nobr load { 4.94 4.69 6.30 }
  %CPU COMMAND
- 99.7 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 18.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  9.5 claude --dangerously-skip-permissions
-  8.9 /usr/libexec/sysmond
+ 99.7 other
+ 18.9 other
+  9.5 other
+  8.9 other
 2026-09-24T21:17:51Z round 2 gbsa nobr load { 5.05 4.73 6.28 }
  %CPU COMMAND
- 99.2 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 21.1 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 11.1 claude --dangerously-skip-permissions
-  9.0 /usr/libexec/sysmond
+ 99.2 other
+ 21.1 other
+ 11.1 other
+  9.0 other
 2026-09-24T21:18:08Z round 2 gbsa tgpa load { 4.75 4.68 6.24 }
  %CPU COMMAND
- 98.8 git log origin/main --oneline -Sconst unknownSecret
- 97.1 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 21.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 98.8 other
+ 97.1 other
+ 21.7 other
   5.8 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:18:24Z round 2 gbsa tgp load { 4.76 4.69 6.21 }
  %CPU COMMAND
- 98.8 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 21.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 11.7 /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
-  8.7 /usr/libexec/sysmond
+ 98.8 other
+ 21.4 other
+ 11.7 other
+  8.7 other
 2026-09-24T21:18:40Z round 2 gbsa tiles4 load { 4.62 4.67 6.17 }
  %CPU COMMAND
- 99.6 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 20.2 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  9.5 /usr/libexec/sysmond
-  9.3 claude --dangerously-skip-permissions
+ 99.6 other
+ 20.2 other
+  9.5 other
+  9.3 other
 2026-09-24T21:20:27Z round 2 gbsa base load { 9.16 6.29 6.62 }
  %CPU COMMAND
- 99.7 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 22.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 18.5 /usr/libexec/sysmond
+ 99.7 other
+ 22.7 other
+ 18.5 other
   7.0 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:20:43Z round 2 gbsa ubase load { 7.95 6.16 6.57 }
  %CPU COMMAND
- 99.1 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 20.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 99.1 other
+ 20.0 other
   8.0 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
-  5.9 claude --dangerously-skip-permissions
+  5.9 other
 2026-09-24T21:20:59Z round 2 rf nobr load { 9.12 6.54 6.70 }
  %CPU COMMAND
- 99.2 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 22.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 99.2 other
+ 22.0 other
   9.8 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
   8.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 2026-09-24T21:21:15Z round 2 rf tgpa load { 7.92 6.43 6.66 }
  %CPU COMMAND
- 99.7 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
- 21.6 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  8.5 /usr/libexec/sysmond
+ 99.7 other
+ 21.6 other
+  8.5 other
   7.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon

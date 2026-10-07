@@ -1,13 +1,13 @@
-2026-09-28T11:49:51Z round 1 amber20-cellulose mine-single load { 5.43 6.23 6.35 } vm 6% top backupd 85.8%, WindowServer 38.5%, AirPlayXPCHelper 30.7%, superwhisper 27.8%, powermetrics 10.6%
-2026-09-28T11:50:32Z round 1 amber20-cellulose base-single load { 6.11 6.36 6.40 } vm 7% top backupd 62.8%, WindowServer 46.5%, AirPlayXPCHelper 38.0%, superwhisper 26.9%, Google Chrome Helper (Renderer) 14.4%
-2026-09-28T11:51:13Z round 1 amber20-cellulose mine-mixed load { 5.11 6.06 6.28 } vm 12% top WindowServer 41.0%, AirPlayXPCHelper 39.8%, superwhisper 28.1%, chrome-headless-shell 19.1%, chrome-headless-shell 14.7%
-2026-09-28T11:51:58Z round 1 amber20-cellulose base-mixed load { 5.80 6.08 6.27 } vm 12% top talagentd 43.8%, AirPlayXPCHelper 34.1%, WindowServer 33.1%, superwhisper 24.0%, sysmond 8.8%
-2026-09-28T11:52:44Z round 2 amber20-cellulose base-mixed load { 5.44 5.97 6.22 } vm 7% top AirPlayXPCHelper 28.2%, superwhisper 23.9%, WindowServer 22.1%, biomesyncd 19.5%, iStat Menus Menubar 6.1%
-2026-09-28T11:53:24Z round 2 amber20-cellulose mine-mixed load { 4.13 5.56 6.06 } vm 13% top WindowServer 49.4%, AirPlayXPCHelper 36.6%, superwhisper 24.9%, com.apple.Virtualization.VirtualMachine 6.5%, VTEncoderXPCService 5.7%
-2026-09-28T11:54:11Z round 2 amber20-cellulose base-single load { 3.76 5.27 5.92 } vm 6% top AirPlayXPCHelper 26.2%, TGOnDeviceInferenceProviderService 23.4%, superwhisper 23.0%, WindowServer 18.3%, Google Chrome Helper 6.4%
-2026-09-28T11:54:52Z round 2 amber20-cellulose mine-single load { 3.57 5.01 5.79 } vm 5% top WindowServer 27.1%, AirPlayXPCHelper 26.6%, superwhisper 26.3%, sysmond 7.5%, com.apple.Virtualization.VirtualMachine 6.2%
-2026-09-28T11:55:32Z round 3 amber20-cellulose mine-single load { 2.87 4.67 5.63 } vm 11% top Google Chrome Helper (Renderer) 52.3%, WindowServer 40.5%, AirPlayXPCHelper 34.0%, superwhisper 22.9%, mdworker_shared 20.7%
-2026-09-28T11:56:11Z round 3 amber20-cellulose base-single load { 2.00 4.26 5.44 } vm 10% top  ugrep 55.8%, AirPlayXPCHelper 37.9%, WindowServer 29.3%, superwhisper 23.3%, VTEncoderXPCService 7.1%
-2026-09-28T11:56:52Z round 3 amber20-cellulose mine-mixed load { 3.23 4.26 5.38 } vm 5% top AirPlayXPCHelper 46.8%, WindowServer 46.3%, superwhisper 36.1%, VTEncoderXPCService 8.6%, iStat Menus Menubar 6.2%
-2026-09-28T11:57:33Z round 3 amber20-cellulose base-mixed load { 5.35 4.60 5.45 } vm 7% top mds_stores 178.3%, AirPlayXPCHelper 65.0%, WindowServer 42.7%, superwhisper 41.0%, usernoted 15.2%
+2026-09-28T11:49:51Z round 1 amber20-cellulose mine-single load { 5.43 6.23 6.35 } vm 6% top other 85.8%, WindowServer 38.5%, other 30.7%, other 27.8%, powermetrics 10.6%
+2026-09-28T11:50:32Z round 1 amber20-cellulose base-single load { 6.11 6.36 6.40 } vm 7% top other 62.8%, WindowServer 46.5%, other 38.0%, other 26.9%, other 14.4%
+2026-09-28T11:51:13Z round 1 amber20-cellulose mine-mixed load { 5.11 6.06 6.28 } vm 12% top WindowServer 41.0%, other 39.8%, other 28.1%, other 19.1%, other 14.7%
+2026-09-28T11:51:58Z round 1 amber20-cellulose base-mixed load { 5.80 6.08 6.27 } vm 12% top other 43.8%, other 34.1%, WindowServer 33.1%, other 24.0%, other 8.8%
+2026-09-28T11:52:44Z round 2 amber20-cellulose base-mixed load { 5.44 5.97 6.22 } vm 7% top other 28.2%, other 23.9%, WindowServer 22.1%, other 19.5%, other 6.1%
+2026-09-28T11:53:24Z round 2 amber20-cellulose mine-mixed load { 4.13 5.56 6.06 } vm 13% top WindowServer 49.4%, other 36.6%, other 24.9%, com.apple.Virtualization.VirtualMachine 6.5%, other 5.7%
+2026-09-28T11:54:11Z round 2 amber20-cellulose base-single load { 3.76 5.27 5.92 } vm 6% top other 26.2%, other 23.4%, other 23.0%, WindowServer 18.3%, other 6.4%
+2026-09-28T11:54:52Z round 2 amber20-cellulose mine-single load { 3.57 5.01 5.79 } vm 5% top WindowServer 27.1%, other 26.6%, other 26.3%, other 7.5%, com.apple.Virtualization.VirtualMachine 6.2%
+2026-09-28T11:55:32Z round 3 amber20-cellulose mine-single load { 2.87 4.67 5.63 } vm 11% top other 52.3%, WindowServer 40.5%, other 34.0%, other 22.9%, other 20.7%
+2026-09-28T11:56:11Z round 3 amber20-cellulose base-single load { 2.00 4.26 5.44 } vm 10% top  other 55.8%, other 37.9%, WindowServer 29.3%, other 23.3%, other 7.1%
+2026-09-28T11:56:52Z round 3 amber20-cellulose mine-mixed load { 3.23 4.26 5.38 } vm 5% top other 46.8%, WindowServer 46.3%, other 36.1%, other 8.6%, other 6.2%
+2026-09-28T11:57:33Z round 3 amber20-cellulose base-mixed load { 5.35 4.60 5.45 } vm 7% top other 178.3%, other 65.0%, WindowServer 42.7%, other 41.0%, other 15.2%
 2026-09-28T11:58:18Z round 3 amber20-cellulose base-mixed BUILD RUNNING during the run

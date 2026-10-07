@@ -22,7 +22,7 @@
 # Lead and infra only, never lanes: LEASE_TICKET_US=<16 digits> dates the ticket instead of the clock,
 # so a restarted job keeps its original place (and window.sh goes next), and --cap SECONDS replaces the
 # 20 minute cap (window.sh's hold).
-# A timing hold carries only timing (RULES.md). When the GPU of an outer timing hold (not nested, not
+# A timing hold carries only timing. When the GPU of an outer timing hold (not nested, not
 # the window) reads under 10% for 60 s straight, lease.sh writes one line to the holder's stderr and to
 # /tmp/openmm-lease-idle.log, and warns again after the GPU has been busy.
 # usage: lease.sh [--correctness] [--cap SECONDS] <lane> <what> <command...>

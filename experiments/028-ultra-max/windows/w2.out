@@ -31,16 +31,16 @@ correctness burst: queued correctness tickets join a correctness hold with room
 build processes: 0
 queue, oldest first:
  %CPU   PID COMMAND
- 20.6  1290 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 20.6  1290 other
   8.2 14409 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
   4.4 53653 /bin/sh /tmp/openmm-metal-bench/ultra-tools/window.sh --cpu /tmp/openmm-metal-bench/ultra-infra/w2 all base=/tmp/openmm-metal-bench/ultra-base:singl
-  4.3 90735 claude --dangerously-skip-permissions
+  4.3 90735 other
   1.4   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
-  1.2  1387 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
-  0.4   832 /usr/libexec/searchpartyd
-  0.4   629 /usr/sbin/notifyd
-  0.3   611 /usr/libexec/locationd
-  0.3  1057 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+  1.2  1387 other
+  0.4   832 other
+  0.4   629 other
+  0.3   611 other
+  0.3  1057 other
 estimate: 3 rounds, 9 tests, 5 configurations, about 97 min 30 s
 base-single Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
 base-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 

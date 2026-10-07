@@ -1,73 +1,73 @@
 apoa1rf-prof-b0 load { 2.73 3.00 2.98 } 01:59:02Z
  %CPU COMMAND
- 21.2 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 21.2 other
  16.7 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
- 15.5 /usr/libexec/syspolicyd
-  6.0 /usr/libexec/trustd
+ 15.5 other
+  6.0 other
 apoa1rf-prof-bonded load { 2.70 2.98 2.98 } 01:59:16Z
  %CPU COMMAND
- 28.3 ~/.bun/bin/bun ~/code/cdx/cdx.ts _run astra-ui 1
- 21.6 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 28.3 other
+ 21.6 other
  15.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  6.3 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --type=renderer --headless=old --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=130303984289 --shared-files --field-trial-handle=1718379636,r,445486440783342920,14254067267902445424,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,8429474031937498872,832696537591031393,4 --trace-process-track-uuid=3190708990060038890
+  6.3 other
 apoa1pme-prof-bonded load { 2.39 2.90 2.95 } 01:59:28Z
  %CPU COMMAND
- 21.9 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 21.9 other
  17.5 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  3.9 claude --dangerously-skip-permissions
-  2.0 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --type=renderer --headless=old --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=130303984289 --shared-files --field-trial-handle=1718379636,r,445486440783342920,14254067267902445424,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,8429474031937498872,832696537591031393,4 --trace-process-track-uuid=3190708990060038890
+  3.9 other
+  2.0 other
 apoa1pme-prof-b0 load { 2.40 2.89 2.94 } 01:59:39Z
  %CPU COMMAND
  21.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
- 18.6 /Applications/superwhisper.app/Contents/MacOS/superwhisper
-  4.0 claude --dangerously-skip-permissions
+ 18.6 other
+  4.0 other
   2.9 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 amber20-cellulose-prof-b0 load { 2.26 2.84 2.93 } 01:59:50Z
  %CPU COMMAND
- 21.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 21.4 other
  14.1 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  1.8 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --type=renderer --headless=old --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=130303984289 --shared-files --field-trial-handle=1718379636,r,445486440783342920,14254067267902445424,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,8429474031937498872,832696537591031393,4 --trace-process-track-uuid=3190708990060038890
-  1.6 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --use-angle=swiftshader-webgl --use-gl=angle --mute-audio --headless=old --shared-files --field-trial-handle=1718379636,r,445486440783342920,14254067267902445424,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,8429474031937498872,832696537591031393,4 --trace-process-track-uuid=3190708989122997041
+  1.8 other
+  1.6 other
 amber20-cellulose-prof-bonded load { 2.18 2.80 2.91 } 02:00:04Z
  %CPU COMMAND
- 21.3 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 21.3 other
  12.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  3.4 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
-  2.8 claude --dangerously-skip-permissions
+  3.4 other
+  2.8 other
 pme-prof-bonded load { 1.98 2.72 2.88 } 02:00:19Z
  %CPU COMMAND
- 20.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 20.7 other
  19.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  4.8 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
-  4.2 (system_profiler)
+  4.8 other
+  4.2 other
 pme-prof-b0 load { 2.06 2.71 2.88 } 02:00:28Z
  %CPU COMMAND
- 18.0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 10.7 ~/.bun/bin/bun ~/code/cdx/cdx.ts _run astra-ui 1
+ 18.0 other
+ 10.7 other
   9.4 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  1.3 claude --dangerously-skip-permissions
+  1.3 other
 gbsa-prof-b0 load { 2.36 2.76 2.89 } 02:00:38Z
  %CPU COMMAND
- 19.7 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 19.7 other
  18.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  1.1 claude --dangerously-skip-permissions
+  1.1 other
   1.1 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-dispatch ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min /tmp/openmm-metal-bench/ultra-tools/ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7 2 15 gbsa,rf,pme,amber20-dhfr poll=/tmp/openmm-metal-bench/ultra-dispatch/t2/venv/bin/python:Metal:single wfk=/tmp/openmm-metal-bench/ultra-dispatch/t10/venv/bin/python:Metal:single poll-mixed=/tmp/openmm-metal-bench/ultra-dispatch/t2/venv/bin/python:Metal:mixed wfk-mixed=/tmp/openmm-metal-bench/ultra-dispatch/t10/venv/bin/python:Metal:mixed
 gbsa-prof-bonded load { 2.39 2.75 2.88 } 02:00:47Z
  %CPU COMMAND
  14.7 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
- 13.1 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 12.8 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --type=renderer --headless=old --no-sandbox --disable-back-forward-cache --disable-background-timer-throttling --disable-breakpad --force-color-profile=srgb --remote-debugging-pipe --allow-pre-commit-input --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --disable-gpu-compositing --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=130303984289 --shared-files --field-trial-handle=1718379636,r,445486440783342920,14254067267902445424,262144 --enable-features=CDPScreenshotNewSurface --disable-features=AutoDeElevate,AvoidUnnecessaryBeforeUnloadCheckSync,BlockOriginHeaderModificationOnRedirect,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,OptimizationHints,PaintHolding,ThirdPartyStoragePartitioning,Translate,msEdgeUpdateLaunchServicesPreferredVersion,msForceBrowserSignIn --variations-seed-version --pseudonymization-salt-handle=1935764596,r,8429474031937498872,832696537591031393,4 --trace-process-track-uuid=3190708990060038890
-  3.1 claude --dangerously-skip-permissions
+ 13.1 other
+ 12.8 other
+  3.1 other
 rf-prof-bonded load { 2.41 2.74 2.88 } 02:00:57Z
  %CPU COMMAND
- 13.8 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/ContextStoreAgent
- 13.4 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 13.8 other
+ 13.4 other
   8.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  5.4 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
+  5.4 other
 rf-prof-b0 load { 2.30 2.71 2.87 } 02:01:05Z
  %CPU COMMAND
- 19.8 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 19.8 other
  18.1 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
-  4.8 claude --dangerously-skip-permissions
-  2.5 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
+  4.8 other
+  2.5 other
 done

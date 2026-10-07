@@ -10,7 +10,7 @@ The cases follow what public FAH projects run:
                 changes lambda every step and accumulates protocol work (alchemiscale-fah/feflow style)
   gbsa          AMBER ff14SB with OBC2 implicit solvent, no cutoff, HBonds, LangevinMiddle 2 fs
   pme45k        tip3p-hmr's recipe at 2.0 nm padding (45284 atoms) with no HMR and no barostat: a plain PME system
-                between the holdout's PME sizes, for budgeting (r3-fah; the holdout's own PME items stay head-only)
+                between the holdout's PME sizes, for budgeting (r3-fah; the holdout's own PME items stay out of lane runs)
 """
 import bz2
 import math

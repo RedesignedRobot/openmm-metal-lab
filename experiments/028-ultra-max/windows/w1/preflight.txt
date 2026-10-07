@@ -19,14 +19,14 @@ queue, oldest first:
   1790307576253826-ultra-mixed-87455  waiting 528 s
   1790307611950883-plugins-88937  waiting 493 s
  %CPU   PID COMMAND
- 25.6  1290 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 25.6  1290 other
  13.9 14409 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
-  6.2 90735 claude --dangerously-skip-permissions
-  6.1   790 /usr/libexec/sysmond
-  4.2  1387 ~/Library/Application Support/iStat Menus 7/iStat Menus Menubar.app/Contents/MacOS/iStat Menus Menubar
+  6.2 90735 other
+  6.1   790 other
+  4.2  1387 other
   4.1 65447 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --cap 3600 ultra-infra A/A rf single 2x15 s, round 2 beside a taskpolicy -b build, about 5 min 
   2.0   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
   1.5 79373 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --correctness --cap 2700 head gate.sh /tmp/openmm-metal-bench/ultra-plugins/head /tmp/openmm-me
   1.5 81732 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-profiler workloads rf concurrency traces, Metal and OpenCL N=1 and N=4, capture and save 
-  1.5   717 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+  1.5   717 other
 end 2026-09-25T05:26:43Z

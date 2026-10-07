@@ -1,48 +1,48 @@
-2026-09-25T01:44:50Z round 1 pme mb4 load { 2.48 2.39 2.72 } vm 3% top node 79.2%, superwhisper 22.1%, chrome-headless-shell 16.7%, bun 5.7%, sysmond 4.4%
-2026-09-25T01:45:07Z round 1 pme mb2 load { 2.59 2.42 2.72 } vm 6% top com.apple.Virtualization.VirtualMachine 47.3%, superwhisper 22.2%, bun 20.8%,  codex 8.1%, sysmond 4.7%
-2026-09-25T01:45:23Z round 1 pme mb1 load { 2.30 2.36 2.70 } vm 3% top chrome-headless-shell 82.4%, axassetsd 42.6%, chrome-headless-shell 39.4%, chrome-headless-shell 24.8%, superwhisper 22.3%
-2026-09-25T01:45:40Z round 1 pme mb0 load { 2.54 2.42 2.71 } vm 16% top superwhisper 23.2%, com.apple.Virtualization.VirtualMachine 15.7%, sysmond 7.5%, iStat Menus Menubar 5.8%, powermetrics 4.9%
-2026-09-25T01:45:57Z round 1 rf mb4 load { 2.40 2.40 2.70 } vm 11% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 11.3%, sysmond 6.7%, chrome-headless-shell 5.7%, sh 1.9%
-2026-09-25T01:46:14Z round 1 rf mb2 load { 2.68 2.46 2.71 } vm 6% top bun 37.6%, superwhisper 21.3%, powermetrics 11.6%, iStat Menus Menubar 6.5%, chrome-headless-shell 6.3%
-2026-09-25T01:46:31Z round 1 rf mb1 load { 2.71 2.48 2.71 } vm 10% top launchd 38.7%, superwhisper 22.7%, com.apple.Virtualization.VirtualMachine 9.5%,  claude 6.1%, sysmond 5.3%
-2026-09-25T01:46:47Z round 1 rf mb0 load { 2.27 2.39 2.68 } vm 12% top superwhisper 21.2%, com.apple.Virtualization.VirtualMachine 11.8%, authd 11.1%, trustd 9.3%, SystemUIServer 6.2%
-2026-09-25T01:47:03Z round 1 amber20-dhfr mb4 load { 2.05 2.33 2.65 } vm 12% top superwhisper 22.7%, com.apple.Virtualization.VirtualMachine 12.1%,  claude 4.1%, powermetrics 1.7%, sh 1.2%
-2026-09-25T01:47:21Z round 1 amber20-dhfr mb2 load { 2.69 2.46 2.69 } vm 5% top superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 5.2%, sysmond 4.8%,  claude 1.8%, WindowServer 1.2%
-2026-09-25T01:47:38Z round 1 amber20-dhfr mb1 load { 2.83 2.50 2.70 } vm 8% top node 104.8%, superwhisper 24.3%, com.apple.Virtualization.VirtualMachine 8.0%, sysmond 5.2%, iStat Menus Menubar 4.0%
-2026-09-25T01:47:55Z round 1 amber20-dhfr mb0 load { 3.09 2.58 2.72 } vm 2% top node 100.0%, mobileassetd 43.3%, backupd-helper 40.9%, superwhisper 21.5%, assetsubscriptiond 15.2%
-2026-09-25T01:48:13Z round 1 apoa1pme mb4 load { 3.42 2.68 2.75 } vm 12% top syspolicyd 93.9%, backupd-helper 73.3%, superwhisper 21.6%, com.apple.Virtualization.VirtualMachine 12.0%, trustd 8.1%
-2026-09-25T01:48:31Z round 1 apoa1pme mb2 load { 3.01 2.64 2.74 } vm 9% top syspolicyd 104.3%, superwhisper 24.5%, searchpartyuseragent 17.2%, apsd 17.1%, IMTransferAgent 13.2%
-2026-09-25T01:48:50Z round 1 apoa1pme mb1 load { 3.14 2.69 2.75 } vm 2% top node 71.8%, XProtectRemediatorCardboardCutout 54.8%, trustd 44.8%, superwhisper 22.0%, searchpartyuseragent 8.4%
-2026-09-25T01:49:09Z round 1 apoa1pme mb0 load { 3.46 2.79 2.78 } vm 13% top trustd 52.4%, XProtectRemediatorBundlore 51.0%, superwhisper 22.7%, searchpartyuseragent 13.0%, com.apple.Virtualization.VirtualMachine 12.7%
-2026-09-25T01:49:27Z round 1 apoa1rf mb4 load { 3.59 2.86 2.81 } vm 14% top XProtectRemediatorDolittle 97.7%, superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 14.1%, syspolicyd 8.7%, iStat Menus Menubar 6.4%
-2026-09-25T01:49:46Z round 1 apoa1rf mb2 load { 3.37 2.85 2.81 } vm 6% top XProtectRemediatorDolittle 98.2%, superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 9.4%,  claude 6.6%, sysmond 4.7%
-2026-09-25T01:50:04Z round 1 apoa1rf mb1 load { 3.20 2.84 2.81 } vm 7% top XProtectRemediatorSnowBeagle 85.1%, superwhisper 20.1%, com.apple.Virtualization.VirtualMachine 7.0%, syspolicyd 5.6%, powermetrics 3.8%
-2026-09-25T01:50:23Z round 1 apoa1rf mb0 load { 3.78 3.00 2.86 } vm 7% top XProtectRemediatorMRTv3 99.4%, superwhisper 19.9%, sysmond 9.6%, com.apple.Virtualization.VirtualMachine 6.7%, iStat Menus Menubar 4.1%
-2026-09-25T01:50:42Z round 1 apoa1ljpme mb4 load { 3.63 3.02 2.87 } vm 7% top XProtectRemediatorSheepSwap 97.4%, superwhisper 20.6%, syspolicyd 12.4%, trustd 6.8%, com.apple.Virtualization.VirtualMachine 5.5%
-2026-09-25T01:51:00Z round 1 apoa1ljpme mb2 load { 3.80 3.09 2.90 } vm 14% top XProtectRemediatorSnowDrift 96.4%, launchd 33.6%, superwhisper 23.2%, com.apple.Virtualization.VirtualMachine 13.7%, syspolicyd 4.3%
-2026-09-25T01:51:19Z round 1 apoa1ljpme mb1 load { 3.64 3.09 2.90 } vm 10% top XProtectRemediatorAdload 89.3%, superwhisper 22.5%, trustd 12.7%, powermetrics 12.5%, com.apple.Virtualization.VirtualMachine 9.6%
-2026-09-25T01:51:38Z round 1 apoa1ljpme mb0 load { 3.59 3.11 2.92 } vm 6% top XProtectRemediatorAdload 94.6%, superwhisper 21.1%, iStat Menus Menubar 5.7%, com.apple.Virtualization.VirtualMachine 5.6%, WindowServer 4.9%
-2026-09-25T01:51:56Z round 2 pme mb0 load { 3.36 3.09 2.91 } vm 7% top XProtectRemediatorPirrit 97.9%, superwhisper 21.6%, com.apple.Virtualization.VirtualMachine 6.9%, syspolicyd 2.2%, io.tailscale.ipn.macsys.network-extension 1.6%
-2026-09-25T01:52:13Z round 2 pme mb1 load { 3.79 3.20 2.95 } vm 6% top XProtectRemediatorPirrit 98.0%, superwhisper 23.3%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 4.7%, syspolicyd 3.7%
-2026-09-25T01:52:30Z round 2 pme mb2 load { 5.54 3.60 3.10 } vm 4% top bun 55.8%, superwhisper 20.2%, sysmond 8.6%,  codex 4.1%, com.apple.Virtualization.VirtualMachine 4.0%
-2026-09-25T01:52:46Z round 2 pme mb4 load { 4.75 3.54 3.09 } vm 17% top com.apple.Virtualization.VirtualMachine 28.8%, superwhisper 20.6%, chrome-headless-shell 13.8%, sysmond 8.5%, syspolicyd 3.7%
-2026-09-25T01:53:03Z round 2 rf mb0 load { 4.37 3.52 3.09 } vm 5% top superwhisper 21.0%, sysmond 9.6%, com.apple.Virtualization.VirtualMachine 4.8%, bun 3.4%, sh 2.0%
-2026-09-25T01:53:20Z round 2 rf mb1 load { 3.90 3.46 3.07 } vm 9% top superwhisper 20.3%, sysmond 12.7%, com.apple.Virtualization.VirtualMachine 7.5%, WindowServer 2.4%, syspolicyd 2.3%
-2026-09-25T01:53:36Z round 2 rf mb2 load { 3.77 3.46 3.08 } vm 7% top superwhisper 20.9%, com.apple.Virtualization.VirtualMachine 7.2%, syspolicyd 2.6%, WindowServer 1.4%, powermetrics 1.2%
-2026-09-25T01:53:52Z round 2 rf mb4 load { 3.53 3.42 3.07 } vm 5% top superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 5.4%, sysmond 5.4%,  claude 5.1%, iStat Menus Menubar 2.3%
-2026-09-25T01:54:09Z round 2 amber20-dhfr mb0 load { 3.45 3.40 3.07 } vm 9% top superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 9.3%, sysmond 9.2%, iStat Menus Menubar 3.7%, WindowServer 2.9%
-2026-09-25T01:54:26Z round 2 amber20-dhfr mb1 load { 3.75 3.48 3.11 } vm 5% top superwhisper 21.1%, com.apple.Virtualization.VirtualMachine 13.0%, sysmond 6.1%,  claude 4.2%, syspolicyd 3.4%
-2026-09-25T01:54:43Z round 2 amber20-dhfr mb2 load { 3.35 3.41 3.09 } vm 9% top superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 9.3%, powermetrics 9.3%,  claude 7.3%, syspolicyd 3.8%
-2026-09-25T01:55:01Z round 2 amber20-dhfr mb4 load { 3.13 3.36 3.08 } vm 15% top superwhisper 23.8%, launchd 17.4%, com.apple.Virtualization.VirtualMachine 11.2%, apsd 5.9%, sysmond 4.8%
-2026-09-25T01:55:18Z round 2 apoa1pme mb0 load { 2.95 3.31 3.07 } vm 2% top bun 21.9%, superwhisper 20.7%, bun 13.4%, chrome-headless-shell 12.3%, tccd 7.6%
-2026-09-25T01:55:37Z round 2 apoa1pme mb1 load { 2.88 3.27 3.06 } vm 11% top superwhisper 22.4%, powermetrics 12.1%, sysmond 10.0%, com.apple.Virtualization.VirtualMachine 10.0%, chrome-headless-shell 4.9%
-2026-09-25T01:55:55Z round 2 apoa1pme mb2 load { 3.13 3.31 3.08 } vm 10% top superwhisper 20.4%, com.apple.Virtualization.VirtualMachine 10.4%, chrome-headless-shell 6.5%, iStat Menus Menubar 6.4%, syspolicyd 6.2%
-2026-09-25T01:56:14Z round 2 apoa1pme mb4 load { 3.11 3.30 3.08 } vm 4% top node 24.9%, superwhisper 24.4%, bun 13.0%, sysmond 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
-2026-09-25T01:56:33Z round 2 apoa1rf mb0 load { 3.29 3.32 3.09 } vm 2% top node 79.9%, superwhisper 23.0%, bun 5.5%, powermetrics 4.8%, com.apple.Virtualization.VirtualMachine 1.7%
-2026-09-25T01:56:51Z round 2 apoa1rf mb1 load { 2.65 3.17 3.04 } vm 9% top chrome-headless-shell 126.6%, superwhisper 23.6%, com.apple.Virtualization.VirtualMachine 7.0%, sysmond 4.8%, chrome-headless-shell 4.2%
-2026-09-25T01:57:10Z round 2 apoa1rf mb2 load { 2.56 3.12 3.03 } vm 11% top superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 11.4%, chrome-headless-shell 4.8%, sysmond 4.6%, WindowServer 3.6%
-2026-09-25T01:57:28Z round 2 apoa1rf mb4 load { 2.64 3.11 3.02 } vm 6% top superwhisper 23.7%, com.apple.Virtualization.VirtualMachine 6.4%, PerfPowerServices 4.4%, sysmond 2.9%,  claude 1.5%
-2026-09-25T01:57:47Z round 2 apoa1ljpme mb0 load { 2.44 3.04 3.00 } vm 3% top chrome-headless-shell 126.9%, superwhisper 21.1%, powermetrics 7.0%, chrome-headless-shell 3.3%, sysmond 3.1%
-2026-09-25T01:58:05Z round 2 apoa1ljpme mb1 load { 2.66 3.05 3.00 } vm 7% top superwhisper 19.0%, ContextStoreAgent 15.6%, sysmond 8.2%, com.apple.Virtualization.VirtualMachine 6.8%, iStat Menus Menubar 5.6%
-2026-09-25T01:58:24Z round 2 apoa1ljpme mb2 load { 2.60 3.02 2.99 } vm 5% top superwhisper 20.7%, chrome-headless-shell 17.2%, com.apple.Virtualization.VirtualMachine 5.3%, sysmond 5.0%, chrome-headless-shell 4.4%
-2026-09-25T01:58:43Z round 2 apoa1ljpme mb4 load { 2.66 3.00 2.98 } vm 24% top com.apple.Virtualization.VirtualMachine 20.4%, superwhisper 19.9%, sysmond 4.7%,  claude 3.2%, WindowServer 2.8%
+2026-09-25T01:44:50Z round 1 pme mb4 load { 2.48 2.39 2.72 } vm 3% top other 79.2%, other 22.1%, other 16.7%, other 5.7%, other 4.4%
+2026-09-25T01:45:07Z round 1 pme mb2 load { 2.59 2.42 2.72 } vm 6% top com.apple.Virtualization.VirtualMachine 47.3%, other 22.2%, other 20.8%,  other 8.1%, other 4.7%
+2026-09-25T01:45:23Z round 1 pme mb1 load { 2.30 2.36 2.70 } vm 3% top other 82.4%, other 42.6%, other 39.4%, other 24.8%, other 22.3%
+2026-09-25T01:45:40Z round 1 pme mb0 load { 2.54 2.42 2.71 } vm 16% top other 23.2%, com.apple.Virtualization.VirtualMachine 15.7%, other 7.5%, other 5.8%, powermetrics 4.9%
+2026-09-25T01:45:57Z round 1 rf mb4 load { 2.40 2.40 2.70 } vm 11% top other 21.8%, com.apple.Virtualization.VirtualMachine 11.3%, other 6.7%, other 5.7%, other 1.9%
+2026-09-25T01:46:14Z round 1 rf mb2 load { 2.68 2.46 2.71 } vm 6% top other 37.6%, other 21.3%, powermetrics 11.6%, other 6.5%, other 6.3%
+2026-09-25T01:46:31Z round 1 rf mb1 load { 2.71 2.48 2.71 } vm 10% top other 38.7%, other 22.7%, com.apple.Virtualization.VirtualMachine 9.5%,  other 6.1%, other 5.3%
+2026-09-25T01:46:47Z round 1 rf mb0 load { 2.27 2.39 2.68 } vm 12% top other 21.2%, com.apple.Virtualization.VirtualMachine 11.8%, other 11.1%, other 9.3%, other 6.2%
+2026-09-25T01:47:03Z round 1 amber20-dhfr mb4 load { 2.05 2.33 2.65 } vm 12% top other 22.7%, com.apple.Virtualization.VirtualMachine 12.1%,  other 4.1%, powermetrics 1.7%, other 1.2%
+2026-09-25T01:47:21Z round 1 amber20-dhfr mb2 load { 2.69 2.46 2.69 } vm 5% top other 21.0%, com.apple.Virtualization.VirtualMachine 5.2%, other 4.8%,  other 1.8%, WindowServer 1.2%
+2026-09-25T01:47:38Z round 1 amber20-dhfr mb1 load { 2.83 2.50 2.70 } vm 8% top other 104.8%, other 24.3%, com.apple.Virtualization.VirtualMachine 8.0%, other 5.2%, other 4.0%
+2026-09-25T01:47:55Z round 1 amber20-dhfr mb0 load { 3.09 2.58 2.72 } vm 2% top other 100.0%, other 43.3%, other 40.9%, other 21.5%, other 15.2%
+2026-09-25T01:48:13Z round 1 apoa1pme mb4 load { 3.42 2.68 2.75 } vm 12% top other 93.9%, other 73.3%, other 21.6%, com.apple.Virtualization.VirtualMachine 12.0%, other 8.1%
+2026-09-25T01:48:31Z round 1 apoa1pme mb2 load { 3.01 2.64 2.74 } vm 9% top other 104.3%, other 24.5%, other 17.2%, other 17.1%, other 13.2%
+2026-09-25T01:48:50Z round 1 apoa1pme mb1 load { 3.14 2.69 2.75 } vm 2% top other 71.8%, other 54.8%, other 44.8%, other 22.0%, other 8.4%
+2026-09-25T01:49:09Z round 1 apoa1pme mb0 load { 3.46 2.79 2.78 } vm 13% top other 52.4%, other 51.0%, other 22.7%, other 13.0%, com.apple.Virtualization.VirtualMachine 12.7%
+2026-09-25T01:49:27Z round 1 apoa1rf mb4 load { 3.59 2.86 2.81 } vm 14% top other 97.7%, other 20.3%, com.apple.Virtualization.VirtualMachine 14.1%, other 8.7%, other 6.4%
+2026-09-25T01:49:46Z round 1 apoa1rf mb2 load { 3.37 2.85 2.81 } vm 6% top other 98.2%, other 20.0%, com.apple.Virtualization.VirtualMachine 9.4%,  other 6.6%, other 4.7%
+2026-09-25T01:50:04Z round 1 apoa1rf mb1 load { 3.20 2.84 2.81 } vm 7% top other 85.1%, other 20.1%, com.apple.Virtualization.VirtualMachine 7.0%, other 5.6%, powermetrics 3.8%
+2026-09-25T01:50:23Z round 1 apoa1rf mb0 load { 3.78 3.00 2.86 } vm 7% top other 99.4%, other 19.9%, other 9.6%, com.apple.Virtualization.VirtualMachine 6.7%, other 4.1%
+2026-09-25T01:50:42Z round 1 apoa1ljpme mb4 load { 3.63 3.02 2.87 } vm 7% top other 97.4%, other 20.6%, other 12.4%, other 6.8%, com.apple.Virtualization.VirtualMachine 5.5%
+2026-09-25T01:51:00Z round 1 apoa1ljpme mb2 load { 3.80 3.09 2.90 } vm 14% top other 96.4%, other 33.6%, other 23.2%, com.apple.Virtualization.VirtualMachine 13.7%, other 4.3%
+2026-09-25T01:51:19Z round 1 apoa1ljpme mb1 load { 3.64 3.09 2.90 } vm 10% top other 89.3%, other 22.5%, other 12.7%, powermetrics 12.5%, com.apple.Virtualization.VirtualMachine 9.6%
+2026-09-25T01:51:38Z round 1 apoa1ljpme mb0 load { 3.59 3.11 2.92 } vm 6% top other 94.6%, other 21.1%, other 5.7%, com.apple.Virtualization.VirtualMachine 5.6%, WindowServer 4.9%
+2026-09-25T01:51:56Z round 2 pme mb0 load { 3.36 3.09 2.91 } vm 7% top other 97.9%, other 21.6%, com.apple.Virtualization.VirtualMachine 6.9%, other 2.2%, other 1.6%
+2026-09-25T01:52:13Z round 2 pme mb1 load { 3.79 3.20 2.95 } vm 6% top other 98.0%, other 23.3%, com.apple.Virtualization.VirtualMachine 5.5%, other 4.7%, other 3.7%
+2026-09-25T01:52:30Z round 2 pme mb2 load { 5.54 3.60 3.10 } vm 4% top other 55.8%, other 20.2%, other 8.6%,  other 4.1%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-25T01:52:46Z round 2 pme mb4 load { 4.75 3.54 3.09 } vm 17% top com.apple.Virtualization.VirtualMachine 28.8%, other 20.6%, other 13.8%, other 8.5%, other 3.7%
+2026-09-25T01:53:03Z round 2 rf mb0 load { 4.37 3.52 3.09 } vm 5% top other 21.0%, other 9.6%, com.apple.Virtualization.VirtualMachine 4.8%, other 3.4%, other 2.0%
+2026-09-25T01:53:20Z round 2 rf mb1 load { 3.90 3.46 3.07 } vm 9% top other 20.3%, other 12.7%, com.apple.Virtualization.VirtualMachine 7.5%, WindowServer 2.4%, other 2.3%
+2026-09-25T01:53:36Z round 2 rf mb2 load { 3.77 3.46 3.08 } vm 7% top other 20.9%, com.apple.Virtualization.VirtualMachine 7.2%, other 2.6%, WindowServer 1.4%, powermetrics 1.2%
+2026-09-25T01:53:52Z round 2 rf mb4 load { 3.53 3.42 3.07 } vm 5% top other 20.0%, com.apple.Virtualization.VirtualMachine 5.4%, other 5.4%,  other 5.1%, other 2.3%
+2026-09-25T01:54:09Z round 2 amber20-dhfr mb0 load { 3.45 3.40 3.07 } vm 9% top other 21.0%, com.apple.Virtualization.VirtualMachine 9.3%, other 9.2%, other 3.7%, WindowServer 2.9%
+2026-09-25T01:54:26Z round 2 amber20-dhfr mb1 load { 3.75 3.48 3.11 } vm 5% top other 21.1%, com.apple.Virtualization.VirtualMachine 13.0%, other 6.1%,  other 4.2%, other 3.4%
+2026-09-25T01:54:43Z round 2 amber20-dhfr mb2 load { 3.35 3.41 3.09 } vm 9% top other 20.0%, com.apple.Virtualization.VirtualMachine 9.3%, powermetrics 9.3%,  other 7.3%, other 3.8%
+2026-09-25T01:55:01Z round 2 amber20-dhfr mb4 load { 3.13 3.36 3.08 } vm 15% top other 23.8%, other 17.4%, com.apple.Virtualization.VirtualMachine 11.2%, other 5.9%, other 4.8%
+2026-09-25T01:55:18Z round 2 apoa1pme mb0 load { 2.95 3.31 3.07 } vm 2% top other 21.9%, other 20.7%, other 13.4%, other 12.3%, other 7.6%
+2026-09-25T01:55:37Z round 2 apoa1pme mb1 load { 2.88 3.27 3.06 } vm 11% top other 22.4%, powermetrics 12.1%, other 10.0%, com.apple.Virtualization.VirtualMachine 10.0%, other 4.9%
+2026-09-25T01:55:55Z round 2 apoa1pme mb2 load { 3.13 3.31 3.08 } vm 10% top other 20.4%, com.apple.Virtualization.VirtualMachine 10.4%, other 6.5%, other 6.4%, other 6.2%
+2026-09-25T01:56:14Z round 2 apoa1pme mb4 load { 3.11 3.30 3.08 } vm 4% top other 24.9%, other 24.4%, other 13.0%, other 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-25T01:56:33Z round 2 apoa1rf mb0 load { 3.29 3.32 3.09 } vm 2% top other 79.9%, other 23.0%, other 5.5%, powermetrics 4.8%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-25T01:56:51Z round 2 apoa1rf mb1 load { 2.65 3.17 3.04 } vm 9% top other 126.6%, other 23.6%, com.apple.Virtualization.VirtualMachine 7.0%, other 4.8%, other 4.2%
+2026-09-25T01:57:10Z round 2 apoa1rf mb2 load { 2.56 3.12 3.03 } vm 11% top other 20.0%, com.apple.Virtualization.VirtualMachine 11.4%, other 4.8%, other 4.6%, WindowServer 3.6%
+2026-09-25T01:57:28Z round 2 apoa1rf mb4 load { 2.64 3.11 3.02 } vm 6% top other 23.7%, com.apple.Virtualization.VirtualMachine 6.4%, other 4.4%, other 2.9%,  other 1.5%
+2026-09-25T01:57:47Z round 2 apoa1ljpme mb0 load { 2.44 3.04 3.00 } vm 3% top other 126.9%, other 21.1%, powermetrics 7.0%, other 3.3%, other 3.1%
+2026-09-25T01:58:05Z round 2 apoa1ljpme mb1 load { 2.66 3.05 3.00 } vm 7% top other 19.0%, other 15.6%, other 8.2%, com.apple.Virtualization.VirtualMachine 6.8%, other 5.6%
+2026-09-25T01:58:24Z round 2 apoa1ljpme mb2 load { 2.60 3.02 2.99 } vm 5% top other 20.7%, other 17.2%, com.apple.Virtualization.VirtualMachine 5.3%, other 5.0%, other 4.4%
+2026-09-25T01:58:43Z round 2 apoa1ljpme mb4 load { 2.66 3.00 2.98 } vm 24% top com.apple.Virtualization.VirtualMachine 20.4%, other 19.9%, other 4.7%,  other 3.2%, WindowServer 2.8%

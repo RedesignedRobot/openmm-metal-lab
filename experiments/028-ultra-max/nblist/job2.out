@@ -23,9 +23,9 @@
 22:50:28Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
  1:55  up 1 day,  9:09, 2 users, load averages: 6.27 7.52 7.32
  %CPU COMMAND
- 24.6 /Applications/superwhisper.app/Contents/MacOS/superwhisper
- 16.9 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headle
- 14.9 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headle
+ 24.6 other
+ 16.9 other
+ 14.9 other
  10.3 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
 gate --quick /tmp/openmm-metal-bench/ultra-nblist/t4, 411a9f19a4eebe643ebd9ad992f8edd77fedb3fa, logs in /tmp/openmm-metal-bench/ultra-nblist/t4/gate-20260924T225538Z
 test           atoms precision    rel|dF|    max|dF|    rel|dE|
