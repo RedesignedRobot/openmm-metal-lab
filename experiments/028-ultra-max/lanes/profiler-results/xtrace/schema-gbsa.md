@@ -1,7 +1,7 @@
 
 ## Run 1
-- start-date: 2026-09-25T02:18:16.751+03:00
-- end-date: 2026-09-25T02:18:22.826+03:00
+- start-date: 2026-09-24T23:18:16.751Z
+- end-date: 2026-09-24T23:18:22.826Z
 - duration: 6.075493
 - end-reason: Target app exited
 - instruments-version: 27.2 (27B5019j)

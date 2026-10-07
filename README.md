@@ -2,7 +2,7 @@
 
 Measurements and experiments behind a native Metal platform for OpenMM on Apple GPUs, with Folding@home as the goal.
 
-The platform code is on branch [`pub/metal-platform`](https://github.com/RedesignedRobot/openmm/tree/pub/metal-platform) of the fork RedesignedRobot/openmm. This repository holds the evidence: benchmark runs, kernel studies, correctness checks and the scripts that produced them.
+The platform code is on branch [`metal-platform`](https://github.com/RedesignedRobot/openmm/tree/metal-platform) of the fork RedesignedRobot/openmm. This repository holds the evidence: benchmark runs, kernel studies, correctness checks and the scripts that produced them.
 
 Upstream status: [openmm#5488](https://github.com/openmm/openmm/pull/5488) is the OpenMM team's own Metal platform, and this work feeds data and fixes into it. Two fixes from here are merged upstream ([openmm#5435](https://github.com/openmm/openmm/pull/5435) and [#5436](https://github.com/openmm/openmm/pull/5436)), and [openmm#5397](https://github.com/openmm/openmm/issues/5397) is the discussion thread.
 
@@ -15,7 +15,7 @@ Every number is OpenMM's own `examples/benchmarks/benchmark.py`, timed with its 
 | M3 Ultra, 60-core GPU | 7484d7bef, OpenCL from 6df2b8bcb | 3 rounds of 30 s, 2026-09-25 | 1.401x (gbsa) to 1.894x (apoa1ljpme) | 1.087x (gbsa) to 1.719x (apoa1ljpme) | `experiments/028-ultra-max/windows/w2/summary.txt` |
 | M2, 10-core GPU, 8 GB | 5071882fa, both platforms | 3 rounds of 30 s, 2026-09-29 | 1.301x (gbsa) to 1.509x (apoa1rf) | 1.215x (rf, amber20-dhfr) to 1.353x (apoa1rf) | `experiments/029-2x-moonshots/lanes/results/r3-fah-m2-table/summary.txt`, medians only, written by `experiments/029-2x-moonshots/fah/prof/m2table.sh`; the per-round output was not kept |
 
-The measured builds are commits from my private history, so these hashes don't resolve on GitHub. `pub/metal-platform` is a later squash of the same work with the experiment switches removed. The exact commit, source hash and toolchain of each M3 Ultra build are in `experiments/028-ultra-max/windows/w2/ab/configs.txt`.
+The measured builds are commits from my private history, so these hashes don't resolve on GitHub. `metal-platform` is a later squash of the same work with the experiment switches removed. The exact commit, source hash and toolchain of each M3 Ultra build are in `experiments/028-ultra-max/windows/w2/ab/configs.txt`.
 
 The GPU was dedicated to the window, but the CPU was not: a background VM used 4% to 162% CPU before the runs (`experiments/028-ultra-max/windows/w2/summary.txt`). gbsa and rf are host-bound, so their M3 Ultra ratios carry that noise.
 
@@ -63,10 +63,10 @@ Each `experiments/NNN-name/` directory holds one question, its method, its raw r
 
 ## Reproduce a benchmark
 
-Build and install OpenMM from the `pub/metal-platform` branch. On an arm64 Mac, `OPENMM_BUILD_METAL_LIB` is on by default. Use a fresh Python environment with no other OpenMM in it, because the Python install step removes any `openmm` it can import.
+Build and install OpenMM from the `metal-platform` branch. On an arm64 Mac, `OPENMM_BUILD_METAL_LIB` is on by default. Use a fresh Python environment with no other OpenMM in it, because the Python install step removes any `openmm` it can import.
 
 ```sh
-git clone -b pub/metal-platform https://github.com/RedesignedRobot/openmm.git
+git clone -b metal-platform https://github.com/RedesignedRobot/openmm.git
 cd openmm && mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$HOME/openmm-metal"
 make -j8 install
