@@ -1,0 +1,40 @@
+{
+  "source_commit": "c21cad1e7",
+  "python": "3.13.15 | packaged by conda-forge | (main, Sep  2 2026, 21:53:23) [Clang 21.1.8 ]",
+  "openmm": "8.6",
+  "numpy": "2.5.3",
+  "files": {
+    "pme-input.npz": {
+      "bytes": 2074404,
+      "sha256": "96df81b251d2acaf4865396666ed208457a918d23e98e1c9218c655652aaa60a"
+    },
+    "amber20-cellulose-input.npz": {
+      "bytes": 35958892,
+      "sha256": "d31b8ec574e29b38231d7a2685f1255048be74629a58900bc893e0cdf74840a3"
+    },
+    "amber20-stmv-input.npz": {
+      "bytes": 93905660,
+      "sha256": "74c1b82ec56fed5405836a69d7f7e7dee034b648810c8bbb0a15ca752fbb3746"
+    },
+    "apoa1pme-input.npz": {
+      "bytes": 8117012,
+      "sha256": "95fe41fdec08e9b9743d0b57254735ba31e3060baaf3ef28a94ae584db17ae48"
+    },
+    "apoa1ljpme-input.npz": {
+      "bytes": 8117012,
+      "sha256": "f2dc2de1700739ad578faf338e3c685ec18725e0e7ba944c86b7d145a7a4fc12"
+    },
+    "amber20-dhfr-input.npz": {
+      "bytes": 2074404,
+      "sha256": "25eeb9a277622da2070fafe0e87fc2248430009e2f9b847173c3ae3a4c606cec"
+    },
+    "libOpenMM.dylib": {
+      "bytes": 3207936,
+      "sha256": "40546838de100313359156646588c37ff86c5a62e77bf05f17bb3a817191c04f"
+    },
+    "reference_bridge.dylib": {
+      "bytes": 52824,
+      "sha256": "fefb3cab963b296dd6fe139b1780eedd622637a2c65dd8c01f46c32cac8378f0"
+    }
+  }
+}

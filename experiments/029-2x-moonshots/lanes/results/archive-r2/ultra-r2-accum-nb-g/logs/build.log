@@ -1,0 +1,277 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-r2-accum-nb-g/build'
+[1/72] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/src/MetalNonbondedUtilities.cpp.o
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:26:
+In file included from ../src/openmmapi/include/openmm/OpenMMException.h:33:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception:82:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:86:10: warning: 'addInteraction' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   86 |     void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:74:18: note: overridden virtual function is here
+   74 |     virtual void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:92:10: warning: 'addParameter' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   92 |     void addParameter(ComputeParameterInfo parameter);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:80:18: note: overridden virtual function is here
+   80 |     virtual void addParameter(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:99:10: warning: 'addArgument' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   99 |     void addArgument(ComputeParameterInfo parameter);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:90:18: note: overridden virtual function is here
+   90 |     virtual void addArgument(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:108:17: warning: 'addEnergyParameterDerivative' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  108 |     std::string addEnergyParameterDerivative(const std::string& param);
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:99:25: note: overridden virtual function is here
+   99 |     virtual std::string addEnergyParameterDerivative(const std::string& param) = 0;
+      |                         ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:118:10: warning: 'initialize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  118 |     void initialize(const System& system);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:189:18: note: overridden virtual function is here
+  189 |     virtual void initialize(const System& system) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:122:9: warning: 'getNumForceBuffers' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  122 |     int getNumForceBuffers() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:103:17: note: overridden virtual function is here
+  103 |     virtual int getNumForceBuffers() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:134:10: warning: 'getUseCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  134 |     bool getUseCutoff() {
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:107:18: note: overridden virtual function is here
+  107 |     virtual bool getUseCutoff() = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:146:10: warning: 'getUsePeriodic' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  146 |     bool getUsePeriodic() {
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:111:18: note: overridden virtual function is here
+  111 |     virtual bool getUsePeriodic() = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:152:9: warning: 'getNumForceThreadBlocks' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  152 |     int getNumForceThreadBlocks() {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:115:17: note: overridden virtual function is here
+  115 |     virtual int getNumForceThreadBlocks() = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:158:9: warning: 'getForceThreadBlockSize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  158 |     int getForceThreadBlockSize() {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:119:17: note: overridden virtual function is here
+  119 |     virtual int getForceThreadBlockSize() = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:164:12: warning: 'getMaxCutoffDistance' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  164 |     double getMaxCutoffDistance();
+      |            ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:123:20: note: overridden virtual function is here
+  123 |     virtual double getMaxCutoffDistance() = 0;
+      |                    ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:169:12: warning: 'padCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  169 |     double padCutoff(double cutoff);
+      |            ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:128:20: note: overridden virtual function is here
+  128 |     virtual double padCutoff(double cutoff) = 0;
+      |                    ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:173:10: warning: 'prepareInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  173 |     void prepareInteractions(int forceGroups);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:193:18: note: overridden virtual function is here
+  193 |     virtual void prepareInteractions(int forceGroups) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:181:10: warning: 'computeInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  181 |     void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:201:18: note: overridden virtual function is here
+  201 |     virtual void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:191:17: warning: 'getBlockCenters' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  191 |     MetalArray& getBlockCenters() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:132:29: note: overridden virtual function is here
+  132 |     virtual ArrayInterface& getBlockCenters() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:197:17: warning: 'getBlockBoundingBoxes' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  197 |     MetalArray& getBlockBoundingBoxes() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:136:29: note: overridden virtual function is here
+  136 |     virtual ArrayInterface& getBlockBoundingBoxes() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:203:17: warning: 'getInteractionCount' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  203 |     MetalArray& getInteractionCount() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:140:29: note: overridden virtual function is here
+  140 |     virtual ArrayInterface& getInteractionCount() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:209:17: warning: 'getInteractingTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  209 |     MetalArray& getInteractingTiles() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:144:29: note: overridden virtual function is here
+  144 |     virtual ArrayInterface& getInteractingTiles() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:215:17: warning: 'getInteractingAtoms' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  215 |     MetalArray& getInteractingAtoms() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:148:29: note: overridden virtual function is here
+  148 |     virtual ArrayInterface& getInteractingAtoms() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:227:17: warning: 'getExclusions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  227 |     MetalArray& getExclusions() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:152:29: note: overridden virtual function is here
+  152 |     virtual ArrayInterface& getExclusions() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:233:17: warning: 'getExclusionTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  233 |     MetalArray& getExclusionTiles() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:156:29: note: overridden virtual function is here
+  156 |     virtual ArrayInterface& getExclusionTiles() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:239:17: warning: 'getExclusionIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  239 |     MetalArray& getExclusionIndices() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:160:29: note: overridden virtual function is here
+  160 |     virtual ArrayInterface& getExclusionIndices() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:245:17: warning: 'getExclusionRowIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  245 |     MetalArray& getExclusionRowIndices() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:164:29: note: overridden virtual function is here
+  164 |     virtual ArrayInterface& getExclusionRowIndices() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:252:17: warning: 'getRebuildNeighborList' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  252 |     MetalArray& getRebuildNeighborList() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:169:29: note: overridden virtual function is here
+  169 |     virtual ArrayInterface& getRebuildNeighborList() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:258:9: warning: 'getStartTileIndex' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  258 |     int getStartTileIndex() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:173:17: note: overridden virtual function is here
+  173 |     virtual int getStartTileIndex() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:264:9: warning: 'getNumTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  264 |     int getNumTiles() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:177:17: note: overridden virtual function is here
+  177 |     virtual int getNumTiles() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:274:10: warning: 'setUsePadding' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  274 |     void setUsePadding(bool padding);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:185:18: note: overridden virtual function is here
+  185 |     virtual void setUsePadding(bool padding) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalNonbondedUtilities.cpp:27:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:309:10: warning: 'setKernelSource' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  309 |     void setKernelSource(const std::string& source);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:205:18: note: overridden virtual function is here
+  205 |     virtual void setKernelSource(const std::string& source) = 0;
+      |                  ^
+29 warnings generated.
+[2/72] Linking CXX shared library libOpenMMMetal.dylib
+[3/72] Linking CXX executable TestMetalATMForce
+[4/72] Linking CXX shared library libOpenMMDrudeMetal.dylib
+[5/72] Linking CXX executable TestMetalBrownianIntegrator
+[6/72] Linking CXX shared library libOpenMMAmoebaMetal.dylib
+[7/72] Linking CXX executable TestMetalAndersenThermostat
+[8/72] Linking CXX shared library libOpenMMRPMDMetal.dylib
+[9/72] Linking CXX executable TestMetalCMAPTorsionForce
+[10/72] Linking CXX executable TestMetalCMMotionRemover
+[11/72] Linking CXX executable TestMetalCheckpoints
+[12/72] Linking CXX executable TestMetalCommandBatching
+[13/72] Linking CXX executable TestMetalCompoundIntegrator
+[14/72] Linking CXX executable TestMetalCustomAngleForce
+[15/72] Linking CXX executable TestMetalCustomCPPForce
+[16/72] Linking CXX executable TestMetalConstantPotentialForce
+[17/72] Linking CXX executable TestMetalCustomBondForce
+[18/72] Linking CXX executable TestMetalCustomCVForce
+[19/72] Linking CXX executable TestMetalCustomCentroidBondForce
+[20/72] Linking CXX executable TestMetalCustomGBForce
+[21/72] Linking CXX executable TestMetalCustomNonbondedForce
+[22/72] Linking CXX executable TestMetalCustomHbondForce
+[23/72] Linking CXX executable TestMetalCustomExternalForce
+[24/72] Linking CXX executable TestMetalCustomIntegrator
+[25/72] Linking CXX executable TestMetalCustomCompoundBondForce
+[26/72] Linking CXX executable TestMetalCustomManyParticleForce
+[27/72] Linking CXX executable TestMetalCustomTorsionForce
+[28/72] Linking CXX executable TestMetalDPDIntegrator
+[29/72] Linking CXX executable TestMetalDispersionPME
+[30/72] Linking CXX executable TestMetalGayBerneForce
+[31/72] Linking CXX executable TestMetalEwald
+[32/72] Linking CXX executable TestMetalHarmonicAngleForce
+[33/72] Linking CXX executable TestMetalGBSAOBCForce
+[34/72] Linking CXX executable TestMetalFFT
+[35/72] Linking CXX executable TestMetalHarmonicBondForce
+[36/72] Linking CXX executable TestMetalLangevinMiddleIntegrator
+[37/72] Linking CXX executable TestMetalMonteCarloAnisotropicBarostat
+[38/72] Linking CXX executable TestMetalMixedPrecision
+[39/72] Linking CXX executable TestMetalLCPOForce
+[40/72] Linking CXX executable TestMetalLocalEnergyMinimizer
+[41/72] Linking CXX executable TestMetalLangevinIntegrator
+[42/72] Linking CXX executable TestMetalMonteCarloBarostat
+[43/72] Linking CXX executable TestMetalMonteCarloFlexibleBarostat
+[44/72] Linking CXX executable TestMetalPeriodicTorsionForce
+[45/72] Linking CXX executable TestMetalOrientationRestraintForce
+[46/72] Linking CXX executable TestMetalPythonForce
+[47/72] Linking CXX executable TestMetalMultipleForces
+[48/72] Linking CXX executable TestMetalNoseHooverIntegrator
+[49/72] Linking CXX executable TestMetalQTBIntegrator
+[50/72] Linking CXX executable TestMetalNonbondedForce
+[51/72] Linking CXX executable TestMetalRBTorsionForce
+[52/72] Linking CXX executable TestMetalRandom
+[53/72] Linking CXX executable TestMetalRGForce
+[54/72] Linking CXX executable TestMetalRMSDForce
+[55/72] Linking CXX executable TestMetalSettle
+[56/72] Linking CXX executable TestMetalSort
+[57/72] Linking CXX executable TestMetalVariableVerletIntegrator
+[58/72] Linking CXX executable TestMetalVariableLangevinIntegrator
+[59/72] Linking CXX executable TestMetalVerletIntegrator
+[60/72] Linking CXX executable TestMetalAmoebaExtrapolatedPolarization
+[61/72] Linking CXX executable TestMetalVirtualSites
+[62/72] Linking CXX executable TestMetalAmoebaTorsionTorsionForce
+[63/72] Linking CXX executable TestMetalAmoebaGeneralizedKirkwoodForce
+[64/72] Linking CXX executable TestMetalAmoebaMultipoleForce
+[65/72] Linking CXX executable TestMetalAmoebaVdwForce
+[66/72] Linking CXX executable TestMetalHippoNonbondedForce
+[67/72] Linking CXX executable TestMetalWcaDispersionForce
+[68/72] Linking CXX executable TestMetalRpmd
+[69/72] Linking CXX executable TestMetalDrudeForce
+[70/72] Linking CXX executable TestMetalDrudeLangevinIntegrator
+[71/72] Linking CXX executable TestMetalDrudeNoseHoover
+[72/72] Linking CXX executable TestMetalDrudeSCFIntegrator

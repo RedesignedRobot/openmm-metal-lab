@@ -1,0 +1,47 @@
+Waiting for the M2 7484d7bef forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-bc5d1b6ff3d14a3ba115713107294f69/src: 7484d7bef401f813dc871c1e156578954606d4ea-minimizer-only, 2517 working-tree blobs verified
+M2 pid=24803 log=~/lab/ultra-m2.noindex/uploads/bc5d1b6ff3d14a3ba115713107294f69/run.log
+20:30:30Z memory free 62%, 0 other build processes, load { 1.34 1.29 1.38 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-m29-mixed-minimizer-source-b60e2c40f9/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-m29-mixed-minimizer-source-b60e2c40f9/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-m29-mixed-minimizer-source-b60e2c40f9/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-m29-mixed-minimizer-source-b60e2c40f9 PASS, 18 s
+pme            23558    single  2.048e-05  3.920e-01  1.452e-06  ok
+pme            23558     mixed  2.048e-05  3.920e-01  1.330e-06  ok
+apoa1rf        92224    single  5.987e-05  1.327e+00  1.180e-07  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.197e-01  8.073e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.013e-06  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06  ok
+forces gate cand-m29-mixed-minimizer-source-b60e2c40f9 PASS, 18 s
+A/B 2271 s
+M2 check 20260926T203122Z-7484d7bef, base 7484d7bef401
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-m29-mixed-minimizer-source-b60e2c40f9: 7484d7bef401 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     453.97     453.74  0.999  0.997..1.002       68       68     -0   -0.0       91       91  
+gbsa               mixed      374.47     374.01  0.999  0.998..1.000       70       71     +0   +0.5       95       95  
+rf                 single     292.54     292.92  1.001  1.001..1.002      119      119     +0   +0.3      137      137  
+rf                 mixed      231.34     231.56  1.001  1.001..1.001      123      122     -1   -1.0      143      142  
+pme                single     239.26     238.82  0.998  0.998..0.999      125      123     -2   -1.3      141      139  
+pme                mixed      195.77     195.95  1.001  1.000..1.001      127      127     -0   -0.0      145      145  
+apoa1rf            single      78.59      78.41  0.998  0.997..0.998      297      302     +5   +1.7      342      347  
+apoa1rf            mixed       63.62      63.79  1.003  1.000..1.006      298      298     -0   -0.1      341      343  
+apoa1pme           single      59.72      59.77  1.001  1.001..1.001      296      302     +6   +1.9      341      347  
+apoa1pme           mixed       50.76      50.71  0.999  0.997..1.001      298      304     +6   +2.0      349      354  
+apoa1ljpme         single      44.77      44.77  1.000  1.000..1.000      303      302     -1   -0.2      348      348  
+apoa1ljpme         mixed       39.68      39.54  0.996  0.995..0.998      306      296    -10   -3.2      356      350  
+amber20-dhfr       single     247.55     248.22  1.003  1.001..1.004      137      135     -2   -1.5      152      150  
+amber20-dhfr       mixed      202.35     201.75  0.997  0.992..1.002      147      145     -2   -1.4      160      158  
+amber20-cellulose  single      13.28      13.29  1.000  1.000..1.001     1500     1500     -0   -0.0     1519     1528  
+amber20-cellulose  mixed       11.47      11.45  0.999  0.998..0.999     1500     1500     +0   +0.0     1527     1523  
+
+1-minute load before 72 runs: 0.66 to 3.37; memory free 59% to 66%
+Spotlight CPU before 72 runs: 0% to 2%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-m29-mixed-minimizer-source-b60e2c40f9 7484d7bef401 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 2290 s; tests=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260926T203122Z-7484d7bef
+

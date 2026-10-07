@@ -1,0 +1,15 @@
+name Apple M4 Pro
+architecture applegpu_g16s
+hasUnifiedMemory 1 lowPower 0 removable 0 headless 0
+recommendedMaxWorkingSetSize 17.76 GiB
+maxBufferLength 13.32 GiB
+maxThreadgroupMemoryLength 32768
+maxThreadsPerThreadgroup 1024 x 1024 x 1024
+maxArgumentBufferSamplerCount 500000
+argumentBuffersSupport tier 2
+readWriteTextureSupport tier 2
+supportsRaytracing 1 supportsFunctionPointers 1 supportsDynamicLibraries 1 supports32BitFloatFiltering 1 supportsBCTextureCompression 1 supportsShaderBarycentricCoordinates 1
+sparseTileSizeInBytes 16384
+maxTransferRate 0
+families: Apple7=1 Apple8=1 Apple9=1 Apple10=0 Mac2=1 Metal3=1 Metal4=1
+threadExecutionWidth 32 maxTotalThreadsPerThreadgroup(fma) 1024

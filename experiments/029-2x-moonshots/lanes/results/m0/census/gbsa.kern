@@ -1,0 +1,35 @@
+steps by computeNonbonded: a 5718, b 7703
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+computeNonbonded                                  42.27      57.43   -15.15    1.00    1.00
+integrateLangevinMiddleFused                      11.68       0.00    11.68    0.99    0.00
+sortShortList                                      0.00       6.83    -6.83    0.00    0.99
+computeGBSAForce1                                 38.39      32.39     6.00    1.00    1.00
+findBlockBounds                                    3.08       8.73    -5.65    1.00    0.99
+computeBornSum                                    32.38      28.07     4.31    1.00    1.00
+applyShakeToPositions                              0.00       4.10    -4.10    0.00    1.00
+applyShakeToVelocities                             0.00       3.15    -3.15    0.00    1.00
+reduceForces                                       0.00       2.97    -2.97    0.00    0.92
+clearFourBuffers                                   2.77       0.00     2.77    1.00    0.00
+integrateLangevinMiddlePart1                       0.00       2.66    -2.66    0.00    1.00
+clearFiveBuffers                                   0.00       2.60    -2.60    0.00    1.00
+integrateLangevinMiddlePart3                       0.00       2.53    -2.53    0.00    1.00
+integrateLangevinMiddlePart2                       0.00       2.37    -2.37    0.00    1.00
+computeBondedForces                               26.90      24.70     2.20    1.00    1.00
+sortShortList2                                     1.69       0.00     1.69    0.99    0.00
+computeSortKeys                                    0.54       1.29    -0.75    0.39    0.87
+findBlocksWithInteractions                         5.11       5.79    -0.68    1.00    0.48
+calcCenterOfMassMomentum                           2.89       2.34     0.55    1.00    1.00
+reduceBornForce                                    4.37       3.86     0.50    1.00    1.00
+CopyInts                                           0.00       0.44    -0.44    0.00    0.32
+copyShortList                                      0.41       0.00     0.41    0.30    0.00
+reduceBornSum                                      2.79       2.53     0.26    1.00    1.00
+sortBoxData                                        2.27       2.09     0.19    1.00    1.00
+copyInteractionCounts                              0.08       0.00     0.08    0.06    0.00
+generateRandomNumbers                              1.03       1.05    -0.02    0.25    0.25
+removeCenterOfMassMomentum                         3.20       3.21    -0.02    1.00    1.00
+reduceEnergy                                       0.01       0.00     0.00    0.00    0.00
+computeKineticEnergy                               0.00       0.00    -0.00    0.00    0.00
+computeParameters                                  0.00       0.00     0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00    -0.00    0.00    0.00
+reduceReal4Buffer                                  0.00       0.00    -0.00    0.00    0.00
+total                                            181.87     201.15   -19.28

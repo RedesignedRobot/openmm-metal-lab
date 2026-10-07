@@ -1,0 +1,19 @@
+triggering capture of 12 CommandBuffers from 40086 @ 0                                 
+     disable unused resources  no
+  disable backtrace recording  no
+capture progress
+0 / 12 MTLCommandBuffer
+0 / 0 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+0 / 12 MTLCommandBuffer
+0 / 0 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+5 / 12 MTLCommandBuffer
+0 / 43 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+12 / 12 MTLCommandBuffer
+203 / 203 MTLResources
+331 / 331 Downloaded GPU Data (MiB)
+capture finished
+capture took 0.1 seconds
+~/code/metal/lab/experiments/029-2x-moonshots/lanes/results/r3-nb16/counters/r3-nb16-compact.gputrace

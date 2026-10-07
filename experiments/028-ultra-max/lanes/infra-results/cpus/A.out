@@ -1,0 +1,5 @@
+estimate: 1 rounds, 1 tests, 3 configurations, about 0 min 42 s
+cpu CPU mixed settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+cpu4 CPU mixed settings=OPENMM_CPU_THREADS=4 /fake/openmm/__init__.py fakerev not a build.sh tree
+metal Metal single settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+done /tmp/openmm-metal-bench/ultra-infra/cpus/A

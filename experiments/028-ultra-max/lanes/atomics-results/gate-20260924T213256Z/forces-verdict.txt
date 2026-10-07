@@ -1,0 +1,40 @@
+21:32:56Z waiting for the lease: 27 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:38:01Z waiting for the lease: 27 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:43:06Z waiting for the lease: 27 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:48:11Z waiting for the lease: 25 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:53:16Z waiting for the lease: 25 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:58:21Z waiting for the lease: 11 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:03:25Z waiting for the lease: 11 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:08:30Z waiting for the lease: 11 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:13:34Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:18:38Z waiting for the lease: 8 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 3 build processes
+22:23:42Z waiting for the lease: 7 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:28:46Z waiting for the lease: 7 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:33:50Z waiting for the lease: 7 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:38:54Z waiting for the lease: 6 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:43:58Z waiting for the lease: 6 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:49:02Z waiting for the lease: 6 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:54:06Z waiting for the lease: 5 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 8 build processes
+22:59:11Z waiting for the lease: 3 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 13 build processes
+23:04:15Z waiting for the lease: 3 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:09:20Z waiting for the lease: 2 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:14:25Z waiting for the lease: 1 in the queue, held by: atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.567e-02  5.554e-07  ok
+gbsa            2489     mixed  2.468e-05  8.567e-02  6.124e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.010e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  1.237e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  6.529e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.200e-01  5.692e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.201e-01  5.874e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  5.719e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.879e-07  ok

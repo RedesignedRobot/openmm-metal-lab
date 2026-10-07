@@ -1,0 +1,19 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+amber20-cellulose          74.54         82.03         74.55         81.95         47.90
+
+rounds, base-m:
+  amber20-cellulose  74.50 74.54 74.54   spread 0.1%
+rounds, base-s:
+  amber20-cellulose  82.03 82.11 81.97   spread 0.2%
+rounds, cand-m:
+  amber20-cellulose  74.55 74.57 74.47   spread 0.1%
+rounds, cand-s:
+  amber20-cellulose  81.92 81.95 82.00   spread 0.1%
+rounds, cl-s:
+  amber20-cellulose  47.92 47.90 47.77   spread 0.3%
+
+1 minute load before 15 runs: 0.79 to 4.81
+Background VM CPU before 15 runs: 3% to 24%
+runs with no result: 0
+runs that overlapped a build: 0

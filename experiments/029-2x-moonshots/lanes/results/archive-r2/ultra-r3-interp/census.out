@@ -1,0 +1,25 @@
+14:04:36Z waiting for the lease: 8 in the queue, held by: ultra-day-trial2 2026-09-28T13:52:31Z gate.sh /tmp/openmm-metal-bench/ultra-day-trial2, 0 build processes
+14:09:40Z waiting for the lease: 8 in the queue, held by: ultra-day-trial2 2026-09-28T13:52:31Z gate.sh /tmp/openmm-metal-bench/ultra-day-trial2, 0 build processes
+14:14:44Z waiting for the lease: 8 in the queue, held by: ultra-day-trial2 2026-09-28T13:52:31Z gate.sh /tmp/openmm-metal-bench/ultra-day-trial2, 0 build processes
+14:19:48Z waiting for the lease: 6 in the queue, held by: ultra-r3-gb-fp 2026-09-28T14:17:07Z ab.sh /tmp/openmm-metal-bench/ultra-r3-gb-fp/ab5, about 4 min, 0 build processes
+14:24:51Z waiting for the lease: 4 in the queue, held by: ultra-r2-accum-nb 2026-09-28T14:22:42Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/irl/ab-apoa1pme-single, about 6 min, 0 build processes
+14:30:11Z waiting for the lease: 1 in the queue, held by: r3-gb 2026-09-28T14:29:33Z check9.sh , 0 build processes
+mixed-apoa1pme: xctrace pid 39022 recording 14:31:22Z
+captured mixed-apoa1pme 14:31:36Z: Target app exited, ending recording...
+14:32:36Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (shader census apoa1pme mixed/single/OpenCL on ultra-day-trial, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved mixed-apoa1pme 14:32:38Z: Output file saved as: mixed-apoa1pme.trace
+exported mixed-apoa1pme 14:32:44Z, rows 100875, releasing
+xctemp: removing 1 xctrace leftovers, 467276 KB
+single-apoa1pme: xctrace pid 46140 recording 14:32:45Z
+captured single-apoa1pme 14:32:55Z: Target app exited, ending recording...
+14:33:51Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (shader census apoa1pme mixed/single/OpenCL on ultra-day-trial, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved single-apoa1pme 14:34:05Z: Output file saved as: single-apoa1pme.trace
+exported single-apoa1pme 14:34:11Z, rows 122164, releasing
+xctemp: removing 1 xctrace leftovers, 489104 KB
+ocl-apoa1pme: xctrace pid 50490 recording 14:34:13Z
+captured ocl-apoa1pme 14:34:23Z: Target app exited, ending recording...
+saved ocl-apoa1pme 14:35:11Z: Output file saved as: ocl-apoa1pme.trace
+exported ocl-apoa1pme 14:35:17Z, rows 96655, releasing
+xctemp: removing 1 xctrace leftovers, 372964 KB
+census done 14:35:17Z
+2026-09-28T14:35:17Z build-policy promote pid=55909 tree=/tmp/openmm-metal-bench/ultra-r2-mixed-l2 taskpolicy_exit=0

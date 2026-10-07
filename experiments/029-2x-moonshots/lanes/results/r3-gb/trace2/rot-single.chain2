@@ -1,0 +1,19 @@
+2746 anchors (computeBornSumOwned)
+kernel                              frac   start     end  sampled   phase
+generateRandomNumbers               0.17   -38.6   -35.3      3.3     5.4
+integrateLangevinMiddleFused        0.89   -33.2   -22.3     10.4    12.7
+calcCenterOfMassMomentum            0.92   -20.5   -18.3      1.5     4.2
+removeCenterOfMassMomentum          0.92   -16.3   -13.8      1.9     4.4
+clearFourBuffers                    0.92   -11.9    -9.9      2.0     3.9
+findBlockBounds                     0.92    -8.0    -5.9      2.1     2.4
+copyInteractionCounts               0.00    -5.6    -4.1      1.5     1.1
+prepareRebuildDispatch              0.64    -4.5    -3.0      1.5     4.5
+computeBornSumOwned                 1.00     0.0    19.2     19.2    28.2
+reduceBornSumOwned                  1.00    28.2    34.2      5.9     7.7
+computeGBSAForce1Owned              1.00    36.0    52.8     16.4    28.3
+reduceBornForceOwned                1.00    64.3    71.8      7.5     9.9
+computeNonbonded                    1.00    74.2   117.2     42.6     0.3
+computeBondedForces                 1.00    74.5   110.5     35.6    42.8
+reduceEnergy                        0.00   117.3   123.3      6.0    47.7
+sortBoxData                         0.06   165.0   166.7      1.5     4.2
+findBlocksWithInteractions          0.07   169.2   210.8     41.7     nan

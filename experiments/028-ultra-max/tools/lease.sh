@@ -12,19 +12,26 @@
 # cc1plus) runs says BUILD RUNNING in the owner line. --correctness marks work whose result doesn't
 # depend on timing (forces, ctest, drift); gate.sh uses it. Never use it for a timing or a profile.
 # Correctness holds share the GPU: when the ticket at the head is --correctness and the lease is a
-# correctness hold with fewer than 6 members, it joins that hold. A timing ticket waits for an empty
-# lease, and nothing behind it joins, so timings stay exclusive and FIFO order holds. The lease is
-# released when its last member ends; /tmp/openmm-lease/members lists them.
+# correctness hold with fewer than 6 members that started under 30 minutes ago, it joins that hold. A
+# timing ticket waits for an empty lease, and nothing behind it joins, so timings stay exclusive and
+# FIFO order holds. The lease is released when its last member ends; /tmp/openmm-lease/members lists them.
 # During a correctness burst (/tmp/openmm-burst exists; the lead or infra creates and removes it), any
-# queued --correctness ticket joins a correctness hold with room, even behind a timing ticket. Timing
-# tickets then wait until the burst file is gone and the hold empties.
+# queued --correctness ticket joins a correctness hold with room, even behind a timing ticket. The
+# 30 minute bound still applies, so a hold stops taking members, drains, and the head (a timing ticket
+# or the window) goes next.
 # Lead and infra only, never lanes: LEASE_TICKET_US=<16 digits> dates the ticket instead of the clock,
 # so a restarted job keeps its original place (and window.sh goes next), and --cap SECONDS replaces the
 # 20 minute cap (window.sh's hold).
+# Two queue classes (RULES.md, GPU scheduling): --merge-path tickets go first, FIFO among themselves,
+# then every other ticket, FIFO. A merge-path ticket's time has a leading 0, so it sorts ahead of every
+# other ticket in the queue and waiters of any version see it first; it never preempts a running hold.
+# --merge-path needs --correctness, never --quick, and a command that names ultra-integrated (its gates
+# and checks) or gate.sh on a candidate dir listed in ultra-tools/merge-queue.txt (one path per line;
+# the lead edits it). Anything else is refused.
 # A timing hold carries only timing (RULES.md). When the GPU of an outer timing hold (not nested, not
 # the window) reads under 10% for 60 s straight, lease.sh writes one line to the holder's stderr and to
 # /tmp/openmm-lease-idle.log, and warns again after the GPU has been busy.
-# usage: lease.sh [--correctness] [--cap SECONDS] <lane> <what> <command...>
+# usage: lease.sh [--correctness [--merge-path]] [--cap SECONDS] <lane> <what> <command...>
 #        lease.sh --status
 set -eu
 export LC_ALL=C
@@ -33,7 +40,10 @@ QUEUE=/tmp/openmm-lease-queue
 CAP_SECONDS=1200
 HAND_LEASE_MAX_SECONDS=$((CAP_SECONDS + 60))
 MAX_MEMBERS=6
+JOIN_MAX_SECONDS=1800
 BURST=/tmp/openmm-burst
+MERGE_QUEUE=/tmp/openmm-metal-bench/ultra-tools/merge-queue.txt
+INTEGRATED=/tmp/openmm-metal-bench/ultra-integrated
 BUILDS='clang|clang\+\+|ninja|cc1plus'
 TICKET='[0-9]+-[A-Za-z0-9_.-]+-[0-9]+'
 IDLE_LOG=/tmp/openmm-lease-idle.log
@@ -118,14 +128,17 @@ clear_dead_lease() {
     rm -rf "$LEASE"
 }
 
-# A correctness hold takes the head's correctness job while it has fewer than MAX_MEMBERS members.
+# A correctness hold takes a correctness job while it has fewer than MAX_MEMBERS members and started
+# under JOIN_MAX_SECONDS ago (the primary creates $LEASE/correctness when it takes the lease).
 can_join() {
     [ -f "$LEASE/correctness" ] || return 1
     members=0
     for m in "$LEASE/members"/*; do
         [ -e "$m" ] && members=$((members+1))
     done
-    [ $members -ge 1 ] && [ $members -lt $MAX_MEMBERS ]
+    [ $members -ge 1 ] && [ $members -lt $MAX_MEMBERS ] || return 1
+    started=$(stat -f %m "$LEASE/correctness" 2>/dev/null) || return 1
+    [ $(( $(date +%s) - started )) -lt $JOIN_MAX_SECONDS ]
 }
 
 # Warns once per stretch of IDLE_WARN_SECONDS with the GPU under IDLE_BELOW_PERCENT, the same
@@ -160,7 +173,12 @@ leave() {
 if [ "${1:-}" = --status ]; then
     if [ -d "$LEASE" ]; then
         echo "holder: $(cat "$LEASE/owner" 2>/dev/null), pid $(cat "$LEASE/pid" 2>/dev/null || echo "none (taken by hand)"), held $(( $(date +%s) - $(stat -f %m "$LEASE") )) s"
-        [ -f "$LEASE/correctness" ] && echo "shared correctness hold, members:"
+        if [ -f "$LEASE/correctness" ]; then
+            age=$(( $(date +%s) - $(stat -f %m "$LEASE/correctness") ))
+            state="open to new members for $((JOIN_MAX_SECONDS - age)) s"
+            [ $age -ge $JOIN_MAX_SECONDS ] && state="closed to new members (over $JOIN_MAX_SECONDS s), draining"
+            echo "shared correctness hold, started $age s ago, $state; members:"
+        fi
         for m in "$LEASE/members"/*; do
             [ -f "$m" ] && [ -f "$LEASE/correctness" ] && echo "  pid ${m##*/}: $(cat "$m" 2>/dev/null)"
         done
@@ -176,24 +194,29 @@ if [ "${1:-}" = --status ]; then
         [ -e "$path" ] || continue
         ticket="${path##*/}"
         is_ticket "$ticket" || { ignored=$((ignored+1)); continue; }
-        state="waiting $(( (now - ${ticket%%-*}) / 1000000 )) s"
+        head="${ticket%%-*}"
+        class=normal
+        [ ${#head} = 17 ] && class=merge-path
+        state="waiting $(( (now - ${head#0}) / 1000000 )) s"
         is_lease_pid "${ticket##*-}" || state="dead, skipped and removed when it reaches the front"
-        echo "  $ticket  $state"
+        echo "  $ticket  $class  $state"
     done
     [ $ignored = 0 ] || echo "ignored: $ignored files in $QUEUE whose names aren't tickets"
     exit 0
 fi
 timing=1
+merge_path=0
 cap=$CAP_SECONDS
 while :; do
     case "${1:-}" in
     --correctness) timing=0; shift ;;
+    --merge-path) merge_path=1; shift ;;
     --cap) cap="${2:-}"; shift 2 ;;
     *) break ;;
     esac
 done
 case "$cap" in ''|*[!0-9]*|0) echo "--cap takes a number of seconds" >&2; exit 2 ;; esac
-[ $# -ge 3 ] || { echo "usage: lease.sh [--correctness] [--cap SECONDS] <lane> <what> <command...> | lease.sh --status" >&2; exit 2; }
+[ $# -ge 3 ] || { echo "usage: lease.sh [--correctness [--merge-path]] [--cap SECONDS] <lane> <what> <command...> | lease.sh --status" >&2; exit 2; }
 lane="$(printf '%s' "$1" | tr -c 'A-Za-z0-9_.-' _)"
 [ -n "$lane" ] || { echo "the lane is empty" >&2; exit 2; }
 what="$2"
@@ -205,6 +228,28 @@ owner_line() {
     echo "$lane $(date -u +%Y-%m-%dT%H:%M:%SZ) $what$build_note"
 }
 
+# True for a command that names ultra-integrated, or that runs gate.sh on a dir in the merge queue; never --quick.
+merge_path_allowed() {
+    gate=0
+    integrated=0
+    queued=0
+    for arg in "$@"; do
+        arg="${arg%/}"
+        case "$arg" in
+        --quick) return 1 ;;
+        gate.sh|*/gate.sh) gate=1 ;;
+        "$INTEGRATED"|"$INTEGRATED"/*) integrated=1 ;;
+        esac
+        [ -n "$arg" ] && [ -f "$MERGE_QUEUE" ] \
+            && sed -e 's/[[:space:]]*$//' -e 's#/*$##' "$MERGE_QUEUE" | grep -qxF -- "$arg" && queued=1
+    done
+    [ $integrated = 1 ] || { [ $gate = 1 ] && [ $queued = 1 ]; }
+}
+if [ $merge_path = 1 ]; then
+    [ $timing = 0 ] || { echo "lease.sh: --merge-path is for --correctness work only; timings are never merge-path" >&2; exit 2; }
+    merge_path_allowed "$@" || { echo "lease.sh: --merge-path is only for full gates and checks on $INTEGRATED, or the full gate (gate.sh, no --quick) of a candidate dir listed in $MERGE_QUEUE" >&2; exit 2; }
+fi
+
 case "${LEASE_TICKET_US:-}" in
 '') ticket_us="$(now_us)" ;;
 *[!0-9]*) echo "LEASE_TICKET_US must be 16 digits" >&2; exit 2 ;;
@@ -214,6 +259,7 @@ esac
 unset LEASE_TICKET_US
 mkdir -p "$QUEUE"
 ticket="$ticket_us-$lane-$$"
+[ $merge_path = 0 ] || ticket="0$ticket"
 touch "$QUEUE/$ticket"
 trap 'rm -f "$QUEUE/$ticket"' EXIT
 trap 'exit 1' INT TERM HUP

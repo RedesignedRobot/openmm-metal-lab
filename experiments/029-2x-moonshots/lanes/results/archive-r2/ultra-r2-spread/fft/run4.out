@@ -1,0 +1,11 @@
+19:45:57Z waiting for the lease: 1 in the queue, held by: r2-spread 2026-09-27T19:45:25Z pmefft md100, detforces and PME ctests, 0 build processes
+device Apple M3 Ultra grid 55x55x55 reps 30
+vkfft+conv     median    39.13 us  p10    38.91  p90    71.91  relL2 vs double 2.376e-07
+vkfft only     median    33.65 us  p10    33.57  p90    33.91  relL2 vs double 2.793e+03
+fused t1024    median    30.50 us  p10    30.43  p90    31.45  relL2 vs double 2.080e-07
+k1 only t1024  median     9.13 us  p10     9.11  p90     9.41  relL2 vs double 9.994e-01
+device Apple M3 Ultra grid 56x56x56 reps 30
+vkfft+conv     median    43.32 us  p10    41.78  p90    47.44  relL2 vs double 2.322e-07
+vkfft only     median    36.99 us  p10    36.79  p90    39.55  relL2 vs double 2.397e+03
+fused t1024    median    23.81 us  p10    22.46  p90    23.91  relL2 vs double 1.674e-07
+k1 only t1024  median     7.02 us  p10     6.99  p90     7.43  relL2 vs double 9.995e-01

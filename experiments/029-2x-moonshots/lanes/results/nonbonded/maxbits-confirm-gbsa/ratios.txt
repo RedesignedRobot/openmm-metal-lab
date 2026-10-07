@@ -1,0 +1,19 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+gbsa                     1236.82       1604.09       1236.36       1603.03       1165.37
+
+rounds, base-m:
+  gbsa               1234.36 1240.69 1236.82   spread 0.5%
+rounds, base-s:
+  gbsa               1604.09 1602.51 1607.99   spread 0.3%
+rounds, cand-m:
+  gbsa               1233.37 1236.36 1236.46   spread 0.3%
+rounds, cand-s:
+  gbsa               1601.22 1603.03 1613.04   spread 0.7%
+rounds, cl-s:
+  gbsa               1165.37 1164.53 1177.40   spread 1.1%
+
+1 minute load before 15 runs: 3.53 to 5.56
+Background VM CPU before 15 runs: 5% to 25%
+runs with no result: 0
+runs that overlapped a build: 0

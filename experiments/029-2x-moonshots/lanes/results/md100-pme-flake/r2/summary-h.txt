@@ -1,0 +1,32 @@
+09:16:22Z waiting for the lease: 21 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:21:29Z waiting for the lease: 20 in the queue, held by: ultra-r2-dispatch 2026-09-27T09:21:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-pme, about 7 min, 0 build processes
+09:26:33Z waiting for the lease: 20 in the queue, held by: ultra-r2-dispatch 2026-09-27T09:21:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-pme, about 7 min, 0 build processes
+09:31:47Z waiting for the lease: 18 in the queue, held by: ultra-profiler 2026-09-27T09:30:05Z sampled shader timeline mine-cell, 4 build processes
+09:36:51Z waiting for the lease: 17 in the queue, held by: ultra-r2-correctness 2026-09-27T09:33:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1b, about 7 min, 0 build processes
+09:41:55Z waiting for the lease: 16 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:46:59Z waiting for the lease: 16 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:52:03Z waiting for the lease: 14 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:57:06Z waiting for the lease: 13 in the queue, held by: ultra-profiler 2026-09-27T09:57:02Z sampled shader timeline q-k6-single, 0 build processes
+10:02:10Z waiting for the lease: 11 in the queue, held by: r2-mixed 2026-09-27T09:58:55Z fused kernel additive diags, 0 build processes
+10:07:14Z waiting for the lease: 10 in the queue, held by: ultra-r2-mixed 2026-09-27T10:04:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a2, about 7 min, 0 build processes
+10:12:18Z waiting for the lease: 9 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:17:22Z waiting for the lease: 9 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:22:26Z waiting for the lease: 8 in the queue, held by: r2-mixed 2026-09-27T10:19:20Z inline conversion diag traces, 0 build processes
+10:27:30Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T10:26:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-rf, about 6 min, 0 build processes
+10:32:34Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T10:26:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-rf, about 6 min, 0 build processes
+10:37:37Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T10:33:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe1, about 10 min, 0 build processes
+10:42:41Z waiting for the lease: 4 in the queue, held by: ultra-r2-accum-gb 2026-09-27T10:42:32Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s3, about 4 min, 0 build processes
+10:45:44Z base run 1 exit=0 
+10:46:09Z int028 run 1 exit=0 
+10:46:34Z r1 run 1 exit=0 
+10:47:00Z int028 run 2 exit=0 
+10:47:26Z r1 run 2 exit=0 
+10:47:52Z int028 run 3 exit=0 
+10:48:17Z r1 run 3 exit=0 
+10:48:42Z int028 run 4 exit=0 
+10:49:08Z r1 run 4 exit=0 
+10:49:33Z int028 run 5 exit=0 
+10:49:58Z r1 run 5 exit=0 
+10:50:24Z int028 run 6 exit=0 
+10:50:49Z r1 run 6 exit=0 
+ALL-DONE

@@ -1,0 +1,16 @@
+2026-09-25T03:22:11Z round 1 pme g2s load { 2.39 2.64 5.51 } vm 102% top corespotlightd 148.4%, com.apple.Virtualization.VirtualMachine 101.7%, superwhisper 12.9%, sysmond 4.5%, PerfPowerServices 1.2%
+2026-09-25T03:22:28Z round 1 pme fuseds load { 3.32 2.84 5.51 } vm 22% top superwhisper 18.5%, com.apple.Virtualization.VirtualMachine 14.0%, sysmond 4.7%,  claude 2.1%, iStat Menus Menubar 1.5%
+2026-09-25T03:22:45Z round 1 pme g2m load { 3.16 2.83 5.46 } vm 8% top superwhisper 23.1%, com.apple.Virtualization.VirtualMachine 7.5%, sysmond 2.8%,  claude 2.3%, iStat Menus Menubar 1.3%
+2026-09-25T03:23:05Z round 1 pme fusedm load { 3.43 2.91 5.43 } vm 5% top superwhisper 23.8%, powermetrics 6.8%, sysmond 5.9%, com.apple.Virtualization.VirtualMachine 4.8%,  claude 3.9%
+2026-09-25T03:23:26Z round 1 apoa1pme g2s load { 3.28 2.91 5.37 } vm 5% top superwhisper 22.6%, powermetrics 11.8%, com.apple.Virtualization.VirtualMachine 5.4%,  claude 2.0%, chrome-headless-shell 1.4%
+2026-09-25T03:23:45Z round 1 apoa1pme fuseds load { 2.62 2.79 5.27 } vm 4% top node 45.3%, bun 45.1%, superwhisper 21.9%, photolibraryd 13.5%, sysmond 5.6%
+2026-09-25T03:24:04Z round 1 apoa1pme g2m load { 2.58 2.77 5.20 } vm 12% top superwhisper 21.1%, com.apple.Virtualization.VirtualMachine 12.5%, sysmond 7.5%,  claude 1.0%, WindowServer 0.8%
+2026-09-25T03:24:25Z round 1 apoa1pme fusedm load { 2.42 2.72 5.12 } vm 5% top superwhisper 22.2%, IntelligencePlatformComputeService 14.6%, usernoted 8.1%, BiomeAgent 7.2%, coreduetd 6.6%
+2026-09-25T03:24:47Z round 2 pme fusedm load { 2.75 2.77 5.09 } vm 7% top superwhisper 23.3%, powermetrics 10.1%, sysmond 7.3%,  claude 6.8%, WindowServer 6.8%
+2026-09-25T03:25:03Z round 2 pme g2m load { 2.62 2.73 5.02 } vm 15% top superwhisper 20.1%, com.apple.Virtualization.VirtualMachine 15.1%, powermetrics 12.7%,  claude 5.4%, sysmond 2.7%
+2026-09-25T03:25:20Z round 2 pme fuseds load { 2.64 2.73 4.98 } vm 7% top superwhisper 20.0%, powermetrics 12.3%, sysmond 7.6%, com.apple.Virtualization.VirtualMachine 7.2%, bun 5.4%
+2026-09-25T03:25:37Z round 2 pme g2s load { 2.94 2.79 4.96 } vm 10% top superwhisper 20.0%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 9.9%, sysmond 7.5%, WindowServer 4.1%
+2026-09-25T03:25:53Z round 2 apoa1pme fusedm load { 2.71 2.75 4.90 } vm 10% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 10.0%, powermetrics 7.4%, iStat Menus Menubar 6.2%,  claude 4.0%
+2026-09-25T03:26:12Z round 2 apoa1pme g2m load { 2.79 2.77 4.85 } vm 6% top superwhisper 22.6%, com.apple.Virtualization.VirtualMachine 5.6%, WindowServer 4.5%, sysmond 4.4%, iStat Menus Menubar 3.0%
+2026-09-25T03:26:31Z round 2 apoa1pme fuseds load { 3.12 2.84 4.84 } vm 11% top launchd 40.9%, superwhisper 23.7%, com.apple.Virtualization.VirtualMachine 10.9%,  claude 3.4%, sysmond 1.8%
+2026-09-25T03:26:49Z round 2 apoa1pme g2s load { 2.87 2.80 4.78 } vm 6% top superwhisper 23.0%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 1.9%,  claude 1.5%, sh 1.2%

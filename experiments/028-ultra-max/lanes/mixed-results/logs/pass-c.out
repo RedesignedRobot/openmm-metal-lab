@@ -1,0 +1,25 @@
+20:44:06Z waiting for the lease: 16 in the queue, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 26 build processes
+20:49:11Z waiting for the lease: 15 in the queue, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 1 build processes
+20:54:15Z waiting for the lease: 15 in the queue, held by: ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv, 0 build processes
+20:59:19Z waiting for the lease: 15 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:04:23Z waiting for the lease: 15 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:09:27Z waiting for the lease: 14 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:14:31Z waiting for the lease: 14 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:19:35Z waiting for the lease: 14 in the queue, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453, 13 build processes
+21:24:39Z waiting for the lease: 14 in the queue, held by: atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 0 build processes
+21:29:43Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 13 build processes
+21:34:48Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:39:53Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:44:57Z waiting for the lease: 14 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 12 build processes
+21:50:02Z waiting for the lease: 14 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:55:06Z waiting for the lease: 14 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+22:00:14Z waiting for the lease: 2 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:05:18Z waiting for the lease: 2 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:10:22Z waiting for the lease: 2 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:11:57Z pass 3 start
+22:19:19Z parallel part done
+
+100% tests passed out of 2
+
+Total Test time (real) = 127.49 sec
+22:21:26Z pass 3 done

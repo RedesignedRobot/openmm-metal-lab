@@ -1,0 +1,19 @@
+20:31:35Z waiting for the lease: 1 in the queue, held by: ultra-profiler 2026-09-27T20:30:42Z sampled shader timeline par-amber20-cellulose BUILD RUNNING, 4 build processes
+Test project /tmp/openmm-metal-bench/ultra-r3-duallist/build
+    Start 264: TestMetalDualNeighborListSingle
+1/2 Test #264: TestMetalDualNeighborListSingle ...***Failed    1.33 sec
+exception: Assertion failure at TestMetalDualNeighborList.cpp:73.  Expected 1, found 0
+
+    Start 265: TestMetalDualNeighborListMixed
+2/2 Test #265: TestMetalDualNeighborListMixed ....***Failed    3.23 sec
+exception: Assertion failure at TestMetalDualNeighborList.cpp:73.  Expected 1, found 0
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   4.57 sec
+
+The following tests FAILED:
+	264 - TestMetalDualNeighborListSingle (Failed)
+	265 - TestMetalDualNeighborListMixed (Failed)
+Errors while running CTest

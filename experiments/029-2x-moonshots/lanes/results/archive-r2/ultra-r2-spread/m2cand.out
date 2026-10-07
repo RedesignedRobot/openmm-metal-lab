@@ -1,0 +1,47 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-39843df12aa54a119200ce0ca07ca857/src: 8e69d88643bf8dcd59a8a54f80de1f95b2bb30ba, 2517 working-tree blobs verified
+M2 pid=83083 log=~/lab/ultra-m2.noindex/uploads/39843df12aa54a119200ce0ca07ca857/run.log
+19:03:19Z memory free 67%, 0 other build processes, load { 1.27 1.36 1.33 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-r2-spread-da88be2bf5 PASS, 30 s
+  loads ~/lab/ultra-m2.noindex/base/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/base/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/base/prefix/lib/plugins/libOpenMMMetal.dylib
+cand-r2-spread-da88be2bf5 ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5: commit 8e69d88643bf8dcd59a8a54f80de1f95b2bb30ba src 9158ddb9bd1de1226592bfff5f33ef96811a7d65 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-27T19:04:15Z steps venv 7s, configure 2s, ninja -j4 23s (1429 edges), install+python 26s 
+  loads ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-spread-da88be2bf5/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.584e-02  4.792e-07  ok
+gbsa            2489     mixed  2.467e-05  8.584e-02  6.194e-07  ok
+rf             23558    single  2.213e-05  7.342e-01  2.337e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.216e-07  ok
+pme            23558    single  2.048e-05  3.920e-01  1.452e-06  ok
+pme            23558     mixed  2.048e-05  3.920e-01  1.330e-06  ok
+apoa1rf        92224    single  5.987e-05  1.327e+00  8.873e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.197e-01  7.614e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  9.901e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06  ok
+forces gate cand-r2-spread-da88be2bf5 PASS, 30 s
+A/B 605 s
+M2 check 20260927T190416Z-8e69d8864, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r2-spread-da88be2bf5: 8e69d88643bf against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+pme                single     238.87     238.75  0.999  0.999..1.000      124      124     +0   +0.4      140      140  
+pme                mixed      196.30     196.41  1.001  0.999..1.002      129      128     -1   -0.8      147      146  
+apoa1pme           single      59.96      59.79  0.997  0.994..1.000      303      309     +7   +2.2      348      355  
+apoa1pme           mixed       50.53      50.84  1.006  1.003..1.009      296      310    +13   +4.6      352      357  
+apoa1ljpme         single      44.76      44.76  1.000  1.000..1.000      303      305     +2   +0.8      348      350  
+apoa1ljpme         mixed       39.41      39.58  1.004  1.003..1.006      305      301     -3   -1.1      355      354  
+amber20-dhfr       single     247.42     247.37  1.000  0.999..1.000      138      137     -1   -0.9      153      152  
+amber20-dhfr       mixed      201.33     201.65  1.002  1.001..1.002      146      147     +1   +0.5      159      160  
+
+1-minute load before 32 runs: 0.52 to 2.33; memory free 66% to 69%
+Spotlight CPU before 32 runs: 0% to 0%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r2-spread-da88be2bf5 8e69d88643bf PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 636 s; tests=pme,apoa1pme,apoa1ljpme,amber20-dhfr; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260927T190416Z-8e69d8864
+

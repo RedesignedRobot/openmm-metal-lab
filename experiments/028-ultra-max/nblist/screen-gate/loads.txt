@@ -1,0 +1,40 @@
+2026-09-25T02:29:27Z round 1 gbsa e342 load { 2.97 2.95 3.00 } vm 14% top superwhisper 22.1%, syspolicyd 14.6%, com.apple.Virtualization.VirtualMachine 13.7%, sysmond 4.3%,  claude 2.6%
+2026-09-25T02:29:43Z round 1 gbsa gate load { 2.60 2.87 2.97 } vm 5% top superwhisper 13.5%, sysmond 4.6%, com.apple.Virtualization.VirtualMachine 3.7%, powermetrics 3.5%, sh 1.3%
+2026-09-25T02:29:59Z round 1 gbsa ind load { 2.60 2.84 2.96 } vm 3% top superwhisper 12.9%, sysmond 5.5%, com.apple.Virtualization.VirtualMachine 3.3%, locationd 2.2%,  claude 1.6%
+2026-09-25T02:30:16Z round 1 rf e342 load { 2.76 2.87 2.97 } vm 7% top superwhisper 16.6%, com.apple.Virtualization.VirtualMachine 7.1%, sysmond 4.5%,  claude 2.4%, iStat Menus Menubar 2.3%
+2026-09-25T02:30:33Z round 1 rf gate load { 2.57 2.82 2.95 } vm 5% top superwhisper 21.3%, com.apple.Virtualization.VirtualMachine 4.9%, sysmond 2.8%,  claude 1.1%, sh 0.9%
+2026-09-25T02:30:49Z round 1 rf ind load { 2.18 2.72 2.91 } vm 14% top node 29.5%, superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 13.9%, powermetrics 12.0%, sysmond 4.7%
+2026-09-25T02:31:06Z round 1 pme e342 load { 2.16 2.68 2.89 } vm 10% top superwhisper 19.4%, com.apple.Virtualization.VirtualMachine 10.2%, sysmond 7.4%, WindowServer 1.3%, bun 1.2%
+2026-09-25T02:31:23Z round 1 pme gate load { 2.26 2.68 2.89 } vm 6% top superwhisper 21.9%, iStat Menus Menubar 6.4%, com.apple.Virtualization.VirtualMachine 5.8%, sysmond 5.0%, WindowServer 3.9%
+2026-09-25T02:31:39Z round 1 pme ind load { 2.35 2.67 2.88 } vm 16% top superwhisper 22.5%, com.apple.Virtualization.VirtualMachine 11.1%, sysmond 9.0%,  claude 1.0%, sh 0.9%
+2026-09-25T02:31:56Z round 1 apoa1rf e342 load { 2.68 2.73 2.90 } vm 1% top node 97.5%, superwhisper 17.8%, sysmond 9.1%, sh 2.4%, io.tailscale.ipn.macsys.network-extension 1.7%
+2026-09-25T02:32:15Z round 1 apoa1rf gate load { 2.79 2.75 2.90 } vm 8% top corespotlightd 106.4%, node 99.1%, backupd 75.9%, superwhisper 16.4%, com.apple.Virtualization.VirtualMachine 7.8%
+2026-09-25T02:32:34Z round 1 apoa1rf ind load { 4.06 3.04 3.00 } vm 10% top backupd 190.6%, spindump 97.6%, python 73.6%, chrome-headless-shell 18.1%, superwhisper 16.8%
+2026-09-25T02:32:53Z round 1 apoa1pme e342 load { 4.31 3.15 3.04 } vm 5% top superwhisper 23.5%,  gzip 14.8%, io.tailscale.ipn.macsys.network-extension 8.1%,  tar 8.1%, backupd 6.5%
+2026-09-25T02:33:12Z round 1 apoa1pme gate load { 4.23 3.21 3.06 } vm 3% top superwhisper 21.1%, bun 18.6%, powermetrics 12.8%, fseventsd 10.8%, node 8.1%
+2026-09-25T02:33:31Z round 1 apoa1pme gate BUILD RUNNING during the run
+2026-09-25T02:33:31Z round 1 apoa1pme ind load { 9.20 4.41 3.49 } BUILD RUNNING vm 12% top clang 100.0%,  (clang) 100.0%, clang 98.8%, clang 97.1%, clang 96.4%
+2026-09-25T02:33:51Z round 1 apoa1ljpme e342 load { 8.61 4.61 3.59 } BUILD RUNNING vm 7% top clang 100.0%, superwhisper 23.7%, com.apple.Virtualization.VirtualMachine 7.3%, backupd 6.2%,  claude 4.2%
+2026-09-25T02:34:10Z round 1 apoa1ljpme gate load { 9.25 5.00 3.75 } BUILD RUNNING vm 7% top clang 100.0%, clang 100.0%, node 90.1%,  (clang) 79.4%, clang 77.1%
+2026-09-25T02:34:29Z round 1 apoa1ljpme ind load { 13.87 6.31 4.25 } BUILD RUNNING vm 6% top clang 62.4%,  (ld) 25.1%,  (ld) 23.9%, superwhisper 15.2%, opendirectoryd 14.5%
+2026-09-25T02:34:48Z round 2 gbsa ind load { 11.71 6.20 4.24 } BUILD RUNNING vm 15% top clang 79.2%, io.tailscale.ipn.macsys.network-extension 23.8%, superwhisper 22.2%, com.apple.Virtualization.VirtualMachine 11.0%, sysmond 4.8%
+2026-09-25T02:35:05Z round 2 gbsa gate load { 9.49 6.05 4.24 } vm 5% top axassetsd 39.8%, chrome-headless-shell 34.9%, chrome-headless-shell 25.0%, superwhisper 21.3%, powermetrics 9.3%
+2026-09-25T02:35:21Z round 2 gbsa e342 load { 8.04 5.90 4.22 } vm 5% top superwhisper 23.3%, backupd 8.1%, sysmond 5.6%, com.apple.Virtualization.VirtualMachine 5.1%, SystemUIServer 1.6%
+2026-09-25T02:35:38Z round 2 gbsa e342 BUILD RUNNING during the run
+2026-09-25T02:35:38Z round 2 rf ind load { 7.51 5.89 4.24 } vm 8% top speechmaintenanced 41.2%, superwhisper 23.2%, com.apple.Virtualization.VirtualMachine 7.5%, WindowServer 2.4%,  claude 1.4%
+2026-09-25T02:35:54Z round 2 rf gate load { 6.11 5.67 4.20 } vm 11% top python 100.0%, superwhisper 22.5%, com.apple.Virtualization.VirtualMachine 11.2%,  claude 3.3%, powermetrics 1.9%
+2026-09-25T02:36:11Z round 2 rf e342 load { 5.37 5.53 4.17 } vm 9% top superwhisper 22.0%, com.apple.Virtualization.VirtualMachine 8.7%, powermetrics 4.8%, backupd 3.2%,  claude 2.8%
+2026-09-25T02:36:27Z round 2 pme ind load { 4.39 5.30 4.12 } vm 6% top superwhisper 24.5%, com.apple.Virtualization.VirtualMachine 6.1%,  claude 4.0%, iStat Menus Menubar 3.8%, backupd 3.8%
+2026-09-25T02:36:44Z round 2 pme gate load { 3.90 5.12 4.08 } vm 3% top backupd 278.5%, bun 25.4%, superwhisper 12.9%, sysmond 9.5%, com.apple.Virtualization.VirtualMachine 2.6%
+2026-09-25T02:37:00Z round 2 pme gate BUILD RUNNING during the run
+2026-09-25T02:37:01Z round 2 pme e342 load { 3.91 5.07 4.08 } BUILD RUNNING vm 7% top clang 87.0%, launchd 27.4%, superwhisper 19.3%, sysmond 9.7%, com.apple.Virtualization.VirtualMachine 7.4%
+2026-09-25T02:37:17Z round 2 apoa1rf ind load { 4.30 5.09 4.10 } vm 8% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 6.1%, sysmond 4.3%, iStat Menus Menubar 4.3%,  claude 4.1%
+2026-09-25T02:37:36Z round 2 apoa1rf gate load { 4.06 4.99 4.09 } vm 5% top superwhisper 20.5%, iStat Menus Menubar 5.0%, com.apple.Virtualization.VirtualMachine 4.9%, system_profiler 4.7%, fseventsd 4.7%
+2026-09-25T02:37:55Z round 2 apoa1rf e342 load { 3.30 4.75 4.02 } vm 6% top bun 31.6%, superwhisper 21.5%, com.apple.Virtualization.VirtualMachine 5.6%, sysmond 3.1%, sh 1.3%
+2026-09-25T02:38:13Z round 2 apoa1pme ind load { 2.96 4.60 3.98 } vm 4% top bun 18.8%, superwhisper 18.1%, sysmond 4.8%, com.apple.Virtualization.VirtualMachine 4.5%, sh 2.0%
+2026-09-25T02:38:32Z round 2 apoa1pme gate load { 2.48 4.38 3.91 } vm 4% top superwhisper 19.6%, powermetrics 7.6%, sysmond 5.6%, com.apple.Virtualization.VirtualMachine 4.0%,  claude 2.6%
+2026-09-25T02:38:51Z round 2 apoa1pme e342 load { 2.24 4.21 3.86 } vm 43% top  rsync 64.6%, com.apple.Virtualization.VirtualMachine 43.1%,  rsync 41.8%, fseventsd 28.9%, superwhisper 18.1%
+2026-09-25T02:39:09Z round 2 apoa1pme e342 BUILD RUNNING during the run
+2026-09-25T02:39:09Z round 2 apoa1ljpme ind load { 8.09 5.41 4.30 } BUILD RUNNING vm 8% top clang 100.0%, clang 98.5%, clang 94.8%, clang 93.5%, clang 89.4%
+2026-09-25T02:39:29Z round 2 apoa1ljpme gate load { 8.09 5.56 4.38 } BUILD RUNNING vm 10% top clang 100.0%, superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 11.2%, sysmond 4.6%,  claude 2.8%
+2026-09-25T02:39:47Z round 2 apoa1ljpme e342 load { 6.14 5.28 4.30 } vm 3% top node 106.1%, superwhisper 23.1%, node 14.0%, sysmond 4.9%,  claude 4.4%

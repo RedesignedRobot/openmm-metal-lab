@@ -1,0 +1,8 @@
+00:12:23Z waiting for the lease: 43 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+{"test": "amber20-dhfr", "precision": "mixed", "steps": 1, "out": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-t4-s1.npz", "openmm": "/tmp/openmm-metal-bench/ultra-mixed/t4/prefix/lib"}
+{"test": "amber20-dhfr", "precision": "mixed", "steps": 1, "out": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-f1-s1.npz", "openmm": "/tmp/openmm-metal-bench/ultra-mixed/f1/prefix/lib"}
+{"a": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-t4-s1.npz", "b": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-f1-s1.npz", "positions": {"identical": true, "atoms_differing": 0, "max_abs_diff": 0.0}, "velocities": {"identical": false, "atoms_differing": 4, "max_abs_diff": 4.440892098500626e-16}}
+{"test": "amber20-dhfr", "precision": "mixed", "steps": 10, "out": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-t4-s10.npz", "openmm": "/tmp/openmm-metal-bench/ultra-mixed/t4/prefix/lib"}
+{"test": "amber20-dhfr", "precision": "mixed", "steps": 10, "out": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-f1-s10.npz", "openmm": "/tmp/openmm-metal-bench/ultra-mixed/f1/prefix/lib"}
+{"a": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-t4-s10.npz", "b": "/tmp/openmm-metal-bench/ultra-mixed/f1-dumps/amber20-dhfr-mixed-f1-s10.npz", "positions": {"identical": false, "atoms_differing": 9, "max_abs_diff": 1.7763568394002505e-14}, "velocities": {"identical": false, "atoms_differing": 20, "max_abs_diff": 2.4840129952963252e-12}}
+F1 SHORT DONE 00:16:01Z

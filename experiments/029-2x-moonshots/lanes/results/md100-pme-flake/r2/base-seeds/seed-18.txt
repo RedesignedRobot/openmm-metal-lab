@@ -1,0 +1,34 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  1.877e-06  7.516e-03  5.148e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.87736346e-06 raw_max_force=0.00751626183
+gbsa            2489     mixed  1.322e-05  9.627e-02  5.207e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.32182892e-05 raw_max_force=0.0962688723
+rf             23558    single  1.100e-06  1.778e-02  2.732e-07
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=8.18081644e-06 raw_max_force=0.827600875
+# cutoff pair {'i': 21566, 'j': 21925, 'distance_minus_cutoff_nm': -1.5089624061381812e-07, 'pair_force_norm': 0.919793847804792}
+rf             23558     mixed  1.939e-05  3.212e-01  2.995e-07
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.52047205e-05 raw_max_force=1.2843899
+# cutoff pair {'i': 7286, 'j': 22469, 'distance_minus_cutoff_nm': -2.4690910704894264e-07, 'pair_force_norm': 1.8247120587147199}
+pme            23558    single  1.355e-06  1.691e-02  1.340e-06
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.35503613e-06 raw_max_force=0.016907349
+pme            23558     mixed  1.990e-05  3.521e-01  1.220e-06
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.98972882e-05 raw_max_force=0.352125842
+apoa1rf        92224    single  1.575e-06  4.631e-02  2.022e-07
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=1.64869577e-06 raw_max_force=0.104646167
+# cutoff pair {'i': 2780, 'j': 33632, 'distance_minus_cutoff_nm': -5.776898348575088e-08, 'pair_force_norm': 0.11028542375242438}
+apoa1rf        92224     mixed  5.243e-05  6.560e-01  1.927e-07
+# cutoff pairs=6 epsilon_nm=3.81469727e-06 raw_rel_force=5.42759472e-05 raw_max_force=1.67712151
+# cutoff pair {'i': 33709, 'j': 60729, 'distance_minus_cutoff_nm': 3.603336562463255e-08, 'pair_force_norm': 0.9197721132633514}
+# cutoff pair {'i': 40123, 'j': 70552, 'distance_minus_cutoff_nm': 3.375853105946902e-07, 'pair_force_norm': 1.8246409566572317}
+# cutoff pair {'i': 70397, 'j': 71668, 'distance_minus_cutoff_nm': -1.2311330876979554e-07, 'pair_force_norm': 0.919789846052618}
+# cutoff pair {'i': 71446, 'j': 71569, 'distance_minus_cutoff_nm': 1.8957315495171656e-08, 'pair_force_norm': 1.8246409566572315}
+# cutoff pair {'i': 73017, 'j': 80233, 'distance_minus_cutoff_nm': 2.4166344259057837e-08, 'pair_force_norm': 0.9197721132633515}
+# cutoff pair {'i': 82712, 'j': 83341, 'distance_minus_cutoff_nm': -1.713027576455417e-07, 'pair_force_norm': 0.9197967870852195}
+apoa1pme       92224    single  5.295e-05  2.938e-01  9.857e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.29540824e-05 raw_max_force=0.293783461
+apoa1pme       92224     mixed  7.481e-05  8.380e-01  9.062e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.48120164e-05 raw_max_force=0.837970243
+apoa1ljpme     92224    single  5.292e-05  2.908e-01  1.001e-06
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.2917822e-05 raw_max_force=0.290795952
+apoa1ljpme     92224     mixed  7.468e-05  6.862e-01  9.848e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.46756363e-05 raw_max_force=0.686156406

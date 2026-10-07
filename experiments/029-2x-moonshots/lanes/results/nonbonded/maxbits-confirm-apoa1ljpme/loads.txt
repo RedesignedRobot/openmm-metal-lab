@@ -1,0 +1,15 @@
+2026-09-26T22:02:50Z round 1 apoa1ljpme base-s load { 4.01 4.28 3.92 } vm 3% top superwhisper 18.2%, sysmond 7.3%, com.apple.Virtualization.VirtualMachine 2.5%, com.apple.Virtualization.VirtualMachine 1.8%, WindowServer 1.8%
+2026-09-26T22:03:24Z round 1 apoa1ljpme cand-s load { 3.42 4.10 3.88 } vm 3% top superwhisper 17.6%, WindowServer 2.9%, powermetrics 2.5%, com.apple.Virtualization.VirtualMachine 1.6%, com.apple.Virtualization.VirtualMachine 1.3%
+2026-09-26T22:03:58Z round 1 apoa1ljpme cl-s load { 2.26 3.76 3.76 } vm 15% top superwhisper 17.9%, powermetrics 12.9%, com.apple.Virtualization.VirtualMachine 8.6%, sysmond 6.6%, WindowServer 2.0%
+2026-09-26T22:04:32Z round 1 apoa1ljpme base-m load { 2.43 3.64 3.71 } vm 13% top corespotlightd 172.4%, superwhisper 11.1%, com.apple.Virtualization.VirtualMachine 8.3%, com.apple.Virtualization.VirtualMachine 4.7%, sh 2.4%
+2026-09-26T22:05:06Z round 1 apoa1ljpme cand-m load { 2.49 3.55 3.68 } vm 4% top superwhisper 19.6%, sysmond 5.5%, com.apple.Virtualization.VirtualMachine 2.2%, com.apple.Virtualization.VirtualMachine 2.1%, WindowServer 1.5%
+2026-09-26T22:05:40Z round 2 apoa1ljpme cand-m load { 3.85 3.74 3.74 } vm 5% top mediaanalysisd 514.9%, spotlightknowledged.updater 21.9%, superwhisper 12.6%, corespotlightd 8.2%, sysmond 7.1%
+2026-09-26T22:06:15Z round 2 apoa1ljpme base-m load { 4.36 3.89 3.79 } vm 4% top mediaanalysisd 171.4%, superwhisper 19.2%, sysmond 9.1%, spotlightknowledged 6.4%, mdworker_shared 5.7%
+2026-09-26T22:06:49Z round 2 apoa1ljpme cl-s load { 3.48 3.73 3.74 } vm 43% top mediaanalysisd 183.5%, com.apple.Virtualization.VirtualMachine 41.6%, superwhisper 19.1%, sysmond 6.1%, mdworker_shared 3.9%
+2026-09-26T22:07:23Z round 2 apoa1ljpme cand-s load { 3.81 3.77 3.75 } vm 16% top mediaanalysisd 183.8%, superwhisper 19.9%, dasd 15.7%, com.apple.Virtualization.VirtualMachine 11.5%, powermetrics 8.8%
+2026-09-26T22:07:57Z round 2 apoa1ljpme base-s load { 3.12 3.61 3.69 } vm 3% top mediaanalysisd 190.6%, superwhisper 20.3%, WindowServer 5.0%, sysmond 4.5%, iStat Menus Menubar 2.1%
+2026-09-26T22:08:31Z round 3 apoa1ljpme base-s load { 4.67 3.95 3.81 } vm 5% top mediaanalysisd 185.7%, superwhisper 18.4%, sysmond 6.1%, com.apple.Virtualization.VirtualMachine 3.6%, WindowServer 3.0%
+2026-09-26T22:09:05Z round 3 apoa1ljpme cand-s load { 4.46 4.01 3.84 } vm 7% top mediaanalysisd 183.5%, superwhisper 20.8%, iStat Menus Menubar 6.1%, sysmond 4.4%, WindowServer 3.2%
+2026-09-26T22:09:39Z round 3 apoa1ljpme cl-s load { 7.80 4.73 4.10 } vm 6% top mediaanalysisd 173.2%, superwhisper 18.7%, spotlightknowledged 6.5%, mdworker_shared 6.4%, com.apple.Virtualization.VirtualMachine 3.3%
+2026-09-26T22:10:13Z round 3 apoa1ljpme base-m load { 5.97 4.63 4.09 } vm 10% top mediaanalysisd 191.3%, superwhisper 21.1%, sysmond 8.5%, com.apple.Virtualization.VirtualMachine 4.1%, com.apple.Virtualization.VirtualMachine 3.7%
+2026-09-26T22:10:47Z round 3 apoa1ljpme cand-m load { 5.02 4.52 4.07 } vm 6% top superwhisper 18.7%, mediaanalysisd 10.6%, powermetrics 7.4%, mdworker_shared 6.7%, sysmond 4.5%

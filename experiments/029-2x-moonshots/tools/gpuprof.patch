@@ -1,0 +1,506 @@
+diff --git a/platforms/metal/include/MetalQueue.h b/platforms/metal/include/MetalQueue.h
+index 9f4c225b6..ab957271d 100644
+--- a/platforms/metal/include/MetalQueue.h
++++ b/platforms/metal/include/MetalQueue.h
+@@ -94,8 +94,18 @@ public:
+     long long getCommitCount() const {
+         return commitCount;
+     }
+-private:
++    // Lab-only accessors for GpuProf.h. Callers hold the lock.
++    MTL::CommandBuffer* getOpenBuffer() {
++        return openBuffer;
++    }
++    MTL::ComputeCommandEncoder* getOpenEncoder() {
++        return encoder;
++    }
++    bool isConcurrentDispatch() const {
++        return concurrentDispatch;
++    }
+     void endEncoding();
++private:
+     void submit();
+     void runIdleCommits();
+     metalStream_t stream;
+diff --git a/platforms/metal/src/GpuProf.h b/platforms/metal/src/GpuProf.h
+new file mode 100644
+index 000000000..724e1f216
+--- /dev/null
++++ b/platforms/metal/src/GpuProf.h
+@@ -0,0 +1,321 @@
++// Lab-only GPU timing, not for upstream. Built for experiment 028 on 6df2b8bcb, ported to 029 trunk 5071882fa by r3-tools.
++// GPUPROF picks the mode, GPUPROF_OUT the record file, and records are written only while GPUPROF_ON is set.
++//   buffers:  normal batching. Every committed buffer writes
++//             "b <gpu start> <gpu end> <host commit> <first kernel> <last kernel> <scheduled> <dispatches> <blits>",
++//             and host waits write "w <what> <seconds> <start>". All times are seconds on mach_absolute_time.
++//   counters: as buffers, and every dispatch gets its own compute encoder with stage-boundary timestamp samples,
++//             written as "e <name> <grid> <block> <gpu tick start> <gpu tick end>". Blits are sampled too.
++//             "c <cpu tick> <gpu tick>" pairs from sampleTimestamps map GPU ticks onto mach ticks.
++//             A command buffer that reaches MaxEncoders sampled encoders is committed early, so no sample is lost.
++//   split:    as buffers, with one encoder per dispatch but no samples, to price the split alone.
++//   A concurrent pass (MetalQueue::setConcurrentDispatch, D3's bonded plus nonbonded) stays one encoder in counters
++//   and split modes, recorded as "e first+second 0 0 ...", so its dispatches still overlap. GPUPROF_SPLIT_CONCURRENT
++//   splits it too, to price each of its kernels alone; the split price then includes the lost overlap.
++//   kernels:  every dispatch is committed and waited on by itself: "k <name> <grid> <block> <seconds>".
++#pragma once
++#include <Metal/Metal.hpp>
++#include <mach/mach_time.h>
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
++#include <map>
++#include <memory>
++#include <mutex>
++#include <string>
++#include <vector>
++
++namespace gpuprof {
++
++enum Mode {Off, Kernels, Buffers, Counters, Split};
++
++// Timestamp samples of one command buffer: two per encoder.
++struct Samples {
++    MTL::CounterSampleBuffer* buffer = NULL;
++    std::vector<std::string> names;
++    int dispatches = 0, blits = 0, overflow = 0;
++    bool passOpen = false;  // the last sampled encoder is a concurrent pass still taking dispatches
++};
++
++// 2048 timestamps are 16 KB, under the 32 KB limit of one counter sample buffer.
++static const int SamplesPerBuffer = 2048;
++static const int MaxEncoders = SamplesPerBuffer/2-8;
++
++struct State {
++    Mode mode = Off;
++    FILE* out = NULL;
++    std::mutex lock;
++    std::map<const void*, std::string> names;
++    std::string first, last;
++    std::map<MTL::CommandBuffer*, std::shared_ptr<Samples>> open;
++    std::vector<MTL::CounterSampleBuffer*> pool;
++    MTL::CounterSet* timestamps = NULL;
++    long calibrations = 0;
++    State() {
++        const char* m = getenv("GPUPROF");
++        const char* path = getenv("GPUPROF_OUT");
++        if (m == NULL || path == NULL)
++            return;
++        mode = (strcmp(m, "kernels") == 0 ? Kernels : strcmp(m, "counters") == 0 ? Counters : strcmp(m, "split") == 0 ? Split : Buffers);
++        out = fopen(path, "w");
++        mach_timebase_info_data_t timebase;
++        mach_timebase_info(&timebase);
++        fprintf(out, "t %u %u\n", timebase.numer, timebase.denom);
++    }
++    ~State() {
++        if (out != NULL)
++            fclose(out);
++    }
++};
++
++inline State& state() {
++    static State s;
++    return s;
++}
++
++inline bool on(Mode mode) {
++    return state().mode == mode && getenv("GPUPROF_ON") != NULL;
++}
++
++// buffers, counters and split all write buffer records.
++inline bool batched() {
++    Mode m = state().mode;
++    return (m == Buffers || m == Counters || m == Split) && getenv("GPUPROF_ON") != NULL;
++}
++
++inline double hostSeconds() {
++    static mach_timebase_info_data_t timebase = {0, 0};
++    if (timebase.denom == 0)
++        mach_timebase_info(&timebase);
++    return mach_absolute_time()*(double) timebase.numer/timebase.denom*1e-9;
++}
++
++inline void setName(const void* pipeline, const std::string& name) {
++    std::lock_guard<std::mutex> guard(state().lock);
++    state().names[pipeline] = name;
++}
++
++inline std::string getName(const void* pipeline) {
++    std::lock_guard<std::mutex> guard(state().lock);
++    auto found = state().names.find(pipeline);
++    return found == state().names.end() ? "unknown" : found->second;
++}
++
++// When GPUPROF is set, builds the pipeline from a descriptor labeled with the kernel name, so gpudebug and Metal
++// System Trace can name it. Otherwise the pipeline is built exactly as upstream builds it.
++inline MTL::ComputePipelineState* newPipeline(MTL::Device* device, MTL::Function* function, const std::string& name, MTL::PipelineOption options, MTL::ComputePipelineReflection** reflection) {
++    if (state().mode == Off)
++        return device->newComputePipelineState(function, options, reflection, NULL);
++    MTL::ComputePipelineDescriptor* descriptor = MTL::ComputePipelineDescriptor::alloc()->init();
++    descriptor->setComputeFunction(function);
++    NS::String* label = NS::String::alloc()->init(name.c_str(), NS::UTF8StringEncoding);
++    descriptor->setLabel(label);
++    label->release();
++    MTL::ComputePipelineState* pipeline = device->newComputePipelineState(descriptor, options, reflection, NULL);
++    descriptor->release();
++    return pipeline;
++}
++
++// Called with the state lock held.
++inline Samples& samplesFor(MTL::CommandBuffer* buffer) {
++    std::shared_ptr<Samples>& s = state().open[buffer];
++    if (s == NULL)
++        s = std::make_shared<Samples>();
++    return *s;
++}
++
++// Returns the next sample index pair's first index for buffer, or -1 if sampling is off or the buffer is full.
++inline int nextSample(MTL::CommandBuffer* buffer, Samples& s) {
++    if (!on(Counters))
++        return -1;
++    State& st = state();
++    MTL::Device* device = buffer->device();
++    if (st.timestamps == NULL) {
++        NS::Array* sets = device->counterSets();
++        for (int i = 0; sets != NULL && i < sets->count(); i++)
++            if (strcmp(sets->object<MTL::CounterSet>(i)->name()->utf8String(), "timestamp") == 0)
++                st.timestamps = sets->object<MTL::CounterSet>(i)->retain();
++        if (st.timestamps == NULL || !device->supportsCounterSampling(MTL::CounterSamplingPointAtStageBoundary)) {
++            fprintf(st.out, "x no stage-boundary timestamp sampling\n");
++            st.mode = Split;
++            return -1;
++        }
++    }
++    if (st.calibrations++ % 500 == 0) {
++        MTL::Timestamp cpu, gpu;
++        device->sampleTimestamps(&cpu, &gpu);
++        fprintf(st.out, "c %llu %llu\n", (unsigned long long) cpu, (unsigned long long) gpu);
++    }
++    if (s.buffer == NULL) {
++        if (st.pool.empty()) {
++            MTL::CounterSampleBufferDescriptor* descriptor = MTL::CounterSampleBufferDescriptor::alloc()->init();
++            descriptor->setCounterSet(st.timestamps);
++            descriptor->setSampleCount(SamplesPerBuffer);
++            descriptor->setStorageMode(MTL::StorageModeShared);
++            NS::Error* error = NULL;
++            MTL::CounterSampleBuffer* created = device->newCounterSampleBuffer(descriptor, &error);
++            descriptor->release();
++            if (created == NULL) {
++                fprintf(st.out, "x newCounterSampleBuffer failed: %s\n", error == NULL ? "" : error->localizedDescription()->utf8String());
++                st.mode = Split;
++                return -1;
++            }
++            st.pool.push_back(created);
++        }
++        s.buffer = st.pool.back();
++        st.pool.pop_back();
++    }
++    int index = 2*s.names.size();
++    if (index+1 >= SamplesPerBuffer) {
++        s.overflow++;
++        return -1;
++    }
++    s.names.push_back("unlabeled");
++    return index;
++}
++
++// Returns a retained encoder, as MetalQueue::getEncoder() keeps it.
++inline MTL::ComputeCommandEncoder* newEncoder(MTL::CommandBuffer* buffer, MTL::DispatchType type) {
++    if (!batched())
++        return buffer->computeCommandEncoder(type)->retain();
++    std::lock_guard<std::mutex> guard(state().lock);
++    Samples& s = samplesFor(buffer);
++    int index = nextSample(buffer, s);
++    if (index < 0)
++        return buffer->computeCommandEncoder(type)->retain();
++    MTL::ComputePassDescriptor* descriptor = MTL::ComputePassDescriptor::computePassDescriptor();
++    descriptor->setDispatchType(type);
++    MTL::ComputePassSampleBufferAttachmentDescriptor* attachment = descriptor->sampleBufferAttachments()->object(0);
++    attachment->setSampleBuffer(s.buffer);
++    attachment->setStartOfEncoderSampleIndex(index);
++    attachment->setEndOfEncoderSampleIndex(index+1);
++    return buffer->computeCommandEncoder(descriptor)->retain();
++}
++
++inline MTL::BlitCommandEncoder* newBlit(MTL::CommandBuffer* buffer) {
++    if (!batched())
++        return buffer->blitCommandEncoder();
++    std::lock_guard<std::mutex> guard(state().lock);
++    Samples& s = samplesFor(buffer);
++    s.blits++;
++    int index = nextSample(buffer, s);
++    if (index < 0)
++        return buffer->blitCommandEncoder();
++    s.names.back() = "blit 1 1";
++    MTL::BlitPassDescriptor* descriptor = MTL::BlitPassDescriptor::blitPassDescriptor();
++    MTL::BlitPassSampleBufferAttachmentDescriptor* attachment = descriptor->sampleBufferAttachments()->object(0);
++    attachment->setSampleBuffer(s.buffer);
++    attachment->setStartOfEncoderSampleIndex(index);
++    attachment->setEndOfEncoderSampleIndex(index+1);
++    return buffer->blitCommandEncoder(descriptor);
++}
++
++struct Wait {
++    const char* what;
++    double start;
++    bool active;
++    Wait(const char* what) : what(what), start(hostSeconds()), active(batched()) {}
++    ~Wait() {
++        if (!active)
++            return;
++        double end = hostSeconds();
++        std::lock_guard<std::mutex> guard(state().lock);
++        fprintf(state().out, "w %s %.9f %.9f\n", what, end-start, start);
++    }
++};
++
++// Call right after a dispatch (or a group of dispatches such as an FFT) was encoded into the queue's open encoder.
++template <class Queue>
++inline void timeDispatch(Queue& queue, const std::string& name, int grid, int block) {
++    if (batched()) {
++        MTL::CommandBuffer* buffer = queue.getOpenBuffer();
++        bool keepPass = (state().mode != Buffers && queue.isConcurrentDispatch() && getenv("GPUPROF_SPLIT_CONCURRENT") == NULL);
++        {
++            std::lock_guard<std::mutex> guard(state().lock);
++            if (state().first.empty())
++                state().first = name;
++            state().last = name;
++            Samples& s = samplesFor(buffer);
++            s.dispatches++;
++            if (state().mode == Counters && !s.names.empty()) {
++                std::string& label = s.names.back();
++                if (label == "unlabeled")
++                    label = name+" "+std::to_string(grid)+" "+std::to_string(block);
++                else if (s.passOpen)
++                    label = label.substr(0, label.find(' '))+"+"+name+" 0 0";
++            }
++            s.passOpen = keepPass;
++        }
++        if (state().mode != Buffers && !keepPass) {
++            if (queue.getOpenEncoder() != NULL) {
++                NS::String* label = NS::String::alloc()->init(name.c_str(), NS::UTF8StringEncoding);
++                queue.getOpenEncoder()->setLabel(label);
++                label->release();
++            }
++            queue.endEncoding();
++        }
++        bool full = false;
++        {
++            std::lock_guard<std::mutex> guard(state().lock);
++            auto found = state().open.find(buffer);
++            full = (state().mode == Counters && found != state().open.end() && found->second->names.size() >= MaxEncoders);
++        }
++        if (full) {
++            Wait w("early");
++            queue.commit();
++        }
++        return;
++    }
++    if (!on(Kernels))
++        return;
++    MTL::CommandBuffer* buffer = queue.getCommandBuffer()->retain();
++    queue.commit();
++    buffer->waitUntilCompleted();
++    std::lock_guard<std::mutex> guard(state().lock);
++    fprintf(state().out, "k %s %d %d %.9f\n", name.c_str(), grid, block, buffer->GPUEndTime()-buffer->GPUStartTime());
++    buffer->release();
++}
++
++// Call right before a buffer is committed.
++inline void watch(MTL::CommandBuffer* buffer) {
++    std::shared_ptr<Samples> samples;
++    {
++        std::lock_guard<std::mutex> guard(state().lock);
++        auto found = state().open.find(buffer);
++        if (found != state().open.end()) {
++            samples = found->second;
++            state().open.erase(found);
++        }
++    }
++    if (!batched())
++        return;
++    if (samples == NULL)
++        samples = std::make_shared<Samples>();
++    double committed = hostSeconds();
++    std::string names;
++    {
++        std::lock_guard<std::mutex> guard(state().lock);
++        names = (state().first.empty() ? "none" : state().first)+" "+(state().last.empty() ? "none" : state().last);
++        state().first.clear();
++        state().last.clear();
++    }
++    std::shared_ptr<double> scheduled = std::make_shared<double>(0.0);
++    buffer->addScheduledHandler([scheduled](MTL::CommandBuffer*) { *scheduled = hostSeconds(); });
++    buffer->addCompletedHandler([committed, names, scheduled, samples](MTL::CommandBuffer* done) {
++        NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
++        std::lock_guard<std::mutex> guard(state().lock);
++        FILE* out = state().out;
++        fprintf(out, "b %.9f %.9f %.9f %s %.9f %d %d %d\n", done->GPUStartTime(), done->GPUEndTime(), committed, names.c_str(),
++                *scheduled, samples->dispatches, samples->blits, samples->overflow);
++        if (samples->buffer != NULL) {
++            NS::Data* data = samples->buffer->resolveCounterRange(NS::Range(0, 2*samples->names.size()));
++            const MTL::CounterResultTimestamp* t = (data == NULL ? NULL : (const MTL::CounterResultTimestamp*) data->bytes());
++            for (int i = 0; t != NULL && i < samples->names.size(); i++)
++                fprintf(out, "e %s %llu %llu\n", samples->names[i].c_str(), (unsigned long long) t[2*i].timestamp, (unsigned long long) t[2*i+1].timestamp);
++            state().pool.push_back(samples->buffer);
++        }
++        pool->release();
++    });
++}
++
++
++} // namespace gpuprof
+diff --git a/platforms/metal/src/MetalArray.cpp b/platforms/metal/src/MetalArray.cpp
+index efc195ddc..7b2151810 100644
+--- a/platforms/metal/src/MetalArray.cpp
++++ b/platforms/metal/src/MetalArray.cpp
+@@ -25,6 +25,7 @@
+ 
+ #include "MetalArray.h"
+ #include "MetalContext.h"
++#include "GpuProf.h"
+ #include "openmm/common/ContextSelector.h"
+ #include <cmath>
+ #include <iostream>
+@@ -127,7 +128,7 @@ void MetalArray::copyTo(ArrayInterface& dest) const {
+     MetalQueue& queue = context->getCurrentStream();
+     std::lock_guard<std::recursive_mutex> guard(queue.getLock());
+     NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
+-    MTL::BlitCommandEncoder* blit = queue.getCommandBuffer()->blitCommandEncoder();
++    MTL::BlitCommandEncoder* blit = gpuprof::newBlit(queue.getCommandBuffer());
+     blit->copyFromBuffer(pointer, 0, cuDest.getDevicePointer(), 0, size*elementSize);
+     blit->endEncoding();
+     pool->release();
+diff --git a/platforms/metal/src/MetalContext.cpp b/platforms/metal/src/MetalContext.cpp
+index 57f00ae6e..f081c6c31 100644
+--- a/platforms/metal/src/MetalContext.cpp
++++ b/platforms/metal/src/MetalContext.cpp
+@@ -27,6 +27,7 @@
+   #define _USE_MATH_DEFINES // Needed to get M_PI
+ #endif
+ #include "MetalContext.h"
++#include "GpuProf.h"
+ #include "MetalArray.h"
+ #include "MetalBondedUtilities.h"
+ #include "MetalEvent.h"
+@@ -629,7 +630,9 @@ metalFunction_t MetalContext::getKernel(metalModule_t& module, const string& nam
+     bool packed = (packedModules.find(module) != packedModules.end());
+     bool typeInfo = (packed || useMixedPrecision);
+     MTL::PipelineOption reflectionOptions = (typeInfo ? MTL::PipelineOptionBindingInfo | MTL::PipelineOptionBufferTypeInfo : MTL::PipelineOptionBindingInfo);
+-    metalFunction_t kernel = (function == NULL ? NULL : device->newComputePipelineState(function, reflectionOptions, &reflection, NULL));
++    metalFunction_t kernel = (function == NULL ? NULL : gpuprof::newPipeline(device, function, name, reflectionOptions, &reflection));
++    if (kernel != NULL)
++        gpuprof::setName(kernel, name);
+     KernelArguments args;
+     MTL::BufferBinding* argsBinding = NULL;
+     vector<BufferLayout> bindingLayouts;
+@@ -833,6 +836,7 @@ void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, i
+         encoder->dispatchThreadgroups(indirect, indirectOffset, MTL::Size(blockSize, 1, 1));
+     else
+         encoder->dispatchThreadgroups(MTL::Size(gridSize, 1, 1), MTL::Size(blockSize, 1, 1));
++    gpuprof::timeDispatch(queue, gpuprof::getName(kernel), indirect != NULL ? 0 : gridSize, blockSize);
+ }
+ 
+ int MetalContext::computeThreadBlockSize(double memory) const {
+diff --git a/platforms/metal/src/MetalEvent.cpp b/platforms/metal/src/MetalEvent.cpp
+index 3e0c695bb..68f63b863 100644
+--- a/platforms/metal/src/MetalEvent.cpp
++++ b/platforms/metal/src/MetalEvent.cpp
+@@ -24,6 +24,7 @@
+  * -------------------------------------------------------------------------- */
+ 
+ #include "MetalEvent.h"
++#include "GpuProf.h"
+ #include "openmm/OpenMMException.h"
+ #include <atomic>
+ #include <unistd.h>
+@@ -60,6 +61,7 @@ void MetalEvent::wait() {
+     // Waiting on the command buffer instead of the event delays the start of the next command buffer
+     // by about 40 us on the M3 Ultra.  The status check returns if the buffer fails before the signal.
+     if (buffer != NULL) {
++        gpuprof::Wait w("event");
+         while (!event->waitUntilSignaledValue(value, 100) && buffer->status() < MTL::CommandBufferStatusCompleted)
+             ;
+         checkBufferStatus();
+@@ -70,6 +72,7 @@ void MetalEvent::poll() {
+     // On the M3 Ultra, waitUntilSignaledValue() wakes the host 90 to 110 us after the signal, and a 10 us
+     // poll within about 22 us.  The fence orders the host's reads of GPU results after the signal.
+     if (buffer != NULL) {
++        gpuprof::Wait w("poll");
+         while (event->signaledValue() < value && buffer->status() < MTL::CommandBufferStatusCompleted)
+             usleep(10);
+         checkBufferStatus();
+diff --git a/platforms/metal/src/MetalFFT3D.cpp b/platforms/metal/src/MetalFFT3D.cpp
+index d5ec8db10..a14180d00 100644
+--- a/platforms/metal/src/MetalFFT3D.cpp
++++ b/platforms/metal/src/MetalFFT3D.cpp
+@@ -29,6 +29,7 @@
+ #include "MetalFFT3D.h"
+ #include "MetalContext.h"
+ #include "MetalKernelSources.h"
++#include "GpuProf.h"
+ #include <algorithm>
+ #include <cmath>
+ 
+@@ -139,6 +140,7 @@ void MetalFFT3D::execFFT(ArrayInterface& in, ArrayInterface& out, bool forward)
+     if (fftResult != VKFFT_SUCCESS) {
+         throw OpenMMException("Error executing VkFFTAppend: "+context.intToString(fftResult));
+     }
++    gpuprof::timeDispatch(queue, forward ? "vkFFTforward" : "vkFFTbackward", 0, 0);
+ }
+ 
+ static string joinRadices(const vector<int>& radices) {
+diff --git a/platforms/metal/src/MetalQueue.cpp b/platforms/metal/src/MetalQueue.cpp
+index 9feb1d135..ba2f5d10f 100644
+--- a/platforms/metal/src/MetalQueue.cpp
++++ b/platforms/metal/src/MetalQueue.cpp
+@@ -24,6 +24,7 @@
+ 
+ #include "MetalQueue.h"
+ #include "MetalContext.h"
++#include "GpuProf.h"
+ #include "openmm/OpenMMException.h"
+ 
+ using namespace OpenMM;
+@@ -57,7 +58,7 @@ MTL::ComputeCommandEncoder* MetalQueue::getEncoder() {
+     if (encoder == NULL) {
+         NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
+         MTL::DispatchType type = (concurrentDispatch ? MTL::DispatchTypeConcurrent : MTL::DispatchTypeSerial);
+-        encoder = getCommandBuffer()->computeCommandEncoder(type)->retain();
++        encoder = gpuprof::newEncoder(getCommandBuffer(), type);
+         pool->release();
+     }
+     return encoder;
+@@ -99,8 +100,10 @@ void MetalQueue::addCompletedHandler(const MTL::HandlerFunction& handler) {
+ void MetalQueue::commit() {
+     lock_guard<recursive_mutex> guard(lock);
+     submit();
+-    if ((int) pending.size() > MaxBuffersInFlight)
++    if ((int) pending.size() > MaxBuffersInFlight) {
++        gpuprof::Wait w("inflight");
+         pending.front()->waitUntilCompleted();
++    }
+     while (!pending.empty() && pending.front()->status() >= MTL::CommandBufferStatusCompleted) {
+         MTL::CommandBuffer* buffer = pending.front();
+         pending.pop_front();
+@@ -116,6 +119,7 @@ void MetalQueue::submit() {
+         for (const MTL::HandlerFunction& handler : completedHandlers)
+             openBuffer->addCompletedHandler(handler);
+         completedHandlers.clear();
++        gpuprof::watch(openBuffer);
+         openBuffer->commit();
+         pending.push_back(openBuffer);
+         openBuffer = NULL;
+@@ -126,8 +130,11 @@ void MetalQueue::submit() {
+ void MetalQueue::finish() {
+     lock_guard<recursive_mutex> guard(lock);
+     commit();
+-    for (MTL::CommandBuffer* buffer : pending)
+-        buffer->waitUntilCompleted();
++    {
++        gpuprof::Wait w("finish");
++        for (MTL::CommandBuffer* buffer : pending)
++            buffer->waitUntilCompleted();
++    }
+     commit();
+ }
+ 

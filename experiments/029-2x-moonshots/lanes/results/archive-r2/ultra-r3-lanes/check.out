@@ -1,0 +1,72 @@
+== md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.948e-06  8.274e-03  5.363e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.94820119e-06 raw_max_force=0.00827429348
+gbsa            2489     mixed  1.361e-05  1.042e-01  4.142e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.36100484e-05 raw_max_force=0.104239269
+rf             23558    single  1.106e-06  2.363e-02  2.733e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.10579246e-06 raw_max_force=0.0236293788
+rf             23558     mixed  1.912e-05  2.508e-01  2.926e-07  ok
+# cutoff pairs=2 epsilon_nm=1.90734863e-06 raw_rel_force=2.63099521e-05 raw_max_force=1.57326764
+# cutoff pair {'i': 9386, 'j': 9815, 'distance_minus_cutoff_nm': -1.4441878293247612e-07, 'pair_force_norm': 1.8246825447204316}
+# cutoff pair {'i': 10477, 'j': 16337, 'distance_minus_cutoff_nm': 2.799248588480907e-08, 'pair_force_norm': 0.9197721132633516}
+pme            23558    single  1.381e-06  1.813e-02  4.734e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.38060389e-06 raw_max_force=0.0181307161
+pme            23558     mixed  1.941e-05  3.588e-01  4.532e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=1.9484968e-05 raw_max_force=0.358787522
+# cutoff pair {'i': 3459, 'j': 3779, 'distance_minus_cutoff_nm': -7.416600855680855e-08, 'pair_force_norm': 0.18894060775797497}
+apoa1rf        92224    single  1.580e-06  5.275e-02  2.087e-07  ok
+# cutoff pairs=3 epsilon_nm=3.81469727e-06 raw_rel_force=4.85292109e-06 raw_max_force=0.67932781
+# cutoff pair {'i': 10979, 'j': 11802, 'distance_minus_cutoff_nm': 4.4855107184105236e-08, 'pair_force_norm': 0.09017779438562448}
+# cutoff pair {'i': 55268, 'j': 64545, 'distance_minus_cutoff_nm': -1.585249276292444e-08, 'pair_force_norm': 0.4598871982990022}
+# cutoff pair {'i': 56536, 'j': 56604, 'distance_minus_cutoff_nm': -1.4808023363066525e-08, 'pair_force_norm': 0.9197742461564701}
+apoa1rf        92224     mixed  5.331e-05  7.702e-01  2.040e-07  ok
+# cutoff pairs=6 epsilon_nm=3.81469727e-06 raw_rel_force=5.46144269e-05 raw_max_force=1.35435901
+# cutoff pair {'i': 5270, 'j': 32504, 'distance_minus_cutoff_nm': -1.2390718606702933e-07, 'pair_force_norm': 0.671204040646674}
+# cutoff pair {'i': 28858, 'j': 29742, 'distance_minus_cutoff_nm': -2.4345086413468664e-07, 'pair_force_norm': 0.919807179036794}
+# cutoff pair {'i': 32230, 'j': 56890, 'distance_minus_cutoff_nm': 1.4110775858888758e-07, 'pair_force_norm': 1.824640956657232}
+# cutoff pair {'i': 49252, 'j': 62178, 'distance_minus_cutoff_nm': 4.860776980919468e-08, 'pair_force_norm': 0.9197721132633515}
+# cutoff pair {'i': 52794, 'j': 52843, 'distance_minus_cutoff_nm': -1.2581631969599272e-07, 'pair_force_norm': 0.919790235384446}
+# cutoff pair {'i': 57670, 'j': 57690, 'distance_minus_cutoff_nm': 3.210467536263195e-08, 'pair_force_norm': 0.9197721132633515}
+apoa1pme       92224    single  5.254e-05  2.564e-01  2.329e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25417666e-05 raw_max_force=0.256425888
+apoa1pme       92224     mixed  7.393e-05  7.383e-01  2.089e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.3928937e-05 raw_max_force=0.738321027
+apoa1ljpme     92224    single  5.253e-05  2.975e-01  1.789e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25278002e-05 raw_max_force=0.297516773
+apoa1ljpme     92224     mixed  7.487e-05  6.815e-01  1.660e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.4870243e-05 raw_max_force=0.681523564
+md100 exit=0
+== detforces
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+detforces exit=0
+== ctest
+ctest exit=0
+      Start 295: TestMetalNonbondedForceMixed
+ 7/12 Test #295: TestMetalNonbondedForceMixed ............   Passed   37.96 sec
+      Start 412: TestMetalAmoebaMultipoleForceSingle
+ 8/12 Test #412: TestMetalAmoebaMultipoleForceSingle .....   Passed    6.61 sec
+      Start 413: TestMetalAmoebaMultipoleForceMixed
+ 9/12 Test #265: TestMetalEwaldMixed .....................   Passed   74.34 sec
+      Start 418: TestMetalHippoNonbondedForceSingle
+10/12 Test #418: TestMetalHippoNonbondedForceSingle ......   Passed    2.96 sec
+      Start 419: TestMetalHippoNonbondedForceMixed
+11/12 Test #419: TestMetalHippoNonbondedForceMixed .......   Passed   14.46 sec
+12/12 Test #413: TestMetalAmoebaMultipoleForceMixed ......   Passed   30.57 sec
+
+100% tests passed out of 12
+
+Total Test time (real) = 170.20 sec

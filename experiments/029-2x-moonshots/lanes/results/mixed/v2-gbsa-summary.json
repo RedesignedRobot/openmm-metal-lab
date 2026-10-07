@@ -1,0 +1,19 @@
+{
+  "test": "gbsa",
+  "outdir": "/tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-small",
+  "rounds": 2,
+  "seconds": 15,
+  "medians": {
+    "mineS": 1601.6792934110526,
+    "baseS": 1614.616428616867,
+    "mineM": 1329.6994478741653,
+    "opencl": 1163.385211382981,
+    "baseM": 1234.57973007144
+  },
+  "mixed_over_single": 0.8235389063972482,
+  "mixed_over_mixed": 1.077046233212675,
+  "mixed_over_opencl_single": 1.1429571519939448,
+  "single_over_single": 0.9919874869495185,
+  "target": 0.95,
+  "verdict": "V2 misses gbsa target; V3 pending"
+}

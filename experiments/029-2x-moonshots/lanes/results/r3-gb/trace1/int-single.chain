@@ -1,0 +1,20 @@
+steps 1715  median step 1432.1 us  (anchor computeBornSumOwned)
+kernel                              frac   start     end  sampled
+computeBornSumOwned                 1.00     0.0    23.0     23.0
+reduceBornSumOwned                  1.00    36.0    43.0      7.0
+computeGBSAForce1Owned              1.00    44.4    61.1     16.5
+reduceBornForceOwned                1.00    72.9    82.4      9.4
+computeNonbonded                    1.00    83.8   127.6     43.1
+computeBondedForces                 1.00    84.4   121.2     36.7
+reduceEnergy                        0.00   128.2   134.8      6.7
+computeKineticEnergy                0.00   417.0   422.0      5.0
+copyInteractionCounts               0.00   590.7   592.1      1.5
+sortBoxData                         0.59   727.7   729.1      1.9
+findBlocksWithInteractions          0.59   731.2   773.0     42.2
+generateRandomNumbers               0.96  1097.1  1101.2      4.2
+prepareRebuildDispatch              0.99  1393.2  1394.8      1.5
+integrateLangevinMiddleFused        0.97  1396.9  1408.4     11.4
+calcCenterOfMassMomentum            1.00  1408.7  1411.6      3.0
+removeCenterOfMassMomentum          1.00  1412.9  1416.2      3.2
+clearFourBuffers                    1.00  1417.3  1420.3      3.0
+findBlockBounds                     1.00  1421.5  1424.3      3.0

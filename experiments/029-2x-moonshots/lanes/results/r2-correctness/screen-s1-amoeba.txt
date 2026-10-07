@@ -1,0 +1,29 @@
+median ns/day, host clock
+test                      base-m        base-s        mine-m        mine-s
+amoebagk                   10.96         10.69         11.38         11.20
+amoebapme                   9.18          9.41          9.28          9.15
+
+rounds, base-m:
+  amoebagk           11.45 10.48   spread 8.9%
+  amoebapme          9.16 9.20   spread 0.4%
+rounds, base-s:
+  amoebagk           11.08 10.29   spread 7.4%
+  amoebapme          9.45 9.38   spread 0.8%
+rounds, mine-m:
+  amoebagk           11.04 11.72   spread 6.0%
+  amoebapme          9.32 9.24   spread 0.9%
+rounds, mine-s:
+  amoebagk           11.72 10.68   spread 9.3%
+  amoebapme          8.98 9.32   spread 3.7%
+
+test                                     mine-s/base-s                       mine-m/base-m
+amoebagk                   1.048 (rounds 1.038..1.058)         1.038 (rounds 0.964..1.118)
+amoebapme                  0.972 (rounds 0.951..0.994)         1.011 (rounds 1.005..1.018)
+
+1 minute load before 16 runs: 1.31 to 14.71
+Background VM CPU before 16 runs: 4% to 44%
+runs with no result: 0
+runs that overlapped a build: 3
+  2026-09-27T07:38:07Z round 1 amoebagk mine-s load { 14.71 9.48 12.61 } BUILD RUNNING vm 6%
+  2026-09-27T07:38:31Z round 1 amoebagk mine-m load { 10.92 9.01 12.34 } BUILD RUNNING vm 9%
+  2026-09-27T07:39:01Z round 1 amoebagk base-s load { 7.59 8.39 12.00 } BUILD RUNNING vm 44%

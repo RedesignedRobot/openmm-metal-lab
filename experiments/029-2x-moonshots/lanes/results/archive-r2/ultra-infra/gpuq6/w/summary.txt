@@ -1,0 +1,25 @@
+median ns/day, host clock
+test                 base-opencl   base-single
+gbsa                     1155.42       1249.83
+
+rounds, base-opencl:
+  gbsa               1155.42   spread 0.0%
+rounds, base-single:
+  gbsa               1249.83   spread 0.0%
+
+test                           base-single/base-opencl
+gbsa                       1.082 (rounds 1.082..1.082)
+
+1 minute load before 2 runs: 3.06 to 3.15
+Background VM CPU before 2 runs: 32% to 33%
+runs with no result: 0
+runs that overlapped a build: 0
+runs that started with another process on the GPU: 0
+
+power, gpuclock.py busy seconds (GPU active >= 90%): median over rounds of GPU W and package (CPU + GPU + ANE) W
+test                       label    GPU W    pkg W  ns/day/GPU W
+gbsa                 base-opencl     38.5     42.9         30.05
+gbsa                 base-single     34.0     37.9         36.79
+
+test              base-single/base-opencl ns/day per GPU W
+gbsa                                             1.225

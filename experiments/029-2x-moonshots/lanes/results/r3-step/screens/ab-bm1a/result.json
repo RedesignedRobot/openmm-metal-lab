@@ -1,0 +1,301 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-bm1a",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "gbsa",
+   "label": "bm_m",
+   "median": 2080.4135216643444,
+   "rounds": {
+    "1": 2089.86597505333,
+    "2": 2070.9610682753582
+   },
+   "spread": 0.009087090898567091
+  },
+  {
+   "test": "gbsa",
+   "label": "bm_s",
+   "median": 2368.24756378796,
+   "rounds": {
+    "1": 2357.4589580394777,
+    "2": 2379.0361695364427
+   },
+   "spread": 0.009111045579395726
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_m",
+   "median": 2069.7371688486996,
+   "rounds": {
+    "1": 2074.226165752378,
+    "2": 2065.248171945021
+   },
+   "spread": 0.004337745846421215
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "median": 2360.491174921347,
+   "rounds": {
+    "1": 2351.931331698666,
+    "2": 2369.0510181440286
+   },
+   "spread": 0.007252594979912674
+  },
+  {
+   "test": "rf",
+   "label": "bm_m",
+   "median": 1503.3163472621322,
+   "rounds": {
+    "1": 1503.7121223318845,
+    "2": 1502.92057219238
+   },
+   "spread": 0.0005265359755757099
+  },
+  {
+   "test": "rf",
+   "label": "bm_s",
+   "median": 1707.8567039198665,
+   "rounds": {
+    "1": 1708.5915198434743,
+    "2": 1707.1218879962585
+   },
+   "spread": 0.0008605123859880969
+  },
+  {
+   "test": "rf",
+   "label": "fold_m",
+   "median": 1540.7743176067374,
+   "rounds": {
+    "1": 1544.814354581816,
+    "2": 1536.7342806316587
+   },
+   "spread": 0.005244164481341965
+  },
+  {
+   "test": "rf",
+   "label": "fold_s",
+   "median": 1747.7094947809917,
+   "rounds": {
+    "1": 1751.7603017020313,
+    "2": 1743.6586878599521
+   },
+   "spread": 0.004635560924897509
+  },
+  {
+   "test": "pme",
+   "label": "bm_m",
+   "median": 1172.107678085058,
+   "rounds": {
+    "1": 1175.5249736315225,
+    "2": 1168.6903825385937
+   },
+   "spread": 0.005831026637497061
+  },
+  {
+   "test": "pme",
+   "label": "bm_s",
+   "median": 1287.5270418910186,
+   "rounds": {
+    "1": 1290.827118736379,
+    "2": 1284.2269650456583
+   },
+   "spread": 0.005126225295452304
+  },
+  {
+   "test": "pme",
+   "label": "fold_m",
+   "median": 1195.4876209535164,
+   "rounds": {
+    "1": 1195.7433693631972,
+    "2": 1195.2318725438354
+   },
+   "spread": 0.0004278562240183146
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "median": 1308.4260402014006,
+   "rounds": {
+    "1": 1314.3189039488684,
+    "2": 1302.5331764539326
+   },
+   "spread": 0.009007561094642918
+  }
+ ],
+ "ratios": [
+  {
+   "test": "gbsa",
+   "num": "bm_m",
+   "den": "fold_m",
+   "ratio": 1.0051583133241906,
+   "round_min": 1.0027662033105478,
+   "round_max": 1.00754006942887
+  },
+  {
+   "test": "rf",
+   "num": "bm_m",
+   "den": "fold_m",
+   "ratio": 0.975688866359878,
+   "round_min": 0.9733934164140663,
+   "round_max": 0.9779963856696292
+  },
+  {
+   "test": "pme",
+   "num": "bm_m",
+   "den": "fold_m",
+   "ratio": 0.9804431744347043,
+   "round_min": 0.9777938568951036,
+   "round_max": 0.9830913586897478
+  }
+ ],
+ "power": [
+  {
+   "test": "gbsa",
+   "label": "bm_m",
+   "gpu_w": 50.44096428571429,
+   "pkg_w": 54.08696428571429,
+   "ns_per_day_per_gpu_w": 41.24452319904503
+  },
+  {
+   "test": "gbsa",
+   "label": "bm_s",
+   "gpu_w": 53.908,
+   "pkg_w": 56.565799999999996,
+   "ns_per_day_per_gpu_w": 43.93128225472954
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_m",
+   "gpu_w": 50.115785714285714,
+   "pkg_w": 52.79017857142857,
+   "ns_per_day_per_gpu_w": 41.29910644618932
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "gpu_w": 54.26116904761905,
+   "pkg_w": 57.52846428571429,
+   "ns_per_day_per_gpu_w": 43.502401742391584
+  },
+  {
+   "test": "rf",
+   "label": "bm_m",
+   "gpu_w": 67.48684285714285,
+   "pkg_w": 69.64775,
+   "ns_per_day_per_gpu_w": 22.27569528544067
+  },
+  {
+   "test": "rf",
+   "label": "bm_s",
+   "gpu_w": 71.02514285714285,
+   "pkg_w": 72.88464285714286,
+   "ns_per_day_per_gpu_w": 24.04580455902752
+  },
+  {
+   "test": "rf",
+   "label": "fold_m",
+   "gpu_w": 68.96265952380952,
+   "pkg_w": 70.96936666666667,
+   "ns_per_day_per_gpu_w": 22.342153394980098
+  },
+  {
+   "test": "rf",
+   "label": "fold_s",
+   "gpu_w": 72.29233333333333,
+   "pkg_w": 74.28115238095239,
+   "ns_per_day_per_gpu_w": 24.17558562845749
+  },
+  {
+   "test": "pme",
+   "label": "bm_m",
+   "gpu_w": 57.66321428571429,
+   "pkg_w": 59.5215,
+   "ns_per_day_per_gpu_w": 20.326783593391195
+  },
+  {
+   "test": "pme",
+   "label": "bm_s",
+   "gpu_w": 58.88607142857143,
+   "pkg_w": 60.99803571428571,
+   "ns_per_day_per_gpu_w": 21.864712837105866
+  },
+  {
+   "test": "pme",
+   "label": "fold_m",
+   "gpu_w": 58.692140476190474,
+   "pkg_w": 60.9644119047619,
+   "ns_per_day_per_gpu_w": 20.36878551802839
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "gpu_w": 59.738619047619046,
+   "pkg_w": 63.11277472527472,
+   "ns_per_day_per_gpu_w": 21.902515676809063
+  }
+ ],
+ "hygiene": {
+  "runs": 24,
+  "load": [
+   1.59,
+   4.24
+  ],
+  "vm_cpu": [
+   6,
+   144
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [
+   "2026-09-29T12:22:00Z round 1 gbsa fold_s load { 3.83 6.12 7.04 } FOREIGN GPU 16% vm 10%"
+  ],
+  "cpu_busy": [],
+  "vm_high": [
+   "2026-09-29T12:30:15Z round 2 pme fold_s load { 1.66 2.83 4.90 } vm 144%"
+  ]
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T12:22:00Z",
+ "last_run": "2026-09-29T12:30:15Z",
+ "arms": {
+  "fold_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "bm_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-bm",
+   "commit": "11e3b27c555e88fd93910a0b463398952711a472",
+   "src": "f21221d88176378dfde7aa0f606cda151b88c787",
+   "built": "2026-09-29T10:56:08Z"
+  },
+  "fold_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "bm_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-bm",
+   "commit": "11e3b27c555e88fd93910a0b463398952711a472",
+   "src": "f21221d88176378dfde7aa0f606cda151b88c787",
+   "built": "2026-09-29T10:56:08Z"
+  }
+ },
+ "gpuq_job": null,
+ "written": "2026-09-29T12:49:18Z"
+}

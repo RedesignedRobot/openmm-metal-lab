@@ -1,0 +1,14 @@
+09:55:13Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-28T09:50:42Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/irl/ab-pme-single, about 6 min, 0 build processes
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-integrated", "energy": -1388810.861445564, "bitwise_repeat": true, "us_median": 386.22916326858103, "us_min": 376.62501563318074, "us_p90": 405.8791644638405}
+int single exit 0
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.855586189, "bitwise_repeat": true, "us_median": 490.2500077150762, "us_min": 443.2499990798533, "us_p90": 492.2500113025308}
+r single exit 0
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.857539314, "bitwise_repeat": true, "us_median": 1098.5833214363083, "us_min": 635.7500096783042, "us_p90": 1154.2583408299834}
+g single exit 0
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-integrated", "energy": -1388810.769131679, "bitwise_repeat": true, "us_median": 654.6249787788838, "us_min": 651.1250103358179, "us_p90": 656.9374963873997}
+int mixed exit 0
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.7691316789, "bitwise_repeat": true, "us_median": 727.4999952642247, "us_min": 421.8749818392098, "us_p90": 793.7541842693465}
+r mixed exit 0
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.7691316786, "bitwise_repeat": true, "us_median": 1092.687511118129, "us_min": 633.1249896902591, "us_p90": 1145.1125057647005}
+g mixed exit 0
+check done

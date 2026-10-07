@@ -1,0 +1,328 @@
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                             k8-single/base-single
+gbsa                       1.009 (rounds 1.007..1.011)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                            k32-single/base-single
+gbsa                       1.010 (rounds 1.010..1.010)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                            c32-single/base-single
+gbsa                       1.011 (rounds 1.008..1.013)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                             ki-single/base-single
+gbsa                       1.046 (rounds 1.043..1.048)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                               k8-mixed/base-mixed
+gbsa                       1.008 (rounds 1.005..1.011)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                              k32-mixed/base-mixed
+gbsa                       1.003 (rounds 0.999..1.006)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                              c32-mixed/base-mixed
+gbsa                       1.004 (rounds 1.003..1.005)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+gbsa                     1243.02       1608.97       1248.15       1625.92       1246.65       1625.57       1253.34       1623.68       1286.08       1682.31
+
+rounds, base-mixed:
+  gbsa               1246.81 1239.24   spread 0.6%
+rounds, base-single:
+  gbsa               1607.73 1610.21   spread 0.2%
+rounds, c32-mixed:
+  gbsa               1250.52 1245.77   spread 0.4%
+rounds, c32-single:
+  gbsa               1621.02 1630.82   spread 0.6%
+rounds, k32-mixed:
+  gbsa               1246.15 1247.15   spread 0.1%
+rounds, k32-single:
+  gbsa               1624.47 1626.67   spread 0.1%
+rounds, k8-mixed:
+  gbsa               1253.29 1253.40   spread 0.0%
+rounds, k8-single:
+  gbsa               1626.18 1621.18   spread 0.3%
+rounds, ki-mixed:
+  gbsa               1286.83 1285.33   spread 0.1%
+rounds, ki-single:
+  gbsa               1677.55 1687.07   spread 0.6%
+
+test                               ki-mixed/base-mixed
+gbsa                       1.035 (rounds 1.032..1.037)
+
+1 minute load before 40 runs: 4.78 to 21.62
+Background VM CPU before 40 runs: 4% to 48%
+runs with no result: 0
+runs that overlapped a build: 9
+  2026-09-27T07:00:53Z round 2 gbsa c32-mixed BUILD RUNNING during the run
+  2026-09-27T07:00:53Z round 2 gbsa k32-mixed load { 9.54 8.68 9.40 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:09Z round 2 gbsa k8-mixed load { 18.05 10.64 10.09 } BUILD RUNNING vm 6%
+  2026-09-27T07:01:26Z round 2 gbsa base-mixed load { 15.71 10.48 10.04 } BUILD RUNNING vm 8%
+  2026-09-27T07:01:42Z round 2 gbsa ki-single load { 12.75 10.15 9.93 } BUILD RUNNING vm 5%
+  2026-09-27T07:01:58Z round 2 gbsa c32-single load { 10.74 9.83 9.82 } BUILD RUNNING vm 4%
+  2026-09-27T07:02:15Z round 2 gbsa k32-single load { 14.79 10.81 10.17 } BUILD RUNNING vm 5%
+  2026-09-27T07:02:31Z round 2 gbsa k8-single load { 17.07 11.50 10.43 } BUILD RUNNING vm 8%
+  2026-09-27T07:02:47Z round 2 gbsa base-single load { 21.62 12.95 10.98 } BUILD RUNNING vm 7%

@@ -1,0 +1,20 @@
+device Apple M3 Ultra grid 45x42x35 reps 5
+vkfft+conv     median    61.80 us  p10    61.36  p90    61.87  relL2 vs double 2.206e-07
+vkfft only     median    29.84 us  p10    29.77  p90    30.96  relL2 vs double 1.263e+03
+fused t1024    median    18.59 us  p10    17.91  p90    19.71  relL2 vs double 1.959e-07
+k1 only t1024  median     5.74 us  p10     5.60  p90     6.16  relL2 vs double 9.990e-01
+device Apple M3 Ultra grid 64x60x50 reps 5
+vkfft+conv     median    77.69 us  p10    72.03  p90    82.40  relL2 vs double 1.774e-07
+vkfft only     median    36.50 us  p10    36.47  p90    36.77  relL2 vs double 2.045e+03
+fused t1024    median    29.17 us  p10    29.02  p90    29.21  relL2 vs double 1.587e-07
+k1 only t1024  median    10.59 us  p10    10.19  p90    12.60  relL2 vs double 9.997e-01
+device Apple M3 Ultra grid 48x36x30 reps 5
+vkfft+conv     median    37.49 us  p10    31.18  p90    41.09  relL2 vs double 2.324e-07
+vkfft only     median    36.41 us  p10    35.23  p90    37.09  relL2 vs double 1.754e+03
+fused t1024    median    32.15 us  p10    26.17  p90    32.36  relL2 vs double 2.227e-07
+k1 only t1024  median     9.62 us  p10     9.60  p90    10.01  relL2 vs double 9.972e-01
+device Apple M3 Ultra grid 24x28x27 reps 5
+vkfft+conv     median    48.34 us  p10    32.83  p90    56.81  relL2 vs double 1.892e-07
+vkfft only     median    35.22 us  p10    32.32  p90    38.33  relL2 vs double 6.885e+02
+fused t1024    median    15.03 us  p10    14.39  p90    15.77  relL2 vs double 1.792e-07
+k1 only t1024  median     5.37 us  p10     5.14  p90     5.53  relL2 vs double 9.953e-01

@@ -1,0 +1,8 @@
+2026-09-25T03:27:10Z round 1 pme pair load { 3.03 2.85 4.75 } vm 10% top superwhisper 23.8%, com.apple.Virtualization.VirtualMachine 10.2%, sysmond 4.3%, WindowServer 4.1%, node 2.5%
+2026-09-25T03:27:27Z round 1 pme pass load { 2.75 2.79 4.68 } vm 3% top superwhisper 21.4%, bun 18.7%, powermetrics 12.6%, sysmond 6.0%,  codex 4.0%
+2026-09-25T03:27:45Z round 1 apoa1pme pair load { 2.46 2.72 4.62 } vm 5% top corespotlightd 202.7%, chrome-headless-shell 88.1%, superwhisper 23.0%, node 16.4%, chrome-headless-shell 11.9%
+2026-09-25T03:28:04Z round 1 apoa1pme pass load { 2.11 2.63 4.54 } vm 19% top chrome-headless-shell 96.4%, superwhisper 23.3%, com.apple.Virtualization.VirtualMachine 18.7%, chrome-headless-shell 14.0%, chrome-headless-shell 12.5%
+2026-09-25T03:28:22Z round 2 pme pass load { 2.16 2.60 4.49 } vm 2% top node 34.4%, superwhisper 19.8%, bun 12.6%, sysmond 2.8%, com.apple.Virtualization.VirtualMachine 2.5%
+2026-09-25T03:28:39Z round 2 pme pair load { 2.11 2.57 4.45 } vm 4% top superwhisper 18.5%, sysmond 6.0%, com.apple.Virtualization.VirtualMachine 3.7%, iStat Menus Menubar 2.9%, WindowServer 2.3%
+2026-09-25T03:28:56Z round 2 apoa1pme pass load { 2.24 2.57 4.41 } vm 4% top superwhisper 23.6%, bun 6.9%, sysmond 6.3%, com.apple.Virtualization.VirtualMachine 4.2%, WindowServer 2.6%
+2026-09-25T03:29:14Z round 2 apoa1pme pair load { 1.80 2.45 4.33 } vm 6% top superwhisper 20.8%, com.apple.Virtualization.VirtualMachine 6.5%, sysmond 4.7%,  claude 3.2%, WindowServer 1.5%

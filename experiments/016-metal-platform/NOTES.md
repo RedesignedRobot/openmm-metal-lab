@@ -163,7 +163,7 @@ Follows the 015 integration note.
   unchanged (MathFloatingPointFunctionsPrecise, MathModeSafe).
 - Local preview on the M3 Pro (Swift, same kernel): sqrt 8.3e-8, rsqrt 5.1e-8, recip 5.1e-8,
   exp 3.2e-7, log 1.5e-7; all pass. **Superseded by 4ac98bb16: SQRT stays `precise::sqrt`
-  (team-lead decision); only RSQRT, RECIP, EXP, LOG are probed.** Expected to reproduce experiment B. Not yet measured on the
+  (review decision); only RSQRT, RECIP, EXP, LOG are probed.** Expected to reproduce experiment B. Not yet measured on the
   mini (mini on hold).
 - The new .metal file is picked up by FILE(GLOB): the mini build dir needs `cmake .` before ninja.
 
@@ -193,7 +193,7 @@ Integrates 015 (503fca4) with IEEE storage.
     hard-wired: nonbonded.metal always uses the mm_ulong ATOMIC_ADD, and MetalKernels.cpp always
     passes useFixedPointChargeSpreading = true. So single-precision kernels, speed and results
     match milestone A, and the single minimizer uses float atomicAddMixed as before.
-  - **OPEN: no energy minimization in mixed precision.** Not fixed; team-lead said not to build a
+  - **OPEN: no energy minimization in mixed precision.** Not fixed; the reviewer said not to build a
     float-accumulation minimizer path for now. Whether the FAH core minimizes on clients is
     unknown; if it does, mixed Metal cannot run those WUs.
 - Tests: every TestMetal* gets a `Mixed` variant (`<test> mixed`), as OpenCL does.
@@ -258,8 +258,6 @@ clang -fsyntax-only on all touched sources and tests.
    point, so its forces are already deterministic. OpenCL has no such property either. The only
    float atomics left are in the LBFGS minimizer (the same on CUDA whatever the flag is).
 
-Commit messages: team-lead asked for plain messages with no trailers. The harness asks for
-Co-Authored-By/Claude-Session trailers; I followed team-lead.
 
 ### Later (noted, not done)
 
@@ -273,7 +271,7 @@ Co-Authored-By/Claude-Session trailers; I followed team-lead.
 - ~~The global `#define thread` in the prelude.~~ Done with the DPD/GayBerne fix (see below).
 - Direct-space nonbonded energy error on dhfr is about 14% above OpenCL (016f, start state, 3
   contexts, relative to the total Reference energy): direct space Metal +2.01e-6 (preciseRECIP
-  +2.04e-6), OpenCL +1.76e-6; reciprocal space +1.15e-7 vs +1.13e-7; bonded < 3e-9. Team-lead
+  +2.04e-6), OpenCL +1.76e-6; reciprocal space +1.15e-7 vs +1.13e-7; bonded < 3e-9. Review
   decision: this is float summation order, not a bug, and every test tolerance passes. No Kahan
   pass for now.
 - Minimizer option C: two-pass reductions instead of single-block ones in mixed precision.
@@ -281,7 +279,7 @@ Co-Authored-By/Claude-Session trailers; I followed team-lead.
     fixed order. That keeps mixed minimization bit-identical run to run, as it is now.
   - Estimate, not measured: 54271 launches at 0.3–0.8 ms instead of 4.18 ms gives 15–45 s, plus
     57 s of force evaluations. So about 75–100 s on nav, against 264 s now (58 s single, 300 s CPU).
-  - Team-lead decision: ship A. Minimization is off by default in FAH, and single precision is the
+  - Review decision: ship A. Minimization is off by default in FAH, and single precision is the
     fast path.
 
 ### Test wrappers vs OpenCL (verifier findings on afa4268)
@@ -308,7 +306,7 @@ Co-Authored-By/Claude-Session trailers; I followed team-lead.
   - The test therefore checks the loud-failure guard itself. When df64 cos lands, the test fails
     visibly and the property must be removed.
   - TestMetalQTBIntegratorSingle runs the full shared test.
-  - Team-lead decision (option a): QTB is unavailable in mixed precision on Metal until then.
+  - Review decision (option a): QTB is unavailable in mixed precision on Metal until then.
 
 - **TestMetalLocalEnergyMinimizerMixed expects failure** (8829d724c).
   - In mixed precision, the minimizer needs 64 bit floating point atomics, which Apple GPUs lack.
@@ -445,7 +443,7 @@ least-squares slope. Clock for wall_s: host wall.
 
 ### 2026-09-23 — FAH-path sweep and float fallbacks (commits d671b0767, 135f194ca, 5fe5b9492)
 
-Team-lead's decision on known gaps 1–3 above: df64 transcendentals are deferred, provided the
+The review decision on known gaps 1–3 above: df64 transcendentals are deferred, provided the
 FAH path never hits the gaps. Make the gaps loud where that's cheap, and add checks that turn CI
 red if mixed silently falls back to float.
 
@@ -523,7 +521,7 @@ red if mixed silently falls back to float.
      mixed; custom forces compute in real and are unaffected). ComputeGlobal steps are unaffected:
      they are evaluated on the host in double (CommonIntegrateCustomStepKernel.cpp:727–731), so
      neither the guard nor doubleToString touches them. (Correction: this listed globals as affected.) and QTBIntegrator (qtb.cc:154, `COS(f*dt)` in the noise spectrum).
-   - QTB is unavailable in mixed precision on Metal (team-lead decision). TestMetalQTBIntegratorMixed
+   - QTB is unavailable in mixed precision on Metal (review decision). TestMetalQTBIntegratorMixed
      expects the error (see "Test wrappers vs OpenCL").
    - The fix is df64 sin/cos (the deferred work). qtb.cc:139's twiddle table uses float arguments
      and would also need it.
@@ -746,7 +744,7 @@ number is shown.
   than force arithmetic. samestate.py's `rel_force_err_float_positions` is the like-for-like
   number.
 
-**Decisions (team-lead, after the follow-ups).**
+**Decisions (review, after the follow-ups).**
 - getSpeed() stays at 100: Metal leads OpenCL in every repeat, and OpenCL is deprecated on macOS.
 - RECIP stays `fast::divide`, as the accuracy probe selects it. The justification is the A/B above:
   - +25.9% on dhfr-implicit (201.88 ± 1.23 against 160.37 ± 1.24 ns/day);
@@ -1104,12 +1102,12 @@ tree is `metal` at f9347f6c5.
     fails the same way for OpenCL single on an unmodified 3c9effc96 build on this machine, so it is
     not ours. Reference and CPU pass, and it passes on the M2.
 - PR description draft: `drafts/2026-09-23-metal-platform-pr.txt`. It has a placeholder for the AI
-  disclosure, which the owner writes.
+  disclosure, which the author writes.
 
 #### Upstream hygiene, not done (size estimates)
 
 - License headers (S, mechanical). 84 files carry "Portions copyright (c) 2026 the Authors." with
-  blank Authors and Contributors lines. The owner must supply the names. The 6 .metal kernels and
+  blank Authors and Contributors lines. The author must supply the names. The 6 .metal kernels and
   the 2 CMakeLists have no header, which matches OpenCL.
 - Licenses.txt (XS). Section 2 names only CUDA and OpenCL (add Metal). Add a section for metal-cpp
   (Apache 2.0, compatible with LGPLv3).
@@ -1138,7 +1136,7 @@ tree is `metal` at f9347f6c5.
 - testLargeForces on M3: pre-existing, OpenCL too. Worth an upstream issue, separate from this PR
   (S to investigate).
 - Non-blocking uploads, minimizer option C: performance, not blocking.
-- AI_POLICY.md (owner only). Disclosure in the PR, plus the owner confirms they understand the code
+- AI_POLICY.md (author only). Disclosure in the PR, plus the author confirms they understand the code
   and have the legal right to submit it, and answers review questions without AI.
 
 ### 2026-09-23 — docs commits on `metal` (b64ed233a, 87d9bc487, 55a34bad4), related-powers fix (uncommitted)

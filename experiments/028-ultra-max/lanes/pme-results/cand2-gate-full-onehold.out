@@ -1,0 +1,32 @@
+22:45:13Z waiting for the lease: 12 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 12 build processes
+22:50:20Z waiting for the lease: 12 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:55:27Z waiting for the lease: 11 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 0 build processes
+23:00:34Z waiting for the lease: 9 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:05:41Z waiting for the lease: 8 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:10:48Z waiting for the lease: 8 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:15:56Z waiting for the lease: 7 in the queue, held by: atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+23:21:06Z waiting for the lease: 5 in the queue, held by: ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+gate /tmp/openmm-metal-bench/ultra-pme/cand2, 17929e631e15235aecc240d82b973199a09a8add, logs in /tmp/openmm-metal-bench/ultra-pme/cand2/gate-20260924T232518Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.567e-02  6.411e-07  ok
+gbsa            2489     mixed  2.468e-05  8.567e-02  6.124e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.116e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  1.120e-06  ok
+pme            23558     mixed  2.048e-05  3.918e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  4.479e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.201e-01  5.864e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.202e-01  5.873e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  6.120e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.933e-07  ok
+FAIL part 1: ctest finished no of 28 tests, see /tmp/openmm-metal-bench/ultra-pme/cand2/gate-20260924T232518Z/ctest-1.txt
+FAIL part 2: ctest finished no of 28 tests, see /tmp/openmm-metal-bench/ultra-pme/cand2/gate-20260924T232518Z/ctest-2.txt
+ctest: 110 tests in 4 parts, 0 failed in the -j2 runs
+FAIL

@@ -1,0 +1,3 @@
+2026-09-29T06:49:48Z round 1 gbsa base-single load { 3.15 3.13 2.76 } vm 32% top superwhisper 26.2%, WindowServer 20.9%, com.apple.Virtualization.VirtualMachine 18.9%, com.apple.Virtualization.VirtualMachine 13.0%,  claude 11.3%
+2026-09-29T06:49:55Z round 1 gbsa base-opencl load { 3.06 3.11 2.75 } vm 33% top corespotlightd 102.8%, modelcatalogd 48.7%, TGOnDeviceInferenceProviderService 45.6%, com.apple.Virtualization.VirtualMachine 24.1%, superwhisper 18.6%
+2026-09-29T06:50:02Z builds: none ran during the 2 timed runs; window hold of gpuq job 3 (window): 0 builds paused

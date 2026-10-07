@@ -1,0 +1,12 @@
+2026-09-28T10:45:24Z round 1 apoa1ljpme mine-single load { 3.86 3.97 4.41 } vm 4% top mediaanalysisd 178.3%, mds_stores 34.6%, WindowServer 26.7%, superwhisper 24.2%, AirPlayXPCHelper 19.3%
+2026-09-28T10:45:58Z round 1 apoa1ljpme base-single load { 2.78 3.70 4.29 } vm 4% top WindowServer 44.3%, AirPlayXPCHelper 28.4%, superwhisper 18.5%, sysmond 10.2%, VTEncoderXPCService 9.6%
+2026-09-28T10:46:32Z round 1 apoa1ljpme mine-mixed load { 2.85 3.62 4.24 } vm 8% top superwhisper 20.4%, WindowServer 16.6%, AirPlayXPCHelper 13.8%, sysmond 8.7%, com.apple.Virtualization.VirtualMachine 6.4%
+2026-09-28T10:47:11Z round 1 apoa1ljpme base-mixed load { 2.79 3.51 4.17 } vm 5% top WindowServer 25.4%, superwhisper 21.6%, AirPlayXPCHelper 16.7%, Google Chrome Helper 6.0%, VTEncoderXPCService 4.9%
+2026-09-28T10:47:49Z round 2 apoa1ljpme base-mixed load { 3.49 3.59 4.17 } vm 4% top superwhisper 19.5%, WindowServer 18.4%, AirPlayXPCHelper 17.4%, sysmond 10.2%, VTEncoderXPCService 8.7%
+2026-09-28T10:48:23Z round 2 apoa1ljpme mine-mixed load { 3.86 3.66 4.17 } vm 6% top WindowServer 31.3%, AirPlayXPCHelper 23.8%, superwhisper 20.8%, powermetrics 11.7%, VTEncoderXPCService 7.4%
+2026-09-28T10:49:01Z round 2 apoa1ljpme base-single load { 3.57 3.62 4.13 } vm 7% top WindowServer 21.8%, AirPlayXPCHelper 20.9%, superwhisper 19.4%, VTEncoderXPCService 8.4%, Google Chrome Helper 6.0%
+2026-09-28T10:49:35Z round 2 apoa1ljpme mine-single load { 3.62 3.60 4.10 } vm 4% top superwhisper 19.7%, WindowServer 19.5%, AirPlayXPCHelper 19.0%, VTEncoderXPCService 7.5%, replayd 6.4%
+2026-09-28T10:50:10Z round 3 apoa1ljpme mine-single load { 4.80 3.87 4.18 } vm 9% top WindowServer 48.9%, AirPlayXPCHelper 31.1%, superwhisper 20.5%, VTEncoderXPCService 10.9%, com.apple.Virtualization.VirtualMachine 9.3%
+2026-09-28T10:50:43Z round 3 apoa1ljpme base-single load { 4.44 3.90 4.18 } vm 4% top WindowServer 47.3%, superwhisper 34.2%, AirPlayXPCHelper 30.1%, sysmond 6.0%, VTEncoderXPCService 5.0%
+2026-09-28T10:51:17Z round 3 apoa1ljpme mine-mixed load { 5.71 4.23 4.28 } vm 20% top AirPlayXPCHelper 33.3%, WindowServer 28.5%, superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 17.2%, Safari 7.8%
+2026-09-28T10:51:52Z round 3 apoa1ljpme base-mixed load { 5.89 4.41 4.34 } vm 6% top WindowServer 28.3%, AirPlayXPCHelper 25.6%, superwhisper 21.9%, VTEncoderXPCService 7.8%, Google Chrome Helper 6.4%

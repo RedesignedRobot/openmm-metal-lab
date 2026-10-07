@@ -1,0 +1,40 @@
+start 21:47:27Z  0:47  up 1 day,  8:01, 2 users, load averages: 8.60 7.70 8.21
+21:47:27Z waiting for the lease: 28 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:52:32Z waiting for the lease: 28 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:57:37Z waiting for the lease: 27 in the queue, held by: ultra-workloads 2026-09-24T21:55:40Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 apoa1pme, 0 build processes
+22:02:41Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:07:46Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:12:52Z waiting for the lease: 12 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:17:57Z waiting for the lease: 11 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 13 build processes
+22:23:03Z waiting for the lease: 10 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:28:08Z waiting for the lease: 10 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+/bin/sh: line 1: 96037 Terminated: 15          /tmp/openmm-metal-bench/ultra-dispatch/gate-waitfree.sh
+22:33:14Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:38:21Z waiting for the lease: 8 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:43:28Z waiting for the lease: 8 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 7 build processes
+22:48:34Z waiting for the lease: 8 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:53:41Z waiting for the lease: 7 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 13 build processes
+22:58:48Z waiting for the lease: 6 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 13 build processes
+23:03:55Z waiting for the lease: 5 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:09:01Z waiting for the lease: 4 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:14:07Z waiting for the lease: 3 in the queue, held by: atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+23:19:16Z waiting for the lease: 1 in the queue, held by: ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+1/2 Test #228: TestMetalCommandBatchingSingle ...   Passed    1.03 sec
+2/2 Test #229: TestMetalCommandBatchingMixed ....   Passed    0.15 sec
+100% tests passed out of 2
+t5
+test           atoms  steps    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    100  2.283e-06  8.908e-03  5.704e-07
+gbsa            2489    200  2.056e-06  8.802e-03  6.146e-07
+rf             23558    100  1.092e-06  1.242e-02  2.657e-07
+rf             23558    200  5.580e-06  4.853e-01  2.440e-07
+pme            23558    100  1.325e-06  1.421e-02  1.353e-06
+pme            23558    200  1.356e-06  2.389e-02  1.358e-06
+base
+test           atoms  steps    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    100  2.283e-06  8.908e-03  5.063e-07
+gbsa            2489    200  2.056e-06  8.802e-03  6.160e-07
+rf             23558    100  1.092e-06  1.242e-02  2.763e-07
+rf             23558    200  5.580e-06  4.853e-01  2.414e-07
+pme            23558    100  1.325e-06  1.421e-02  1.313e-06
+pme            23558    200  1.356e-06  2.389e-02  1.361e-06

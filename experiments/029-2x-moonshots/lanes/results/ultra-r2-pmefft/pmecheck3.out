@@ -1,0 +1,16 @@
+pme              single      grid 56x56x56  fused/ref 2.229e-05  vkfft/ref 2.227e-05  fused/vkfft 1.105e-06  repeat-bitwise False  ok
+pme              mixed       grid 56x56x56  fused/ref 2.226e-05  vkfft/ref 2.231e-05  fused/vkfft 1.057e-06  repeat-bitwise False  ok
+pme              single+det  grid 56x56x56  fused/ref 2.223e-05  vkfft/ref 2.226e-05  fused/vkfft 9.976e-07  repeat-bitwise True  ok
+amber20-dhfr     single      grid 55x55x55  fused/ref 2.489e-05  vkfft/ref 2.495e-05  fused/vkfft 1.024e-06  repeat-bitwise False  ok
+amber20-dhfr     mixed       grid 55x55x55  fused/ref 2.489e-05  vkfft/ref 2.493e-05  fused/vkfft 1.022e-06  repeat-bitwise False  ok
+amber20-dhfr     single+det  grid 55x55x55  fused/ref 2.493e-05  vkfft/ref 2.488e-05  fused/vkfft 1.025e-06  repeat-bitwise True  ok
+apoa1pme         single      grid 98x98x98  fused/ref 1.142e-03  vkfft/ref 1.142e-03  fused/vkfft 1.263e-06  repeat-bitwise False  ok
+apoa1pme         mixed       grid 98x98x98  fused/ref 1.142e-03  vkfft/ref 1.142e-03  fused/vkfft 1.441e-06  repeat-bitwise False  ok
+apoa1pme         single+det  grid 98x98x98  fused/ref 1.142e-03  vkfft/ref 1.142e-03  fused/vkfft 0.000e+00  repeat-bitwise True  ok
+tric-45x42x35    single      grid 45x42x35  fused/ref 9.007e-07  vkfft/ref 9.033e-07  fused/vkfft 6.603e-07  repeat-bitwise False  ok
+tric-45x42x35    mixed       grid 45x42x35  fused/ref 8.905e-07  vkfft/ref 9.054e-07  fused/vkfft 6.340e-07  repeat-bitwise False  ok
+tric-45x42x35    single+det  grid 45x42x35  fused/ref 9.022e-07  vkfft/ref 9.246e-07  fused/vkfft 6.667e-07  repeat-bitwise True  ok
+tric-28x30x27    single      grid 28x30x27  fused/ref 7.974e-07  vkfft/ref 8.019e-07  fused/vkfft 4.018e-07  repeat-bitwise False  ok
+tric-28x30x27    mixed       grid 28x30x27  fused/ref 8.013e-07  vkfft/ref 8.108e-07  fused/vkfft 4.070e-07  repeat-bitwise False  ok
+tric-28x30x27    single+det  grid 28x30x27  fused/ref 7.996e-07  vkfft/ref 8.098e-07  fused/vkfft 4.030e-07  repeat-bitwise True  ok
+PASS

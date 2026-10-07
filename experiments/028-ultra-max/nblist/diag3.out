@@ -1,0 +1,7 @@
+23:47:48Z waiting for the lease: 52 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+== gatecheck
+inconclusive (off vs off differs too) rf: max |dx| off/off 0, off/on 0 nm; energy off -276755.692567 off -276755.693299 on -276755.693421
+inconclusive (off vs off differs too) apoa1rf: max |dx| off/off 0, off/on 0 nm; energy off -1104945.693477 off -1104945.671992 on -1104945.692500
+inconclusive (off vs off differs too) pme: max |dx| off/off 0.199, off/on 0.243 nm; energy off -299349.548122 off -299280.278591 on -299228.798122
+== ctest NB_GATE=1
+== DIAG3 DONE

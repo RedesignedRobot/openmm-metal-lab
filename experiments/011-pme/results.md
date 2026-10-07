@@ -1,6 +1,6 @@
 # Results: Experiment 011 Reciprocal-Space PME Pipeline
 
-CORRECTED in HEAD-NOTE.md: the OpenCL times and every speed ratio below were measured on a different clock from the Metal times. Like for like, PME is a tie.
+CORRECTED in REVIEW-NOTE.md: the OpenCL times and every speed ratio below were measured on a different clock from the Metal times. Like for like, PME is a tie.
 
 ## Summary Speed Results
 

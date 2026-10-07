@@ -1,0 +1,29 @@
+Test project /tmp/openmm-metal-bench/ultra-nblist/t5/build
+      Start 232: TestMetalConstantPotentialForceSingle
+      Start 233: TestMetalConstantPotentialForceMixed
+ 1/12 Test #232: TestMetalConstantPotentialForceSingle ...   Passed   12.06 sec
+      Start 248: TestMetalCustomGBForceSingle
+ 2/12 Test #248: TestMetalCustomGBForceSingle ............   Passed    2.93 sec
+      Start 249: TestMetalCustomGBForceMixed
+ 3/12 Test #249: TestMetalCustomGBForceMixed .............   Passed   26.19 sec
+      Start 256: TestMetalCustomNonbondedForceSingle
+ 4/12 Test #256: TestMetalCustomNonbondedForceSingle .....   Passed    9.74 sec
+      Start 257: TestMetalCustomNonbondedForceMixed
+ 5/12 Test #233: TestMetalConstantPotentialForceMixed ....   Passed   64.54 sec
+      Start 264: TestMetalEwaldSingle
+ 6/12 Test #257: TestMetalCustomNonbondedForceMixed ......   Passed   29.65 sec
+      Start 265: TestMetalEwaldMixed
+ 7/12 Test #264: TestMetalEwaldSingle ....................   Passed   16.65 sec
+      Start 268: TestMetalGBSAOBCForceSingle
+ 8/12 Test #268: TestMetalGBSAOBCForceSingle .............   Passed    7.72 sec
+      Start 269: TestMetalGBSAOBCForceMixed
+ 9/12 Test #269: TestMetalGBSAOBCForceMixed ..............   Passed   52.02 sec
+      Start 294: TestMetalNonbondedForceSingle
+10/12 Test #265: TestMetalEwaldMixed .....................   Passed   65.22 sec
+      Start 295: TestMetalNonbondedForceMixed
+11/12 Test #294: TestMetalNonbondedForceSingle ...........   Passed    9.00 sec
+12/12 Test #295: TestMetalNonbondedForceMixed ............   Passed   25.14 sec
+
+100% tests passed out of 12
+
+Total Test time (real) = 170.93 sec

@@ -1,0 +1,10 @@
+int028 run 1 exit=1 pme 23558 single 2.977e-06 2.344e-01 1.449e-06;pme 23558 mixed 1.968e-05 3.522e-01 1.323e-06;
+m29-nonbonded-final run 1 exit=0 pme 23558 single 1.373e-06 1.690e-02 1.336e-06;pme 23558 mixed 2.035e-05 2.910e-01 1.455e-06;
+int028 run 2 exit=1 pme 23558 single 2.166e-06 1.742e-01 1.376e-06;pme 23558 mixed 1.914e-05 3.361e-01 1.391e-06;
+m29-nonbonded-final run 2 exit=0 pme 23558 single 1.373e-06 2.168e-02 1.367e-06;pme 23558 mixed 2.052e-05 3.272e-01 1.345e-06;
+int028 run 3 exit=0 pme 23558 single 1.379e-06 1.699e-02 1.390e-06;pme 23558 mixed 1.988e-05 2.783e-01 1.371e-06;
+m29-nonbonded-final run 3 exit=0 pme 23558 single 1.390e-06 1.756e-02 1.367e-06;pme 23558 mixed 1.949e-05 2.916e-01 1.323e-06;
+int028 run 4 exit=0 pme 23558 single 1.327e-06 1.437e-02 1.389e-06;pme 23558 mixed 1.923e-05 3.283e-01 1.370e-06;
+m29-nonbonded-final run 4 exit=0 pme 23558 single 1.381e-06 1.697e-02 1.363e-06;pme 23558 mixed 1.947e-05 3.219e-01 1.403e-06;
+int028 run 5 exit=0 pme 23558 single 1.360e-06 1.826e-02 1.366e-06;pme 23558 mixed 1.957e-05 2.707e-01 1.322e-06;
+m29-nonbonded-final run 5 exit=0 pme 23558 single 1.402e-06 1.821e-02 1.389e-06;pme 23558 mixed 1.870e-05 2.853e-01 1.424e-06;

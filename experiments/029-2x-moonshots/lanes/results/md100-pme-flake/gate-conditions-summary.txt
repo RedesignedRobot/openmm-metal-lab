@@ -1,0 +1,12 @@
+int028 run 1 exit=0 pme 23558 single 1.370e-06 2.265e-02 1.368e-06 | fails: 0
+m29-nonbonded-final run 1 exit=0 pme 23558 single 1.340e-06 1.451e-02 1.350e-06 | fails: 0
+int028 run 2 exit=1 pme 23558 single 3.344e-06 3.139e-01 1.289e-06 | fails: 0
+m29-nonbonded-final run 2 exit=0 pme 23558 single 1.353e-06 1.473e-02 1.377e-06 | fails: 0
+int028 run 3 exit=0 pme 23558 single 1.361e-06 1.452e-02 1.349e-06 | fails: 0
+m29-nonbonded-final run 3 exit=0 pme 23558 single 1.381e-06 1.771e-02 1.416e-06 | fails: 0
+int028 run 4 exit=0 pme 23558 single 1.360e-06 2.398e-02 1.404e-06 | fails: 0
+m29-nonbonded-final run 4 exit=1 pme 23558 single 1.356e-06 2.753e-02 1.310e-06 | fails: 0
+int028 run 5 exit=0 pme 23558 single 1.345e-06 1.358e-02 1.405e-06 | fails: 0
+m29-nonbonded-final run 5 exit=0 pme 23558 single 1.403e-06 2.341e-02 1.410e-06 | fails: 0
+int028 run 6 exit=0 pme 23558 single 1.380e-06 2.010e-02 1.399e-06 | fails: 0
+m29-nonbonded-final run 6 exit=0 pme 23558 single 1.354e-06 1.987e-02 1.438e-06 | fails: 0

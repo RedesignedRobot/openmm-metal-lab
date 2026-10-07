@@ -1,0 +1,30 @@
+steps by computeNonbonded: a 4909, b 4909
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+computeExclusionParameters                         0.00       0.00     0.00    0.00    0.00
+VkFFT_main                                        34.07      34.07     0.00    6.02    6.02
+copyShortList                                      0.71       0.71     0.00    0.50    0.50
+sortShortList2                                     6.97       6.97     0.00    1.00    1.00
+clearThreeBuffers                                  2.80       2.80     0.00    1.00    1.00
+clearBuffer                                        0.00       0.00     0.00    0.00    0.00
+generateRandomNumbers                              1.28       1.28     0.00    0.25    0.25
+sortBoxData                                        2.77       2.77     0.00    1.00    1.00
+calcCenterOfMassMomentum                           3.03       3.03     0.00    1.00    1.00
+computeNonbonded                                 108.56     108.56     0.00    1.00    1.00
+computeParameters                                  0.00       0.00     0.00    0.00    0.00
+removeCenterOfMassMomentum                         5.58       5.58     0.00    1.00    1.00
+gridInterpolateForce                              14.07      14.07     0.00    1.00    1.00
+applySettleToVelocities                            0.00       0.00     0.00    0.00    0.00
+applyShakeToVelocities                             0.00       0.00     0.00    0.00    0.00
+integrateLangevinMiddleFused                      15.56      15.56     0.00    1.00    1.00
+gridSpreadCharge                                  55.32      55.32     0.00    1.00    1.00
+gridEvaluateEnergy                                 0.00       0.00     0.00    0.00    0.00
+computeBondedForces                               68.45      68.45     0.00    1.00    1.00
+copyInteractionCounts                              0.08       0.08     0.00    0.06    0.06
+computeSortKeys                                    0.80       0.80     0.00    0.55    0.55
+copyFloatBuffer                                    0.00       0.00     0.00    0.00    0.00
+findBlockBounds                                    5.36       5.36     0.00    1.00    1.00
+reduceEnergy                                       0.01       0.01     0.00    0.00    0.00
+computeKineticEnergy                               0.04       0.04     0.00    0.00    0.00
+reciprocalConvolution                              3.59       3.59     0.00    1.00    1.00
+findBlocksWithInteractions                        39.33      39.33     0.00    1.00    1.00
+total                                            368.39     368.39     0.00

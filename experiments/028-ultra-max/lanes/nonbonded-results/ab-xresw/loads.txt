@@ -1,0 +1,32 @@
+2026-09-25T03:10:03Z round 1 pme tiles load { 4.05 8.02 10.03 } vm 2% top superwhisper 22.1%, syspolicyd 15.9%, node 15.1%, node 9.0%, iStat Menus Menubar 6.7%
+2026-09-25T03:10:20Z round 1 pme xres load { 4.17 7.86 9.94 } vm 5% top superwhisper 19.9%,  codex 8.0%, com.apple.Virtualization.VirtualMachine 5.2%, opendirectoryd 1.6%,  claude 1.5%
+2026-09-25T03:10:37Z round 1 pme xres2 load { 4.06 7.59 9.80 } vm 7% top superwhisper 18.7%, com.apple.Virtualization.VirtualMachine 5.8%, sysmond 4.7%, iStat Menus Menubar 2.7%,  claude 2.5%
+2026-09-25T03:10:54Z round 1 pme xres4 load { 3.92 7.38 9.68 } vm 10% top superwhisper 17.8%, com.apple.Virtualization.VirtualMachine 10.5%,  codex 3.8%,  claude 3.0%, sysmond 1.9%
+2026-09-25T03:11:11Z round 1 rf tiles load { 3.43 7.05 9.51 } vm 5% top chrome-headless-shell 35.0%, chrome-headless-shell 32.6%, superwhisper 17.9%, axassetsd 14.8%, coreaudiod 13.7%
+2026-09-25T03:11:28Z round 1 rf xres load { 3.85 6.96 9.43 } vm 7% top superwhisper 18.9%, sysmond 6.3%, com.apple.Virtualization.VirtualMachine 5.8%, node 5.0%, launchd 1.8%
+2026-09-25T03:11:44Z round 1 rf xres2 load { 3.39 6.71 9.30 } vm 18% top superwhisper 18.2%, com.apple.Virtualization.VirtualMachine 17.5%, sysmond 9.4%,  claude 2.3%, powermetrics 1.0%
+2026-09-25T03:12:01Z round 1 rf xres4 load { 3.43 6.50 9.16 } vm 7% top chrome-headless-shell 115.5%, history 70.9%, launchd 21.3%, bun 21.1%, superwhisper 19.4%
+2026-09-25T03:12:17Z round 1 amber20-dhfr tiles load { 3.31 6.32 9.05 } vm 6% top superwhisper 18.6%, com.apple.Virtualization.VirtualMachine 6.2%, sysmond 3.1%,  claude 2.6%, iStat Menus Menubar 2.2%
+2026-09-25T03:12:35Z round 1 amber20-dhfr xres load { 3.01 6.11 8.93 } vm 7% top chrome-headless-shell 22.2%, superwhisper 18.9%, com.apple.Virtualization.VirtualMachine 8.9%, sysmond 7.8%, chrome-headless-shell 6.5%
+2026-09-25T03:12:53Z round 1 amber20-dhfr xres2 load { 2.80 5.86 8.77 } vm 6% top superwhisper 20.7%, sysmond 8.2%, com.apple.Virtualization.VirtualMachine 5.6%, powermetrics 3.6%, WindowServer 1.9%
+2026-09-25T03:13:10Z round 1 amber20-dhfr xres4 load { 2.77 5.70 8.67 } vm 9% top analyticsd 48.8%, superwhisper 18.9%, sysmond 9.2%, com.apple.Virtualization.VirtualMachine 9.1%, iStat Menus Menubar 4.1%
+2026-09-25T03:13:28Z round 1 amber20-cellulose tiles load { 2.41 5.43 8.50 } vm 7% top superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 8.3%, sysmond 4.7%, sh 2.0%, WindowServer 1.2%
+2026-09-25T03:13:53Z round 1 amber20-cellulose xres load { 2.27 5.15 8.31 } vm 7% top superwhisper 22.4%, com.apple.Virtualization.VirtualMachine 7.2%,  claude 3.0%,  sleep 1.2%, sh 1.2%
+2026-09-25T03:14:19Z round 1 amber20-cellulose xres2 load { 2.00 4.87 8.11 } vm 8% top superwhisper 23.7%, node 9.7%, com.apple.Virtualization.VirtualMachine 8.3%, iStat Menus Menubar 3.3%,  claude 3.1%
+2026-09-25T03:14:45Z round 1 amber20-cellulose xres4 load { 2.00 4.63 7.94 } vm 5% top superwhisper 22.2%, com.apple.Virtualization.VirtualMachine 8.6%, bun 7.6%, sysmond 4.7%, WindowServer 2.0%
+2026-09-25T03:15:11Z round 2 pme xres4 load { 1.37 4.28 7.71 } vm 12% top superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 8.2%, sysmond 4.6%,  claude 2.6%, sh 2.2%
+2026-09-25T03:15:27Z round 2 pme xres2 load { 1.53 4.13 7.58 } vm 8% top superwhisper 16.6%, com.apple.Virtualization.VirtualMachine 7.8%, sysmond 6.5%,  claude 3.0%, iStat Menus Menubar 1.7%
+2026-09-25T03:15:44Z round 2 pme xres load { 1.63 4.02 7.48 } vm 4% top superwhisper 19.8%, sysmond 4.8%, com.apple.Virtualization.VirtualMachine 3.5%, iStat Menus Menubar 1.8%, WindowServer 1.6%
+2026-09-25T03:16:01Z round 2 pme tiles load { 2.31 4.05 7.43 } vm 10% top launchd 39.7%, superwhisper 19.6%, com.apple.Virtualization.VirtualMachine 10.1%, sysmond 8.1%, powermetrics 7.1%
+2026-09-25T03:16:17Z round 2 rf xres4 load { 2.28 3.94 7.31 } vm 6% top superwhisper 19.0%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 4.8%, iStat Menus Menubar 3.0%, WindowServer 1.8%
+2026-09-25T03:16:34Z round 2 rf xres2 load { 2.00 3.79 7.20 } vm 14% top superwhisper 20.1%, com.apple.Virtualization.VirtualMachine 13.6%, sysmond 3.3%,  claude 3.2%, WindowServer 1.7%
+2026-09-25T03:16:50Z round 2 rf xres load { 2.00 3.70 7.11 } vm 50% top com.apple.Virtualization.VirtualMachine 77.5%, superwhisper 21.3%, sysmond 4.8%, sh 1.2%,  sleep 1.1%
+2026-09-25T03:17:07Z round 2 rf tiles load { 1.96 3.58 6.98 } vm 10% top superwhisper 21.0%, com.apple.Virtualization.VirtualMachine 8.8%, sysmond 8.6%, iStat Menus Menubar 4.7%, WindowServer 2.7%
+2026-09-25T03:17:23Z round 2 amber20-dhfr xres4 load { 2.20 3.55 6.91 } vm 8% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 6.1%, sysmond 4.5%, sh 2.2%, trustd 2.0%
+2026-09-25T03:17:41Z round 2 amber20-dhfr xres2 load { 1.95 3.42 6.81 } vm 5% top superwhisper 20.3%,  claude 6.5%, com.apple.Virtualization.VirtualMachine 4.6%, sh 0.9%, WindowServer 0.8%
+2026-09-25T03:17:58Z round 2 amber20-dhfr xres load { 1.74 3.28 6.68 } vm 8% top superwhisper 17.9%, com.apple.Virtualization.VirtualMachine 8.3%, powermetrics 4.7%, sysmond 4.5%,  claude 3.8%
+2026-09-25T03:18:16Z round 2 amber20-dhfr tiles load { 1.58 3.17 6.58 } vm 10% top superwhisper 19.9%, com.apple.Virtualization.VirtualMachine 9.6%,  claude 6.1%, WindowServer 1.6%, powermetrics 1.1%
+2026-09-25T03:18:33Z round 2 amber20-cellulose xres4 load { 2.14 3.19 6.50 } vm 4% top superwhisper 18.6%, com.apple.Virtualization.VirtualMachine 4.6%, sysmond 4.4%, sh 2.2%, bun 2.1%
+2026-09-25T03:18:59Z round 2 amber20-cellulose xres2 load { 1.91 3.06 6.36 } vm 2% top node 80.9%, bun 26.3%, superwhisper 22.8%, iStat Menus Menubar 2.8%,  claude 2.3%
+2026-09-25T03:19:24Z round 2 amber20-cellulose xres load { 1.67 2.91 6.21 } vm 8% top superwhisper 21.2%, com.apple.Virtualization.VirtualMachine 8.1%, node 7.3%,  claude 6.4%, sysmond 5.5%
+2026-09-25T03:19:49Z round 2 amber20-cellulose tiles load { 1.58 2.80 6.08 } vm 6% top superwhisper 23.0%, chrome-headless-shell 16.4%, powermetrics 12.5%, ContextStoreAgent 11.0%, chrome-headless-shell 8.5%

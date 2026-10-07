@@ -1,0 +1,167 @@
+diff --git a/platforms/metal/include/MetalQueue.h b/platforms/metal/include/MetalQueue.h
+index ddf10784a..5ab46eaaf 100644
+--- a/platforms/metal/include/MetalQueue.h
++++ b/platforms/metal/include/MetalQueue.h
+@@ -61,8 +61,11 @@ public:
+     long long getCommitCount() const {
+         return commitCount;
+     }
+-private:
++    MTL::CommandBuffer* getOpenBuffer() {
++        return openBuffer;
++    }
+     void endEncoding();
++private:
+     metalStream_t stream;
+     MTL::CommandBuffer* openBuffer;
+     MTL::ComputeCommandEncoder* encoder;
+diff --git a/platforms/metal/src/MetalArray.cpp b/platforms/metal/src/MetalArray.cpp
+index ae3a2da1c..9efc68ebc 100644
+--- a/platforms/metal/src/MetalArray.cpp
++++ b/platforms/metal/src/MetalArray.cpp
+@@ -24,6 +24,7 @@
+  * -------------------------------------------------------------------------- */
+ 
+ #include "MetalArray.h"
++#include "GpuProf.h"
+ #include "MetalContext.h"
+ #include "openmm/common/ContextSelector.h"
+ #include <iostream>
+@@ -96,7 +97,7 @@ void MetalArray::copyTo(ArrayInterface& dest) const {
+     MetalQueue& queue = context->getCurrentStream();
+     std::lock_guard<std::recursive_mutex> guard(queue.getLock());
+     NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
+-    MTL::BlitCommandEncoder* blit = queue.getCommandBuffer()->blitCommandEncoder();
++    MTL::BlitCommandEncoder* blit = gpuprof::newBlit(queue.getCommandBuffer());
+     blit->copyFromBuffer(pointer, 0, cuDest.getDevicePointer(), 0, size*elementSize);
+     blit->endEncoding();
+     pool->release();
+diff --git a/platforms/metal/src/MetalContext.cpp b/platforms/metal/src/MetalContext.cpp
+index b98374e83..67228f38e 100644
+--- a/platforms/metal/src/MetalContext.cpp
++++ b/platforms/metal/src/MetalContext.cpp
+@@ -27,6 +27,7 @@
+   #define _USE_MATH_DEFINES // Needed to get M_PI
+ #endif
+ #include "MetalContext.h"
++#include "GpuProf.h"
+ #include "MetalArray.h"
+ #include "MetalBondedUtilities.h"
+ #include "MetalEvent.h"
+@@ -155,7 +156,7 @@ MetalContext::MetalContext(const System& system, int deviceIndex, bool useBlocki
+     this->sharedMemPerBlock = device->maxThreadgroupMemoryLength();
+ 
+     // METAL-TODO: find a good value here
+-    int numThreadBlocksPerComputeUnit = 12;
++    int numThreadBlocksPerComputeUnit = (getenv("HD_TBPC") ? atoi(getenv("HD_TBPC")) : 12);
+ 
+     contextIsValid = true;
+     ContextSelector selector(*this);
+@@ -518,6 +519,7 @@ metalFunction_t MetalContext::getKernel(metalModule_t& module, const string& nam
+     if (kernel == NULL)
+         throw OpenMMException("Error creating kernel "+name);
+     kernelArgumentSizes[kernel] = sizes;
++    gpuprof::setName(kernel, name);
+     return kernel;
+ }
+ 
+@@ -608,6 +610,7 @@ void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, i
+     }
+     encoder->setThreadgroupMemoryLength((sharedSize+15)/16*16, 0);
+     encoder->dispatchThreadgroups(MTL::Size(gridSize, 1, 1), MTL::Size(blockSize, 1, 1));
++    gpuprof::timeDispatch(queue, gpuprof::getName(kernel), gridSize, blockSize);
+ }
+ 
+ int MetalContext::computeThreadBlockSize(double memory) const {
+diff --git a/platforms/metal/src/MetalEvent.cpp b/platforms/metal/src/MetalEvent.cpp
+index 860087ef4..2d0a1bb87 100644
+--- a/platforms/metal/src/MetalEvent.cpp
++++ b/platforms/metal/src/MetalEvent.cpp
+@@ -25,6 +25,7 @@
+ 
+ #include "MetalEvent.h"
+ #include "openmm/OpenMMException.h"
++#include "GpuProf.h"
+ 
+ using namespace OpenMM;
+ 
+@@ -49,6 +50,7 @@ void MetalEvent::enqueue() {
+ }
+ 
+ void MetalEvent::wait() {
++    gpuprof::Wait w("event");
+     // Waiting on the command buffer instead of the event delays the start of the next command buffer
+     // by about 40 us on the M3 Ultra.  The status check returns if the buffer fails before the signal.
+     if (buffer != NULL)
+diff --git a/platforms/metal/src/MetalFFT3D.cpp b/platforms/metal/src/MetalFFT3D.cpp
+index ac26237f7..204af9fb0 100644
+--- a/platforms/metal/src/MetalFFT3D.cpp
++++ b/platforms/metal/src/MetalFFT3D.cpp
+@@ -27,6 +27,7 @@
+ #include <iostream>
+ #include "vkFFT.h"
+ #include "MetalFFT3D.h"
++#include "GpuProf.h"
+ #include "MetalContext.h"
+ 
+ using namespace OpenMM;
+@@ -103,6 +104,7 @@ void MetalFFT3D::execFFT(ArrayInterface& in, ArrayInterface& out, bool forward)
+     if (fftResult != VKFFT_SUCCESS) {
+         throw OpenMMException("Error executing VkFFTAppend: "+context.intToString(fftResult));
+     }
++    gpuprof::timeDispatch(queue, forward ? "vkFFTforward" : "vkFFTbackward", 0, 0);
+ }
+ 
+ int MetalFFT3D::findLegalDimension(int minimum) {
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index 8a37c06b2..249ca5620 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -58,8 +58,8 @@ MetalNonbondedUtilities::MetalNonbondedUtilities(MetalContext& context) : contex
+     downloadCountEvent = context.createEvent();
+     pinnedCountDeviceMemory = context.getDevice()->newBuffer(2*sizeof(unsigned int), MTL::ResourceStorageModeShared);
+     pinnedCountBuffer = (unsigned int*) pinnedCountDeviceMemory->contents();
+-    numForceThreadBlocks = 10*4*context.getMultiprocessors();
+-    forceThreadBlockSize = 64;
++    numForceThreadBlocks = (getenv("HD_NB_BLOCKS") ? atoi(getenv("HD_NB_BLOCKS")) : 10*4)*context.getMultiprocessors();
++    forceThreadBlockSize = (getenv("HD_NB_TG") ? atoi(getenv("HD_NB_TG")) : 64);
+     findInteractingBlocksThreadBlockSize = context.getSIMDWidth();
+ 
+     // When building the neighbor list, we can optionally use large blocks (32 * warpSize atoms) to
+diff --git a/platforms/metal/src/MetalQueue.cpp b/platforms/metal/src/MetalQueue.cpp
+index f935130a8..aa6c5d1df 100644
+--- a/platforms/metal/src/MetalQueue.cpp
++++ b/platforms/metal/src/MetalQueue.cpp
+@@ -24,6 +24,7 @@
+ 
+ #include "MetalQueue.h"
+ #include "MetalContext.h"
++#include "GpuProf.h"
+ #include "openmm/OpenMMException.h"
+ 
+ using namespace OpenMM;
+@@ -44,7 +45,7 @@ MetalQueue::~MetalQueue() {
+ MTL::ComputeCommandEncoder* MetalQueue::getEncoder() {
+     if (encoder == NULL) {
+         NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
+-        encoder = getCommandBuffer()->computeCommandEncoder()->retain();
++        encoder = gpuprof::newEncoder(getCommandBuffer())->retain();
+         pool->release();
+     }
+     return encoder;
+@@ -72,6 +73,7 @@ void MetalQueue::commit() {
+     lock_guard<recursive_mutex> guard(lock);
+     if (openBuffer != NULL) {
+         endEncoding();
++        gpuprof::watch(openBuffer);
+         openBuffer->commit();
+         pending.push_back(openBuffer);
+         openBuffer = NULL;
+@@ -88,6 +90,7 @@ void MetalQueue::commit() {
+ 
+ void MetalQueue::finish() {
+     lock_guard<recursive_mutex> guard(lock);
++    gpuprof::Wait w("finish");
+     commit();
+     for (MTL::CommandBuffer* buffer : pending)
+         buffer->waitUntilCompleted();

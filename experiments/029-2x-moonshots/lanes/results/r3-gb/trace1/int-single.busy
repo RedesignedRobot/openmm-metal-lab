@@ -1,0 +1,13 @@
+steps 1715  span/step 1379.8 us  busy/step 154.1 us  idle/step 1225.8 us
+  gap 428.89 us/step  after computeNonbonded before generateRandomNumbers
+  gap 187.23 us/step  after findBlocksWithInteractions before generateRandomNumbers
+  gap 170.43 us/step  after computeNonbonded before sortBoxData
+  gap 144.55 us/step  after generateRandomNumbers before integrateLangevinMiddleFused
+  gap  45.50 us/step  after computeNonbonded before prepareRebuildDispatch
+  gap  33.34 us/step  after generateRandomNumbers before prepareRebuildDispatch
+  gap  32.91 us/step  after computeBondedForces before generateRandomNumbers
+  gap  32.06 us/step  after prepareRebuildDispatch before integrateLangevinMiddleFused
+  gap  29.34 us/step  after findBlocksWithInteractions before prepareRebuildDispatch
+  gap  22.47 us/step  after findBlocksWithInteractions before integrateLangevinMiddleFused
+  gap  18.22 us/step  after prepareRebuildDispatch before generateRandomNumbers
+  gap  13.26 us/step  after generateRandomNumbers before sortBoxData

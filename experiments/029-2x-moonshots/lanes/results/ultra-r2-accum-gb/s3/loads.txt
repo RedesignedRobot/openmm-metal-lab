@@ -1,0 +1,10 @@
+2026-09-27T10:42:35Z round 1 gbsa base load { 12.87 13.45 13.98 } vm 17% top python 491.9%, node 128.8%, mediaanalysisd 97.9%, spotlightknowledged.updater 89.3%,  claude 22.9%
+2026-09-27T10:42:51Z round 1 gbsa s load { 12.60 13.37 13.93 } vm 12% top python 496.4%, mediaanalysisd 107.5%, node 99.5%, spotlightknowledged.updater 24.8%, photolibraryd 17.1%
+2026-09-27T10:43:07Z round 1 gbsa sk6 load { 12.24 13.25 13.88 } vm 5% top python 669.6%, node 99.2%, superwhisper 13.9%,  claude 10.6%, WindowServer 7.0%
+2026-09-27T10:43:24Z round 1 gbsa basem load { 11.51 13.02 13.78 } vm 10% top python 565.8%, node 99.6%, spotlightknowledged.updater 83.2%, cfprefsd 22.8%,  claude 11.5%
+2026-09-27T10:43:40Z round 1 gbsa sm load { 11.43 12.92 13.74 } vm 10% top python 558.0%, node 99.0%, spotlightknowledged.updater 82.0%, cfprefsd 18.4%, superwhisper 11.4%
+2026-09-27T10:43:56Z round 2 gbsa sm load { 11.16 12.78 13.67 } vm 11% top tsc 523.3%, python 484.8%, corespotlightd 126.4%, node 97.4%, mediaanalysisd 20.4%
+2026-09-27T10:44:13Z round 2 gbsa basem load { 11.67 12.79 13.65 } vm 6% top python 491.8%, node 100.0%, mediaanalysisd 75.5%, spotlightknowledged.updater 74.7%,  claude 68.9%
+2026-09-27T10:44:29Z round 2 gbsa sk6 load { 11.67 12.74 13.62 } vm 8% top python 561.9%, tsgolint 404.7%, node 99.6%, node 18.5%, superwhisper 16.6%
+2026-09-27T10:44:45Z round 2 gbsa s load { 11.78 12.72 13.59 } vm 4% top python 654.1%, node 147.8%, superwhisper 14.4%, Finder 9.4%, sysmond 7.2%
+2026-09-27T10:45:01Z round 2 gbsa base load { 10.97 12.48 13.50 } vm 6% top python 665.8%, node 98.8%, Finder 23.8%, superwhisper 15.8%, WindowServer 14.6%

@@ -1,0 +1,16 @@
+2026-09-27T18:59:20Z round 1 apoa1pme base load { 3.52 4.10 5.15 } vm 4% top spotlightknowledged 99.1%, perl 34.4%, WindowServer 28.6%, superwhisper 20.0%, backupd 14.4%
+2026-09-27T18:59:39Z round 1 apoa1pme mine load { 3.42 4.05 5.11 } vm 4% top spotlightknowledged 98.9%, backupd 44.0%, WindowServer 26.5%, superwhisper 21.5%, sysmond 10.6%
+2026-09-27T19:00:00Z round 1 apoa1ljpme base load { 3.07 3.93 5.04 } vm 6% top spotlightknowledged 98.5%, WindowServer 31.0%, superwhisper 20.6%, MenuBarAgent 15.3%,  claude 11.6%
+2026-09-27T19:00:18Z round 1 apoa1ljpme mine load { 2.54 3.75 4.96 } vm 12% top spotlightknowledged 99.1%, WindowServer 30.7%, superwhisper 19.9%, com.apple.Virtualization.VirtualMachine 8.1%, sysmond 7.7%
+2026-09-27T19:00:38Z round 1 pme base load { 2.39 3.64 4.89 } vm 7% top spotlightknowledged 99.4%, WindowServer 29.2%, superwhisper 18.4%, iStat Menus Menubar 7.7%, sysmond 5.3%
+2026-09-27T19:00:55Z round 1 pme mine load { 2.60 3.62 4.86 } vm 7% top spotlightknowledged 99.1%, backupd 76.3%, WindowServer 28.7%, superwhisper 15.2%, sysmond 4.7%
+2026-09-27T19:01:13Z round 1 amber20-dhfr base load { 3.33 3.73 4.87 } vm 8% top spotlightknowledged 99.9%, WindowServer 27.9%, superwhisper 18.7%, backupd 9.3%, com.apple.Virtualization.VirtualMachine 6.5%
+2026-09-27T19:01:30Z round 1 amber20-dhfr mine load { 3.57 3.76 4.85 } vm 4% top spotlightknowledged 99.3%, WindowServer 27.6%, superwhisper 17.9%, sysmond 4.6%, io.tailscale.ipn.macsys.network-extension 3.1%
+2026-09-27T19:01:49Z round 2 apoa1pme mine load { 3.45 3.72 4.82 } vm 6% top spotlightknowledged 98.4%, WindowServer 24.4%, superwhisper 18.7%,  claude 8.0%, powermetrics 7.8%
+2026-09-27T19:02:08Z round 2 apoa1pme base load { 4.05 3.85 4.84 } vm 9% top spotlightknowledged 98.4%, backupd 86.5%, WindowServer 29.3%, superwhisper 21.8%, sysmond 9.2%
+2026-09-27T19:02:26Z round 2 apoa1ljpme mine load { 4.54 3.97 4.86 } vm 7% top spotlightknowledged 98.2%, backupd 91.6%, WindowServer 30.5%, superwhisper 19.1%, Finder 10.4%
+2026-09-27T19:02:45Z round 2 apoa1ljpme base load { 3.98 3.87 4.81 } vm 5% top backupd 129.9%, spotlightknowledged 99.3%, WindowServer 25.6%, superwhisper 18.2%, powermetrics 8.0%
+2026-09-27T19:03:04Z round 2 pme mine load { 5.64 4.22 4.90 } vm 9% top spotlightknowledged 99.1%, backupd 81.6%, WindowServer 26.6%, superwhisper 20.2%, com.apple.Virtualization.VirtualMachine 7.2%
+2026-09-27T19:03:21Z round 2 pme base load { 5.77 4.34 4.93 } vm 4% top backupd 121.6%, spotlightknowledged 98.3%, WindowServer 28.4%, superwhisper 19.5%, Finder 5.5%
+2026-09-27T19:03:37Z round 2 amber20-dhfr mine load { 5.35 4.33 4.92 } vm 7% top spotlightknowledged 99.7%, backupd 28.8%, WindowServer 24.6%, superwhisper 20.7%, Finder 4.6%
+2026-09-27T19:03:55Z round 2 amber20-dhfr base load { 5.27 4.36 4.92 } vm 10% top spotlightknowledged 99.3%, WindowServer 27.7%, superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 7.4%,  claude 5.5%

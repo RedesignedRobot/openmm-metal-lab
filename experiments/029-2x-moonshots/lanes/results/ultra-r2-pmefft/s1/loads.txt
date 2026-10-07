@@ -1,0 +1,16 @@
+2026-09-27T19:40:56Z round 1 pme mine-single load { 3.75 4.11 4.65 } vm 6% top superwhisper 17.9%, WindowServer 11.4%, com.apple.Virtualization.VirtualMachine 3.8%,  claude 3.6%,  claude 2.9%
+2026-09-27T19:41:12Z round 1 pme base-single load { 3.64 4.07 4.62 } vm 5% top launchd 35.7%,  claude 34.5%, superwhisper 14.2%, WindowServer 6.4%, sysmond 4.5%
+2026-09-27T19:41:29Z round 1 pme mine-mixed load { 3.12 3.92 4.56 } vm 10% top superwhisper 16.9%,  claude 8.3%, com.apple.Virtualization.VirtualMachine 4.6%, powermetrics 4.3%, sysmond 4.2%
+2026-09-27T19:41:45Z round 1 pme base-mixed load { 2.72 3.79 4.50 } vm 5% top mediaanalysisd 162.7%, mds_stores 28.4%, superwhisper 17.6%, mdworker_shared 6.4%, spotlightknowledged.importer 6.0%
+2026-09-27T19:42:02Z round 1 amber20-dhfr mine-single load { 2.53 3.70 4.45 } vm 8% top superwhisper 16.7%,  gh 14.6%, com.apple.Virtualization.VirtualMachine 4.8%, WindowServer 4.0%, com.apple.Virtualization.VirtualMachine 3.5%
+2026-09-27T19:42:19Z round 1 amber20-dhfr base-single load { 2.74 3.69 4.43 } vm 9% top superwhisper 16.8%, com.apple.Virtualization.VirtualMachine 6.5%, WindowServer 5.2%, iStat Menus Menubar 4.4%, com.apple.Virtualization.VirtualMachine 2.8%
+2026-09-27T19:42:36Z round 1 amber20-dhfr mine-mixed load { 2.79 3.65 4.40 } vm 5% top superwhisper 20.5%, WindowServer 15.6%,  claude 9.1%, iStat Menus Menubar 7.5%, powermetrics 4.9%
+2026-09-27T19:42:53Z round 1 amber20-dhfr base-mixed load { 3.96 3.86 4.47 } vm 56% top node 114.8%, node 100.2%, node 80.5%, com.apple.Virtualization.VirtualMachine 53.0%, agy 50.8%
+2026-09-27T19:43:10Z round 2 pme base-mixed load { 4.09 3.90 4.47 } vm 6% top node 100.0%, superwhisper 20.4%, WindowServer 8.8%,  claude 4.9%, sysmond 4.7%
+2026-09-27T19:43:26Z round 2 pme mine-mixed load { 4.58 4.02 4.50 } vm 6% top corespotlightd 133.0%, node 100.5%, superwhisper 14.2%,  claude 11.3%, WindowServer 7.7%
+2026-09-27T19:43:43Z round 2 pme base-single load { 6.70 4.55 4.68 } vm 8% top node 84.5%, launchd 65.4%,  codex 43.1%,  claude 25.9%, superwhisper 24.9%
+2026-09-27T19:43:59Z round 2 pme mine-single load { 6.38 4.61 4.70 } vm 8% top node 112.2%, node 98.2%, TGOnDeviceInferenceProviderService 22.2%, superwhisper 19.3%,  node 19.1%
+2026-09-27T19:44:16Z round 2 amber20-dhfr base-mixed load { 5.89 4.60 4.69 } vm 8% top node 179.6%, corespotlightd 135.1%, node 116.0%, superwhisper 16.5%, WindowServer 7.1%
+2026-09-27T19:44:33Z round 2 amber20-dhfr mine-mixed load { 6.08 4.71 4.73 } vm 8% top node 96.6%, node 61.7%, superwhisper 22.1%, opendirectoryd 9.8%,  claude 7.6%
+2026-09-27T19:44:50Z round 2 amber20-dhfr base-single load { 6.69 4.90 4.79 } vm 6% top node 102.7%, node 100.0%, superwhisper 18.6%, sysmond 5.2%,  claude 4.6%
+2026-09-27T19:45:08Z round 2 amber20-dhfr mine-single load { 6.37 4.92 4.80 } vm 11% top node 100.8%, node 100.0%, git 54.3%, superwhisper 19.2%,  claude 10.1%

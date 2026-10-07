@@ -1,0 +1,345 @@
+diff --git a/platforms/metal/include/MetalNonbondedUtilities.h b/platforms/metal/include/MetalNonbondedUtilities.h
+index 43cdd7c35..8e51f06f6 100644
+--- a/platforms/metal/include/MetalNonbondedUtilities.h
++++ b/platforms/metal/include/MetalNonbondedUtilities.h
+@@ -284,7 +284,9 @@ public:
+      * @param includeForces whether this kernel should compute forces
+      * @param includeEnergy whether this kernel should compute potential energy
+      */
+-    metalFunction_t createInteractionKernel(const std::string& source, std::vector<ComputeParameterInfo>& params, std::vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy);
++    metalFunction_t createInteractionKernel(const std::string& source, std::vector<ComputeParameterInfo>& params, std::vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy, const std::string& kernelTemplate = "");
++    /** Evaluate a separately emitted 16x32 list. The ordinary list stays intact. */
++    void computeCompactInteractions(int groups, MetalArray& tiles, MetalArray& atoms, MetalArray& counts);
+     /**
+      * Create the set of kernels that will be needed for a particular combination of force groups.
+      *
+@@ -356,6 +358,7 @@ public:
+     bool hasForces;
+     std::string source;
+     metalFunction_t forceKernel, energyKernel, forceEnergyKernel;
++    metalFunction_t compactForceKernel = NULL;
+     metalFunction_t findBlockBoundsKernel;
+     metalFunction_t computeSortKeysKernel;
+     metalFunction_t sortBoxDataKernel;
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index ccf7e7819..0effca858 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -620,7 +620,7 @@ static string loadParameter(const ComputeParameterInfo& param, const string& ind
+     return "make_"+param.getType()+"("+array+"[3*"+index+"], "+array+"[3*"+index+"+1], "+array+"[3*"+index+"+2])";
+ }
+ 
+-metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& source, vector<ComputeParameterInfo>& params, vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy) {
++metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& source, vector<ComputeParameterInfo>& params, vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy, const string& kernelTemplate) {
+     map<string, string> replacements;
+     replacements["COMPUTE_INTERACTION"] = source;
+     const string suffixes[] = {"x", "y", "z", "w"};
+@@ -761,7 +761,7 @@ metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& s
+     int endExclusionIndex = (context.getContextIndex()+1)*numExclusionTiles/numContexts;
+     defines["FIRST_EXCLUSION_TILE"] = context.intToString(startExclusionIndex);
+     defines["LAST_EXCLUSION_TILE"] = context.intToString(endExclusionIndex);
+-    metalModule_t program = context.createModule(MetalKernelSources::vectorOps+context.replaceStrings(kernelSource, replacements), defines);
++    metalModule_t program = context.createModule(MetalKernelSources::vectorOps+context.replaceStrings(kernelTemplate.empty() ? kernelSource : kernelTemplate, replacements), defines);
+     metalFunction_t kernel = context.getKernel(program, "computeNonbonded");
+     return kernel;
+ }
+@@ -769,3 +769,24 @@ metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& s
+ void MetalNonbondedUtilities::setKernelSource(const string& source) {
+     kernelSource = source;
+ }
++
++void MetalNonbondedUtilities::computeCompactInteractions(int groups, MetalArray& tiles, MetalArray& atoms, MetalArray& counts) {
++    if (!useNeighborList || kernelSource != MetalKernelSources::nonbonded || groupKernels.find(groups) == groupKernels.end())
++        throw OpenMMException("Compact replay requires an initialized default neighbor-list kernel");
++    KernelSet& kernels = groupKernels[groups];
++    if (kernels.compactForceKernel == NULL) {
++        map<string, string> replacement;
++        replacement["NB16_NEIGHBOR_LOOP"] = MetalKernelSources::nonbonded16;
++        string source = "#define USE_NB16 1\n"+context.replaceStrings(kernelSource, replacement);
++        kernels.compactForceKernel = createInteractionKernel(kernels.source, parameters, arguments, true, true, groups, true, false, source);
++    }
++    if (!hasInitializedParams)
++        initParamArgs();
++    vector<void*> args = forceArgs;
++    unsigned int capacity = tiles.getSize();
++    args[7] = &tiles.getDevicePointer();
++    args[8] = &counts.getDevicePointer();
++    args[14] = &capacity;
++    args[17] = &atoms.getDevicePointer();
++    context.executeKernelFlat(kernels.compactForceKernel, &args[0], numForceThreadBlocks*forceThreadBlockSize, forceThreadBlockSize);
++}
+diff --git a/platforms/metal/src/kernels/nonbonded.metal b/platforms/metal/src/kernels/nonbonded.metal
+index d03da49fb..0a449c1b4 100644
+--- a/platforms/metal/src/kernels/nonbonded.metal
++++ b/platforms/metal/src/kernels/nonbonded.metal
+@@ -245,6 +245,9 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+ #endif
+     }
+ 
++#ifdef USE_NB16
++    NB16_NEIGHBOR_LOOP
++#else
+     // Second loop: tiles without exclusions, either from the neighbor list (with cutoff) or just enumerating all
+     // of them (no cutoff).
+ 
+@@ -472,6 +475,7 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+         }
+     }
+ 
++#endif
+     // Third loop: single pairs that aren't part of a tile.
+ 
+ #if USE_NEIGHBOR_LIST
+diff --git a/platforms/metal/src/kernels/nonbonded16.metal b/platforms/metal/src/kernels/nonbonded16.metal
+new file mode 100644
+index 000000000..3628ab0ae
+--- /dev/null
++++ b/platforms/metal/src/kernels/nonbonded16.metal
+@@ -0,0 +1,174 @@
++// Ordinary 16x32 packet loop. Exclusions and single pairs remain in nonbonded.metal.
++// Both SIMD halves hold the same sixteen x atoms and rotate independent y sets.
++// The emitter stores xHalf=2*xBlock+half and 32 y indices per packet.
++#define warpRotateLeft(value) SHFL(value, nextLane16)
++    const unsigned int numTiles = interactionCount[0];
++    if (numTiles > maxTiles)
++        return;
++    const unsigned int nextLane16 = (tgx & 16) | ((tgx+1) & 15);
++    mm_long xForceX = 0, xForceY = 0, xForceZ = 0;
++    const unsigned int end = firstNeighborListTile(numTiles, warp+1, totalWarps);
++    for (unsigned int pos = firstNeighborListTile(numTiles, warp, totalWarps); pos < end; pos++) {
++        const int xHalf = tiles[pos];
++        const int x = xHalf >> 1;
++        const unsigned int atom1 = xHalf*16+(tgx & 15);
++        real3 force = make_real3(0);
++        real4 posq1 = posq[atom1];
++        LOAD_ATOM1_PARAMETERS
++        unsigned int j = interactingAtoms[pos*TILE_SIZE+tgx];
++        int atomIndex = j;
++        DECLARE_LOCAL_PARAMETERS
++        real4 shflPosq;
++        real3 shflForce = make_real3(0);
++        if (j < PADDED_NUM_ATOMS) {
++            shflPosq = posq[j];
++            LOAD_LOCAL_PARAMETERS_FROM_GLOBAL
++        }
++        else {
++            shflPosq = make_real4(0);
++            CLEAR_LOCAL_PARAMETERS
++        }
++        real4 blockSizeX = blockSize[x];
++        bool singlePeriodicCopy = (0.5f*periodicBoxSize.x-blockSizeX.x >= MAX_CUTOFF &&
++                                  0.5f*periodicBoxSize.y-blockSizeX.y >= MAX_CUTOFF &&
++                                  0.5f*periodicBoxSize.z-blockSizeX.z >= MAX_CUTOFF);
++#ifdef USE_PERIODIC
++            if (singlePeriodicCopy) {
++                // The box is small enough that we can just translate all the atoms into a single periodic
++                // box, then skip having to apply periodic boundary conditions later.
++                real4 blockCenterX = blockCenter[x];
++                APPLY_PERIODIC_TO_POS_WITH_CENTER(posq1, blockCenterX)
++                APPLY_PERIODIC_TO_POS_WITH_CENTER(shflPosq, blockCenterX)
++                #pragma unroll 2
++                for (j = 0; j < 16; j++) {
++                    real4 posq2 = shflPosq;
++                    real3 delta = make_real3(posq2.x-posq1.x, posq2.y-posq1.y, posq2.z-posq1.z);
++                    real r2 = delta.x*delta.x + delta.y*delta.y + delta.z*delta.z;
++#ifdef USE_CUTOFF
++                    if (r2 < MAX_CUTOFF_SQUARED) {
++#endif
++                        real invR = RSQRT(r2);
++                        real r = r2*invR;
++                        LOAD_ATOM2_PARAMETERS
++                        int atom2 = atomIndex;
++#ifdef USE_SYMMETRIC
++                        real dEdR = 0.0f;
++#else
++                        real3 dEdR1 = make_real3(0);
++                        real3 dEdR2 = make_real3(0);
++#endif
++#ifdef USE_EXCLUSIONS
++                        bool isExcluded = !(atom1 < NUM_ATOMS && atom2 < NUM_ATOMS);
++#endif
++                        real tempEnergy = 0.0f;
++                        const real interactionScale = 1.0f;
++                        COMPUTE_INTERACTION
++#ifdef INCLUDE_ENERGY
++                        energy += tempEnergy;
++#endif
++#ifdef INCLUDE_FORCES
++#ifdef USE_SYMMETRIC
++                        delta *= dEdR;
++                        force.x -= delta.x;
++                        force.y -= delta.y;
++                        force.z -= delta.z;
++                        shflForce.x += delta.x;
++                        shflForce.y += delta.y;
++                        shflForce.z += delta.z;
++#else // !USE_SYMMETRIC
++                        force.x -= dEdR1.x;
++                        force.y -= dEdR1.y;
++                        force.z -= dEdR1.z;
++                        shflForce.x += dEdR2.x;
++                        shflForce.y += dEdR2.y;
++                        shflForce.z += dEdR2.z;
++#endif // end USE_SYMMETRIC
++#endif
++#ifdef USE_CUTOFF
++                    }
++#endif
++                    SHUFFLE_WARP_DATA
++                    atomIndex = warpRotateLeft(atomIndex);
++                }
++            }
++            else
++#endif
++            {
++                // We need to apply periodic boundary conditions separately for each interaction.
++                #pragma unroll 2
++                for (j = 0; j < 16; j++) {
++                    real4 posq2 = shflPosq;
++                    real3 delta = make_real3(posq2.x-posq1.x, posq2.y-posq1.y, posq2.z-posq1.z);
++#ifdef USE_PERIODIC
++                    APPLY_PERIODIC_TO_DELTA(delta)
++#endif
++                    real r2 = delta.x*delta.x + delta.y*delta.y + delta.z*delta.z;
++#ifdef USE_CUTOFF
++                    if (r2 < MAX_CUTOFF_SQUARED) {
++#endif
++                        real invR = RSQRT(r2);
++                        real r = r2*invR;
++                        LOAD_ATOM2_PARAMETERS
++                        int atom2 = atomIndex;
++#ifdef USE_SYMMETRIC
++                        real dEdR = 0.0f;
++#else
++                        real3 dEdR1 = make_real3(0);
++                        real3 dEdR2 = make_real3(0);
++#endif
++#ifdef USE_EXCLUSIONS
++                        bool isExcluded = !(atom1 < NUM_ATOMS && atom2 < NUM_ATOMS);
++#endif
++                        real tempEnergy = 0.0f;
++                        const real interactionScale = 1.0f;
++                        COMPUTE_INTERACTION
++#ifdef INCLUDE_ENERGY
++                        energy += tempEnergy;
++#endif
++#ifdef INCLUDE_FORCES
++#ifdef USE_SYMMETRIC
++                        delta *= dEdR;
++                        force.x -= delta.x;
++                        force.y -= delta.y;
++                        force.z -= delta.z;
++                        shflForce.x += delta.x;
++                        shflForce.y += delta.y;
++                        shflForce.z += delta.z;
++#else // !USE_SYMMETRIC
++                        force.x -= dEdR1.x;
++                        force.y -= dEdR1.y;
++                        force.z -= dEdR1.z;
++                        shflForce.x += dEdR2.x;
++                        shflForce.y += dEdR2.y;
++                        shflForce.z += dEdR2.z;
++#endif // end USE_SYMMETRIC
++#endif
++#ifdef USE_CUTOFF
++                    }
++#endif
++                    SHUFFLE_WARP_DATA
++                    atomIndex = warpRotateLeft(atomIndex);
++                }
++            }
++#ifdef INCLUDE_FORCES
++        // Every lane executes the shuffle. Only the lower half writes x forces.
++        force += SHFL(force, tgx ^ 16);
++        xForceX += realToFixedPoint(force.x);
++        xForceY += realToFixedPoint(force.y);
++        xForceZ += realToFixedPoint(force.z);
++        if (pos+1 == end || tiles[pos+1] != xHalf) {
++            if (tgx < 16) {
++                atomicAdd(&forceBuffers[atom1], static_cast<unsigned long long>(xForceX));
++                atomicAdd(&forceBuffers[atom1+PADDED_NUM_ATOMS], static_cast<unsigned long long>(xForceY));
++                atomicAdd(&forceBuffers[atom1+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(xForceZ));
++            }
++            xForceX = xForceY = xForceZ = 0;
++        }
++        if (atomIndex < PADDED_NUM_ATOMS) {
++            atomicAdd(&forceBuffers[atomIndex], static_cast<unsigned long long>(realToFixedPoint(shflForce.x)));
++            atomicAdd(&forceBuffers[atomIndex+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.y)));
++            atomicAdd(&forceBuffers[atomIndex+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.z)));
++        }
++#endif
++    }
++#undef warpRotateLeft
+diff --git a/platforms/metal/tests/TestNonbonded16Emulator.py b/platforms/metal/tests/TestNonbonded16Emulator.py
+new file mode 100644
+index 000000000..e2d749da8
+--- /dev/null
++++ b/platforms/metal/tests/TestNonbonded16Emulator.py
+@@ -0,0 +1,67 @@
++"""CPU rules for the Stage 1 packet census. Pass the emulator directory as argv[1]."""
++import json
++from pathlib import Path
++import sys
++import unittest
++
++import numpy as np
++
++sys.path.insert(0, str(Path(sys.argv.pop(1)).resolve()))
++from emulate import analyze, half_distances
++
++
++class TestNonbonded16Emulator(unittest.TestCase):
++    def test_receiver_selection_matches_periodic_pair_oracle(self):
++        rng = np.random.default_rng(2026)
++        # Skew box, coordinates outside the primary image, and a partial x block.
++        box = np.array([[4., 0, 0], [1.9, 4., 0], [-1.8, 1.7, 4.]])
++        positions = (rng.random((77, 3))*3-1) @ box
++        atoms = np.array([list(range(32, 64)), list(range(32))])
++        atoms[1, -1] = 96
++        tiles = np.array([0, 2])
++        actual = half_distances(positions, tiles, atoms, 77, box) < 0.9**2
++        shifts = np.array([(i, j, k) for i in range(-4, 5) for j in range(-4, 5) for k in range(-4, 5)]) @ box
++        expected = np.zeros((2, 2, 32), dtype=bool)
++        for t, x in enumerate(tiles):
++            for half in range(2):
++                for lane, y in enumerate(atoms[t]):
++                    if y >= 77:
++                        continue
++                    for a in range(x*32+half*16, min(x*32+(half+1)*16, 77)):
++                        d = positions[a]-positions[y]-shifts
++                        expected[t, half, lane] |= np.any(np.sum(d*d, axis=1) < 0.9**2)
++        np.testing.assert_array_equal(actual, expected)
++
++    def test_compaction_crosses_tiles_but_never_x_halves(self):
++        # Each half needs sixteen receivers from each old tile. Packing across
++        # tiles gives two packets total, while retaining tile boundaries gives four.
++        posq = np.zeros((96, 4))
++        posq[16:32, 0] = 10
++        posq[48:64, 0] = 10
++        posq[80:96, 0] = 10
++        data = dict(posq=posq, tiles=np.array([0, 0]), atoms=np.arange(32, 96).reshape(2, 32),
++                    exclusions=np.array([[0, 0]]), singles=np.empty((0, 2)), box=np.eye(3)*100,
++                    metadata=json.dumps(dict(test="test", precision="single", step=0, num_atoms=96,
++                                             periodic=False, cutoff=1., padded_cutoff=1.08)))
++        result = analyze(data, chunk=1)
++        self.assertEqual(result["padded"]["q"], 0.5)
++        self.assertEqual(result["padded"]["q_without_cross_tile_compaction"], 1.)
++        self.assertEqual(result["unchanged_exclusion_tiles"], 1)
++
++    def test_skin_and_padding_count_real_packet_work(self):
++        posq = np.zeros((64, 4))
++        posq[32:, 0] = 5
++        posq[32, 0] = 1.04
++        data = dict(posq=posq, tiles=np.array([0]), atoms=np.arange(32, 64).reshape(1, 32),
++                    exclusions=np.empty((0, 2)), singles=np.empty((0, 2)), box=np.eye(3)*100,
++                    metadata=json.dumps(dict(test="test", precision="mixed", step=0, num_atoms=64,
++                                             periodic=False, cutoff=1., padded_cutoff=1.08)))
++        result = analyze(data)
++        self.assertEqual(result["cutoff"]["q"], 0.)
++        self.assertEqual(result["padded"]["q"], 1.)
++        self.assertEqual(result["padded"]["q_without_packet_padding"], 1/32)
++        self.assertEqual(result["verdict"], "KILL")
++
++
++if __name__ == "__main__":
++    unittest.main()

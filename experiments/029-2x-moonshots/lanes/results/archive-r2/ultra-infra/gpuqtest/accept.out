@@ -1,0 +1,53 @@
+== 1 (day): priority merge > window > correctness > timing by day (timing above correctness at night), round-robin across lanes
+  PASS start order: z m w c c2 a b a a
+  PASS the two correctness jobs ran at the same time: 1
+== 1 (night): priority merge > window > correctness > timing by day (timing above correctness at night), round-robin across lanes
+  PASS start order: z m w a b a a c c2
+  PASS the two correctness jobs ran at the same time: 1
+== 2: window reservation: a timing job that would overrun waits, a short one backfills
+  PASS start order: short w long
+  PASS window started 0.5 s after its not-before
+== 3: builds stopped and continued by group and descendants around timing jobs; the gap and its cap (20 s here)
+  build running:  3 S 
+  PASS during timing every build process is stopped:  3 T 
+  PASS ticks added in 2 s during timing: 0
+  PASS after timing, the build runs again:  3 S 
+  PASS ticks resume: 4 in 2 s
+./accept.sh: line 81: [: 21.0: integer expression expected
+  FAIL gap before t2: 21.0 s
+  PASS t2 paused the build again:  3 T 
+  PASS build cancelled: cancelled
+  FAIL tick processes left after the cancel (grep excluded): got '-1', want '0'
+  -- a build that ends inside the gap: the next timing job starts when it ends
+  PASS t4 waited 4.9 s for the build and started 0.0 s after it ended
+    2026-09-28T21:30:11Z build gap after job 3: timing waits up to 20 s for builds [1]
+    2026-09-28T21:30:12Z build gap ended after 0 s: its builds ended
+    2026-09-28T21:30:15Z build gap after job 2: timing waits up to 20 s for builds [1]
+    2026-09-28T21:30:20Z build gap ended after 5 s: its builds ended
+== 4: the cap kills only the job's process group (SIGTERM, then SIGKILL after the grace)
+    k cap 143 4.0
+    k2 cap 137 8.2
+  PASS k (dies on SIGTERM): cap 143
+  PASS k2 (ignores SIGTERM): cap 137 8 s, SIGKILL after the 5 s grace
+  PASS a bystander sleep outside the job is alive
+  PASS sleeps of the capped jobs left: 0
+== 5: kill -9 of the daemon during running jobs; after a restart they are reattached and their exit codes recorded
+  daemon 37429 killed with SIGKILL; restarting in 2 s
+    2026-09-28T21:30:39Z reattached job 1 (managed, group 37450)
+  PASS managed job: exit 7
+  PASS attached hold: exit 5
+  PASS attached client: client exit 5
+== 7: gpuq ls shows elapsed and predicted start for 4 lanes
+    gpuq 21:30:51Z, night slot. GPU: timing job 1 has it alone.
+    running:
+          1  timing      lane-a                 ran     3s of ~10s    sleep 10
+    queued, in predicted order:
+        1.     2  timing      lane-b                 waited     1s  starts 21:30:57Z (+6s)  est 6s     sleep 6
+        2.     4  timing      lane-d                 waited     1s  starts 21:31:03Z (+12s) est 5s     sleep 5
+        3.     5  timing      lane-b                 waited     1s  starts 21:31:08Z (+17s) est 3s     sleep 3
+        4.     3  correctness lane-c                 waited     1s  starts 21:31:11Z (+20s) est 4s     sleep 4
+  PASS job 2 predicted 21:30:57Z, started 21:30:57Z
+  PASS job 4 predicted 21:31:03Z, started 21:31:03Z
+  PASS job 5 predicted 21:31:08Z, started 21:31:08Z
+  PASS job 3 predicted 21:31:11Z, started 21:31:12Z
+result: FAIL

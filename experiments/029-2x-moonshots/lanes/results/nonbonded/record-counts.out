@@ -1,0 +1,230 @@
+19:26:37Z waiting for the lease: 7 in the queue, held by: ultra-m29-mixed 2026-09-26T19:26:13Z Bet 4 apoa1pme minimizer 200 iterations, 0 build processes
+19:31:41Z waiting for the lease: 5 in the queue, held by: ultra-m29-resident 2026-09-26T19:28:34Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-small, about 9 min, 0 build processes
+19:36:44Z waiting for the lease: 3 in the queue, held by: m29-mixed 2026-09-26T19:36:22Z SHAKE SETTLE mixed integration and COM tests, 0 build processes
+19:41:48Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:38:58Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/records-screen-amber20-cellulose, about 4 min, 0 build processes
+19:47:16Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:42:27Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-rf, about 9 min, 0 build processes
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:86:10: warning: 'addInteraction' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   86 |     void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:74:18: note: overridden virtual function is here
+   74 |     virtual void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:92:10: warning: 'addParameter' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   92 |     void addParameter(ComputeParameterInfo parameter);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:80:18: note: overridden virtual function is here
+   80 |     virtual void addParameter(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:99:10: warning: 'addArgument' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   99 |     void addArgument(ComputeParameterInfo parameter);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:90:18: note: overridden virtual function is here
+   90 |     virtual void addArgument(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:108:17: warning: 'addEnergyParameterDerivative' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  108 |     std::string addEnergyParameterDerivative(const std::string& param);
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:99:25: note: overridden virtual function is here
+   99 |     virtual std::string addEnergyParameterDerivative(const std::string& param) = 0;
+      |                         ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:118:10: warning: 'initialize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  118 |     void initialize(const System& system);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:189:18: note: overridden virtual function is here
+  189 |     virtual void initialize(const System& system) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:122:9: warning: 'getNumForceBuffers' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  122 |     int getNumForceBuffers() const {
+      |         ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:103:17: note: overridden virtual function is here
+  103 |     virtual int getNumForceBuffers() const = 0;
+      |                 ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:134:10: warning: 'getUseCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  134 |     bool getUseCutoff() {
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:107:18: note: overridden virtual function is here
+  107 |     virtual bool getUseCutoff() = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:140:10: warning: 'getUsePeriodic' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  140 |     bool getUsePeriodic() {
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:111:18: note: overridden virtual function is here
+  111 |     virtual bool getUsePeriodic() = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:146:9: warning: 'getNumForceThreadBlocks' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  146 |     int getNumForceThreadBlocks() {
+      |         ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:115:17: note: overridden virtual function is here
+  115 |     virtual int getNumForceThreadBlocks() = 0;
+      |                 ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:152:9: warning: 'getForceThreadBlockSize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  152 |     int getForceThreadBlockSize() {
+      |         ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:119:17: note: overridden virtual function is here
+  119 |     virtual int getForceThreadBlockSize() = 0;
+      |                 ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:158:12: warning: 'getMaxCutoffDistance' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  158 |     double getMaxCutoffDistance();
+      |            ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:123:20: note: overridden virtual function is here
+  123 |     virtual double getMaxCutoffDistance() = 0;
+      |                    ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:163:12: warning: 'padCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  163 |     double padCutoff(double cutoff);
+      |            ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:128:20: note: overridden virtual function is here
+  128 |     virtual double padCutoff(double cutoff) = 0;
+      |                    ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:167:10: warning: 'prepareInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  167 |     void prepareInteractions(int forceGroups);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:193:18: note: overridden virtual function is here
+  193 |     virtual void prepareInteractions(int forceGroups) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:175:10: warning: 'computeInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  175 |     void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:201:18: note: overridden virtual function is here
+  201 |     virtual void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:185:17: warning: 'getBlockCenters' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  185 |     MetalArray& getBlockCenters() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:132:29: note: overridden virtual function is here
+  132 |     virtual ArrayInterface& getBlockCenters() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:191:17: warning: 'getBlockBoundingBoxes' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  191 |     MetalArray& getBlockBoundingBoxes() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:136:29: note: overridden virtual function is here
+  136 |     virtual ArrayInterface& getBlockBoundingBoxes() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:197:17: warning: 'getInteractionCount' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  197 |     MetalArray& getInteractionCount() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:140:29: note: overridden virtual function is here
+  140 |     virtual ArrayInterface& getInteractionCount() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:203:17: warning: 'getInteractingTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  203 |     MetalArray& getInteractingTiles() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:144:29: note: overridden virtual function is here
+  144 |     virtual ArrayInterface& getInteractingTiles() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:209:17: warning: 'getInteractingAtoms' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  209 |     MetalArray& getInteractingAtoms() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:148:29: note: overridden virtual function is here
+  148 |     virtual ArrayInterface& getInteractingAtoms() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:221:17: warning: 'getExclusions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  221 |     MetalArray& getExclusions() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:152:29: note: overridden virtual function is here
+  152 |     virtual ArrayInterface& getExclusions() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:227:17: warning: 'getExclusionTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  227 |     MetalArray& getExclusionTiles() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:156:29: note: overridden virtual function is here
+  156 |     virtual ArrayInterface& getExclusionTiles() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:233:17: warning: 'getExclusionIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  233 |     MetalArray& getExclusionIndices() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:160:29: note: overridden virtual function is here
+  160 |     virtual ArrayInterface& getExclusionIndices() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:239:17: warning: 'getExclusionRowIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  239 |     MetalArray& getExclusionRowIndices() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:164:29: note: overridden virtual function is here
+  164 |     virtual ArrayInterface& getExclusionRowIndices() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:246:17: warning: 'getRebuildNeighborList' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  246 |     MetalArray& getRebuildNeighborList() {
+      |                 ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:169:29: note: overridden virtual function is here
+  169 |     virtual ArrayInterface& getRebuildNeighborList() = 0;
+      |                             ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:252:9: warning: 'getStartTileIndex' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  252 |     int getStartTileIndex() const {
+      |         ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:173:17: note: overridden virtual function is here
+  173 |     virtual int getStartTileIndex() const = 0;
+      |                 ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:258:9: warning: 'getNumTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  258 |     int getNumTiles() const {
+      |         ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:177:17: note: overridden virtual function is here
+  177 |     virtual int getNumTiles() const = 0;
+      |                 ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:268:10: warning: 'setUsePadding' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  268 |     void setUsePadding(bool padding);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:185:18: note: overridden virtual function is here
+  185 |     virtual void setUsePadding(bool padding) = 0;
+      |                  ^
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp:5:
+In file included from /tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalContext.h:45:
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/./include/MetalNonbondedUtilities.h:303:10: warning: 'setKernelSource' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  303 |     void setKernelSource(const std::string& source);
+      |          ^
+/tmp/openmm-metal-bench/ultra-m29-nonbonded-records/src/platforms/metal/../common/include/openmm/common/NonbondedUtilities.h:205:18: note: overridden virtual function is here
+  205 |     virtual void setKernelSource(const std::string& source) = 0;
+      |                  ^
+28 warnings generated.

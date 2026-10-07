@@ -24,14 +24,14 @@ Clocks:
 - Profile numbers come from `OPENMM_METAL_PROFILE`. Blocked waits are on `mach_absolute_time`.
   GPU busy time and gaps come from each command buffer's GPUStartTime/GPUEndTime.
 
-Every build and timed block ran under the Studio lease with owner "perf-studio". Runs were
+Every build and timed block ran under the Studio lease. Runs were
 interleaved, and the run order rotates from round to round. The Studio was not idle: the 1-minute
 load average in the 55 snapshots in `host.txt` ranged from 1.94 to 15.43, median 4.35.
 
 Full tables: `results/m3ultra-20260923/summary.md`, made by `summarize.py`. Raw JSON lines, ctest
 logs and chain logs are next to it. `results/m3pro-20260923T1511Z` is the earlier laptop P1 run.
-Its timings are invalid (the laptop was owner-loaded and partly on battery). Its census counts
-stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loaded".
+Its timings are invalid (the laptop was user-loaded and partly on battery). Its census counts
+stand, and the two laptop timings quoted below are labelled "M3 Pro, user-loaded".
 
 ## Findings
 
@@ -121,9 +121,9 @@ stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loade
     iterations take 2x longer.
 - The M3 Ultra doesn't beat the M3 Pro on dhfr. In the census runs (wall us/step on
   mach_absolute_time) dhfr single takes 1357 us/step on the Ultra and 1328 on the laptop (M3 Pro,
-  owner-loaded), so the laptop number is only indicative. The FAHBench dhfr step is bound by host
+  user-loaded), so the laptop number is only indicative. The FAHBench dhfr step is bound by host
   round trips, not GPU throughput. nav single, which is GPU-bound (97% busy), takes 3845 us/step on
-  the Ultra against 8319 on the laptop (M3 Pro, owner-loaded).
+  the Ultra against 8319 on the laptop (M3 Pro, user-loaded).
 - P3 alone looked 3% slower than base on dhfr single (124.9 vs 128.7) and 1.4% slower in mixed
   (97.2 vs 98.6), with overlapping ranges in both precisions. The -3% did not reproduce, and the
   evidence says P3 costs nothing:
@@ -147,7 +147,7 @@ stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loade
 - OpenMM's `wrappers/python/setup.py` imports openmm and simtk from the interpreter it runs under
   and deletes those installs (`uninstall()` / `removePackage`), even for a plain `setup.py build`.
   My first `build.sh` built the module with the shared env's Python, and the base build at 16:06Z
-  deleted the env's openmm, simtk/openmm and simtk/unit. The lead restored it. I missed it at the
+  deleted the env's openmm, simtk/openmm and simtk/unit. The reviewer restored it. I missed it at the
   time: I grepped the log for "site-packages" and read past the three "REMOVING" lines. Rule:
   build OpenMM's Python module with an interpreter that cannot import openmm. `build.sh` now takes
   a separate `<build-python>` (a venv with numpy, Cython and setuptools pinned to the env's
@@ -160,7 +160,7 @@ stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loade
 - `pgrep -f <pattern>` inside `sh -c "..."` sees the wrapper's own command line, and a waiter I
   thought had failed to start was alive in ps under a different name. It started a duplicate chain.
   The lease kept the duplicate strictly serial, so nothing ran at the same time. Wait on a PID
-  (`queue.sh`) instead of a pattern. The ctest rerun repeated the mistake: two `ps -U mas | grep`
+  (`queue.sh`) instead of a pattern. The ctest rerun repeated the mistake: two `ps -U $USER | grep`
   checks right after launch showed no ctest chain, so I started a second one, then found both with
   `ps -ax` and killed the second while it still waited on the lease. Its "builds done" line is in
   `results/ctest-p2p3/chain-ctest.log`. I don't know why the first checks missed it; the build
@@ -168,7 +168,7 @@ stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loade
   the absence of a ps match.
 - Detach remote jobs with `detach.py` (setsid) through `chain.sh` and `leased.sh`, with one
   lease per block of at most ~12 min and a pause between blocks. Over five hours the Studio lease
-  passed between lanes without a collision. A 60 s run of nine configurations on nav fits in 11.7
+  passed between jobs without a collision. A 60 s run of nine configurations on nav fits in 11.7
   min.
 - A kernel that is faster in the kernel census can be invisible end to end when the step is bound
   by host round trips. P3 cuts 37 us of GPU time per dhfr mixed step and gains nothing without P2,
@@ -196,8 +196,7 @@ stand, and the two laptop timings quoted below are labelled "M3 Pro, owner-loade
   p3diag.
 - `results/ctest-p2p3/`: the base and p2p3 ctest rerun. `ctest.sh` runs one variant and precision
   and reruns failures. `chain-ctest.sh` holds the loop over the four blocks; the chain that ran was
-  the same loop inline in `sh -c` (see the learning above). Each block ran under 022's `leased.sh`
-  with the owner "verify-p2p3".
+  the same loop inline in `sh -c` (see the learning above). Each block ran under 022's `leased.sh`.
 - `profrun.py` (one timed run plus profile line), `bitwise.py` (1000-step digests), `energy.py`
   (energy spread), `hbonds.py` (dhfr with heavy-atom constraints as bonds), `summarize.py`
   (tables).

@@ -211,10 +211,10 @@ What would convince maintainers is items 4 and 5 side by side with baseline, and
 
 ## Pointers
 
-- /Users/amir/code/mini/openmm-metal/platforms/common/src/kernels/integrationUtilities.cc:99-762. The whole constraint surface for options 2 and 3, in one file.
-- /Users/amir/code/mini/openmm-metal/platforms/common/src/IntegrationUtilities.cpp:96-105, 386-391, 693-776, 946-1029. Buffer types, kernel argument wiring, and the posDelta-as-velm-scratch copies that constrain option 4.
-- /Users/amir/code/mini/openmm-metal/platforms/metal/src/kernels/df64.metal:27-375. The storage model and op costs. Read it before estimating any df64 change.
-- /Users/amir/code/mini/openmm-metal-lab/experiments/022-sync-and-mixed-cost/results-m3ultra-20260923. The census behind every number here. Rerun summarize.py after the guard timing lands.
+- ~/code/mini/openmm-metal/platforms/common/src/kernels/integrationUtilities.cc:99-762. The whole constraint surface for options 2 and 3, in one file.
+- ~/code/mini/openmm-metal/platforms/common/src/IntegrationUtilities.cpp:96-105, 386-391, 693-776, 946-1029. Buffer types, kernel argument wiring, and the posDelta-as-velm-scratch copies that constrain option 4.
+- ~/code/mini/openmm-metal/platforms/metal/src/kernels/df64.metal:27-375. The storage model and op costs. Read it before estimating any df64 change.
+- ~/code/mini/openmm-metal-lab/experiments/022-sync-and-mixed-cost/results-m3ultra-20260923. The census behind every number here. Rerun summarize.py after the guard timing lands.
 - OpenMM 7 paper Table 5 (https://doi.org/10.1371/journal.pcbi.1005659) and Lippert et al. 2007 (https://doi.org/10.1063/1.2431176). These are the drift target and the reason posDelta must stay df64.
 
 Sources:

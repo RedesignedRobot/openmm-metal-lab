@@ -1,0 +1,8 @@
+gbsa       single atoms   2489 steps  2500 checks 6 max|dF| 0.0107 max|dE| 0.046 constraint 5.6e-06 PASS
+neq        single atoms   2269 steps  1000 checks 6 max|dF| 0.1691 max|dE| 0.049 constraint 9.4e-06 PASS
+tip3p-hmr  single atoms  29451 steps  2500 checks 6 max|dF| 0.2968 max|dE| 0.569 constraint 8.5e-06 PASS
+tip4pew    single atoms  38876 steps  2500 checks 6 max|dF| 0.6572 max|dE| 0.346 constraint 8.7e-06 PASS
+gbsa       mixed  atoms   2489 steps  2500 checks 6 max|dF| 0.1213 max|dE| 0.044 constraint 5.0e-06 PASS
+neq        mixed  atoms   2269 steps  1000 checks 6 max|dF| 0.2243 max|dE| 0.053 constraint 8.9e-06 PASS
+tip3p-hmr  mixed  atoms  29451 steps  2500 checks 6 max|dF| 0.6250 max|dE| 0.560 constraint 7.0e-06 PASS
+tip4pew    mixed  atoms  38876 steps  2500 checks 6 max|dF| 0.7166 max|dE| 0.455 constraint 7.7e-06 PASS

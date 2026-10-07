@@ -1,0 +1,8 @@
+precise=none exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=exp exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.31791e-05 larger than allowed tolerance at particle=519: norms=94.2076 expected norm=94.2089
+precise=rsqrt exit 0: Done
+precise=recip exit 0: Done
+precise=log exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=pow exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=exp,rsqrt,recip,log,pow exit 0: Done
+villinmath done 23:57:47Z

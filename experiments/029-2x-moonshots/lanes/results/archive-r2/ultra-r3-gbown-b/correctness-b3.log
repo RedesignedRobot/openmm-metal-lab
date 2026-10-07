@@ -1,0 +1,29 @@
+Test project /tmp/openmm-metal-bench/ultra-r3-gbown-b/build
+    Start 300: TestMetalOwnedGBSingle
+    Start 301: TestMetalOwnedGBMixed
+1/2 Test #300: TestMetalOwnedGBSingle ...........   Passed    1.22 sec
+2/2 Test #301: TestMetalOwnedGBMixed ............   Passed    8.58 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   8.59 sec
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical identical 0.000e+00
+gbsa mixed identical identical identical identical 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.979e-06  7.402e-03  6.102e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.97886066e-06 raw_max_force=0.00740209639
+gbsa            2489     mixed  1.323e-05  7.137e-02  3.199e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.32282452e-05 raw_max_force=0.0713747926
+PASS

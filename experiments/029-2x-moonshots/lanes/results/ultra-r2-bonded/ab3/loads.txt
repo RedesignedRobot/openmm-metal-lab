@@ -1,0 +1,32 @@
+2026-09-27T17:19:28Z round 1 gbsa mine-single load { 4.44 5.61 7.44 } vm 5% top superwhisper 20.1%,  claude 13.0%, WindowServer 10.8%, Finder 6.3%,  claude 4.0%
+2026-09-27T17:19:44Z round 1 gbsa mine-mixed load { 3.92 5.43 7.35 } vm 7% top superwhisper 14.9%, powermetrics 7.6%, WindowServer 5.4%, iStat Menus Menubar 4.9%, sysmond 4.3%
+2026-09-27T17:20:01Z round 1 gbsa base-single load { 6.07 5.77 7.42 } vm 12% top mds_stores 79.3%, mds 45.8%, mdworker_shared 31.9%, mdworker_shared 31.6%, mdworker_shared 30.9%
+2026-09-27T17:20:18Z round 1 gbsa base-mixed load { 4.94 5.54 7.31 } vm 7% top superwhisper 19.0%, WindowServer 12.3%, sysmond 4.8%, com.apple.Virtualization.VirtualMachine 3.6%,  claude 3.2%
+2026-09-27T17:20:34Z round 1 rf mine-single load { 4.34 5.38 7.22 } vm 6% top superwhisper 18.5%, WindowServer 8.6%, powermetrics 7.7%, com.apple.Virtualization.VirtualMachine 3.9%, Finder 3.6%
+2026-09-27T17:20:50Z round 1 rf mine-mixed load { 3.60 5.16 7.11 } vm 7% top superwhisper 18.7%,  claude 9.8%, WindowServer 6.7%, com.apple.Virtualization.VirtualMachine 4.4%, Finder 4.3%
+2026-09-27T17:21:08Z round 1 rf base-single load { 3.40 5.01 7.01 } vm 10% top node 105.7%, superwhisper 19.5%,  node 17.5%, node 9.0%, com.apple.Virtualization.VirtualMachine 5.9%
+2026-09-27T17:21:24Z round 1 rf base-mixed load { 3.16 4.88 6.93 } vm 6% top superwhisper 19.2%, usernoted 17.0%, WindowServer 13.7%, NotificationCenter 12.3%,  claude 7.3%
+2026-09-27T17:21:41Z round 1 pme mine-single load { 3.29 4.82 6.87 } vm 5% top superwhisper 19.3%, WindowServer 7.6%, iStat Menus Menubar 7.2%, sysmond 4.6%,  claude 3.6%
+2026-09-27T17:21:57Z round 1 pme mine-mixed load { 2.99 4.65 6.76 } vm 6% top superwhisper 18.6%, Finder 7.9%, WindowServer 6.6%,  claude 5.3%, com.apple.Virtualization.VirtualMachine 2.8%
+2026-09-27T17:22:14Z round 1 pme base-single load { 3.45 4.67 6.73 } vm 5% top  node 25.9%, superwhisper 16.3%,  claude 10.8%, WindowServer 5.8%, zsh 3.9%
+2026-09-27T17:22:30Z round 1 pme base-mixed load { 3.81 4.68 6.70 } vm 11% top tsc 597.2%, history 50.0%, superwhisper 17.2%, com.apple.Virtualization.VirtualMachine 8.7%,  claude 7.8%
+2026-09-27T17:22:46Z round 1 amber20-dhfr mine-single load { 3.92 4.67 6.66 } vm 7% top superwhisper 17.8%, WindowServer 6.7%, sysmond 4.5%,  claude 4.3%,  claude 3.9%
+2026-09-27T17:23:03Z round 1 amber20-dhfr mine-mixed load { 3.68 4.56 6.57 } vm 111% top com.apple.Virtualization.VirtualMachine 108.5%, superwhisper 20.5%,  claude 9.9%, WindowServer 7.2%, iStat Menus Menubar 5.0%
+2026-09-27T17:23:20Z round 1 amber20-dhfr base-single load { 3.45 4.46 6.50 } vm 5% top  git 95.2%, superwhisper 19.1%, WindowServer 10.7%, Finder 4.8%, sysmond 4.7%
+2026-09-27T17:23:38Z round 1 amber20-dhfr base-mixed load { 3.54 4.42 6.44 } vm 4% top superwhisper 14.2%,  claude 9.0%, WindowServer 6.1%, sysmond 4.5%, com.apple.Virtualization.VirtualMachine 2.2%
+2026-09-27T17:23:55Z round 2 gbsa base-mixed load { 4.48 4.58 6.46 } vm 8% top superwhisper 15.0%,  claude 14.2%, sysmond 6.7%, com.apple.Virtualization.VirtualMachine 5.9%, WindowServer 4.3%
+2026-09-27T17:24:12Z round 2 gbsa base-single load { 3.82 4.43 6.36 } vm 8% top superwhisper 15.7%,  claude 5.7%, com.apple.Virtualization.VirtualMachine 4.8%, sysmond 4.1%, WindowServer 3.8%
+2026-09-27T17:24:29Z round 2 gbsa mine-mixed load { 3.45 4.31 6.28 } vm 5% top superwhisper 13.0%,  claude 6.2%,  claude 5.4%, Finder 3.8%, com.apple.Virtualization.VirtualMachine 3.2%
+2026-09-27T17:24:45Z round 2 gbsa mine-single load { 3.28 4.23 6.22 } vm 7% top superwhisper 15.0%, authd 10.2%, SystemUIServer 10.0%, sysmond 5.3%, com.apple.Virtualization.VirtualMachine 5.1%
+2026-09-27T17:25:01Z round 2 rf base-mixed load { 3.22 4.17 6.16 } vm 6% top WindowServer 22.0%, superwhisper 14.5%,  claude 8.8%, sysmond 5.5%, powermetrics 4.3%
+2026-09-27T17:25:17Z round 2 rf base-single load { 3.42 4.15 6.11 } vm 5% top superwhisper 16.4%, Finder 8.8%, sysmond 8.6%,  claude 6.2%, WindowServer 5.5%
+2026-09-27T17:25:34Z round 2 rf mine-mixed load { 5.05 4.49 6.19 } vm 10% top node 127.5%, node 45.8%, superwhisper 18.1%,  claude 10.2%, com.apple.Virtualization.VirtualMachine 7.2%
+2026-09-27T17:25:50Z round 2 rf mine-single load { 5.14 4.54 6.18 } vm 10% top node 247.4%, superwhisper 21.4%,  claude 12.5%, node 7.2%, iStat Menus Menubar 7.1%
+2026-09-27T17:26:07Z round 2 pme base-mixed load { 4.85 4.51 6.13 } vm 14% top tsgolint 393.5%, WindowServer 23.9%, superwhisper 19.2%, Finder 9.4%, com.apple.Virtualization.VirtualMachine 8.9%
+2026-09-27T17:26:24Z round 2 pme base-single load { 4.19 4.38 6.06 } vm 6% top superwhisper 16.0%, Finder 9.5%, sysmond 9.3%, AXVisualSupportAgent 8.0%, WindowServer 7.4%
+2026-09-27T17:26:40Z round 2 pme mine-mixed load { 4.07 4.35 6.02 } vm 5% top superwhisper 17.5%, com.apple.Virtualization.VirtualMachine 7.7%,  claude 5.1%, sysmond 4.6%, WindowServer 3.2%
+2026-09-27T17:26:56Z round 2 pme mine-single load { 3.34 4.16 5.91 } vm 5% top superwhisper 16.7%, iStat Menus Menubar 6.9%, WindowServer 4.9%,  claude 3.7%, powermetrics 3.0%
+2026-09-27T17:27:13Z round 2 amber20-dhfr base-mixed load { 3.41 4.14 5.87 } vm 5% top TGOnDeviceInferenceProviderService 49.4%, modelcatalogd 46.7%, superwhisper 15.2%,  claude 11.0%,  claude 7.5%
+2026-09-27T17:27:30Z round 2 amber20-dhfr base-single load { 3.40 4.10 5.83 } vm 5% top superwhisper 15.9%, WindowServer 6.7%, sysmond 4.8%,  claude 4.7%,  claude 3.2%
+2026-09-27T17:27:47Z round 2 amber20-dhfr mine-mixed load { 2.94 3.94 5.73 } vm 4% top  claude 33.4%, superwhisper 18.6%, sysmond 6.1%, WindowServer 2.8%, com.apple.Virtualization.VirtualMachine 2.7%
+2026-09-27T17:28:04Z round 2 amber20-dhfr mine-single load { 2.89 3.88 5.68 } vm 5% top corespotlightd 155.9%, superwhisper 15.3%, WindowServer 8.7%,  claude 6.4%, sysmond 5.6%

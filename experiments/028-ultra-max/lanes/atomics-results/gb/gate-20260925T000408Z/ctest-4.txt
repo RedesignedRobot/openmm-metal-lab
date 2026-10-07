@@ -1,0 +1,65 @@
+Test project /tmp/openmm-metal-bench/ultra-atomics/gb/build
+      Start 219: TestMetalAndersenThermostatMixed
+      Start 223: TestMetalCMAPTorsionForceMixed
+ 1/27 Test #223: TestMetalCMAPTorsionForceMixed ................   Passed    3.92 sec
+      Start 227: TestMetalCheckpointsMixed
+ 2/27 Test #227: TestMetalCheckpointsMixed .....................   Passed    6.07 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+ 3/27 Test #231: TestMetalCompoundIntegratorMixed ..............   Passed    6.75 sec
+      Start 235: TestMetalCustomAngleForceMixed
+ 4/27 Test #235: TestMetalCustomAngleForceMixed ................   Passed    4.40 sec
+      Start 239: TestMetalCustomCPPForceMixed
+ 5/27 Test #219: TestMetalAndersenThermostatMixed ..............   Passed   21.77 sec
+      Start 243: TestMetalCustomCentroidBondForceMixed
+ 6/27 Test #243: TestMetalCustomCentroidBondForceMixed .........   Passed    0.59 sec
+      Start 247: TestMetalCustomExternalForceMixed
+ 7/27 Test #247: TestMetalCustomExternalForceMixed .............   Passed    0.26 sec
+      Start 251: TestMetalCustomHbondForceMixed
+ 8/27 Test #239: TestMetalCustomCPPForceMixed ..................   Passed    5.03 sec
+      Start 255: TestMetalCustomManyParticleForceMixed
+ 9/27 Test #251: TestMetalCustomHbondForceMixed ................   Passed    4.93 sec
+      Start 259: TestMetalCustomTorsionForceMixed
+10/27 Test #259: TestMetalCustomTorsionForceMixed ..............   Passed    1.58 sec
+      Start 263: TestMetalDispersionPMEMixed
+11/27 Test #255: TestMetalCustomManyParticleForceMixed .........   Passed   14.44 sec
+      Start 267: TestMetalFFTMixed
+12/27 Test #267: TestMetalFFTMixed .............................   Passed    0.91 sec
+      Start 271: TestMetalGayBerneForceMixed
+13/27 Test #271: TestMetalGayBerneForceMixed ...................   Passed    3.27 sec
+      Start 275: TestMetalHarmonicBondForceMixed
+14/27 Test #275: TestMetalHarmonicBondForceMixed ...............***Failed    3.27 sec
+exception: Assertion failure at TestMetalHarmonicBondForce.cpp:64.  Expected 510.18, found 512.754
+
+      Start 279: TestMetalLangevinIntegratorMixed
+15/27 Test #279: TestMetalLangevinIntegratorMixed ..............   Passed    9.15 sec
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+16/27 Test #263: TestMetalDispersionPMEMixed ...................   Passed   48.32 sec
+      Start 287: TestMetalMonteCarloAnisotropicBarostatMixed
+17/27 Test #283: TestMetalLocalEnergyMinimizerMixed ............   Passed   21.15 sec
+      Start 291: TestMetalMonteCarloFlexibleBarostatMixed
+18/27 Test #291: TestMetalMonteCarloFlexibleBarostatMixed ......   Passed  116.83 sec
+      Start 295: TestMetalNonbondedForceMixed
+19/27 Test #287: TestMetalMonteCarloAnisotropicBarostatMixed ...   Passed  129.30 sec
+      Start 299: TestMetalOrientationRestraintForceMixed
+20/27 Test #299: TestMetalOrientationRestraintForceMixed .......   Passed    0.68 sec
+      Start 303: TestMetalPythonForceMixed
+21/27 Test #303: TestMetalPythonForceMixed .....................   Passed    0.15 sec
+      Start 307: TestMetalRBTorsionForceMixed
+22/27 Test #307: TestMetalRBTorsionForceMixed ..................   Passed    0.09 sec
+      Start 311: TestMetalRMSDForceMixed
+23/27 Test #311: TestMetalRMSDForceMixed .......................   Passed    0.60 sec
+      Start 315: TestMetalSettleMixed
+24/27 Test #315: TestMetalSettleMixed ..........................   Passed    0.69 sec
+      Start 319: TestMetalVariableLangevinIntegratorMixed
+25/27 Test #295: TestMetalNonbondedForceMixed ..................   Passed   30.52 sec
+      Start 323: TestMetalVerletIntegratorMixed
+26/27 Test #319: TestMetalVariableLangevinIntegratorMixed ......   Passed   17.09 sec
+27/27 Test #323: TestMetalVerletIntegratorMixed ................   Passed   10.55 sec
+
+96% tests passed, 1 tests failed out of 27
+
+Total Test time (real) = 236.27 sec
+
+The following tests FAILED:
+	275 - TestMetalHarmonicBondForceMixed (Failed)
+Errors while running CTest

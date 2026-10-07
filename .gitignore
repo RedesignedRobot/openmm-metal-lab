@@ -7,3 +7,7 @@ docs/metal/examples/metal-cpp-min/min_compute
 experiments/006-numerical-agreement/agreement
 __pycache__/
 experiments/028-ultra-max/hosts.env
+experiments/029-2x-moonshots/hosts.env
+
+# Raw numpy arrays stay in the bench, not in git
+experiments/**/results/**/*.npz

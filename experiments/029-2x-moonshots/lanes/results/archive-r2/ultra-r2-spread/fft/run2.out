@@ -1,0 +1,9 @@
+device Apple M3 Ultra grid 56x56x56 reps 30
+vkfft+conv     median    41.42 us  p10    41.23  p90    75.29  relL2 vs double 2.322e-07
+vkfft only     median    36.46 us  p10    36.22  p90    36.60  relL2 vs double 2.397e+03
+fused t256     median    29.80 us  p10    29.71  p90    30.47  relL2 vs double 1.674e-07
+k1 only t256   median     9.61 us  p10     9.58  p90     9.84  relL2 vs double 9.995e-01
+fused t512     median    24.44 us  p10    24.36  p90    24.59  relL2 vs double 1.674e-07
+k1 only t512   median     7.70 us  p10     7.69  p90     7.73  relL2 vs double 9.995e-01
+fused t1024    median    22.41 us  p10    21.84  p90    23.15  relL2 vs double 1.674e-07
+k1 only t1024  median     6.91 us  p10     6.73  p90     6.94  relL2 vs double 9.995e-01

@@ -1,0 +1,8 @@
+2026-09-25T08:55:42Z round 1 amber20-dhfr ser load { 1.90 10.53 13.64 } vm 6% top superwhisper 21.6%, com.apple.Virtualization.VirtualMachine 5.8%, sysmond 4.2%,  claude 2.5%, WindowServer 1.7%
+2026-09-25T08:55:59Z round 1 amber20-dhfr d3 load { 2.57 10.26 13.49 } vm 4% top mediaanalysisd 57.4%, superwhisper 17.5%, com.apple.Virtualization.VirtualMachine 4.4%,  claude 3.3%, sysmond 3.1%
+2026-09-25T08:56:17Z round 1 gbsa ser load { 2.66 9.78 13.24 } vm 12% top corespotlightd 160.2%, mediaanalysisd 82.2%, superwhisper 13.2%, com.apple.Virtualization.VirtualMachine 11.9%, powermetrics 5.7%
+2026-09-25T08:56:33Z round 1 gbsa d3 load { 2.51 9.39 13.04 } vm 6% top mediaanalysisd 76.5%, superwhisper 18.8%, com.apple.Virtualization.VirtualMachine 6.4%, corespotlightd 5.0%, homed 4.5%
+2026-09-25T08:56:49Z round 2 amber20-dhfr d3 load { 2.40 9.03 12.85 } vm 8% top superwhisper 11.5%, com.apple.Virtualization.VirtualMachine 7.9%, iStat Menus Menubar 3.3%, sysmond 1.9%, sh 1.8%
+2026-09-25T08:57:06Z round 2 amber20-dhfr ser load { 2.67 8.67 12.63 } vm 8% top superwhisper 19.2%, com.apple.Virtualization.VirtualMachine 8.4%, parsec-fbf 4.5%, mediaanalysisd 4.2%, SystemUIServer 3.4%
+2026-09-25T08:57:24Z round 2 gbsa d3 load { 2.60 8.36 12.45 } vm 5% top superwhisper 20.5%,  claude 10.2%, com.apple.Virtualization.VirtualMachine 4.9%, WindowServer 0.8%, sh 0.8%
+2026-09-25T08:57:39Z round 2 gbsa ser load { 2.25 8.00 12.25 } vm 10% top mediaanalysisd 105.1%, superwhisper 19.4%, com.apple.Virtualization.VirtualMachine 9.8%, iStat Menus Menubar 4.1%, WindowServer 3.3%

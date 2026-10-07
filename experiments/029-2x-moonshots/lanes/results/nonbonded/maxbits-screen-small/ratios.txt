@@ -1,0 +1,83 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+gbsa                     1242.89       1626.04       1241.92       1618.30       1180.45
+rf                       1016.92       1221.17       1179.53       1449.93        664.65
+pme                       792.24        904.03        853.40        992.37        527.26
+amber20-dhfr              814.27        951.42        873.28       1026.27        568.69
+
+rounds, base-m:
+  gbsa               1243.88 1241.90   spread 0.2%
+  rf                 1019.32 1014.52   spread 0.5%
+  pme                792.96 791.52   spread 0.2%
+  amber20-dhfr       817.04 811.51   spread 0.7%
+rounds, base-s:
+  gbsa               1627.33 1624.75   spread 0.2%
+  rf                 1224.05 1218.28   spread 0.5%
+  pme                903.53 904.53   spread 0.1%
+  amber20-dhfr       952.23 950.61   spread 0.2%
+rounds, cand-m:
+  gbsa               1240.09 1243.75   spread 0.3%
+  rf                 1179.83 1179.23   spread 0.1%
+  pme                852.79 854.02   spread 0.1%
+  amber20-dhfr       874.30 872.26   spread 0.2%
+rounds, cand-s:
+  gbsa               1614.05 1622.55   spread 0.5%
+  rf                 1451.77 1448.08   spread 0.3%
+  pme                992.78 991.96   spread 0.1%
+  amber20-dhfr       1027.49 1025.05   spread 0.2%
+rounds, cl-s:
+  gbsa               1182.22 1178.68   spread 0.3%
+  rf                 678.11 651.18   spread 4.1%
+  pme                527.03 527.49   spread 0.1%
+  amber20-dhfr       569.37 568.02   spread 0.2%
+
+test                                     cand-s/base-s                       cand-m/base-m                         cand-s/cl-s                         cand-m/cl-s
+gbsa                       0.995 (rounds 0.992..0.999)         0.999 (rounds 0.997..1.001)         1.371 (rounds 1.365..1.377)         1.052 (rounds 1.049..1.055)
+rf                         1.187 (rounds 1.186..1.189)         1.160 (rounds 1.157..1.162)         2.181 (rounds 2.141..2.224)         1.775 (rounds 1.740..1.811)
+pme                        1.098 (rounds 1.097..1.099)         1.077 (rounds 1.075..1.079)         1.882 (rounds 1.881..1.884)         1.619 (rounds 1.618..1.619)
+amber20-dhfr               1.079 (rounds 1.078..1.079)         1.072 (rounds 1.070..1.075)         1.805 (rounds 1.805..1.805)         1.536 (rounds 1.536..1.536)
+
+1 minute load before 40 runs: 7.36 to 20.98
+Background VM CPU before 40 runs: 9% to 29%
+runs with no result: 0
+runs that overlapped a build: 40
+  2026-09-26T17:24:06Z round 1 gbsa base-s load { 20.98 27.25 41.65 } BUILD RUNNING vm 20%
+  2026-09-26T17:24:22Z round 1 gbsa cand-s load { 17.73 26.10 40.90 } BUILD RUNNING vm 20%
+  2026-09-26T17:24:39Z round 1 gbsa cl-s load { 16.16 25.34 40.38 } BUILD RUNNING vm 12%
+  2026-09-26T17:24:55Z round 1 gbsa base-m load { 14.88 24.60 39.85 } BUILD RUNNING vm 16%
+  2026-09-26T17:25:13Z round 1 gbsa cand-m load { 17.94 24.69 39.53 } BUILD RUNNING vm 10%
+  2026-09-26T17:25:30Z round 1 rf base-s load { 14.70 23.64 38.89 } BUILD RUNNING vm 10%
+  2026-09-26T17:25:47Z round 1 rf cand-s load { 11.52 22.34 38.07 } BUILD RUNNING vm 10%
+  2026-09-26T17:26:04Z round 1 rf cl-s load { 9.65 21.39 37.46 } BUILD RUNNING vm 10%
+  2026-09-26T17:26:20Z round 1 rf base-m load { 8.50 20.57 36.88 } BUILD RUNNING vm 9%
+  2026-09-26T17:26:37Z round 1 rf cand-m load { 7.36 19.51 36.12 } BUILD RUNNING vm 11%
+  2026-09-26T17:26:55Z round 1 pme base-s load { 8.01 19.06 35.67 } BUILD RUNNING vm 13%
+  2026-09-26T17:27:12Z round 1 pme cand-s load { 8.80 18.52 35.09 } BUILD RUNNING vm 15%
+  2026-09-26T17:27:28Z round 1 pme cl-s load { 9.14 18.12 34.66 } BUILD RUNNING vm 25%
+  2026-09-26T17:27:45Z round 1 pme base-m load { 9.10 17.67 34.21 } BUILD RUNNING vm 12%
+  2026-09-26T17:28:02Z round 1 pme cand-m load { 9.30 17.16 33.64 } BUILD RUNNING vm 14%
+  2026-09-26T17:28:19Z round 1 amber20-dhfr base-s load { 9.38 16.79 33.22 } BUILD RUNNING vm 15%
+  2026-09-26T17:28:36Z round 1 amber20-dhfr cand-s load { 9.88 16.54 32.84 } BUILD RUNNING vm 17%
+  2026-09-26T17:28:54Z round 1 amber20-dhfr cl-s load { 10.13 16.17 32.33 } BUILD RUNNING vm 29%
+  2026-09-26T17:29:14Z round 1 amber20-dhfr base-m load { 9.80 15.70 31.79 } BUILD RUNNING vm 15%
+  2026-09-26T17:29:33Z round 1 amber20-dhfr cand-m load { 9.64 15.28 31.26 } BUILD RUNNING vm 12%
+  2026-09-26T17:29:55Z round 2 gbsa cand-m load { 11.69 15.39 30.93 } BUILD RUNNING vm 19%
+  2026-09-26T17:30:10Z round 2 gbsa base-m load { 11.48 15.16 30.57 } BUILD RUNNING vm 16%
+  2026-09-26T17:30:26Z round 2 gbsa cl-s load { 11.36 14.89 30.12 } BUILD RUNNING vm 11%
+  2026-09-26T17:30:42Z round 2 gbsa cand-s load { 11.42 14.73 29.80 } BUILD RUNNING vm 17%
+  2026-09-26T17:30:59Z round 2 gbsa base-s load { 11.26 14.53 29.46 } BUILD RUNNING vm 11%
+  2026-09-26T17:31:16Z round 2 rf cand-m load { 11.20 14.36 29.14 } BUILD RUNNING vm 10%
+  2026-09-26T17:31:32Z round 2 rf base-m load { 10.80 14.06 28.69 } BUILD RUNNING vm 13%
+  2026-09-26T17:31:49Z round 2 rf cl-s load { 10.85 13.91 28.38 } BUILD RUNNING vm 18%
+  2026-09-26T17:32:06Z round 2 rf cand-s load { 11.02 13.78 28.08 } BUILD RUNNING vm 14%
+  2026-09-26T17:32:22Z round 2 rf base-s load { 10.67 13.52 27.65 } BUILD RUNNING vm 24%
+  2026-09-26T17:32:38Z round 2 pme cand-m load { 10.53 13.35 27.34 } BUILD RUNNING vm 15%
+  2026-09-26T17:32:55Z round 2 pme base-m load { 10.63 13.23 27.06 } BUILD RUNNING vm 13%
+  2026-09-26T17:33:11Z round 2 pme cl-s load { 10.48 13.07 26.76 } BUILD RUNNING vm 13%
+  2026-09-26T17:33:28Z round 2 pme cand-s load { 10.77 12.97 26.40 } BUILD RUNNING vm 17%
+  2026-09-26T17:33:44Z round 2 pme base-s load { 10.30 12.76 26.09 } BUILD RUNNING vm 15%
+  2026-09-26T17:34:01Z round 2 amber20-dhfr cand-m load { 9.94 12.56 25.79 } BUILD RUNNING vm 10%
+  2026-09-26T17:34:20Z round 2 amber20-dhfr base-m load { 9.97 12.39 25.42 } BUILD RUNNING vm 12%
+  2026-09-26T17:34:40Z round 2 amber20-dhfr cl-s load { 9.91 12.22 25.05 } BUILD RUNNING vm 19%
+  2026-09-26T17:34:59Z round 2 amber20-dhfr cand-s load { 11.94 12.53 24.87 } BUILD RUNNING vm 12%
+  2026-09-26T17:35:17Z round 2 amber20-dhfr base-s load { 13.30 12.80 24.68 } BUILD RUNNING vm 22%

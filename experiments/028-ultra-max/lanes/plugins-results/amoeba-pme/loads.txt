@@ -1,0 +1,11 @@
+2026-09-24T22:44:07Z round 1 amoebapme metal-single load { 10.65 7.47 7.34 } vm 102% top com.apple.Virtualization.VirtualMachine 101.7%, superwhisper 21.7%, WindowServer 4.6%, iStat Menus Menubar 4.5%, sh 1.4%
+2026-09-24T22:44:48Z round 1 amoebapme metal-single BUILD RUNNING during the run
+2026-09-24T22:44:48Z round 1 amoebapme metal-mixed load { 8.89 7.39 7.31 } BUILD RUNNING vm 107% top com.apple.Virtualization.VirtualMachine 106.6%, clang 61.7%, clang 60.5%, clang 33.5%, clang 25.5%
+2026-09-24T22:45:36Z round 1 amoebapme opencl-single load { 9.44 7.77 7.46 } BUILD RUNNING vm 104% top com.apple.Virtualization.VirtualMachine 104.5%,  (clang) 66.1%, superwhisper 22.4%, clang 15.0%, clang 9.0%
+2026-09-24T22:46:19Z round 2 amoebapme opencl-single load { 10.40 8.44 7.73 } vm 101% top com.apple.Virtualization.VirtualMachine 100.9%, superwhisper 21.1%, sysmond 3.3%, iStat Menus Menubar 2.8%, WindowServer 2.1%
+2026-09-24T22:46:59Z round 2 amoebapme metal-mixed load { 5.97 7.54 7.44 } vm 101% top com.apple.Virtualization.VirtualMachine 100.6%, superwhisper 19.3%, sysmond 6.0%, authd 4.3%, trustd 3.7%
+2026-09-24T22:47:44Z round 2 amoebapme metal-single load { 6.11 7.35 7.37 } vm 101% top com.apple.Virtualization.VirtualMachine 100.6%, superwhisper 18.1%, sysmond 4.0%, WindowServer 2.1%, iStat Menus Menubar 1.8%
+2026-09-24T22:48:26Z round 2 amoebapme metal-single BUILD RUNNING during the run
+2026-09-24T22:48:26Z round 3 amoebapme metal-single load { 5.30 6.96 7.22 } vm 101% top com.apple.Virtualization.VirtualMachine 101.4%, superwhisper 20.8%, sysmond 11.4%, WindowServer 5.7%, iStat Menus Menubar 2.9%
+2026-09-24T22:49:06Z round 3 amoebapme metal-mixed load { 4.12 6.45 7.02 } vm 102% top com.apple.Virtualization.VirtualMachine 102.1%, superwhisper 18.6%, sysmond 7.2%, powermetrics 3.0%, WindowServer 2.4%
+2026-09-24T22:49:48Z round 3 amoebapme opencl-single load { 4.11 6.13 6.87 } vm 100% top com.apple.Virtualization.VirtualMachine 100.4%, superwhisper 20.8%, sysmond 10.1%,  zsh 4.3%, sh 3.0%

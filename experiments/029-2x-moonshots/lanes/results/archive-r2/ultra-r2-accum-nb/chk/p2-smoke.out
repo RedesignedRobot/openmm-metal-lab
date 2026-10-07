@@ -1,0 +1,20 @@
+14:58:57Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+14:58:57Z waiting for the lease: 16 in the queue, held by: ultra-r2-mixed 2026-09-27T14:58:00Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf2, about 12 min, 1 build processes
+15:04:02Z waiting for the lease: 16 in the queue, held by: ultra-r2-mixed 2026-09-27T14:58:00Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf2, about 12 min, 0 build processes
+15:09:07Z waiting for the lease: 15 in the queue, held by: r2-infra 2026-09-27T15:04:52Z M0(1) OpenCL shader census, 9 tests + stmv Metal, 0 build processes
+15:14:16Z waiting for the lease: 15 in the queue, held by: r2-infra 2026-09-27T15:04:52Z M0(1) OpenCL shader census, 9 tests + stmv Metal, 0 build processes
+15:19:21Z waiting for the lease: 13 in the queue, held by: r2-drift 2026-09-27T15:16:39Z drift dhfr nve Metal single tol 1e-8 seed 111 1 ns, 0 build processes
+15:24:26Z waiting for the lease: 13 in the queue, held by: r2-drift 2026-09-27T15:16:39Z drift dhfr nve Metal single tol 1e-8 seed 111 1 ns, 0 build processes
+15:29:30Z waiting for the lease: 9 in the queue, held by: ultra-r2-bonded 2026-09-27T15:29:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab1, about 9 min, 0 build processes
+15:34:35Z waiting for the lease: 9 in the queue, held by: ultra-r2-bonded 2026-09-27T15:29:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab1, about 9 min, 0 build processes
+15:39:39Z waiting for the lease: 7 in the queue, held by: ultra-r2-single-int 2026-09-27T15:39:20Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s3, about 4 min, 0 build processes
+15:44:43Z waiting for the lease: 6 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:49:47Z waiting for the lease: 6 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:54:51Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+15:59:56Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:04:59Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+apoa1rf single E -1333620.586054939
+amber20-cellulose single E -2997837.3047054373
+== p hoisted pbc
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE -0.0176 (E -1333620.59)
+amber20-cellulose  rel|dF| 1.891e-07  max|dF| 8.669e-04 at 160092  |F|max 5509.8  dE -0.0625 (E -2997837.30)

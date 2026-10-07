@@ -1,0 +1,35 @@
+median ns/day, host clock
+test                      base-m        base-s       kstep-m       kstep-s        opencl    resident-m    resident-s
+pme                       787.78        902.50        794.59        907.47        511.83        789.77        906.93
+amber20-dhfr              816.42        934.73        822.96        958.08        563.78        822.76        949.19
+
+rounds, base-m:
+  pme                784.48 791.08   spread 0.8%
+  amber20-dhfr       819.69 813.15   spread 0.8%
+rounds, base-s:
+  pme                899.29 905.72   spread 0.7%
+  amber20-dhfr       925.37 944.08   spread 2.0%
+rounds, kstep-m:
+  pme                792.81 796.36   spread 0.4%
+  amber20-dhfr       823.16 822.75   spread 0.0%
+rounds, kstep-s:
+  pme                903.49 911.45   spread 0.9%
+  amber20-dhfr       956.53 959.64   spread 0.3%
+rounds, opencl:
+  pme                525.13 498.53   spread 5.2%
+  amber20-dhfr       559.82 567.75   spread 1.4%
+rounds, resident-m:
+  pme                785.99 793.56   spread 1.0%
+  amber20-dhfr       822.91 822.61   spread 0.0%
+rounds, resident-s:
+  pme                904.69 909.16   spread 0.5%
+  amber20-dhfr       952.92 945.46   spread 0.8%
+
+test                                 resident-s/base-s                   resident-m/base-m                   resident-s/opencl                   resident-m/opencl                  resident-s/kstep-s                  resident-m/kstep-m                      kstep-s/base-s                      kstep-m/base-m
+pme                        1.005 (rounds 1.004..1.006)         1.003 (rounds 1.002..1.003)         1.772 (rounds 1.723..1.824)         1.543 (rounds 1.497..1.592)         0.999 (rounds 0.997..1.001)         0.994 (rounds 0.991..0.996)         1.006 (rounds 1.005..1.006)         1.009 (rounds 1.007..1.011)
+amber20-dhfr               1.015 (rounds 1.001..1.030)         1.008 (rounds 1.004..1.012)         1.684 (rounds 1.665..1.702)         1.459 (rounds 1.449..1.470)         0.991 (rounds 0.985..0.996)         1.000 (rounds 1.000..1.000)         1.025 (rounds 1.016..1.034)         1.008 (rounds 1.004..1.012)
+
+1 minute load before 28 runs: 3.42 to 12.84
+Background VM CPU before 28 runs: 4% to 49%
+runs with no result: 0
+runs that overlapped a build: 0

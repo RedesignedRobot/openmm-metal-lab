@@ -1,0 +1,34 @@
+10:57:21Z waiting for the lease: 9 in the queue, held by: r2-mixed 2026-09-27T10:48:30Z float COM correctness, 0 build processes
+11:02:25Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T10:56:53Z drift dhfr nve Metal mixed tol 1e-8 seed 28 1 ns, 0 build processes
+11:07:28Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:02:47Z drift dhfr nve Metal mixed tol 1e-8 seed 29 1 ns, 0 build processes
+11:12:33Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:08:50Z drift dhfr nve Metal mixed tol 1e-8 seed 30 1 ns, 0 build processes
+11:17:37Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:13:46Z drift dhfr nve Metal single tol 1e-8 seed 32 1 ns, 0 build processes
+11:22:41Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:19:22Z drift dhfr nve Metal single tol 1e-8 seed 33 1 ns, 0 build processes
+11:27:46Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:23:37Z drift dhfr nve Metal single tol 1e-8 seed 34 1 ns, 0 build processes
+11:32:50Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:32:06Z drift dhfr nve Metal single tol 1e-5 seed 11 1 ns, 0 build processes
+11:37:54Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:36:21Z drift dhfr nve Metal single tol 1e-5 seed 12 1 ns, 0 build processes
+11:42:58Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:40:37Z drift dhfr nve Metal single tol 1e-5 seed 13 1 ns, 0 build processes
+11:48:02Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:44:51Z drift dhfr nve Metal single tol 1e-5 seed 14 1 ns, 0 build processes
+11:53:06Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:49:04Z drift dhfr nve Metal single tol 1e-5 seed 15 1 ns, 0 build processes
+11:58:11Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T11:53:20Z drift dhfr nve Metal single tol 1e-5 seed 20 1 ns, 0 build processes
+12:03:14Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:00:50Z drift dhfr nve Metal mixed tol 1e-8 seed 82 1 ns, 0 build processes
+12:08:19Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:00:50Z drift dhfr nve Metal mixed tol 1e-8 seed 82 1 ns, 0 build processes
+12:13:22Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:10:03Z drift dhfr nve Metal mixed tol 1e-8 seed 83 1 ns, 0 build processes
+12:18:26Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:10:03Z drift dhfr nve Metal mixed tol 1e-8 seed 83 1 ns, 0 build processes
+12:23:30Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:19:24Z drift dhfr nve Metal mixed tol 1e-8 seed 84 1 ns, 0 build processes
+12:28:33Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T12:26:20Z drift dhfr nve Metal mixed tol 1e-8 seed 85 1 ns, 0 build processes
+12:33:37Z waiting for the lease: 8 in the queue, held by: ultra-r2-accum-gb 2026-09-27T12:33:31Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s4, about 3 min, 0 build processes
+12:38:41Z waiting for the lease: 7 in the queue, held by: ultra-r2-dispatch 2026-09-27T12:35:42Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-gbsa, about 6 min, 0 build processes
+12:43:44Z waiting for the lease: 6 in the queue, held by: ultra-r2-accum-nb 2026-09-27T12:40:44Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe2, about 8 min, 0 build processes
+12:48:48Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-gb 2026-09-27T12:48:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s5, about 5 min BUILD RUNNING, 3 build processes
+12:53:51Z waiting for the lease: 4 in the queue, held by: r2-mixed 2026-09-27T12:52:07Z cheap conversion diag traces, 3 build processes
+12:58:56Z waiting for the lease: 3 in the queue, held by: ultra-r2-mixed 2026-09-27T12:57:46Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-q1, about 14 min BUILD RUNNING, 6 build processes
+13:03:59Z waiting for the lease: 3 in the queue, held by: ultra-r2-mixed 2026-09-27T12:57:46Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-q1, about 14 min BUILD RUNNING, 0 build processes
+13:09:03Z waiting for the lease: 2 in the queue, held by: ultra-r2-mixed 2026-09-27T13:05:59Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-com, about 7 min, 0 build processes
+13:14:24Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T13:11:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe3, about 8 min, 0 build processes
+t-single: xctrace pid 60072 recording 13:19:18Z
+captured t-single 13:19:24Z: Target app exited, ending recording...
+13:20:22Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-profiler (sampled shader timeline t-single). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved t-single 13:20:40Z: Output file saved as: t-single.trace
+exported t-single 13:20:55Z, rows 356772, releasing
+PROF4 DONE

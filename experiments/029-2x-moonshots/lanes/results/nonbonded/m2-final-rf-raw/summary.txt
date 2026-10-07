@@ -1,0 +1,15 @@
+M2 check 20260926T211036Z-7484d7bef, base 7484d7bef401
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-src-a030a4fe04: 7484d7bef401 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+rf                 single     291.96     291.97  1.000  0.994..1.006      118      117     -1   -0.8      136      135  
+rf                 mixed      230.85     231.33  1.002  1.001..1.003      123      123     -0   -0.0      142      142  
+
+1-minute load before 8 runs: 1.04 to 2.19; memory free 61% to 63%
+Spotlight CPU before 8 runs: 0% to 1%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-src-a030a4fe04 7484d7bef401 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 154 s; tests=rf; rounds=2; seconds=15

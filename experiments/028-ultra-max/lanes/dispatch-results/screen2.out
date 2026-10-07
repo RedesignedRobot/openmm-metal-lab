@@ -1,0 +1,55 @@
+base Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a built 2026-09-24T19:38:25Z 
+auto Metal single settings=DISPATCH_MODE=auto,DISPATCH_STATS=1 /tmp/openmm-metal-bench/ultra-dispatch/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb+probe-uncommitted src 197bef5ce933a0b8fbb2bc9b06c95f9e9df9334e built 2026-09-24T20:30:26Z 
+early Metal single settings=DISPATCH_EARLY=1,DISPATCH_STATS=1 /tmp/openmm-metal-bench/ultra-dispatch/t2/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb+probe2-uncommitted src e7d60223215c0c99ae87360c155dd80ca52ff7d1 built 2026-09-24T20:33:15Z 
+autoearly Metal single settings=DISPATCH_MODE=auto,DISPATCH_EARLY=1,DISPATCH_STATS=1 /tmp/openmm-metal-bench/ultra-dispatch/t2/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb+probe2-uncommitted src e7d60223215c0c99ae87360c155dd80ca52ff7d1 built 2026-09-24T20:33:15Z 
+20:33:31Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:38:32Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:43:33Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:48:35Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:53:36Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv
+hostname: M3-Ultra
+timestamp: 2026-09-24T20:55:26.918850+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1244.21
+dispatch mode 3: 1103262 dispatches, 816998 barriers, 109201 commits; after 5 s: 76745 buffers, GPU busy 10.3121 s over 11.4997 s span, 0.897
+host: 54484 event waits 13.5456 s, 1134 finishes 0.0683 s
+hostname: M3-Ultra
+timestamp: 2026-09-24T20:55:42.694111+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1142.92
+dispatch mode 0: 1057113 dispatches, 0 barriers, 156836 commits; after 5 s: 106832 buffers, GPU busy 9.5436 s over 10.4357 s span, 0.915
+host: 52205 event waits 13.3488 s, 1084 finishes 0.0646 s
+hostname: M3-Ultra
+timestamp: 2026-09-24T20:56:00.283212+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1175.69
+dispatch mode 3: 1079833 dispatches, 799642 barriers, 160207 commits; after 5 s: 110002 buffers, GPU busy 10.0158 s over 11.2573 s span, 0.890
+host: 53327 event waits 13.6828 s, 1109 finishes 0.0694 s
+hostname: M3-Ultra
+timestamp: 2026-09-24T20:56:16.142063+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1136.75
+20:56:52Z waiting for the lease: 21 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:01:56Z waiting for the lease: 21 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 9 build processes
+21:07:01Z waiting for the lease: 21 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:12:05Z waiting for the lease: 20 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes

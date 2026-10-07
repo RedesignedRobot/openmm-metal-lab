@@ -1,0 +1,13 @@
+test              atoms precision steps       pairs     tiles   single excltiles uncovered duplicate excluded overflow  verdict
+apoa1rf           92224    single   100    18467051     56835        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1rf           92224    single  1000    18561913     58431        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1rf           92224     mixed   100    18467067     56834        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1rf           92224     mixed  1000    18592807     58378        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224    single   100    13443556     45604        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224    single  1000    13495981     46864        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224     mixed   100    13443538     45604        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224     mixed  1000    13479656     46832        0      5213         0         0        0        0  PASS  (1 s check)
+amber20-stmv    1067095    single   100   160488358    510525        0     57294         0         0        0        0  PASS  (16 s check)
+amber20-stmv    1067095    single  1000   160449010    521605        0     57294         0         0        0        0  PASS  (16 s check)
+amber20-stmv    1067095     mixed   100   160488627    510499        0     57294         0         0        0        0  PASS  (16 s check)
+amber20-stmv    1067095     mixed  1000   160435245    521561        0     57294         0         0        0        0  PASS  (16 s check)

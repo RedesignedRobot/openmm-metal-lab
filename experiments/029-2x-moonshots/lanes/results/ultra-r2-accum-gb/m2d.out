@@ -1,0 +1,46 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-3d1897e8d82a4332b6e734f8708354c4/src: 28169ea73f3e78c0609076416c410f77563fe1e6, 2518 working-tree blobs verified
+M2 pid=39026 log=~/lab/ultra-m2.noindex/uploads/3d1897e8d82a4332b6e734f8708354c4/run.log
+loads ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-r2-accum-gb-726145eae0 PASS, 40 s
+apoa1rf        92224    single  5.987e-05  1.327e+00  7.701e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.197e-01  8.073e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.059e-06  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06  ok
+forces gate cand-r2-accum-gb-726145eae0 PASS, 40 s
+A/B 2777 s
+M2 check 20260927T171306Z-28169ea73, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r2-accum-gb-726145eae0: 28169ea73f3e against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     454.47     453.10  0.997  0.995..0.999       68       68     +0   +0.3       91       91  
+gbsa               mixed      376.69     374.51  0.994  0.985..1.003       71       71     +0   +0.0       96       96  
+rf                 single     291.08     292.08  1.003  1.003..1.004      120      119     -2   -1.3      138      137  
+rf                 mixed      231.88     231.08  0.997  0.993..1.000      124      122     -2   -1.3      143      142  
+pme                single     238.83     238.99  1.001  0.999..1.002      125      124     -1   -1.0      141      140  
+pme                mixed      196.56     196.34  0.999  0.997..1.001      129      127     -2   -1.6      147      145  
+apoa1rf            single      78.62      78.54  0.999  0.998..1.000      300      298     -2   -0.6      343      343  
+apoa1rf            mixed       63.94      63.91  1.000  0.998..1.001      307      302     -5   -1.6      353      348  
+apoa1pme           single      59.94      59.95  1.000  1.000..1.001      308      297    -11   -3.5      353      342  
+apoa1pme           mixed       50.90      50.91  1.000  1.000..1.000      317      313     -4   -1.2      363      359  
+apoa1ljpme         single      44.86      44.82  0.999  0.999..0.999      306      303     -3   -0.9      353      352  
+apoa1ljpme         mixed       39.73      39.67  0.998  0.998..0.999      304      298     -5   -1.8      355      353  
+amber20-dhfr       single     247.31     247.32  1.000  0.999..1.001      138      136     -2   -1.4      153      151  
+amber20-dhfr       mixed      201.13     201.63  1.002  1.002..1.003      146      144     -2   -1.4      159      157  
+amber20-cellulose  single      13.29      13.28  0.999  0.999..1.000     1500     1500     +0   +0.0     1528     1528  
+amber20-cellulose  mixed       11.47      11.45  0.998  0.995..1.000     1500     1500     +0   +0.0     1527     1528  
+amber20-stmv       single       4.58       4.59  1.002  1.000..1.004     3562     3562     +0   +0.0     3000     2877  
+amber20-stmv       mixed        4.05       4.04  0.996  0.995..0.998     3562     3562     +0   +0.0     2835     3066  
+
+1-minute load before 72 runs: 0.80 to 2.98; memory free 65% to 73%
+Spotlight CPU before 72 runs: 0% to 18%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r2-accum-gb-726145eae0 28169ea73f3e PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 2817 s; tests=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260927T171306Z-28169ea73
+

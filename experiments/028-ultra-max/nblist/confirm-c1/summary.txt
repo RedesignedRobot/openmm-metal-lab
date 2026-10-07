@@ -1,0 +1,24 @@
+median ns/day, host clock
+test                        s2t4            u8
+gbsa                     1345.12       1368.23
+rf                        936.91        998.47
+pme                       750.40        784.78
+
+rounds, s2t4:
+  gbsa               1343.79 1355.99 1345.12   spread 0.9%
+  rf                 936.91 939.83 929.43   spread 1.1%
+  pme                750.40 750.02 753.12   spread 0.4%
+rounds, u8:
+  gbsa               1368.23 1353.25 1373.47   spread 1.5%
+  rf                 998.47 1000.32 994.86   spread 0.5%
+  pme                783.25 786.73 784.78   spread 0.4%
+
+test                                           u8/s2t4
+gbsa                       1.017 (rounds 0.998..1.021)
+rf                         1.066 (rounds 1.064..1.070)
+pme                        1.046 (rounds 1.042..1.049)
+
+1 minute load before 22 runs: 1.53 to 7.61
+Background VM CPU before 22 runs: 4% to 24%
+runs with no result: 0
+runs that overlapped a build: 0

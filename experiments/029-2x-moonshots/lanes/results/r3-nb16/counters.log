@@ -1,0 +1,25 @@
+21:36:59Z waiting for the lease: 7 in the queue, held by: r3-lean 2026-09-27T21:31:28Z force-only targeted tests and bitwise comparison, 0 build processes
+21:42:03Z waiting for the lease: 7 in the queue, held by: r2-fah 2026-09-27T21:37:11Z barostat tests on reorder fix, 0 build processes
+21:47:06Z waiting for the lease: 7 in the queue, held by: r2-fah 2026-09-27T21:37:11Z barostat tests on reorder fix, 0 build processes
+21:52:10Z waiting for the lease: 7 in the queue, held by: r2-fah 2026-09-27T21:49:30Z anisotropic barostat mixed, old vs reorder fix, 0 build processes
+21:57:13Z waiting for the lease: 7 in the queue, held by: r2-fah 2026-09-27T21:49:30Z anisotropic barostat mixed, old vs reorder fix, 0 build processes
+22:02:16Z waiting for the lease: 6 in the queue, held by: ultra-r2-mixed 2026-09-27T22:00:12Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv2, about 4 min, 0 build processes
+22:07:19Z waiting for the lease: 5 in the queue, held by: ultra-r2-mixed 2026-09-27T22:04:06Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv3, about 4 min, 0 build processes
+22:12:23Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T22:09:35Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abC, about 11 min, 0 build processes
+22:17:27Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T22:09:35Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abC, about 11 min, 0 build processes
+22:22:31Z waiting for the lease: 2 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:27:34Z waiting for the lease: 2 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:32:41Z waiting for the lease: 1 in the queue, held by: r3-lean 2026-09-27T22:32:12Z force-only 2x15 screen part 2, 0 build processes
+22:38:18Z waiting for the lease: 1 in the queue, held by: r3-lean 2026-09-27T22:32:12Z force-only 2x15 screen part 2, 0 build processes
+control: {"test": "apoa1rf", "precision": "single", "old_tiles": 56660, "packets": 82876, "q": 0.731344864101659, "max_row_slots": 1024, "positions_sha256": "e3f224adab8ea61b48e599aea8def1539cdb431a394dd9162283fbfb9d363da4", "compact_sha256": "941de0cd355be16d7c39444065694ab06edff4b7bd4ca51a952ce322568b5d66"}
+control: READY 38685
+control: trace captured
+session 38 (open rc 0)
+profile run rc 0: Profile data collected. (8.2s)
+target walk: 0 dispatches, 8 s
+compact: {"test": "apoa1rf", "precision": "single", "old_tiles": 56660, "packets": 82876, "q": 0.731344864101659, "max_row_slots": 1024, "positions_sha256": "e3f224adab8ea61b48e599aea8def1539cdb431a394dd9162283fbfb9d363da4", "compact_sha256": "941de0cd355be16d7c39444065694ab06edff4b7bd4ca51a952ce322568b5d66"}
+compact: READY 40086
+compact: trace captured
+session 43 (open rc 0)
+profile run rc 0: Profile data collected. (8.3s)
+target walk: 0 dispatches, 8 s

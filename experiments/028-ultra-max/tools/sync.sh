@@ -1,9 +1,11 @@
 #!/bin/sh
 # Runs on the laptop: puts one commit's tree into <studio dir>/src on the M3 Ultra and checks every
-# file against git. Only files whose contents changed are rewritten, so ninja rebuilds only what the
-# commit touched. src/.commit records the commit.
+# file against git before it touches src, so a failed check leaves src as it was. Only files whose
+# contents changed are rewritten, so ninja rebuilds only what the commit touched. src/.commit records
+# the commit. No --inplace: openrsync writing a file in place over an older copy of itself corrupted
+# blobs.txt once the file list shifted.
 # usage: sync.sh <worktree> <commit> <studio dir>
-#   sync.sh /Users/amir/code/mini/ultra-pme HEAD /tmp/openmm-metal-bench/ultra-pme
+#   sync.sh $HOME/code/mini/ultra-pme HEAD /tmp/openmm-metal-bench/ultra-pme
 set -eu
 [ $# -eq 3 ] || { echo "usage: sync.sh <worktree> <commit> <studio dir>" >&2; exit 2; }
 worktree="$1"
@@ -35,13 +37,14 @@ rm -rf .stage
 mkdir .stage
 tar -xzf src.tar.gz -C .stage
 echo $commit > .stage/.commit
+cd .stage
+mismatch=\$(cut -f2 ../blobs.txt | git hash-object --stdin-paths | paste - ../blobs.txt | awk -F '\t' '\$1 != \$2 { print \$3 }')
+[ -z "\$mismatch" ] || { echo "files differ from git, src left as it was: \$mismatch" >&2; exit 1; }
+cd ..
 mkdir -p src
 rsync -rlpc --delete .stage/ src/
 rm -rf .stage
-cd src
-mismatch=\$(cut -f2 ../blobs.txt | git hash-object --stdin-paths | paste - ../blobs.txt | awk -F '\t' '\$1 != \$2 { print \$3 }')
-[ -z "\$mismatch" ] || { echo "files differ from git: \$mismatch" >&2; exit 1; }
-echo "$dir/src is $commit, \$(wc -l < ../blobs.txt | tr -d ' ') files checked against git"
+echo "$dir/src is $commit, \$(wc -l < blobs.txt | tr -d ' ') files checked against git"
 EOF
-retry timeout 600 rsync --partial --inplace -e "ssh -o ConnectTimeout=15" "$tmp/src.tar.gz" "$tmp/blobs.txt" "$tmp/unpack.sh" "$STUDIO:$dir/"
+retry timeout 600 rsync --partial -e "ssh -o ConnectTimeout=15" "$tmp/src.tar.gz" "$tmp/blobs.txt" "$tmp/unpack.sh" "$STUDIO:$dir/"
 retry timeout 600 ssh -o ConnectTimeout=15 "$STUDIO" "/bin/sh '$dir/unpack.sh'"

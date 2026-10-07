@@ -1,0 +1,19 @@
+2026-09-29T00:00:34Z round 1 gbsa tr-s load { 3.31 3.03 4.99 } vm 6% top superwhisper 23.4%, WindowServer 12.4%, Google Chrome Helper 4.7%,  claude 4.6%, com.apple.Virtualization.VirtualMachine 3.5%
+2026-09-29T00:01:08Z round 1 gbsa a-s load { 5.92 3.66 5.14 } vm 6% top chrome-headless-shell 67.0%, superwhisper 23.1%, WindowServer 14.2%, Google Chrome Helper (Renderer) 5.9%, powermetrics 5.7%
+2026-09-29T00:01:42Z round 1 gbsa b-s load { 5.49 3.82 5.13 } vm 6% top chrome-headless-shell 66.9%, superwhisper 23.6%, WindowServer 18.0%, loginwindow 6.2%,  claude 5.3%
+2026-09-29T00:02:15Z round 1 gbsa tr-m load { 4.87 3.83 5.09 } vm 9% top chrome-headless-shell 70.1%, superwhisper 24.1%, WindowServer 16.4%, iStat Menus Menubar 5.7%, com.apple.Virtualization.VirtualMachine 5.7%
+2026-09-29T00:02:53Z round 1 gbsa a-m load { 3.50 3.62 4.95 } vm 6% top superwhisper 24.0%, WindowServer 13.1%, com.apple.Virtualization.VirtualMachine 5.8%,  claude 5.0%, Google Chrome Helper 4.7%
+2026-09-29T00:03:31Z round 1 gbsa b-m load { 3.56 3.61 4.90 } vm 11% top chrome-headless-shell 65.4%, superwhisper 22.8%, WindowServer 16.3%, com.apple.Virtualization.VirtualMachine 6.9%, powermetrics 6.0%
+2026-09-29T00:04:05Z round 2 gbsa b-m load { 3.48 3.59 4.84 } vm 11% top chrome-headless-shell 58.5%, superwhisper 24.2%, WindowServer 14.0%, com.apple.Virtualization.VirtualMachine 6.9%, iStat Menus Menubar 4.2%
+2026-09-29T00:04:38Z round 2 gbsa a-m load { 2.82 3.42 4.73 } vm 9% top chrome-headless-shell 71.7%, superwhisper 22.4%, WindowServer 18.5%, bun 8.0%, iStat Menus Menubar 7.3%
+2026-09-29T00:05:12Z round 2 gbsa tr-m load { 4.99 3.92 4.86 } vm 10% top superwhisper 23.0%, WindowServer 13.8%, com.apple.Virtualization.VirtualMachine 6.4%,  claude 6.0%, Google Chrome Helper 5.3%
+2026-09-29T00:05:50Z round 2 gbsa b-s load { 4.39 3.90 4.81 } vm 8% top chrome-headless-shell 65.7%, superwhisper 23.6%, WindowServer 13.6%, ContextStoreAgent 12.5%, chrome-headless-shell 4.6%
+2026-09-29T00:06:23Z round 2 gbsa a-s load { 3.89 3.84 4.75 } vm 26% top chrome-headless-shell 64.3%, superwhisper 23.4%, com.apple.Virtualization.VirtualMachine 18.9%, WindowServer 14.3%, com.apple.Virtualization.VirtualMachine 7.3%
+2026-09-29T00:06:55Z round 2 gbsa tr-s load { 3.91 3.84 4.72 } vm 6% top chrome-headless-shell 64.3%, superwhisper 24.5%, WindowServer 15.3%, powermetrics 7.6%, iStat Menus Menubar 5.9%
+2026-09-29T00:07:28Z round 3 gbsa tr-s load { 3.02 3.65 4.61 } vm 6% top chrome-headless-shell 65.4%, superwhisper 23.1%, WindowServer 15.4%, com.apple.Virtualization.VirtualMachine 5.9%, Google Chrome Helper 5.3%
+2026-09-29T00:08:01Z round 3 gbsa a-s load { 2.33 3.41 4.49 } vm 7% top chrome-headless-shell 62.8%, superwhisper 22.0%, WindowServer 15.6%,  claude 3.7%, Google Chrome Helper 3.7%
+2026-09-29T00:08:33Z round 3 gbsa b-s load { 2.99 3.43 4.45 } vm 48% top backupd 100.0%, chrome-headless-shell 57.7%, com.apple.Virtualization.VirtualMachine 44.9%, superwhisper 23.5%, WindowServer 12.8%
+2026-09-29T00:09:06Z round 3 gbsa tr-m load { 3.07 3.42 4.41 } vm 8% top backupd 113.1%, chrome-headless-shell 65.4%, superwhisper 26.5%, WindowServer 17.9%, Google Chrome Helper 5.4%
+2026-09-29T00:09:39Z round 3 gbsa a-m load { 3.09 3.38 4.36 } FOREIGN GPU 8% vm 7% top backupd 106.7%, superwhisper 25.3%, WindowServer 16.4%, SystemUIServer 6.9%, iStat Menus Menubar 5.5%
+2026-09-29T00:10:18Z round 3 gbsa b-m load { 2.59 3.24 4.26 } vm 13% top superwhisper 22.4%, WindowServer 12.6%, backupd 6.9%, com.apple.Virtualization.VirtualMachine 6.7%, com.apple.Virtualization.VirtualMachine 6.1%
+2026-09-29T00:10:52Z builds: none ran during the 18 timed runs; timing hold of lease.sh pid 88077: 0 builds paused

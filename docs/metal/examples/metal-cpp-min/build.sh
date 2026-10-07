@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SDK_PATH=$(xcrun --show-sdk-path)
-METAL_REF_PATH="/Users/mas/code/metal-ref"
+METAL_REF_PATH="$HOME/code/metal-ref"
 
 clang++ -std=c++17 \
     -isysroot "${SDK_PATH}" \

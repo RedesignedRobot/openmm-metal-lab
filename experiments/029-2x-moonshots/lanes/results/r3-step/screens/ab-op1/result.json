@@ -1,0 +1,315 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-op1",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "gbsa",
+   "label": "off_m",
+   "median": 2051.67055649127,
+   "rounds": {
+    "1": 2051.5868174137445,
+    "2": 2051.7542955687954
+   },
+   "spread": 8.163014014168824e-05
+  },
+  {
+   "test": "gbsa",
+   "label": "off_s",
+   "median": 2342.087193127506,
+   "rounds": {
+    "1": 2347.1689746419943,
+    "2": 2337.0054116130177
+   },
+   "spread": 0.004339532302127768
+  },
+  {
+   "test": "gbsa",
+   "label": "on_m",
+   "median": 2033.256408437381,
+   "rounds": {
+    "1": 2030.1290097074505,
+    "2": 2036.3838071673115
+   },
+   "spread": 0.00307624627858325
+  },
+  {
+   "test": "gbsa",
+   "label": "on_s",
+   "median": 2317.4416137363155,
+   "rounds": {
+    "1": 2309.148886485521,
+    "2": 2325.73434098711
+   },
+   "spread": 0.007156794977392781
+  },
+  {
+   "test": "rf",
+   "label": "off_m",
+   "median": 1538.5454897498184,
+   "rounds": {
+    "1": 1539.8839405096876,
+    "2": 1537.2070389899495
+   },
+   "spread": 0.0017398910448681991
+  },
+  {
+   "test": "rf",
+   "label": "off_s",
+   "median": 1749.1730557178003,
+   "rounds": {
+    "1": 1748.5096822767653,
+    "2": 1749.8364291588352
+   },
+   "spread": 0.0007584994965095275
+  },
+  {
+   "test": "rf",
+   "label": "on_m",
+   "median": 1529.0560620412193,
+   "rounds": {
+    "1": 1525.038817082394,
+    "2": 1533.073307000045
+   },
+   "spread": 0.005254542405021613
+  },
+  {
+   "test": "rf",
+   "label": "on_s",
+   "median": 1733.8795182627064,
+   "rounds": {
+    "1": 1730.6454876325452,
+    "2": 1737.1135488928678
+   },
+   "spread": 0.0037303983305618914
+  },
+  {
+   "test": "pme",
+   "label": "off_m",
+   "median": 1190.8889782699175,
+   "rounds": {
+    "1": 1192.6978722009735,
+    "2": 1189.0800843388618
+   },
+   "spread": 0.003037888441429319
+  },
+  {
+   "test": "pme",
+   "label": "off_s",
+   "median": 1300.3099635523017,
+   "rounds": {
+    "1": 1301.6197390484772,
+    "2": 1299.0001880561265
+   },
+   "spread": 0.0020145588865553067
+  },
+  {
+   "test": "pme",
+   "label": "on_m",
+   "median": 1178.282712467454,
+   "rounds": {
+    "1": 1179.2032245041044,
+    "2": 1177.3622004308038
+   },
+   "spread": 0.0015624637905832055
+  },
+  {
+   "test": "pme",
+   "label": "on_s",
+   "median": 1288.3571106995682,
+   "rounds": {
+    "1": 1288.1304845985564,
+    "2": 1288.5837368005803
+   },
+   "spread": 0.00035180634178181566
+  }
+ ],
+ "ratios": [
+  {
+   "test": "gbsa",
+   "num": "on_m",
+   "den": "off_m",
+   "ratio": 0.9910248026927966,
+   "round_min": 0.9895408726922198,
+   "round_max": 0.9925086115649033
+  },
+  {
+   "test": "rf",
+   "num": "on_m",
+   "den": "off_m",
+   "ratio": 0.993832208555535,
+   "round_min": 0.9903595829291004,
+   "round_max": 0.9973108814329781
+  },
+  {
+   "test": "pme",
+   "num": "on_m",
+   "den": "off_m",
+   "ratio": 0.9894144071928709,
+   "round_min": 0.9886856109905131,
+   "round_max": 0.9901454207648485
+  }
+ ],
+ "power": [
+  {
+   "test": "gbsa",
+   "label": "off_m",
+   "gpu_w": 50.23456041666667,
+   "pkg_w": 52.65150833333334,
+   "ns_per_day_per_gpu_w": 40.84181367317336
+  },
+  {
+   "test": "gbsa",
+   "label": "off_s",
+   "gpu_w": 54.228,
+   "pkg_w": 57.039899999999996,
+   "ns_per_day_per_gpu_w": 43.18962884722848
+  },
+  {
+   "test": "gbsa",
+   "label": "on_m",
+   "gpu_w": 50.3977641025641,
+   "pkg_w": 53.22430256410256,
+   "ns_per_day_per_gpu_w": 40.344178846893215
+  },
+  {
+   "test": "gbsa",
+   "label": "on_s",
+   "gpu_w": 53.72803333333333,
+   "pkg_w": 56.22586666666666,
+   "ns_per_day_per_gpu_w": 43.132820428373186
+  },
+  {
+   "test": "rf",
+   "label": "off_m",
+   "gpu_w": 69.66036904761906,
+   "pkg_w": 72.9775619047619,
+   "ns_per_day_per_gpu_w": 22.086381550721985
+  },
+  {
+   "test": "rf",
+   "label": "off_s",
+   "gpu_w": 73.07507142857143,
+   "pkg_w": 75.97921428571428,
+   "ns_per_day_per_gpu_w": 23.936658856742433
+  },
+  {
+   "test": "rf",
+   "label": "on_m",
+   "gpu_w": 69.29307142857144,
+   "pkg_w": 72.91860714285716,
+   "ns_per_day_per_gpu_w": 22.06650723539363
+  },
+  {
+   "test": "rf",
+   "label": "on_s",
+   "gpu_w": 72.58882142857144,
+   "pkg_w": 76.55117857142858,
+   "ns_per_day_per_gpu_w": 23.88631588362227
+  },
+  {
+   "test": "pme",
+   "label": "off_m",
+   "gpu_w": 59.07120476190477,
+   "pkg_w": 61.148761904761905,
+   "ns_per_day_per_gpu_w": 20.16022837302831
+  },
+  {
+   "test": "pme",
+   "label": "off_s",
+   "gpu_w": 59.565640476190474,
+   "pkg_w": 61.397973809523805,
+   "ns_per_day_per_gpu_w": 21.829866230886253
+  },
+  {
+   "test": "pme",
+   "label": "on_m",
+   "gpu_w": 58.62811666666667,
+   "pkg_w": 61.16300476190476,
+   "ns_per_day_per_gpu_w": 20.097570576360898
+  },
+  {
+   "test": "pme",
+   "label": "on_s",
+   "gpu_w": 59.49943333333333,
+   "pkg_w": 61.73303333333333,
+   "ns_per_day_per_gpu_w": 21.653266905615936
+  }
+ ],
+ "hygiene": {
+  "runs": 24,
+  "load": [
+   2.62,
+   14.46
+  ],
+  "vm_cpu": [
+   5,
+   49
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [
+   "2026-09-29T10:24:45Z round 1 gbsa on_m after the run: FOREIGN GPU 8%",
+   "2026-09-29T10:26:24Z round 1 pme off_s after the run: FOREIGN GPU 6%",
+   "2026-09-29T10:26:43Z round 1 pme on_s after the run: FOREIGN GPU 6%",
+   "2026-09-29T10:27:24Z round 1 pme on_m after the run: FOREIGN GPU 7%",
+   "2026-09-29T10:27:47Z round 2 gbsa on_m after the run: FOREIGN GPU 17%",
+   "2026-09-29T10:27:49Z round 2 gbsa off_m load { 2.88 6.19 6.82 } FOREIGN GPU 15% vm 9%",
+   "2026-09-29T10:28:07Z round 2 gbsa off_m after the run: FOREIGN GPU 7%",
+   "2026-09-29T10:28:26Z round 2 gbsa on_s after the run: FOREIGN GPU 9%",
+   "2026-09-29T10:28:45Z round 2 gbsa off_s after the run: FOREIGN GPU 7%",
+   "2026-09-29T10:29:08Z round 2 rf on_m after the run: FOREIGN GPU 8%",
+   "2026-09-29T10:29:27Z round 2 rf off_m after the run: FOREIGN GPU 8% FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T10:29:28Z round 2 rf on_s load { 2.78 5.20 6.36 } FOREIGN GPU 7% FOREIGN GPU renderers chrome-headless-shell vm 7%",
+   "2026-09-29T10:29:48Z round 2 rf off_s load { 3.30 5.17 6.32 } FOREIGN GPU 7% vm 18%",
+   "2026-09-29T10:30:05Z round 2 rf off_s after the run: FOREIGN GPU 9% FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T10:30:06Z round 2 pme on_m load { 3.84 5.18 6.30 } FOREIGN GPU renderers chrome-headless-shell vm 11%",
+   "2026-09-29T10:30:28Z round 2 pme on_m after the run: FOREIGN GPU 7%",
+   "2026-09-29T10:30:47Z round 2 pme off_m after the run: FOREIGN GPU 8%"
+  ],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T10:23:25Z",
+ "last_run": "2026-09-29T10:31:07Z",
+ "arms": {
+  "off_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-op",
+   "commit": "6209d57cb019de18d4e9e1e527387ac79537367c",
+   "src": "f1b10015f61ed4bf4c5d67ad0799db00d7d41d01",
+   "built": "2026-09-29T09:25:45Z"
+  },
+  "on_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "OPENMM_METAL_ONE_PASS=1",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-op",
+   "commit": "6209d57cb019de18d4e9e1e527387ac79537367c",
+   "src": "f1b10015f61ed4bf4c5d67ad0799db00d7d41d01",
+   "built": "2026-09-29T09:25:45Z"
+  },
+  "off_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-op",
+   "commit": "6209d57cb019de18d4e9e1e527387ac79537367c",
+   "src": "f1b10015f61ed4bf4c5d67ad0799db00d7d41d01",
+   "built": "2026-09-29T09:25:45Z"
+  },
+  "on_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "OPENMM_METAL_ONE_PASS=1",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-op",
+   "commit": "6209d57cb019de18d4e9e1e527387ac79537367c",
+   "src": "f1b10015f61ed4bf4c5d67ad0799db00d7d41d01",
+   "built": "2026-09-29T09:25:45Z"
+  }
+ },
+ "gpuq_job": 37,
+ "written": "2026-09-29T10:31:30Z"
+}

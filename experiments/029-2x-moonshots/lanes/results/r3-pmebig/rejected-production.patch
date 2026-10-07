@@ -1,0 +1,509 @@
+diff --git a/platforms/common/include/openmm/common/FFT3D.h b/platforms/common/include/openmm/common/FFT3D.h
+index f1961c0f9..ed9065853 100644
+--- a/platforms/common/include/openmm/common/FFT3D.h
++++ b/platforms/common/include/openmm/common/FFT3D.h
+@@ -70,7 +70,7 @@ public:
+     virtual void execFFT(ArrayInterface& in, ArrayInterface& out, bool forward=true) = 0;
+     /**
+      * Perform the PME reciprocal space convolution of a real-to-complex transform in one call.  On exit, grid
+-     * holds what execFFT(grid, scratch, true), the reciprocalConvolution kernel in pme.cc (without LJPME) and
++     * holds what execFFT(grid, scratch, true), the reciprocalConvolution kernel in pme.cc and
+      * execFFT(scratch, grid, false) would leave there.  A platform that cannot do this for the transform returns
+      * false without doing anything, and the caller runs those three steps itself.
+      *
+@@ -81,9 +81,12 @@ public:
+      * @param moduliZ          the B-spline moduli along z
+      * @param recipBoxVectors  the three reciprocal box vectors
+      * @param recipExpFactor   (pi/alpha)^2 for the Ewald parameter alpha
++     * @param energy           energy accumulator, or NULL on forces-only steps.  The spectrum is evaluated before convolution.
++     * @param dispersionAlpha  the dispersion Ewald parameter, or zero for Coulomb PME
+      */
+     virtual bool execPmeConvolution(ArrayInterface& grid, ArrayInterface& scratch, ArrayInterface& moduliX, ArrayInterface& moduliY,
+-            ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor) {
++            ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor,
++            ArrayInterface* energy=NULL, double dispersionAlpha=0) {
+         return false;
+     }
+ };
+diff --git a/platforms/common/src/CommonCalcNonbondedForce.cpp b/platforms/common/src/CommonCalcNonbondedForce.cpp
+index b1f6eebd7..7ce751ac8 100644
+--- a/platforms/common/src/CommonCalcNonbondedForce.cpp
++++ b/platforms/common/src/CommonCalcNonbondedForce.cpp
+@@ -1004,8 +1004,11 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+             pmeSpreadChargeKernel->execute(cc.getNumAtoms());
+             if (useFixedPointChargeSpreading)
+                 pmeFinishSpreadChargeKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
+-            // Energy steps take the separate kernels, since gridEvaluateEnergy needs the transformed grid.
+-            if (includeEnergy || !fft->execPmeConvolution(pmeGrid1, pmeGrid2, pmeBsplineModuliX, pmeBsplineModuliY, pmeBsplineModuliZ, recipBoxVectors, M_PI*M_PI/(alpha*alpha))) {
++            ArrayInterface* reciprocalEnergy = includeEnergy ? (usePmeQueue ? &pmeEnergyBuffer : &cc.getEnergyBuffer()) : NULL;
++            if (includeEnergy && usePmeQueue)
++                cc.clearBuffer(pmeEnergyBuffer);
++            if (!fft->execPmeConvolution(pmeGrid1, pmeGrid2, pmeBsplineModuliX, pmeBsplineModuliY, pmeBsplineModuliZ,
++                    recipBoxVectors, M_PI*M_PI/(alpha*alpha), reciprocalEnergy)) {
+                 fft->execFFT(pmeGrid1, pmeGrid2, true);
+                 if (cc.getUseDoublePrecision()) {
+                     pmeConvolutionKernel->setArg<mm_double4>(4, recipBoxVectors[0]);
+@@ -1079,29 +1082,33 @@ double CommonCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
+             pmeDispersionSpreadChargeKernel->execute(cc.getNumAtoms());
+             if (useFixedPointChargeSpreading)
+                 pmeDispersionFinishSpreadChargeKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
+-            dispersionFft->execFFT(pmeGrid1, pmeGrid2, true);
+-            if (cc.getUseDoublePrecision()) {
+-                pmeDispersionConvolutionKernel->setArg(4, recipBoxVectors[0]);
+-                pmeDispersionConvolutionKernel->setArg(5, recipBoxVectors[1]);
+-                pmeDispersionConvolutionKernel->setArg(6, recipBoxVectors[2]);
+-                pmeDispersionEvalEnergyKernel->setArg(5, recipBoxVectors[0]);
+-                pmeDispersionEvalEnergyKernel->setArg(6, recipBoxVectors[1]);
+-                pmeDispersionEvalEnergyKernel->setArg(7, recipBoxVectors[2]);
+-            }
+-            else {
+-                pmeDispersionConvolutionKernel->setArg(4, recipBoxVectorsFloat[0]);
+-                pmeDispersionConvolutionKernel->setArg(5, recipBoxVectorsFloat[1]);
+-                pmeDispersionConvolutionKernel->setArg(6, recipBoxVectorsFloat[2]);
+-                pmeDispersionEvalEnergyKernel->setArg(5, recipBoxVectorsFloat[0]);
+-                pmeDispersionEvalEnergyKernel->setArg(6, recipBoxVectorsFloat[1]);
+-                pmeDispersionEvalEnergyKernel->setArg(7, recipBoxVectorsFloat[2]);
+-            }
+             if (!hasCoulomb)
+                 cc.clearBuffer(pmeEnergyBuffer);
+-            if (includeEnergy)
+-                pmeDispersionEvalEnergyKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
+-            pmeDispersionConvolutionKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
+-            dispersionFft->execFFT(pmeGrid2, pmeGrid1, false);
++            ArrayInterface* reciprocalEnergy = includeEnergy ? (usePmeQueue ? &pmeEnergyBuffer : &cc.getEnergyBuffer()) : NULL;
++            if (!dispersionFft->execPmeConvolution(pmeGrid1, pmeGrid2, pmeDispersionBsplineModuliX, pmeDispersionBsplineModuliY,
++                    pmeDispersionBsplineModuliZ, recipBoxVectors, M_PI*M_PI/(dispersionAlpha*dispersionAlpha), reciprocalEnergy, dispersionAlpha)) {
++                dispersionFft->execFFT(pmeGrid1, pmeGrid2, true);
++                if (cc.getUseDoublePrecision()) {
++                    pmeDispersionConvolutionKernel->setArg(4, recipBoxVectors[0]);
++                    pmeDispersionConvolutionKernel->setArg(5, recipBoxVectors[1]);
++                    pmeDispersionConvolutionKernel->setArg(6, recipBoxVectors[2]);
++                    pmeDispersionEvalEnergyKernel->setArg(5, recipBoxVectors[0]);
++                    pmeDispersionEvalEnergyKernel->setArg(6, recipBoxVectors[1]);
++                    pmeDispersionEvalEnergyKernel->setArg(7, recipBoxVectors[2]);
++                }
++                else {
++                    pmeDispersionConvolutionKernel->setArg(4, recipBoxVectorsFloat[0]);
++                    pmeDispersionConvolutionKernel->setArg(5, recipBoxVectorsFloat[1]);
++                    pmeDispersionConvolutionKernel->setArg(6, recipBoxVectorsFloat[2]);
++                    pmeDispersionEvalEnergyKernel->setArg(5, recipBoxVectorsFloat[0]);
++                    pmeDispersionEvalEnergyKernel->setArg(6, recipBoxVectorsFloat[1]);
++                    pmeDispersionEvalEnergyKernel->setArg(7, recipBoxVectorsFloat[2]);
++                }
++                if (includeEnergy)
++                    pmeDispersionEvalEnergyKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
++                pmeDispersionConvolutionKernel->execute(gridSizeX*gridSizeY*gridSizeZ);
++                dispersionFft->execFFT(pmeGrid2, pmeGrid1, false);
++            }
+             setPeriodicBoxArgs(cc, pmeDispersionInterpolateForceKernel, 3);
+             if (cc.getUseDoublePrecision()) {
+                 pmeDispersionInterpolateForceKernel->setArg(8, recipBoxVectors[0]);
+diff --git a/platforms/metal/include/MetalFFT3D.h b/platforms/metal/include/MetalFFT3D.h
+index 29e081089..9a0060c5d 100644
+--- a/platforms/metal/include/MetalFFT3D.h
++++ b/platforms/metal/include/MetalFFT3D.h
+@@ -82,14 +82,16 @@ public:
+      */
+     void execFFT(ArrayInterface& in, ArrayInterface& out, bool forward=true);
+     /**
+-     * Perform the PME reciprocal space convolution in three kernels on Apple GPU family 9 and later in single and
+-     * mixed precision, when the grid's y-z and x-z planes fit in threadgroup memory and each size has no prime
+-     * factor above 7.  Otherwise return false.  See FFT3DImpl::execPmeConvolution().
++     * Perform the PME reciprocal space convolution with batched FFT pencils when device thread and local
++     * memory limits permit it.  Supports prime factors through 13, energy, and dispersion in single and mixed
++     * precision.  Small force-only Coulomb grids retain the three-kernel plane path.  Otherwise return false.
++     * See FFT3DImpl::execPmeConvolution().
+      */
+     bool execPmeConvolution(ArrayInterface& grid, ArrayInterface& scratch, ArrayInterface& moduliX, ArrayInterface& moduliY,
+-            ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor);
++            ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor,
++            ArrayInterface* energy=NULL, double dispersionAlpha=0);
+     /**
+-     * Get whether execPmeConvolution() can run for a real-to-complex transform of this size.
++     * Get whether the three-kernel plane path can run for a real-to-complex transform of this size.
+      */
+     static bool canUsePmeConvolution(MetalContext& context, int xsize, int ysize, int zsize);
+     /**
+@@ -102,12 +104,14 @@ public:
+      */
+     static int findLegalDimension(int minimum, int maxFactor=13);
+ private:
+-    void createPmeConvolution();
++    void createPmeConvolution(bool pencils=false);
+     MetalContext& context;
+     int xsize, ysize, zsize;
+     bool usePmeConvolution;
++    bool usePmePencils;
+     std::vector<int> radicesX, radicesY, radicesZ;
+     ComputeKernel planesForwardKernel, convolveLinesKernel, planesInverseKernel;
++    ComputeKernel zForwardKernel, yForwardKernel, xConvolveKernel, yInverseKernel, zInverseKernel;
+     MetalArray rootsX, rootsY, rootsZ;
+     MTL::Buffer* inputBuffer;
+     MTL::Buffer* outputBuffer;
+diff --git a/platforms/metal/src/MetalFFT3D.cpp b/platforms/metal/src/MetalFFT3D.cpp
+index d5ec8db10..4d4ccb272 100644
+--- a/platforms/metal/src/MetalFFT3D.cpp
++++ b/platforms/metal/src/MetalFFT3D.cpp
+@@ -38,10 +38,10 @@ using namespace std;
+ struct MetalFFT3D::VkFFTApp : VkFFTApplication {
+ };
+ 
+-// The radices of an in-place FFT of size n, largest first, or an empty list when n has a prime factor above 7.
++// The radices of an in-place FFT of size n, largest first, or an empty list when n has a prime factor above 13.
+ static vector<int> fftRadices(int n) {
+     vector<int> radices;
+-    for (int radix : {8, 4, 2, 7, 5, 3})
++    for (int radix : {8, 4, 2, 13, 11, 7, 5, 3})
+         while (n%radix == 0) {
+             radices.push_back(radix);
+             n /= radix;
+@@ -58,7 +58,7 @@ bool MetalFFT3D::canUsePmeConvolution(MetalContext& context, int xsize, int ysiz
+     // reciprocalConvolution.  Apple8 keeps VkFFT.
+     if (context.getUseDoublePrecision() || !context.getDevice()->supportsFamily(MTL::GPUFamilyApple9))
+         return false;
+-    if (fftRadices(xsize).empty() || fftRadices(ysize).empty() || fftRadices(zsize).empty())
++    if (findLegalDimension(xsize, 7) != xsize || findLegalDimension(ysize, 7) != ysize || findLegalDimension(zsize, 7) != zsize)
+         return false;
+     int planeBytes = (ysize*zsize+ysize+zsize)*sizeof(mm_float2);
+     int lineBytes = (xsize*(zsize/2+1)+xsize)*sizeof(mm_float2);
+@@ -72,6 +72,13 @@ MetalFFT3D::MetalFFT3D(MetalContext& context, int xsize, int ysize, int zsize, b
+     radicesX = fftRadices(xsize);
+     radicesY = fftRadices(ysize);
+     radicesZ = fftRadices(zsize);
++    // Batched pencils need bounded local memory and 256 threads, independent of GPU family.
++    size_t localBytes = (9*max(xsize, ysize)+256)*sizeof(mm_float2);
++    localBytes = max(localBytes, 5*zsize*sizeof(mm_float2));
++    usePmePencils = realToComplex && !context.getUseDoublePrecision() &&
++            !radicesX.empty() && !radicesY.empty() && !radicesZ.empty() &&
++            context.getDevice()->maxThreadgroupMemoryLength() >= localBytes &&
++            context.getDevice()->maxThreadsPerThreadgroup().width >= 256;
+     size_t valueSize = context.getUseDoublePrecision() ? sizeof(double) : sizeof(float);
+     inputBufferSize = zsize * ysize * xsize * valueSize;
+     if (realToComplex) {
+@@ -171,7 +178,7 @@ static void uploadRoots(MetalContext& context, MetalArray& roots, int n, const s
+     roots.upload(values);
+ }
+ 
+-void MetalFFT3D::createPmeConvolution() {
++void MetalFFT3D::createPmeConvolution(bool pencils) {
+     map<string, string> defines;
+     defines["GRID_SIZE_X"] = context.intToString(xsize);
+     defines["GRID_SIZE_Y"] = context.intToString(ysize);
+@@ -186,7 +193,7 @@ void MetalFFT3D::createPmeConvolution() {
+         defines["STAGES_"+axis+"(M)"] = stageList(sizes[i], *radices[i], false);
+         defines["STAGES_"+axis+"_REV(M)"] = stageList(sizes[i], *radices[i], true);
+     }
+-    for (int radix : {3, 5, 7}) {
++    for (int radix : {3, 5, 7, 11, 13}) {
+         string c, s;
+         for (int t = 0; t < radix; t++) {
+             c += (t == 0 ? "" : ",")+context.doubleToString(cos(2*M_PI*t/radix));
+@@ -195,19 +202,42 @@ void MetalFFT3D::createPmeConvolution() {
+         defines["ROOTS_C"+to_string(radix)] = c;
+         defines["ROOTS_S"+to_string(radix)] = s;
+     }
++    if (pencils)
++        defines["PME_PENCILS"] = "1";
+     ComputeProgram program = context.compileProgram(MetalKernelSources::pmeConvolution, defines);
+-    planesForwardKernel = program->createKernel("planesForward");
+-    convolveLinesKernel = program->createKernel("convolveLines");
+-    planesInverseKernel = program->createKernel("planesInverse");
+-    uploadRoots(context, rootsX, xsize, "pmeRootsX");
+-    uploadRoots(context, rootsY, ysize, "pmeRootsY");
+-    uploadRoots(context, rootsZ, zsize, "pmeRootsZ");
+-    for (int i = 0; i < 4; i++) {
+-        planesForwardKernel->addArg();
+-        planesInverseKernel->addArg();
++    if (!planesForwardKernel && !zForwardKernel) {
++        uploadRoots(context, rootsX, xsize, "pmeRootsX");
++        uploadRoots(context, rootsY, ysize, "pmeRootsY");
++        uploadRoots(context, rootsZ, zsize, "pmeRootsZ");
++    }
++    if (pencils) {
++        zForwardKernel = program->createKernel("pencilsZForward");
++        yForwardKernel = program->createKernel("pencilsY");
++        xConvolveKernel = program->createKernel("pencilsXConvolve");
++        yInverseKernel = program->createKernel("pencilsY");
++        zInverseKernel = program->createKernel("pencilsZInverse");
++        for (int i = 0; i < 3; i++) {
++            zForwardKernel->addArg();
++            zInverseKernel->addArg();
++        }
++        for (int i = 0; i < 4; i++) {
++            yForwardKernel->addArg();
++            yInverseKernel->addArg();
++        }
++        for (int i = 0; i < 12; i++)
++            xConvolveKernel->addArg();
++    }
++    else {
++        planesForwardKernel = program->createKernel("planesForward");
++        convolveLinesKernel = program->createKernel("convolveLines");
++        planesInverseKernel = program->createKernel("planesInverse");
++        for (int i = 0; i < 4; i++) {
++            planesForwardKernel->addArg();
++            planesInverseKernel->addArg();
++        }
++        for (int i = 0; i < 9; i++)
++            convolveLinesKernel->addArg();
+     }
+-    for (int i = 0; i < 9; i++)
+-        convolveLinesKernel->addArg();
+ }
+ 
+ // Each kernel runs one threadgroup per plane or line, as wide as the pipeline allows up to 1024 threads.
+@@ -217,8 +247,52 @@ static void executePerGroup(ComputeKernel& kernel, int groups) {
+ }
+ 
+ bool MetalFFT3D::execPmeConvolution(ArrayInterface& grid, ArrayInterface& scratch, ArrayInterface& moduliX, ArrayInterface& moduliY,
+-        ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor) {
+-    if (!usePmeConvolution)
++        ArrayInterface& moduliZ, const mm_double4* recipBoxVectors, double recipExpFactor,
++        ArrayInterface* energy, double dispersionAlpha) {
++    if ((!usePmeConvolution || energy != NULL || dispersionAlpha != 0) && usePmePencils) {
++        if (!zForwardKernel)
++            createPmeConvolution(true);
++        const int threads = 256;
++        if (min({zForwardKernel->getMaxBlockSize(), yForwardKernel->getMaxBlockSize(),
++                xConvolveKernel->getMaxBlockSize(), zInverseKernel->getMaxBlockSize()}) < threads) {
++            usePmePencils = false;
++            return false;
++        }
++        const int zGroups = (xsize*ysize+7)/8;
++        const int zTiles = (zsize/2+8)/8;
++        zForwardKernel->setArg(0, grid);
++        zForwardKernel->setArg(1, scratch);
++        zForwardKernel->setArg(2, rootsZ);
++        zForwardKernel->execute(zGroups*threads, threads);
++        yForwardKernel->setArg(0, scratch);
++        yForwardKernel->setArg(1, grid);
++        yForwardKernel->setArg(2, rootsY);
++        yForwardKernel->setArg(3, 0);
++        yForwardKernel->execute(xsize*zTiles*threads, threads);
++        xConvolveKernel->setArg(0, grid);
++        xConvolveKernel->setArg(1, rootsX);
++        xConvolveKernel->setArg(2, moduliX);
++        xConvolveKernel->setArg(3, moduliY);
++        xConvolveKernel->setArg(4, moduliZ);
++        for (int i = 0; i < 3; i++)
++            xConvolveKernel->setArg(5+i, mm_float4((float) recipBoxVectors[i].x, (float) recipBoxVectors[i].y, (float) recipBoxVectors[i].z, 0));
++        xConvolveKernel->setArg(8, (float) recipExpFactor);
++        xConvolveKernel->setArg(9, (float) dispersionAlpha);
++        xConvolveKernel->setArg(10, energy == NULL ? context.getEnergyBuffer() : *energy);
++        xConvolveKernel->setArg(11, (int) (energy != NULL));
++        xConvolveKernel->execute(ysize*zTiles*threads, threads);
++        yInverseKernel->setArg(0, grid);
++        yInverseKernel->setArg(1, scratch);
++        yInverseKernel->setArg(2, rootsY);
++        yInverseKernel->setArg(3, 1);
++        yInverseKernel->execute(xsize*zTiles*threads, threads);
++        zInverseKernel->setArg(0, scratch);
++        zInverseKernel->setArg(1, grid);
++        zInverseKernel->setArg(2, rootsZ);
++        zInverseKernel->execute(zGroups*threads, threads);
++        return true;
++    }
++    if (!usePmeConvolution || energy != NULL || dispersionAlpha != 0)
+         return false;
+     if (!planesForwardKernel)
+         createPmeConvolution();
+diff --git a/platforms/metal/src/kernels/pmeConvolution.metal b/platforms/metal/src/kernels/pmeConvolution.metal
+index 1b37ae435..01773d0a4 100644
+--- a/platforms/metal/src/kernels/pmeConvolution.metal
++++ b/platforms/metal/src/kernels/pmeConvolution.metal
+@@ -10,7 +10,7 @@
+  * at a digit reversed position, and decimation in time, run with the stages in reverse, undoes it.  The host
+  * defines the grid size, the radices of each axis (RADICES_X etc.), and the stages as M(radix, length) lists
+  * (STAGES_X(M) and STAGES_X_REV(M) etc.), and the roots of the odd radices (ROOTS_C3, ROOTS_S3 etc.).  The radices
+- * are 2, 3, 4, 5, 7 and 8.
++ * are 2, 3, 4, 5, 7, 8, 11 and 13.  PME_PENCILS selects the five-kernel batched path for larger grids.
+  */
+ 
+ #define NX GRID_SIZE_X
+@@ -129,6 +129,12 @@ constant float S7[] = {ROOTS_S7};
+ ODD_DFT(3, C3, S3)
+ ODD_DFT(5, C5, S5)
+ ODD_DFT(7, C7, S7)
++constant float C11[] = {ROOTS_C11};
++constant float S11[] = {ROOTS_S11};
++constant float C13[] = {ROOTS_C13};
++constant float S13[] = {ROOTS_S13};
++ODD_DFT(11, C11, S11)
++ODD_DFT(13, C13, S13)
+ 
+ /**
+  * One radix R stage over sub-blocks of length L, on LINES lines of an N point transform.  Decimation in frequency
+@@ -173,6 +179,7 @@ inline void loadRoots(threadgroup float2* dst, GLOBAL const float2* src, int n,
+         dst[i] = src[i];
+ }
+ 
++#ifndef PME_PENCILS
+ KERNEL void planesForward(GLOBAL const float* RESTRICT in, GLOBAL float2* RESTRICT out,
+         GLOBAL const float2* RESTRICT rootsY, GLOBAL const float2* RESTRICT rootsZ) {
+     LOCAL float2 buf[NY*NZ];
+@@ -277,3 +284,165 @@ KERNEL void planesInverse(GLOBAL const float2* RESTRICT in, GLOBAL float* RESTRI
+         dst[i] = buf[posOf<NY>(y, RY, NUM_STAGES_Y)*NZ+posOf<NZ>(z, RZ, NUM_STAGES_Z)].x;
+     }
+ }
++
++#endif // PME_PENCILS
++
++#ifdef PME_PENCILS
++// Eight adjacent z frequencies share a batch.  Layout changes happen at the y loads and stores.
++#define BATCH 8
++#define ZPAIRS 4
++#define ZTILES ((NZH+BATCH-1)/BATCH)
++
++KERNEL void pencilsZForward(GLOBAL const float* RESTRICT in, GLOBAL float2* RESTRICT out,
++        GLOBAL const float2* RESTRICT roots) {
++    LOCAL float2 buf[ZPAIRS*NZ], w[NZ];
++    const int tid = LOCAL_ID, threads = LOCAL_SIZE;
++    loadRoots(w, roots, NZ, tid, threads);
++    for (int batch = GROUP_ID; batch < (NX*NY+2*ZPAIRS-1)/(2*ZPAIRS); batch += NUM_GROUPS) {
++        for (int i = tid; i < ZPAIRS*NZ; i += threads) {
++            int pair = i/NZ, z = i%NZ, row = 2*(batch*ZPAIRS+pair);
++            buf[i] = float2(row < NX*NY ? in[row*NZ+z] : 0,
++                           row+1 < NX*NY ? in[(row+1)*NZ+z] : 0);
++        }
++        LOCAL_BARRIER
++#define PZ_FWD(R, L) stage<R, NZ, L, ZPAIRS, NZ, false, 1, false, false>(buf, w, tid, threads); LOCAL_BARRIER
++        STAGES_Z(PZ_FWD)
++        for (int i = tid; i < ZPAIRS*NZH; i += threads) {
++            int pair = i/NZH, kz = i%NZH, row = 2*(batch*ZPAIRS+pair);
++            float2 a = buf[pair*NZ+posOf<NZ>(kz, RZ, NUM_STAGES_Z)];
++            float2 b = buf[pair*NZ+posOf<NZ>((NZ-kz)%NZ, RZ, NUM_STAGES_Z)];
++            b.y = -b.y;
++            if (row < NX*NY) out[row*NZH+kz] = 0.5f*(a+b);
++            if (row+1 < NX*NY) out[(row+1)*NZH+kz] = float2(0.5f*(a.y-b.y), 0.5f*(b.x-a.x));
++        }
++        LOCAL_BARRIER
++    }
++}
++
++KERNEL void pencilsY(GLOBAL const float2* RESTRICT in, GLOBAL float2* RESTRICT out,
++        GLOBAL const float2* RESTRICT roots, int inverse) {
++    LOCAL float2 buf[NY*BATCH], w[NY];
++    const int tid = LOCAL_ID, threads = LOCAL_SIZE;
++    loadRoots(w, roots, NY, tid, threads);
++    for (int batch = GROUP_ID; batch < NX*ZTILES; batch += NUM_GROUPS) {
++        int x = batch/ZTILES, zbase = (batch%ZTILES)*BATCH;
++        for (int i = tid; i < NY*BATCH; i += threads) {
++            int y = i/BATCH, kz = zbase+i%BATCH;
++            int index = inverse ? (y*NX+x)*NZH+kz : (x*NY+y)*NZH+kz;
++            buf[i] = kz < NZH ? in[index] : float2(0);
++        }
++        LOCAL_BARRIER
++#define PY_FWD(R, L) stage<R, NY, L, BATCH, 1, false, BATCH, false, false>(buf, w, tid, threads); LOCAL_BARRIER
++#define PY_INV(R, L) stage<R, NY, L, BATCH, 1, false, BATCH, true, false>(buf, w, tid, threads); LOCAL_BARRIER
++        if (inverse) { STAGES_Y(PY_INV) }
++        else { STAGES_Y(PY_FWD) }
++        for (int i = tid; i < NY*BATCH; i += threads) {
++            int y = i/BATCH, kz = zbase+i%BATCH;
++            int index = inverse ? (x*NY+y)*NZH+kz : (y*NX+x)*NZH+kz;
++            if (kz < NZH) out[index] = buf[posOf<NY>(y, RY, NUM_STAGES_Y)*BATCH+i%BATCH];
++        }
++        LOCAL_BARRIER
++    }
++}
++
++inline float pencilFactor(int kx, int ky, int kz, GLOBAL const float* bx, GLOBAL const float* by,
++        GLOBAL const float* bz, float4 rx, float4 ry, float4 rz, float expFactor, float alpha) {
++    int mx = kx < (NX+1)/2 ? kx : kx-NX;
++    int my = ky < (NY+1)/2 ? ky : ky-NY;
++    int mz = kz < (NZ+1)/2 ? kz : kz-NZ;
++    float hx = mx*rx.x, hy = mx*ry.x+my*ry.y, hz = mx*rz.x+my*rz.y+mz*rz.z;
++    float m2 = hx*hx+hy*hy+hz*hz;
++    if (alpha != 0) {
++        float scale = -(2*M_PI_F/6)*SQRT(M_PI_F)*rx.x*ry.y*rz.z;
++        float m = SQRT(m2), b = (M_PI_F/alpha)*m;
++        float fac1 = 2*M_PI_F*M_PI_F*M_PI_F*SQRT(M_PI_F);
++        float fac2 = alpha*alpha*alpha, fac3 = -2*alpha*M_PI_F*M_PI_F;
++        return (fac1*ERFC(b)*(m*m2)+EXP(-b*b)*(fac2+fac3*m2))*(scale/(bx[kx]*by[ky]*bz[kz]));
++    }
++    if (kx == 0 && ky == 0 && kz == 0) return 0;
++    float scale = RECIP(M_PI_F)*rx.x*ry.y*rz.z;
++    return scale*EXP(-expFactor*m2)/(m2*bx[kx]*by[ky]*bz[kz]);
++}
++
++KERNEL void pencilsXConvolve(GLOBAL float2* RESTRICT grid, GLOBAL const float2* RESTRICT roots,
++        GLOBAL const float* RESTRICT bx, GLOBAL const float* RESTRICT by, GLOBAL const float* RESTRICT bz,
++        float4 rx, float4 ry, float4 rz, float expFactor, float alpha,
++        GLOBAL mixed* RESTRICT energyBuffer, int includeEnergy) {
++    LOCAL float2 buf[NX*BATCH], w[NX];
++    LOCAL mixed sums[256];
++    const int tid = LOCAL_ID, threads = LOCAL_SIZE;
++    mixed energy = 0;
++    loadRoots(w, roots, NX, tid, threads);
++    for (int batch = GROUP_ID; batch < NY*ZTILES; batch += NUM_GROUPS) {
++        int ky = batch/ZTILES, zbase = (batch%ZTILES)*BATCH;
++        for (int i = tid; i < NX*BATCH; i += threads) {
++            int x = i/BATCH, kz = zbase+i%BATCH;
++            buf[i] = kz < NZH ? grid[(ky*NX+x)*NZH+kz] : float2(0);
++        }
++        LOCAL_BARRIER
++#define PX_FWD(R, L) stage<R, NX, L, BATCH, 1, false, BATCH, false, false>(buf, w, tid, threads); LOCAL_BARRIER
++        STAGES_X(PX_FWD)
++        for (int i = tid; i < NX*BATCH; i += threads) {
++            int kx = freqOf<NX>(i/BATCH, RX, NUM_STAGES_X), kz = zbase+i%BATCH;
++            if (kz < NZH) {
++                float factor = pencilFactor(kx, ky, kz, bx, by, bz, rx, ry, rz, expFactor, alpha);
++                float2 value = buf[i];
++                if (includeEnergy) {
++                    // Match gridEvaluateEnergy's full spectrum even at triclinic Nyquist planes.
++                    float weight = factor;
++                    if (kz != 0 && 2*kz != NZ)
++                        weight += pencilFactor((NX-kx)%NX, (NY-ky)%NY, NZ-kz, bx, by, bz, rx, ry, rz, expFactor, alpha);
++                    energy += weight*(value.x*value.x+value.y*value.y);
++                }
++                buf[i] = value*factor;
++            }
++        }
++        LOCAL_BARRIER
++#define PX_INV(R, L) stage<R, NX, L, BATCH, 1, false, BATCH, true, true>(buf, w, tid, threads); LOCAL_BARRIER
++        STAGES_X_REV(PX_INV)
++        for (int i = tid; i < NX*BATCH; i += threads) {
++            int x = i/BATCH, kz = zbase+i%BATCH;
++            if (kz < NZH) grid[(ky*NX+x)*NZH+kz] = buf[i];
++        }
++        LOCAL_BARRIER
++    }
++    if (includeEnergy) {
++        sums[tid] = energy;
++        LOCAL_BARRIER
++        for (int offset = threads/2; offset > 0; offset /= 2) {
++            if (tid < offset) sums[tid] += sums[tid+offset];
++            LOCAL_BARRIER
++        }
++        if (tid == 0) energyBuffer[GROUP_ID] += 0.5f*sums[0];
++    }
++}
++
++KERNEL void pencilsZInverse(GLOBAL const float2* RESTRICT in, GLOBAL float* RESTRICT out,
++        GLOBAL const float2* RESTRICT roots) {
++    LOCAL float2 buf[ZPAIRS*NZ], w[NZ];
++    const int tid = LOCAL_ID, threads = LOCAL_SIZE;
++    loadRoots(w, roots, NZ, tid, threads);
++    for (int batch = GROUP_ID; batch < (NX*NY+2*ZPAIRS-1)/(2*ZPAIRS); batch += NUM_GROUPS) {
++        for (int i = tid; i < ZPAIRS*NZ; i += threads) {
++            int pair = i/NZ, kz = i%NZ, row = 2*(batch*ZPAIRS+pair);
++            int z = kz < NZH ? kz : NZ-kz;
++            float2 a = row < NX*NY ? in[row*NZH+z] : float2(0);
++            float2 b = row+1 < NX*NY ? in[(row+1)*NZH+z] : float2(0);
++            if (kz >= NZH) { a.y = -a.y; b.y = -b.y; }
++            // C2R discards the imaginary DC and (for even lengths) Nyquist components.
++            if (kz == 0 || 2*kz == NZ) { a.y = 0; b.y = 0; }
++            buf[i] = float2(a.x-b.y, a.y+b.x);
++        }
++        LOCAL_BARRIER
++#define PZ_INV(R, L) stage<R, NZ, L, ZPAIRS, NZ, false, 1, true, false>(buf, w, tid, threads); LOCAL_BARRIER
++        STAGES_Z(PZ_INV)
++        for (int i = tid; i < ZPAIRS*NZ; i += threads) {
++            int pair = i/NZ, z = i%NZ, row = 2*(batch*ZPAIRS+pair);
++            float2 value = buf[pair*NZ+posOf<NZ>(z, RZ, NUM_STAGES_Z)];
++            if (row < NX*NY) out[row*NZ+z] = value.x;
++            if (row+1 < NX*NY) out[(row+1)*NZ+z] = value.y;
++        }
++        LOCAL_BARRIER
++    }
++}
++#endif // PME_PENCILS

@@ -1,0 +1,447 @@
+diff --git a/platforms/common/include/openmm/common/NonbondedUtilities.h b/platforms/common/include/openmm/common/NonbondedUtilities.h
+index be21559b6..6ed816a68 100644
+--- a/platforms/common/include/openmm/common/NonbondedUtilities.h
++++ b/platforms/common/include/openmm/common/NonbondedUtilities.h
+@@ -78,6 +78,12 @@ public:
+      * Add a per-atom parameter that the default interaction kernel may depend on.
+      */
+     virtual void addParameter(ComputeParameterInfo parameter) = 0;
++    /**
++     * Notify the utilities that an interaction uses LJPME.  Platforms may use
++     * this hint to account for the cost of evaluating sparse interaction tiles.
++     */
++    virtual void setUseLJPME() {
++    }
+     /**
+      * Add an array (other than a per-atom parameter) that should be passed as an argument to the default interaction kernel.
+      */
+diff --git a/platforms/common/src/CommonCalcNonbondedForce.cpp b/platforms/common/src/CommonCalcNonbondedForce.cpp
+index a3c5f4c41..fd593f240 100644
+--- a/platforms/common/src/CommonCalcNonbondedForce.cpp
++++ b/platforms/common/src/CommonCalcNonbondedForce.cpp
+@@ -626,6 +626,8 @@ void CommonCalcNonbondedForceKernel::commonInitialize(const System& system, cons
+         cc.getNonbondedUtilities().addParameter(ComputeParameterInfo(sigmaEpsilon, prefix+"sigmaEpsilon", "float", 2));
+     }
+     source = cc.replaceStrings(source, replacements);
++    if (force.getIncludeDirectSpace() && doLJPME)
++        cc.getNonbondedUtilities().setUseLJPME();
+     if (force.getIncludeDirectSpace())
+         cc.getNonbondedUtilities().addInteraction(useCutoff, usePeriodic, true, force.getCutoffDistance(), exclusionList, source, force.getForceGroup(), numParticles > 3000, true);
+ 
+diff --git a/platforms/metal/include/MetalNonbondedUtilities.h b/platforms/metal/include/MetalNonbondedUtilities.h
+index 7de9a6c1e..5470bcbca 100644
+--- a/platforms/metal/include/MetalNonbondedUtilities.h
++++ b/platforms/metal/include/MetalNonbondedUtilities.h
+@@ -90,6 +90,9 @@ public:
+      * Add a per-atom parameter that the default interaction kernel may depend on.
+      */
+     void addParameter(ComputeParameterInfo parameter);
++    void setUseLJPME() override {
++        useLJPME = true;
++    }
+     /**
+      * Add an array (other than a per-atom parameter) that should be passed as an argument to the default interaction kernel.
+      */
+@@ -323,6 +326,18 @@ private:
+     MetalArray largeBlockBoundingBox;
+     MetalArray oldPositions;
+     MetalArray rebuildNeighborList;
++    // Private tile records and the atom-to-record index.  Older devices and
++    // deterministic contexts allocate none of these arrays.
++    MetalArray forceRecords, forceRecordIndices, forceRecordCounts, forceRecordOffsets;
++    std::vector<std::shared_ptr<MetalArray> > forceScanSums, forceScanOffsets;
++    std::vector<int> forceScanSizes;
++    unsigned int forceTileCapacity = 0;
++    metalFunction_t clearForceRecordCounts = NULL, countForceRecords = NULL;
++    metalFunction_t scanForceRecords = NULL, addForceRecordScan = NULL;
++    metalFunction_t finishForceRecordScan = NULL, scatterForceRecords = NULL;
++    metalFunction_t reduceForceRecords = NULL;
++    void initializeForceRecords();
++    void prepareForceRecords();
+     ComputeSort blockSorter;
+     std::shared_ptr<MetalEvent> downloadCountEvent;
+     metalDeviceptr_t pinnedCountDeviceMemory;
+@@ -336,6 +351,7 @@ private:
+     std::map<int, std::string> groupKernelSource;
+     double maxCutoff;
+     bool useCutoff, usePeriodic, anyExclusions, usePadding, useNeighborList, forceRebuildNeighborList, canUsePairList, useLargeBlocks, hasInitializedParams, waitForCount;
++    bool useLJPME = false;
+     int startTileIndex, startBlockIndex, numBlocks, numTilesInBatch, maxExclusions;
+     int numForceThreadBlocks, forceThreadBlockSize, findInteractingBlocksThreadBlockSize, numAtoms, groupFlags, paramStartIndex;
+     unsigned int maxTiles, maxSinglePairs, tilesAfterReorder;
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index a936c2d9d..1e860eed0 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -298,6 +298,8 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         }
+     }
+ 
++    initializeForceRecords();
++
+     // Record arguments for kernels.
+ 
+     forceArgs.push_back(&context.unwrap(context.getLongForceBuffer()).getDevicePointer());
+@@ -328,6 +330,8 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         forceArgs.push_back(NULL);
+     if (energyParameterDerivatives.size() > 0)
+         forceArgs.push_back(&context.unwrap(context.getEnergyParamDerivBuffer()).getDevicePointer());
++    if (forceTileCapacity != 0)
++        forceArgs.push_back(&forceRecords.getDevicePointer());
+     if (useCutoff) {
+         findBlockBoundsArgs.push_back(&numAtoms);
+         findBlockBoundsArgs.push_back(context.getPeriodicBoxSizePointer());
+@@ -393,6 +397,86 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+     }
+ }
+ 
++void MetalNonbondedUtilities::initializeForceRecords() {
++    if (!context.getDevice()->supportsFamily(MTL::GPUFamilyApple9) ||
++            context.getPlatformData().deterministicForces || !canUsePairList ||
++            !useNeighborList || useLJPME || context.getNumAtoms() < 30000 ||
++            context.getPlatformData().contexts.size() != 1 || kernelSource != MetalKernelSources::nonbonded)
++        return;
++    auto allocationSize = [&](size_t bytes) {
++        return context.getDevice()->heapBufferSizeAndAlign(bytes, MTL::ResourceStorageModeShared).size;
++    };
++    size_t budget = min<size_t>(context.getDevice()->recommendedMaxWorkingSetSize()/100,
++                                context.getDevice()->maxBufferLength());
++    size_t fixedBytes = allocationSize(4*(size_t) numAtoms)+allocationSize(4*((size_t) numAtoms+1));
++    for (int size = numAtoms;; size = (size+127)/128) {
++        forceScanSizes.push_back(size);
++        fixedBytes += allocationSize(4*(size_t) ((size+127)/128));
++        if (forceScanSizes.size() > 1) fixedBytes += allocationSize(4*(size_t) size);
++        if (size <= 128) break;
++    }
++    if (budget <= fixedBytes) return;
++    unsigned int capacity = (unsigned int) min((budget-fixedBytes)/1024, (size_t) 0x7fffffff/192);
++    while (capacity > 0 && fixedBytes+allocationSize(768*(size_t) capacity)+allocationSize(256*(size_t) capacity) > budget)
++        capacity--;
++    if (capacity <= exclusionTiles.getSize()) return;
++    forceTileCapacity = capacity;
++    forceRecords.initialize<float>(context, 192*(size_t) capacity, "forceRecords");
++    forceRecordIndices.initialize<unsigned int>(context, 64*(size_t) capacity, "forceRecordIndices");
++    forceRecordCounts.initialize<unsigned int>(context, numAtoms, "forceRecordCounts");
++    forceRecordOffsets.initialize<unsigned int>(context, numAtoms+1, "forceRecordOffsets");
++    for (int level = 0; level < forceScanSizes.size(); level++) {
++        forceScanSums.push_back(make_shared<MetalArray>());
++        forceScanSums.back()->initialize<unsigned int>(context, (forceScanSizes[level]+127)/128, "forceScanSums");
++        forceScanOffsets.push_back(level == 0 ? nullptr : make_shared<MetalArray>());
++        if (level > 0) forceScanOffsets.back()->initialize<unsigned int>(context, forceScanSizes[level], "forceScanOffsets");
++    }
++    map<string, string> defines;
++    defines["NUM_ATOMS"] = context.intToString(numAtoms);
++    defines["PADDED_NUM_ATOMS"] = context.intToString(context.getPaddedNumAtoms());
++    defines["NUM_EXCLUSION_TILES"] = context.intToString(exclusionTiles.getSize());
++    defines["FORCE_TILE_CAPACITY"] = context.intToString(forceTileCapacity);
++    metalModule_t module = context.createModule(MetalKernelSources::vectorOps+MetalKernelSources::nonbondedForceRecords, defines);
++    clearForceRecordCounts = context.getKernel(module, "clearForceRecordCounts");
++    countForceRecords = context.getKernel(module, "countForceRecords");
++    scanForceRecords = context.getKernel(module, "scanForceRecords");
++    addForceRecordScan = context.getKernel(module, "addForceRecordScan");
++    finishForceRecordScan = context.getKernel(module, "finishForceRecordScan");
++    scatterForceRecords = context.getKernel(module, "scatterForceRecords");
++    reduceForceRecords = context.getKernel(module, "reduceForceRecords");
++}
++
++void MetalNonbondedUtilities::prepareForceRecords() {
++    if (forceTileCapacity == 0) return;
++    void* count = &interactionCount.getDevicePointer();
++    void* rebuild = &rebuildNeighborList.getDevicePointer();
++    int threads = numForceThreadBlocks*forceThreadBlockSize;
++    void* clearArgs[] = {&forceRecordCounts.getDevicePointer(), count, rebuild, &maxTiles};
++    context.executeKernelFlat(clearForceRecordCounts, clearArgs, threads, 128);
++    void* countArgs[] = {&forceRecordCounts.getDevicePointer(), &exclusionTiles.getDevicePointer(),
++        &interactingTiles.getDevicePointer(), &interactingAtoms.getDevicePointer(), count, rebuild, &maxTiles};
++    context.executeKernelFlat(countForceRecords, countArgs, threads, 128);
++    for (int level = 0; level < forceScanSizes.size(); level++) {
++        MetalArray& input = (level == 0 ? forceRecordCounts : *forceScanSums[level-1]);
++        MetalArray& output = (level == 0 ? forceRecordOffsets : *forceScanOffsets[level]);
++        void* args[] = {&input.getDevicePointer(), &output.getDevicePointer(),
++            &forceScanSums[level]->getDevicePointer(), &forceScanSizes[level], count, rebuild, &maxTiles};
++        context.executeKernelFlat(scanForceRecords, args, forceScanSizes[level], 128);
++    }
++    for (int level = (int) forceScanSizes.size()-2; level >= 0; level--) {
++        MetalArray& output = (level == 0 ? forceRecordOffsets : *forceScanOffsets[level]);
++        void* args[] = {&output.getDevicePointer(), &forceScanOffsets[level+1]->getDevicePointer(),
++            &forceScanSizes[level], count, rebuild, &maxTiles};
++        context.executeKernelFlat(addForceRecordScan, args, threads, 128);
++    }
++    void* finishArgs[] = {&forceRecordCounts.getDevicePointer(), &forceRecordOffsets.getDevicePointer(), count, rebuild, &maxTiles};
++    context.executeKernelFlat(finishForceRecordScan, finishArgs, threads, 128);
++    void* scatterArgs[] = {&forceRecordCounts.getDevicePointer(), &forceRecordOffsets.getDevicePointer(),
++        &forceRecordIndices.getDevicePointer(), &exclusionTiles.getDevicePointer(), &interactingTiles.getDevicePointer(),
++        &interactingAtoms.getDevicePointer(), count, rebuild, &maxTiles};
++    context.executeKernelFlat(scatterForceRecords, scatterArgs, threads, 128);
++}
++
+ double MetalNonbondedUtilities::getMaxCutoffDistance() {
+     double cutoff = 0.0;
+     for (map<int, double>::const_iterator iter = groupCutoff.begin(); iter != groupCutoff.end(); ++iter)
+@@ -429,6 +513,7 @@ void MetalNonbondedUtilities::prepareInteractions(int forceGroups) {
+     blockSorter->sort(sortedBlocks);
+     context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64);
+     context.executeKernelFlat(kernels.findInteractingBlocksKernel, &findInteractingBlocksArgs[0], context.getNumAtomBlocks() * context.getSIMDWidth() * numTilesInBatch, findInteractingBlocksThreadBlockSize);
++    prepareForceRecords();
+     forceRebuildNeighborList = false;
+     context.executeKernelFlat(kernels.copyInteractionCountsKernel, &copyInteractionCountsArgs[0], 1, 1);
+     // Each command buffer boundary leaves the GPU idle, so the force kernels go into this buffer
+@@ -457,6 +542,13 @@ void MetalNonbondedUtilities::computeInteractions(int forceGroups, bool includeF
+         if (!hasInitializedParams)
+             initParamArgs();
+         context.executeKernelFlat(kernel, &forceArgs[0], numForceThreadBlocks*forceThreadBlockSize, forceThreadBlockSize);
++        if (forceTileCapacity != 0 && includeForces) {
++            context.getCurrentStream().setConcurrentDispatch(false);
++            void* args[] = {&forceRecords.getDevicePointer(), &forceRecordOffsets.getDevicePointer(),
++                &forceRecordIndices.getDevicePointer(), &context.unwrap(context.getLongForceBuffer()).getDevicePointer(),
++                &interactionCount.getDevicePointer(), &rebuildNeighborList.getDevicePointer(), &maxTiles};
++            context.executeKernelFlat(reduceForceRecords, args, context.getNumAtoms(), 128);
++        }
+     }
+     if (useNeighborList && numTiles > 0) {
+         context.getCurrentStream().commit();
+@@ -523,6 +615,11 @@ void MetalNonbondedUtilities::setAtomBlockRange(double startFraction, double end
+ }
+ 
+ int MetalNonbondedUtilities::getMaxBitsForPairs() const {
++    // Sparse LJPME tiles still benefit from a pair list because their dispersion
++    // calculation is expensive.  Other interactions avoid the pair atomics on
++    // Apple9 and later.  Keep the existing policy on older devices until measured.
++    if (!useLJPME && context.getDevice()->supportsFamily(MTL::GPUFamilyApple9))
++        return 0;
+     int maxBits = 0;
+     if (canUsePairList) {
+         if (context.getUseDoublePrecision()) {
+@@ -631,6 +728,8 @@ metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& s
+     }
+     if (energyParameterDerivatives.size() > 0)
+         args << ", mixed* __restrict__ energyParamDerivs";
++    if (forceTileCapacity != 0)
++        args << ", float* __restrict__ forceRecords";
+     replacements["PARAMETER_ARGUMENTS"] = args.str();
+ 
+     stringstream load1;
+@@ -711,6 +810,8 @@ metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& s
+     replacements["SHUFFLE_WARP_DATA"] = shuffleWarpData.str();
+ 
+     map<string, string> defines;
++    if (forceTileCapacity != 0)
++        defines["FORCE_TILE_CAPACITY"] = context.intToString(forceTileCapacity);
+     if (useCutoff)
+         defines["USE_CUTOFF"] = "1";
+     if (usePeriodic)
+diff --git a/platforms/metal/src/kernels/nonbonded.metal b/platforms/metal/src/kernels/nonbonded.metal
+index d03da49fb..db3484195 100644
+--- a/platforms/metal/src/kernels/nonbonded.metal
++++ b/platforms/metal/src/kernels/nonbonded.metal
+@@ -72,6 +72,28 @@ __device__ inline unsigned int firstNeighborListTile(unsigned int numTiles, unsi
+     return belowInAllTiles-belowInExclusionTiles;
+ }
+ 
++// Each endpoint of a tile owns one force record.  Only the final reduction
++// merges records into the shared fixed-point force buffer.
++#ifdef FORCE_TILE_CAPACITY
++#define SAVE_TILE_FORCE(atom, value, record) do { \
++    if (useForceRecords) { \
++        forceRecords[3*(record)] = (value).x; \
++        forceRecords[3*(record)+1] = (value).y; \
++        forceRecords[3*(record)+2] = (value).z; \
++    } else { \
++        atomicAdd(&forceBuffers[atom], static_cast<unsigned long long>(realToFixedPoint((value).x))); \
++        atomicAdd(&forceBuffers[(atom)+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint((value).y))); \
++        atomicAdd(&forceBuffers[(atom)+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint((value).z))); \
++    } \
++} while (0)
++#else
++#define SAVE_TILE_FORCE(atom, value, record) do { \
++    atomicAdd(&forceBuffers[atom], static_cast<unsigned long long>(realToFixedPoint((value).x))); \
++    atomicAdd(&forceBuffers[(atom)+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint((value).y))); \
++    atomicAdd(&forceBuffers[(atom)+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint((value).z))); \
++} while (0)
++#endif
++
+ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded(
+         unsigned long long* __restrict__ forceBuffers, mixed* __restrict__ energyBuffer, const real4* __restrict__ posq, const tileflags* __restrict__ exclusions,
+         const int2* __restrict__ exclusionTiles, unsigned int startTileIndex, unsigned long long numTileIndices
+@@ -85,6 +107,10 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+     const unsigned int totalWarps = (blockDim.x*gridDim.x)/TILE_SIZE;
+     const unsigned int warp = blockIdx.x*(THREAD_BLOCK_SIZE/TILE_SIZE) + threadIdx.x/TILE_SIZE; // global warpIndex
+     const unsigned int tgx = threadIdx.x & (TILE_SIZE-1); // index within the warp
++#ifdef FORCE_TILE_CAPACITY
++    const bool useForceRecords = interactionCount[0] <= maxTiles &&
++            interactionCount[0] <= FORCE_TILE_CAPACITY-LAST_EXCLUSION_TILE;
++#endif
+     mixed energy = 0;
+     INIT_DERIVATIVES
+ 
+@@ -102,7 +128,13 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+         tileflags excl = exclusions[pos*TILE_SIZE+tgx];
+ #endif
+         if (x == y) {
+-            // This tile is on the diagonal.
++            // This tile is on the diagonal.  Its second endpoint has no contribution.
++#if defined(FORCE_TILE_CAPACITY) && defined(INCLUDE_FORCES)
++            if (useForceRecords) {
++                unsigned int record = 3*(64*pos+32+tgx);
++                forceRecords[record] = forceRecords[record+1] = forceRecords[record+2] = 0;
++            }
++#endif
+             real4 shflPosq = posq1;
+ 
+             // we do not need to fetch parameters from global since this is a symmetric tile
+@@ -231,17 +263,13 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+             const unsigned int offset = atomIndex;
+             // write results for off diagonal tiles
+ #ifdef INCLUDE_FORCES
+-            atomicAdd(&forceBuffers[offset], static_cast<unsigned long long>(realToFixedPoint(shflForce.x)));
+-            atomicAdd(&forceBuffers[offset+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.y)));
+-            atomicAdd(&forceBuffers[offset+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.z)));
++            SAVE_TILE_FORCE(offset, shflForce, 64*pos+32+tgx);
+ #endif
+         }
+         // Write results for on and off diagonal tiles
+ #ifdef INCLUDE_FORCES
+         const unsigned int offset = x*TILE_SIZE + tgx;
+-        atomicAdd(&forceBuffers[offset], static_cast<unsigned long long>(realToFixedPoint(force.x)));
+-        atomicAdd(&forceBuffers[offset+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.y)));
+-        atomicAdd(&forceBuffers[offset+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.z)));
++        SAVE_TILE_FORCE(offset, force, 64*pos+tgx);
+ #endif
+     }
+ 
+@@ -447,6 +475,12 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+ 
+             // Write results.
+ #ifdef INCLUDE_FORCES
++#ifdef FORCE_TILE_CAPACITY
++            if (useForceRecords) {
++                SAVE_TILE_FORCE(atom1, force, 64*(LAST_EXCLUSION_TILE+pos)+tgx);
++            } else
++#endif
++            {
+ #ifdef USE_NEIGHBOR_LIST
+             xForceX += realToFixedPoint(force.x);
+             xForceY += realToFixedPoint(force.y);
+@@ -462,11 +496,10 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+             atomicAdd(&forceBuffers[atom1+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.y)));
+             atomicAdd(&forceBuffers[atom1+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.z)));
+ #endif
++            }
+             unsigned int atom2 = atomIndex;
+             if (atom2 < PADDED_NUM_ATOMS) {
+-                atomicAdd(&forceBuffers[atom2], static_cast<unsigned long long>(realToFixedPoint(shflForce.x)));
+-                atomicAdd(&forceBuffers[atom2+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.y)));
+-                atomicAdd(&forceBuffers[atom2+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(shflForce.z)));
++                SAVE_TILE_FORCE(atom2, shflForce, 64*(LAST_EXCLUSION_TILE+pos)+32+tgx);
+             }
+ #endif
+         }
+@@ -530,3 +563,5 @@ extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded
+ #endif
+     SAVE_DERIVATIVES
+ }
++
++#undef SAVE_TILE_FORCE
+diff --git a/platforms/metal/src/kernels/nonbondedForceRecords.metal b/platforms/metal/src/kernels/nonbondedForceRecords.metal
+new file mode 100644
+index 000000000..f0a04def6
+--- /dev/null
++++ b/platforms/metal/src/kernels/nonbondedForceRecords.metal
+@@ -0,0 +1,97 @@
++// Build the reverse incidence index only when the existing neighbor list rebuilds.
++// Integer atomics construct the index.  The pair kernel never atomically adds a
++// force when its list fits these records.  Oversized lists use the old kernel.
++#define RECORDS_FIT (interactionCount[0] <= maxTiles && interactionCount[0] <= FORCE_TILE_CAPACITY-NUM_EXCLUSION_TILES)
++#define REBUILD_RECORDS (rebuild[0] && RECORDS_FIT)
++#define RECORD_ATOM \
++    unsigned int tile = record/64, lane = record%32; \
++    bool second = (record%64 >= 32); \
++    unsigned int atom; \
++    if (tile < NUM_EXCLUSION_TILES) { \
++        int2 pair = exclusionTiles[tile]; \
++        atom = 32*(second ? pair.y : pair.x)+lane; \
++    } else { \
++        tile -= NUM_EXCLUSION_TILES; \
++        atom = second ? interactingAtoms[32*tile+lane] : 32*tiles[tile]+lane; \
++    }
++
++extern "C" __global__ void clearForceRecordCounts(unsigned int* counts, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    for (unsigned int atom = GLOBAL_ID; atom < NUM_ATOMS; atom += GLOBAL_SIZE)
++        counts[atom] = 0;
++}
++
++extern "C" __global__ void countForceRecords(unsigned int* counts,
++        const int2* exclusionTiles, const int* tiles, const int* interactingAtoms, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    unsigned int records = 64*(NUM_EXCLUSION_TILES+interactionCount[0]);
++    for (unsigned int record = GLOBAL_ID; record < records; record += GLOBAL_SIZE) {
++        RECORD_ATOM
++        if (atom < NUM_ATOMS)
++            atomic_fetch_add_explicit((device atomic_uint*) &counts[atom], 1u, memory_order_relaxed);
++    }
++}
++
++// 128 threads, four Apple SIMD groups.  Every thread reaches the barrier,
++// including padding threads in the final group.
++extern "C" __global__ void scanForceRecords(const unsigned int* input, unsigned int* output,
++        unsigned int* sums, unsigned int size, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    threadgroup unsigned int simdSums[4];
++    unsigned int index = GLOBAL_ID;
++    unsigned int value = (index < size ? input[index] : 0);
++    unsigned int prefix = simd_prefix_inclusive_sum(value);
++    unsigned int simd = LOCAL_ID/32;
++    if (LOCAL_ID%32 == 31) simdSums[simd] = prefix;
++    threadgroup_barrier(mem_flags::mem_threadgroup);
++    unsigned int carry = 0;
++    for (unsigned int group = 0; group < simd; group++) carry += simdSums[group];
++    if (index < size) output[index] = carry+prefix-value;
++    if (LOCAL_ID == 127) sums[GROUP_ID] = carry+prefix;
++}
++
++extern "C" __global__ void addForceRecordScan(unsigned int* output,
++        const unsigned int* parentOffsets, unsigned int size, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    for (unsigned int index = GLOBAL_ID; index < size; index += GLOBAL_SIZE)
++        output[index] += parentOffsets[index/128];
++}
++
++extern "C" __global__ void finishForceRecordScan(unsigned int* counts,
++        unsigned int* offsets, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    for (unsigned int atom = GLOBAL_ID; atom < NUM_ATOMS; atom += GLOBAL_SIZE) {
++        if (atom == NUM_ATOMS-1) offsets[NUM_ATOMS] = offsets[atom]+counts[atom];
++        counts[atom] = 0;
++    }
++}
++
++extern "C" __global__ void scatterForceRecords(unsigned int* counts,
++        const unsigned int* offsets, unsigned int* indices,
++        const int2* exclusionTiles, const int* tiles, const int* interactingAtoms, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!REBUILD_RECORDS) return;
++    unsigned int records = 64*(NUM_EXCLUSION_TILES+interactionCount[0]);
++    for (unsigned int record = GLOBAL_ID; record < records; record += GLOBAL_SIZE) {
++        RECORD_ATOM
++        if (atom < NUM_ATOMS) {
++            unsigned int slot = atomic_fetch_add_explicit((device atomic_uint*) &counts[atom], 1u, memory_order_relaxed);
++            indices[offsets[atom]+slot] = record;
++        }
++    }
++}
++
++extern "C" __global__ void reduceForceRecords(const float* records,
++        const unsigned int* offsets, const unsigned int* indices,
++        unsigned long long* forces, const unsigned int* interactionCount, const int* rebuild, unsigned int maxTiles) {
++    if (!RECORDS_FIT) return;
++    for (unsigned int atom = GLOBAL_ID; atom < NUM_ATOMS; atom += GLOBAL_SIZE) {
++        float3 force = float3(0);
++        for (unsigned int slot = offsets[atom]; slot < offsets[atom+1]; slot++) {
++            unsigned int record = 3*indices[slot];
++            force += float3(records[record], records[record+1], records[record+2]);
++        }
++        atomicAdd(&forces[atom], static_cast<unsigned long long>(realToFixedPoint(force.x)));
++        atomicAdd(&forces[atom+PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.y)));
++        atomicAdd(&forces[atom+2*PADDED_NUM_ATOMS], static_cast<unsigned long long>(realToFixedPoint(force.z)));
++    }
++}

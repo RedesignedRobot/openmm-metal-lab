@@ -1,0 +1,78 @@
+estimate: 1 rounds of 5 s, 2 configurations, 1 tests, about 0 minutes
+Exception ignored on flushing sys.stdout:
+BrokenPipeError: [Errno 32] Broken pipe
+06:48:45Z queueing ahead of 0 tickets, behind 0 merge-path tickets and the current hold: holder: none
+06:48:45Z holding the lease; /tmp/openmm-window is up
+06:48:45Z preflight waiting: load 4.15, 0 build processes
+preflight: not quiet after 60 s (load 3.34, 0 build processes); starting anyway
+start 2026-09-29T06:49:45Z after 60 s of preflight, load { 3.34 3.17 2.77 }
+holder: window 2026-09-29T06:48:45Z dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits, pid 64446, held 60 s
+build processes: 0 gpuq build jobs, 0 paused
+queue, oldest first:
+
+gpuq 06:49:45Z, day slot. GPU: window job 3 has it alone.
+running:
+      3  window      window                 ran    60s of ~6m     dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, bui
+queued: none
+ %CPU   PID COMMAND
+ 23.4   608 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 20.2  6047 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+ 17.3  8613 claude --dangerously-skip-permissions
+ 16.9   181 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+ 13.3   756 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+ 12.7 80429 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+ 11.5 61813 /usr/bin/powermetrics --samplers cpu_power gpu_power -i 1000 -n
+  6.9  7696 claude --dangerously-skip-permissions
+  5.5 36821 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Conten
+  3.5 37518 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer)
+ps: stdout: Broken pipe
+estimate: 1 rounds, 1 tests, 2 configurations, about 0 min 18 s
+base-single Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:02Z 
+base-opencl OpenCL single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:02Z 
+ps: stdout: Broken pipe
+hostname: M3-Ultra
+timestamp: 2026-09-29T06:49:49.091863+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1249.83
+ps: stdout: Broken pipe
+hostname: M3-Ultra
+timestamp: 2026-09-29T06:49:56.069595+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        OpenCL     1155.42
+2026-09-29T06:50:02Z builds: none ran during the 2 timed runs; window hold of gpuq job 3 (window): 0 builds paused
+done /tmp/openmm-metal-bench/ultra-infra/gpuq6/w/ab
+median ns/day, host clock
+test                 base-opencl   base-single
+gbsa                     1155.42       1249.83
+
+rounds, base-opencl:
+  gbsa               1155.42   spread 0.0%
+rounds, base-single:
+  gbsa               1249.83   spread 0.0%
+
+test                           base-single/base-opencl
+gbsa                       1.082 (rounds 1.082..1.082)
+
+1 minute load before 2 runs: 3.06 to 3.15
+Background VM CPU before 2 runs: 32% to 33%
+runs with no result: 0
+runs that overlapped a build: 0
+runs that started with another process on the GPU: 0
+
+power, gpuclock.py busy seconds (GPU active >= 90%): median over rounds of GPU W and package (CPU + GPU + ANE) W
+test                       label    GPU W    pkg W  ns/day/GPU W
+gbsa                 base-opencl     38.5     42.9         30.05
+gbsa                 base-single     34.0     37.9         36.79
+
+test              base-single/base-opencl ns/day per GPU W
+gbsa                                             1.225

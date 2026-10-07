@@ -1,0 +1,43 @@
+median ns/day, host clock
+test                       cand2           n2a           n2b
+pme                       626.31        681.17        684.01
+apoa1rf                   301.45        301.15        300.83
+apoa1pme                  231.30        230.82        230.80
+apoa1ljpme                200.49        199.77        199.86
+amber20-dhfr              670.87        733.68        736.52
+amber20-cellulose          65.58         65.72         65.65
+
+rounds, cand2:
+  pme                624.66 627.97   spread 0.5%
+  apoa1rf            301.87 301.02   spread 0.3%
+  apoa1pme           232.05 230.55   spread 0.6%
+  apoa1ljpme         200.63 200.35   spread 0.1%
+  amber20-dhfr       672.25 669.49   spread 0.4%
+  amber20-cellulose  65.58 65.58   spread 0.0%
+rounds, n2a:
+  pme                678.79 683.54   spread 0.7%
+  apoa1rf            301.50 300.80   spread 0.2%
+  apoa1pme           231.65 230.00   spread 0.7%
+  apoa1ljpme         199.73 199.81   spread 0.0%
+  amber20-dhfr       732.90 734.45   spread 0.2%
+  amber20-cellulose  65.72 65.71   spread 0.0%
+rounds, n2b:
+  pme                683.04 684.98   spread 0.3%
+  apoa1rf            301.15 300.52   spread 0.2%
+  apoa1pme           231.12 230.48   spread 0.3%
+  apoa1ljpme         200.43 199.29   spread 0.6%
+  amber20-dhfr       735.87 737.17   spread 0.2%
+  amber20-cellulose  65.63 65.67   spread 0.1%
+
+test                                         n2a/cand2                           n2b/cand2                             n2b/n2a
+pme                        1.088 (rounds 1.087..1.088)         1.092 (rounds 1.091..1.093)         1.004 (rounds 1.002..1.006)
+apoa1rf                    0.999 (rounds 0.999..0.999)         0.998 (rounds 0.998..0.998)         0.999 (rounds 0.999..0.999)
+apoa1pme                   0.998 (rounds 0.998..0.998)         0.998 (rounds 0.996..1.000)         1.000 (rounds 0.998..1.002)
+apoa1ljpme                 0.996 (rounds 0.996..0.997)         0.997 (rounds 0.995..0.999)         1.000 (rounds 0.997..1.003)
+amber20-dhfr               1.094 (rounds 1.090..1.097)         1.098 (rounds 1.095..1.101)         1.004 (rounds 1.004..1.004)
+amber20-cellulose          1.002 (rounds 1.002..1.002)         1.001 (rounds 1.001..1.001)         0.999 (rounds 0.999..0.999)
+
+1 minute load before 36 runs: 2.38 to 6.26
+Background VM CPU before 36 runs: 3% to 78%
+runs with no result: 0
+runs that overlapped a build: 0

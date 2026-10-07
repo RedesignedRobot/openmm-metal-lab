@@ -1,0 +1,19 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+rf                       1024.34       1220.60       1181.01       1450.17        662.28
+
+rounds, base-m:
+  rf                 1027.33 1024.34 1023.46   spread 0.4%
+rounds, base-s:
+  rf                 1225.53 1220.60 1218.67   spread 0.6%
+rounds, cand-m:
+  rf                 1186.14 1181.01 1171.52   spread 1.2%
+rounds, cand-s:
+  rf                 1450.67 1450.17 1442.77   spread 0.5%
+rounds, cl-s:
+  rf                 662.28 659.36 692.94   spread 5.1%
+
+1 minute load before 15 runs: 3.61 to 7.29
+Background VM CPU before 15 runs: 37% to 190%
+runs with no result: 0
+runs that overlapped a build: 0

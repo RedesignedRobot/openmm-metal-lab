@@ -1,0 +1,26 @@
+M2 check 20260925T042748Z-6d72c3ae9, base 6df2b8bcb033
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand: 6d72c3ae9bbd against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+apoa1rf            single      69.01      68.95  0.999  0.998..1.000      295      297     +2   +0.6      337      342  
+apoa1rf            mixed       53.65      53.62  1.000  1.000..1.000      295      300     +5   +1.6      332      346  
+
+cand2: 761d5a666104 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+apoa1rf            single      69.01      69.13  1.002  1.000..1.003      295      300     +5   +1.5      337      343  
+apoa1rf            mixed       53.65      53.70  1.001  1.001..1.001      295      299     +4   +1.4      332      345  
+
+nox: 626652d2c613 against base, forces gate FAIL
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+apoa1rf            single missing results
+apoa1rf            mixed  missing results
+
+1-minute load before 16 runs: 1.72 to 2.88; memory free 68% to 69%
+Spotlight CPU before 16 runs: 0% to 0%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 4
+
+verdict cand 6d72c3ae9bbd PASS: gate PASS; slower: none; footprint growth: none; missing: none
+verdict cand2 761d5a666104 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+verdict nox 626652d2c613 FLAGGED: gate FAIL; slower: none; footprint growth: none; missing: apoa1rf single, apoa1rf mixed

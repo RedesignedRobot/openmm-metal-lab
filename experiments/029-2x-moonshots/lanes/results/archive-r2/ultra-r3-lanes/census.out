@@ -1,0 +1,22 @@
+18:11:13Z waiting for the lease: 8 in the queue, held by: , 0 build processes running
+18:16:16Z waiting for the lease: 7 in the queue, held by: ultra-r3-nbfma 2026-09-28T18:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1rf, about 11 min, 0 build processes running
+18:21:19Z waiting for the lease: 7 in the queue, held by: ultra-r3-nbfma 2026-09-28T18:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1rf, about 11 min, 0 build processes running
+18:26:23Z waiting for the lease: 5 in the queue, held by: ultra-r2-mixed 2026-09-28T18:23:52Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-qg1, about 9 min, 0 build processes running
+18:31:25Z waiting for the lease: 5 in the queue, held by: ultra-r2-mixed 2026-09-28T18:23:52Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-qg1, about 9 min, 0 build processes running
+18:36:28Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-28T18:35:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/dt3r/ab-apoa1pme-single-mixed, about 8 min, 0 build processes running
+18:41:32Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-28T18:35:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/dt3r/ab-apoa1pme-single-mixed, about 8 min, 0 build processes running
+18:46:35Z waiting for the lease: 2 in the queue, held by: ultra-r2-dispatch-cw2 2026-09-28T18:42:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-cw2/ab-apoa1, about 13 min, 0 build processes running
+18:51:38Z waiting for the lease: 2 in the queue, held by: ultra-r2-dispatch-cw2 2026-09-28T18:42:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-cw2/ab-apoa1, about 13 min, 0 build processes running
+18:56:54Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-28T18:55:00Z shader census irl c16 c16h apoa1rf, 0 build processes running
+mixed-apoa1pme: xctrace pid 33642 recording 18:58:02Z
+captured mixed-apoa1pme 18:58:14Z: Target app exited, ending recording...
+18:59:00Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (r3-lanes shader screen apoa1pme mixed). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved mixed-apoa1pme 18:59:07Z: Output file saved as: mixed-apoa1pme.trace
+exported mixed-apoa1pme 18:59:13Z, rows 80379, releasing
+xctemp: removing 1 xctrace leftovers, 459268 KB
+base-mixed-apoa1pme: xctrace pid 38105 recording 18:59:14Z
+captured base-mixed-apoa1pme 18:59:28Z: Target app exited, ending recording...
+19:00:26Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (r3-lanes shader screen apoa1pme mixed). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved base-mixed-apoa1pme 19:00:26Z: Output file saved as: base-mixed-apoa1pme.trace
+exported base-mixed-apoa1pme 19:00:32Z, rows 91647, releasing
+xctemp: removing 1 xctrace leftovers, 519668 KB

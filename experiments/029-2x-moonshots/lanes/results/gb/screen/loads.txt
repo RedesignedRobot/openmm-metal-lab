@@ -1,0 +1,12 @@
+2026-09-26T22:11:23Z round 1 gbsa base-single load { 3.80 4.28 4.00 } vm 6% top mediaanalysisd 73.2%, perl 37.0%, superwhisper 20.3%, sysmond 4.1%, WindowServer 4.0%
+2026-09-26T22:11:54Z round 1 gbsa mine-single load { 4.05 4.30 4.01 } vm 6% top mediaanalysisd 128.7%, superwhisper 17.3%, CGPDFService 11.5%, com.apple.Virtualization.VirtualMachine 5.0%, WindowServer 4.0%
+2026-09-26T22:12:24Z round 1 gbsa base-mixed load { 3.16 4.06 3.94 } vm 3% top superwhisper 17.9%, WindowServer 3.8%, iStat Menus Menubar 2.6%, com.apple.Virtualization.VirtualMachine 1.6%, com.apple.Virtualization.VirtualMachine 1.3%
+2026-09-26T22:12:55Z round 1 gbsa mine-mixed load { 2.49 3.81 3.85 } vm 5% top superwhisper 19.2%, sysmond 9.1%, iStat Menus Menubar 7.1%, WindowServer 4.8%, com.apple.Virtualization.VirtualMachine 3.0%
+2026-09-26T22:13:27Z round 2 gbsa mine-mixed load { 2.41 3.65 3.79 } vm 3% top superwhisper 16.6%, WindowServer 3.3%, com.apple.Virtualization.VirtualMachine 2.1%, iStat Menus Menubar 1.3%, sh 1.0%
+2026-09-26T22:13:57Z round 2 gbsa base-mixed load { 2.19 3.48 3.72 } vm 4% top superwhisper 18.1%, com.apple.Virtualization.VirtualMachine 3.1%, WindowServer 2.1%, sh 1.2%, com.apple.Virtualization.VirtualMachine 1.2%
+2026-09-26T22:14:29Z round 2 gbsa mine-single load { 2.33 3.40 3.68 } vm 6% top superwhisper 19.4%, sysmond 5.1%, com.apple.Virtualization.VirtualMachine 3.3%, WindowServer 2.5%, com.apple.Virtualization.VirtualMachine 2.5%
+2026-09-26T22:15:00Z round 2 gbsa base-single load { 2.48 3.32 3.64 } vm 6% top corespotlightd 36.1%, history 33.1%, superwhisper 18.7%, iStat Menus Menubar 8.9%, WindowServer 5.9%
+2026-09-26T22:15:31Z round 3 gbsa base-single load { 2.69 3.30 3.62 } vm 12% top superwhisper 16.0%, powermetrics 12.1%, com.apple.Virtualization.VirtualMachine 7.8%, sysmond 6.1%, com.apple.Virtualization.VirtualMachine 3.8%
+2026-09-26T22:16:03Z round 3 gbsa mine-single load { 2.70 3.24 3.59 } vm 5% top superwhisper 15.4%, sysmond 4.7%, iStat Menus Menubar 3.8%, com.apple.Virtualization.VirtualMachine 3.5%, WindowServer 3.4%
+2026-09-26T22:16:33Z round 3 gbsa base-mixed load { 2.42 3.12 3.53 } vm 4% top superwhisper 14.5%, powermetrics 12.9%, iStat Menus Menubar 6.1%, WindowServer 4.4%, sysmond 4.0%
+2026-09-26T22:17:05Z round 3 gbsa mine-mixed load { 2.33 3.01 3.48 } vm 8% top superwhisper 15.7%, com.apple.Virtualization.VirtualMachine 13.2%, authd 5.8%, sysmond 4.7%, SystemUIServer 4.4%

@@ -1,0 +1,50 @@
+computeNonbonded, apoa1rf single, gpudebug profile of 12 command buffers (gpucapture), M3 Ultra
+
+| metric | r1 | sub |
+|---|---:|---:|
+| static Instructions | 1323 | 1818 |
+| static ALU | 1113 | 1566 |
+| static FP32 | 423 | 631 |
+| static INT32 | 175 | 270 |
+| static INT16 | 109 | 142 |
+| static Branch | 24 | 35 |
+| static Device atomics | 42 | 42 |
+| static Device loads | 23 | 30 |
+| static Temp registers | 59 | 95 |
+| static Uniform registers | 60 | 60 |
+| static Spilled bytes | 16 | 16 |
+| static SIMD groups | 58320 | 58320 |
+| dispatches | 12 | 12 |
+| dynamic instructions per dispatch (median) | 2.895e+09 | 2.777e+09 |
+| encoder GPU time, us (median) | 595.0 | 660.7 |
+| dispatch kernel_invocations (median) | 1.536e+05 | 1.536e+05 |
+| dispatch kernel_alu_instructions (median) | 1.556e+09 | 1.353e+09 |
+| dispatch kernel_alu_float_instructions (median) | 69.16 | 58.27 |
+| dispatch kernel_alu_integer_and_conditional_instructions (median) | 23.17 | 36.66 |
+| dispatch kernel_alu_inefficiency (median) | 28.22 | 19.94 |
+| encoder kernel_occupancy (median) | 24.7 | 22.27 |
+| encoder occupancy_manager_target (median) | 69.75 | 53.5 |
+| encoder alu_utilization (median) | 42.56 | 43.17 |
+| encoder f32_limiter (median) | 66.16 | 41.53 |
+| encoder integer_and_conditional_limiter (median) | 62.76 | 70.94 |
+| encoder instruction_throughput_limiter (median) | 67.82 | 64.75 |
+| encoder instruction_throughput_utilization (median) | 22.3 | 23.4 |
+| encoder l1_total_residency (median) | 71.8 | 69 |
+| encoder l1_register_residency (median) | 4.995 | 17.29 |
+| encoder l1_buffer_residency (median) | 64.38 | 49.76 |
+| encoder l1_eviction_rate (median) | 0 | 0.01 |
+| encoder buffer_l1_miss_rate (median) | 19.33 | 19.98 |
+| encoder l1_cache_limiter (median) | 3.075 | 4.255 |
+| encoder buffer_l1_read_accesses (median) | 43.78 | 20.2 |
+| encoder stack_l1_read_accesses (median) | 9.94 | 4.57 |
+| encoder stack_l1_write_accesses (median) | 7.585 | 3.49 |
+| encoder register_l1_read_accesses (median) | 3.27 | 25.91 |
+| encoder compute_shader_launch_limiter (median) | 4.61 | 3.645 |
+| encoders with computeNonbonded | 12 | 12 |
+
+Pair slots, sub over r1: 0.638 (accum-nb emulator, apoa1rf, sorted 8x4). Kill at 1.3x per slot.
+- instructions (dispatch info): sub/r1 0.959 per dispatch, 1.50x per pair slot
+- ALU instructions (dispatch counter): sub/r1 0.870 per dispatch, 1.36x per pair slot
+- GPU time (encoder): sub/r1 1.110 per dispatch, 1.74x per pair slot
+Occupancy (encoder median): sub 22.3%, r1 24.7%; occupancy manager target sub 53.5%, r1 69.8%.
+Verdict: KILL (lower of the two instruction measures 1.36x per slot).

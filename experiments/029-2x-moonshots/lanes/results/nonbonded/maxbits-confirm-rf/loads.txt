@@ -1,0 +1,15 @@
+2026-09-26T19:42:29Z round 1 rf base-s load { 3.61 4.03 4.78 } vm 44% top node 100.4%, com.apple.Virtualization.VirtualMachine 25.8%, superwhisper 21.9%, sysmond 5.0%, com.apple.Virtualization.VirtualMachine 4.4%
+2026-09-26T19:43:00Z round 1 rf cand-s load { 4.14 4.11 4.78 } vm 115% top com.apple.Virtualization.VirtualMachine 110.4%, node 98.2%, superwhisper 25.8%, WindowServer 9.2%, iStat Menus Menubar 7.0%
+2026-09-26T19:43:32Z round 1 rf cl-s load { 3.94 4.05 4.73 } vm 107% top com.apple.Virtualization.VirtualMachine 102.9%, node 98.9%, superwhisper 23.6%,  claude 12.1%, com.apple.Virtualization.VirtualMachine 3.7%
+2026-09-26T19:44:03Z round 1 rf base-m load { 4.26 4.12 4.73 } vm 106% top node 104.2%, com.apple.Virtualization.VirtualMachine 103.2%, superwhisper 24.7%, WindowServer 3.5%, com.apple.Virtualization.VirtualMachine 2.5%
+2026-09-26T19:44:35Z round 1 rf cand-m load { 4.63 4.23 4.75 } vm 104% top com.apple.Virtualization.VirtualMachine 99.5%, node 98.8%, superwhisper 21.7%, WindowServer 6.4%, com.apple.Virtualization.VirtualMachine 4.9%
+2026-09-26T19:45:06Z round 2 rf cand-m load { 4.35 4.20 4.72 } vm 115% top node 393.1%, com.apple.Virtualization.VirtualMachine 91.3%, superwhisper 25.5%, WindowServer 8.1%, com.apple.Virtualization.VirtualMachine 7.0%
+2026-09-26T19:45:37Z round 2 rf base-m load { 7.07 4.85 4.93 } vm 190% top node 358.4%, com.apple.Virtualization.VirtualMachine 167.0%, superwhisper 20.9%, authd 18.7%, SystemUIServer 17.2%
+2026-09-26T19:46:09Z round 2 rf cl-s load { 7.07 5.07 5.01 } vm 117% top com.apple.Virtualization.VirtualMachine 114.4%, node 99.3%, superwhisper 24.2%, WindowServer 6.7%, iStat Menus Menubar 5.5%
+2026-09-26T19:46:41Z round 2 rf cand-s load { 7.29 5.35 5.11 } vm 38% top node 99.6%, com.apple.Virtualization.VirtualMachine 34.3%, superwhisper 21.6%, powermetrics 9.9%, sysmond 6.9%
+2026-09-26T19:47:12Z round 2 rf base-s load { 6.50 5.34 5.12 } vm 37% top node 99.2%, com.apple.Virtualization.VirtualMachine 45.8%, superwhisper 18.9%, launchd 6.4%, sysmond 4.6%
+2026-09-26T19:47:44Z round 3 rf base-s load { 5.35 5.19 5.07 } vm 48% top node 107.1%, com.apple.Virtualization.VirtualMachine 71.2%, superwhisper 20.3%, powermetrics 7.5%, sysmond 4.6%
+2026-09-26T19:48:15Z round 3 rf cand-s load { 5.74 5.30 5.11 } vm 103% top mediaanalysisd 173.5%, com.apple.Virtualization.VirtualMachine 100.9%, node 99.4%, superwhisper 26.1%, spotlightknowledged 8.9%
+2026-09-26T19:48:47Z round 3 rf cl-s load { 6.39 5.50 5.19 } vm 111% top mediaanalysisd 164.9%, node 107.6%, com.apple.Virtualization.VirtualMachine 102.1%, backupd 89.7%, Python 73.2%
+2026-09-26T19:49:21Z round 3 rf base-m load { 6.48 5.63 5.25 } vm 112% top mediaanalysisd 165.7%, com.apple.Virtualization.VirtualMachine 110.5%, node 74.6%, backupd 27.1%, superwhisper 16.0%
+2026-09-26T19:49:53Z round 3 rf cand-m load { 6.85 5.78 5.32 } vm 108% top mediaanalysisd 186.9%, node 103.5%, com.apple.Virtualization.VirtualMachine 102.2%, backupd 49.0%, superwhisper 25.1%

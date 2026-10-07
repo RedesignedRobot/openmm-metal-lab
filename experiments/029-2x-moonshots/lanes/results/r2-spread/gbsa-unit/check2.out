@@ -1,0 +1,60 @@
+== trunk detforces
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+trunk detforces exit=0
+trunk single seed 1 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2351.84549414851, "drift_kt_per_ns_per_dof": 0.15102888369793638, "rms_kj": 10.906864101507223, "e_first": -13941.156265258789, "e_last": -13605.433792114258}
+trunk single seed 2 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2766.0732173826264, "drift_kt_per_ns_per_dof": 0.17762941965679893, "rms_kj": 10.346089729345492, "e_first": -14341.497547149658, "e_last": -13987.720071792603}
+trunk mixed seed 1 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2336.2277988467163, "drift_kt_per_ns_per_dof": 0.15002595935905738, "rms_kj": 12.007558899255512, "e_first": -13941.159106745523, "e_last": -13630.313714702228}
+trunk mixed seed 2 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2133.8319392449016, "drift_kt_per_ns_per_dof": 0.13702866816080483, "rms_kj": 9.453183572705736, "e_first": -14341.50109663107, "e_last": -14032.134371973218}
+== lanes32 detforces
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+lanes32 detforces exit=0
+lanes32 single seed 1 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2811.084044253987, "drift_kt_per_ns_per_dof": 0.1805198879947983, "rms_kj": 9.933406112891916, "e_first": -13941.15742301941, "e_last": -13569.337791442871}
+lanes32 single seed 2 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2383.3556597829747, "drift_kt_per_ns_per_dof": 0.15305237765310933, "rms_kj": 10.257836859811635, "e_first": -14341.4986038208, "e_last": -14014.563824653625}
+lanes32 mixed seed 1 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 3034.1087165712324, "drift_kt_per_ns_per_dof": 0.1948419033571921, "rms_kj": 12.9002775500392, "e_first": -13941.159107225449, "e_last": -13547.70422725291}
+lanes32 mixed seed 2 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2842.769879451055, "drift_kt_per_ns_per_dof": 0.1825546629537641, "rms_kj": 11.508867143013992, "e_first": -14341.501096636697, "e_last": -13994.480840655287}
+== fold detforces
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+fold detforces exit=0
+fold single seed 1 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2037.7723494083364, "drift_kt_per_ns_per_dof": 0.13085999226028586, "rms_kj": 10.0214315606901, "e_first": -13941.157249450684, "e_last": -13641.295219421387}
+fold single seed 2 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2600.6884372265195, "drift_kt_per_ns_per_dof": 0.16700887558204938, "rms_kj": 10.677709593720918, "e_first": -14341.499282836914, "e_last": -13985.109767913818}
+fold mixed seed 1 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 2439.4847330759635, "drift_kt_per_ns_per_dof": 0.15665682841466283, "rms_kj": 14.196992645455701, "e_first": -13941.159106242962, "e_last": -13605.597638796593}
+fold mixed seed 2 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold/prefix/lib", "drift_kj_per_ns": 1953.834481567243, "drift_kt_per_ns_per_dof": 0.12546973915413318, "rms_kj": 13.519653689582046, "e_first": -14341.501096384927, "e_last": -14046.458466209348}

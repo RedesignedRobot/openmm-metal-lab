@@ -1,0 +1,19 @@
+21:25:29Z waiting for the lease: 7 in the queue, held by: ultra-r2-accum-nb 2026-09-27T21:22:59Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abB, about 16 min BUILD RUNNING, 0 build processes
+21:30:32Z waiting for the lease: 8 in the queue, held by: ultra-r2-accum-nb 2026-09-27T21:22:59Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abB, about 16 min BUILD RUNNING, 0 build processes
+21:35:36Z waiting for the lease: 3 in the queue, held by: r3-lean 2026-09-27T21:31:28Z force-only targeted tests and bitwise comparison, 0 build processes
+21:40:40Z waiting for the lease: 3 in the queue, held by: r2-fah 2026-09-27T21:37:11Z barostat tests on reorder fix, 0 build processes
+21:45:43Z waiting for the lease: 3 in the queue, held by: r2-fah 2026-09-27T21:37:11Z barostat tests on reorder fix, 0 build processes
+21:50:47Z waiting for the lease: 3 in the queue, held by: ultra-gate 2026-09-27T21:31:31Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:55:51Z waiting for the lease: 3 in the queue, held by: r2-fah 2026-09-27T21:49:30Z anisotropic barostat mixed, old vs reorder fix, 0 build processes
+22:00:54Z waiting for the lease: 2 in the queue, held by: ultra-r2-mixed 2026-09-27T22:00:12Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv2, about 4 min, 0 build processes
+22:06:08Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-27T22:04:06Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv3, about 4 min, 0 build processes
+base: xctrace pid 66712 recording 22:07:33Z
+captured base 22:07:38Z: Target app exited, ending recording...
+saved base 22:08:23Z: Output file saved as: base.trace
+22:08:29Z lease.sh: GPU under 10% for 60 s in the timing hold of r3-gbown (Stage A real-step Born phase baseline and row trace). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+exported base 22:08:34Z, rows 225978, releasing
+row: xctrace pid 72682 recording 22:08:36Z
+captured row 22:08:41Z: Target app exited, ending recording...
+saved row 22:09:21Z: Output file saved as: row.trace
+exported row 22:09:30Z, rows 183935, releasing
+single whole Born saving: -2.1680000000000064 us

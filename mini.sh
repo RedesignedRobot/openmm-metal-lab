@@ -5,7 +5,7 @@
 # so the remote build directory survives between runs and ccache stays warm.
 # The lab scripts land in ~/lab/bin, which is on PATH for the command.
 set -eu
-MINI="${MINI:-amir@10.10.10.11}"
+MINI="${MINI:?set MINI=user@host of the M2}"
 here="$(cd "$(dirname "$0")" && pwd)"
 tree="$1"
 shift

@@ -1,0 +1,6 @@
+{"test": "gbsa", "precision": "mixed", "cmp": {"pos": {"equal": false, "max_abs": 8.184799245025687e-07}, "vel": {"equal": false, "max_abs": 7.279192864828588e-05}, "pe": {"equal": false, "max_abs": 0.0003063140611629933}}}
+{"test": "gbsa", "precision": "single", "cmp": {"pos": {"equal": false, "max_abs": 4.49642539024353e-06}, "vel": {"equal": false, "max_abs": 8.189678192138672e-05}, "pe": {"equal": false, "max_abs": 0.007568359375}}}
+{"test": "rf", "precision": "mixed", "cmp": {"pos": {"equal": false, "max_abs": 0.202353434103685}, "vel": {"equal": false, "max_abs": 4.3642305359567946}, "pe": {"equal": false, "max_abs": 67.69941848807503}}}
+{"test": "rf", "precision": "single", "cmp": {"pos": {"equal": false, "max_abs": 0.2080836296081543}, "vel": {"equal": false, "max_abs": 5.437124967575073}, "pe": {"equal": false, "max_abs": 116.640625}}}
+{"test": "pme", "precision": "mixed", "cmp": {"pos": {"equal": false, "max_abs": 0.11446967286100573}, "vel": {"equal": false, "max_abs": 4.151197027674073}, "pe": {"equal": false, "max_abs": 41.844458217034116}}}
+{"test": "pme", "precision": "single", "cmp": {"pos": {"equal": false, "max_abs": 0.19535088539123535}, "vel": {"equal": false, "max_abs": 5.4590537548065186}, "pe": {"equal": false, "max_abs": 116.71875}}}

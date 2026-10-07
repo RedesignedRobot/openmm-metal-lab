@@ -1,0 +1,271 @@
+2026-09-28T21:59:05Z gpuqd 50764 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T21:59:05Z submit 1 timing z managed est 3 s (given) cap 6.0: sleep 3
+2026-09-28T21:59:05Z start 1 timing z after 0 s: sleep 3
+2026-09-28T21:59:05Z submit 2 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:05Z submit 3 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:05Z submit 4 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:06Z submit 5 timing b managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:06Z submit 6 correctness c managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:06Z submit 7 correctness c2 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:06Z submit 8 merge m managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:06Z submit 9 window w managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:08Z job 1 timing ended: exit, exit 0, ran 3 s, waited 0 s: sleep 3
+2026-09-28T21:59:08Z start 8 merge m after 2 s: sleep 1
+2026-09-28T21:59:09Z job 8 merge ended: exit, exit 0, ran 1 s, waited 2 s: sleep 1
+2026-09-28T21:59:09Z start 9 window w after 3 s: sleep 1
+2026-09-28T21:59:10Z job 9 window ended: exit, exit 0, ran 1 s, waited 3 s: sleep 1
+2026-09-28T21:59:10Z start 6 correctness c after 4 s: sleep 1
+2026-09-28T21:59:10Z start 7 correctness c2 after 4 s: sleep 1
+2026-09-28T21:59:11Z job 6 correctness ended: exit, exit 0, ran 1 s, waited 5 s: sleep 1
+2026-09-28T21:59:11Z job 7 correctness ended: exit, exit 0, ran 1 s, waited 4 s: sleep 1
+2026-09-28T21:59:11Z start 2 timing a after 6 s: sleep 1
+2026-09-28T21:59:12Z job 2 timing ended: exit, exit 0, ran 1 s, waited 6 s: sleep 1
+2026-09-28T21:59:12Z start 5 timing b after 7 s: sleep 1
+2026-09-28T21:59:13Z job 5 timing ended: exit, exit 0, ran 1 s, waited 7 s: sleep 1
+2026-09-28T21:59:13Z start 3 timing a after 8 s: sleep 1
+2026-09-28T21:59:14Z job 3 timing ended: exit, exit 0, ran 1 s, waited 8 s: sleep 1
+2026-09-28T21:59:14Z start 4 timing a after 9 s: sleep 1
+2026-09-28T21:59:16Z job 4 timing ended: exit, exit 0, ran 1 s, waited 9 s: sleep 1
+2026-09-28T21:59:16Z gpuqd 51672 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T21:59:16Z submit 1 timing z managed est 3 s (given) cap 6.0: sleep 3
+2026-09-28T21:59:16Z start 1 timing z after 0 s: sleep 3
+2026-09-28T21:59:17Z submit 2 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 3 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 4 timing a managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 5 timing b managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 6 correctness c managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 7 correctness c2 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 8 merge m managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:17Z submit 9 window w managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T21:59:19Z job 1 timing ended: exit, exit 0, ran 3 s, waited 0 s: sleep 3
+2026-09-28T21:59:19Z start 8 merge m after 2 s: sleep 1
+2026-09-28T21:59:20Z job 8 merge ended: exit, exit 0, ran 1 s, waited 2 s: sleep 1
+2026-09-28T21:59:20Z start 9 window w after 3 s: sleep 1
+2026-09-28T21:59:21Z job 9 window ended: exit, exit 0, ran 1 s, waited 3 s: sleep 1
+2026-09-28T21:59:21Z start 2 timing a after 5 s: sleep 1
+2026-09-28T21:59:22Z job 2 timing ended: exit, exit 0, ran 1 s, waited 5 s: sleep 1
+2026-09-28T21:59:22Z start 5 timing b after 6 s: sleep 1
+2026-09-28T21:59:23Z job 5 timing ended: exit, exit 0, ran 1 s, waited 6 s: sleep 1
+2026-09-28T21:59:23Z start 3 timing a after 7 s: sleep 1
+2026-09-28T21:59:25Z job 3 timing ended: exit, exit 0, ran 1 s, waited 7 s: sleep 1
+2026-09-28T21:59:25Z start 4 timing a after 8 s: sleep 1
+2026-09-28T21:59:26Z job 4 timing ended: exit, exit 0, ran 1 s, waited 8 s: sleep 1
+2026-09-28T21:59:26Z start 6 correctness c after 9 s: sleep 1
+2026-09-28T21:59:26Z start 7 correctness c2 after 9 s: sleep 1
+2026-09-28T21:59:27Z job 6 correctness ended: exit, exit 0, ran 1 s, waited 9 s: sleep 1
+2026-09-28T21:59:27Z job 7 correctness ended: exit, exit 0, ran 1 s, waited 9 s: sleep 1
+2026-09-28T21:59:27Z gpuqd 52627 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T21:59:27Z submit 1 window w managed est 3 s (given) cap 6.0: sleep 3
+2026-09-28T21:59:27Z submit 2 timing long managed est 30 s (given) cap 60.0: sleep 1
+2026-09-28T21:59:27Z submit 3 timing short managed est 8 s (given) cap 16.0: sleep 8
+2026-09-28T21:59:27Z start 3 timing short after 0 s: sleep 8
+2026-09-28T21:59:35Z job 3 timing ended: exit, exit 0, ran 8 s, waited 0 s: sleep 8
+2026-09-28T21:59:42Z start 1 window w after 15 s: sleep 3
+2026-09-28T21:59:46Z job 1 window ended: exit, exit 0, ran 3 s, waited 15 s: sleep 3
+2026-09-28T21:59:46Z start 2 timing long after 18 s: sleep 1
+2026-09-28T21:59:47Z job 2 timing ended: exit, exit 0, ran 1 s, waited 18 s: sleep 1
+2026-09-28T21:59:47Z gpuqd 54058 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T21:59:47Z submit 1 build bld attached est 600 s (default) cap None: fake build
+2026-09-28T21:59:47Z start 1 build bld after 0 s: fake build
+2026-09-28T21:59:50Z submit 2 timing t1 managed est 5 s (given) cap 10.0: sleep 5
+2026-09-28T21:59:50Z paused build 1 (bld): group 54083 and 4 descendants
+2026-09-28T21:59:50Z start 2 timing t1 after 0 s: sleep 5
+2026-09-28T21:59:54Z submit 3 timing t2 managed est 2 s (given) cap 4.0: sleep 2
+2026-09-28T21:59:55Z job 2 timing ended: exit, exit 0, ran 5 s, waited 0 s: sleep 5
+2026-09-28T21:59:55Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-28T21:59:55Z continued build 1 (bld): group 54083 and 4 descendants
+2026-09-28T22:00:16Z build gap ended after 20 s: the 20 s cap, builds [1] still running
+2026-09-28T22:00:16Z paused build 1 (bld): group 54083 and 4 descendants
+2026-09-28T22:00:16Z start 3 timing t2 after 21 s: sleep 2
+2026-09-28T22:00:18Z job 3 timing ended: exit, exit 0, ran 2 s, waited 21 s: sleep 2
+2026-09-28T22:00:18Z build gap after job 3: timing waits up to 20 s for builds [1]
+2026-09-28T22:00:18Z continued build 1 (bld): group 54083 and 4 descendants
+2026-09-28T22:00:18Z job 1 build ended: cancelled, exit 130, ran 31 s, waited 0 s: fake build
+2026-09-28T22:00:18Z build gap ended after 0 s: its builds ended
+2026-09-28T22:00:18Z gpuqd 56500 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:00:18Z submit 1 build bld2 attached est 600 s (default) cap None: short build
+2026-09-28T22:00:18Z start 1 build bld2 after 0 s: short build
+2026-09-28T22:00:19Z submit 2 timing t3 managed est 2 s (given) cap 4.0: sleep 2
+2026-09-28T22:00:19Z paused build 1 (bld2): group 56517 and 0 descendants
+2026-09-28T22:00:19Z start 2 timing t3 after 0 s: sleep 2
+2026-09-28T22:00:20Z submit 3 timing t4 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T22:00:21Z job 2 timing ended: exit, exit 0, ran 2 s, waited 0 s: sleep 2
+2026-09-28T22:00:21Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-28T22:00:21Z continued build 1 (bld2): group 56517 and 0 descendants
+2026-09-28T22:00:26Z job 1 build ended: exit, exit 0, ran 8 s, waited 0 s: short build
+2026-09-28T22:00:26Z build gap ended after 5 s: its builds ended
+2026-09-28T22:00:26Z start 3 timing t4 after 6 s: sleep 1
+2026-09-28T22:00:27Z job 3 timing ended: exit, exit 0, ran 1 s, waited 6 s: sleep 1
+2026-09-28T22:00:28Z gpuqd 57125 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:00:28Z submit 1 timing k managed est 1 s (given) cap 3.0: sh -c sleep 300 & sleep 300
+2026-09-28T22:00:28Z start 1 timing k after 0 s: sh -c sleep 300 & sleep 300
+2026-09-28T22:00:28Z submit 2 timing k2 managed est 1 s (given) cap 3.0: sh -c trap "" TERM; sleep 300 & wait
+2026-09-28T22:00:32Z job 1 reached its 3 s cap: SIGTERM to group 57135
+2026-09-28T22:00:32Z job 1 timing ended: cap, exit 143, ran 4 s, waited 0 s: sh -c sleep 300 & sleep 300
+2026-09-28T22:00:32Z start 2 timing k2 after 4 s: sh -c trap "" TERM; sleep 300 & wait
+2026-09-28T22:00:35Z job 2 reached its 3 s cap: SIGTERM to group 57401
+2026-09-28T22:00:40Z job 2: SIGKILL to group 57401 after 5.0 s
+2026-09-28T22:00:40Z job 2 timing ended: cap, exit 137, ran 8 s, waited 4 s: sh -c trap "" TERM; sleep 300 & wait
+2026-09-28T22:00:41Z gpuqd 58011 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:00:41Z submit 1 timing r managed est 6 s (given) cap 12.0: sh -c sleep 6; exit 7
+2026-09-28T22:00:41Z start 1 timing r after 0 s: sh -c sleep 6; exit 7
+2026-09-28T22:00:41Z submit 2 correctness r2 attached est 600 s (default) cap 1200: attached
+2026-09-28T22:00:45Z reattached job 1 (managed, group 58022); the next tick checks it
+2026-09-28T22:00:45Z gpuqd 58343 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:00:47Z job 1 timing ended: exit, exit 7, ran 6 s, waited 0 s: sh -c sleep 6; exit 7
+2026-09-28T22:00:47Z start 2 correctness r2 after 6 s: attached
+2026-09-28T22:00:53Z job 2 correctness ended: exit, exit 5, ran 6 s, waited 6 s: attached
+2026-09-28T22:00:54Z gpuqd 58848 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:00:54Z submit 1 timing lane-a managed est 10 s (given) cap 20.0: sleep 10
+2026-09-28T22:00:54Z start 1 timing lane-a after 0 s: sleep 10
+2026-09-28T22:00:56Z submit 2 timing lane-b managed est 6 s (given) cap 12.0: sleep 6
+2026-09-28T22:00:56Z submit 3 correctness lane-c managed est 4 s (given) cap 8.0: sleep 4
+2026-09-28T22:00:56Z submit 4 timing lane-d managed est 5 s (given) cap 10.0: sleep 5
+2026-09-28T22:00:56Z submit 5 timing lane-b managed est 3 s (given) cap 6.0: sleep 3
+2026-09-28T22:01:04Z job 1 timing ended: exit, exit 0, ran 10 s, waited 0 s: sleep 10
+2026-09-28T22:01:04Z start 3 correctness lane-c after 8 s: sleep 4
+2026-09-28T22:01:08Z job 3 correctness ended: exit, exit 0, ran 4 s, waited 8 s: sleep 4
+2026-09-28T22:01:08Z start 2 timing lane-b after 12 s: sleep 6
+2026-09-28T22:01:14Z job 2 timing ended: exit, exit 0, ran 6 s, waited 12 s: sleep 6
+2026-09-28T22:01:14Z start 4 timing lane-d after 18 s: sleep 5
+2026-09-28T22:01:19Z job 4 timing ended: exit, exit 0, ran 5 s, waited 18 s: sleep 5
+2026-09-28T22:01:19Z start 5 timing lane-b after 23 s: sleep 3
+2026-09-28T22:01:22Z job 5 timing ended: exit, exit 0, ran 3 s, waited 23 s: sleep 3
+2026-09-28T22:01:23Z gpuqd 60871 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:23Z submit 1 timing d1 managed est 1 s (given) cap 3.0: sh -c sh -c "trap \"\" TERM; sleep 300" & wait
+2026-09-28T22:01:23Z start 1 timing d1 after 0 s: sh -c sh -c "trap \"\" TERM; sleep 300" & wait
+2026-09-28T22:01:23Z submit 2 timing d2 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T22:01:27Z job 1 reached its 3 s cap: SIGTERM to group 60900
+2026-09-28T22:01:27Z job 1: its runner is done and group 60900 still runs: SIGTERM, SIGKILL in 5 s; it keeps the GPU till then
+2026-09-28T22:01:33Z job 1 timing ended: cap, exit 143, ran 10 s, waited 0 s: sh -c sh -c "trap \"\" TERM; sleep 300" & wait
+2026-09-28T22:01:33Z start 2 timing d2 after 10 s: sleep 1
+2026-09-28T22:01:34Z job 2 timing ended: exit, exit 0, ran 1 s, waited 10 s: sleep 1
+2026-09-28T22:01:34Z submit 3 timing d3 attached est 30 s (given) cap 60.0: sh -c trap "" TERM; sleep 300
+2026-09-28T22:01:34Z start 3 timing d3 after 0 s: sh -c trap "" TERM; sleep 300
+2026-09-28T22:01:35Z submit 4 timing d4 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T22:01:35Z job 3: its client is done and group 61658 still runs: SIGTERM, SIGKILL in 5 s; it keeps the GPU till then
+2026-09-28T22:01:41Z job 3 timing ended: lost, exit None, ran 7 s, waited 0 s: sh -c trap "" TERM; sleep 300
+2026-09-28T22:01:41Z start 4 timing d4 after 6 s: sleep 1
+2026-09-28T22:01:42Z job 4 timing ended: exit, exit 0, ran 1 s, waited 6 s: sleep 1
+2026-09-28T22:01:43Z gpuqd 62206 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:43Z submit 1 build b9 attached est 600 s (default) cap None: build.sh b9
+2026-09-28T22:01:43Z start 1 build b9 after 0 s: build.sh b9
+2026-09-28T22:01:43Z submit 2 timing t9 attached est 6 s (given) cap 12.0: sleep 6
+2026-09-28T22:01:43Z paused build 1 (b9): group 62221 and 0 descendants
+2026-09-28T22:01:43Z start 2 timing t9 after 0 s: sleep 6
+2026-09-28T22:01:43Z submit 3 timing lane9 attached est 600 s (default) cap 1200: queued lease
+2026-09-28T22:01:44Z gpuq off: no new grants; waiting for the running GPU jobs, then OFF
+2026-09-28T22:01:49Z job 2 timing ended: exit, exit 0, ran 6 s, waited 0 s: sleep 6
+2026-09-28T22:01:49Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-28T22:01:49Z continued build 1 (b9): group 62221 and 0 descendants
+2026-09-28T22:01:49Z job 3 timing ended: off, exit None, ran 0 s, waited 6 s: queued lease
+2026-09-28T22:01:49Z gpuq off: OFF written; lease.sh runs lease-legacy.sh, and running build jobs finish as they are
+2026-09-28T22:01:51Z gpuq on: OFF removed, gpuqd schedules again
+2026-09-28T22:01:51Z job 1 build ended: cancelled, exit 143, ran 8 s, waited 0 s: build.sh b9
+2026-09-28T22:01:51Z build gap ended after 2 s: its builds ended
+2026-09-28T22:01:51Z gpuqd 62687 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:51Z gpuqd 62701 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:51Z submit 1 timing c10 managed est 3 s (given) cap 6.0: sh -c echo ran; sleep 3; exit 4
+2026-09-28T22:01:51Z GPUQ_CRASH_AT=launch: exiting now
+2026-09-28T22:01:51Z adopted job 1, launching when the last daemon stopped: runner 62721
+2026-09-28T22:01:51Z reattached job 1 (managed, group 62721); the next tick checks it
+2026-09-28T22:01:51Z gpuqd 62730 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:54Z job 1 timing ended: exit, exit 4, ran 3 s, waited 0 s: sh -c echo ran; sleep 3; exit 4
+2026-09-28T22:01:55Z gpuqd 62972 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:55Z submit 2 build b10 attached est 600 s (default) cap None: sh -c while :; do date +%s >> /tmp/openmm-metal-bench/ultra-infra/gpuqtest/ticks10; sleep 1; done
+2026-09-28T22:01:55Z start 2 build b10 after 0 s: sh -c while :; do date +%s >> /tmp/openmm-metal-bench/ultra-infra/gpuqtest/ticks10; sleep 1; done
+2026-09-28T22:01:55Z submit 3 timing t10 managed est 2 s (given) cap 4.0: sleep 2
+2026-09-28T22:01:55Z GPUQ_CRASH_AT=pause: exiting now
+2026-09-28T22:01:55Z reattached job 2 (attached, group 62985); the next tick checks it
+2026-09-28T22:01:55Z continued build 2 (b10): group 62985 and 0 descendants
+2026-09-28T22:01:55Z gpuqd 63013 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:01:59Z job 2 build ended: cancelled, exit 143, ran 5 s, waited 0 s: sh -c while :; do date +%s >> /tmp/openmm-metal-bench/ultra-infra/gpuqtest/ticks10; sleep 1; done
+2026-09-28T22:01:59Z gpuqd 63263 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T22:02:00Z submit 1 build b11 attached est 600 s (default) cap None: ~/code/metal/lab/experiments/029-2x-moonshots/tools/gpuq/gpuq lease --correctness lane11 nested in a build true
+2026-09-28T22:02:00Z start 1 build b11 after 0 s: ~/code/metal/lab/experiments/029-2x-moonshots/tools/gpuq/gpuq lease --correctness lane11 nested in a build true
+2026-09-28T22:02:00Z submit 2 correctness lane11 attached est 600 s (default) cap 1200: nested in a build
+2026-09-28T22:02:00Z start 2 correctness lane11 after 0 s: nested in a build
+2026-09-28T22:02:00Z job 2 correctness ended: exit, exit 0, ran 0 s, waited 0 s: nested in a build
+2026-09-28T22:02:00Z job 1 build ended: exit, exit 0, ran 0 s, waited 0 s: ~/code/metal/lab/experiments/029-2x-moonshots/tools/gpuq/gpuq lease --correctness lane11 nested in a build true
+2026-09-28T23:17:40Z gpuqd 92321 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T23:17:40Z submit 1 build bld attached est 600 s (default) cap None: fake build
+2026-09-28T23:17:40Z start 1 build bld after 0 s: fake build
+2026-09-28T23:17:43Z submit 2 timing t1 managed est 5 s (given) cap 10.0: sleep 5
+2026-09-28T23:17:43Z paused build 1 (bld): group 92337 and 4 descendants
+2026-09-28T23:17:43Z start 2 timing t1 after 0 s: sleep 5
+2026-09-28T23:17:47Z submit 3 timing t2 managed est 2 s (given) cap 4.0: sleep 2
+2026-09-28T23:17:48Z job 2 timing ended: exit, exit 0, ran 5 s, waited 0 s: sleep 5
+2026-09-28T23:17:48Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-28T23:17:48Z continued build 1 (bld): group 92337 and 4 descendants
+2026-09-28T23:18:09Z build gap ended after 21 s: the 20 s cap, builds [1] still running
+2026-09-28T23:18:09Z paused build 1 (bld): group 92337 and 4 descendants
+2026-09-28T23:18:09Z start 3 timing t2 after 21 s: sleep 2
+2026-09-28T23:18:11Z job 3 timing ended: exit, exit 0, ran 2 s, waited 21 s: sleep 2
+2026-09-28T23:18:11Z build gap after job 3: timing waits up to 20 s for builds [1]
+2026-09-28T23:18:11Z continued build 1 (bld): group 92337 and 4 descendants
+2026-09-28T23:18:11Z job 1 build ended: cancelled, exit 130, ran 31 s, waited 0 s: fake build
+2026-09-28T23:18:11Z build gap ended after 0 s: its builds ended
+2026-09-28T23:18:11Z gpuqd 94501 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-28T23:18:11Z submit 1 build bld2 attached est 600 s (default) cap None: short build
+2026-09-28T23:18:11Z start 1 build bld2 after 0 s: short build
+2026-09-28T23:18:12Z submit 2 timing t3 managed est 2 s (given) cap 4.0: sleep 2
+2026-09-28T23:18:12Z paused build 1 (bld2): group 94512 and 0 descendants
+2026-09-28T23:18:12Z start 2 timing t3 after 0 s: sleep 2
+2026-09-28T23:18:13Z submit 3 timing t4 managed est 1 s (given) cap 2.0: sleep 1
+2026-09-28T23:18:14Z job 2 timing ended: exit, exit 0, ran 2 s, waited 0 s: sleep 2
+2026-09-28T23:18:14Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-28T23:18:14Z continued build 1 (bld2): group 94512 and 0 descendants
+2026-09-28T23:18:19Z job 1 build ended: exit, exit 0, ran 8 s, waited 0 s: short build
+2026-09-28T23:18:19Z build gap ended after 5 s: its builds ended
+2026-09-28T23:18:19Z start 3 timing t4 after 6 s: sleep 1
+2026-09-28T23:18:20Z job 3 timing ended: exit, exit 0, ran 1 s, waited 6 s: sleep 1
+2026-09-29T02:14:41Z gpuqd 3234 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-29T02:14:41Z submit 1 build build6 attached est 600 s (default) cap None: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T02:14:41Z start 1 build build6 after 0 s: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T02:14:44Z submit 2 timing ultra-infra attached est 60 s (given) cap 1200: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T02:14:44Z paused build 1 (build6): group 3257 and 4 descendants
+2026-09-29T02:14:44Z start 2 timing ultra-infra after 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T02:14:53Z job 2: its client is done and group 3523 still runs: SIGTERM, SIGKILL in 30 s; it keeps the GPU till then
+2026-09-29T02:14:53Z continued build 1 (build6): group 3257 and 4 descendants
+2026-09-29T02:14:53Z job 2 timing ended: exit, exit 0, ran 9 s, waited 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T02:14:53Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-29T02:14:53Z job 1 build ended: cancelled, exit 130, ran 12 s, waited 0 s: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T02:14:53Z build gap ended after 0 s: its builds ended
+2026-09-29T02:14:53Z submit 3 window window attached est 344 s (default) cap 688: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T02:14:53Z start 3 window window after 0 s: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T02:16:10Z job 3: its client is done and group 4559 still runs: SIGTERM, SIGKILL in 30 s; it keeps the GPU till then
+2026-09-29T02:16:10Z job 3 window ended: exit, exit 0, ran 77 s, waited 0 s: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T02:16:12Z submit 4 timing ultra-infra attached est 60 s (given) cap 1200: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T02:16:12Z start 4 timing ultra-infra after 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T02:16:19Z job 4 timing ended: exit, exit 0, ran 8 s, waited 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T02:16:20Z submit 5 timing infra managed est 20 s (given) cap 40.0: sleep 20
+2026-09-29T02:16:20Z start 5 timing infra after 0 s: sleep 20
+2026-09-29T02:16:20Z submit 6 correctness other managed est 5 s (given) cap 10.0: sleep 5
+2026-09-29T02:16:41Z job 5 timing ended: exit, exit 0, ran 20 s, waited 0 s: sleep 20
+2026-09-29T02:16:41Z start 6 correctness other after 20 s: sleep 5
+2026-09-29T02:16:46Z job 6 correctness ended: exit, exit 0, ran 5 s, waited 20 s: sleep 5
+2026-09-29T06:48:33Z gpuqd 64085 serving /tmp/openmm-metal-bench/ultra-infra/gpuqtest/gpuq.sock, state /tmp/openmm-metal-bench/ultra-infra/gpuqtest/home
+2026-09-29T06:48:33Z submit 1 build build6 attached est 600 s (default) cap None: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T06:48:33Z start 1 build build6 after 0 s: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T06:48:36Z submit 2 timing ultra-infra attached est 60 s (given) cap 1200: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T06:48:36Z paused build 1 (build6): group 64101 and 4 descendants
+2026-09-29T06:48:36Z start 2 timing ultra-infra after 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T06:48:44Z job 2: its client is done and group 64195 still runs: SIGTERM, SIGKILL in 30 s; it keeps the GPU till then
+2026-09-29T06:48:44Z job 2 timing ended: exit, exit 0, ran 8 s, waited 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab, about 1 min
+2026-09-29T06:48:44Z build gap after job 2: timing waits up to 20 s for builds [1]
+2026-09-29T06:48:44Z continued build 1 (build6): group 64101 and 4 descendants
+2026-09-29T06:48:45Z job 1 build ended: cancelled, exit 130, ran 12 s, waited 0 s: build.sh /tmp/openmm-metal-bench/ultra-infra/gpuqtest/build6
+2026-09-29T06:48:45Z build gap ended after 0 s: its builds ended
+2026-09-29T06:48:45Z submit 3 window window attached est 344 s (default) cap 688: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T06:48:45Z start 3 window window after 0 s: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T06:50:02Z job 3: its client is done and group 64495 still runs: SIGTERM, SIGKILL in 30 s; it keeps the GPU till then
+2026-09-29T06:50:02Z job 3 window ended: exit, exit 0, ran 77 s, waited 0 s: dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits
+2026-09-29T06:50:03Z submit 4 timing ultra-infra attached est 60 s (given) cap 1200: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T06:50:03Z start 4 timing ultra-infra after 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T06:50:11Z job 4 timing ended: exit, exit 0, ran 8 s, waited 0 s: ab.sh /tmp/openmm-metal-bench/ultra-infra/gpuq6/ab-raw, about 1 min
+2026-09-29T06:50:12Z submit 5 timing infra managed est 20 s (given) cap 40.0: sleep 20
+2026-09-29T06:50:12Z start 5 timing infra after 0 s: sleep 20
+2026-09-29T06:50:12Z submit 6 correctness other managed est 5 s (given) cap 10.0: sleep 5
+2026-09-29T06:50:32Z job 5 timing ended: exit, exit 0, ran 20 s, waited 0 s: sleep 20
+2026-09-29T06:50:32Z start 6 correctness other after 20 s: sleep 5
+2026-09-29T06:50:37Z job 6 correctness ended: exit, exit 0, ran 5 s, waited 20 s: sleep 5

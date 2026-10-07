@@ -1,0 +1,432 @@
+21:08:58Z lease taken: s1r1
+test         variant       rel|dF|    max|dF|    rel|dE|
+gbsa         base        2.468e-05  8.567e-02  6.121e-07
+gbsa         tgpa        2.468e-05  8.567e-02  6.498e-07
+gbsa         tgpfa       2.468e-05  8.567e-02  5.957e-07
+gbsa         u1          2.468e-05  8.567e-02  6.600e-07
+gbsa         u4          2.468e-05  8.567e-02  6.171e-07
+gbsa         g256        2.468e-05  8.567e-02  6.721e-07
+rf           base        2.213e-05  7.340e-01  2.072e-07
+rf           tgpa        2.213e-05  7.340e-01  2.090e-07
+rf           tgpfa       2.213e-05  7.340e-01  2.134e-07
+rf           u1          2.213e-05  7.340e-01  2.240e-07
+rf           u4          2.213e-05  7.340e-01  2.138e-07
+rf           g256        2.213e-05  7.340e-01  2.134e-07
+pme          base        2.048e-05  3.918e-01  1.214e-06
+pme          tgpa        2.048e-05  3.918e-01  1.169e-06
+pme          tgpfa       2.048e-05  3.918e-01  1.205e-06
+pme          u1          2.048e-05  3.918e-01  1.169e-06
+pme          u4          2.048e-05  3.918e-01  1.169e-06
+pme          g256        2.048e-05  3.918e-01  1.185e-06
+apoa1pme     base        7.747e-05  7.200e-01  5.634e-07
+apoa1pme     tgpa        7.747e-05  7.200e-01  6.065e-07
+apoa1pme     tgpfa       7.747e-05  7.200e-01  6.065e-07
+apoa1pme     u1          7.747e-05  7.200e-01  5.807e-07
+apoa1pme     u4          7.747e-05  7.200e-01  5.979e-07
+apoa1pme     g256        7.747e-05  7.200e-01  6.237e-07
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:09:10.104648+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1238.2
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:09:26.594796+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1214.76
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:09:42.595451+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1306.57
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:09:58.691294+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1226.73
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:10:14.444816+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1239.02
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:10:30.245480+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1274.09
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:10:46.314240+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      712.325
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:11:02.775067+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      711.787
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:11:19.313200+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      832.078
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:11:36.171124+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      703.074
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:11:52.678338+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      702.978
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:12:09.549866+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      714.283
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:12:26.343294+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      538.5
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:12:42.878237+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      539.022
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:12:59.402717+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      585.897
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:13:16.195290+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      539.464
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:13:32.974443+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      534.683
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:13:49.794965+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      538.375
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:14:06.520002+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      300.994
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:14:25.291241+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      299.049
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:14:44.206980+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      299.13
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:15:03.081859+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      298.566
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:15:21.828070+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      299.999
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:15:40.709617+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      303.45
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:15:59.719478+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.175
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:16:18.507934+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.145
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:16:37.177231+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.254
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:16:55.742213+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.63
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:17:14.625880+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.759
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+pgrep: Cannot compile regular expression `clang++' (repetition-operator operand invalid)
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:17:33.333239+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      194.293
+AB_DONE /tmp/openmm-metal-bench/ultra-nonbonded/out/screen1
+21:17:51Z LEASED_DONE rc=0 s1r1
+21:17:51Z lease taken: s1r2
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:17:52.137775+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1272.58
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:18:08.228348+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1246.93
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:18:24.504205+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1248.15
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:18:40.759310+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1278.65
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:20:27.264650+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1256.47
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:20:43.336031+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1247.11
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:20:59.235400+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      717.102
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:21:15.913480+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      709.284
+Terminated: 15

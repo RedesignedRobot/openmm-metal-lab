@@ -1,0 +1,16 @@
+23:49:18Z waiting for the lease: 47 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 41 build processes
+== ctest NB_GATE=1
+ 1/12 Test #232: TestMetalConstantPotentialForceSingle ...   Passed   12.06 sec
+ 2/12 Test #248: TestMetalCustomGBForceSingle ............   Passed    2.93 sec
+ 3/12 Test #249: TestMetalCustomGBForceMixed .............   Passed   26.19 sec
+ 4/12 Test #256: TestMetalCustomNonbondedForceSingle .....   Passed    9.74 sec
+ 5/12 Test #233: TestMetalConstantPotentialForceMixed ....   Passed   64.54 sec
+ 6/12 Test #257: TestMetalCustomNonbondedForceMixed ......   Passed   29.65 sec
+ 7/12 Test #264: TestMetalEwaldSingle ....................   Passed   16.65 sec
+ 8/12 Test #268: TestMetalGBSAOBCForceSingle .............   Passed    7.72 sec
+ 9/12 Test #269: TestMetalGBSAOBCForceMixed ..............   Passed   52.02 sec
+10/12 Test #265: TestMetalEwaldMixed .....................   Passed   65.22 sec
+11/12 Test #294: TestMetalNonbondedForceSingle ...........   Passed    9.00 sec
+12/12 Test #295: TestMetalNonbondedForceMixed ............   Passed   25.14 sec
+100% tests passed out of 12
+== DIAG3B DONE

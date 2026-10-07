@@ -1,0 +1,43 @@
+07:06:42Z waiting for the lease: 15 in the queue, held by: ultra-r2-dispatch 2026-09-27T07:06:26Z ki batching, md100, detforces, 3 build processes
+07:11:47Z waiting for the lease: 9 in the queue, held by: r2-correctness 2026-09-27T07:09:23Z ctest amoeba/hippo, cast, batching before+after, 0 build processes
+07:16:52Z waiting for the lease: 8 in the queue, held by: r2-infra 2026-09-27T07:13:27Z md100 max spread base+int028+r1, 0 build processes
+07:21:57Z waiting for the lease: 8 in the queue, held by: r2-drift 2026-09-27T07:18:45Z drift dhfr nve CPU mixed tol 1e-5 seed 41 0.15 ns, 0 build processes
+07:27:02Z waiting for the lease: 8 in the queue, held by: r2-drift 2026-09-27T07:18:45Z drift dhfr nve CPU mixed tol 1e-5 seed 41 0.15 ns, 0 build processes
+07:32:06Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T07:29:37Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-rf, about 7 min, 0 build processes
+07:37:11Z waiting for the lease: 5 in the queue, held by: r2-mixed 2026-09-27T07:35:18Z e2 mixed traces gbsa rf pme apoa1pme, 17 build processes
+07:42:15Z waiting for the lease: 4 in the queue, held by: ultra-r2-correctness 2026-09-27T07:38:06Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1-amoeba, about 9 min BUILD RUNNING, 0 build processes
+07:47:19Z waiting for the lease: 3 in the queue, held by: ultra-r2-correctness 2026-09-27T07:44:57Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2-pme, about 11 min, 0 build processes
+07:52:22Z waiting for the lease: 3 in the queue, held by: ultra-r2-correctness 2026-09-27T07:44:57Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2-pme, about 11 min, 0 build processes
+07:57:26Z waiting for the lease: 2 in the queue, held by: ultra-r2-correctness 2026-09-27T07:54:39Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3a, about 16 min, 0 build processes
+08:02:50Z waiting for the lease: 1 in the queue, held by: ultra-r2-correctness 2026-09-27T07:59:10Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3b, about 8 min, 0 build processes
+q-k2-single: xctrace pid 55215 recording 08:06:10Z
+captured q-k2-single 08:06:14Z: Target app exited, ending recording...
+saved q-k2-single 08:07:00Z: Output file saved as: q-k2-single.trace
+exported q-k2-single 08:07:10Z, rows 213827, releasing
+08:07:10Z waiting for the lease: 25 in the queue, held by: nobody, 0 build processes
+08:12:16Z waiting for the lease: 23 in the queue, held by: r2-mixed 2026-09-27T08:10:21Z e4 mixed traces gbsa rf pme apoa1pme, 0 build processes
+08:17:19Z waiting for the lease: 22 in the queue, held by: ultra-r2-mixed 2026-09-27T08:13:02Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a, about 7 min, 9 build processes
+08:22:23Z waiting for the lease: 21 in the queue, held by: ultra-r2-mixed 2026-09-27T08:18:50Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4b, about 12 min, 0 build processes
+08:27:28Z waiting for the lease: 20 in the queue, held by: r2-mixed 2026-09-27T08:25:38Z g conversion x2 diag traces, 0 build processes
+08:32:32Z waiting for the lease: 19 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:28:36Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1b, about 6 min, 1 build processes
+08:37:36Z waiting for the lease: 18 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:42:39Z waiting for the lease: 12 in the queue, held by: r2-infra 2026-09-27T08:42:16Z md100 pme-only diagnosis r1 x40, 0 build processes
+08:47:45Z waiting for the lease: 9 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+08:52:50Z waiting for the lease: 9 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+08:57:55Z waiting for the lease: 9 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:03:01Z waiting for the lease: 8 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:08:07Z waiting for the lease: 8 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:13:12Z waiting for the lease: 7 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:18:17Z waiting for the lease: 7 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:23:21Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T09:21:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-pme, about 7 min, 0 build processes
+09:28:25Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-gb 2026-09-27T09:26:48Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s2, about 4 min, 0 build processes
+09:33:39Z waiting for the lease: 3 in the queue, held by: ultra-r2-correctness 2026-09-27T09:33:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1b, about 7 min, 0 build processes
+09:38:43Z waiting for the lease: 2 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:43:47Z waiting for the lease: 2 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:49:01Z waiting for the lease: 1 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:54:36Z waiting for the lease: 1 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+q-k6-single: xctrace pid 47649 recording 09:57:04Z
+captured q-k6-single 09:57:08Z: Target app exited, ending recording...
+saved q-k6-single 09:57:47Z: Output file saved as: q-k6-single.trace
+exported q-k6-single 09:57:58Z, rows 216096, releasing
+PROF2 DONE

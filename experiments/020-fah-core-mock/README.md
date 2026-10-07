@@ -30,7 +30,7 @@ What Metal does with each property:
 
 `TestMetalProperties` passes the FAH map (`Precision`, `DisablePmeStream` "1", `DeviceIndex` "0", `DeterministicForces` "true") and checks the reported values. It also checks that `DeviceIndex` "1" and "0,1" throw the error above, that `DisablePmeStream` "Yes" and `DeterministicForces` "2" throw an "Illegal value" error listing the valid values, and that five force evaluations in each of two Contexts are bitwise equal.
 
-CTest, `ctest -R Metal`, M3 Ultra (the owner ruled out GPU runs on the laptop, so the brief's M3 Pro baseline was not rerun):
+CTest, `ctest -R Metal`, M3 Ultra (GPU runs on the laptop are ruled out, so the brief's M3 Pro baseline was not rerun):
 
 | Build | Passed | Failed |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ Platform minus Reference, kJ/mol (`raw/decompose.out`, `raw/decompose-opencl.out
 
 What the split shows is where the error lives: GPU direct space, on both GPU platforms, with the same sign. It does not show the mechanism. A constant bias per pair does not fit. STMV's 15 kJ/mol over about 1.7e8 pairs is 9e-8 per pair, which would predict 2.5 to 3.5 kJ/mol for nav with its 1.0 nm cutoff, and nav measures 0.68. The likely suspects are float arithmetic in the shared nonbonded kernel source (`erfc`, `exp`, the per-pair sums), but that is unproven. Since OpenCL shows the same thing, I did not chase it into the kernel. For FAH, the question is whether projects this large get a size-scaled energy tolerance, or run their state tests on a platform that passes.
 
-Wall time, seconds, host wall clock (`time.perf_counter`), owner at the keyboard, light CPU. Each figure includes Context creation and kernel compilation for every new Context, and the uninterrupted figure includes the fresh-Context force checks, so these are not throughput numbers:
+Wall time, seconds, host wall clock (`time.perf_counter`), a user at the keyboard, light CPU. Each figure includes Context creation and kernel compilation for every new Context, and the uninterrupted figure includes the fresh-Context force checks, so these are not throughput numbers:
 
 | WU | uninterrupted | xml restart + state tests | xml restart | binary restart | Reference, slowest checkpoint test |
 | --- | ---: | ---: | ---: | ---: | ---: |

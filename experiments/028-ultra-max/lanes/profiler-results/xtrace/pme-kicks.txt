@@ -1,0 +1,20 @@
+window A: 2153 steps, 4.01 kicks/step, wall 638.3 us/step, busy 630.3 us/step (98.7%), idle 8.0 us/step (1.3%), inter-kick gap total 7.9 us/step, median 0.42 us, p90 0.58 us, max 1112.2 us
+  gaps by size: 0-2 us 3.98/step 1.9 us/step, 2-10 us 0.00/step 0.0 us/step, 10-50 us 0.01/step 0.4 us/step, 50-200 us 0.01/step 0.9 us/step, 200-1000 us 0.01/step 3.7 us/step, 1000-inf us 0.00/step 1.0 us/step
+  Compute Command 0 -> Compute Command 0: 1.00/step, median 0.46 us, total 6.3 us/step
+  Blit Command 1 -> Compute Command 2: 1.00/step, median 0.42 us, total 0.6 us/step
+  Compute Command 2 -> Compute Command 0: 1.00/step, median 0.46 us, total 0.6 us/step
+  Compute Command 0 -> Blit Command 1: 1.00/step, median 0.42 us, total 0.4 us/step
+window B: 2153 steps, 4.01 kicks/step, wall 640.1 us/step, busy 630.4 us/step (98.5%), idle 9.7 us/step (1.5%), inter-kick gap total 9.7 us/step, median 0.46 us, p90 0.58 us, max 1130.3 us
+  gaps by size: 0-2 us 3.96/step 1.9 us/step, 2-10 us 0.01/step 0.1 us/step, 10-50 us 0.01/step 0.4 us/step, 50-200 us 0.02/step 2.1 us/step, 200-1000 us 0.01/step 4.2 us/step, 1000-inf us 0.00/step 1.0 us/step
+  integrateLangevinMiddlePart1 ... -> calcCenterOfMassMomentum ...: 0.00/step, median 952.92 us, total 3.1 us/step
+  gridSpreadCharge ... -> generateRandomNumbers ...: 0.25/step, median 0.46 us, total 1.7 us/step
+  gridSpreadCharge ... -> integrateLangevinMiddlePart1 ...: 0.25/step, median 0.46 us, total 1.1 us/step
+  Blit Command 1 -> sortBoxData ...: 1.00/step, median 0.46 us, total 1.0 us/step
+  generateRandomNumbers ... -> calcCenterOfMassMomentum ...: 0.00/step, median 890.33 us, total 0.8 us/step
+  findAtomGridIndex ... -> integrateLangevinMiddlePart1 ...: 0.50/step, median 0.46 us, total 0.7 us/step
+window C: 2153 steps, 4.01 kicks/step, wall 638.1 us/step, busy 630.4 us/step (98.8%), idle 7.7 us/step (1.2%), inter-kick gap total 7.5 us/step, median 0.46 us, p90 0.54 us, max 932.4 us
+  gaps by size: 0-2 us 3.97/step 1.9 us/step, 2-10 us 0.01/step 0.0 us/step, 10-50 us 0.01/step 0.3 us/step, 50-200 us 0.01/step 1.5 us/step, 200-1000 us 0.01/step 3.9 us/step, 1000-inf us 0.00/step 0.0 us/step
+  Compute Command 0 -> Compute Command 0: 1.00/step, median 0.46 us, total 5.7 us/step
+  Compute Command 2 -> Compute Command 0: 1.00/step, median 0.46 us, total 0.7 us/step
+  Blit Command 1 -> Compute Command 2: 1.00/step, median 0.46 us, total 0.7 us/step
+  Compute Command 0 -> Blit Command 1: 1.00/step, median 0.42 us, total 0.4 us/step

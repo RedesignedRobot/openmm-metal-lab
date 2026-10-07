@@ -1,0 +1,8 @@
+{"run": "base", "c": {"test": "gbsa", "precision": "mixed", "tolerance": 1e-08, "steps": 500, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "shake": {"n": 1221, "max_rel_length": 2.261661728655978e-08, "rms_rel_length": 1.5737831614416862e-08, "max_vel_along": 0.7066906934743578}}}
+{"run": "new", "c": }
+{"run": "base", "c": {"test": "gbsa", "precision": "single", "tolerance": 1e-08, "steps": 500, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "shake": {"n": 1221, "max_rel_length": 1.892819939522267e-06, "rms_rel_length": 3.042994044202213e-07, "max_vel_along": 0.511908019775175}}}
+{"run": "new", "c": }
+{"run": "base", "c": {"test": "pme", "precision": "mixed", "tolerance": 1e-08, "steps": 500, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "settle": {"n": 21069, "max_rel_length": 3.084797378073548e-08, "rms_rel_length": 1.8450622867692845e-08, "max_vel_along": 1.01473592771375}, "shake": {"n": 1221, "max_rel_length": 2.2616683351477785e-08, "rms_rel_length": 1.570934182777759e-08, "max_vel_along": 0.5275634843774576}}}
+{"run": "new", "c": }
+{"run": "base", "c": {"test": "pme", "precision": "single", "tolerance": 1e-08, "steps": 500, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "settle": {"n": 21069, "max_rel_length": 5.692742534246708e-06, "rms_rel_length": 1.2260915388309675e-06, "max_vel_along": 1.1851505465064918}, "shake": {"n": 1221, "max_rel_length": 4.200163631396479e-06, "rms_rel_length": 1.2068727978958592e-06, "max_vel_along": 0.5845666283656732}}}
+{"run": "new", "c": }

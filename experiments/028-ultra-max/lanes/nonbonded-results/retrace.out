@@ -1,0 +1,14 @@
+09:02:00Z waiting for the lease: 2 in the queue, held by: i-wfcap 2026-09-25T08:57:56Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/i-wfcap, 0 build processes
+09:07:05Z waiting for the lease: 2 in the queue, held by: i-wfcap 2026-09-25T08:57:56Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/i-wfcap, 0 build processes
+09:12:09Z waiting for the lease: 2 in the queue, held by: ultra-integrated 2026-09-25T08:59:21Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 0 build processes
+09:17:14Z waiting for the lease: 2 in the queue, held by: ultra-integrated 2026-09-25T08:59:21Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 17 build processes
+09:22:37Z waiting for the lease: 1 in the queue, held by: ultra-atomics 2026-09-25T09:19:52Z d3 screen mixed apoa1rf,amber20-cellulose 2x15 s, 0 build processes
+integrated BUILT e08a0b1c614aff644f712a6cd4f7c8581ba6c5b5
+rf-int: xctrace pid 30583 recording 09:25:16Z
+captured rf-int 09:25:19Z: Target app exited, ending recording...
+saved rf-int 09:25:51Z: Output file saved as: rf-int.trace
+exported rf-int 09:25:56Z, rows 74386, releasing
+apoa1rf-int: xctrace pid 31829 recording 09:25:58Z
+captured apoa1rf-int 09:26:04Z: Target app exited, ending recording...
+saved apoa1rf-int 09:26:41Z: Output file saved as: apoa1rf-int.trace
+exported apoa1rf-int 09:26:45Z, rows 42099, releasing

@@ -1,0 +1,339 @@
+20:58:56Z waiting for the lease: 22 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:04:00Z waiting for the lease: 22 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:09:04Z waiting for the lease: 21 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:14:08Z waiting for the lease: 20 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:19:12Z waiting for the lease: 20 in the queue, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453, 13 build processes
+21:24:16Z waiting for the lease: 20 in the queue, held by: atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 0 build processes
+21:29:21Z waiting for the lease: 20 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 13 build processes
+21:34:25Z waiting for the lease: 20 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:39:30Z waiting for the lease: 20 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:44:34Z waiting for the lease: 19 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:49:39Z waiting for the lease: 19 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:54:44Z waiting for the lease: 19 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:59:49Z waiting for the lease: 6 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:04:53Z waiting for the lease: 6 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:09:57Z waiting for the lease: 6 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:15:01Z waiting for the lease: 4 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:20:05Z waiting for the lease: 4 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:25:09Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:30:13Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 11 build processes
+22:35:17Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:40:20Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:45:24Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 13 build processes
+22:50:28Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+ 1:55  up 1 day,  9:09, 2 users, load averages: 6.27 7.52 7.32
+ %CPU COMMAND
+ 24.6 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 16.9 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headle
+ 14.9 ~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headle
+ 10.3 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+gate --quick /tmp/openmm-metal-bench/ultra-nblist/t4, 411a9f19a4eebe643ebd9ad992f8edd77fedb3fa, logs in /tmp/openmm-metal-bench/ultra-nblist/t4/gate-20260924T225538Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.566e-02  6.700e-07  ok
+gbsa            2489     mixed  2.468e-05  8.566e-02  6.338e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.160e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.115e-07  ok
+pme: Reference cached
+pme            23558    single  2.293e+01  5.868e+05  1.395e+03  FAIL rel|dF| 2.29e+01 > base 2.05e-05
+pme            23558     mixed  2.564e+01  5.826e+05  1.370e+03  FAIL rel|dF| 2.56e+01 > base 2.05e-05
+apoa1rf: Reference cached
+apoa1rf        92224    single  1.880e+01  2.592e+06  2.224e-01  FAIL rel|dF| 1.88e+01 > base 5.99e-05
+apoa1rf        92224     mixed  1.342e+01  1.265e+06  1.146e-02  FAIL rel|dF| 1.34e+01 > base 5.99e-05
+apoa1pme: Reference cached
+apoa1pme       92224    single  3.226e+01  2.134e+06  1.228e+03  FAIL rel|dF| 3.23e+01 > base 7.75e-05
+apoa1pme       92224     mixed  2.710e+01  1.153e+06  1.196e+03  FAIL rel|dF| 2.71e+01 > base 7.75e-05
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  1.313e+01  9.357e+05  9.184e+01  FAIL rel|dF| 1.31e+01 > base 7.75e-05
+apoa1ljpme     92224     mixed  1.613e+01  2.128e+06  8.430e+01  FAIL rel|dF| 1.61e+01 > base 7.75e-05
+FAIL
+gate --quick /tmp/openmm-metal-bench/ultra-nblist, e342bc02f6a015f4dd6e633c317639c911d86269, logs in /tmp/openmm-metal-bench/ultra-nblist/gate-20260924T225554Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.567e-02  6.225e-07  ok
+gbsa            2489     mixed  2.468e-05  8.567e-02  6.124e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  1.953e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  1.211e-06  ok
+pme            23558     mixed  2.048e-05  3.918e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  5.065e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.200e-01  5.749e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.200e-01  5.871e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.229e-01  6.578e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.229e-01  6.179e-07  ok
+PASS
+estimate: 2 rounds, 6 tests, 2 configurations, about 8 min 0 s
+base Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+sort Metal single settings=none /tmp/openmm-metal-bench/ultra-nblist/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit e342bc02f6a015f4dd6e633c317639c911d86269 src b1f5a71922894f97c3be3ba245871a1c1a435bcd toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:04:44Z 
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:56:17.347802+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1245.97
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:56:32.850939+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1297.4
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:56:49.281487+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      718.781
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:57:06.087487+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      765.006
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:57:23.284180+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      536.404
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:57:39.978055+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      590.72
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:57:56.854548+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      300.19
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:58:15.565365+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      300.825
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:58:34.573128+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      195.18
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:58:53.481739+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      201.392
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:59:12.415123+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      145.587
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:59:31.976534+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      160.293
+hostname: M3-Ultra
+timestamp: 2026-09-24T22:59:50.911930+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1295.71
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:00:07.063664+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1242.34
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:00:23.048572+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      780.954
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:00:39.715682+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      704.445
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:00:56.511620+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      595.343
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:01:13.192104+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      540.025
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:01:29.910400+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      300.284
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:01:48.590914+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1rf           single      HBonds        1.5            4         NVT        Metal      300.262
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:02:07.276426+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      199.595
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:02:25.932113+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1pme          single      HBonds        1.5            4         NVT        Metal      193.745
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:02:44.606693+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      160.734
+hostname: M3-Ultra
+timestamp: 2026-09-24T23:03:03.294877+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      143.989
+done /tmp/openmm-metal-bench/ultra-nblist/screen1
+ 2:03  up 1 day,  9:17, 2 users, load averages: 2.59 4.88 6.15
+scan gets 676 s
+{"round": 0, "test": "pme", "label": "new", "ns_day": 564.518, "load": 2.59033203125}
+{"round": 0, "test": "pme", "label": "base", "ns_day": 531.502, "load": 3.18359375}
+{"round": 0, "test": "pme", "label": "wrap", "ns_day": 582.6, "load": 3.18359375}
+{"round": 0, "test": "pme", "label": "b2", "ns_day": 606.156, "load": 3.16845703125}
+{"round": 0, "test": "pme", "label": "b4", "ns_day": 644.164, "load": 3.16845703125}
+{"round": 0, "test": "pme", "label": "wrapb2", "ns_day": 630.9, "load": 3.16845703125}
+{"round": 0, "test": "pme", "label": "wrapb4", "ns_day": 632.754, "load": 3.07470703125}
+{"round": 0, "test": "pme", "label": "agg0", "ns_day": 566.742, "load": 3.07470703125}
+{"round": 0, "test": "pme", "label": "scan0", "ns_day": 563.966, "load": 3.07470703125}
+{"round": 0, "test": "pme", "label": "pb128", "ns_day": 586.199, "load": 2.98828125}
+{"round": 0, "test": "pme", "label": "pf", "ns_day": 564.077, "load": 2.98828125}
+{"round": 0, "test": "pme", "label": "mb0", "ns_day": 612.912, "load": 3.06884765625}
+{"round": 0, "test": "pme", "label": "pad120", "ns_day": 604.427, "load": 3.06884765625}
+{"round": 0, "test": "pme", "label": "pad160", "ns_day": 624.06, "load": 3.06884765625}
+{"round": 0, "test": "pme", "label": "tg64", "ns_day": 566.755, "load": 3.46337890625}
+{"round": 0, "test": "apoa1ljpme", "label": "new", "ns_day": 172.871, "load": 3.66650390625}
+{"round": 0, "test": "apoa1ljpme", "label": "base", "ns_day": 154.64, "load": 3.66650390625}
+{"round": 0, "test": "apoa1ljpme", "label": "wrap", "ns_day": 169.863, "load": 3.66650390625}
+{"round": 0, "test": "apoa1ljpme", "label": "b2", "ns_day": 173.408, "load": 3.61279296875}
+{"round": 0, "test": "apoa1ljpme", "label": "b4", "ns_day": 172.837, "load": 3.61279296875}
+{"round": 0, "test": "apoa1ljpme", "label": "wrapb2", "ns_day": 173.718, "load": 3.61279296875}
+{"round": 0, "test": "apoa1ljpme", "label": "wrapb4", "ns_day": 171.646, "load": 3.4833984375}
+{"round": 0, "test": "apoa1ljpme", "label": "agg0", "ns_day": 172.934, "load": 3.4833984375}
+{"round": 0, "test": "apoa1ljpme", "label": "scan0", "ns_day": 172.599, "load": 3.5244140625}
+{"round": 0, "test": "apoa1ljpme", "label": "pb128", "ns_day": 174.487, "load": 3.5244140625}
+{"round": 0, "test": "apoa1ljpme", "label": "pf", "ns_day": 172.88, "load": 3.5244140625}
+{"round": 0, "test": "apoa1ljpme", "label": "mb0", "ns_day": 166.958, "load": 3.48193359375}
+{"round": 0, "test": "apoa1ljpme", "label": "pad120", "ns_day": 172.567, "load": 3.48193359375}
+{"round": 0, "test": "apoa1ljpme", "label": "pad160", "ns_day": 171.079, "load": 3.48193359375}
+{"round": 0, "test": "apoa1ljpme", "label": "tg64", "ns_day": 172.346, "load": 3.44287109375}
+{"round": 0, "test": "apoa1pme", "label": "new", "ns_day": 211.167, "load": 3.44287109375}
+{"round": 0, "test": "apoa1pme", "label": "base", "ns_day": 204.273, "load": 3.2470703125}
+{"round": 0, "test": "apoa1pme", "label": "wrap", "ns_day": 211.058, "load": 3.2470703125}
+{"round": 0, "test": "apoa1pme", "label": "b2", "ns_day": 212.937, "load": 3.62744140625}
+{"round": 0, "test": "apoa1pme", "label": "b4", "ns_day": 214.61, "load": 3.62744140625}
+{"round": 0, "test": "apoa1pme", "label": "wrapb2", "ns_day": 213.361, "load": 3.62744140625}
+{"round": 0, "test": "apoa1pme", "label": "wrapb4", "ns_day": 211.642, "load": 3.5771484375}
+{"round": 0, "test": "apoa1pme", "label": "agg0", "ns_day": 211.107, "load": 3.5771484375}
+{"round": 0, "test": "apoa1pme", "label": "scan0", "ns_day": 211.051, "load": 3.5771484375}
+{"round": 0, "test": "apoa1pme", "label": "pb128", "ns_day": 213.385, "load": 3.61083984375}
+{"round": 0, "test": "apoa1pme", "label": "pf", "ns_day": 210.999, "load": 3.61083984375}
+{"round": 0, "test": "apoa1pme", "label": "mb0", "ns_day": 226.746, "load": 3.61083984375}
+{"round": 0, "test": "apoa1pme", "label": "pad120", "ns_day": 220.721, "load": 3.5615234375}
+{"round": 0, "test": "apoa1pme", "label": "pad160", "ns_day": 225.513, "load": 3.5615234375}
+{"round": 0, "test": "apoa1pme", "label": "tg64", "ns_day": 209.912, "load": 3.5615234375}
+ 2:04  up 1 day,  9:19, 2 users, load averages: 3.56 4.66 5.95

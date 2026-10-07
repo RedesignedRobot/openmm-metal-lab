@@ -1,0 +1,16 @@
+15:33:03Z waiting for the lease: 16 in the queue, held by: ultra-r2-bonded 2026-09-27T15:29:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab1, about 9 min, 0 build processes
+15:38:07Z waiting for the lease: 15 in the queue, held by: r2-dispatch 2026-09-27T15:37:11Z kc batching, md100, detforces, 0 build processes
+15:43:11Z waiting for the lease: 13 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:48:15Z waiting for the lease: 13 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:53:19Z waiting for the lease: 13 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:58:24Z waiting for the lease: 12 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:03:27Z waiting for the lease: 12 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:08:31Z waiting for the lease: 8 in the queue, held by: ultra-r2-accum-gb 2026-09-27T16:07:01Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s9, about 4 min, 0 build processes
+16:13:36Z waiting for the lease: 5 in the queue, held by: r2-mixed 2026-09-27T16:10:31Z q on nf residual traces, 0 build processes
+16:18:41Z waiting for the lease: 3 in the queue, held by: r2-drift 2026-09-27T16:14:38Z drift dhfr nve Metal single tol 1e-8 seed 112 1 ns, 0 build processes
+amber20-stmv-opencl: xctrace pid 33830 recording 16:23:18Z
+captured amber20-stmv-opencl 16:23:48Z: Target app exited, ending recording...
+16:24:47Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(1) OpenCL shader trace, stmv rerun with 420 s save wait). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved amber20-stmv-opencl 16:25:41Z: Output file saved as: amber20-stmv-opencl.trace
+exported amber20-stmv-opencl 16:25:45Z, rows 26621, releasing
+stmv done 16:25:45Z

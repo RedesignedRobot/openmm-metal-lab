@@ -6,7 +6,7 @@ The Metal platform's neighbour list kernel, `findBlocksWithInteractions`, was a 
 
 ## What changed
 
-The change is commit `33728aa53` on branch `metal-simd-findblocks`, based on `metal` at `361452c5c`, in `/Users/amir/code/mini/openmm-simd`. It touches two files: `platforms/metal/src/kernels/common.metal` and `findInteractingBlocks.metal`. The host code and the other kernels are unchanged.
+The change is commit `33728aa53` on branch `metal-simd-findblocks`, based on `metal` at `361452c5c`, in `~/code/mini/openmm-simd`. It touches two files: `platforms/metal/src/kernels/common.metal` and `findInteractingBlocks.metal`. The host code and the other kernels are unchanged.
 
 Ported from CUDA's `findInteractingBlocks.cu`:
 - Ballots for large-block flags and candidate blocks, walked with `ctz`.
@@ -32,7 +32,7 @@ Everything ran on the Mac mini: Apple M2, 10 GPU cores, 8 GB, macOS 27.0 (26A428
 4. **Speed** (`run.py`): the unmodified `benchmark.py` (sha256 `cb2dec8f…`, same as `bench-018` and the 361452c5c source), run from a copy of `examples/benchmarks` with `--platform=Metal`. Tests are pme, apoa1rf, apoa1pme and amber20-cellulose, in single and mixed. The FAH dhfr and nav work units run through `fahwu.py` for 60 s. Three rounds, all at nice 0, on AC power.
    - Within a round, each (test, precision) pair runs before and after back to back. Which install goes first alternates from one pair to the next, but each pair keeps the same order in every round: before first for single, after first for mixed. The before medians match experiment 018's M2 baseline to within 0.1%.
    - **Clock:** `benchmark.py`'s own host wall clock (`datetime.now`, whole steps, after its warm-up); `fahwu.py` uses host wall `time.perf_counter`.
-   - The mini is shared with other agents. Each pair held the machine lease `/tmp/openmm-lease`, so nothing else ran during a pair. One scheduled pause, 16:03–16:13Z, fell between pairs (`results/yield-boundary.log`).
+   - The mini is shared with other jobs. Each pair held the machine lease `/tmp/openmm-lease`, so nothing else ran during a pair. One scheduled pause, 16:03–16:13Z, fell between pairs (`results/yield-boundary.log`).
    - An earlier attempt overlapped two `run.py` processes. All of its data was discarded; it is archived on the mini as `~/lab/simd-019/bench-contaminated-20260923T1558Z` and not used here. The run reported below is a single clean run, 15:59–17:41Z.
 5. **findBlocks share** (`fbshare.py`, `fb.sh`): copies of both trees with the scratch patch `time-findblocks.patch`, built into separate prefixes. The patch is never committed anywhere. It puts findBlocks in its own command buffer and logs that buffer's GPU time.
    - `fbshare.py` builds each benchmark system the way `benchmark.py` does, runs 200 warm-up steps, then times 1000 steps.

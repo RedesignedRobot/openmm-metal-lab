@@ -1,0 +1,8 @@
+2026-09-25T00:21:49Z round 1 amber20-dhfr base load { 2.69 6.65 11.14 } vm 6% top superwhisper 26.2%, sysmond 7.0%, com.apple.Virtualization.VirtualMachine 5.5%, trustd 5.2%, syspolicyd 3.8%
+2026-09-25T00:22:07Z round 1 amber20-dhfr cand2 load { 2.63 6.44 10.98 } vm 4% top superwhisper 20.7%, powermetrics 9.0%, sysmond 6.3%, com.apple.Virtualization.VirtualMachine 4.4%, bun 3.7%
+2026-09-25T00:22:25Z round 1 amber20-cellulose base load { 2.56 6.17 10.78 } vm 11% top superwhisper 21.8%, sysmond 13.7%, com.apple.Virtualization.VirtualMachine 10.6%, iStat Menus Menubar 3.0%, sh 2.1%
+2026-09-25T00:22:51Z round 1 amber20-cellulose cand2 load { 2.26 5.81 10.52 } vm 9% top superwhisper 24.2%, sysmond 10.5%, com.apple.Virtualization.VirtualMachine 9.3%, WindowServer 1.5%, sh 1.3%
+2026-09-25T00:23:15Z round 2 amber20-dhfr cand2 load { 2.18 5.52 10.28 } vm 10% top corespotlightd 149.8%, superwhisper 17.5%, com.apple.Virtualization.VirtualMachine 9.7%, spotlightknowledged.updater 8.1%, iStat Menus Menubar 4.9%
+2026-09-25T00:23:33Z round 2 amber20-dhfr base load { 2.67 5.46 10.17 } vm 6% top superwhisper 21.9%, com.apple.Virtualization.VirtualMachine 5.9%, WindowServer 4.8%,  claude 4.7%, MenuBarAgent 2.5%
+2026-09-25T00:23:50Z round 2 amber20-cellulose cand2 load { 2.77 5.30 10.00 } vm 4% top corespotlightd 141.9%, superwhisper 17.2%, sysmond 5.2%, com.apple.Virtualization.VirtualMachine 3.6%, sh 2.2%
+2026-09-25T00:24:16Z round 2 amber20-cellulose base load { 2.31 5.00 9.76 } vm 13% top superwhisper 22.2%, com.apple.Virtualization.VirtualMachine 12.6%, iStat Menus Menubar 3.6%, WindowServer 2.1%, sysmond 1.9%

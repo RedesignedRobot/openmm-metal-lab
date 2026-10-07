@@ -1,0 +1,5 @@
+test              atoms precision steps       pairs     tiles   single excltiles uncovered duplicate excluded overflow  verdict
+pme               23558    single   100     3473244     12031        0      1253         2         0        0        0  FAIL  (0 s check)
+    uncovered 3831 7625 r=0.8816 nm
+    uncovered 3831 7627 r=0.8895 nm
+exit 1

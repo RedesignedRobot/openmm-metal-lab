@@ -1,0 +1,26 @@
+steps by computeNonbonded: a 6157, b 6000
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+integrateLangevinMiddleFused                       0.00      41.65   -41.65    0.00    1.00
+integrateLangevinMiddleFusedQuads                 29.42       0.00    29.42    1.00    0.00
+computeBondedForces                               45.05      45.71    -0.65    1.00    1.00
+computeNonbonded                                 100.01     100.31    -0.30    1.00    1.00
+copyShortList                                      0.84       0.69     0.15    0.59    0.49
+computeSortKeys                                    1.00       0.87     0.13    0.68    0.61
+calcCenterOfMassMomentum                           5.78       5.88    -0.10    1.00    1.00
+removeCenterOfMassMomentum                         8.81       8.90    -0.09    1.00    1.00
+findBlocksWithInteractions                        37.62      37.70    -0.08    1.00    1.00
+sortShortList2                                     6.86       6.81     0.05    1.00    1.00
+findBlockBounds                                    5.26       5.28    -0.02    1.00    1.00
+generateRandomNumbers                              1.24       1.25    -0.01    0.25    0.25
+sortBoxData                                        2.84       2.85    -0.01    1.00    1.00
+copyInteractionCounts                              0.08       0.09    -0.00    0.06    0.06
+computeKineticEnergy                               0.08       0.09    -0.00    0.00    0.00
+clearTwoBuffers                                    2.47       2.47     0.00    1.00    1.00
+applyShakeToVelocities                             0.01       0.01    -0.00    0.00    0.00
+reduceEnergy                                       0.01       0.01     0.00    0.00    0.00
+applySettleToVelocities                            0.01       0.01     0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00    -0.00    0.00    0.00
+copyDoubleBuffer                                   0.00       0.00     0.00    0.00    0.00
+computeParameters                                  0.00       0.00    -0.00    0.00    0.00
+clearBuffer                                        0.00       0.00    -0.00    0.00    0.00
+total                                            247.40     260.58   -13.18

@@ -1,0 +1,20 @@
+median ns/day, host clock
+test                        base       maxbits        opencl       records
+amber20-stmv               30.24         30.26         18.63         25.77
+
+rounds, base:
+  amber20-stmv       30.20 30.29   spread 0.3%
+rounds, maxbits:
+  amber20-stmv       30.25 30.27   spread 0.1%
+rounds, opencl:
+  amber20-stmv       18.78 18.48   spread 1.6%
+rounds, records:
+  amber20-stmv       25.73 25.82   spread 0.3%
+
+test                                      records/base                     records/maxbits                      records/opencl
+amber20-stmv               0.852 (rounds 0.852..0.852)         0.852 (rounds 0.851..0.853)         1.383 (rounds 1.370..1.397)
+
+1 minute load before 8 runs: 1.96 to 9.74
+Background VM CPU before 8 runs: 6% to 96%
+runs with no result: 0
+runs that overlapped a build: 0

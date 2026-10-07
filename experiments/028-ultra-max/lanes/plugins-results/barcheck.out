@@ -1,0 +1,8 @@
+23:13:54Z waiting for the lease: 59 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:19:04Z waiting for the lease: 56 in the queue, held by: ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+23:24:12Z waiting for the lease: 51 in the queue, held by: ultra-workloads 2026-09-24T23:23:35Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 amber20-dhfr, 0 build processes
+23:29:18Z waiting for the lease: 50 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:34:23Z waiting for the lease: 46 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:39:29Z waiting for the lease: 46 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:44:35Z waiting for the lease: 40 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+withdrawn 23:45:21Z: folded into forces-bar and the bar gate

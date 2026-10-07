@@ -1,0 +1,32 @@
+steps by computeNonbonded: a 2511, b 2665
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+computeNonbonded                                 463.93     379.10    84.83    1.00    1.00
+foldForceWords                                     0.00      11.49   -11.49    0.00    1.00
+computeBondedForces                              170.00     165.40     4.60    1.00    0.95
+computeSortKeys                                    0.95       1.62    -0.66    0.66    0.88
+removeCenterOfMassMomentum                         7.44       8.05    -0.60    1.00    1.00
+findBlockBounds                                   18.74      19.34    -0.60    1.00    1.00
+applySettleToVelocities                            3.65       4.21    -0.56    1.00    1.00
+applyShakeToVelocities                             3.63       4.19    -0.56    1.00    1.00
+applySettleToPositions                             6.77       7.33    -0.56    1.00    1.00
+copyDataToBuckets                                  1.72       2.28    -0.56    0.97    0.99
+calcCenterOfMassMomentum                           3.10       3.65    -0.56    1.00    1.00
+applyShakeToPositions                              4.63       5.17    -0.54    1.00    1.00
+clearTwoBuffers                                    2.14       2.64    -0.50    1.00    1.00
+findBlocksWithInteractions                       208.38     207.89     0.48    1.00    1.00
+sortBuckets                                        6.36       6.80    -0.45    1.00    1.00
+integrateLangevinMiddlePart2                       3.53       3.96    -0.43    1.00    1.00
+integrateLangevinMiddlePart3                       4.81       5.23    -0.42    1.00    1.00
+assignElementsToBuckets2                          11.10      11.50    -0.40    1.00    1.00
+sortBoxData                                        7.72       8.10    -0.38    1.00    0.98
+generateRandomNumbers                              2.35       2.18     0.18    0.25    0.22
+integrateLangevinMiddlePart1                       4.25       4.34    -0.09    1.00    0.93
+computeBucketPositions                             1.96       1.99    -0.03    1.00    1.00
+computeKineticEnergy                               0.23       0.26    -0.03    0.00    0.00
+computeRange                                       0.38       0.40    -0.02    0.29    0.29
+reduceEnergy                                       0.01       0.00     0.01    0.00    0.00
+clearBuffer                                        0.00       0.00    -0.00    0.00    0.00
+copyInteractionCounts                              0.08       0.08     0.00    0.06    0.06
+copyFloatBuffer                                    0.01       0.01    -0.00    0.00    0.00
+computeParameters                                  0.00       0.00    -0.00    0.00    0.00
+total                                            937.87     867.24    70.63

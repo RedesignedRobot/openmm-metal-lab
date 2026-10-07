@@ -1,0 +1,111 @@
+Test project /tmp/openmm-metal-bench/ultra-r3-step/build
+      Start 220: TestMetalBrownianIntegratorSingle
+      Start 221: TestMetalBrownianIntegratorMixed
+ 1/50 Test #220: TestMetalBrownianIntegratorSingle ..............   Passed   31.39 sec
+      Start 224: TestMetalCMMotionRemoverSingle
+ 2/50 Test #224: TestMetalCMMotionRemoverSingle .................   Passed    2.18 sec
+      Start 225: TestMetalCMMotionRemoverMixed
+ 3/50 Test #221: TestMetalBrownianIntegratorMixed ...............   Passed   39.20 sec
+      Start 226: TestMetalCheckpointsSingle
+ 4/50 Test #225: TestMetalCMMotionRemoverMixed ..................   Passed    6.08 sec
+      Start 227: TestMetalCheckpointsMixed
+ 5/50 Test #226: TestMetalCheckpointsSingle .....................   Passed    1.11 sec
+      Start 230: TestMetalCompoundIntegratorSingle
+ 6/50 Test #230: TestMetalCompoundIntegratorSingle ..............   Passed    2.90 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+ 7/50 Test #227: TestMetalCheckpointsMixed ......................   Passed    6.49 sec
+      Start 248: TestMetalCustomGBForceSingle
+ 8/50 Test #231: TestMetalCompoundIntegratorMixed ...............   Passed    5.76 sec
+      Start 249: TestMetalCustomGBForceMixed
+ 9/50 Test #248: TestMetalCustomGBForceSingle ...................   Passed    3.14 sec
+      Start 252: TestMetalCustomIntegratorSingle
+10/50 Test #249: TestMetalCustomGBForceMixed ....................   Passed   27.27 sec
+      Start 253: TestMetalCustomIntegratorMixed
+11/50 Test #252: TestMetalCustomIntegratorSingle ................   Passed   46.82 sec
+      Start 260: TestMetalDPDIntegratorSingle
+12/50 Test #260: TestMetalDPDIntegratorSingle ...................   Passed    6.44 sec
+      Start 261: TestMetalDPDIntegratorMixed
+13/50 Test #261: TestMetalDPDIntegratorMixed ....................   Passed   21.62 sec
+      Start 268: TestMetalGBSAOBCForceSingle
+14/50 Test #268: TestMetalGBSAOBCForceSingle ....................   Passed    4.51 sec
+      Start 269: TestMetalGBSAOBCForceMixed
+15/50 Test #253: TestMetalCustomIntegratorMixed .................   Passed   84.06 sec
+      Start 278: TestMetalLangevinIntegratorSingle
+16/50 Test #269: TestMetalGBSAOBCForceMixed .....................   Passed   38.82 sec
+      Start 279: TestMetalLangevinIntegratorMixed
+17/50 Test #278: TestMetalLangevinIntegratorSingle ..............   Passed    8.97 sec
+      Start 280: TestMetalLangevinMiddleIntegratorSingle
+18/50 Test #280: TestMetalLangevinMiddleIntegratorSingle ........   Passed    9.77 sec
+      Start 281: TestMetalLangevinMiddleIntegratorMixed
+19/50 Test #279: TestMetalLangevinIntegratorMixed ...............   Passed   18.00 sec
+      Start 286: TestMetalMonteCarloAnisotropicBarostatSingle
+20/50 Test #281: TestMetalLangevinMiddleIntegratorMixed .........   Passed   16.21 sec
+      Start 287: TestMetalMonteCarloAnisotropicBarostatMixed
+21/50 Test #287: TestMetalMonteCarloAnisotropicBarostatMixed ....***Failed   38.12 sec
+exception: Assertion failure at TestMonteCarloAnisotropicBarostat.h:173.  Expected 3, found 3.62187 (This test is stochastic and may occasionally fail)
+
+      Start 288: TestMetalMonteCarloBarostatSingle
+22/50 Test #288: TestMetalMonteCarloBarostatSingle ..............   Passed   47.26 sec
+      Start 289: TestMetalMonteCarloBarostatMixed
+23/50 Test #286: TestMetalMonteCarloAnisotropicBarostatSingle ...   Passed  129.21 sec
+      Start 290: TestMetalMonteCarloFlexibleBarostatSingle
+24/50 Test #289: TestMetalMonteCarloBarostatMixed ...............   Passed   68.12 sec
+      Start 291: TestMetalMonteCarloFlexibleBarostatMixed
+25/50 Test #290: TestMetalMonteCarloFlexibleBarostatSingle ......   Passed   96.24 sec
+      Start 296: TestMetalNoseHooverIntegratorSingle
+26/50 Test #296: TestMetalNoseHooverIntegratorSingle ............   Passed   26.11 sec
+      Start 297: TestMetalNoseHooverIntegratorMixed
+27/50 Test #291: TestMetalMonteCarloFlexibleBarostatMixed .......   Passed  103.16 sec
+      Start 304: TestMetalQTBIntegratorSingle
+28/50 Test #297: TestMetalNoseHooverIntegratorMixed .............   Passed   62.35 sec
+      Start 305: TestMetalQTBIntegratorMixed
+29/50 Test #304: TestMetalQTBIntegratorSingle ...................   Passed   57.06 sec
+      Start 312: TestMetalRandomSingle
+30/50 Test #312: TestMetalRandomSingle ..........................   Passed    0.73 sec
+      Start 313: TestMetalRandomMixed
+31/50 Test #313: TestMetalRandomMixed ...........................   Passed    0.15 sec
+      Start 314: TestMetalSettleSingle
+32/50 Test #314: TestMetalSettleSingle ..........................   Passed    2.17 sec
+      Start 315: TestMetalSettleMixed
+33/50 Test #315: TestMetalSettleMixed ...........................   Passed    4.47 sec
+      Start 318: TestMetalVariableLangevinIntegratorSingle
+34/50 Test #318: TestMetalVariableLangevinIntegratorSingle ......   Passed   22.36 sec
+      Start 319: TestMetalVariableLangevinIntegratorMixed
+35/50 Test #319: TestMetalVariableLangevinIntegratorMixed .......   Passed   32.06 sec
+      Start 320: TestMetalVariableVerletIntegratorSingle
+36/50 Test #320: TestMetalVariableVerletIntegratorSingle ........   Passed    4.55 sec
+      Start 321: TestMetalVariableVerletIntegratorMixed
+37/50 Test #305: TestMetalQTBIntegratorMixed ....................   Passed   84.68 sec
+      Start 322: TestMetalVerletIntegratorSingle
+38/50 Test #321: TestMetalVariableVerletIntegratorMixed .........   Passed   11.31 sec
+      Start 323: TestMetalVerletIntegratorMixed
+39/50 Test #322: TestMetalVerletIntegratorSingle ................   Passed    6.02 sec
+      Start 324: TestMetalVirtualSitesSingle
+40/50 Test #323: TestMetalVerletIntegratorMixed .................   Passed   10.68 sec
+      Start 325: TestMetalVirtualSitesMixed
+41/50 Test #324: TestMetalVirtualSitesSingle ....................   Passed    8.00 sec
+      Start 450: TestMetalDrudeForceSingle
+42/50 Test #450: TestMetalDrudeForceSingle ......................   Passed    1.22 sec
+      Start 451: TestMetalDrudeForceMixed
+43/50 Test #451: TestMetalDrudeForceMixed .......................   Passed    4.06 sec
+      Start 452: TestMetalDrudeLangevinIntegratorSingle
+44/50 Test #325: TestMetalVirtualSitesMixed .....................   Passed   34.03 sec
+      Start 453: TestMetalDrudeLangevinIntegratorMixed
+45/50 Test #452: TestMetalDrudeLangevinIntegratorSingle .........   Passed   72.05 sec
+      Start 454: TestMetalDrudeNoseHooverSingle
+46/50 Test #454: TestMetalDrudeNoseHooverSingle .................   Passed    3.84 sec
+      Start 455: TestMetalDrudeNoseHooverMixed
+47/50 Test #455: TestMetalDrudeNoseHooverMixed ..................   Passed   13.90 sec
+      Start 456: TestMetalDrudeSCFIntegratorSingle
+48/50 Test #456: TestMetalDrudeSCFIntegratorSingle ..............   Passed    3.89 sec
+      Start 457: TestMetalDrudeSCFIntegratorMixed
+49/50 Test #457: TestMetalDrudeSCFIntegratorMixed ...............   Passed    6.81 sec
+50/50 Test #453: TestMetalDrudeLangevinIntegratorMixed ..........   Passed   86.35 sec
+
+98% tests passed, 1 tests failed out of 50
+
+Total Test time (real) = 717.84 sec
+
+The following tests FAILED:
+	287 - TestMetalMonteCarloAnisotropicBarostatMixed (Failed)
+Errors while running CTest

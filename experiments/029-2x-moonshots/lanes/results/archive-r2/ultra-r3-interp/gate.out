@@ -1,0 +1,31 @@
+07:10:26Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+07:10:26Z waiting for the lease: 7 in the queue, held by: r2-fah 2026-09-28T07:09:10Z pilot-smoke, 0 build processes
+07:15:30Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:12:30Z i-check.sh , 10 build processes
+07:20:34Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:12:30Z i-check.sh , 0 build processes
+07:25:39Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:12:30Z i-check.sh , 0 build processes
+07:30:43Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:12:30Z i-check.sh , 0 build processes
+07:35:47Z waiting for the lease: 2 in the queue, held by: r2-infra 2026-09-28T07:25:43Z barostat flake probe 3: 120 seeded rigid-gas runs on Metal, integrated vs base, 8 processes, about 10 min, 0 build processes
+07:40:52Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:38:46Z i-flake.sh , 0 build processes
+07:45:55Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-28T07:38:46Z i-flake.sh , 0 build processes
+07:51:23Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-28T07:46:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/is-a, about 9 min, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-r3-interp, 4c26efa9b523e10a97cdd9466a22be1c81f848e3, logs in /tmp/openmm-metal-bench/ultra-r3-interp/gate-20260928T075533Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.473e-05  8.605e-02  4.666e-07  ok
+gbsa            2489     mixed  2.473e-05  8.605e-02  4.862e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.340e-01  1.874e-07  ok
+rf             23558     mixed  2.208e-05  7.340e-01  1.787e-07  ok
+pme: Reference cached
+pme            23558    single  2.047e-05  3.918e-01  2.176e-07  ok
+pme            23558     mixed  2.043e-05  3.919e-01  2.663e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.181e-01  5.431e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.189e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.187e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.785e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  1.136e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.395e-01  1.730e-07  ok
+PASS

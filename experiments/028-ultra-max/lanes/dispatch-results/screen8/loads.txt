@@ -1,0 +1,50 @@
+2026-09-25T03:29:47Z round 1 gbsa base load { 1.67 2.36 4.23 } vm 6% top superwhisper 22.7%, node 21.5%, powermetrics 11.8%, com.apple.Virtualization.VirtualMachine 5.6%, coreaudiod 3.4%
+2026-09-25T03:30:03Z round 1 gbsa poll load { 1.80 2.35 4.18 } vm 7% top chrome-headless-shell 21.6%, mdworker_shared 12.3%, chrome-headless-shell 12.1%, superwhisper 12.0%, com.apple.Virtualization.VirtualMachine 7.4%
+2026-09-25T03:30:20Z round 1 gbsa wf load { 2.00 2.37 4.16 } vm 16% top authd 29.0%, trustd 24.3%, chrome-headless-shell 19.6%, superwhisper 19.3%, SystemUIServer 17.0%
+2026-09-25T03:30:36Z round 1 gbsa wfk load { 2.44 2.44 4.15 } vm 7% top superwhisper 19.4%, com.apple.Virtualization.VirtualMachine 6.7%, sysmond 4.4%,  claude 3.3%, WindowServer 2.5%
+2026-09-25T03:30:52Z round 1 gbsa base-mixed load { 2.04 2.35 4.08 } vm 5% top superwhisper 22.6%, com.apple.Virtualization.VirtualMachine 5.4%,  claude 2.1%, WindowServer 1.7%, iStat Menus Menubar 1.5%
+2026-09-25T03:31:12Z round 1 gbsa poll-mixed load { 2.21 2.37 4.05 } vm 9% top superwhisper 18.4%, com.apple.Virtualization.VirtualMachine 6.3%, sysmond 6.1%, WindowServer 2.4%, iStat Menus Menubar 2.2%
+2026-09-25T03:31:32Z round 1 gbsa wf-mixed load { 1.96 2.30 3.98 } vm 8% top superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 9.3%, powermetrics 7.2%,  claude 6.0%, sysmond 5.3%
+2026-09-25T03:31:48Z round 1 gbsa wfk-mixed load { 1.97 2.29 3.95 } vm 12% top superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 12.3%,  claude 3.6%, WindowServer 1.9%,  sleep 1.3%
+2026-09-25T03:32:08Z round 1 rf base load { 2.44 2.38 3.94 } vm 9% top superwhisper 19.8%, com.apple.Virtualization.VirtualMachine 9.0%, sysmond 4.2%, WindowServer 2.6%,  claude 1.7%
+2026-09-25T03:32:25Z round 1 rf poll load { 2.71 2.44 3.93 } vm 10% top superwhisper 17.5%, com.apple.Virtualization.VirtualMachine 9.5%, sysmond 6.1%, WindowServer 3.9%, ghostty 1.4%
+2026-09-25T03:32:41Z round 1 rf wf load { 2.87 2.49 3.92 } vm 8% top superwhisper 20.2%, iStat Menus Menubar 6.1%, com.apple.Virtualization.VirtualMachine 5.6%, sysmond 5.3%, WindowServer 5.1%
+2026-09-25T03:32:58Z round 1 rf wfk load { 3.05 2.54 3.91 } vm 4% top corespotlightd 167.9%, backupd 119.6%,  claude 32.5%, superwhisper 13.3%, node 6.7%
+2026-09-25T03:33:15Z round 1 rf base-mixed load { 3.32 2.62 3.91 } vm 8% top backupd 196.7%, superwhisper 25.1%, SystemUIServer 10.6%, sysmond 6.6%, com.apple.Virtualization.VirtualMachine 6.3%
+2026-09-25T03:33:34Z round 1 rf poll-mixed load { 3.35 2.68 3.90 } vm 2% top chrome-headless-shell 123.4%, superwhisper 24.5%, sysmond 7.9%, backupd 6.7%, chrome-headless-shell 4.4%
+2026-09-25T03:33:53Z round 1 rf wf-mixed load { 3.18 2.68 3.88 } vm 8% top superwhisper 24.4%, backupd 7.9%, com.apple.Virtualization.VirtualMachine 7.7%, sysmond 4.6%,  claude 3.5%
+2026-09-25T03:34:10Z round 1 rf wfk-mixed load { 3.19 2.71 3.87 } vm 7% top superwhisper 21.7%, com.apple.Virtualization.VirtualMachine 7.0%, backupd 5.2%, sysmond 4.5%,  claude 3.9%
+2026-09-25T03:34:29Z round 1 pme base load { 3.51 2.81 3.87 } vm 6% top superwhisper 20.5%, com.apple.Virtualization.VirtualMachine 8.8%, sysmond 8.2%, backupd 3.5%,  claude 2.4%
+2026-09-25T03:34:46Z round 1 pme poll load { 2.88 2.71 3.82 } vm 5% top superwhisper 24.0%, com.apple.Virtualization.VirtualMachine 6.4%, sysmond 5.5%, backupd 4.7%, powermetrics 1.9%
+2026-09-25T03:35:03Z round 1 pme wf load { 2.49 2.63 3.76 } vm 8% top superwhisper 23.6%, backupd 8.4%, com.apple.Virtualization.VirtualMachine 8.1%, sysmond 7.1%, powermetrics 3.0%
+2026-09-25T03:35:19Z round 1 pme wfk load { 2.68 2.66 3.75 } vm 10% top superwhisper 23.5%, com.apple.Virtualization.VirtualMachine 10.5%, backupd 5.1%, WindowServer 1.5%,  claude 1.4%
+2026-09-25T03:35:36Z round 1 pme base-mixed load { 2.29 2.58 3.70 } vm 5% top superwhisper 22.0%, backupd 6.4%, com.apple.Virtualization.VirtualMachine 5.3%,  claude 3.3%, SystemUIServer 2.1%
+2026-09-25T03:35:54Z round 1 pme poll-mixed load { 2.14 2.52 3.66 } vm 4% top dasd 99.1%, superwhisper 12.2%, sysmond 5.1%, com.apple.Virtualization.VirtualMachine 4.5%, backupd 4.0%
+2026-09-25T03:36:12Z round 1 pme wf-mixed load { 2.65 2.61 3.67 } vm 9% top backupd 57.1%, superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 13.0%, SystemUIServer 9.3%, sysmond 8.1%
+2026-09-25T03:36:29Z round 1 pme wfk-mixed load { 2.96 2.69 3.67 } vm 9% top superwhisper 19.0%, com.apple.Virtualization.VirtualMachine 8.7%, sysmond 3.1%, WindowServer 2.1%,  claude 1.5%
+2026-09-25T03:36:47Z round 2 gbsa wfk-mixed load { 2.62 2.62 3.63 } vm 6% top superwhisper 23.5%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 4.6%, WindowServer 3.0%,  claude 2.3%
+2026-09-25T03:37:03Z round 2 gbsa wf-mixed load { 2.11 2.50 3.56 } vm 9% top superwhisper 21.3%, com.apple.Virtualization.VirtualMachine 9.2%, iStat Menus Menubar 4.9%, WindowServer 4.5%, ghostty 1.2%
+2026-09-25T03:37:19Z round 2 gbsa poll-mixed load { 2.17 2.49 3.54 } vm 6% top superwhisper 19.6%, powermetrics 13.0%, com.apple.Virtualization.VirtualMachine 6.3%, WindowServer 1.9%, sh 1.7%
+2026-09-25T03:37:35Z round 2 gbsa base-mixed load { 2.54 2.55 3.54 } vm 2% top tsgolint 505.4%, superwhisper 21.1%, WindowServer 5.6%, iStat Menus Menubar 5.5%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-25T03:37:51Z round 2 gbsa wfk load { 3.24 2.71 3.58 } vm 6% top  cmake 49.6%, superwhisper 19.3%, com.apple.Virtualization.VirtualMachine 6.1%,  claude 4.7%, sh 1.2%
+2026-09-25T03:38:07Z round 2 gbsa wfk BUILD RUNNING during the run
+2026-09-25T03:38:07Z round 2 gbsa wf load { 3.19 2.73 3.57 } vm 2% top WindowServer 34.4%, node 28.4%, superwhisper 18.5%, spotlightknowledged.updater 7.9%, ghostty 6.7%
+2026-09-25T03:38:23Z round 2 gbsa poll load { 3.44 2.81 3.58 } vm 7% top corespotlightd 344.0%, superwhisper 13.8%, com.apple.Virtualization.VirtualMachine 6.6%,  claude 5.3%, WindowServer 3.1%
+2026-09-25T03:38:40Z round 2 gbsa base load { 3.22 2.79 3.56 } vm 2% top node 51.5%, superwhisper 21.9%, WindowServer 5.1%, sysmond 3.4%, powermetrics 3.2%
+2026-09-25T03:38:55Z round 2 rf wfk-mixed load { 3.48 2.86 3.57 } vm 83% top duetexpertd 99.4%, com.apple.Virtualization.VirtualMachine 82.9%, superwhisper 20.6%, BackgroundShortcutRunner 10.5%, sysmond 7.9%
+2026-09-25T03:39:12Z round 2 rf wf-mixed load { 3.08 2.80 3.54 } vm 6% top io.tailscale.ipn.macsys.network-extension 46.8%, superwhisper 21.9%,  claude 5.3%, com.apple.Virtualization.VirtualMachine 5.1%, sysmond 4.8%
+2026-09-25T03:39:28Z round 2 rf wf-mixed BUILD RUNNING during the run
+2026-09-25T03:39:29Z round 2 rf poll-mixed load { 3.66 2.95 3.57 } BUILD RUNNING vm 9% top clang 90.7%, clang 89.7%, clang 89.7%, clang 88.3%, clang 72.5%
+2026-09-25T03:39:45Z round 2 rf base-mixed load { 4.91 3.26 3.67 } BUILD RUNNING vm 9% top clang 86.0%, clang 85.6%, clang 82.2%, clang 81.6%, clang 80.8%
+2026-09-25T03:40:02Z round 2 rf wfk load { 7.48 3.89 3.89 } BUILD RUNNING vm 88% top com.apple.Virtualization.VirtualMachine 88.2%, clang 80.3%, clang 80.1%, clang 78.9%, clang 78.0%
+2026-09-25T03:40:19Z round 2 rf wf load { 8.26 4.30 4.03 } BUILD RUNNING vm 17% top clang 91.2%, clang 90.5%, clang 90.2%, clang 89.8%, clang 88.6%
+2026-09-25T03:40:35Z round 2 rf poll load { 8.82 4.61 4.15 } BUILD RUNNING vm 3% top clang 89.7%, clang 89.5%, clang 89.3%, clang 89.2%, clang 87.4%
+2026-09-25T03:40:52Z round 2 rf base load { 8.93 4.84 4.24 } BUILD RUNNING vm 5% top clang 90.8%, clang 90.4%, clang 89.8%, clang 89.8%, clang 89.0%
+2026-09-25T03:41:09Z round 2 pme wfk-mixed load { 9.70 5.27 4.41 } BUILD RUNNING vm 6% top clang 89.8%, clang 88.8%, clang 87.9%, clang 87.7%, clang 86.9%
+2026-09-25T03:41:25Z round 2 pme wf-mixed load { 9.69 5.49 4.50 } BUILD RUNNING vm 6% top clang 86.3%, clang 85.2%, clang 85.1%, clang 84.7%, clang 81.6%
+2026-09-25T03:41:42Z round 2 pme poll-mixed load { 9.53 5.66 4.57 } BUILD RUNNING vm 10% top clang 90.3%, clang 89.6%, clang 88.5%, clang 88.2%, clang 87.1%
+2026-09-25T03:41:59Z round 2 pme base-mixed load { 9.74 5.95 4.71 } BUILD RUNNING vm 7% top clang 87.7%, clang 82.8%, clang 81.9%, clang 81.0%, clang 74.5%
+2026-09-25T03:42:16Z round 2 pme wfk load { 10.62 6.33 4.86 } BUILD RUNNING vm 8% top clang 87.8%, clang 86.8%, clang 86.7%, clang 86.7%, clang 86.6%
+2026-09-25T03:42:32Z round 2 pme wf load { 10.94 6.61 4.99 } BUILD RUNNING vm 13% top clang 88.9%, clang 88.6%, clang 87.8%, clang 87.8%, clang 83.4%
+2026-09-25T03:42:49Z round 2 pme poll load { 10.65 6.81 5.10 } BUILD RUNNING vm 11% top clang 75.7%, clang 75.5%, clang 74.5%, clang 74.4%, clang 74.0%
+2026-09-25T03:43:05Z round 2 pme base load { 10.13 6.89 5.15 } BUILD RUNNING vm 14% top clang 90.7%, clang 89.5%, clang 89.2%, clang 89.1%, clang 89.1%

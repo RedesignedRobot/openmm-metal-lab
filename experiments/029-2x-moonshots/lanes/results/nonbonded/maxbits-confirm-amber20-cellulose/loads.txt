@@ -1,0 +1,15 @@
+2026-09-26T22:40:11Z round 1 amber20-cellulose base-s load { 4.81 3.61 3.11 } vm 8% top node 420.0%, superwhisper 18.8%, powermetrics 8.2%, com.apple.Virtualization.VirtualMachine 6.2%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-26T22:40:50Z round 1 amber20-cellulose cand-s load { 4.13 3.57 3.11 } vm 6% top node 101.2%, superwhisper 18.9%, powermetrics 10.8%, iStat Menus Menubar 6.7%, WindowServer 5.7%
+2026-09-26T22:41:31Z round 1 amber20-cellulose cl-s load { 2.73 3.30 3.04 } vm 4% top node 98.8%, superwhisper 19.3%, identityservicesd 14.2%, IDSBlastDoorService 4.7%, apsd 4.5%
+2026-09-26T22:42:13Z round 1 amber20-cellulose base-m load { 2.46 3.15 2.99 } vm 4% top node 100.0%, superwhisper 16.9%, iStat Menus Menubar 8.0%, WindowServer 6.2%, sysmond 4.4%
+2026-09-26T22:43:31Z round 1 amber20-cellulose cand-m load { 1.18 2.64 2.81 } vm 3% top superwhisper 18.4%, sysmond 4.0%, iStat Menus Menubar 3.9%, WindowServer 3.6%, com.apple.Virtualization.VirtualMachine 2.0%
+2026-09-26T22:44:51Z round 2 amber20-cellulose cand-m load { 1.13 2.29 2.66 } vm 8% top superwhisper 18.3%, nsurlsessiond 13.0%, mdworker_shared 11.1%, cloudd 9.9%, WindowServer 7.0%
+2026-09-26T22:45:58Z round 2 amber20-cellulose base-m load { 0.97 2.03 2.54 } vm 24% top com.apple.Virtualization.VirtualMachine 21.7%, superwhisper 19.6%, bun 6.7%, notifyd 3.1%, fseventsd 2.7%
+2026-09-26T22:47:10Z round 2 amber20-cellulose cl-s load { 1.00 1.87 2.44 } vm 6% top superwhisper 20.9%, WindowServer 5.3%, sysmond 3.3%, io.tailscale.ipn.macsys.network-extension 3.1%, com.apple.Virtualization.VirtualMachine 2.8%
+2026-09-26T22:47:53Z round 2 amber20-cellulose cand-s load { 1.20 1.81 2.38 } vm 7% top superwhisper 19.2%, sysmond 5.1%, com.apple.Virtualization.VirtualMachine 4.7%, WindowServer 4.0%, iStat Menus Menubar 2.7%
+2026-09-26T22:48:32Z round 2 amber20-cellulose base-s load { 1.10 1.72 2.32 } vm 7% top superwhisper 20.4%, powermetrics 12.3%, WindowServer 3.6%, com.apple.Virtualization.VirtualMachine 3.5%, com.apple.Virtualization.VirtualMachine 3.2%
+2026-09-26T22:49:12Z round 3 amber20-cellulose base-s load { 0.79 1.57 2.24 } vm 5% top superwhisper 19.3%, launchd 17.2%, sysmond 4.5%, com.apple.Virtualization.VirtualMachine 3.4%, WindowServer 3.3%
+2026-09-26T22:49:52Z round 3 amber20-cellulose cand-s load { 1.08 1.54 2.20 } vm 6% top superwhisper 19.7%, sysmond 7.6%, com.apple.Virtualization.VirtualMachine 3.5%, com.apple.Virtualization.VirtualMachine 3.0%, WindowServer 2.8%
+2026-09-26T22:50:32Z round 3 amber20-cellulose cl-s load { 1.33 1.53 2.16 } vm 6% top backupd 202.1%, corespotlightd 102.0%, mediaanalysisd 46.7%, spotlightknowledged.updater 27.4%, superwhisper 12.4%
+2026-09-26T22:51:14Z round 3 amber20-cellulose base-m load { 1.89 1.65 2.18 } vm 3% top superwhisper 20.7%, sysmond 4.1%, backupd 3.5%, WindowServer 2.2%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-26T22:52:35Z round 3 amber20-cellulose cand-m load { 1.75 1.73 2.16 } vm 7% top superwhisper 19.8%, WindowServer 7.4%, backupd 6.4%, com.apple.Virtualization.VirtualMachine 3.7%, com.apple.Virtualization.VirtualMachine 3.4%

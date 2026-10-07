@@ -1,0 +1,7 @@
+2026-09-25T02:42:41Z round 1 amber20-cellulose coldA load { 3.00 4.51 4.18 } vm 39% top com.apple.Virtualization.VirtualMachine 87.8%, python 30.8%, superwhisper 22.5%, chrome-headless-shell 9.9%, sysmond 8.3%
+2026-09-25T02:43:46Z round 1 amber20-cellulose coldA BUILD RUNNING during the run
+2026-09-25T02:43:46Z round 1 amber20-cellulose warm load { 1.90 3.90 3.97 } BUILD RUNNING vm 26% top superwhisper 21.8%, com.apple.Virtualization.VirtualMachine 16.4%, chrome-headless-shell 16.4%, cmake 14.8%, sysmond 5.8%
+2026-09-25T02:44:03Z round 1 amber20-cellulose coldB load { 3.76 4.21 4.08 } BUILD RUNNING vm 38% top clang 90.3%, clang 89.9%, clang 88.8%, clang 88.5%, clang 88.2%
+2026-09-25T02:45:04Z round 2 amber20-cellulose coldB load { 7.68 5.27 4.49 } BUILD RUNNING vm 12% top clang 83.2%, clang 76.4%, clang 73.6%, clang 57.2%, clang 55.4%
+2026-09-25T02:46:05Z round 2 amber20-cellulose warm load { 9.58 6.25 4.91 } BUILD RUNNING vm 23% top clang 91.8%, clang 90.2%, clang 89.7%, clang 89.2%, clang 89.0%
+2026-09-25T02:46:22Z round 2 amber20-cellulose coldA load { 9.82 6.47 5.01 } BUILD RUNNING vm 26% top clang 92.4%, clang 91.2%, clang 89.8%, clang 89.7%, clang 88.8%

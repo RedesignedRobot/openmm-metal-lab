@@ -1,0 +1,299 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-r6b",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "apoa1rf",
+   "label": "r6_m",
+   "median": 538.6577784723908,
+   "rounds": {
+    "1": 538.81631871289,
+    "2": 538.4992382318915
+   },
+   "spread": 0.0005886492197287299
+  },
+  {
+   "test": "apoa1rf",
+   "label": "r6_s",
+   "median": 594.8315067171083,
+   "rounds": {
+    "1": 594.0503542140328,
+    "2": 595.6126592201837
+   },
+   "spread": 0.002626466467408967
+  },
+  {
+   "test": "apoa1rf",
+   "label": "tr_m",
+   "median": 538.9644455937913,
+   "rounds": {
+    "1": 538.696340221296,
+    "2": 539.2325509662866
+   },
+   "spread": 0.0009948907564760695
+  },
+  {
+   "test": "apoa1rf",
+   "label": "tr_s",
+   "median": 594.0995626294989,
+   "rounds": {
+    "1": 594.2284490619259,
+    "2": 593.9706761970718
+   },
+   "spread": 0.0004338883262480616
+  },
+  {
+   "test": "apoa1pme",
+   "label": "r6_m",
+   "median": 399.0540852983906,
+   "rounds": {
+    "1": 399.45527530179334,
+    "2": 398.65289529498784
+   },
+   "spread": 0.0020107049053401296
+  },
+  {
+   "test": "apoa1pme",
+   "label": "r6_s",
+   "median": 428.6913328896741,
+   "rounds": {
+    "1": 429.32041757963424,
+    "2": 428.0622481997139
+   },
+   "spread": 0.002934907434305719
+  },
+  {
+   "test": "apoa1pme",
+   "label": "tr_m",
+   "median": 398.47254201021633,
+   "rounds": {
+    "1": 398.35839544633103,
+    "2": 398.58668857410163
+   },
+   "spread": 0.0005729205997956699
+  },
+  {
+   "test": "apoa1pme",
+   "label": "tr_s",
+   "median": 428.0373987024245,
+   "rounds": {
+    "1": 427.6697575734414,
+    "2": 428.4050398314077
+   },
+   "spread": 0.0017177990993199417
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_m",
+   "median": 297.6849057808244,
+   "rounds": {
+    "1": 298.44802482112175,
+    "2": 296.92178674052707
+   },
+   "spread": 0.005127025425059339
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_s",
+   "median": 315.368346395437,
+   "rounds": {
+    "1": 315.5495099987121,
+    "2": 315.1871827921619
+   },
+   "spread": 0.0011489016278631243
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_m",
+   "median": 299.08206961371684,
+   "rounds": {
+    "1": 299.0745198546006,
+    "2": 299.089619372833
+   },
+   "spread": 5.048620350888103e-05
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_s",
+   "median": 315.3780828823543,
+   "rounds": {
+    "1": 315.2286040770366,
+    "2": 315.527561687672
+   },
+   "spread": 0.0009479340095643815
+  }
+ ],
+ "ratios": [
+  {
+   "test": "apoa1rf",
+   "num": "r6_m",
+   "den": "tr_m",
+   "ratio": 0.9994310067687996,
+   "round_min": 0.9986400807349611,
+   "round_max": 1.0002227200792653
+  },
+  {
+   "test": "apoa1pme",
+   "num": "r6_m",
+   "den": "tr_m",
+   "ratio": 1.0014594312703216,
+   "round_min": 1.0001661036928329,
+   "round_max": 1.002753500034142
+  },
+  {
+   "test": "apoa1ljpme",
+   "num": "r6_m",
+   "den": "tr_m",
+   "ratio": 0.9953284934977983,
+   "round_min": 0.9927518961144433,
+   "round_max": 0.9979052209670571
+  }
+ ],
+ "power": [
+  {
+   "test": "apoa1rf",
+   "label": "r6_m",
+   "gpu_w": 90.35674523809524,
+   "pkg_w": 92.77976666666667,
+   "ns_per_day_per_gpu_w": 5.961456192927229
+  },
+  {
+   "test": "apoa1rf",
+   "label": "r6_s",
+   "gpu_w": 94.62425952380953,
+   "pkg_w": 97.2713,
+   "ns_per_day_per_gpu_w": 6.286247413829808
+  },
+  {
+   "test": "apoa1rf",
+   "label": "tr_m",
+   "gpu_w": 90.50187857142856,
+   "pkg_w": 92.7050523809524,
+   "ns_per_day_per_gpu_w": 5.955284620621592
+  },
+  {
+   "test": "apoa1rf",
+   "label": "tr_s",
+   "gpu_w": 94.62471428571429,
+   "pkg_w": 98.63392857142857,
+   "ns_per_day_per_gpu_w": 6.278481970742304
+  },
+  {
+   "test": "apoa1pme",
+   "label": "r6_m",
+   "gpu_w": 74.64236666666667,
+   "pkg_w": 78.45396666666667,
+   "ns_per_day_per_gpu_w": 5.346214263013149
+  },
+  {
+   "test": "apoa1pme",
+   "label": "r6_s",
+   "gpu_w": 76.58326190476191,
+   "pkg_w": 79.03794523809523,
+   "ns_per_day_per_gpu_w": 5.597715770095949
+  },
+  {
+   "test": "apoa1pme",
+   "label": "tr_m",
+   "gpu_w": 74.60056666666667,
+   "pkg_w": 77.07759999999999,
+   "ns_per_day_per_gpu_w": 5.341414412985465
+  },
+  {
+   "test": "apoa1pme",
+   "label": "tr_s",
+   "gpu_w": 76.61474761904762,
+   "pkg_w": 79.46402142857141,
+   "ns_per_day_per_gpu_w": 5.586879967689247
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_m",
+   "gpu_w": 72.03689285714286,
+   "pkg_w": 74.52898095238095,
+   "ns_per_day_per_gpu_w": 4.1323951377409704
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_s",
+   "gpu_w": 73.70385714285715,
+   "pkg_w": 76.28596428571429,
+   "ns_per_day_per_gpu_w": 4.278858103507006
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_m",
+   "gpu_w": 72.28293571428571,
+   "pkg_w": 74.77519761904762,
+   "ns_per_day_per_gpu_w": 4.137658033092414
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_s",
+   "gpu_w": 73.72032142857142,
+   "pkg_w": 76.61433809523811,
+   "ns_per_day_per_gpu_w": 4.278034560496704
+  }
+ ],
+ "hygiene": {
+  "runs": 24,
+  "load": [
+   1.5,
+   3.02
+  ],
+  "vm_cpu": [
+   9,
+   32
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [
+   "2026-09-29T13:11:06Z round 1 apoa1ljpme r6_s after the run: FOREIGN GPU 14%"
+  ],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T13:07:18Z",
+ "last_run": "2026-09-29T13:16:11Z",
+ "arms": {
+  "tr_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk",
+   "commit": "5071882fa51d37dcc2f4b3b730eaad64ff0806f3",
+   "src": "99c921074c6cbbff04cbdefc44c672fa1665dc19",
+   "built": "2026-09-28T23:39:36Z"
+  },
+  "r6_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-r6",
+   "commit": "82a1f9c98c2af0dc41e2f4e7f1c5d80c4780f080",
+   "src": "893a1fe66dd599f0e257422c57fe146e27463fcf",
+   "built": "2026-09-29T11:26:13Z"
+  },
+  "tr_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk",
+   "commit": "5071882fa51d37dcc2f4b3b730eaad64ff0806f3",
+   "src": "99c921074c6cbbff04cbdefc44c672fa1665dc19",
+   "built": "2026-09-28T23:39:36Z"
+  },
+  "r6_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-r6",
+   "commit": "82a1f9c98c2af0dc41e2f4e7f1c5d80c4780f080",
+   "src": "893a1fe66dd599f0e257422c57fe146e27463fcf",
+   "built": "2026-09-29T11:26:13Z"
+  }
+ },
+ "gpuq_job": null,
+ "written": "2026-09-29T13:26:18Z"
+}

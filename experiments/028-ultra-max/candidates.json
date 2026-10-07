@@ -1,0 +1,356 @@
+{
+ "as_of": "2026-09-25T10:45Z",
+ "source": "The 028 run ledger and experiment logs, as of 2026-09-25 08:50Z. Both are in this repository's history at commit 31c615ad.",
+ "states": [
+  "screening",
+  "confirming",
+  "gating",
+  "m2-check",
+  "merge-queue",
+  "merged",
+  "windowed",
+  "dropped"
+ ],
+ "state_meaning": {
+  "screening": "has or waits for a screen",
+  "confirming": "passed a screen, 3x30 s confirms running",
+  "gating": "gate queued or running",
+  "m2-check": "waits on the M2 no-regression check",
+  "merge-queue": "cleared to merge into ultra/integrated, not merged yet",
+  "merged": "in ultra/integrated, not yet measured in a dedicated window",
+  "windowed": "in ultra/integrated and measured in a dedicated window",
+  "dropped": "killed, superseded or parked"
+ },
+ "merge_order": [
+  "sort2 ec464a484",
+  "tiles4 6d72c3ae9",
+  "xres 761d5a666",
+  "plugins fix 95373278b (or 4ab189b29)",
+  "atomics floor 1a29563d1 and D3 72af6f137 after d3screen",
+  "dispatch wfcap 8fd1e8671 after screen9-pme"
+ ],
+ "candidates": [
+  {
+   "area": "pme",
+   "name": "PME float spread",
+   "commit": "71a602b43",
+   "description": "PME charge spread with native float atomics on Apple9; Apple8 keeps fixed point.",
+   "state": "windowed",
+   "evidence": [
+    "w1 int-single/base-single pme 1.167, apoa1pme 1.189, apoa1ljpme 1.382 (with nosort)",
+    "gate PASS 23:45Z as cand2"
+   ],
+   "ref": "LEDGER.md:21, LEDGER.md:483; lanes/pme.md",
+   "state_note": "On Apple9 it switches the AMOEBA PME spread to float atomics on a real2 grid, which MSL rejects (4 AMOEBA compile failures in the e08a0b1c6 gate). Fixed by bb813dadc. AMOEBA/HIPPO PME now uses float atomics even under DeterministicForces."
+  },
+  {
+   "area": "pme",
+   "name": "PME nosort",
+   "commit": "17929e631",
+   "description": "Skip the PME atom sort on Metal; upload an identity grid index once.",
+   "state": "windowed",
+   "evidence": [
+    "cand2/base dhfr 1.165, cellulose 1.208, stmv 1.236 single",
+    "M2 PASS 21:32Z",
+    "w1 counts it with 71a602b43"
+   ],
+   "ref": "LEDGER.md:25, LEDGER.md:483, LEDGER.md:500"
+  },
+  {
+   "area": "mixed",
+   "name": "g2 mixed constraints",
+   "commit": "5cc0ba5af",
+   "description": "SHAKE and SETTLE keep residuals in mixed and corrections in real, df64 fast paths; merged as b69efb0fe.",
+   "state": "windowed",
+   "evidence": [
+    "w1 int-mixed/base-mixed rf 1.150, gbsa 1.093",
+    "screenG2 rf 1.174, pme 1.117",
+    "integrated gate PASS 03:33Z"
+   ],
+   "ref": "LEDGER.md:31, LEDGER.md:466-467, LEDGER.md:483"
+  },
+  {
+   "area": "mixed",
+   "name": "f1 fused LangevinMiddle",
+   "commit": "cf1d7fc14",
+   "description": "Fused LangevinMiddle step for Metal mixed; merged as 89d7f17fc on top of b69efb0fe.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "mixed rf 1.239, gbsa 1.139 vs g2 (screen)",
+    "pme mixed 1.146, apoa1pme 1.045 (58395)",
+    "M2 PASS rf mixed 1.148",
+    "equilibrated drift: no measurable effect",
+    "integrated gate PASS 08:38Z",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:473, LEDGER.md:499, LEDGER.md:501; lanes/mixed.md:416"
+  },
+  {
+   "area": "nblist",
+   "name": "sort2",
+   "commit": "ec464a484",
+   "description": "sortShortList2 with one SIMD group per element, compute-kernel copy back.",
+   "state": "windowed",
+   "evidence": [
+    "sort2 vs cand2: pme 1.088, dhfr 1.094 (screen-n2)",
+    "full gate PASS 03:40Z",
+    "M2 PASS",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:22, LEDGER.md:479, LEDGER.md:508; lanes/nblist.md:273-274",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running."
+  },
+  {
+   "area": "nonbonded",
+   "name": "tiles4",
+   "commit": "6d72c3ae9",
+   "description": "Batch 4 tiles in findBlocks when numAtomBlocks < 32 x cores, else 1.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "ab-tiles vs base: gbsa 1.040, rf 1.169, pme 1.085",
+    "full gate PASS 00:03Z",
+    "M2 flat, PASS",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:24, LEDGER.md:502, LEDGER.md:507"
+  },
+  {
+   "area": "nonbonded",
+   "name": "xres x-resident",
+   "commit": "761d5a666",
+   "description": "Keep the x-side force in registers across tiles and flush once per run; stacks on tiles4.",
+   "state": "windowed",
+   "evidence": [
+    "ab-xresa apoa1rf 1.060",
+    "ab-xresc cellulose 1.038",
+    "ab-xresg gbsa 0.996",
+    "M2 gbsa rerun 1.000",
+    "full gate PASS",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:474, LEDGER.md:499; lanes/nonbonded.md 08:33Z, 08:38Z",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running."
+  },
+  {
+   "area": "plugins",
+   "name": "AMOEBA villin fix, rsqrt",
+   "commit": "95373278b",
+   "description": "Precise rsqrt in multipoleFixedField under USE_METAL; fixes the GK villin test.",
+   "state": "dropped",
+   "evidence": [
+    "screen-fix vs bar: amoebagk 1.009/1.002, amoebapme 0.998/0.998",
+    "full gate PASS, 134 ctests",
+    "forces 5/5 bitwise",
+    "villin margin 1.31x"
+   ],
+   "ref": "LEDGER.md:478; lanes/plugins.md:114-116",
+   "state_note": "superseded by 4ab189b29 (rsqrt plus divide), which passed the same gate and screen with a wider margin"
+  },
+  {
+   "area": "plugins",
+   "name": "AMOEBA villin fix, rsqrt plus divide",
+   "commit": "4ab189b29",
+   "description": "95373278b plus RECIP as 1.0f/x in multipoleFixedField under USE_METAL.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "screen-fix2 vs bar: amoebagk 1.004/1.000, amoebapme 0.997/1.000",
+    "villin margin 1.51x",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:499; lanes/plugins.md:117"
+  },
+  {
+   "area": "plugins",
+   "name": "AMOEBA PME spread fix",
+   "commit": "bb813dadc",
+   "description": "Under USE_METAL, add to the real2 PME grid through a plain real pointer at 2*index and 2*index+1. Three lines; OpenCL, CUDA and HIP unchanged.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "diagnosed from \"address of vector element requested\" at multipolePme.cc:286, :410-411",
+    "4/4 PASS 09:27Z",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md 09:20Z; lanes/plugins.md"
+  },
+  {
+   "area": "atomics",
+   "name": "bonded chunks with size floor",
+   "commit": "1a29563d1",
+   "description": "Chunked atom-owner bonded kernel (d8ab45b2b, 0315b09fd, d3cdbf963) with a floor so tiny systems keep per-term atomics.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "bonded vs p0: cellulose 1.146, apoa1pme 1.117, apoa1rf 1.109",
+    "s3 floor/p0: gbsa 1.002, rf 1.007, dhfr 1.009",
+    "full gate PASS",
+    "M2 dhfr 0.999/1.000",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:471, LEDGER.md:473, LEDGER.md:499, LEDGER.md:506; lanes/atomics.md:384-392"
+  },
+  {
+   "area": "atomics",
+   "name": "D3 concurrent bonded plus nonbonded",
+   "commit": "72af6f137",
+   "description": "Bonded and nonbonded in one concurrent encoder on force-only steps; commit written by dispatch on cand/d3.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "d3check bitwise PASS (forces, 20-step positions)",
+    "quick gate PASS 07:07Z",
+    "d3s single: apoa1rf 1.028, cellulose 1.007, rf 1.005, pme 1.046 (board)",
+    "d3s single/mixed: pme 1.046/1.037, dhfr 1.043/1.032, gbsa 1.034/1.042, apoa1rf 1.028/1.018, cellulose 1.007/1.008, rf 1.005/0.994",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:473, LEDGER.md:498-499; lanes/atomics.md:390-393"
+  },
+  {
+   "area": "dispatch",
+   "name": "wfcap",
+   "commit": "8fd1e8671",
+   "description": "Wait-free list allocation with an 8-buffer in-flight cap, no committer or k-step.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "screen9 wfcap/base: gbsa 1.047/1.033, rf 1.047/1.089",
+    "wfcap/wf gbsa 0.986 single",
+    "M2 gbsa 1.033/1.039, footprint +4 MB",
+    "i-wfcap full gate PASS",
+    "screen9-pme 0.998/1.008; M2 rf 1.017/1.020, pme 1.019/1.024",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:499; lanes/dispatch.md:417-440"
+  },
+  {
+   "area": "dispatch",
+   "name": "wfcap depth 16 and 32",
+   "commit": "87d25f8d8",
+   "description": "wfcap with MaxBuffersInFlight 16 (87d25f8d8) or 32 (4d4764b4f), to win back Ultra gbsa.",
+   "state": "dropped",
+   "state_note": "cancelled 09:10Z for the safe pause; wfcap ships at cap 8",
+   "evidence": [
+    "not screened yet"
+   ],
+   "ref": "lanes/dispatch.md:436-440"
+  },
+  {
+   "area": "nblist",
+   "name": "u8 unrolled mask",
+   "commit": "480825042",
+   "description": "findBlocks mask loop unrolled when 8 or more atoms pass (K3), lists bit identical; on sort2 plus tiles4 (s2t4).",
+   "state": "windowed",
+   "evidence": [
+    "confirm-c1 u8/s2t4: rf 1.066, pme 1.046, gbsa 1.017",
+    "confirm-c2 apoa1rf 1.078, apoa1pme 1.048",
+    "confirm-c3 apoa1ljpme 1.045, dhfr 1.034",
+    "full gate on t9 PASS 07:22Z",
+    "M2 PASS 09:38Z",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:499, LEDGER.md:508; lanes/nblist.md:284-309",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running."
+  },
+  {
+   "area": "nblist",
+   "name": "cut",
+   "commit": "8fa089cee",
+   "description": "Raises tiles4's batch-4 cut so apoa1-size systems batch too; on s2t4. Adds to xres rather than overlapping it.",
+   "state": "windowed",
+   "state_note": "Merged on ultra/integrated 7484d7bef: full gate PASS (134 tests), OpenCL Single 7/7, M2 PASS (single 1.107-1.165, mixed 1.145-1.310 vs base). Window 2 running.",
+   "evidence": [
+    "screen-cut apoa1rf 1.030, apoa1pme 1.020",
+    "confirm-c2 apoa1rf 1.031, apoa1pme 1.022",
+    "confirm-c3 apoa1ljpme 1.009, dhfr 1.003",
+    "Window 2, 7484d7bef: 135 runs, 3x30 s host clock, no build overlaps; windows/w2/summary.txt"
+   ],
+   "ref": "LEDGER.md:499, LEDGER.md:508; lanes/nblist.md:238, 255, 290-309"
+  },
+  {
+   "area": "nblist",
+   "name": "mb0 MAX_BITS 0",
+   "commit": "",
+   "description": "No single-pair bits in the list; blocked on the md100 rule, unblocked by diag7.",
+   "state": "dropped",
+   "state_note": "paused 09:10Z for the safe pause; LJPME signal question left open",
+   "evidence": [
+    "screen-mb rf 1.065, pme 1.085, apoa1rf 1.099, apoa1ljpme 0.964"
+   ],
+   "ref": "LEDGER.md:479, LEDGER.md:508; lanes/nblist.md:299-301"
+  },
+  {
+   "area": "nblist",
+   "name": "computeRange",
+   "commit": "e342bc02f",
+   "description": "computeRange over 4 threadgroups per core.",
+   "state": "dropped",
+   "evidence": [
+    "n2b/n2a on cand2: pme 1.004, dhfr 1.004"
+   ],
+   "ref": "LEDGER.md:23, LEDGER.md:508"
+  },
+  {
+   "area": "pme",
+   "name": "onebuf PME pass probe",
+   "commit": "a7d76b55d",
+   "description": "PME as its own tracked pass on onebuf (ob-pass vs ob-pair e24a8c4b6).",
+   "state": "dropped",
+   "state_note": "Probe 1b closed; the pme work is closed (fused VkFFT estimated under the 3% bar).",
+   "evidence": [
+    "ab-ob pass/pair: pme 0.993, apoa1pme 1.000"
+   ],
+   "ref": "LEDGER.md:499; lanes/pme.md:345-356"
+  },
+  {
+   "area": "pme",
+   "name": "cand3 split pass",
+   "commit": "5bfc934b6",
+   "description": "PME split pass plus fold.",
+   "state": "dropped",
+   "evidence": [
+    "cand3/cand2 0.991 to 1.000 on 9 rows"
+   ],
+   "ref": "LEDGER.md:500"
+  },
+  {
+   "area": "dispatch",
+   "name": "k-step and idle committer",
+   "commit": "029ec544c",
+   "description": "waitfree plus committer and k-step.",
+   "state": "dropped",
+   "state_note": "Parked as a possible per-device switch: +5% M2 gbsa, -1.3% Ultra gbsa vs wf.",
+   "evidence": [
+    "screen8 clean wfk/wf gbsa 0.980",
+    "screen9 wfk/base gbsa 1.046"
+   ],
+   "ref": "LEDGER.md:481; lanes/dispatch.md:366-370"
+  },
+  {
+   "area": "atomics",
+   "name": "force words",
+   "commit": "4be61f9b6",
+   "description": "Five int32 words per component with carries, bit identical and order independent.",
+   "state": "dropped",
+   "state_note": "Kept only as a control; slower on every M2 row.",
+   "evidence": [
+    "words/base gbsa 0.975 (wsa)",
+    "M2 0.923 to 0.979"
+   ],
+   "ref": "LEDGER.md:35, LEDGER.md:506"
+  },
+  {
+   "area": "mixed",
+   "name": "relaxed math",
+   "commit": "5fbce452a",
+   "description": "Relaxed math flags for the Metal build.",
+   "state": "dropped",
+   "evidence": [
+    "single gbsa 1.025, rf 1.017, pme 1.020; mixed at most 1.010"
+   ],
+   "ref": "LEDGER.md:501"
+  }
+ ]
+}

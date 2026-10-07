@@ -1,0 +1,53 @@
+mslcheck-gate/fib.metal:300:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+mslcheck-gate/fib.metal:301:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+mslcheck-gate/fib.metal:302:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+mslcheck-gate/fib.metal:581:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+mslcheck-gate/fib.metal:582:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+mslcheck-gate/fib.metal:583:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+mslcheck-gate/fib.metal:624:16: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+    if (block1 < startBlockIndex+numBlocks) {
+        ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+mslcheck-gate/fib.metal:836:62: warning: comparison of integers of different signs: 'const unsigned int' and 'int' [-Wsign-compare]
+                        warpflags b = __ballot(interactCount == i);
+                                               ~~~~~~~~~~~~~ ^  ~
+mslcheck-gate/fib.metal:224:30: note: expanded from macro '__ballot'
+#define __ballot(var) BALLOT(var)
+                             ^~~
+mslcheck-gate/fib.metal:221:56: note: expanded from macro 'BALLOT'
+#define BALLOT(var) (unsigned int) (ulong) simd_ballot(var)
+                                                       ^~~
+mslcheck-gate/fib.metal:876:41: warning: comparison of integers of different signs: 'const int' and 'unsigned int' [-Wsign-compare]
+                        if (indexInWarp < tilesToStore)
+                            ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+mslcheck-gate/fib.metal:878:43: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                        for (int j = 0; j < tilesToStore/tilesPerWarp; j++)
+                                        ~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+mslcheck-gate/fib.metal:903:33: warning: comparison of integers of different signs: 'const int' and 'unsigned int' [-Wsign-compare]
+                if (indexInWarp < tilesToStore)
+                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+mslcheck-gate/fib.metal:905:35: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                for (int j = 0; j <= tilesToStore/tilesPerWarp; j++) {
+                                ~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~
+mslcheck-gate/fib.metal:906:48: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                    if (j*warpSize+indexInWarp < tilesToStore*TILE_SIZE)
+                        ~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~
+mslcheck-gate/fib.metal:212:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+mslcheck-gate/fib.metal:216:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+15 warnings generated. 
+ FIND_BLOCKS_GROUPS=737 USE_LARGE_BLOCKS=UNDEF

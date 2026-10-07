@@ -1,0 +1,20 @@
+median ns/day, host clock
+test                        base       maxbits        opencl       records
+amber20-cellulose          81.99         79.52         48.09         69.53
+
+rounds, base:
+  amber20-cellulose  81.89 82.10   spread 0.3%
+rounds, maxbits:
+  amber20-cellulose  79.45 79.60   spread 0.2%
+rounds, opencl:
+  amber20-cellulose  48.04 48.13   spread 0.2%
+rounds, records:
+  amber20-cellulose  69.66 69.40   spread 0.4%
+
+test                                      records/base                     records/maxbits                      records/opencl
+amber20-cellulose          0.848 (rounds 0.845..0.851)         0.874 (rounds 0.872..0.877)         1.446 (rounds 1.442..1.450)
+
+1 minute load before 8 runs: 3.22 to 4.41
+Background VM CPU before 8 runs: 106% to 112%
+runs with no result: 0
+runs that overlapped a build: 0

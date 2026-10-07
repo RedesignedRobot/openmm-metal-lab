@@ -1,0 +1,65 @@
+Test project /tmp/openmm-metal-bench/ultra-nblist/build
+      Start 218: TestMetalAndersenThermostatSingle
+      Start 222: TestMetalCMAPTorsionForceSingle
+ 1/27 Test #222: TestMetalCMAPTorsionForceSingle ................   Passed    0.97 sec
+      Start 226: TestMetalCheckpointsSingle
+ 2/27 Test #226: TestMetalCheckpointsSingle .....................   Passed    1.08 sec
+      Start 230: TestMetalCompoundIntegratorSingle
+ 3/27 Test #230: TestMetalCompoundIntegratorSingle ..............   Passed    2.64 sec
+      Start 234: TestMetalCustomAngleForceSingle
+ 4/27 Test #234: TestMetalCustomAngleForceSingle ................   Passed    0.65 sec
+      Start 238: TestMetalCustomCPPForceSingle
+ 5/27 Test #238: TestMetalCustomCPPForceSingle ..................   Passed    1.41 sec
+      Start 242: TestMetalCustomCentroidBondForceSingle
+ 6/27 Test #242: TestMetalCustomCentroidBondForceSingle .........   Passed    0.77 sec
+      Start 246: TestMetalCustomExternalForceSingle
+ 7/27 Test #246: TestMetalCustomExternalForceSingle .............   Passed    0.84 sec
+      Start 250: TestMetalCustomHbondForceSingle
+ 8/27 Test #250: TestMetalCustomHbondForceSingle ................   Passed    1.20 sec
+      Start 254: TestMetalCustomManyParticleForceSingle
+ 9/27 Test #218: TestMetalAndersenThermostatSingle ..............   Passed   13.86 sec
+      Start 258: TestMetalCustomTorsionForceSingle
+10/27 Test #258: TestMetalCustomTorsionForceSingle ..............   Passed    0.63 sec
+      Start 262: TestMetalDispersionPMESingle
+11/27 Test #254: TestMetalCustomManyParticleForceSingle .........   Passed    8.03 sec
+      Start 266: TestMetalFFTSingle
+12/27 Test #266: TestMetalFFTSingle .............................   Passed    1.14 sec
+      Start 270: TestMetalGayBerneForceSingle
+13/27 Test #270: TestMetalGayBerneForceSingle ...................   Passed    1.01 sec
+      Start 274: TestMetalHarmonicBondForceSingle
+14/27 Test #274: TestMetalHarmonicBondForceSingle ...............   Passed    0.40 sec
+      Start 278: TestMetalLangevinIntegratorSingle
+15/27 Test #262: TestMetalDispersionPMESingle ...................   Passed    9.24 sec
+      Start 282: TestMetalLocalEnergyMinimizerSingle
+16/27 Test #278: TestMetalLangevinIntegratorSingle ..............   Passed   10.98 sec
+      Start 286: TestMetalMonteCarloAnisotropicBarostatSingle
+17/27 Test #282: TestMetalLocalEnergyMinimizerSingle ............   Passed   14.73 sec
+      Start 290: TestMetalMonteCarloFlexibleBarostatSingle
+18/27 Test #286: TestMetalMonteCarloAnisotropicBarostatSingle ...***Failed  122.53 sec
+exception: Assertion failure at TestMonteCarloAnisotropicBarostat.h:302.  Expected 3, found 3.77567 (This test is stochastic and may occasionally fail)
+
+      Start 294: TestMetalNonbondedForceSingle
+19/27 Test #294: TestMetalNonbondedForceSingle ..................   Passed    6.06 sec
+      Start 298: TestMetalOrientationRestraintForceSingle
+20/27 Test #298: TestMetalOrientationRestraintForceSingle .......   Passed    1.19 sec
+      Start 302: TestMetalPythonForceSingle
+21/27 Test #302: TestMetalPythonForceSingle .....................   Passed    0.70 sec
+      Start 306: TestMetalRBTorsionForceSingle
+22/27 Test #306: TestMetalRBTorsionForceSingle ..................   Passed    0.47 sec
+      Start 310: TestMetalRMSDForceSingle
+23/27 Test #310: TestMetalRMSDForceSingle .......................   Passed    0.97 sec
+      Start 314: TestMetalSettleSingle
+24/27 Test #314: TestMetalSettleSingle ..........................   Passed    1.04 sec
+      Start 318: TestMetalVariableLangevinIntegratorSingle
+25/27 Test #318: TestMetalVariableLangevinIntegratorSingle ......   Passed   19.13 sec
+      Start 322: TestMetalVerletIntegratorSingle
+26/27 Test #290: TestMetalMonteCarloFlexibleBarostatSingle ......   Passed  152.36 sec
+27/27 Test #322: TestMetalVerletIntegratorSingle ................   Passed    7.75 sec
+
+96% tests passed, 1 tests failed out of 27
+
+Total Test time (real) = 190.95 sec
+
+The following tests FAILED:
+	286 - TestMetalMonteCarloAnisotropicBarostatSingle (Failed)
+Errors while running CTest

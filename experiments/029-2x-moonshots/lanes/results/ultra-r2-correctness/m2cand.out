@@ -1,0 +1,48 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-7c0adadd6dd14e42aee784cef9492559/src: 0a563fdb3c076465038f87e97f448f66d63ce612, 2517 working-tree blobs verified
+M2 pid=99840 log=~/lab/ultra-m2.noindex/uploads/7c0adadd6dd14e42aee784cef9492559/run.log
+M2 source blobs verified
+08:06:01Z memory free 68%, 0 other build processes, load { 1.40 1.41 1.48 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-r2-correctness-e93d0f1994/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-correctness-e93d0f1994/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-correctness-e93d0f1994/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-r2-correctness-e93d0f1994 PASS, 29 s
+apoa1pme       92224    single  7.747e-05  7.196e-01  2.564e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.196e-01  2.417e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.225e-01  5.547e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.225e-01  5.531e-07  ok
+forces gate cand-r2-correctness-e93d0f1994 PASS, 29 s
+A/B 2301 s
+M2 check 20260927T080700Z-0a563fdb3, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r2-correctness-e93d0f1994: 0a563fdb3c07 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     456.31     457.60  1.003  1.001..1.004       68       68     +0   +0.0       91       91  
+gbsa               mixed      377.49     376.27  0.997  0.996..0.998       70       71     +1   +1.0       95       96  
+rf                 single     292.26     293.05  1.003  1.002..1.004      118      120     +2   +1.3      136      138  
+rf                 mixed      232.49     230.98  0.994  0.993..0.995      122      122     +0   +0.3      141      142  
+pme                single     239.80     238.07  0.993  0.992..0.994      125      124     -1   -0.9      141      140  
+pme                mixed      196.83     195.04  0.991  0.991..0.991      128      127     -1   -0.8      146      145  
+apoa1rf            single      78.59      78.59  1.000  1.000..1.000      300      299     -1   -0.5      345      343  
+apoa1rf            mixed       63.77      63.76  1.000  1.000..1.000      304      300     -4   -1.5      350      346  
+apoa1pme           single      59.83      59.34  0.992  0.991..0.993      302      302     +0   +0.1      351      351  
+apoa1pme           mixed       50.73      50.46  0.995  0.992..0.997      298      305     +7   +2.2      355      349  
+apoa1ljpme         single      44.78      44.53  0.995  0.994..0.995      302      307     +5   +1.6      348      352  
+apoa1ljpme         mixed       39.60      39.43  0.996  0.995..0.996      296      304     +8   +2.7      352      350  
+amber20-dhfr       single     248.31     245.91  0.990  0.990..0.991      138      137     -1   -0.6      153      152  
+amber20-dhfr       mixed      201.73     200.21  0.992  0.992..0.993      146      146     -0   -0.1      159      159  
+amber20-cellulose  single      13.27      13.19  0.994  0.993..0.995     1500     1500     +0   +0.0     1511     1527  
+amber20-cellulose  mixed       11.47      11.38  0.993  0.987..0.998     1500     1500     +0   +0.0     1527     1485  
+amoebagk           single       2.68       2.69  1.004  1.001..1.007      298      298     -0   -0.0      362      363  
+amoebagk           mixed        2.33       2.32  0.996  0.996..0.996      299      299     -0   -0.0      367      366  
+amoebapme          single       2.62       2.62  0.999  0.997..1.002      368      367     -1   -0.3      440      439  
+amoebapme          mixed        2.57       2.57  0.999  0.999..1.000      370      369     -1   -0.3      447      446  
+
+1-minute load before 88 runs: 1.09 to 3.98; memory free 65% to 73%
+Spotlight CPU before 88 runs: 0% to 3%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r2-correctness-e93d0f1994 0a563fdb3c07 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 2331 s; tests=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv,amoebagk,amoebapme; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260927T080700Z-0a563fdb3
+

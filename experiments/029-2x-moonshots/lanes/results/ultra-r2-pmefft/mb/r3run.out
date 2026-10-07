@@ -1,0 +1,24 @@
+/tmp/openmm-metal-bench/ultra-r3-interp/src: 4c26efa9b523e10a97cdd9466a22be1c81f848e3, 2519 working-tree blobs verified
+== build ok 07:10Z
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.785e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  1.136e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.395e-01  1.730e-07  ok
+PASS
+gate exit=0
+check exit=0
+md100 exit=0
+detforces exit=0
+ctest exit=0
+pme exit=0 09:01Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single
+amber20-dhfr exit=0 09:30Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single
+apoa1pme exit=0 10:03Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single
+apoa1ljpme exit=0 10:52Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single
+amber20-cellulose exit=0 11:58Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single
+amber20-stmv exit=0 13:44Z
+no label mine; the labels are base-mixed, base-single, mine-mixed, mine-single

@@ -1,6 +1,6 @@
 # API check of the native Metal design study
 
-The research lane checked every API named in research/2026-09-25-metal-native-design.md against Apple's documentation and the metal-cpp headers vendored at 6df2b8bcb (libraries/metal-cpp/Metal), on 2026-09-24 at about 21:50Z.
+A research pass checked every API named in research/2026-09-25-metal-native-design.md against Apple's documentation and the metal-cpp headers vendored at 6df2b8bcb (libraries/metal-cpp/Metal), on 2026-09-24 at about 21:50Z.
 
 API check of the native Metal study, against Apple's docs and the vendored metal-cpp at 6df2b8bcb (libraries/metal-cpp/Metal): every API the designs name exists with the claimed shape. There are 3 undocumented behaviors to probe, 1 version gate, and 2 citation fixes. Details:
 
@@ -25,7 +25,7 @@ Verified as the study states
 14. Fast math error bounds for my GBSA kill test (MSL Table 8.2): fast rsqrt <= 2 ulp, 1.0/x <= 1 ulp, x/y <= 2.5 ulp, fast exp <= 3 + floor(|2x|) ulp. precise sqrt is correctly rounded (Table 8.1). Replacing precise sqrt and fast reciprocals with one rsqrt moves Gpol by a few ulp, about 1e-6 relative. That's far under the 2.5e-5 gate.
 
 Conflicts and citation fixes
-15. Feature Set Tables footnote 7 says "The full set of 64-bit atomic operations is supported on all platforms starting with Apple9." MSL 6.16.4.6 lists only min and max for atomic_ulong, and the atomics lane's compile test failed on add. Trust the spec plus the compiler.
+15. Feature Set Tables footnote 7 says "The full set of 64-bit atomic operations is supported on all platforms starting with Apple9." MSL 6.16.4.6 lists only min and max for atomic_ulong, and the atomics experiment's compile test failed on add. Trust the spec plus the compiler.
 16. The study cites "MSL 4.1 1.6.3" for fast rsqrt, divide and exp. Section 1.6.3 covers the compiler options. The fast:: functions are in 6.6, and their error bounds are in Table 8.2 (section 8.4).
 17. The Dynamic Caching and ALU quotes come from Apple's tech talk 111375, and the "1K to 2K threads per core" and concurrent-dispatch quotes from WWDC22 10159. The brief carries those; I didn't re-fetch them tonight.
 

@@ -1,0 +1,14 @@
+metal-single Metal single settings=none /tmp/openmm-metal-bench/ultra-plugins/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit bca28d062665fdd087935f6f3de894c7400a71ed src 8d4a2dfde202bccb5eac45470dd9b76218900f2d built 2026-09-24T20:09:30Z 
+cand-single Metal single settings=none /tmp/openmm-metal-bench/ultra-plugins/cand/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 29dbf89287119a98f0ac2720849ad8711279f856 src 044d444daeba88ada2ad163d0f3bbeff2d1917e1 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:45:06Z 
+metal-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-plugins/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit bca28d062665fdd087935f6f3de894c7400a71ed src 8d4a2dfde202bccb5eac45470dd9b76218900f2d built 2026-09-24T20:09:30Z 
+cand-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-plugins/cand/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 29dbf89287119a98f0ac2720849ad8711279f856 src 044d444daeba88ada2ad163d0f3bbeff2d1917e1 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:45:06Z 
+opencl-single OpenCL single settings=none /tmp/openmm-metal-bench/ultra-plugins/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit bca28d062665fdd087935f6f3de894c7400a71ed src 8d4a2dfde202bccb5eac45470dd9b76218900f2d built 2026-09-24T20:09:30Z 
+21:08:01Z waiting for the lease: 24 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:13:05Z waiting for the lease: 21 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:18:09Z waiting for the lease: 21 in the queue, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453, 0 build processes
+21:23:14Z waiting for the lease: 21 in the queue, held by: atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 0 build processes
+21:28:19Z waiting for the lease: 21 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:33:23Z waiting for the lease: 21 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:38:28Z waiting for the lease: 21 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:43:33Z waiting for the lease: 20 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:48:38Z waiting for the lease: 20 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes

@@ -1,0 +1,20 @@
+median ns/day, host clock
+test                        base        blocks       maxbits        opencl
+apoa1rf                   413.48        104.61        458.30        281.17
+
+rounds, base:
+  apoa1rf            412.86 414.10   spread 0.3%
+rounds, blocks:
+  apoa1rf            104.50 104.71   spread 0.2%
+rounds, maxbits:
+  apoa1rf            458.13 458.48   spread 0.1%
+rounds, opencl:
+  apoa1rf            281.17 281.17   spread 0.0%
+
+test                                       blocks/base                      blocks/maxbits                       blocks/opencl
+apoa1rf                    0.253 (rounds 0.253..0.253)         0.228 (rounds 0.228..0.228)         0.372 (rounds 0.372..0.372)
+
+1 minute load before 8 runs: 3.40 to 5.31
+Background VM CPU before 8 runs: 10% to 22%
+runs with no result: 0
+runs that overlapped a build: 0

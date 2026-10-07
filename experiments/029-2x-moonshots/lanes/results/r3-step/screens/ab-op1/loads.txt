@@ -1,0 +1,38 @@
+2026-09-29T10:23:25Z round 1 gbsa off_s load { 14.46 10.98 8.29 } vm 16% top superwhisper 31.1%, AirPlayXPCHelper 18.5%, powermetrics 11.7%, com.apple.Virtualization.VirtualMachine 8.0%, com.apple.Virtualization.VirtualMachine 7.6%
+2026-09-29T10:23:44Z round 1 gbsa on_s load { 11.39 10.50 8.18 } vm 26% top superwhisper 27.9%, com.apple.Virtualization.VirtualMachine 20.6%, AirPlayXPCHelper 14.1%, backupd 7.7%, WindowServer 6.5%
+2026-09-29T10:24:02Z round 1 gbsa off_m load { 9.32 10.08 8.07 } vm 21% top superwhisper 27.5%, AirPlayXPCHelper 16.3%, com.apple.Virtualization.VirtualMachine 9.2%, com.apple.Virtualization.VirtualMachine 6.8%, backupd 6.7%
+2026-09-29T10:24:27Z round 1 gbsa on_m load { 6.85 9.43 7.89 } vm 8% top superwhisper 27.8%, AirPlayXPCHelper 17.2%, backupd 6.6%, com.apple.Virtualization.VirtualMachine 4.1%, VTEncoderXPCService 3.6%
+2026-09-29T10:24:45Z round 1 gbsa on_m after the run: FOREIGN GPU 8%
+2026-09-29T10:24:46Z round 1 rf off_s load { 5.38 8.93 7.75 } vm 6% top superwhisper 27.0%, AirPlayXPCHelper 15.8%,  claude 5.9%, backupd 5.7%, powermetrics 4.5%
+2026-09-29T10:25:05Z round 1 rf on_s load { 4.38 8.47 7.61 } vm 23% top superwhisper 27.8%, AirPlayXPCHelper 17.1%, com.apple.Virtualization.VirtualMachine 15.5%, com.apple.Virtualization.VirtualMachine 7.2%, backupd 5.7%
+2026-09-29T10:25:24Z round 1 rf off_m load { 3.92 8.10 7.49 } vm 16% top superwhisper 23.8%, AirPlayXPCHelper 15.3%, powermetrics 10.5%, com.apple.Virtualization.VirtualMachine 8.7%, WindowServer 7.5%
+2026-09-29T10:25:47Z round 1 rf on_m load { 4.47 7.96 7.46 } vm 6% top superwhisper 26.6%, AirPlayXPCHelper 17.1%,  claude 9.3%, powermetrics 7.6%, backupd 5.6%
+2026-09-29T10:26:06Z round 1 pme off_s load { 4.15 7.67 7.37 } vm 12% top superwhisper 28.2%, AirPlayXPCHelper 15.5%, com.apple.Virtualization.VirtualMachine 7.6%, powermetrics 6.3%, WindowServer 4.9%
+2026-09-29T10:26:24Z round 1 pme off_s after the run: FOREIGN GPU 6%
+2026-09-29T10:26:25Z round 1 pme on_s load { 3.88 7.37 7.26 } vm 8% top superwhisper 27.2%, AirPlayXPCHelper 17.2%, powermetrics 6.2%, WindowServer 5.9%, VTEncoderXPCService 4.1%
+2026-09-29T10:26:43Z round 1 pme on_s after the run: FOREIGN GPU 6%
+2026-09-29T10:26:44Z round 1 pme off_m load { 3.22 6.99 7.13 } vm 49% top com.apple.Virtualization.VirtualMachine 28.3%, superwhisper 25.2%, AirPlayXPCHelper 16.8%, powermetrics 11.3%, com.apple.Virtualization.VirtualMachine 6.9%
+2026-09-29T10:27:07Z round 1 pme on_m load { 3.14 6.73 7.03 } vm 16% top superwhisper 27.0%, AirPlayXPCHelper 13.4%, WindowServer 6.5%, com.apple.Virtualization.VirtualMachine 6.2%, com.apple.Virtualization.VirtualMachine 6.2%
+2026-09-29T10:27:24Z round 1 pme on_m after the run: FOREIGN GPU 7%
+2026-09-29T10:27:26Z round 2 gbsa on_m load { 2.62 6.37 6.90 } vm 23% top superwhisper 23.2%, AirPlayXPCHelper 17.8%, com.apple.Virtualization.VirtualMachine 11.2%, com.apple.Virtualization.VirtualMachine 8.8%, WindowServer 7.4%
+2026-09-29T10:27:47Z round 2 gbsa on_m after the run: FOREIGN GPU 17%
+2026-09-29T10:27:49Z round 2 gbsa off_m load { 2.88 6.19 6.82 } FOREIGN GPU 15% vm 9% top WindowServer 39.4%, superwhisper 28.1%, AirPlayXPCHelper 23.9%,  claude 13.0%, VTEncoderXPCService 11.7%
+2026-09-29T10:28:07Z round 2 gbsa off_m after the run: FOREIGN GPU 7%
+2026-09-29T10:28:08Z round 2 gbsa on_s load { 3.09 6.01 6.74 } vm 5% top superwhisper 28.0%, AirPlayXPCHelper 17.3%, WindowServer 12.9%, powermetrics 7.9%, VTEncoderXPCService 7.3%
+2026-09-29T10:28:26Z round 2 gbsa on_s after the run: FOREIGN GPU 9%
+2026-09-29T10:28:27Z round 2 gbsa off_s load { 2.82 5.77 6.63 } vm 13% top backupd 79.6%, superwhisper 34.0%, WindowServer 20.7%, AirPlayXPCHelper 15.7%, iStat Menus Menubar 9.6%
+2026-09-29T10:28:45Z round 2 gbsa off_s after the run: FOREIGN GPU 7%
+2026-09-29T10:28:46Z round 2 rf on_m load { 2.83 5.57 6.54 } vm 8% top superwhisper 25.9%, AirPlayXPCHelper 18.4%, WindowServer 15.3%,  claude 12.1%, bun 10.2%
+2026-09-29T10:29:08Z round 2 rf on_m after the run: FOREIGN GPU 8%
+2026-09-29T10:29:09Z round 2 rf off_m load { 2.73 5.32 6.42 } vm 17% top backupd 40.2%, superwhisper 29.7%, AirPlayXPCHelper 17.9%, WindowServer 12.9%, com.apple.Virtualization.VirtualMachine 11.1%
+2026-09-29T10:29:27Z round 2 rf off_m after the run: FOREIGN GPU 8% FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T10:29:28Z round 2 rf on_s load { 2.78 5.20 6.36 } FOREIGN GPU 7% FOREIGN GPU renderers chrome-headless-shell vm 7% top chrome-headless-shell 104.7%, backupd 35.4%, superwhisper 29.0%, AirPlayXPCHelper 15.2%, WindowServer 14.5%
+2026-09-29T10:29:48Z round 2 rf off_s load { 3.30 5.17 6.32 } FOREIGN GPU 7% vm 18% top backupd 70.5%, superwhisper 29.2%, AirPlayXPCHelper 18.4%, WindowServer 14.4%, com.apple.Virtualization.VirtualMachine 9.2%
+2026-09-29T10:30:05Z round 2 rf off_s after the run: FOREIGN GPU 9% FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T10:30:06Z round 2 pme on_m load { 3.84 5.18 6.30 } FOREIGN GPU renderers chrome-headless-shell vm 11% top chrome-headless-shell 111.1%, superwhisper 27.9%, AirPlayXPCHelper 18.4%, WindowServer 11.3%, VTEncoderXPCService 7.9%
+2026-09-29T10:30:28Z round 2 pme on_m after the run: FOREIGN GPU 7%
+2026-09-29T10:30:29Z round 2 pme off_m load { 3.46 5.00 6.21 } vm 11% top superwhisper 27.1%, AirPlayXPCHelper 14.8%, WindowServer 11.2%, com.apple.Virtualization.VirtualMachine 6.6%, VTEncoderXPCService 6.2%
+2026-09-29T10:30:47Z round 2 pme off_m after the run: FOREIGN GPU 8%
+2026-09-29T10:30:48Z round 2 pme on_s load { 3.64 4.95 6.16 } vm 12% top superwhisper 27.7%, AirPlayXPCHelper 18.1%, WindowServer 12.0%,  claude 7.8%, com.apple.Virtualization.VirtualMachine 5.7%
+2026-09-29T10:31:07Z round 2 pme off_s load { 3.51 4.84 6.09 } vm 12% top superwhisper 24.3%, AirPlayXPCHelper 19.0%, UsageTrackingAgent 13.8%, runningboardd 10.1%, WindowServer 7.9%
+2026-09-29T10:31:25Z builds: none ran during the 24 timed runs; timing hold of gpuq job 37 (r3-step): 0 builds paused

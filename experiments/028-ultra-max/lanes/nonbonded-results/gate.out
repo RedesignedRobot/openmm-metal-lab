@@ -1,0 +1,15 @@
+gate --quick /tmp/openmm-metal-bench/ultra-nonbonded, 6d72c3ae9bbd0945c70994e01d95398bbb3d64f7, logs in /tmp/openmm-metal-bench/ultra-nonbonded/gate-20260924T223711Z
+22:37:11Z waiting for the lease: 36 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:42:18Z waiting for the lease: 35 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 13 build processes
+22:47:25Z waiting for the lease: 35 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:52:33Z waiting for the lease: 34 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 20 build processes
+22:57:40Z waiting for the lease: 33 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:02:47Z waiting for the lease: 32 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:07:54Z waiting for the lease: 31 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 12 build processes
+23:13:02Z waiting for the lease: 31 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:18:09Z waiting for the lease: 29 in the queue, held by: ultra-atomics 2026-09-24T23:17:52Z gate.sh forces /tmp/openmm-metal-bench/ultra-atomics, 0 build processes
+23:23:17Z waiting for the lease: 26 in the queue, held by: ultra-profiler 2026-09-24T23:23:08Z tbpc sweep apoa1pme 12,24,16,32: gpucapture plus gpudebug profile, 13 min cap, 0 build processes
+23:28:24Z waiting for the lease: 23 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:33:31Z waiting for the lease: 21 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:38:39Z waiting for the lease: 21 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+FAIL

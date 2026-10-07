@@ -3,8 +3,8 @@
 This reference describes Apple's `metal-cpp` library, its memory management conventions, SDK coverage, and integration strategies for C++ codebases that do not permit Objective-C.
 
 Primary sources:
-- metal-cpp repository cloned into `/Users/mas/code/metal-ref/` (newest tag: `release/metal-cpp_macOS27_iOS27`, commit `27c4382`, matching macOS 27 and iOS 27 SDKs)
-- `LICENSE.txt` and `README.md` in `/Users/mas/code/metal-ref/`
+- metal-cpp repository cloned into `~/code/metal-ref/` (newest tag: `release/metal-cpp_macOS27_iOS27`, commit `27c4382`, matching macOS 27 and iOS 27 SDKs)
+- `LICENSE.txt` and `README.md` in `~/code/metal-ref/`
 - Apple Developer metal-cpp portal: https://developer.apple.com/metal/cpp/
 - Verification test located in `docs/metal/examples/metal-cpp-min/`
 
@@ -58,7 +58,7 @@ Autoreleased objects are placed in the nearest enclosing `NS::AutoreleasePool` (
 
 ## Metal 4 and macOS 27 SDK coverage
 
-The cloned repository at `/Users/mas/code/metal-ref` carries git tag `release/metal-cpp_macOS27_iOS27` (commit `27c4382`). It fully covers the Metal 4 API and the macOS 27 SDK:
+The cloned repository at `~/code/metal-ref` carries git tag `release/metal-cpp_macOS27_iOS27` (commit `27c4382`). It fully covers the Metal 4 API and the macOS 27 SDK:
 - All Metal 4 headers exist under `Metal/`: `MTL4CommandQueue.hpp`, `MTL4CommandBuffer.hpp`, `MTL4ComputeCommandEncoder.hpp`, `MTL4CommandAllocator.hpp`, `MTL4ArgumentTable.hpp`, `MTL4Compiler.hpp`, `MTL4Archive.hpp`, `MTL4Counters.hpp`, `MTLTensor.hpp`.
 - All types, methods, enums, and options match macOS 27.0 headers in `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/`.
 
@@ -76,7 +76,7 @@ The repository contains a minimal verification program in `docs/metal/examples/m
   ```bash
   xcrun -sdk macosx clang++ -std=c++17 \
       -isysroot $(xcrun --show-sdk-path) \
-      -I/Users/mas/code/metal-ref \
+      -I~/code/metal-ref \
       -framework Metal -framework Foundation \
       main.cpp -o min_compute
   ```

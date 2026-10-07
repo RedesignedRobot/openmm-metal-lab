@@ -1,0 +1,13 @@
+19:04:50Z waiting for the lease: 4 in the queue, held by: ultra-r2-bonded 2026-09-27T19:04:48Z forcetime v1/fold/noexcl, 4 tests x 3 arms x 2 rounds, about 14 min, 0 build processes
+19:09:53Z waiting for the lease: 4 in the queue, held by: ultra-r2-bonded 2026-09-27T19:04:48Z forcetime v1/fold/noexcl, 4 tests x 3 arms x 2 rounds, about 14 min, 0 build processes
+19:14:57Z waiting for the lease: 2 in the queue, held by: ultra-r2-dispatch-kg 2026-09-27T19:14:33Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kg/s-rf, about 4 min, 0 build processes
+19:20:13Z waiting for the lease: 1 in the queue, held by: ultra-r2-spread 2026-09-27T19:17:53Z ab.sh /tmp/openmm-metal-bench/ultra-r2-spread/s3, about 9 min, 0 build processes
+r1-apoa1pme: xctrace pid 33253 recording 19:23:27Z
+captured r1-apoa1pme 19:23:34Z: Target app exited, ending recording...
+saved r1-apoa1pme 19:24:09Z: Output file saved as: r1-apoa1pme.trace
+exported r1-apoa1pme 19:24:13Z, rows 55834, releasing
+spread-apoa1pme: xctrace pid 35743 recording 19:24:15Z
+captured spread-apoa1pme 19:24:21Z: Target app exited, ending recording...
+saved spread-apoa1pme 19:24:58Z: Output file saved as: spread-apoa1pme.trace
+exported spread-apoa1pme 19:25:03Z, rows 66315, releasing
+census done 19:25:03Z

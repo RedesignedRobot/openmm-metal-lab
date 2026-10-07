@@ -1,0 +1,28 @@
+== metal1: Metal N=1, total 671.7 ns/day, window 10.035 s common, 19503 steps in it (all processes)
+busy 8913.8 ms of 10035.0 (88.8%), 457.04 us per step (summed over processes)
+idle gaps: 79272, total 1121.18 ms, median 0.50 us; <2 us 60061 (26.56 ms), 2-10 us 2732 (17.55 ms), 10-50 us 10258 (285.37 ms), 50-200 us 5136 (425.55 ms), 200-1000 us 1067 (342.29 ms), >=1000 us 18 (23.85 ms)
+command buffers: 39872 over 1 processes, 2.04 per step; per process 39872; per-process steps in agg.jsonl 19503
+kick labels (count per step, median us):
+  Compute Command 0                                             2.04   125.21
+  Blit Command 1                                                1.01     3.62
+  Compute Command 2                                             1.01    13.21
+== opencl1: OpenCL N=1, total 638.5 ns/day, window 10.009 s common, 18491 steps in it (all processes)
+busy 7937.1 ms of 10009.0 (79.3%), 429.24 us per step (summed over processes)
+idle gaps: 38158, total 2071.90 ms, median 53.25 us; <2 us 18641 (8.80 ms), 2-10 us 24 (0.13 ms), 10-50 us 236 (10.16 ms), 50-200 us 17070 (1414.05 ms), 200-1000 us 2181 (631.03 ms), >=1000 us 6 (7.73 ms)
+command buffers: 38158 over 1 processes, 2.06 per step; per process 38158; per-process steps in agg.jsonl 18491
+kick labels (count per step, median us):
+  Compute Command 0                                             2.06   180.33
+== metal4: Metal N=4, total 1177.1 ns/day, window 10.015 s common, 34110 steps in it (all processes)
+busy 10012.4 ms of 10015.0 (100.0%), 293.53 us per step (summed over processes)
+idle gaps: 139, total 2.62 ms, median 0.54 us; <2 us 112 (0.06 ms), 2-10 us 7 (0.05 ms), 10-50 us 8 (0.22 ms), 50-200 us 8 (1.08 ms), 200-1000 us 4 (1.22 ms)
+command buffers: 69920 over 4 processes, 2.05 per step; per process 17421, 17518, 17494, 17487; per-process steps in agg.jsonl 8551, 8645, 8493, 8525
+kick labels (count per step, median us):
+  Compute Command 0                                             2.11   215.75
+  Compute Command 2                                             1.00   186.17
+  Blit Command 1                                                1.00     4.33
+== opencl4: OpenCL N=4, total 1239.1 ns/day, window 10.014 s common, 35903 steps in it (all processes)
+busy 10010.0 ms of 10014.0 (100.0%), 278.81 us per step (summed over processes)
+idle gaps: 148, total 4.04 ms, median 0.54 us; <2 us 95 (0.04 ms), 2-10 us 8 (0.05 ms), 10-50 us 18 (0.53 ms), 50-200 us 22 (2.13 ms), 200-1000 us 5 (1.28 ms)
+command buffers: 74206 over 4 processes, 2.07 per step; per process 18587, 18470, 18574, 18575; per-process steps in agg.jsonl 8967, 8968, 8909, 9109
+kick labels (count per step, median us):
+  Compute Command 0                                             2.11   275.46

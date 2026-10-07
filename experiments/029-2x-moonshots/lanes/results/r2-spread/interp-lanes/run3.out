@@ -1,0 +1,44 @@
+== build ok 18:06Z
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.785e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  1.050e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.395e-01  1.732e-07  ok
+PASS
+gate exit=0
+check exit=0
+md100 exit=0
+detforces exit=0
+ctest exit=0
+census exit=0 19:00Z
+gridInterpolateForce: n 2086 p10 40.2 p25 40.8 p50 41.5 p75 42.2 p90 43.0  hist(5us bins) [(0, 4), (10, 1), (15, 1), (20, 1), (35, 116), (40, 1804), (45, 2), (55, 1), (60, 5), (65, 20), (70, 15), (75, 16)]
+computeNonbonded: n 4183 p10 356.3 p25 359.2 p50 362.6 p75 366.9 p90 370.1  hist(5us bins) [(10, 3), (20, 3), (45, 2), (50, 3), (55, 1), (60, 1), (65, 1), (75, 1), (80, 1), (85, 1), (90, 2), (95, 2)]
+steps 3764, wall 977.8 us/step
+| kernel | busy us | gap after us | total us | share |
+|---|---:|---:|---:|---:|
+| computeNonbonded | 325.6 | 11.6 | 337.2 | 34.5% |
+| findBlocksWithInteractions | 114.7 | 94.6 | 209.2 | 21.4% |
+| VkFFT_main | 36.4 | 63.0 | 99.5 | 10.2% |
+| integrateLangevinMiddleFused | 45.3 | 41.9 | 87.2 | 8.9% |
+| calcCenterOfMassVelocity | 50.9 | 1.4 | 52.3 | 5.3% |
+| gridSpreadCharge | 45.2 | 3.2 | 48.4 | 4.9% |
+| reciprocalConvolution | 6.5 | 19.1 | 25.6 | 2.6% |
+| findBlockBounds | 18.4 | 3.4 | 21.8 | 2.2% |
+| clearThreeBuffers | 3.6 | 12.8 | 16.4 | 1.7% |
+| assignElementsToBuckets2 | 11.7 | 1.9 | 13.6 | 1.4% |
+| sortBoxData | 8.8 | 4.5 | 13.3 | 1.4% |
+gridInterpolateForce: n 4808 p10 39.3 p25 40.1 p50 41.5 p75 43.2 p90 45.7  hist(5us bins) [(25, 2), (30, 10), (35, 856), (40, 3316), (45, 472), (50, 140), (55, 4), (60, 5), (65, 2), (70, 1)]
+computeNonbonded: n 4822 p10 373.0 p25 376.5 p50 380.3 p75 384.6 p90 388.2  hist(5us bins) [(10, 2), (20, 1), (25, 4), (30, 1), (35, 1), (40, 3), (45, 2), (60, 1), (65, 1), (75, 1), (80, 1), (85, 1)]
+steps 4339, wall 977.6 us/step
+| kernel | busy us | gap after us | total us | share |
+|---|---:|---:|---:|---:|
+| computeNonbonded | 327.3 | 13.0 | 340.3 | 34.8% |
+| findBlocksWithInteractions | 115.1 | 134.0 | 249.2 | 25.5% |
+| integrateLangevinMiddleFused | 45.3 | 43.5 | 88.8 | 9.1% |
+| VkFFT_main | 30.2 | 51.9 | 82.1 | 8.4% |
+| calcCenterOfMassVelocity | 39.9 | 1.4 | 41.3 | 4.2% |
+| gridSpreadCharge | 25.3 | 1.8 | 27.1 | 2.8% |
+| reciprocalConvolution | 6.5 | 19.5 | 26.0 | 2.7% |
+| findBlockBounds | 18.9 | 3.0 | 22.0 | 2.2% |
+| clearThreeBuffers | 3.5 | 12.6 | 16.2 | 1.7% |
+| gridInterpolateForce | 14.7 | 0.0 | 14.7 | 1.5% |
+| assignElementsToBuckets2 | 11.6 | 1.8 | 13.4 | 1.4% |

@@ -15,7 +15,7 @@
 # --rerun-builds (window.sh) reruns every (round, test) with a marked run once at the end,
 # all configurations in that round's order; the replaced results move to <outdir>/replaced.
 # benchmark.py times with the host clock: datetime.now() around step(), plus a getState() sync.
-# The load averages, the Hyperscale VM's CPU and the top 5 CPU processes before every run go to
+# The load averages, the background VM's CPU and the top 5 CPU processes before every run go to
 # <outdir>/loads.txt; each configuration's openmm, revision and build go to <outdir>/configs.txt.
 # <outdir> must be new or empty. <tests> is a comma list, or "all" for the 9 benchmark.py tests. A run whose result file is
 # missing or has an empty benchmarks list is logged as NO RESULT; a run over <seconds>+900 s is killed.

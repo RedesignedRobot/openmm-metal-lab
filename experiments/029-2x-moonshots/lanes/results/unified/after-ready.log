@@ -1,0 +1,124 @@
+Waiting for READY and candidate BUILT at 2026-09-26T16:56:51Z
+Prerequisites ready at 2026-09-26T17:17:51Z
+17:17:52Z waiting for the lease: 1 in the queue, held by: ultra-infra 2026-09-26T17:17:17Z int028 fresh-process deterministic forces, 11 build processes
+2026-09-26T17:17:56Z build-policy demote pid=13445 tree=/tmp/openmm-metal-bench/ultra-m29-nonbonded-blocks darwin_priority=0
+pme-single: xctrace pid 15756 recording 17:17:59Z
+captured pme-single 17:18:03Z: Target app exited, ending recording...
+saved pme-single 17:18:30Z: Output file saved as: pme-single.trace
+exported pme-single 17:18:36Z, rows 100264, releasing
+pme-mixed: xctrace pid 19020 recording 17:18:42Z
+captured pme-mixed 17:18:44Z: Target app exited, ending recording...
+17:18:56Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-m29-unified (Bet 2 baseline shader costs). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved pme-mixed 17:19:06Z: Output file saved as: pme-mixed.trace
+exported pme-mixed 17:19:11Z, rows 78637, releasing
+apoa1pme-single: xctrace pid 20934 recording 17:19:17Z
+captured apoa1pme-single 17:19:23Z: Target app exited, ending recording...
+saved apoa1pme-single 17:19:49Z: Output file saved as: apoa1pme-single.trace
+exported apoa1pme-single 17:19:53Z, rows 49361, releasing
+apoa1pme-mixed: xctrace pid 23594 recording 17:19:59Z
+captured apoa1pme-mixed 17:20:05Z: Target app exited, ending recording...
+17:20:22Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-m29-unified (Bet 2 baseline shader costs). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved apoa1pme-mixed 17:20:34Z: Output file saved as: apoa1pme-mixed.trace
+exported apoa1pme-mixed 17:20:38Z, rows 49315, releasing
+amber20-dhfr-single: xctrace pid 25731 recording 17:20:42Z
+captured amber20-dhfr-single 17:20:46Z: Target app exited, ending recording...
+saved amber20-dhfr-single 17:21:18Z: Output file saved as: amber20-dhfr-single.trace
+exported amber20-dhfr-single 17:21:25Z, rows 115846, releasing
+amber20-dhfr-mixed: xctrace pid 30548 recording 17:21:34Z
+captured amber20-dhfr-mixed 17:21:41Z: Target app exited, ending recording...
+17:22:38Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-m29-unified (Bet 2 baseline shader costs). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved amber20-dhfr-mixed 17:22:39Z: Output file saved as: amber20-dhfr-mixed.trace
+exported amber20-dhfr-mixed 17:22:46Z, rows 119621, releasing
+BASELINE PROFILES COMPLETE
+2026-09-26T17:22:49Z build-policy promote pid=13445 tree=/tmp/openmm-metal-bench/ultra-m29-nonbonded-blocks darwin_priority=0
+2026-09-26T17:22:49Z build-policy promote pid=16355 tree=/tmp/openmm-metal-bench/ultra-infra-cache-warm darwin_priority=0
+17:22:49Z waiting for the lease: 5 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:22:49Z gate.sh --quick /tmp/openmm-metal-bench/ultra-m29-nonbonded, 33 build processes
+Test project /tmp/openmm-metal-bench/ultra-m29-unified/build
+    Start 266: TestMetalFFTSingle
+1/1 Test #266: TestMetalFFTSingle ...............   Passed    1.24 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   1.25 sec
+17:23:39Z waiting for the lease: 3 in the queue, held by: ultra-m29-resident 2026-09-26T17:23:38Z gate.sh --quick /tmp/openmm-metal-bench/ultra-m29-resident, 32 build processes
+17:28:43Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:24:03Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-small, about 13 min BUILD RUNNING, 17 build processes
+17:33:46Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:24:03Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-small, about 13 min BUILD RUNNING, 15 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-m29-unified, 7484d7bef401f813dc871c1e156578954606d4ea, logs in /tmp/openmm-metal-bench/ultra-m29-unified/gate-20260926T173535Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  6.098e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.342e-01  2.090e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  1.175e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.200e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  5.065e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.201e-01  6.208e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.201e-01  5.852e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  6.120e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.231e-01  6.090e-07  ok
+PASS
+17:36:00Z waiting for the lease: 2 in the queue, held by: m29-mixed 2026-09-26T17:35:34Z SHAKE SETTLE mixed integration and COM tests, 6 build processes
+17:41:14Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:38:46Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-apoa1, about 11 min, 0 build processes
+17:46:41Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:38:46Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-apoa1, about 11 min, 0 build processes
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.955e-06  8.007e-03  6.938e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.95484046e-06 raw_max_force=0.00800721001
+gbsa            2489     mixed  1.317e-05  9.293e-02  5.858e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.31662775e-05 raw_max_force=0.0929343908
+rf             23558    single  1.066e-06  1.997e-02  2.847e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=4.20471473e-06 raw_max_force=0.339281861
+# cutoff pair {'i': 7939, 'j': 22308, 'distance_minus_cutoff_nm': -1.6477930131486573e-09, 'pair_force_norm': 0.4598861753026919}
+rf             23558     mixed  2.086e-05  3.732e-01  4.157e-07  ok
+# cutoff pairs=3 epsilon_nm=1.90734863e-06 raw_rel_force=2.31118197e-05 raw_max_force=0.873839545
+# cutoff pair {'i': 11101, 'j': 16308, 'distance_minus_cutoff_nm': -6.05632390904276e-08, 'pair_force_norm': 0.45989041828477173}
+# cutoff pair {'i': 13194, 'j': 16711, 'distance_minus_cutoff_nm': -1.4682152715828067e-08, 'pair_force_norm': 0.4598871140132647}
+# cutoff pair {'i': 22045, 'j': 22049, 'distance_minus_cutoff_nm': -2.487078979429569e-07, 'pair_force_norm': 0.9198079362409385}
+pme            23558    single  1.361e-06  1.814e-02  1.379e-06  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=1.36078025e-06 raw_max_force=0.0181373674
+pme            23558     mixed  1.979e-05  3.343e-01  1.346e-06  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=1.97927163e-05 raw_max_force=0.334335504
+apoa1rf        92224    single  1.576e-06  4.136e-02  1.738e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=1.57571641e-06 raw_max_force=0.0413625579
+apoa1rf        92224     mixed  5.306e-05  7.497e-01  2.464e-07  ok
+# cutoff pairs=5 epsilon_nm=3.81469727e-06 raw_rel_force=5.4746039e-05 raw_max_force=1.75916862
+# cutoff pair {'i': 28207, 'j': 28231, 'distance_minus_cutoff_nm': -9.358129016145966e-08, 'pair_force_norm': 1.8246679051214862}
+# cutoff pair {'i': 31071, 'j': 53353, 'distance_minus_cutoff_nm': 1.2365281443216247e-07, 'pair_force_norm': 0.9197721132633515}
+# cutoff pair {'i': 34030, 'j': 67514, 'distance_minus_cutoff_nm': 1.154504047917726e-08, 'pair_force_norm': 0.9197721132633515}
+# cutoff pair {'i': 40972, 'j': 45973, 'distance_minus_cutoff_nm': 3.657305258641941e-08, 'pair_force_norm': 1.8246409566572317}
+# cutoff pair {'i': 53360, 'j': 54946, 'distance_minus_cutoff_nm': -1.6276544156923478e-07, 'pair_force_norm': 0.9197955574012698}
+apoa1pme       92224    single  5.251e-05  2.548e-01  8.686e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=5.25127582e-05 raw_max_force=0.254835033
+apoa1pme       92224     mixed  7.427e-05  6.861e-01  8.990e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=7.42686975e-05 raw_max_force=0.68611147
+apoa1ljpme     92224    single  5.251e-05  2.515e-01  8.779e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=5.25134327e-05 raw_max_force=0.251485252
+apoa1ljpme     92224     mixed  7.468e-05  7.202e-01  9.084e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=7.46765082e-05 raw_max_force=0.720168515
+17:48:55Z waiting for the lease: 7 in the queue, held by: ultra-m29-resident 2026-09-26T17:48:55Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/kstep-screen, about 13 min, 0 build processes
+17:53:58Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T17:48:55Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/kstep-screen, about 13 min, 0 build processes
+17:59:02Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T17:48:55Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/kstep-screen, about 13 min, 1 build processes
+18:04:05Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:00:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-cellulose, about 7 min, 0 build processes
+18:09:18Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:07:36Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-amber20-cellulose, about 4 min, 0 build processes
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+CANDIDATE CORRECTNESS COMPLETE
+Reusing benchmark arm smoke exit=1; raw logs in /tmp/openmm-metal-bench/ultra-m29-unified/smoke

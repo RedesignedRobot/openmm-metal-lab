@@ -1,0 +1,130 @@
+Waiting outside GPU queue for Node/Bun/build CPU below 150% (reduced contention) across two 30 s samples
+2026-09-26T19:28:14.295507+00:00 reduced-contention sample 1: watched CPU 99.2%
+2026-09-26T19:28:44.330923+00:00 reduced-contention sample 2: watched CPU 100.1%
+estimate: 2 rounds, 1 tests, 5 configurations, about 3 min 10 s
+19:28:46Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T19:28:34Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-small, about 9 min, 0 build processes
+19:33:49Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T19:28:34Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-small, about 9 min, 0 build processes
+19:38:53Z waiting for the lease: 4 in the queue, held by: m29-mixed 2026-09-26T19:36:22Z SHAKE SETTLE mixed integration and COM tests, 0 build processes
+19:43:56Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:42:27Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-rf, about 9 min, 0 build processes
+19:48:59Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:42:27Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-rf, about 9 min, 0 build processes
+base-s Metal single settings=none /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 962ac562afadf240b808b9ceb7f8c07518d41eb9 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:21Z 
+cpu-s Metal single settings=none /tmp/openmm-metal-bench/ultra-m29-unified/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T17:17:39Z 
+base-m Metal mixed settings=none /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 962ac562afadf240b808b9ceb7f8c07518d41eb9 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:21Z 
+cpu-m Metal mixed settings=none /tmp/openmm-metal-bench/ultra-m29-unified/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 40a2106d8b2acbbcfa2d9ac6c9e9617390f8f7d7 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T17:17:39Z 
+opencl OpenCL single settings=none /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 962ac562afadf240b808b9ceb7f8c07518d41eb9 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:21Z 
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:50:56.614671+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      953.176
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:51:13.897356+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      147.543
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:51:32.571330+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      818.718
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:51:52.410426+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      130.901
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:52:13.640916+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     569.66
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:52:32.883836+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     568.591
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:52:52.281595+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      129.068
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:53:13.241426+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      818.126
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:53:33.015750+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      144.672
+hostname: M3-Ultra
+timestamp: 2026-09-26T19:53:51.453010+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      953.176
+done /tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet
+2026-09-26T19:54:08Z build-policy promote pid=93241 tree=/tmp/openmm-metal-bench/ultra-m29-mixed-device taskpolicy_exit=0
+median ns/day, host clock
+test                      base-m        base-s         cpu-m         cpu-s        opencl
+amber20-dhfr              818.42        953.18        129.98        146.11        569.13
+
+rounds, base-m:
+  amber20-dhfr       818.72 818.13   spread 0.1%
+rounds, base-s:
+  amber20-dhfr       953.18 953.18   spread 0.0%
+rounds, cpu-m:
+  amber20-dhfr       130.90 129.07   spread 1.4%
+rounds, cpu-s:
+  amber20-dhfr       147.54 144.67   spread 2.0%
+rounds, opencl:
+  amber20-dhfr       569.66 568.59   spread 0.2%
+
+test                                      cpu-s/base-s                        cpu-m/base-m                        cpu-s/opencl                        cpu-m/opencl
+amber20-dhfr               0.153 (rounds 0.152..0.155)         0.159 (rounds 0.158..0.160)         0.257 (rounds 0.254..0.259)         0.228 (rounds 0.227..0.230)
+
+1 minute load before 10 runs: 7.05 to 11.34
+Background VM CPU before 10 runs: 104% to 113%
+runs with no result: 0
+runs that overlapped a build: 2
+  2026-09-26T19:53:51Z round 2 amber20-dhfr cpu-s BUILD RUNNING during the run
+  2026-09-26T19:53:51Z round 2 amber20-dhfr base-s load { 11.34 7.92 6.30 } BUILD RUNNING vm 104%

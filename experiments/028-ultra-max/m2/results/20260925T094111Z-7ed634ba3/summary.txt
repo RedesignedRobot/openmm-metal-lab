@@ -1,0 +1,28 @@
+M2 check 20260925T094111Z-7ed634ba3, base 6df2b8bcb033
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand: 7ed634ba3780 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     405.82     419.64  1.034  1.028..1.040       65       66     +1   +1.3       87       90  
+gbsa               mixed      315.39     341.09  1.082  1.075..1.088       68       68     +1   +1.3       91       94  
+rf                 single     250.20     270.53  1.081  1.079..1.083      119      120     +1   +1.0      135      138  
+rf                 mixed      178.11     213.93  1.201  1.197..1.205      123      125     +2   +1.8      139      144  
+pme                single     205.28     221.72  1.080  1.076..1.084      125      125     -0   -0.2      139      141  
+pme                mixed      154.11     183.39  1.190  1.185..1.195      130      130     -1   -0.4      144      147  
+apoa1rf            single      69.30      70.55  1.018  1.018..1.019      298      296     -1   -0.4      335      333  
+apoa1rf            mixed       53.85      58.51  1.087  1.082..1.091      296      299     +3   +0.9      338      345  
+apoa1pme           single      54.16      55.40  1.023  1.023..1.023      295      300     +5   +1.7      342      343  
+apoa1pme           mixed       44.24      47.50  1.074  1.073..1.075      309      303     -7   -2.2      355      351  
+apoa1ljpme         single      40.09      42.12  1.051  1.050..1.051      302      306     +4   +1.2      346      351  
+apoa1ljpme         mixed       34.46      37.49  1.088  1.088..1.088      301      296     -5   -1.7      348      346  
+amber20-dhfr       single     214.46     232.63  1.085  1.084..1.086      137      137     +1   +0.5      149      153  
+amber20-dhfr       mixed      158.08     190.00  1.202  1.200..1.204      146      146     -0   -0.2      156      159  
+amber20-cellulose  single      11.72      12.29  1.049  1.045..1.052     1499     1500     +1   +0.1     1519     1528  
+amber20-cellulose  mixed       10.01      10.75  1.074  1.072..1.076     1499     1500     +1   +0.0     1526     1513  
+
+1-minute load before 64 runs: 1.75 to 4.00; memory free 59% to 64%
+Spotlight CPU before 64 runs: 0% to 292%; runs that started with Spotlight at 50% or more: 1
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand 7ed634ba3780 PASS: gate PASS; slower: none; footprint growth: none; missing: none

@@ -1,9 +1,9 @@
 #!/bin/sh
 # Called by ab.sh under the lease: one test of one round, each configuration in the order given.
-# Before each run it logs the load, the Hyperscale VM's CPU and the top 5 CPU processes, and marks the
+# Before each run it logs the load, the background VM's CPU and the top 5 CPU processes, and marks the
 # run BUILD RUNNING if a build runs then (lease.sh never waits for builds) or starts during the run.
 # A CPU-platform run also logs the platform's thread count, and every 5 s during the run samples the
-# benchmark process's %CPU, the busiest other process and the Hyperscale VM; one line in loads.txt
+# benchmark process's %CPU, the busiest other process and the background VM; one line in loads.txt
 # sums them up, marked CPU BUSY if another process went over 100%, since shared load slows the CPU
 # platform directly.
 # AB_OUT, AB_ROUND, AB_TEST and AB_SECONDS come from ab.sh.

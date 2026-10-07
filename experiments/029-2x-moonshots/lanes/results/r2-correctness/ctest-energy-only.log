@@ -1,0 +1,25 @@
+Test project /tmp/openmm-metal-bench/ultra-r2-correctness-e/build
+      Start 228: TestMetalCommandBatchingSingle
+ 1/10 Test #228: TestMetalCommandBatchingSingle ........   Passed    2.00 sec
+      Start 229: TestMetalCommandBatchingMixed
+ 2/10 Test #229: TestMetalCommandBatchingMixed .........   Passed    0.32 sec
+      Start 264: TestMetalEwaldSingle
+ 3/10 Test #264: TestMetalEwaldSingle ..................   Passed   15.49 sec
+      Start 265: TestMetalEwaldMixed
+ 4/10 Test #265: TestMetalEwaldMixed ...................   Passed   65.33 sec
+      Start 282: TestMetalLocalEnergyMinimizerSingle
+ 5/10 Test #282: TestMetalLocalEnergyMinimizerSingle ...   Passed   16.92 sec
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+ 6/10 Test #283: TestMetalLocalEnergyMinimizerMixed ....   Passed   41.57 sec
+      Start 284: TestMetalMixedPrecisionSingle
+ 7/10 Test #284: TestMetalMixedPrecisionSingle .........   Passed    0.77 sec
+      Start 285: TestMetalMixedPrecisionMixed
+ 8/10 Test #285: TestMetalMixedPrecisionMixed ..........   Passed   10.79 sec
+      Start 294: TestMetalNonbondedForceSingle
+ 9/10 Test #294: TestMetalNonbondedForceSingle .........   Passed    7.73 sec
+      Start 295: TestMetalNonbondedForceMixed
+10/10 Test #295: TestMetalNonbondedForceMixed ..........   Passed   32.14 sec
+
+100% tests passed out of 10
+
+Total Test time (real) = 193.08 sec

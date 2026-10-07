@@ -5,12 +5,12 @@
 #    for the whole window (lease.sh --cap: twice the estimate plus the preflight plus 10 minutes, in
 #    place of the 20 minute cap), which blocks every lane's GPU work, and puts up /tmp/openmm-window:
 #    build.sh waits while it exists, and RULES.md tells lanes not to build. Releasing the lease at the
-#    end reopens the queue. Nothing of anyone else's is stopped: Hyperscale's VM and other agents run
+#    end reopens the queue. Nothing of anyone else's is stopped: the background VM and other jobs run
 #    on and are logged.
 # 2. Preflight inside the hold: waits up to 10 minutes for running builds to end and the 1 minute
 #    load to fall under 3, then logs the lease queue and the top CPU processes to preflight.txt.
 # 3. <rounds> rounds of <seconds> s through ab.sh, all configurations interleaved. Every run logs the
-#    load and the Hyperscale VM's CPU first. A (round, test) with a run that overlapped a build runs
+#    load and the background VM's CPU first. A (round, test) with a run that overlapped a build runs
 #    again at the end (ab.sh --rerun-builds). Then summary.txt.
 # 4. With --cpu, the CPU baselines: <rounds> rounds of <seconds> s of pme, apoa1pme and amber20-dhfr on
 #    the baseline build's CPU platform (mixed) into <outdir>/cpu, then cpu-summary.txt. The main
@@ -120,10 +120,11 @@ nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 if [ -z "${OPENMM_WINDOW:-}" ]; then
     mkdir -p "$out"
     [ -z "$(ls -A "$out")" ] || { echo "$out is not empty; use a new outdir" >&2; exit 2; }
-    oldest="$(ls "$QUEUE" 2>/dev/null | grep -xE "$TICKET" | sort | head -1 | cut -d- -f1)"
+    # Merge-path tickets (leading 0) stay ahead of the window; it goes next among the rest.
+    oldest="$(ls "$QUEUE" 2>/dev/null | grep -xE "$TICKET" | grep -v '^0' | sort | head -1 | cut -d- -f1)"
     ticket_us="$(perl -MTime::HiRes=gettimeofday -e '($s, $us) = gettimeofday; printf "%d%06d\n", $s, $us')"
     [ -n "$oldest" ] && ticket_us=$((oldest - 1))
-    echo "$(date -u +%H:%M:%SZ) queueing ahead of $(ls "$QUEUE" 2>/dev/null | grep -xcE "$TICKET" || true) tickets, behind the current hold: $("$TOOLS/lease.sh" --status | head -1)"
+    echo "$(date -u +%H:%M:%SZ) queueing ahead of $(ls "$QUEUE" 2>/dev/null | grep -xE "$TICKET" | grep -vc '^0' || true) tickets, behind $(ls "$QUEUE" 2>/dev/null | grep -xE "$TICKET" | grep -c '^0' || true) merge-path tickets and the current hold: $("$TOOLS/lease.sh" --status | head -1)"
     OPENMM_WINDOW=1 LEASE_TICKET_US=$ticket_us exec "$TOOLS/lease.sh" --cap $((2 * total + preflight_max + 600)) window \
         "dedicated window $out, about $((total / 60)) min; lanes wait, build.sh waits" "$0" "$@"
 fi

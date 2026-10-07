@@ -1,0 +1,28 @@
+median ns/day, host clock
+test                        base         basem            u2           u2m             v           v32            vm          vold
+gbsa                     1909.05       1502.26       2022.19       1589.15       2088.22       1960.90       1637.79       2051.30
+
+rounds, base:
+  gbsa               1912.85 1905.25   spread 0.4%
+rounds, basem:
+  gbsa               1502.75 1501.76   spread 0.1%
+rounds, u2:
+  gbsa               2026.47 2017.91   spread 0.4%
+rounds, u2m:
+  gbsa               1594.22 1584.08   spread 0.6%
+rounds, v:
+  gbsa               2096.25 2080.19   spread 0.8%
+rounds, v32:
+  gbsa               1966.05 1955.75   spread 0.5%
+rounds, vm:
+  gbsa               1638.01 1637.57   spread 0.0%
+rounds, vold:
+  gbsa               2055.46 2047.14   spread 0.4%
+
+test                                            v/base
+gbsa                       1.094 (rounds 1.092..1.096)
+
+1 minute load before 16 runs: 4.33 to 5.77
+Background VM CPU before 16 runs: 4% to 22%
+runs with no result: 0
+runs that overlapped a build: 0

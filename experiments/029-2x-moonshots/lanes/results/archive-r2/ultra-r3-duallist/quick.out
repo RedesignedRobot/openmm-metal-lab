@@ -1,0 +1,22 @@
+20:35:56Z waiting for the lease: 3 in the queue, held by: ultra-profiler 2026-09-27T20:34:21Z sampled shader timeline par256-amber20-cellulose, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-r3-duallist, 0b7a7b3400b99eb040301b492505e7f17f7d3894, logs in /tmp/openmm-metal-bench/ultra-r3-duallist/gate-20260927T203558Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  5.530e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  1.984e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.109e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  1.201e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  6.032e-05  1.379e+00  4.186e-08  FAIL rel|dF| 6.03e-05 > base 5.99e-05
+apoa1rf        92224     mixed  6.032e-05  1.379e+00  4.922e-08  FAIL rel|dF| 6.03e-05 > base 5.99e-05
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.748e-05  7.200e-01  5.692e-07  ok
+apoa1pme       92224     mixed  7.748e-05  7.201e-01  5.788e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.229e-01  5.805e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.868e-07  ok
+FAIL

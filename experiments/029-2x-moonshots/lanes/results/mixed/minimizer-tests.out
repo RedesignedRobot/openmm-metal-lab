@@ -1,0 +1,13 @@
+18:27:15Z waiting for the lease: 10 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:21:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-stmv, about 13 min, 3 build processes
+18:32:19Z waiting for the lease: 10 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:21:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-stmv, about 13 min, 0 build processes
+18:37:22Z waiting for the lease: 9 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:36:57Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-amber20-stmv, about 10 min, 0 build processes
+18:42:26Z waiting for the lease: 9 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:36:57Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-amber20-stmv, about 10 min, 0 build processes
+18:47:30Z waiting for the lease: 4 in the queue, held by: ultra-m29-mixed 2026-09-26T18:45:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed/screen-large, about 7 min, 0 build processes
+18:52:33Z waiting for the lease: 2 in the queue, held by: ultra-m29-unified 2026-09-26T18:52:18Z Bet 2 candidate shader costs, 0 build processes
+Test project /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/build
+    Start 283: TestMetalLocalEnergyMinimizerMixed
+1/1 Test #283: TestMetalLocalEnergyMinimizerMixed ...   Passed   26.06 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =  26.07 sec

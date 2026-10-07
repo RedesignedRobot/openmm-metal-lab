@@ -1,0 +1,23 @@
+steps 12168  median step 187.8 us  (anchor clearFourBuffers)
+kernel                              frac   start     end  sampled
+clearFourBuffers                    1.00     0.0     2.9      2.9
+findBlockBounds                     1.00     3.8     7.0      3.1
+computeSortKeys                     0.38     7.9     9.4      1.5
+sortShortList2                      1.00    10.0    11.9      1.8
+copyShortList                       0.31    12.5    13.9      1.5
+sortBoxData                         1.00    14.8    17.1      2.2
+findBlocksWithInteractions          1.00    18.5    20.4      2.0
+copyInteractionCounts               0.07    20.8    22.2      1.5
+computeBornSumOwned                 1.00    22.9    46.6     23.1
+reduceBornSumOwned                  1.00    59.0    66.1      7.1
+computeGBSAForce1Owned              1.00    67.0    84.2     16.9
+reduceBornForceOwned                1.00    95.5   105.1      9.7
+computeBondedForces                 1.00   106.9   133.5     26.5
+computeNonbonded                    1.00   109.0   151.4     42.0
+reduceEnergy                        0.00   150.2   156.9      6.7
+generateRandomNumbers               0.25   164.7   168.8      4.1
+integrateLangevinMiddleFused        1.00   166.4   178.0     11.5
+calcCenterOfMassMomentum            1.00   179.6   182.5      3.0
+removeCenterOfMassMomentum          1.00   183.2   186.3      3.3
+computeKineticEnergy                0.00   364.4   368.9      4.5
+whole Born phase: median 44.041 us, samples 12165

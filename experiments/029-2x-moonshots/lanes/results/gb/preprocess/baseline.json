@@ -1,0 +1,137 @@
+[
+  {
+    "label": "OPENCL-nocutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_OPENCL",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "14f2372f4dbbdd024485056c8dfeb438a54d28eda6850d5b2834ae8cc39de4b4"
+  },
+  {
+    "label": "OPENCL-cutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_OPENCL",
+      "-DUSE_CUTOFF",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "45f04fc5f0f92be6c93a6ce57c75a2778cbb560e824c63534c6678130a076c85"
+  },
+  {
+    "label": "OPENCL-periodic",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_OPENCL",
+      "-DUSE_CUTOFF",
+      "-DUSE_PERIODIC",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "7fcabfe32ad416c5f6803839b90d4241f94b032afadc285e54253eb01831f4ad"
+  },
+  {
+    "label": "CUDA-nocutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_CUDA",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "14f2372f4dbbdd024485056c8dfeb438a54d28eda6850d5b2834ae8cc39de4b4"
+  },
+  {
+    "label": "CUDA-cutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_CUDA",
+      "-DUSE_CUTOFF",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "45f04fc5f0f92be6c93a6ce57c75a2778cbb560e824c63534c6678130a076c85"
+  },
+  {
+    "label": "CUDA-periodic",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_CUDA",
+      "-DUSE_CUTOFF",
+      "-DUSE_PERIODIC",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "7fcabfe32ad416c5f6803839b90d4241f94b032afadc285e54253eb01831f4ad"
+  },
+  {
+    "label": "HIP-nocutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_HIP",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "5c65e0cfc3de6ece9b86b56b7f84eaebd0c204be9765b2e665ee168ca8a22b43"
+  },
+  {
+    "label": "HIP-cutoff",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_HIP",
+      "-DUSE_CUTOFF",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "057be2978f403ac11bcd5393827e2367b319bdc80334d4f3774afc37d913fcb2"
+  },
+  {
+    "label": "HIP-periodic",
+    "command": [
+      "/usr/bin/clang",
+      "-E",
+      "-P",
+      "-fminimize-whitespace",
+      "-x",
+      "c",
+      "-DUSE_HIP",
+      "-DUSE_CUTOFF",
+      "-DUSE_PERIODIC",
+      "platforms/common/src/kernels/gbsaObc.cc"
+    ],
+    "sha256": "86de4226cab769c498775eae86b0bf77c6e72fea4f1b6bfbd0c2c09084de06cd"
+  }
+]

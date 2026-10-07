@@ -1,0 +1,59 @@
+Test project ~/lab/ultra-m2.noindex/base/build
+      Start 217: TestMetalATMForceMixed
+      Start 222: TestMetalCMAPTorsionForceSingle
+ 1/27 Test #222: TestMetalCMAPTorsionForceSingle ................   Passed    0.77 sec
+      Start 227: TestMetalCheckpointsMixed
+ 2/27 Test #227: TestMetalCheckpointsMixed ......................   Passed    5.22 sec
+      Start 232: TestMetalConstantPotentialForceSingle
+ 3/27 Test #217: TestMetalATMForceMixed .........................   Passed   19.42 sec
+      Start 237: TestMetalCustomBondForceMixed
+ 4/27 Test #237: TestMetalCustomBondForceMixed ..................   Passed    1.23 sec
+      Start 242: TestMetalCustomCentroidBondForceSingle
+ 5/27 Test #242: TestMetalCustomCentroidBondForceSingle .........   Passed    0.84 sec
+      Start 247: TestMetalCustomExternalForceMixed
+ 6/27 Test #232: TestMetalConstantPotentialForceSingle ..........   Passed   17.14 sec
+      Start 252: TestMetalCustomIntegratorSingle
+ 7/27 Test #247: TestMetalCustomExternalForceMixed ..............   Passed    2.41 sec
+      Start 257: TestMetalCustomNonbondedForceMixed
+ 8/27 Test #257: TestMetalCustomNonbondedForceMixed .............   Passed   33.46 sec
+      Start 262: TestMetalDispersionPMESingle
+ 9/27 Test #252: TestMetalCustomIntegratorSingle ................   Passed   36.69 sec
+      Start 267: TestMetalFFTMixed
+10/27 Test #267: TestMetalFFTMixed ..............................   Passed    0.79 sec
+      Start 272: TestMetalHarmonicAngleForceSingle
+11/27 Test #272: TestMetalHarmonicAngleForceSingle ..............   Passed    0.41 sec
+      Start 277: TestMetalLCPOForceMixed
+12/27 Test #262: TestMetalDispersionPMESingle ...................   Passed   17.79 sec
+      Start 282: TestMetalLocalEnergyMinimizerSingle
+13/27 Test #277: TestMetalLCPOForceMixed ........................   Passed   16.93 sec
+      Start 287: TestMetalMonteCarloAnisotropicBarostatMixed
+14/27 Test #282: TestMetalLocalEnergyMinimizerSingle ............   Passed    7.78 sec
+      Start 292: TestMetalMultipleForcesSingle
+15/27 Test #292: TestMetalMultipleForcesSingle ..................   Passed    0.49 sec
+      Start 297: TestMetalNoseHooverIntegratorMixed
+16/27 Test #297: TestMetalNoseHooverIntegratorMixed .............   Passed   45.57 sec
+      Start 302: TestMetalPythonForceSingle
+17/27 Test #302: TestMetalPythonForceSingle .....................   Passed    1.09 sec
+      Start 307: TestMetalRBTorsionForceMixed
+18/27 Test #307: TestMetalRBTorsionForceMixed ...................   Passed    0.70 sec
+      Start 312: TestMetalRandomSingle
+19/27 Test #312: TestMetalRandomSingle ..........................   Passed    0.66 sec
+      Start 317: TestMetalSortMixed
+20/27 Test #317: TestMetalSortMixed .............................   Passed    0.28 sec
+      Start 322: TestMetalVerletIntegratorSingle
+21/27 Test #322: TestMetalVerletIntegratorSingle ................   Passed    4.99 sec
+      Start 409: TestMetalAmoebaExtrapolatedPolarizationMixed
+22/27 Test #409: TestMetalAmoebaExtrapolatedPolarizationMixed ...   Passed    3.47 sec
+      Start 414: TestMetalAmoebaTorsionTorsionForceSingle
+23/27 Test #414: TestMetalAmoebaTorsionTorsionForceSingle .......   Passed    0.34 sec
+      Start 419: TestMetalHippoNonbondedForceMixed
+24/27 Test #419: TestMetalHippoNonbondedForceMixed ..............   Passed   12.09 sec
+      Start 450: TestMetalDrudeForceSingle
+25/27 Test #450: TestMetalDrudeForceSingle ......................   Passed    0.43 sec
+      Start 455: TestMetalDrudeNoseHooverMixed
+26/27 Test #455: TestMetalDrudeNoseHooverMixed ..................   Passed   13.60 sec
+27/27 Test #287: TestMetalMonteCarloAnisotropicBarostatMixed ....   Passed  162.50 sec
+
+100% tests passed out of 27
+
+Total Test time (real) = 240.46 sec

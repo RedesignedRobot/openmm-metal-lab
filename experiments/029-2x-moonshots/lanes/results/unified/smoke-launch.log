@@ -1,0 +1,14 @@
+17:52:59Z waiting for the lease: 7 in the queue, held by: ultra-m29-resident 2026-09-26T17:48:55Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/kstep-screen, about 13 min, 0 build processes
+17:58:03Z waiting for the lease: 7 in the queue, held by: ultra-m29-resident 2026-09-26T17:48:55Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/kstep-screen, about 13 min, 17 build processes
+18:03:06Z waiting for the lease: 3 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:00:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-cellulose, about 7 min, 0 build processes
+18:08:10Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:07:36Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-amber20-cellulose, about 4 min, 0 build processes
+SMOKE PASS pme single Metal -297691.01589550753 kJ/mol
+SMOKE PASS pme mixed Metal -297928.7296211787 kJ/mol
+SMOKE PASS pme single Metal -297924.05593457003 kJ/mol
+SMOKE PASS pme mixed Metal -297979.1096167455 kJ/mol
+SMOKE PASS pme single OpenCL -297808.43874707003 kJ/mol
+SMOKE PASS apoa1pme single Metal -1276505.215568549 kJ/mol
+SMOKE PASS apoa1pme mixed Metal -1276142.8895368753 kJ/mol
+SMOKE PASS apoa1pme single Metal -1276578.754631049 kJ/mol
+SMOKE PASS apoa1pme mixed Metal -1275616.9424615307 kJ/mol
+SMOKE PASS apoa1pme single OpenCL -1276429.692131049 kJ/mol

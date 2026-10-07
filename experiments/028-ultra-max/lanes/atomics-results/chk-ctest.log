@@ -1,0 +1,62 @@
+Test project /tmp/openmm-metal-bench/ultra-atomics/build-b
+      Start  60: TestMetalCMAPTorsionForceSingle
+ 1/24 Test  #60: TestMetalCMAPTorsionForceSingle ..........   Passed    1.27 sec
+      Start  61: TestMetalCMAPTorsionForceMixed
+ 2/24 Test  #61: TestMetalCMAPTorsionForceMixed ...........   Passed    3.92 sec
+      Start  70: TestMetalConstantPotentialForceSingle
+ 3/24 Test  #70: TestMetalConstantPotentialForceSingle ....   Passed   12.57 sec
+      Start  71: TestMetalConstantPotentialForceMixed
+ 4/24 Test  #71: TestMetalConstantPotentialForceMixed .....   Passed   80.33 sec
+      Start  72: TestMetalCustomAngleForceSingle
+ 5/24 Test  #72: TestMetalCustomAngleForceSingle ..........   Passed    1.22 sec
+      Start  73: TestMetalCustomAngleForceMixed
+ 6/24 Test  #73: TestMetalCustomAngleForceMixed ...........   Passed    3.04 sec
+      Start  74: TestMetalCustomBondForceSingle
+ 7/24 Test  #74: TestMetalCustomBondForceSingle ...........   Passed    0.62 sec
+      Start  75: TestMetalCustomBondForceMixed
+ 8/24 Test  #75: TestMetalCustomBondForceMixed ............   Passed    2.88 sec
+      Start  82: TestMetalCustomCompoundBondForceSingle
+ 9/24 Test  #82: TestMetalCustomCompoundBondForceSingle ...   Passed    2.70 sec
+      Start  83: TestMetalCustomCompoundBondForceMixed
+10/24 Test  #83: TestMetalCustomCompoundBondForceMixed ....   Passed    4.92 sec
+      Start  84: TestMetalCustomExternalForceSingle
+11/24 Test  #84: TestMetalCustomExternalForceSingle .......   Passed    0.61 sec
+      Start  85: TestMetalCustomExternalForceMixed
+12/24 Test  #85: TestMetalCustomExternalForceMixed ........   Passed    1.42 sec
+      Start  96: TestMetalCustomTorsionForceSingle
+13/24 Test  #96: TestMetalCustomTorsionForceSingle ........   Passed    0.80 sec
+      Start  97: TestMetalCustomTorsionForceMixed
+14/24 Test  #97: TestMetalCustomTorsionForceMixed .........   Passed    1.94 sec
+      Start 110: TestMetalHarmonicAngleForceSingle
+15/24 Test #110: TestMetalHarmonicAngleForceSingle ........   Passed    0.35 sec
+      Start 111: TestMetalHarmonicAngleForceMixed
+16/24 Test #111: TestMetalHarmonicAngleForceMixed .........   Passed    0.34 sec
+      Start 112: TestMetalHarmonicBondForceSingle
+17/24 Test #112: TestMetalHarmonicBondForceSingle .........***Failed    0.80 sec
+exception: Assertion failure at TestMetalHarmonicBondForce.cpp:64.  Expected 510.18, found 512.754
+
+      Start 113: TestMetalHarmonicBondForceMixed
+18/24 Test #113: TestMetalHarmonicBondForceMixed ..........***Failed    7.59 sec
+exception: Assertion failure at TestMetalHarmonicBondForce.cpp:64.  Expected 510.18, found 512.754
+
+      Start 132: TestMetalNonbondedForceSingle
+19/24 Test #132: TestMetalNonbondedForceSingle ............   Passed   11.60 sec
+      Start 133: TestMetalNonbondedForceMixed
+20/24 Test #133: TestMetalNonbondedForceMixed .............   Passed   38.05 sec
+      Start 138: TestMetalPeriodicTorsionForceSingle
+21/24 Test #138: TestMetalPeriodicTorsionForceSingle ......   Passed    0.39 sec
+      Start 139: TestMetalPeriodicTorsionForceMixed
+22/24 Test #139: TestMetalPeriodicTorsionForceMixed .......   Passed    0.67 sec
+      Start 144: TestMetalRBTorsionForceSingle
+23/24 Test #144: TestMetalRBTorsionForceSingle ............   Passed    0.46 sec
+      Start 145: TestMetalRBTorsionForceMixed
+24/24 Test #145: TestMetalRBTorsionForceMixed .............   Passed    2.95 sec
+
+92% tests passed, 2 tests failed out of 24
+
+Total Test time (real) = 181.46 sec
+
+The following tests FAILED:
+	112 - TestMetalHarmonicBondForceSingle (Failed)
+	113 - TestMetalHarmonicBondForceMixed (Failed)
+Errors while running CTest

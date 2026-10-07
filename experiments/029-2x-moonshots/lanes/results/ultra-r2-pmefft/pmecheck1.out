@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/pmecheck.py", line 78, in <module>
+    fused = forces(context, False)
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/pmecheck.py", line 52, in forces
+    state = context.getState(getForces=True, getEnergy=energy, groups={1})
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:486:42: error: use of undeclared identifier 'M_PI'
+    const float recipScaleFactor = RECIP(M_PI)*recipBoxVecX.x*recipBoxVecY.y*recipBoxVecZ.z;
+                                         ^
+

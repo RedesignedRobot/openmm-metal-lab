@@ -1,0 +1,9 @@
+2026-09-26T22:54:00Z round 1 amber20-stmv base-s load { 3.39 2.21 2.30 } vm 7% top history 37.6%, superwhisper 17.8%, powermetrics 8.1%, sysmond 6.2%, WindowServer 5.5%
+2026-09-26T22:54:52Z round 1 amber20-stmv cand-s load { 2.24 2.12 2.26 } vm 4% top superwhisper 17.0%, sysmond 8.1%, powermetrics 8.0%, WindowServer 6.7%, iStat Menus Menubar 5.3%
+2026-09-26T22:55:45Z round 1 amber20-stmv cl-s load { 1.68 2.03 2.22 } vm 4% top superwhisper 17.1%, WindowServer 5.6%, com.apple.Virtualization.VirtualMachine 2.3%, com.apple.Virtualization.VirtualMachine 2.0%, powermetrics 1.8%
+2026-09-26T22:56:42Z round 2 amber20-stmv cl-s load { 1.49 1.94 2.17 } vm 6% top superwhisper 19.2%, launchd 14.9%, iStat Menus Menubar 8.4%, WindowServer 6.6%, sysmond 5.7%
+2026-09-26T22:57:39Z round 2 amber20-stmv cand-s load { 1.64 1.91 2.15 } vm 8% top superwhisper 19.9%, WindowServer 5.1%, sysmond 4.1%, com.apple.Virtualization.VirtualMachine 3.5%,  claude 3.2%
+2026-09-26T22:58:31Z round 2 amber20-stmv base-s load { 1.55 1.83 2.10 } vm 4% top superwhisper 18.6%, WindowServer 5.8%, sysmond 4.7%, com.apple.Virtualization.VirtualMachine 2.6%,  claude 2.3%
+2026-09-26T22:59:24Z round 3 amber20-stmv base-s load { 1.05 1.66 2.02 } vm 5% top superwhisper 19.8%, sysmond 6.3%, WindowServer 4.4%,  claude 2.9%, com.apple.Virtualization.VirtualMachine 2.8%
+2026-09-26T23:00:16Z round 3 amber20-stmv cand-s load { 1.50 1.67 2.00 } vm 4% top superwhisper 17.4%, WindowServer 3.2%,  claude 2.7%, com.apple.Virtualization.VirtualMachine 2.0%, com.apple.Virtualization.VirtualMachine 1.5%
+2026-09-26T23:01:09Z round 3 amber20-stmv cl-s load { 1.13 1.53 1.93 } vm 8% top superwhisper 19.0%, iStat Menus Menubar 6.1%, com.apple.Virtualization.VirtualMachine 5.8%, WindowServer 5.6%, sysmond 4.3%

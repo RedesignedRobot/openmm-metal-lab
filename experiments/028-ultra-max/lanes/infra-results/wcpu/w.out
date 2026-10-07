@@ -1,0 +1,27 @@
+estimate: 1 rounds of 5 s, 2 configurations, 2 tests, the CPU arm, about 1 minutes
+23:11:19Z queueing ahead of 0 tickets, behind the current hold: holder: none
+23:11:19Z holding the lease; /tmp/openmm-window is up
+start 2026-09-24T23:11:19Z after 0 s of preflight, load { 2.85 4.32 5.36 }
+holder: window 2026-09-24T23:11:19Z dedicated window /tmp/openmm-metal-bench/ultra-infra/wcpu/w, about 1 min; lanes wait, build.sh waits, pid 16733, held 0 s
+build processes: 0
+queue, oldest first:
+ %CPU   PID COMMAND
+ 66.7 16538 rsync --server --delete-before -c -l -p -r -W --dirs . src/
+ 45.6 16537 rsync -rlpc --delete .stage/ src/
+ 33.9   566 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+ 27.3 13834 /tmp/openmm-metal-bench/ultra-profiler/venv/bin/python benchmark.py --platform Metal --precision single --test rf --seconds 15 --style table --outfi
+ 23.1   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+ 22.1  1290 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 18.8   790 /usr/libexec/sysmond
+ 13.2   591 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
+ 10.2  1106 /System/Library/CoreServices/MenuBarAgent.app/Contents/MacOS/MenuBarAgent
+  5.9 90735 claude --dangerously-skip-permissions
+estimate: 1 rounds, 2 tests, 2 configurations, about 0 min 36 s
+base-single Metal single settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+base-opencl OpenCL single settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+done /tmp/openmm-metal-bench/ultra-infra/wcpu/w/ab
+summarize /tmp/openmm-metal-bench/ultra-infra/wcpu/w/ab base-single/base-opencl
+estimate: 1 rounds, 3 tests, 1 configurations, about 0 min 44 s
+base-cpu CPU mixed settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+done /tmp/openmm-metal-bench/ultra-infra/wcpu/w/cpu
+summarize /tmp/openmm-metal-bench/ultra-infra/wcpu/w/cpu

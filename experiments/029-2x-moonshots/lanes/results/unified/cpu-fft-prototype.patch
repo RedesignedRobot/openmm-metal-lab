@@ -1,0 +1,385 @@
+diff --git a/platforms/metal/CMakeLists.txt b/platforms/metal/CMakeLists.txt
+index 781b3a636..dacb589b9 100644
+--- a/platforms/metal/CMakeLists.txt
++++ b/platforms/metal/CMakeLists.txt
+@@ -9,7 +9,7 @@
+ #----------------------------------------------------
+ 
+ SET(METAL_LIBRARIES) # start empty
+-FOREACH(framework Metal Foundation QuartzCore IOKit CoreFoundation)
++FOREACH(framework Metal Foundation QuartzCore IOKit CoreFoundation Accelerate)
+     FIND_LIBRARY(${framework}_FRAMEWORK ${framework})
+     IF(NOT ${framework}_FRAMEWORK)
+         MESSAGE(FATAL_ERROR "The Metal platform requires the ${framework} framework, which was not found")
+diff --git a/platforms/metal/include/MetalFFT3D.h b/platforms/metal/include/MetalFFT3D.h
+index 3a62e1570..21b8ce637 100644
+--- a/platforms/metal/include/MetalFFT3D.h
++++ b/platforms/metal/include/MetalFFT3D.h
+@@ -33,6 +33,8 @@
+ 
+ namespace OpenMM {
+ 
++class MetalCpuFFT;
++
+ class MetalContext;
+ 
+ /**
+@@ -87,7 +89,9 @@ public:
+      * @param minimum   the minimum size the return value must be greater than or equal to
+      */
+     static int findLegalDimension(int minimum);
++    static bool useCpuFFT(MetalContext& context);
+ private:
++    MetalCpuFFT* cpuFFT;
+     MetalContext& context;
+     MTL::Buffer* inputBuffer;
+     MTL::Buffer* outputBuffer;
+diff --git a/platforms/metal/src/MetalFFT3D.cpp b/platforms/metal/src/MetalFFT3D.cpp
+index ac26237f7..5a166dddd 100644
+--- a/platforms/metal/src/MetalFFT3D.cpp
++++ b/platforms/metal/src/MetalFFT3D.cpp
+@@ -28,6 +28,7 @@
+ #include "vkFFT.h"
+ #include "MetalFFT3D.h"
+ #include "MetalContext.h"
++#include "MetalCpuFFT.h"
+ 
+ using namespace OpenMM;
+ using namespace std;
+@@ -35,7 +36,16 @@ using namespace std;
+ struct MetalFFT3D::VkFFTApp : VkFFTApplication {
+ };
+ 
+-MetalFFT3D::MetalFFT3D(MetalContext& context, int xsize, int ysize, int zsize, bool realToComplex) : context(context) {
++bool MetalFFT3D::useCpuFFT(MetalContext& context) {
++    return context.getDevice()->hasUnifiedMemory() && !context.getUseDoublePrecision() &&
++            !context.getPlatformData().deterministicForces && !context.getPlatformData().useCpuPme;
++}
++
++MetalFFT3D::MetalFFT3D(MetalContext& context, int xsize, int ysize, int zsize, bool realToComplex) : context(context), cpuFFT(nullptr), app(nullptr) {
++    if (realToComplex && useCpuFFT(context)) {
++        cpuFFT = new MetalCpuFFT(context, xsize, ysize, zsize);
++        return;
++    }
+     size_t valueSize = context.getUseDoublePrecision() ? sizeof(double) : sizeof(float);
+     inputBufferSize = zsize * ysize * xsize * valueSize;
+     if (realToComplex) {
+@@ -82,11 +92,17 @@ MetalFFT3D::MetalFFT3D(MetalContext& context, int xsize, int ysize, int zsize, b
+ }
+ 
+ MetalFFT3D::~MetalFFT3D() {
+-    deleteVkFFT(app);
++    delete cpuFFT;
++    if (app != nullptr)
++        deleteVkFFT(app);
+     delete app;
+ }
+ 
+ void MetalFFT3D::execFFT(ArrayInterface& in, ArrayInterface& out, bool forward) {
++    if (cpuFFT != nullptr) {
++        cpuFFT->exec(in, out, forward);
++        return;
++    }
+     if (forward) {
+         inputBuffer = context.unwrap(in).getDevicePointer();
+         outputBuffer = context.unwrap(out).getDevicePointer();
+diff --git a/platforms/metal/src/MetalKernels.cpp b/platforms/metal/src/MetalKernels.cpp
+index 63ce5ee00..408a9be4b 100644
+--- a/platforms/metal/src/MetalKernels.cpp
++++ b/platforms/metal/src/MetalKernels.cpp
+@@ -38,6 +38,7 @@
+ #include "MetalQueue.h"
+ #include "SimTKOpenMMRealType.h"
+ #include "SimTKOpenMMUtilities.h"
++#include "MetalFFT3D.h"
+ #include <algorithm>
+ #include <cmath>
+ #include <iterator>
+@@ -48,7 +49,7 @@ using namespace OpenMM;
+ using namespace std;
+ 
+ static void getMetalPmeParameters(MetalContext& cu, bool& usePmeQueue, bool& useFixedPointChargeSpreading) {
+-    usePmeQueue = (!cu.getPlatformData().disablePmeStream && !cu.getPlatformData().useCpuPme);
++    usePmeQueue = ((!cu.getPlatformData().disablePmeStream || MetalFFT3D::useCpuFFT(cu)) && !cu.getPlatformData().useCpuPme);
+     useFixedPointChargeSpreading = cu.getUseDoublePrecision() || !cu.getSupportsHardwareFloatGlobalAtomicAdd() || cu.getPlatformData().deterministicForces;
+ }
+ 
+diff --git a/platforms/metal/src/MetalCpuFFT.cpp b/platforms/metal/src/MetalCpuFFT.cpp
+new file mode 100644
+index 000000000..ffbe5c1e2
+--- /dev/null
++++ b/platforms/metal/src/MetalCpuFFT.cpp
+@@ -0,0 +1,247 @@
++#include "MetalCpuFFT.h"
++#include "MetalContext.h"
++#include <Accelerate/Accelerate.h>
++#include <dispatch/dispatch.h>
++#include <sys/sysctl.h>
++#include <algorithm>
++#include <atomic>
++#include <cmath>
++#include <memory>
++#include <vector>
++
++using namespace OpenMM;
++using namespace std;
++
++namespace {
++// vDSP's native DFT supports only selected lengths.  Bluestein preserves all
++// other PME dimensions, including factors 7, 11 and 13, using a radix-2 FFT.
++struct LineFFT {
++    int n, size, logSize;
++    vDSP_DFT_Setup forward = nullptr, inverse = nullptr;
++    FFTSetup radix2 = nullptr;
++    vector<float> chirpR, chirpI, kernelR, kernelI;
++
++    explicit LineFFT(int n) : n(n), size(n), logSize(0) {
++        forward = vDSP_DFT_zop_CreateSetup(nullptr, n, vDSP_DFT_FORWARD);
++        if (forward != nullptr) {
++            inverse = vDSP_DFT_zop_CreateSetup(nullptr, n, vDSP_DFT_INVERSE);
++            if (inverse == nullptr) {
++                vDSP_DFT_DestroySetup(forward);
++                throw OpenMMException("Cannot allocate inverse vDSP DFT setup");
++            }
++            return;
++        }
++        size = 1;
++        while (size < 2*n-1) {
++            size *= 2;
++            logSize++;
++        }
++        radix2 = vDSP_create_fftsetup(logSize, kFFTRadix2);
++        if (radix2 == nullptr)
++            throw OpenMMException("Cannot allocate vDSP FFT setup");
++        chirpR.resize(n);
++        chirpI.resize(n);
++        kernelR.resize(size, 0);
++        kernelI.resize(size, 0);
++        for (int j = 0; j < n; j++) {
++            double angle = M_PI*(static_cast<long long>(j)*j % (2*n))/n;
++            chirpR[j] = cos(angle);
++            chirpI[j] = -sin(angle);
++            kernelR[j] = chirpR[j];
++            kernelI[j] = -chirpI[j];
++            if (j > 0) {
++                kernelR[size-j] = kernelR[j];
++                kernelI[size-j] = kernelI[j];
++            }
++        }
++        DSPSplitComplex kernel = {kernelR.data(), kernelI.data()};
++        vDSP_fft_zip(radix2, &kernel, 1, logSize, FFT_FORWARD);
++    }
++
++    ~LineFFT() {
++        vDSP_DFT_DestroySetup(forward);
++        vDSP_DFT_DestroySetup(inverse);
++        if (radix2 != nullptr)
++            vDSP_destroy_fftsetup(radix2);
++    }
++
++    void transform(float* r, float* i, bool fwd) const {
++        if (forward != nullptr) {
++            vDSP_DFT_Execute(fwd ? forward : inverse, r, i, r, i);
++            return;
++        }
++        for (int j = 0; j < n; j++) {
++            float ar = r[j], ai = fwd ? i[j] : -i[j];
++            r[j] = ar*chirpR[j]-ai*chirpI[j];
++            i[j] = ar*chirpI[j]+ai*chirpR[j];
++        }
++        fill(r+n, r+size, 0);
++        fill(i+n, i+size, 0);
++        DSPSplitComplex a = {r, i};
++        vDSP_fft_zip(radix2, &a, 1, logSize, FFT_FORWARD);
++        for (int j = 0; j < size; j++) {
++            float ar = r[j], ai = i[j];
++            r[j] = ar*kernelR[j]-ai*kernelI[j];
++            i[j] = ar*kernelI[j]+ai*kernelR[j];
++        }
++        vDSP_fft_zip(radix2, &a, 1, logSize, FFT_INVERSE);
++        for (int j = 0; j < n; j++) {
++            float ar = r[j]/size, ai = i[j]/size;
++            r[j] = ar*chirpR[j]-ai*chirpI[j];
++            float imag = ar*chirpI[j]+ai*chirpR[j];
++            i[j] = fwd ? imag : -imag;
++        }
++    }
++};
++}
++
++struct MetalCpuFFT::Impl {
++    MetalContext& context;
++    int x, y, z, half, workers;
++    LineFFT tx, ty, tz;
++    vector<vector<float>> scratchR, scratchI;
++    dispatch_queue_t cpuQueue;
++    MTL::SharedEvent* ready;
++    MTL::SharedEvent* done;
++    uint64_t sequence = 0;
++    atomic<bool> failed{false};
++
++    Impl(MetalContext& context, int x, int y, int z) : context(context), x(x), y(y), z(z), half(z/2+1),
++            tx(x), ty(y), tz(z) {
++        int cores = 1;
++        size_t bytes = sizeof(cores);
++        sysctlbyname("hw.perflevel0.physicalcpu", &cores, &bytes, nullptr, 0);
++        workers = max(1, min(cores, min(x*y, min(x*half, y*half))));
++        int scratchSize = max(tx.size, max(ty.size, tz.size));
++        scratchR.resize(workers, vector<float>(scratchSize));
++        scratchI.resize(workers, vector<float>(scratchSize));
++        cpuQueue = dispatch_queue_create("org.openmm.metal.cpu-fft", DISPATCH_QUEUE_SERIAL);
++        ready = context.getDevice()->newSharedEvent();
++        done = context.getDevice()->newSharedEvent();
++    }
++
++    ~Impl() {
++        dispatch_sync_f(cpuQueue, nullptr, [](void*) {});
++        dispatch_release(cpuQueue);
++        ready->release();
++        done->release();
++    }
++
++    struct Stage {
++        Impl* owner;
++        float *real, *grid;
++        int axis;
++        bool forward;
++    };
++
++    static void lines(void* data, size_t worker) {
++        Stage& stage = *static_cast<Stage*>(data);
++        Impl& s = *stage.owner;
++        float* r = s.scratchR[worker].data();
++        float* i = s.scratchI[worker].data();
++        int count = stage.axis == 2 ? s.x*s.y : (stage.axis == 1 ? s.x*s.half : s.y*s.half);
++        for (int line = count*worker/s.workers; line < count*(worker+1)/s.workers; line++) {
++            if (stage.axis == 2) {
++                if (stage.forward) {
++                    for (int k = 0; k < s.z; k++) {
++                        r[k] = stage.real[line*s.z+k];
++                        i[k] = 0;
++                    }
++                }
++                else {
++                    for (int k = 0; k < s.z; k++) {
++                        int index = 2*(line*s.half+(k < s.half ? k : s.z-k));
++                        r[k] = stage.grid[index];
++                        i[k] = (k < s.half ? 1 : -1)*stage.grid[index+1];
++                    }
++                }
++                s.tz.transform(r, i, stage.forward);
++                if (stage.forward) {
++                    for (int k = 0; k < s.half; k++) {
++                        stage.grid[2*(line*s.half+k)] = r[k];
++                        stage.grid[2*(line*s.half+k)+1] = i[k];
++                    }
++                }
++                else {
++                    for (int k = 0; k < s.z; k++)
++                        stage.real[line*s.z+k] = r[k];
++                }
++            }
++            else {
++                int base = stage.axis == 1 ? (line/s.half)*s.y*s.half+line%s.half : line;
++                int stride = stage.axis == 1 ? s.half : s.y*s.half;
++                LineFFT& plan = stage.axis == 1 ? s.ty : s.tx;
++                for (int k = 0; k < plan.n; k++) {
++                    r[k] = stage.grid[2*(base+k*stride)];
++                    i[k] = stage.grid[2*(base+k*stride)+1];
++                }
++                plan.transform(r, i, stage.forward);
++                for (int k = 0; k < plan.n; k++) {
++                    stage.grid[2*(base+k*stride)] = r[k];
++                    stage.grid[2*(base+k*stride)+1] = i[k];
++                }
++            }
++        }
++    }
++
++    struct Job {
++        Impl* owner;
++        MTL::Buffer *input, *output;
++        MTL::CommandBuffer* producer;
++        uint64_t value;
++        bool forward;
++    };
++
++    static void run(void* data) {
++        unique_ptr<Job> job(static_cast<Job*>(data));
++        Impl& s = *job->owner;
++        NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
++        while (!s.ready->waitUntilSignaledValue(job->value, 10)) {
++            if (job->producer->status() == MTL::CommandBufferStatusError) {
++                s.failed.store(true);
++                break;
++            }
++        }
++        if (!s.failed.load()) {
++            atomic_thread_fence(memory_order_acquire);
++            float* input = static_cast<float*>(job->input->contents());
++            float* output = static_cast<float*>(job->output->contents());
++            Stage stage{&s, job->forward ? input : output, job->forward ? output : input, 0, job->forward};
++            for (int a = 0; a < 3; a++) {
++                stage.axis = job->forward ? 2-a : a;
++                dispatch_apply_f(s.workers, dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), &stage, lines);
++            }
++        }
++        atomic_thread_fence(memory_order_release);
++        s.done->setSignaledValue(job->value);
++        job->input->release();
++        job->output->release();
++        job->producer->release();
++        pool->release();
++    }
++};
++
++MetalCpuFFT::MetalCpuFFT(MetalContext& context, int x, int y, int z) : impl(new Impl(context, x, y, z)) {
++}
++
++MetalCpuFFT::~MetalCpuFFT() {
++    delete impl;
++}
++
++void MetalCpuFFT::exec(ArrayInterface& in, ArrayInterface& out, bool forward) {
++    Impl& s = *impl;
++    if (s.failed.load())
++        throw OpenMMException("GPU failed before the CPU FFT shared event");
++    MetalQueue& queue = s.context.getCurrentStream();
++    lock_guard<recursive_mutex> guard(queue.getLock());
++    MTL::Buffer* input = s.context.unwrap(in).getDevicePointer();
++    MTL::Buffer* output = s.context.unwrap(out).getDevicePointer();
++    if (input->storageMode() != MTL::StorageModeShared || output->storageMode() != MTL::StorageModeShared)
++        throw OpenMMException("CPU FFT requires shared-storage grids");
++    uint64_t value = ++s.sequence;
++    MTL::CommandBuffer* producer = queue.getCommandBuffer()->retain();
++    producer->encodeSignalEvent(s.ready, value);
++    queue.commit();
++    dispatch_async_f(s.cpuQueue, new Impl::Job{&s, input->retain(), output->retain(), producer, value, forward}, Impl::run);
++    queue.getCommandBuffer()->encodeWait(s.done, value);
++}
+diff --git a/platforms/metal/src/MetalCpuFFT.h b/platforms/metal/src/MetalCpuFFT.h
+new file mode 100644
+index 000000000..a93ed78cf
+--- /dev/null
++++ b/platforms/metal/src/MetalCpuFFT.h
+@@ -0,0 +1,20 @@
++#ifndef OPENMM_METAL_CPU_FFT_H_
++#define OPENMM_METAL_CPU_FFT_H_
++
++namespace OpenMM {
++class MetalContext;
++class ArrayInterface;
++
++// A real 3D FFT over the existing shared Metal grids.  Only line-sized CPU
++// arithmetic scratch is allocated; there are no grid transfers or shadow grids.
++class MetalCpuFFT {
++public:
++    MetalCpuFFT(MetalContext& context, int x, int y, int z);
++    ~MetalCpuFFT();
++    void exec(ArrayInterface& in, ArrayInterface& out, bool forward);
++private:
++    struct Impl;
++    Impl* impl;
++};
++}
++#endif

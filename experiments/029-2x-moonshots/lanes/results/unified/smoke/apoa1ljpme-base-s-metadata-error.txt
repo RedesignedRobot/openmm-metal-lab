@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-m29-unified/tools/smoke.py", line 17, in <module>
+    print('PME grid', force.getPMEParametersInContext(context), flush=True)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/openmm.py", line 18080, in getPMEParametersInContext
+    return _openmm.NonbondedForce_getPMEParametersInContext(self, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+openmm.OpenMMException: getPMEParametersInContext: This Context is not using PME

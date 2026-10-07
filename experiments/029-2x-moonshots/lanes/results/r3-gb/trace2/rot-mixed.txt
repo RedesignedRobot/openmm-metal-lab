@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-r3-gb/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-r3-gb/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-r3-gb/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-r3-gb/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-r3-gb/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib
+window A gbsa mixed Metal steps 4576 host_s 1.013125 us_per_step 221.40 ns_per_day 1560.98 cpu_per_host 0.14
+window B gbsa mixed Metal steps 4576 host_s 1.010587 us_per_step 220.85 ns_per_day 1564.90 cpu_per_host 0.14
+window C gbsa mixed Metal steps 4576 host_s 1.015754 us_per_step 221.97 ns_per_day 1556.94 cpu_per_host 0.14

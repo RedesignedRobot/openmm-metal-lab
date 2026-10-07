@@ -1,0 +1,24 @@
+2026-09-25T06:20:47Z round 1 apoa1rf s2t4 load { 3.90 5.63 8.23 } vm 5% top superwhisper 23.3%, syspolicyd 9.6%, com.apple.Virtualization.VirtualMachine 8.6%, sysmond 4.2%, iStat Menus Menubar 2.9%
+2026-09-25T06:21:06Z round 1 apoa1rf cut load { 3.71 5.48 8.12 } vm 9% top superwhisper 19.9%, com.apple.Virtualization.VirtualMachine 8.7%, iStat Menus Menubar 3.6%, WindowServer 2.2%,  claude 1.7%
+2026-09-25T06:21:25Z round 1 apoa1rf xres load { 3.09 5.26 7.99 } vm 7% top superwhisper 21.7%, powermetrics 7.2%, com.apple.Virtualization.VirtualMachine 7.1%, iStat Menus Menubar 4.3%, WindowServer 3.1%
+2026-09-25T06:21:44Z round 1 apoa1rf cutxres load { 2.71 5.03 7.85 } vm 11% top superwhisper 20.2%, com.apple.Virtualization.VirtualMachine 11.0%, sysmond 4.6%, powermetrics 1.2%,  claude 1.2%
+2026-09-25T06:22:03Z round 1 apoa1pme s2t4 load { 2.35 4.80 7.70 } vm 9% top superwhisper 20.8%, com.apple.Virtualization.VirtualMachine 8.7%, powermetrics 4.9%, sysmond 4.5%,  claude 3.0%
+2026-09-25T06:22:21Z round 1 apoa1pme cut load { 2.45 4.67 7.58 } vm 15% top superwhisper 22.1%, com.apple.Virtualization.VirtualMachine 15.1%, powermetrics 11.2%,  claude 1.8%, io.tailscale.ipn.macsys.network-extension 1.1%
+2026-09-25T06:22:40Z round 1 apoa1pme xres load { 2.27 4.52 7.48 } vm 4% top superwhisper 20.4%, com.apple.Virtualization.VirtualMachine 4.1%, sysmond 3.1%,  claude 2.6%, iStat Menus Menubar 1.5%
+2026-09-25T06:22:59Z round 1 apoa1pme cutxres load { 1.83 4.27 7.32 } vm 12% top superwhisper 19.3%, com.apple.Virtualization.VirtualMachine 11.6%, sysmond 8.2%,  claude 7.8%, WindowServer 1.7%
+2026-09-25T06:23:17Z round 1 apoa1ljpme s2t4 load { 1.52 4.04 7.17 } vm 5% top superwhisper 21.8%, iStat Menus Menubar 5.3%, com.apple.Virtualization.VirtualMachine 5.2%, WindowServer 3.4%, powermetrics 1.2%
+2026-09-25T06:23:36Z round 1 apoa1ljpme cut load { 1.85 3.96 7.06 } vm 8% top superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 5.2%, sysmond 4.6%,  claude 3.6%, iStat Menus Menubar 2.9%
+2026-09-25T06:23:55Z round 1 apoa1ljpme xres load { 1.74 3.83 6.96 } vm 9% top superwhisper 21.5%, com.apple.Virtualization.VirtualMachine 8.9%, sysmond 3.1%,  claude 2.2%, logd 0.7%
+2026-09-25T06:24:13Z round 1 apoa1ljpme cutxres load { 1.91 3.73 6.85 } vm 9% top superwhisper 22.5%, sysmond 9.0%, com.apple.Virtualization.VirtualMachine 8.9%, iStat Menus Menubar 5.8%, WindowServer 3.3%
+2026-09-25T06:24:32Z round 2 apoa1rf cutxres load { 1.68 3.56 6.72 } vm 9% top superwhisper 20.0%, com.apple.Virtualization.VirtualMachine 8.7%, powermetrics 3.0%, WindowServer 1.2%,  claude 1.2%
+2026-09-25T06:24:50Z round 2 apoa1rf xres load { 2.19 3.58 6.67 } vm 6% top superwhisper 20.7%, powermetrics 12.2%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 3.0%,  claude 1.5%
+2026-09-25T06:25:09Z round 2 apoa1rf cut load { 2.43 3.55 6.59 } vm 10% top superwhisper 21.1%, com.apple.Virtualization.VirtualMachine 9.7%,  claude 3.0%, iStat Menus Menubar 2.8%, WindowServer 1.7%
+2026-09-25T06:25:28Z round 2 apoa1rf s2t4 load { 2.47 3.48 6.49 } vm 9% top superwhisper 22.0%, com.apple.Virtualization.VirtualMachine 8.8%, iStat Menus Menubar 5.7%, sysmond 4.8%, WindowServer 2.1%
+2026-09-25T06:25:46Z round 2 apoa1pme cutxres load { 2.82 3.49 6.42 } vm 6% top superwhisper 22.3%, com.apple.Virtualization.VirtualMachine 5.5%,  claude 3.7%, powermetrics 1.8%, io.tailscale.ipn.macsys.network-extension 1.3%
+2026-09-25T06:26:05Z round 2 apoa1pme xres load { 2.93 3.48 6.37 } vm 10% top superwhisper 20.5%, powermetrics 12.6%, com.apple.Virtualization.VirtualMachine 9.8%, sysmond 4.7%,  claude 1.7%
+2026-09-25T06:26:24Z round 2 apoa1pme cut load { 2.73 3.40 6.27 } vm 7% top superwhisper 18.9%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 4.6%, WindowServer 1.8%,  claude 1.3%
+2026-09-25T06:26:42Z round 2 apoa1pme s2t4 load { 2.69 3.35 6.19 } vm 9% top superwhisper 22.0%, com.apple.Virtualization.VirtualMachine 8.9%,  claude 4.2%, iStat Menus Menubar 1.9%, WindowServer 1.7%
+2026-09-25T06:27:01Z round 2 apoa1ljpme cutxres load { 3.18 3.43 6.16 } vm 8% top superwhisper 21.0%, launchd 15.3%, com.apple.Virtualization.VirtualMachine 7.3%, iStat Menus Menubar 5.3%,  claude 5.0%
+2026-09-25T06:27:19Z round 2 apoa1ljpme xres load { 2.99 3.37 6.08 } vm 5% top superwhisper 18.5%, com.apple.Virtualization.VirtualMachine 5.4%, powermetrics 4.3%,  claude 2.3%, sh 0.7%
+2026-09-25T06:27:38Z round 2 apoa1ljpme cut load { 2.28 3.18 5.95 } vm 8% top superwhisper 20.8%, powermetrics 12.8%, com.apple.Virtualization.VirtualMachine 8.0%,  claude 5.1%, sysmond 4.7%
+2026-09-25T06:27:57Z round 2 apoa1ljpme s2t4 load { 2.61 3.20 5.89 } vm 9% top superwhisper 19.6%, com.apple.Virtualization.VirtualMachine 9.2%,  claude 3.8%, sh 1.1%, runningboardd 0.9%

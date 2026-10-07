@@ -1,0 +1,15 @@
+median ns/day, host clock
+test                    base-cpu
+pme                        44.58
+apoa1pme                   17.45
+amber20-dhfr               45.92
+
+rounds, base-cpu:
+  pme                44.58 44.63 43.93   spread 1.6%
+  apoa1pme           17.02 17.59 17.45   spread 3.3%
+  amber20-dhfr       52.27 45.86 45.92   spread 14.0%
+
+1 minute load before 10 runs: 1.44 to 19.23
+Background VM CPU before 10 runs: 4% to 8%
+runs with no result: 0
+runs that overlapped a build: 0

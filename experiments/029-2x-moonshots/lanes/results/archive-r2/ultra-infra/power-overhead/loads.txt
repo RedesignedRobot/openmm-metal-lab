@@ -1,0 +1,11 @@
+2026-09-29T03:05:27Z round 1 apoa1rf on load { 1.83 1.68 1.88 } vm 19% top superwhisper 26.0%, com.apple.Virtualization.VirtualMachine 10.8%, WindowServer 9.8%, com.apple.Virtualization.VirtualMachine 8.5%, Google Chrome Helper 6.4%
+2026-09-29T03:06:02Z round 1 apoa1rf off load { 1.67 1.65 1.86 } vm 13% top superwhisper 24.2%, WindowServer 11.4%, com.apple.Virtualization.VirtualMachine 7.7%, com.apple.Virtualization.VirtualMachine 5.5%, Google Chrome Helper 5.4%
+2026-09-29T03:06:37Z round 2 apoa1rf off load { 1.63 1.64 1.85 } vm 13% top superwhisper 22.7%, WindowServer 13.2%, iStat Menus Menubar 8.2%, com.apple.Virtualization.VirtualMachine 6.4%, Google Chrome Helper 5.2%
+2026-09-29T03:07:11Z round 2 apoa1rf on load { 1.41 1.58 1.82 } vm 20% top superwhisper 26.2%, WindowServer 14.9%, com.apple.Virtualization.VirtualMachine 11.4%, com.apple.Virtualization.VirtualMachine 8.3%, Google Chrome Helper 6.6%
+2026-09-29T03:07:46Z round 3 apoa1rf on load { 2.30 1.80 1.89 } vm 8% top superwhisper 24.4%, WindowServer 10.5%, powermetrics 9.7%,  claude 8.4%, Google Chrome Helper 5.3%
+2026-09-29T03:08:21Z round 3 apoa1rf off load { 2.55 1.91 1.93 } vm 14% top superwhisper 26.3%, WindowServer 14.3%, com.apple.Virtualization.VirtualMachine 8.3%, Google Chrome Helper 6.4%, com.apple.Virtualization.VirtualMachine 6.0%
+2026-09-29T03:08:55Z round 4 apoa1rf off load { 1.95 1.83 1.89 } vm 19% top superwhisper 22.3%, WindowServer 9.4%, com.apple.Virtualization.VirtualMachine 8.8%, com.apple.Virtualization.VirtualMachine 8.0%,  claude 7.9%
+2026-09-29T03:09:30Z round 4 apoa1rf on load { 2.38 1.93 1.93 } vm 26% top backupd 96.9%, superwhisper 23.6%, WindowServer 13.5%, com.apple.Virtualization.VirtualMachine 10.1%, com.apple.Virtualization.VirtualMachine 8.3%
+2026-09-29T03:10:05Z round 5 apoa1rf on load { 2.33 1.96 1.94 } vm 23% top backupd 69.2%, superwhisper 24.8%,  claude 20.8%, WindowServer 13.9%, com.apple.Virtualization.VirtualMachine 8.9%
+2026-09-29T03:10:40Z round 5 apoa1rf off load { 2.56 2.05 1.97 } vm 11% top backupd 55.8%, superwhisper 22.1%, WindowServer 13.5%, powermetrics 13.2%, com.apple.Virtualization.VirtualMachine 5.9%
+2026-09-29T03:11:13Z builds: none ran during the 10 timed runs; timing hold of lease.sh pid 15848: 0 builds paused

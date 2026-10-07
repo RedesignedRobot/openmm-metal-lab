@@ -1,0 +1,311 @@
+08:34:05Z waiting for the lease: 4 in the queue, held by: ultra-atomics 2026-09-25T08:31:59Z d3 screen single rf,pme 2x15 s, 0 build processes
+{"label": "metal-mixed", "test": "gbsa", "platform": "Metal", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 1, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2402.7438348809146, "drift_kt_per_ns_per_dof": 0.15429743156896708, "rms_kj": 38.50759276350077, "se_white_kj_per_ns": 94.09136483873148, "se_block_kj_per_ns": {"2.5": 93.49873110652618, "5": 91.26416228733308, "10": 66.58705017768324, "20": 13.003338598959663}, "e_first": -9815.25557729819, "e_last": -9666.532292707714}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:38:9: error: 'double' is not supported in Metal
+typedef double real;
+        ^
+program_source:39:9: error: reference to 'double2' is ambiguous
+typedef double2 real2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:40:9: error: reference to 'double3' is ambiguous
+typedef double3 real3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:41:9: error: reference to 'double4' is ambiguous
+typedef double4 real4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:42:9: error: 'double' is not supported in Metal
+typedef double mixed;
+        ^
+program_source:43:9: error: reference to 'double2' is ambiguous
+typedef double2 mixed2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:44:9: error: reference to 'double3' is ambiguous
+typedef double3 mixed3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:45:9: error: reference to 'double4' is ambiguous
+typedef double4 mixed4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:340:26: error: invalid type 'const device mixed *__restrict' (aka 'const device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:39: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                      ^
+program_source:340:69: error: invalid type 'device mixed *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:76: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                           ^
+program_source:347:48: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    for (unsigned int index = GLOBAL_ID; index < bufferSize; index += GLOBAL_SIZE)
+                                         ~~~~~ ^ ~~~~~~~~~~
+program_source:352:49: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+        if (_mmThread%(i*2) == 0 && _mmThread+i < workGroupSize)
+                                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+program_source:362:24: error: invalid type 'device real *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:362:31: note: type 'real' (aka 'double') cannot be used in buffer pointee type
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                              ^
+program_source:366:13: error: subscript of pointer to incomplete type 'device real4' (aka 'device __Reserved_Name__Do_not_use_double4')
+        posq[i].w = charges[atomOrder[i]];
+        ~~~~^
+
+{"label": "metal-double", "error": "metal-double double 20 100 1 1e-8 Metal"}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: No compatible OpenCL platform is available
+{"label": "opencl-mixed", "error": "opencl-mixed mixed 20 100 1 1e-8 OpenCL"}
+{"label": "cpu", "test": "gbsa", "platform": "CPU", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 1, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2940.373097158996, "drift_kt_per_ns_per_dof": 0.18882246628201546, "rms_kj": 38.71349494486838, "se_white_kj_per_ns": 94.59447645589061, "se_block_kj_per_ns": {"2.5": 90.3024031480604, "5": 84.15348237052632, "10": 59.5961425968379, "20": 68.60778831805113}, "e_first": -9993.334480774025, "e_last": -9663.403139354206}
+seed 1 done 08:39:56Z
+{"label": "metal-mixed", "test": "gbsa", "platform": "Metal", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 2, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2002.5225493195153, "drift_kt_per_ns_per_dof": 0.1285963495289773, "rms_kj": 39.40179297543491, "se_white_kj_per_ns": 96.27629805168773, "se_block_kj_per_ns": {"2.5": 111.0573508109125, "5": 112.80991794919085, "10": 128.15753262479944, "20": 130.47577970445337}, "e_first": -9989.811182726036, "e_last": -9790.956067398209}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:38:9: error: 'double' is not supported in Metal
+typedef double real;
+        ^
+program_source:39:9: error: reference to 'double2' is ambiguous
+typedef double2 real2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:40:9: error: reference to 'double3' is ambiguous
+typedef double3 real3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:41:9: error: reference to 'double4' is ambiguous
+typedef double4 real4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:42:9: error: 'double' is not supported in Metal
+typedef double mixed;
+        ^
+program_source:43:9: error: reference to 'double2' is ambiguous
+typedef double2 mixed2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:44:9: error: reference to 'double3' is ambiguous
+typedef double3 mixed3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:45:9: error: reference to 'double4' is ambiguous
+typedef double4 mixed4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:340:26: error: invalid type 'const device mixed *__restrict' (aka 'const device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:39: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                      ^
+program_source:340:69: error: invalid type 'device mixed *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:76: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                           ^
+program_source:347:48: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    for (unsigned int index = GLOBAL_ID; index < bufferSize; index += GLOBAL_SIZE)
+                                         ~~~~~ ^ ~~~~~~~~~~
+program_source:352:49: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+        if (_mmThread%(i*2) == 0 && _mmThread+i < workGroupSize)
+                                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+program_source:362:24: error: invalid type 'device real *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:362:31: note: type 'real' (aka 'double') cannot be used in buffer pointee type
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                              ^
+program_source:366:13: error: subscript of pointer to incomplete type 'device real4' (aka 'device __Reserved_Name__Do_not_use_double4')
+        posq[i].w = charges[atomOrder[i]];
+        ~~~~^
+
+{"label": "metal-double", "error": "metal-double double 20 100 2 1e-8 Metal"}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: No compatible OpenCL platform is available
+{"label": "opencl-mixed", "error": "opencl-mixed mixed 20 100 2 1e-8 OpenCL"}
+{"label": "cpu", "test": "gbsa", "platform": "CPU", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 2, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2282.9607763206363, "drift_kt_per_ns_per_dof": 0.1466053014246639, "rms_kj": 36.56123485172159, "se_white_kj_per_ns": 89.33553724107522, "se_block_kj_per_ns": {"2.5": 83.73439769530069, "5": 84.2470545422247, "10": 97.55001111736335, "20": 107.74007361997866}, "e_first": -9865.849642927418, "e_last": -9561.183648293587}
+seed 2 done 08:45:33Z
+{"label": "metal-mixed", "test": "gbsa", "platform": "Metal", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 3, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2635.4169144186844, "drift_kt_per_ns_per_dof": 0.16923904042744917, "rms_kj": 38.24073698137447, "se_white_kj_per_ns": 93.43931616590014, "se_block_kj_per_ns": {"2.5": 93.42526425492522, "5": 90.45051494410508, "10": 97.31666481253959, "20": 99.97342792280809}, "e_first": -10020.50789404734, "e_last": -9692.752648832393}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:38:9: error: 'double' is not supported in Metal
+typedef double real;
+        ^
+program_source:39:9: error: reference to 'double2' is ambiguous
+typedef double2 real2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:40:9: error: reference to 'double3' is ambiguous
+typedef double3 real3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:41:9: error: reference to 'double4' is ambiguous
+typedef double4 real4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:42:9: error: 'double' is not supported in Metal
+typedef double mixed;
+        ^
+program_source:43:9: error: reference to 'double2' is ambiguous
+typedef double2 mixed2;
+        ^
+note: candidate found by name lookup is 'double2'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:263:19: note: candidate found by name lookup is 'metal::double2'
+typedef ::double2 double2;
+                  ^
+program_source:44:9: error: reference to 'double3' is ambiguous
+typedef double3 mixed3;
+        ^
+note: candidate found by name lookup is 'double3'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:264:19: note: candidate found by name lookup is 'metal::double3'
+typedef ::double3 double3;
+                  ^
+program_source:45:9: error: reference to 'double4' is ambiguous
+typedef double4 mixed4;
+        ^
+note: candidate found by name lookup is 'double4'
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023/include/metal/metal_extended_vector:265:19: note: candidate found by name lookup is 'metal::double4'
+typedef ::double4 double4;
+                  ^
+program_source:340:26: error: invalid type 'const device mixed *__restrict' (aka 'const device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:39: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                      ^
+program_source:340:69: error: invalid type 'device mixed *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:340:76: note: type 'mixed' (aka 'double') cannot be used in buffer pointee type
+KERNEL void reduceEnergy(GLOBAL const mixed* RESTRICT energyBuffer, GLOBAL mixed* RESTRICT result,constant int& _in_bufferSize,constant int& _in_workGroupSize) {
+                                                                           ^
+program_source:347:48: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    for (unsigned int index = GLOBAL_ID; index < bufferSize; index += GLOBAL_SIZE)
+                                         ~~~~~ ^ ~~~~~~~~~~
+program_source:352:49: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+        if (_mmThread%(i*2) == 0 && _mmThread+i < workGroupSize)
+                                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+program_source:362:24: error: invalid type 'device real *__restrict' (aka 'device double *__restrict') for buffer declaration
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:74:16: note: expanded from macro 'GLOBAL'
+#define GLOBAL device
+               ^
+program_source:362:31: note: type 'real' (aka 'double') cannot be used in buffer pointee type
+KERNEL void setCharges(GLOBAL real* RESTRICT charges, GLOBAL real4* RESTRICT posq, GLOBAL int* RESTRICT atomOrder,constant int& _in_numAtoms) {
+                              ^
+program_source:366:13: error: subscript of pointer to incomplete type 'device real4' (aka 'device __Reserved_Name__Do_not_use_double4')
+        posq[i].w = charges[atomOrder[i]];
+        ~~~~^
+
+{"label": "metal-double", "error": "metal-double double 20 100 3 1e-8 Metal"}
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-mixed/drift-eq.py", line 48, in <module>
+    context = mm.Context(system, integrator, mm.Platform.getPlatformByName(platform), properties)
+  File "/tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6201, in __init__
+    _openmm.Context_swiginit(self, _openmm.new_Context(*args))
+                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^
+openmm.OpenMMException: No compatible OpenCL platform is available
+{"label": "opencl-mixed", "error": "opencl-mixed mixed 20 100 3 1e-8 OpenCL"}
+{"label": "cpu", "test": "gbsa", "platform": "CPU", "precision": "mixed", "equil_ps": 20.0, "ps": 100.0, "seed": 3, "tolerance": 1e-08, "openmm": "/tmp/openmm-metal-bench/ultra-base/prefix/lib", "drift_kj_per_ns": 2786.8971316514258, "drift_kt_per_ns_per_dof": 0.1789666726923675, "rms_kj": 40.042923942071674, "se_white_kj_per_ns": 97.84286930068066, "se_block_kj_per_ns": {"2.5": 118.68947145057328, "5": 138.27382280510935, "10": 174.18023595507083, "20": 166.3775301980421}, "e_first": -10094.847221195758, "e_last": -9898.782471927423}
+seed 3 done 08:51:07Z
+GBSA CONTROLS DONE 08:51:07Z

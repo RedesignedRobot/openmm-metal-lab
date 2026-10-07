@@ -1,0 +1,27 @@
+load: { 16.29 11.22 7.27 }
+apoa1pme single round 0 base 225.40 ns/day load1=16.29
+apoa1pme single round 0 nosort 230.89 ns/day load1=18.42
+apoa1pme single round 0 nolut 224.60 ns/day load1=14.69
+apoa1pme single round 0 coal32 225.84 ns/day load1=11.91
+apoa1pme single round 0 coal128 225.68 ns/day load1=10.03
+apoa1pme single round 0 aim256 226.23 ns/day load1=8.54
+apoa1pme single round 1 aim256 225.45 ns/day load1=6.67
+apoa1pme single round 1 coal128 225.68 ns/day load1=5.62
+apoa1pme single round 1 coal32 226.04 ns/day load1=5.10
+apoa1pme single round 1 nolut 225.01 ns/day load1=4.51
+apoa1pme single round 1 nosort 230.85 ns/day load1=4.01
+apoa1pme single round 1 base 226.23 ns/day load1=3.57
+pme single round 0 base 612.08 ns/day load1=3.12
+pme single round 0 nosort 631.82 ns/day load1=2.88
+pme single round 0 nolut 611.61 ns/day load1=3.27
+pme single round 0 coal32 613.55 ns/day load1=3.43
+pme single round 0 coal128 612.30 ns/day load1=3.26
+pme single round 0 aim256 614.57 ns/day load1=3.40
+pme single round 1 aim256 608.95 ns/day load1=3.67
+pme single round 1 coal128 609.54 ns/day load1=3.35
+pme single round 1 coal32 613.33 ns/day load1=3.41
+pme single round 1 nolut 607.95 ns/day load1=3.54
+pme single round 1 nosort 631.53 ns/day load1=3.43
+pme single round 1 base 609.66 ns/day load1=3.39
+SUMMARY apoa1pme single base=225.81 (1.000) nosort=230.87 (1.022) nolut=224.81 (0.996) coal32=225.94 (1.001) coal128=225.68 (0.999) aim256=225.84 (1.000)
+SUMMARY pme single base=610.87 (1.000) nosort=631.67 (1.034) nolut=609.78 (0.998) coal32=613.44 (1.004) coal128=610.92 (1.000) aim256=611.76 (1.001)

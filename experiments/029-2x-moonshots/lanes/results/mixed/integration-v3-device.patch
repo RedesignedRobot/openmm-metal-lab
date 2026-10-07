@@ -1,0 +1,486 @@
+diff --git a/platforms/metal/include/MetalIntegrationUtilities.h b/platforms/metal/include/MetalIntegrationUtilities.h
+index 05fc66c6e..d1d2bc77e 100644
+--- a/platforms/metal/include/MetalIntegrationUtilities.h
++++ b/platforms/metal/include/MetalIntegrationUtilities.h
+@@ -75,9 +75,10 @@ private:
+     int* ccmaConvergedMemory;
+     metalDeviceptr_t ccmaConvergedDeviceMemory;
+     ComputeEvent ccmaEvent;
+-    ComputeKernel langevinMiddleKernel;
++    ComputeKernel langevinMiddleKernel, cooperativeShakePosKernel, cooperativeShakeVelKernel;
+     ComputeArray freeAtoms;
+-    int numLangevinMiddleUnits;
++    int numLangevinMiddleUnits, numLangevinMiddleThreads;
++    bool useCooperativeConstraints;
+ };
+ 
+ } // namespace OpenMM
+diff --git a/platforms/metal/include/MetalKernels.h b/platforms/metal/include/MetalKernels.h
+index 9a8fcd5da..83c3b0625 100644
+--- a/platforms/metal/include/MetalKernels.h
++++ b/platforms/metal/include/MetalKernels.h
+@@ -39,6 +39,18 @@
+ 
+ namespace OpenMM {
+ 
++class MetalRemoveCMMotionKernel : public RemoveCMMotionKernel {
++public:
++    MetalRemoveCMMotionKernel(std::string name, const Platform& platform, MetalContext& cu) :
++            RemoveCMMotionKernel(name, platform), cu(cu) {}
++    void initialize(const System& system, const CMMotionRemover& force);
++    void execute(ContextImpl& context);
++private:
++    MetalContext& cu;
++    ComputeArray cmMomentum;
++    ComputeKernel calcKernel, removeKernel;
++};
++
+ /**
+  * This kernel is invoked at the beginning and end of force and energy computations.  It gives the
+  * Platform a chance to clear buffers and do other initialization at the beginning, and to do any
+diff --git a/platforms/metal/src/MetalIntegrationUtilities.cpp b/platforms/metal/src/MetalIntegrationUtilities.cpp
+index 362f5d6d0..881a65c06 100644
+--- a/platforms/metal/src/MetalIntegrationUtilities.cpp
++++ b/platforms/metal/src/MetalIntegrationUtilities.cpp
+@@ -34,6 +34,8 @@ using namespace std;
+ 
+ MetalIntegrationUtilities::MetalIntegrationUtilities(MetalContext& context, const System& system) : IntegrationUtilities(context, system),
+         ccmaConvergedMemory(NULL) {
++        useCooperativeConstraints = context.getUseMixedPrecision() && context.getSIMDWidth() == 32 &&
++                context.getDevice()->supportsFamily(MTL::GPUFamilyApple7);
+         ccmaEvent = context.createEvent();
+         ccmaConvergedDeviceMemory = context.getDevice()->newBuffer(sizeof(int), MTL::ResourceStorageModeShared);
+         ccmaConvergedMemory = (int*) ccmaConvergedDeviceMemory->contents();
+@@ -60,15 +62,32 @@ MetalArray& MetalIntegrationUtilities::getStepSize() {
+ 
+ void MetalIntegrationUtilities::applyConstraintsImpl(bool constrainVelocities, double tol) {
+     ContextSelector selector(context);
++    bool cooperative = useCooperativeConstraints;
++    if (cooperative && shakeAtoms.isInitialized() && !cooperativeShakePosKernel) {
++        ComputeProgram program = context.compileProgram(MetalKernelSources::cooperativeShake, defines);
++        cooperativeShakePosKernel = program->createKernel("applyCooperativeShake");
++        cooperativeShakeVelKernel = program->createKernel("applyCooperativeShake");
++        for (int velocities = 0; velocities < 2; velocities++) {
++            ComputeKernel kernel = velocities ? cooperativeShakeVelKernel : cooperativeShakePosKernel;
++            kernel->addArg((int) shakeAtoms.getSize());
++            kernel->addArg();
++            kernel->addArg(context.getPosq());
++            kernel->addArg(velocities ? context.getVelm() : posDelta);
++            kernel->addArg(shakeAtoms);
++            kernel->addArg(shakeParams);
++            kernel->addArg(context.getPosqCorrection());
++            kernel->addArg(velocities);
++        }
++    }
+     ComputeKernel settleKernel, shakeKernel, ccmaForceKernel;
+     if (constrainVelocities) {
+         settleKernel = settleVelKernel;
+-        shakeKernel = shakeVelKernel;
++        shakeKernel = cooperative ? cooperativeShakeVelKernel : shakeVelKernel;
+         ccmaForceKernel = ccmaVelForceKernel;
+     }
+     else {
+         settleKernel = settlePosKernel;
+-        shakeKernel = shakePosKernel;
++        shakeKernel = cooperative ? cooperativeShakePosKernel : shakePosKernel;
+         ccmaForceKernel = ccmaPosForceKernel;
+     }
+     if (settleAtoms.isInitialized()) {
+@@ -83,7 +102,7 @@ void MetalIntegrationUtilities::applyConstraintsImpl(bool constrainVelocities, d
+             shakeKernel->setArg(1, tol);
+         else
+             shakeKernel->setArg(1, (float) tol);
+-        shakeKernel->execute(shakeAtoms.getSize());
++        shakeKernel->execute(shakeAtoms.getSize()*(cooperative ? 16 : 1));
+     }
+     if (ccmaConstraintAtoms.isInitialized()) {
+         if (ccmaConstraintAtoms.getSize() <= 1024) {
+@@ -197,8 +216,15 @@ bool MetalIntegrationUtilities::integrateLangevinMiddle(ComputeArray& params, do
+             freeAtoms.initialize<int>(context, unconstrained.size(), "freeAtoms");
+             freeAtoms.upload(unconstrained);
+         }
+-        ComputeProgram program = context.compileProgram(CommonKernelSources::integrationUtilities+MetalKernelSources::fusedLangevinMiddle, defines);
++        map<string, string> fusedDefines = defines;
++        bool cooperative = useCooperativeConstraints;
++        if (cooperative)
++            fusedDefines["COOPERATIVE_MIXED"] = "";
++        ComputeProgram program = context.compileProgram(CommonKernelSources::integrationUtilities+
++                MetalKernelSources::cooperativeShake+MetalKernelSources::fusedLangevinMiddle, fusedDefines);
+         numLangevinMiddleUnits = numSettle+numShake+unconstrained.size();
++        numLangevinMiddleThreads = cooperative ? ((16*numShake+31)/32)*32+
++                ((4*unconstrained.size()+31)/32)*32+numSettle : numLangevinMiddleUnits;
+         langevinMiddleKernel = program->createKernel("integrateLangevinMiddleFused");
+         langevinMiddleKernel->addArg(numSettle);
+         langevinMiddleKernel->addArg(numShake);
+@@ -229,6 +255,6 @@ bool MetalIntegrationUtilities::integrateLangevinMiddle(ComputeArray& params, do
+         langevinMiddleKernel->setArg(4, (float) tol);
+     langevinMiddleKernel->setArg(9, params);
+     langevinMiddleKernel->setArg(12, prepareRandomNumbers(context.getPaddedNumAtoms()));
+-    langevinMiddleKernel->execute(numLangevinMiddleUnits);
++    langevinMiddleKernel->execute(numLangevinMiddleThreads);
+     return true;
+ }
+diff --git a/platforms/metal/src/MetalKernelFactory.cpp b/platforms/metal/src/MetalKernelFactory.cpp
+index b687e19b2..e64c0cb98 100644
+--- a/platforms/metal/src/MetalKernelFactory.cpp
++++ b/platforms/metal/src/MetalKernelFactory.cpp
+@@ -127,8 +127,12 @@ KernelImpl* MetalKernelFactory::createKernelImpl(std::string name, const Platfor
+         return new CommonIntegrateNoseHooverStepKernel(name, platform, cu);
+     if (name == ApplyMonteCarloBarostatKernel::Name())
+         return new CommonApplyMonteCarloBarostatKernel(name, platform, cu);
+-    if (name == RemoveCMMotionKernel::Name())
++    if (name == RemoveCMMotionKernel::Name()) {
++        if (cu.getUseMixedPrecision() && cu.getSIMDWidth() == 32 &&
++                cu.getDevice()->supportsFamily(MTL::GPUFamilyApple7))
++            return new MetalRemoveCMMotionKernel(name, platform, cu);
+         return new CommonRemoveCMMotionKernel(name, platform, cu);
++    }
+     if (name == CalcATMForceKernel::Name() )
+         return new MetalCalcATMForceKernel(name, platform, cu);
+     throw OpenMMException((std::string("Tried to create kernel with illegal kernel name '")+name+"'").c_str());
+diff --git a/platforms/metal/src/MetalKernels.cpp b/platforms/metal/src/MetalKernels.cpp
+index 63ce5ee00..98461edfe 100644
+--- a/platforms/metal/src/MetalKernels.cpp
++++ b/platforms/metal/src/MetalKernels.cpp
+@@ -26,6 +26,7 @@
+ #include "MetalKernels.h"
+ #include "MetalForceInfo.h"
+ #include "openmm/Context.h"
++#include "openmm/CMMotionRemover.h"
+ #include "openmm/internal/ContextImpl.h"
+ #include "openmm/internal/NonbondedForceImpl.h"
+ #include "openmm/common/ContextSelector.h"
+@@ -125,3 +126,29 @@ void MetalIntegrateLangevinMiddleStepKernel::integrate(double tol) {
+     if (!cu.getIntegrationUtilities().integrateLangevinMiddle(params, tol))
+         CommonIntegrateLangevinMiddleStepKernel::integrate(tol);
+ }
++
++void MetalRemoveCMMotionKernel::initialize(const System& system, const CMMotionRemover& force) {
++    ContextSelector selector(cu);
++    int numAtoms = cu.getNumAtoms();
++    // Only one momentum per dispatched group is needed, not one per atom.
++    cmMomentum.initialize<mm_float4>(cu, max(1, min(cu.getNumThreadBlocks(), (numAtoms+63)/64)), "cmMomentum");
++    double totalMass = 0;
++    for (int i = 0; i < numAtoms; i++)
++        totalMass += system.getParticleMass(i);
++    map<string, string> defines;
++    defines["INVERSE_TOTAL_MASS"] = cu.doubleToString(totalMass == 0 ? 0 : 1/totalMass);
++    ComputeProgram program = cu.compileProgram(MetalKernelSources::removeCM, defines);
++    calcKernel = program->createKernel("calcCenterOfMassMomentum");
++    removeKernel = program->createKernel("removeCenterOfMassMomentum");
++    for (ComputeKernel kernel : {calcKernel, removeKernel}) {
++        kernel->addArg(numAtoms);
++        kernel->addArg(cu.getVelm());
++        kernel->addArg(cmMomentum);
++    }
++}
++
++void MetalRemoveCMMotionKernel::execute(ContextImpl& context) {
++    ContextSelector selector(cu);
++    calcKernel->execute(cu.getNumAtoms(), 64);
++    removeKernel->execute(cu.getNumAtoms(), 64);
++}
+diff --git a/platforms/metal/src/kernels/fusedLangevinMiddle.metal b/platforms/metal/src/kernels/fusedLangevinMiddle.metal
+index 5694a680b..3abef5581 100644
+--- a/platforms/metal/src/kernels/fusedLangevinMiddle.metal
++++ b/platforms/metal/src/kernels/fusedLangevinMiddle.metal
+@@ -1,6 +1,7 @@
+ /**
+- * Take one LangevinMiddleIntegrator step.  Each thread owns a unit: a SETTLE cluster, a SHAKE cluster, or an atom in
+- * neither, taken in that order.  It runs the velocity step, the velocity constraints, the position update with the heat
++ * Take one LangevinMiddleIntegrator step.  Single precision uses one thread per cluster or free atom.
++ * Cooperative mixed precision uses 16 lanes per SHAKE cluster and four per free atom, and one thread per SETTLE cluster.
++ * It runs the velocity step, the velocity constraints, the position update with the heat
+  * bath, the position constraints and the final velocity correction on its atoms in registers, so the displacements
+  * never pass through device memory.  Each atom sees the same operations as in integrateLangevinMiddlePart1-3.
+  */
+@@ -10,12 +11,48 @@ KERNEL void integrateLangevinMiddleFused(int numSettle, int numShake, int numUni
+         GLOBAL const float4* RESTRICT random, unsigned int randomIndex, GLOBAL const int4* RESTRICT settleAtoms,
+         GLOBAL const float2* RESTRICT settleParams, GLOBAL const int4* RESTRICT shakeAtoms,
+         GLOBAL const float4* RESTRICT shakeParams, GLOBAL const int* RESTRICT freeAtoms) {
++#ifndef COOPERATIVE_MIXED
+     mixed fscale = dt[0].y/(mixed) 0x100000000;
+     mixed vscale = paramBuffer[0];
+     mixed noisescale = paramBuffer[1];
+     mixed halfdt = 0.5f*dt[0].y;
+     mixed invDt = 1/dt[0].y;
++#endif
++#ifdef COOPERATIVE_MIXED
++    // Keep each cooperative region on SIMD boundaries; SETTLE follows them.
++    int shakeThreads = ((16*numShake+31)/32)*32;
++    int numFree = numUnits-numSettle-numShake;
++    int freeThreads = ((4*numFree+31)/32)*32;
++    int workCount = shakeThreads+freeThreads+numSettle;
++    for (int work = GLOBAL_ID; work < workCount; work += GLOBAL_SIZE) {
++        if (work < shakeThreads) {
++            int cluster = work/16;
++            if (cluster < numShake)
++                cooperativeIntegrationStep<true>(shakeAtoms[cluster], shakeParams[cluster], tol,
++                        paddedNumAtoms, posq, posqCorrection, velm, force, paramBuffer, dt, random, randomIndex);
++            continue;
++        }
++        if (work < shakeThreads+freeThreads) {
++            int index = (work-shakeThreads)/4;
++            if (index < numFree)
++                cooperativeIntegrationStep<false>(make_int4(freeAtoms[index], -1, -1, -1), make_float4(0), tol,
++                        paddedNumAtoms, posq, posqCorrection, velm, force, paramBuffer, dt, random, randomIndex);
++            continue;
++        }
++        int unit = work-shakeThreads-freeThreads;
++        mixed fscale = dt[0].y/(mixed) 0x100000000;
++        mixed vscale = paramBuffer[0];
++        mixed noisescale = paramBuffer[1];
++        mixed halfdt = 0.5f*dt[0].y;
++        mixed invDt = 1/dt[0].y;
++#else
+     for (int unit = GLOBAL_ID; unit < numUnits; unit += GLOBAL_SIZE) {
++#endif
++#ifdef COOPERATIVE_MIXED
++        const bool isSettle = true;
++        int4 atoms = settleAtoms[unit];
++        atoms.w = -1;
++#else
+         bool isSettle = (unit < numSettle);
+         bool isShake = (!isSettle && unit < numSettle+numShake);
+         int4 atoms;
+@@ -27,6 +64,7 @@ KERNEL void integrateLangevinMiddleFused(int numSettle, int numShake, int numUni
+             atoms = shakeAtoms[unit-numSettle];
+         else
+             atoms = make_int4(freeAtoms[unit-numSettle-numShake], -1, -1, -1);
++#endif
+ 
+         // Load the atoms and apply the velocity step.
+ 
+@@ -50,8 +88,10 @@ KERNEL void integrateLangevinMiddleFused(int numSettle, int numShake, int numUni
+         }
+         if (isSettle)
+             applySettleToClusterVelocities(pos, vel);
++#ifndef COOPERATIVE_MIXED
+         else if (isShake)
+             applyShakeToClusterVelocities(atoms, shakeParams[unit-numSettle], tol, pos, vel);
++#endif
+ 
+         // Move the atoms a half step, interact with the heat bath, and move them another half step.
+ 
+@@ -72,8 +112,10 @@ KERNEL void integrateLangevinMiddleFused(int numSettle, int numShake, int numUni
+         }
+         if (isSettle)
+             applySettleToCluster(settleParams[unit], make_mixed3(vel[0].w, vel[1].w, vel[2].w), pos, delta);
++#ifndef COOPERATIVE_MIXED
+         else if (isShake)
+             applyShakeToCluster(atoms, shakeParams[unit-numSettle], tol, pos, delta);
++#endif
+ 
+         // Correct the velocities for the constraints and record the new positions.
+ 
+diff --git a/platforms/metal/src/kernels/cooperativeShake.metal b/platforms/metal/src/kernels/cooperativeShake.metal
+new file mode 100644
+index 000000000..e3a6169ed
+--- /dev/null
++++ b/platforms/metal/src/kernels/cooperativeShake.metal
+@@ -0,0 +1,154 @@
++#ifdef USE_MIXED_PRECISION
++// Each quartet carries an unnormalized high/low expansion. At each butterfly
++// level, magnitude ordering makes FastTwoSum exact for the high components.
++// Low components retain the rounding residuals without serial df64 additions.
++// All lanes receive one result so convergence decisions remain uniform.
++DEVICE float2 shakeCompensatedSum(float2 value) {
++    ushort lane = LOCAL_ID & 31;
++    for (ushort mask = 1; mask < 4; mask <<= 1) {
++        float2 other = simd_shuffle(value, (ushort) (lane^mask));
++        bool larger = fabs(value.x) >= fabs(other.x);
++        float big = larger ? value.x : other.x;
++        float small = larger ? other.x : value.x;
++        float sum = value.x+other.x;
++        float error = small-(sum-big);
++        value = float2(sum, (value.y+other.y)+error);
++    }
++    return simd_shuffle(value, (ushort) (lane & ~3u));
++}
++
++DEVICE float2 shakeCompensatedDot(mixed a, mixed b) {
++    float2 product = df64_two_prod(a.hi, b.hi);
++    product.y += fma(a.lo, b.hi, a.hi*b.lo);
++    return shakeCompensatedSum(product);
++}
++
++// A half SIMD group owns one cluster: four atoms, with xyz and a padding
++// component per atom. The kick and state updates run across atoms as well as
++// coordinates. Constraint corrections retain their Gauss-Seidel bond order.
++DEVICE mixed shakeShuffle(mixed value, ushort source) {
++    return mixed(simd_shuffle(value.hi, source), simd_shuffle(value.lo, source));
++}
++
++template <bool velocities>
++DEVICE void cooperativeShake(int4 atoms, float4 params, mixed tol, int atomIndex,
++        int component, mixed pos, PRIVATE mixed& value) {
++    ushort base = (LOCAL_ID & 31) & ~15u;
++    mixed direction = shakeShuffle(pos, base+component)-pos;
++    float2 norm;
++    float velocityNorm;
++    if (velocities) {
++        float d = (float) direction;
++        float sq = d*d;
++        ushort quartet = base+4*atomIndex;
++        velocityNorm = (simd_shuffle(sq, quartet)+simd_shuffle(sq, quartet+1))+
++                simd_shuffle(sq, quartet+2);
++    }
++    else
++        norm = shakeCompensatedDot(direction, direction);
++    float maxResidual = params.z*(float) tol;
++    for (int iteration = 0; iteration < 15; iteration++) {
++        bool converged = true;
++        for (int j = 1; j < 4; j++) {
++            if (atoms[j] == -1)
++                continue;
++            mixed bondDirection = shakeShuffle(direction, base+4*j+component);
++            mixed difference = shakeShuffle(value, base+component)-
++                    shakeShuffle(value, base+4*j+component);
++            float correction;
++            if (velocities) {
++                float2 product = shakeCompensatedDot(difference, bondDirection);
++                float bondNorm = simd_shuffle(velocityNorm, base+4*j);
++                correction = -2.0f*params.y*(product.x+product.y)/bondNorm;
++                if (fabs(correction) > tol)
++                    converged = false;
++            }
++            else {
++                float2 product = shakeCompensatedDot(bondDirection, difference);
++                float2 square = shakeCompensatedDot(difference, difference);
++                float2 bondNorm = simd_shuffle(norm, base+4*j);
++                float2 term = component == 0 ? float2(params.z, 0) :
++                              component == 1 ? -bondNorm :
++                              component == 2 ? -2.0f*product : -square;
++                float2 residualParts = shakeCompensatedSum(term);
++                float residual = residualParts.x+residualParts.y;
++                if (fabs(residual) < maxResidual)
++                    continue;
++                correction = residual*params.y/((product.x+product.y)+(bondNorm.x+bondNorm.y));
++                converged = false;
++            }
++            float shift = (float) bondDirection*correction;
++            if (atomIndex == 0)
++                value += shift*params.x;
++            else if (atomIndex == j)
++                value -= shift*params.w;
++        }
++        if (converged)
++            break;
++    }
++}
++
++template <bool constrained>
++DEVICE void cooperativeIntegrationStep(int4 atoms, float4 params, mixed tol,
++        int paddedNumAtoms, GLOBAL real4* posq, GLOBAL real4* posqCorrection,
++        GLOBAL mixed4* velm, GLOBAL const mm_long* force, GLOBAL const mixed* paramBuffer,
++        GLOBAL const mixed2* dt, GLOBAL const float4* random, unsigned int randomIndex) {
++    int component = LOCAL_ID & 3;
++    int atomIndex = constrained ? ((LOCAL_ID >> 2) & 3) : 0;
++    int atom = atoms[atomIndex];
++    mixed pos = 0, vel = 0, delta = 0, oldDelta = 0;
++    mixed invMass = atom == -1 ? (mixed) 0 : velm[atom].w;
++    mixed fscale = dt[0].y/(mixed) 0x100000000;
++    mixed halfdt = 0.5f*dt[0].y;
++    mixed invDt = 1/dt[0].y;
++    if (atom != -1 && component < 3) {
++        pos = (mixed) ((GLOBAL real*) posq)[4*atom+component] +
++                ((GLOBAL real*) posqCorrection)[4*atom+component];
++        vel = ((GLOBAL mixed*) velm)[4*atom+component];
++        if (invMass != 0)
++            vel += fscale*invMass*force[atom+component*paddedNumAtoms];
++    }
++    if (constrained)
++        cooperativeShake<true>(atoms, params, tol, atomIndex, component, pos, vel);
++    if (invMass != 0) {
++        delta = halfdt*vel;
++        float noise = component < 3 ? random[randomIndex+atom][component] : 0;
++        vel = paramBuffer[0]*vel + paramBuffer[1]*SQRT(invMass)*noise;
++        delta += halfdt*vel;
++        oldDelta = delta;
++    }
++    if (constrained)
++        cooperativeShake<false>(atoms, params, tol, atomIndex, component, pos, delta);
++    if (invMass != 0 && component < 3) {
++        vel += (delta-oldDelta)*invDt;
++        ((GLOBAL mixed*) velm)[4*atom+component] = vel;
++        mixed newPos = pos+delta;
++        real hi = (real) newPos;
++        ((GLOBAL real*) posq)[4*atom+component] = hi;
++        ((GLOBAL real*) posqCorrection)[4*atom+component] = (real) (newPos-hi);
++    }
++}
++
++KERNEL void applyCooperativeShake(int numClusters, mixed tol, GLOBAL const real4* oldPos,
++        GLOBAL mixed4* values, GLOBAL const int4* clusterAtoms, GLOBAL const float4* clusterParams,
++        GLOBAL const real4* posqCorrection, int velocities) {
++    int component = LOCAL_ID & 3;
++    int atomIndex = (LOCAL_ID >> 2) & 3;
++    for (int index = GLOBAL_ID/16; index < numClusters; index += GLOBAL_SIZE/16) {
++        int4 atoms = clusterAtoms[index];
++        int atom = atoms[atomIndex];
++        mixed pos = 0, value = 0;
++        if (atom != -1 && component < 3) {
++            pos = (mixed) ((GLOBAL const real*) oldPos)[4*atom+component] +
++                    ((GLOBAL const real*) posqCorrection)[4*atom+component];
++            value = ((GLOBAL mixed*) values)[4*atom+component];
++        }
++        if (velocities)
++            cooperativeShake<true>(atoms, clusterParams[index], tol, atomIndex, component, pos, value);
++        else
++            cooperativeShake<false>(atoms, clusterParams[index], tol, atomIndex, component, pos, value);
++        if (atom != -1 && component < 3)
++            ((GLOBAL mixed*) values)[4*atom+component] = value;
++    }
++}
++#endif
+diff --git a/platforms/metal/src/kernels/removeCM.metal b/platforms/metal/src/kernels/removeCM.metal
+new file mode 100644
+index 000000000..104afff62
+--- /dev/null
++++ b/platforms/metal/src/kernels/removeCM.metal
+@@ -0,0 +1,45 @@
++// Preserve the Common 64-thread sum order, but perform its final five levels
++// within each SIMD group. Both SIMD groups compute the same folded result.
++DEVICE float4 foldMomentum(float4 value, LOCAL_ARG float4* temp) {
++    temp[LOCAL_ID] = value;
++    SYNC_THREADS;
++    uint lane = LOCAL_ID & 31;
++    value = temp[lane]+temp[lane+32];
++    for (ushort offset = 16; offset > 0; offset >>= 1)
++        value += simd_shuffle_down(value, offset);
++    return simd_shuffle(value, 0);
++}
++
++KERNEL void calcCenterOfMassMomentum(int numAtoms, GLOBAL const mixed4* RESTRICT velm,
++        GLOBAL float4* RESTRICT cmMomentum) {
++    LOCAL float4 temp[64];
++    float4 cm = make_float4(0);
++    for (int index = GLOBAL_ID; index < numAtoms; index += GLOBAL_SIZE) {
++        mixed4 velocity = velm[index];
++        if (velocity.w != 0) {
++            mixed mass = RECIP(velocity.w);
++            cm.x += (float) (velocity.x*mass);
++            cm.y += (float) (velocity.y*mass);
++            cm.z += (float) (velocity.z*mass);
++        }
++    }
++    cm = foldMomentum(cm, temp);
++    if (LOCAL_ID == 0)
++        cmMomentum[GROUP_ID] = cm;
++}
++
++KERNEL void removeCenterOfMassMomentum(int numAtoms, GLOBAL mixed4* RESTRICT velm,
++        GLOBAL const float4* RESTRICT cmMomentum) {
++    LOCAL float4 temp[64];
++    float4 cm = make_float4(0);
++    for (int index = LOCAL_ID; index < NUM_GROUPS; index += LOCAL_SIZE)
++        cm += cmMomentum[index];
++    cm = INVERSE_TOTAL_MASS*foldMomentum(cm, temp);
++    for (int index = GLOBAL_ID; index < numAtoms; index += GLOBAL_SIZE) {
++        mixed4 velocity = velm[index];
++        velocity.x -= cm.x;
++        velocity.y -= cm.y;
++        velocity.z -= cm.z;
++        velm[index] = velocity;
++    }
++}

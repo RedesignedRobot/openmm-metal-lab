@@ -1,0 +1,29 @@
+18:17:25Z waiting for the lease: 9 in the queue, held by: ultra-r2-accum-nb 2026-09-27T18:14:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/s2, about 8 min, 3 build processes
+18:22:29Z waiting for the lease: 4 in the queue, held by: r2-dispatch 2026-09-27T18:21:30Z kg batching, md100, detforces, 0 build processes
+18:27:33Z waiting for the lease: 3 in the queue, held by: ultra-r2-mixed 2026-09-27T18:26:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-gq, about 11 min, 0 build processes
+18:32:37Z waiting for the lease: 4 in the queue, held by: ultra-r2-mixed 2026-09-27T18:26:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-gq, about 11 min, 0 build processes
+18:37:42Z waiting for the lease: 2 in the queue, held by: r2-infra 2026-09-27T18:37:25Z M0(2) gpudebug walk of r1.gputrace (embedded profile), about 7 min, 0 build processes
+cp3-noshader: xctrace pid 96799 recording 18:38:01Z
+captured cp3-noshader 18:38:08Z: Target app exited, ending recording...
+saved cp3-noshader 18:38:36Z: Output file saved as: cp3-noshader.trace
+exported cp3-noshader 18:38:39Z, rows 0, releasing
+no sampled shader rows recorded
+cp3-noshader: shader.sh failed
+18:39:00Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(2b) xctrace counter probe, shader timeline off, apoa1rf 1 s x 3 profiles, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+cp3-noshader: Counter Set: Performance Limiters, info rows 1, counter rows 1001351, distinct counters 1 18:39:14Z
+cp4-noshader: xctrace pid 1871 recording 18:39:16Z
+captured cp4-noshader 18:39:21Z: Target app exited, ending recording...
+saved cp4-noshader 18:39:43Z: Output file saved as: cp4-noshader.trace
+exported cp4-noshader 18:39:46Z, rows 0, releasing
+no sampled shader rows recorded
+cp4-noshader: shader.sh failed
+cp4-noshader: Counter Set: Performance Utilizations, info rows 1, counter rows 991950, distinct counters 1 18:40:20Z
+18:40:21Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(2b) xctrace counter probe, shader timeline off, apoa1rf 1 s x 3 profiles, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+cp6-noshader: xctrace pid 5285 recording 18:40:21Z
+captured cp6-noshader 18:40:27Z: Target app exited, ending recording...
+saved cp6-noshader 18:40:44Z: Output file saved as: cp6-noshader.trace
+exported cp6-noshader 18:40:46Z, rows 0, releasing
+no sampled shader rows recorded
+cp6-noshader: shader.sh failed
+cp6-noshader: Counter Set: Compute Basic, info rows 1, counter rows 751153, distinct counters 1 18:41:14Z
+probe done 18:41:14Z

@@ -1,0 +1,22 @@
+18:19:13Z waiting for the lease: 8 in the queue, held by: ultra-r2-accum-nb 2026-09-27T18:14:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/s2, about 8 min, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-r2-spread, 8ae6cf17bef6a6084f4f0d12fa6aa5705dd73374, logs in /tmp/openmm-metal-bench/ultra-r2-spread/gate-20260927T182156Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  5.771e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  1.904e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.109e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  1.198e-06  ok
+pme            23558     mixed  2.048e-05  3.918e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  4.625e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.851e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.201e-01  6.208e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.202e-01  5.870e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  5.662e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.868e-07  ok
+PASS

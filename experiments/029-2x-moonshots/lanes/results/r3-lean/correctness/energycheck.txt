@@ -1,0 +1,15 @@
+test base_repeat_bits mine_repeat_bits base_mine_bits max_base_repeat_ulp max_mine_repeat_ulp max_paired_ulp max_cross_ulp paired_pass
+amber20-cellulose-mixed False True False 1.4901161193847656e-08 0.0 5.960464477539063e-08 5.960464477539063e-08 True
+amber20-cellulose-single False False False 0.625 0.25 0.625 0.875 True
+amber20-stmv-mixed False False False 7.450580596923828e-09 1.4901161193847656e-08 2.9802322387695312e-08 2.9802322387695312e-08 True
+amber20-stmv-single False False False 0.9375 0.625 0.5 1.125 True
+apoa1pme-mixed True False False 0.0 1.4901161193847656e-08 7.450580596923828e-09 7.450580596923828e-09 True
+apoa1pme-single False False False 0.375 0.3125 0.40625 0.40625 True
+apoa1rf-mixed False False False 1.862645149230957e-09 3.725290298461914e-09 7.450580596923828e-09 7.450580596923828e-09 True
+apoa1rf-single False False False 0.046875 0.0625 0.21875 0.21875 True
+gbsa-mixed False False False 1.862645149230957e-09 1.862645149230957e-09 9.313225746154785e-09 1.1175870895385742e-08 True
+gbsa-single False False False 0.87109375 0.626953125 0.783203125 1.41015625 True
+pme-mixed False False False 7.450580596923828e-09 1.4901161193847656e-08 1.4901161193847656e-08 1.4901161193847656e-08 True
+pme-single False False False 0.28125 0.4375 0.5 0.78125 True
+rf-mixed False False False 1.862645149230957e-09 1.862645149230957e-09 1.862645149230957e-09 3.725290298461914e-09 True
+rf-single False False False 0.18408203125 0.00146484375 0.2099609375 0.2099609375 True

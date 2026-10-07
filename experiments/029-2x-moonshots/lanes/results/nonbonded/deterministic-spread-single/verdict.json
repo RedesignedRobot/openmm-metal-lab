@@ -1,0 +1,15 @@
+{
+  "test": "apoa1rf",
+  "precision": "single",
+  "deterministic": true,
+  "force_bitwise": true,
+  "force_only_state": true,
+  "max_abs_force_spread": 0.0,
+  "relative_force_spread": 0.0,
+  "energy_spread": 0.01171875,
+  "files": [
+    "~/code/metal/bench.noindex/ultra-m29-nonbonded/deterministic-spread-single/process-0.npz",
+    "~/code/metal/bench.noindex/ultra-m29-nonbonded/deterministic-spread-single/process-1.npz",
+    "~/code/metal/bench.noindex/ultra-m29-nonbonded/deterministic-spread-single/process-2.npz"
+  ]
+}

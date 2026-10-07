@@ -1,0 +1,14 @@
+p0 Metal single settings=OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-atomics/plugins-p0 /tmp/openmm-metal-bench/ultra-atomics/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 4be61f9b65a458ad00853581abb6f537faeccbe3 src eb59ec2fe3d48cb3f75a91ab5d17ba1c2508d59d toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:31:02Z 
+words Metal single settings=none /tmp/openmm-metal-bench/ultra-atomics/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 4be61f9b65a458ad00853581abb6f537faeccbe3 src eb59ec2fe3d48cb3f75a91ab5d17ba1c2508d59d toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:31:02Z 
+21:32:57Z waiting for the lease: 28 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:38:02Z waiting for the lease: 28 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:43:06Z waiting for the lease: 28 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:48:11Z waiting for the lease: 26 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:53:16Z waiting for the lease: 26 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:58:21Z waiting for the lease: 12 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:03:26Z waiting for the lease: 12 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:08:30Z waiting for the lease: 12 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:13:34Z waiting for the lease: 10 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:18:38Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 3 build processes
+22:23:42Z waiting for the lease: 8 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:28:46Z waiting for the lease: 8 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes

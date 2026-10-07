@@ -1,0 +1,6 @@
+prof_s Metal single settings=none /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree
+kill_s Metal single settings=OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e/lib/plugins /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree
+rsqrt_s Metal single settings=OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree
+prof_m Metal mixed settings=none /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree
+kill_m Metal mixed settings=OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e/lib/plugins /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree
+rsqrt_m Metal mixed settings=OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown not a build.sh tree

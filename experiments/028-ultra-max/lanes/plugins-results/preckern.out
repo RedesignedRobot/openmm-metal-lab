@@ -1,0 +1,18 @@
+build 02:35:24Z
+built 02:35:34Z
+02:35:34Z waiting for the lease: 17 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 0 build processes
+02:40:39Z waiting for the lease: 16 in the queue, held by: ultra-nonbonded 2026-09-25T02:40:06Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresc, about 2 min, 0 build processes
+02:45:43Z waiting for the lease: 16 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 16 build processes
+precise=rsqrt kernel=computeLabFrameMoments exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=rsqrt kernel=computeFixedField exit 0: Done
+precise=rsqrt kernel=computeInducedField exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=rsqrt kernel=computeElectrostatics exit 0: Done
+precise=rsqrt kernel=computeBornSum exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=rsqrt kernel=computeWCAForce exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=recip kernel=computeLabFrameMoments exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.18888e-05 larger than allowed tolerance at particle=519: norms=94.2078 expected norm=94.2089
+precise=recip kernel=computeFixedField exit 0: Done
+precise=recip kernel=computeInducedField exit 0: Done
+precise=recip kernel=computeElectrostatics exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+precise=recip kernel=computeBornSum exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.32493e-05 larger than allowed tolerance at particle=519: norms=94.2076 expected norm=94.2089
+precise=recip kernel=computeWCAForce exit 1: exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+villinkern done 02:51:12Z

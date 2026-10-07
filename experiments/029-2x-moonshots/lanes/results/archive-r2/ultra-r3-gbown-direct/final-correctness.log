@@ -1,0 +1,7 @@
+22:22:41Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+22:22:41Z waiting for the lease: 11 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:27:44Z waiting for the lease: 11 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:32:48Z waiting for the lease: 10 in the queue, held by: r3-lean 2026-09-27T22:32:12Z force-only 2x15 screen part 2, 0 build processes
+22:37:52Z waiting for the lease: 10 in the queue, held by: r3-lean 2026-09-27T22:32:12Z force-only 2x15 screen part 2, 0 build processes
+22:42:56Z waiting for the lease: 8 in the queue, held by: ultra-r3-gbown-b 2026-09-27T22:41:22Z ab.sh /tmp/openmm-metal-bench/ultra-r3-gbown-b/screen1, about 4 min, 0 build processes
+22:48:00Z waiting for the lease: 4 in the queue, held by: r2-mixed 2026-09-27T22:47:59Z trace2.sh pv and refine, 0 build processes

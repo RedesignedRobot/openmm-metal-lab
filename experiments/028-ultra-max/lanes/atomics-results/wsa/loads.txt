@@ -1,0 +1,12 @@
+2026-09-25T00:52:17Z round 1 rf base load { 2.17 2.54 3.77 } vm 6% top superwhisper 22.2%, node 10.9%, com.apple.Virtualization.VirtualMachine 6.0%,  claude 1.4%, sh 1.3%
+2026-09-25T00:52:34Z round 1 rf p0 load { 2.51 2.60 3.76 } vm 15% top superwhisper 19.1%, com.apple.Virtualization.VirtualMachine 14.3%, sysmond 5.2%,  claude 1.9%, WindowServer 1.4%
+2026-09-25T00:52:53Z round 1 rf words load { 2.72 2.64 3.75 } vm 8% top superwhisper 22.7%, com.apple.Virtualization.VirtualMachine 8.5%, sysmond 5.7%, iStat Menus Menubar 3.7%, WindowServer 2.8%
+2026-09-25T00:53:09Z round 1 gbsa base load { 3.02 2.70 3.75 } vm 7% top mds_stores 47.1%, superwhisper 19.8%, iStat Menus Menubar 7.3%, com.apple.Virtualization.VirtualMachine 6.8%, WindowServer 4.2%
+2026-09-25T00:53:25Z round 1 gbsa p0 load { 2.96 2.70 3.73 } vm 5% top superwhisper 13.7%, com.apple.Virtualization.VirtualMachine 5.0%,  claude 1.3%, sh 0.9%, sysmond 0.7%
+2026-09-25T00:53:42Z round 1 gbsa words load { 2.96 2.72 3.72 } vm 4% top superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 4.5%,  claude 4.2%, sysmond 2.7%, iStat Menus Menubar 1.4%
+2026-09-25T00:53:58Z round 2 rf words load { 2.97 2.73 3.70 } vm 6% top superwhisper 19.1%,  claude 6.9%, com.apple.Virtualization.VirtualMachine 6.0%, WindowServer 3.0%, bun 2.6%
+2026-09-25T00:54:14Z round 2 rf p0 load { 5.10 3.21 3.85 } vm 7% top superwhisper 22.4%, com.apple.Virtualization.VirtualMachine 7.0%, iStat Menus Menubar 3.4%, WindowServer 2.3%,  claude 2.2%
+2026-09-25T00:54:31Z round 2 rf base load { 4.66 3.20 3.84 } vm 9% top superwhisper 21.9%, launchd 19.9%, com.apple.Virtualization.VirtualMachine 9.2%, WindowServer 3.4%, iStat Menus Menubar 2.5%
+2026-09-25T00:54:47Z round 2 gbsa words load { 3.69 3.07 3.78 } vm 5% top superwhisper 20.7%, com.apple.Virtualization.VirtualMachine 4.9%,  claude 3.2%, sh 1.3%, powermetrics 1.0%
+2026-09-25T00:55:03Z round 2 gbsa p0 load { 3.63 3.08 3.77 } vm 4% top bun 28.3%, superwhisper 21.6%, sysmond 5.7%, com.apple.Virtualization.VirtualMachine 4.5%,  claude 2.2%
+2026-09-25T00:55:19Z round 2 gbsa base load { 3.26 3.03 3.74 } vm 8% top superwhisper 16.3%, com.apple.Virtualization.VirtualMachine 8.7%, sysmond 7.6%, iStat Menus Menubar 5.0%,  claude 2.2%

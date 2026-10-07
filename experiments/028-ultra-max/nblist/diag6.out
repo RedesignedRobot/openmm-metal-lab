@@ -1,0 +1,49 @@
+02:34:07Z waiting for the lease: 15 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 41 build processes
+02:39:12Z waiting for the lease: 14 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 40 build processes
+02:44:16Z waiting for the lease: 13 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 17 build processes
+02:49:20Z waiting for the lease: 13 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 3 build processes
+== mdfresh t5 default
+== rf md knobs default
+  md    vs Reference   rel 1.082e-06 max 1.647e-02 atom 8288
+  fresh0 vs Reference  rel 1.607e-06 max 1.752e-02 atom 12644
+  fresh4 vs Reference  rel 1.606e-06 max 1.797e-02 atom 12644
+  md    vs fresh0      rel 1.427e-06 max 2.002e-02 atom 22469
+  md    vs fresh4      rel 1.427e-06 max 2.001e-02 atom 22469
+  fresh0 vs fresh4     rel 1.109e-07 max 7.147e-04 atom 13073
+== pme md knobs default
+  md    vs Reference   rel 1.376e-06 max 2.696e-02 atom 5264
+  fresh0 vs Reference  rel 1.791e-06 max 2.027e-02 atom 16226
+  fresh4 vs Reference  rel 1.792e-06 max 2.047e-02 atom 16226
+  md    vs fresh0      rel 1.400e-06 max 2.504e-02 atom 16226
+  md    vs fresh4      rel 1.401e-06 max 2.526e-02 atom 16226
+  fresh0 vs fresh4     rel 9.881e-08 max 1.199e-03 atom 15095
+== mdfresh t5 NB_MAXBITS=0
+== rf md knobs {'NB_MAXBITS': '0'}
+  md    vs Reference   rel 1.618e-05 max 1.502e+00 atom 14426
+  fresh0 vs Reference  rel 1.622e-05 max 1.502e+00 atom 14426
+  fresh4 vs Reference  rel 1.622e-05 max 1.502e+00 atom 14426
+  md    vs fresh0      rel 1.390e-06 max 2.173e-02 atom 20903
+  md    vs fresh4      rel 1.388e-06 max 2.163e-02 atom 20903
+  fresh0 vs fresh4     rel 1.112e-07 max 7.977e-04 atom 4310
+== pme md knobs {'NB_MAXBITS': '0'}
+  md    vs Reference   rel 1.355e-06 max 1.203e-02 atom 23165
+  fresh0 vs Reference  rel 1.794e-06 max 1.657e-02 atom 23294
+  fresh4 vs Reference  rel 1.794e-06 max 1.663e-02 atom 23294
+  md    vs fresh0      rel 1.382e-06 max 2.196e-02 atom 16883
+  md    vs fresh4      rel 1.381e-06 max 2.195e-02 atom 16883
+  fresh0 vs fresh4     rel 9.814e-08 max 6.602e-04 atom 2816
+== md100 cand2 (pme's frozen build, read-only)
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.906e-06  8.387e-03  5.711e-07  ok
+gbsa            2489     mixed  1.374e-05  1.600e-01  4.895e-07  ok
+rf             23558    single  1.082e-06  1.647e-02  2.476e-07  ok
+rf             23558     mixed  2.091e-05  3.507e-01  3.100e-07  ok
+pme            23558    single  2.152e-06  1.661e-01  1.364e-06  FAIL max|dF| 1.66e-01 > 2 x base 1.27e-02
+pme            23558     mixed  1.921e-05  2.991e-01  1.400e-06  ok
+apoa1rf        92224    single  5.221e-06  7.528e-01  2.044e-07  ok
+apoa1rf        92224     mixed  5.499e-05  1.779e+00  2.198e-07  ok
+apoa1pme       92224    single  5.252e-05  2.537e-01  8.816e-07  ok
+apoa1pme       92224     mixed  7.397e-05  7.074e-01  8.754e-07  ok
+apoa1ljpme     92224    single  5.253e-05  2.561e-01  8.804e-07  ok
+apoa1ljpme     92224     mixed  7.455e-05  9.171e-01  9.006e-07  ok
+== DIAG6 DONE

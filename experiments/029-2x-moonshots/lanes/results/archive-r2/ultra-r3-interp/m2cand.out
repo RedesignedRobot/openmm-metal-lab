@@ -1,0 +1,47 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-ce174df0e4104d64a20ef0d50d557c84/src: 4c26efa9b523e10a97cdd9466a22be1c81f848e3, 2519 working-tree blobs verified
+M2 pid=23128 log=~/lab/ultra-m2.noindex/uploads/ce174df0e4104d64a20ef0d50d557c84/run.log
+13:45:43Z memory free 64%, 0 other build processes, load { 1.28 1.38 1.42 }, -j4
+~/lab/ultra-m2.noindex/cand-r3-interp-bab21c2a2d/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown ~/lab/ultra-m2.noindex/cand-r3-interp-bab21c2a2d/prefix/lib ['CPU', 'Metal', 'OpenCL', 'Reference']
+forces gate cand-r3-interp-bab21c2a2d PASS, 19 s
+  loads ~/lab/ultra-m2.noindex/cand-r3-interp-bab21c2a2d/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r3-interp-bab21c2a2d/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r3-interp-bab21c2a2d/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.584e-02  5.528e-07  ok
+gbsa            2489     mixed  2.467e-05  8.584e-02  6.194e-07  ok
+rf             23558    single  2.212e-05  7.342e-01  2.407e-07  ok
+rf             23558     mixed  2.209e-05  7.342e-01  1.915e-07  ok
+pme            23558    single  2.048e-05  3.920e-01  3.056e-07  ok
+pme            23558     mixed  2.044e-05  3.919e-01  3.839e-07  ok
+apoa1rf        92224    single  5.625e-05  9.179e-01  1.414e-07  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.891e-07  ok
+apoa1pme       92224    single  7.548e-05  6.484e-01  2.794e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.409e-01  2.784e-07  ok
+apoa1ljpme     92224    single  7.547e-05  6.476e-01  5.547e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.400e-01  5.978e-07  ok
+forces gate cand-r3-interp-bab21c2a2d PASS, 19 s
+A/B 868 s
+M2 check 20260928T134705Z-4c26efa9b, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r3-interp-bab21c2a2d: 4c26efa9b523 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+pme                single     239.09     240.57  1.006  1.004..1.009      126      124     -1   -1.0      141      140  
+pme                mixed      195.87     214.23  1.094  1.092..1.096      128      127     -0   -0.3      145      144  
+apoa1pme           single      60.17      61.82  1.027  1.025..1.030      296      319    +22   +7.6      342      364  
+apoa1pme           mixed       50.84      55.48  1.091  1.088..1.094      298      326    +28   +9.3      354      372  
+apoa1ljpme         single      44.94      45.78  1.019  1.017..1.020      313      310     -3   -1.0      359      356  
+apoa1ljpme         mixed       39.49      42.04  1.064  1.063..1.066      308      325    +17   +5.6      361      371  
+amber20-dhfr       single     247.53     248.64  1.004  1.003..1.006      138      137     -1   -0.7      153      152  
+amber20-dhfr       mixed      201.66     221.02  1.096  1.096..1.096      147      146     -1   -0.7      160      158  
+amber20-cellulose  single      13.29      13.67  1.028  1.026..1.030     1500     1500     +0   +0.0     1525     1528  
+amber20-cellulose  mixed       11.46      12.35  1.077  1.075..1.080     1500     1500     +0   +0.0     1527     1528  
+
+1-minute load before 40 runs: 0.83 to 3.10; memory free 61% to 67%
+Spotlight CPU before 40 runs: 0% to 1%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r3-interp-bab21c2a2d 4c26efa9b523 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 888 s; tests=pme,amber20-dhfr,apoa1pme,apoa1ljpme,amber20-cellulose; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260928T134705Z-4c26efa9b
+

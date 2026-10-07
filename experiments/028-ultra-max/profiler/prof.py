@@ -1,6 +1,7 @@
 """Run one benchmark.py test and time three windows of steps, the middle one with GpuProf.h recording.
 
 usage: [GPUPROF=buffers|counters|split|kernels GPUPROF_OUT=<file>] [PROF_SECONDS=4] [PROF_PROPS="Key=Value,..."]
+       [PROF_PIDFILE=<file>]
        python prof.py <examples/benchmarks dir> <test> <precision> [platform]
 The system, integrator, step size and minimization follow benchmark.py's runOneTest (NVT, hbonds).
 Each window is step(n) followed by getState(energy), as benchmark.py times. Window A and C run with
@@ -9,6 +10,10 @@ GPUPROF_ON unset, window B with it set, so B/A prices the recording. Host clock:
 import os
 import sys
 import time
+
+if os.environ.get("PROF_PIDFILE"):  # shader.sh stops a run xctrace left behind by this pid
+    with open(os.environ["PROF_PIDFILE"], "w") as f:
+        f.write(f"{os.getpid()}\n")
 
 import openmm as mm
 import openmm.unit as unit

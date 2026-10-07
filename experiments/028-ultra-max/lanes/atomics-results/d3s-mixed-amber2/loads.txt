@@ -1,0 +1,8 @@
+2026-09-25T09:29:44Z round 1 amber20-dhfr ser load { 3.22 5.22 6.20 } vm 8% top superwhisper 23.8%, nsurlsessiond 9.3%, com.apple.Virtualization.VirtualMachine 7.9%, trustd 6.4%, cloudd 5.3%
+2026-09-25T09:30:04Z round 1 amber20-dhfr d3 load { 2.73 4.98 6.09 } vm 10% top identityservicesd 29.5%, superwhisper 20.5%, apsd 11.1%, com.apple.Virtualization.VirtualMachine 10.1%, sysmond 7.0%
+2026-09-25T09:30:24Z round 1 gbsa ser load { 2.61 4.80 6.00 } vm 13% top superwhisper 22.6%, com.apple.Virtualization.VirtualMachine 9.1%, powermetrics 8.0%, sysmond 7.1%, iStat Menus Menubar 6.4%
+2026-09-25T09:30:41Z round 1 gbsa d3 load { 2.56 4.68 5.94 } vm 10% top superwhisper 21.2%, com.apple.Virtualization.VirtualMachine 9.8%, sysmond 4.8%, WindowServer 3.2%, iStat Menus Menubar 2.4%
+2026-09-25T09:30:58Z round 2 amber20-dhfr d3 load { 2.23 4.47 5.83 } vm 12% top superwhisper 22.0%, com.apple.Virtualization.VirtualMachine 12.5%, runningboardd 6.1%, sysmond 5.8%, powermetrics 1.9%
+2026-09-25T09:31:18Z round 2 amber20-dhfr ser load { 2.82 4.46 5.79 } vm 10% top superwhisper 24.9%, sysmond 8.9%, com.apple.Virtualization.VirtualMachine 8.5%, iStat Menus Menubar 3.8%,  claude 3.3%
+2026-09-25T09:31:38Z round 2 gbsa d3 load { 3.37 4.46 5.76 } vm 33% top com.apple.Virtualization.VirtualMachine 33.0%, superwhisper 20.8%, powermetrics 12.7%,  claude 5.0%, iStat Menus Menubar 3.0%
+2026-09-25T09:31:54Z round 2 gbsa ser load { 3.00 4.33 5.69 } vm 12% top PerfPowerServices 36.5%, superwhisper 24.6%, authd 24.6%, com.apple.Virtualization.VirtualMachine 12.0%, SystemUIServer 10.2%

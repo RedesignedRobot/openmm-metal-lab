@@ -1,0 +1,25 @@
+2026-09-27T07:59:12Z round 1 gbsa mine-s load { 4.63 5.45 6.24 } vm 4% top WindowServer 23.0%, superwhisper 19.6%, backupd 5.9%,  claude 5.7%, Finder 2.8%
+2026-09-27T07:59:28Z round 1 gbsa mine-m load { 5.90 5.71 6.32 } vm 5% top fseventsd 37.3%, WindowServer 23.7%, Finder 17.4%, superwhisper 17.3%, mds 14.5%
+2026-09-27T07:59:47Z round 1 gbsa mine-m BUILD RUNNING during the run
+2026-09-27T07:59:47Z round 1 gbsa base-s load { 12.65 7.21 6.84 } BUILD RUNNING vm 5% top corespotlightd 281.5%, swig 57.7%, Finder 40.8%, WindowServer 16.4%, superwhisper 12.9%
+2026-09-27T08:00:03Z round 1 gbsa base-m load { 10.76 7.05 6.79 } BUILD RUNNING vm 6% top WindowServer 21.0%, superwhisper 19.6%, sysmond 4.6%, backupd 4.3%, com.apple.Virtualization.VirtualMachine 2.7%
+2026-09-27T08:00:20Z round 1 rf mine-s load { 9.83 7.03 6.79 } BUILD RUNNING vm 8% top clang 99.4%, WindowServer 25.3%, superwhisper 20.7%, Finder 10.6%, backupd 5.8%
+2026-09-27T08:00:36Z round 1 rf mine-m load { 8.32 6.87 6.73 } BUILD RUNNING vm 5% top clang 99.7%, WindowServer 21.4%, superwhisper 21.3%, UsageTrackingAgent 6.6%, powermetrics 5.0%
+2026-09-27T08:00:54Z round 1 rf base-s load { 7.27 6.71 6.68 } BUILD RUNNING vm 6% top clang 100.0%, WindowServer 22.3%, superwhisper 20.4%, powermetrics 7.3%, com.apple.Virtualization.VirtualMachine 3.3%
+2026-09-27T08:01:10Z round 1 rf base-m load { 6.42 6.55 6.62 } BUILD RUNNING vm 5% top clang 99.7%, WindowServer 23.5%, superwhisper 19.1%, com.apple.Virtualization.VirtualMachine 3.4%, backupd 3.2%
+2026-09-27T08:01:27Z round 1 apoa1rf mine-s load { 5.65 6.37 6.56 } vm 5% top WindowServer 24.1%, superwhisper 14.6%, Finder 9.3%, syspolicyd 6.6%, sysmond 5.9%
+2026-09-27T08:01:46Z round 1 apoa1rf mine-m load { 4.64 6.10 6.46 } vm 4% top WindowServer 25.0%, superwhisper 17.9%, Finder 9.1%, sysmond 7.5%,  claude 4.1%
+2026-09-27T08:02:05Z round 1 apoa1rf base-s load { 4.06 5.90 6.38 } vm 8% top backupd 111.5%, WindowServer 24.3%, superwhisper 20.3%, com.apple.Virtualization.VirtualMachine 5.0%,  claude 2.9%
+2026-09-27T08:02:24Z round 1 apoa1rf base-m load { 3.44 5.65 6.28 } vm 4% top superwhisper 18.4%, iStat Menus Menubar 6.3%, WindowServer 6.3%, Finder 3.8%,  claude 3.6%
+2026-09-27T08:02:42Z round 2 gbsa base-m load { 2.82 5.36 6.16 } vm 4% top superwhisper 17.9%, launchd 15.0%, Finder 9.0%, com.apple.Virtualization.VirtualMachine 2.8%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-27T08:02:58Z round 2 gbsa base-s load { 2.42 5.15 6.07 } vm 6% top superwhisper 16.1%, powermetrics 13.5%, WindowServer 12.4%, iStat Menus Menubar 5.1%, sysmond 3.6%
+2026-09-27T08:03:15Z round 2 gbsa mine-m load { 2.54 5.04 6.01 } vm 3% top superwhisper 18.0%, Finder 8.8%, sysmond 5.0%,  claude 4.2%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-27T08:03:30Z round 2 gbsa mine-s load { 2.09 4.78 5.90 } vm 10% top superwhisper 15.5%, powermetrics 7.8%, Finder 7.7%, com.apple.Virtualization.VirtualMachine 5.5%, sysmond 5.4%
+2026-09-27T08:03:47Z round 2 rf base-m load { 2.01 4.63 5.82 } vm 5% top superwhisper 16.2%, com.apple.Virtualization.VirtualMachine 3.3%, com.apple.Virtualization.VirtualMachine 1.8%,  claude 1.7%, WindowServer 1.4%
+2026-09-27T08:04:04Z round 2 rf base-s load { 1.79 4.45 5.74 } vm 9% top superwhisper 16.7%, WindowServer 9.6%, Finder 8.1%, sysmond 6.4%, com.apple.Virtualization.VirtualMachine 5.1%
+2026-09-27T08:04:20Z round 2 rf mine-m load { 1.75 4.31 5.66 } vm 5% top superwhisper 18.7%, WindowServer 18.0%, runningboardd 13.0%, powermetrics 12.3%, sysmond 4.5%
+2026-09-27T08:04:37Z round 2 rf mine-s load { 1.82 4.16 5.58 } vm 4% top superwhisper 16.8%, WindowServer 11.1%, Finder 9.8%, sysmond 7.5%, iStat Menus Menubar 6.8%
+2026-09-27T08:04:53Z round 2 apoa1rf base-m load { 2.56 4.20 5.57 } vm 4% top corespotlightd 311.3%, superwhisper 10.9%, WindowServer 7.4%,  claude 5.6%,  claude 4.1%
+2026-09-27T08:05:12Z round 2 apoa1rf base-s load { 2.32 4.04 5.48 } vm 5% top superwhisper 17.6%, WindowServer 11.9%, powermetrics 8.3%,  claude 7.6%, sysmond 6.3%
+2026-09-27T08:05:30Z round 2 apoa1rf mine-m load { 2.22 3.91 5.40 } vm 5% top superwhisper 18.5%, WindowServer 15.1%, Finder 14.9%,  claude 6.9%, sysmond 5.4%
+2026-09-27T08:05:49Z round 2 apoa1rf mine-s load { 2.18 3.81 5.34 } vm 6% top superwhisper 17.3%, WindowServer 10.7%, com.apple.Virtualization.VirtualMachine 6.7%,  claude 6.2%,  claude 5.6%

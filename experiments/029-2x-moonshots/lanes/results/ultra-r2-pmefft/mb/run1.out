@@ -1,0 +1,28 @@
+20:41:04Z waiting for the lease: 3 in the queue, held by: r2-mixed 2026-09-27T20:38:45Z pv-ctest.sh /tmp/openmm-metal-bench/ultra-r2-mixed-pv pv1, 0 build processes
+20:46:08Z waiting for the lease: 3 in the queue, held by: r2-mixed 2026-09-27T20:38:45Z pv-ctest.sh /tmp/openmm-metal-bench/ultra-r2-mixed-pv pv1, 0 build processes
+20:51:12Z waiting for the lease: 3 in the queue, held by: ultra-gate 2026-09-27T20:43:43Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+20:56:16Z waiting for the lease: 3 in the queue, held by: ultra-gate 2026-09-27T20:43:43Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:01:20Z waiting for the lease: 3 in the queue, held by: ultra-gate 2026-09-27T20:43:43Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:06:24Z waiting for the lease: 3 in the queue, held by: ultra-gate 2026-09-27T20:43:43Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+Apple M3 Ultra, spin iters 100000, chain B 20 steps of 1048576 threads, median of 15, us
+A alone                                           1453.0
+B alone, serial encoder                            273.2
+B alone, concurrent, resource barriers             275.2
+B alone, concurrent, scope barriers                275.5
+A then B, one concurrent encoder, resource        1680.7
+A then B, one concurrent encoder, scope           1680.5
+A then B, one serial encoder                      1708.4
+A encoder, then B in one serial encoder           1697.5
+A encoder, then each B step its own encoder       1716.1
+B steps first then A, one concurrent, resource    1689.4
+Apple M3 Ultra, spin iters 400000, chain B 20 steps of 1048576 threads, median of 15, us
+A alone                                           5800.5
+B alone, serial encoder                            266.3
+B alone, concurrent, resource barriers             271.3
+B alone, concurrent, scope barriers                273.2
+A then B, one concurrent encoder, resource        6029.6
+A then B, one concurrent encoder, scope           6027.7
+A then B, one serial encoder                      6034.0
+A encoder, then B in one serial encoder           6034.5
+A encoder, then each B step its own encoder       6034.1
+B steps first then A, one concurrent, resource    6035.1

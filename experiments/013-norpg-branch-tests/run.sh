@@ -7,7 +7,7 @@ set -eu
 
 dir="$(cd "$(dirname "$0")" && pwd)"
 results_file="$dir/results.md"
-build_dir="${BUILD_DIR:-/Users/mas/code/wt/openmm-norpg/build}"
+build_dir="${BUILD_DIR:-$HOME/code/wt/openmm-norpg/build}"
 
 if [ ! -f "$results_file" ]; then
     echo "Gate error: results.md not found at $results_file" >&2

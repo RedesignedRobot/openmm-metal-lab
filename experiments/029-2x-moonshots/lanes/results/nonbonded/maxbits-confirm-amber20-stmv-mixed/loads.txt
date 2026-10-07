@@ -1,0 +1,6 @@
+2026-09-26T23:02:06Z round 1 amber20-stmv base-m load { 1.44 1.56 1.91 } vm 5% top superwhisper 19.3%, WindowServer 7.9%,  claude 5.4%, powermetrics 4.0%, mediaanalysisd 3.8%
+2026-09-26T23:04:56Z round 1 amber20-stmv cand-m load { 1.04 1.45 1.81 } vm 5% top superwhisper 22.2%, WindowServer 7.8%, powermetrics 7.5%, bun 3.7%, cfprefsd 3.3%
+2026-09-26T23:07:51Z round 2 amber20-stmv cand-m load { 3.07 2.13 2.01 } vm 5% top node 202.1%, launchd 99.6%, superwhisper 18.7%, Finder 11.7%, sysmond 4.7%
+2026-09-26T23:10:15Z round 2 amber20-stmv base-m load { 2.36 2.30 2.10 } vm 8% top mds_stores 200.8%, node 95.3%, mds 38.4%, mdworker_shared 35.7%, mdworker_shared 26.9%
+2026-09-26T23:13:04Z round 3 amber20-stmv base-m load { 5.54 4.56 3.15 } vm 30% top chrome-headless-shell 124.2%, node 100.3%, com.apple.Virtualization.VirtualMachine 27.6%, superwhisper 20.8%, Finder 13.3%
+2026-09-26T23:15:51Z round 3 amber20-stmv cand-m load { 5.48 5.06 3.62 } vm 6% top chrome-headless-shell 133.9%, chrome-headless-shell 131.8%, mediaanalysisd 64.0%, Finder 18.7%, superwhisper 15.3%

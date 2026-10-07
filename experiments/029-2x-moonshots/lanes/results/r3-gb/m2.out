@@ -1,0 +1,47 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-ca4a10b478324200bffe16e230dcb5b3/src: 6f6320bcd663f4fb7315d1689d12f7534aef7ff2, 2519 working-tree blobs verified
+M2 pid=2555 log=~/lab/ultra-m2.noindex/uploads/ca4a10b478324200bffe16e230dcb5b3/run.log
+08:23:39Z memory free 66%, 0 other build processes, load { 3.97 2.22 1.84 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-r3-gb-55eb6b6fc3 PASS, 19 s
+  Hits:            704 / 736 (95.65%)
+  Misses:           32 / 736 ( 4.35%)
+built ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3
+check started 2026-09-28T08:24:40Z, 2 rounds of 15 s, tests gbsa
+clock: benchmark.py host clock, datetime.now() around step()
+base ~/lab/ultra-m2.noindex/base: commit 8ae6cf17bef6a6084f4f0d12fa6aa5705dd73374 src b01853a160c25e316b42f7ab748a3976daabc183 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-27T06:37:04Z steps venv 0s, configure 1s, ninja -j4 36s (231 edges), install+python 5s 
+  loads ~/lab/ultra-m2.noindex/base/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/base/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/base/prefix/lib/plugins/libOpenMMMetal.dylib
+cand-r3-gb-55eb6b6fc3 ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3: commit 6f6320bcd663f4fb7315d1689d12f7534aef7ff2 src 23bc4b1758cd23e8fb4dc0843a61f7e5170ceebc toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-28T08:24:39Z steps venv 7s, configure 2s, ninja -j4 24s (1429 edges), install+python 29s 
+  loads ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r3-gb-55eb6b6fc3/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.584e-02  5.223e-07  ok
+gbsa            2489     mixed  2.467e-05  8.584e-02  6.194e-07  ok
+rf             23558    single  2.212e-05  7.342e-01  2.054e-07  ok
+rf             23558     mixed  2.209e-05  7.342e-01  1.915e-07  ok
+pme            23558    single  2.048e-05  3.920e-01  3.577e-07  ok
+pme            23558     mixed  2.044e-05  3.919e-01  3.839e-07  ok
+apoa1rf        92224    single  5.625e-05  9.179e-01  1.297e-07  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.891e-07  ok
+apoa1pme       92224    single  7.548e-05  6.484e-01  2.105e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.409e-01  2.784e-07  ok
+apoa1ljpme     92224    single  7.547e-05  6.476e-01  5.547e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.400e-01  5.978e-07  ok
+forces gate cand-r3-gb-55eb6b6fc3 PASS, 19 s
+A/B 129 s
+M2 check 20260928T082440Z-6f6320bcd, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r3-gb-55eb6b6fc3: 6f6320bcd663 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     455.18     482.45  1.060  1.052..1.068       68       69     +1   +1.3       91       93  
+gbsa               mixed      379.08     439.22  1.159  1.150..1.168       71       72     +1   +1.1       95       96  
+
+1-minute load before 8 runs: 2.37 to 4.41; memory free 63% to 67%
+Spotlight CPU before 8 runs: 0% to 14%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r3-gb-55eb6b6fc3 6f6320bcd663 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 149 s; tests=gbsa; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260928T082440Z-6f6320bcd
+

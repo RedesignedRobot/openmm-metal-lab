@@ -5,7 +5,7 @@ Prints the median ns/day per test and configuration label, then each configurati
 their spread, (max-min)/median. Each numerator/denominator pair of labels adds a ratio of the two
 medians per test, followed by the lowest and highest ratio within a single round, which shows how far
 one interleaved round can move it. Runs that wrote no result, runs that overlapped a build, CPU
-runs beside a busy process, the 1 minute load range and the Hyperscale VM's CPU come from loads.txt. A (round, test) that ab.sh
+runs beside a busy process, the 1 minute load range and the background VM's CPU come from loads.txt. A (round, test) that ab.sh
 --rerun-builds ran again drops its earlier entries from both lists.
 """
 import glob
@@ -92,7 +92,7 @@ if os.path.exists(loads_path):
     if loads:
         print(f"1 minute load before {len(loads)} runs: {min(loads):.2f} to {max(loads):.2f}")
     if vm:
-        print(f"Hyperscale VM CPU before {len(vm)} runs: {min(vm)}% to {max(vm)}%")
+        print(f"Background VM CPU before {len(vm)} runs: {min(vm)}% to {max(vm)}%")
     print(f"runs with no result: {len(missing)}")
     for line in missing:
         print("  " + line)

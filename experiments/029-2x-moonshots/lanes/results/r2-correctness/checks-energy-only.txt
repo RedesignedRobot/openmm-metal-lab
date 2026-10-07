@@ -1,0 +1,19 @@
+== start 2026-09-27T08:43:04Z
+{"label": "energy-only", "platform": "Metal:single", "minus_reference": {"HarmonicBondForce": -0.034, "HarmonicAngleForce": -0.148, "PeriodicTorsionForce": -0.07, "direct": 8.455, "reciprocal": 0.735, "CMMotionRemover": 0.0, "total": 8.04}}
+{"label": "energy-only", "platform": "Metal:mixed", "minus_reference": {"HarmonicBondForce": -0.035, "HarmonicAngleForce": -0.15, "PeriodicTorsionForce": -0.073, "direct": 2.743, "reciprocal": 0.743, "CMMotionRemover": 0.0, "total": 3.229}}
+ctest exit 0
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+ 6/10 Test #283: TestMetalLocalEnergyMinimizerMixed ....   Passed   41.57 sec
+      Start 284: TestMetalMixedPrecisionSingle
+ 7/10 Test #284: TestMetalMixedPrecisionSingle .........   Passed    0.77 sec
+      Start 285: TestMetalMixedPrecisionMixed
+ 8/10 Test #285: TestMetalMixedPrecisionMixed ..........   Passed   10.79 sec
+      Start 294: TestMetalNonbondedForceSingle
+ 9/10 Test #294: TestMetalNonbondedForceSingle .........   Passed    7.73 sec
+      Start 295: TestMetalNonbondedForceMixed
+10/10 Test #295: TestMetalNonbondedForceMixed ..........   Passed   32.14 sec
+
+100% tests passed out of 10
+
+Total Test time (real) = 193.08 sec
+== end 2026-09-27T08:46:43Z

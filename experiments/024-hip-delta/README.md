@@ -2,7 +2,7 @@
 
 peastman plans to write the Metal platform himself, starting from CUDA or HIP, and to read ours as a reference. So the product here is a readable "HIP to Metal in N lines" diff. Every line that differs from HIP should exist because Metal needs it or because it measurably speeds things up.
 
-The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 looked for measured speedups and found none that passes the tests, so it has no commit. Stage 4 is 089374b36 and b753d9a6a: mixed precision with df64, gated against `metal` at 052eaa85b. Round 2 followed the lead's review: f341bf739 restores the 31-argument message a test expects, 5d9e2388e throws when the IORegistry has no GPU core count, and 9074c38f1 finds the sort range in one threadgroup, which fixes apoa1ljpme's per-process spread on the M3 Ultra. The M3 Ultra tuning pass found no setting that holds 0.97x `metal` on both chips (see round 2).
+The OpenMM branch is `metal-hipdelta` on the `mini` remote, from merge base 3c9effc96. The comparison build is `metal` at 361452c5c. Stage 2 is commits 495350e28 (HIP's nonbonded kernels), 24c34d794 (tuning), aa7464387 (a destructor fix from review) and 1e90e5b0a (the cut to the minimum: no added comments, no defensive code HIP lacks). 62e1e2e95 applies the verifier's review. Stage 3 looked for measured speedups and found none that passes the tests, so it has no commit. Stage 4 is 089374b36 and b753d9a6a: mixed precision with df64, gated against `metal` at 052eaa85b. Round 2 followed the reviewer's notes: f341bf739 restores the 31-argument message a test expects, 5d9e2388e throws when the IORegistry has no GPU core count, and 9074c38f1 finds the sort range in one threadgroup, which fixes apoa1ljpme's per-process spread on the M3 Ultra. The M3 Ultra tuning pass found no setting that holds 0.97x `metal` on both chips (see round 2).
 
 ## Metric
 
@@ -59,7 +59,7 @@ The source carries no comments beyond what HIP's files already have, including t
 
 ### Removed in the cut, and why
 
-The lead asked for no defensive code HIP doesn't have. The cut took aa7464387 from 731 added lines to 467:
+The review asked for no defensive code HIP doesn't have. The cut took aa7464387 from 731 added lines to 467:
 
 - Every comment we had added, 101 lines. HIP's own comments stay, including `// METAL-TODO: This may require tuning` above `numTilesInBatch`.
 - The SIMD width check in getKernel, the throw for double and mixed precision and the 8-core fallback when the IORegistry has no core count. HIP has none of these. 5d9e2388e later made a missing core count throw (round 2). Double and mixed precision now fail at kernel compile with "'double' is not supported in Metal".
@@ -77,7 +77,7 @@ Three removals came back after testing: `setLanguageVersion(3_2)` (see what didn
 
 A fresh-context verifier read every hunk and listed lines that were neither needed by Metal nor measured. 62e1e2e95 takes 467 to 464:
 
-- The 31-argument message, 2 lines. A kernel with too many arguments still fails to compile with an OpenMMException, and TestMetalCustomNonbondedForce now looks for the compiler's own text, "no 'buffer' resource location available". f341bf739 reverts this: the lead's rule is that tests are the contract, and this cut edited a test's expectation to save 2 lines. The test and the message are back as they were.
+- The 31-argument message, 2 lines. A kernel with too many arguments still fails to compile with an OpenMMException, and TestMetalCustomNonbondedForce now looks for the compiler's own text, "no 'buffer' resource location available". f341bf739 reverts this: the review rule is that tests are the contract, and this cut edited a test's expectation to save 2 lines. The test and the message are back as they were.
 - The commit after the force computation in MetalKernels.cpp, 1 line. With and without it, 3 rounds of all six tests put every ratio within 0.8 percent of each other (`results/bench-fix-postcommit`). gbsa differed by 0.7 percent, so a rerun of gbsa and pme with 5 rounds of 20 seconds followed: 414.2 against 413.9 ns/day and 208.2 against 207.9, 0.06 and 0.13 percent (`results/bench-postcommit-rerun`). That is noise, so the line went.
 - The SIMD width check was already gone in 1e90e5b0a.
 - `getCommitCount` stays. See include/MetalQueue.h above.
@@ -163,7 +163,7 @@ Stage 4, b753d9a6a: single precision gives the same force errors as 62e1e2e95 to
 
 ## Benchmarks
 
-Every M3 Ultra timing here was taken on the night of 2026-09-23 to 24 UTC with the owner away. Each section gives the load the runs saw.
+Every M3 Ultra timing here was taken on the night of 2026-09-23 to 24 UTC with nobody at the machine. Each section gives the load the runs saw.
 
 `bench.sh` runs `examples/benchmarks/benchmark.py --platform Metal --precision single` on this branch and on `metal` 361452c5c, alternating which goes first in each round. benchmark.py times with the host clock: `datetime.now()` around `step()`, with a `getState()` to sync. Numbers are ns/day on the M2 mini, median of 3 interleaved rounds of 30 seconds. The minimum was timed before the device throw came back. That throw runs once at context creation, outside the timed steps.
 
@@ -232,7 +232,7 @@ Mixed precision costs this branch 15 to 29 percent against its own single precis
 
 The M2 never showed the spread. Against 5d9e2388e's 2 rounds of 15 seconds in `results/m2-tiles` (HEAD column), apoa1pme and apoa1ljpme dropped 0.7 and 1.2 percent, since one threadgroup scans all 92,224 keys. The other four tests moved 0.5 percent or less, which is inside run to run noise.
 
-### M3 Ultra (owner away)
+### M3 Ultra (unattended)
 
 `studio/bench.sh` runs the same benchmark.py command on the Studio, interleaving the trees inside each test and reversing their order every other round. It writes the 1, 5 and 15 minute load averages before and after every run to `loads.txt`. The 1 minute load ranged from 1.2 to 7.5 in the two runs below. Three trees: `metal` 361452c5c, aa7464387 (stage 2 before the cut) and the minimum. First run (`results/studio-bench-3trees`), 3 rounds of 30 seconds:
 
@@ -295,7 +295,7 @@ HEAD's two rounds agree within 0.6 percent, so fast math mode's 2 to 2.6 percent
 
 Fast functions gain under 1 percent on every test, inside the noise, so they aren't worth a line either.
 
-### M3 Ultra block shapes don't close the gbsa and rf gap (owner away)
+### M3 Ultra block shapes don't close the gbsa and rf gap (unattended)
 
 gbsa is 14 to 16 percent and rf 11 to 12 percent slower than `metal` on the M3 Ultra, while the M2 is faster or even. The tuning was done on the M2's 10 cores, so the Studio screen (`studio/screen.sh`, one run of 10 seconds per setting, 1 minute load 1.5 to 4.5, `results/studio/screen-stage3`) tried other block counts and shapes through temporary environment variables. Ratios against the mean of two HEAD runs, which themselves differ by 1.7 percent on gbsa, 1.0 on rf and 0.2 on pme:
 
@@ -358,9 +358,9 @@ delta.sh at b753d9a6a (`results/delta-stage4.txt`): 474 added lines in shared fi
 
 ## Round 2: the M3 Ultra
 
-The lead's gate for a tuning change: at least 0.97x `metal` 052eaa85b on every benchmark on both the M3 Ultra and the M2, with a per-GPU branch allowed only at 3 lines or fewer. No setting passes. gbsa stays at 0.86 to 0.93 on the M3 Ultra under every knob tried.
+The review gate for a tuning change: at least 0.97x `metal` 052eaa85b on every benchmark on both the M3 Ultra and the M2, with a per-GPU branch allowed only at 3 lines or fewer. No setting passes. gbsa stays at 0.86 to 0.93 on the M3 Ultra under every knob tried.
 
-The owner was away, but the Studio wasn't idle. The 1 minute load was 1.7 to 6.0 in screen 1 and 1.5 to 3.8 in screen 2, from a VM, a codegraph index, powermetrics and Chrome. Every run logs its load in `loads.txt`.
+Nobody was at the machine, but the Studio wasn't idle. The 1 minute load was 1.7 to 6.0 in screen 1 and 1.5 to 3.8 in screen 2, from a VM, a codegraph index, powermetrics and Chrome. Every run logs its load in `loads.txt`.
 
 ### Tuning screen
 
@@ -395,9 +395,9 @@ The best trade-off is HIP's own line, `numTilesInBatch = numAtomBlocks < 2000 ? 
 
 HEAD's gbsa GB-only ranged 1,036 to 1,148 across runs, so a knob has to beat about 10 percent to show. None did: padding 0.1 (`metal`'s value) instead of HIP's 0.08, 4 to 32 tiles per batch, the force block shapes above, `__restrict__` removed, MSL 3.1, committing before the count download. Padding 0.15 gave 1,123 to 1,177 against HEAD's 1,069 to 1,106 in the same run, 5 percent, and I didn't take it further. Padding 0.05 lost about 11 percent. The list held 2,231 to 2,462 tiles with no single pairs. My hypothesis at the time was that HIP's findInteractingBlocks, with 32-thread threadgroups and 78 atom blocks, is latency-bound on 60 cores. The profile below rules that out: no kernel is slower in total, and the time goes to the GPU sitting idle while the host waits for the neighbor list count. NoCutoff has no count to wait for, which is why it came out even.
 
-#### Profile on the M3 Ultra (owner at the machine)
+#### Profile on the M3 Ultra (a user at the machine)
 
-The owner was using the Studio for light coding (bun, a dictation app) during these runs. Every run logs the 1 minute load average in its `loads.txt`, and I give the range with each set below.
+Someone was using the Studio for light coding (bun, a dictation app) during these runs. Every run logs the 1 minute load average in its `loads.txt`, and I give the range with each set below.
 
 Method. Only the Command Line Tools are installed, so there is no `xctrace` and no Metal System Trace. I timed the GPU with a lab-only header, `probes/GpuProf.h`, hooked into both trees by `probes/gbprof-hd.patch` and `probes/gbprof-ref.patch`. It has two modes. In `kernels` mode every dispatch is committed and waited on by itself, and I record its command buffer's GPUEndTime minus GPUStartTime. In `buffers` mode batching is left alone, and I record each command buffer's GPU start and end, its host commit time, the first and last kernel in it, and the host's waits. GPUStartTime and GPUEndTime are on the host's `mach_absolute_time` base, so GPU and host events share one clock. `probes/gbprof.py` builds the benchmark.py gbsa system (optionally without NonbondedForce, "GB only"), runs LangevinMiddle at 4 fs with 200 warm-up steps, and records a window of steps. Its step time is `time.perf_counter` around the window. Trees: this branch 9074c38f1 and `metal` 052eaa85b, each built in its own venv under `/tmp/openmm-metal-bench/gbsa-gap`.
 
@@ -442,7 +442,7 @@ Other observations. Skipping the wait and the count read entirely (`HD_NOWAIT`) 
 
 #### Prototype: spin on the event
 
-Local branch metal-hipdelta-gbsa in the worktree `/Users/amir/code/mini/hipdelta-gbsa`, one change to `MetalEvent::wait()`, not committed or pushed:
+Local branch metal-hipdelta-gbsa in the worktree `~/code/mini/hipdelta-gbsa`, one change to `MetalEvent::wait()`, not committed or pushed:
 
 ```cpp
     if (buffer != NULL)
@@ -452,7 +452,7 @@ Local branch metal-hipdelta-gbsa in the worktree `/Users/amir/code/mini/hipdelta
 
 The status check ends the loop if the command buffer fails before its signal, where `waitUntilCompleted()` would also have returned. HIP busy-waits here too: HipContext's `getEventFlags()` never sets `hipEventBlockingSync`, so `hipEventSynchronize` spins. delta.sh: 482 added lines in shared files and 1,900 in all of platforms/metal, against 479 and 1,897 at 9074c38f1, so 3 lines with the two comment lines.
 
-Benchmark: `studio/gbsa-bench.sh`, benchmark.py `--platform Metal --precision single`, 3 interleaved rounds of 30 seconds, the tree order reversed every other round, ns/day on the host clock, owner at the machine (`results/studio/gbsa-profile/bench-spin`). The 1 minute load was 2.3 to 8.5 before every run, and it reached 16.7 during round 2's rf run on 9074c38f1, which is that tree's 571.7 outlier. Medians and ratios against `metal` 052eaa85b:
+Benchmark: `studio/gbsa-bench.sh`, benchmark.py `--platform Metal --precision single`, 3 interleaved rounds of 30 seconds, the tree order reversed every other round, ns/day on the host clock, a user at the machine (`results/studio/gbsa-profile/bench-spin`). The 1 minute load was 2.3 to 8.5 before every run, and it reached 16.7 during round 2's rf run on 9074c38f1, which is that tree's 571.7 outlier. Medians and ratios against `metal` 052eaa85b:
 
 | Test | `metal` | 9074c38f1 | ratio | spin prototype | ratio |
 |---|---:|---:|---:|---:|---:|
@@ -467,7 +467,7 @@ The prototype passes the 0.97x gate on every test, and it fixes rf too, which th
 
 #### CPU cost, and waiting without spinning
 
-The spin keeps a core busy for the whole wait. Folding@home users often run CPU work next to the GPU, and laptops run on battery, so I measured host CPU for several ways to wait. `probes/gbprof.py` reports the process's CPU time (`time.process_time`, all threads) over the timed window divided by the window's wall time (`time.perf_counter`), so 1.0 is one core busy the whole time. The wait mode is chosen at run time by `HD_WAIT` in `probes/GpuProf.h`'s `probeWait`. gbsa ran 5,000 steps and apoa1pme 1,000 steps without GPU records, 2 interleaved rounds each; the gap column comes from a separate `buffers` pass of 3,000 gbsa steps (`results/studio/gbsa-profile/wait1`, 1 minute load 1.8 to 3.5, owner at the machine).
+The spin keeps a core busy for the whole wait. Folding@home users often run CPU work next to the GPU, and laptops run on battery, so I measured host CPU for several ways to wait. `probes/gbprof.py` reports the process's CPU time (`time.process_time`, all threads) over the timed window divided by the window's wall time (`time.perf_counter`), so 1.0 is one core busy the whole time. The wait mode is chosen at run time by `HD_WAIT` in `probes/GpuProf.h`'s `probeWait`. gbsa ran 5,000 steps and apoa1pme 1,000 steps without GPU records, 2 interleaved rounds each; the gap column comes from a separate `buffers` pass of 3,000 gbsa steps (`results/studio/gbsa-profile/wait1`, 1 minute load 1.8 to 3.5, a user at the machine).
 
 | Wait | gbsa us/step | gbsa CPU cores | apoa1pme us/step | apoa1pme CPU cores | Y gap, median us |
 |---|---:|---:|---:|---:|---:|
@@ -514,7 +514,7 @@ Same worktree and branch, replacing the spin (the spin's diff is `results/studio
 
 The 100 ms timeout and the status check make the loop return if the buffer fails before its signal, where `waitUntilCompleted()` would also have returned. delta.sh: 482 added lines in shared files and 1,900 in all of platforms/metal, 3 more than 9074c38f1, two of them the comment.
 
-Committed as 6df2b8bcb on branch metal-hipdelta-gbsa (pushed to `mini` only). Against `metal` 052eaa85b on the M3 Ultra, 3 interleaved rounds of 30 seconds, host clock, owner at the machine, 1 minute load about 2.3 to 3.4 (`results/studio/gbsa-profile/bench-wait`, `summary.txt`):
+Committed as 6df2b8bcb on branch metal-hipdelta-gbsa (pushed to `mini` only). Against `metal` 052eaa85b on the M3 Ultra, 3 interleaved rounds of 30 seconds, host clock, a user at the machine, 1 minute load about 2.3 to 3.4 (`results/studio/gbsa-profile/bench-wait`, `summary.txt`):
 
 | Test | `metal` ns/day | 6df2b8bcb ns/day | Ratio |
 |---|---:|---:|---:|
@@ -525,7 +525,7 @@ Committed as 6df2b8bcb on branch metal-hipdelta-gbsa (pushed to `mini` only). Ag
 | apoa1pme | 184.3 | 193.6 | 1.051 |
 | apoa1ljpme | 129.5 | 145.1 | 1.120 |
 
-Every test clears the 0.97 gate, which 9074c38f1 failed on gbsa (0.850) and rf (0.901) in the spin run. Forces against Reference are unchanged: rel|dF| is identical to 9074c38f1 on all six systems and rel|dE| moves within run-to-run noise (`results/studio/gbsa-profile/forces-wait`). The spin reached 1.052 on gbsa; the event wait gives up about 2 percent of that for no busy core. The profiling agent ended before writing this table; the lead computed it from the raw rounds with `summarize.py`.
+Every test clears the 0.97 gate, which 9074c38f1 failed on gbsa (0.850) and rf (0.901) in the spin run. Forces against Reference are unchanged: rel|dF| is identical to 9074c38f1 on all six systems and rel|dE| moves within run-to-run noise (`results/studio/gbsa-profile/forces-wait`). The spin reached 1.052 on gbsa; the event wait gives up about 2 percent of that for no busy core. The profiling run ended before writing this table; the reviewer computed it from the raw rounds with `summarize.py`.
 
 ### M2 gates for 6df2b8bcb
 
@@ -613,7 +613,6 @@ A read-only review of the stage 2 diff found these. None changes forces in the t
 - `screen.sh`: one benchmark round per setting of temporary environment knobs.
 - `ab.sh`: interleaved rounds of several variants on the mini, each a tree plus environment settings. `PRECISION` sets the precision.
 - `studio/screen.sh`: one benchmark run per knob setting on the Studio.
-- `STATE.md`: where the unattended run stands, for a restart.
 - `install.sh`, `final.sh`: rebuild and install on the mini, then ctest, forces, the FlexibleBarostat repeats and the benchmark.
 - `probes/split.py`: builds one benchmark system, optionally drops force classes, turns off cutoffs or direct space, and times chunks in fresh contexts. Round 2 used it to split gbsa and to find the apoa1 sort bug.
 - `results/studio/screen-m3-1`, `screen-m3-2`, `screen-apoa1ljpme-spread`, `split-probes.txt`, `results/m2-tiles`: round 2 logs.

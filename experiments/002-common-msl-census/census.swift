@@ -33,7 +33,7 @@ guard let device = MTLCreateSystemDefaultDevice() else {
 }
 
 let scriptDir = URL(fileURLWithPath: CommandLine.arguments[0]).deletingLastPathComponent().path
-let openmmKernelsDir = "/Users/mas/code/openmm/platforms/common/src/kernels"
+let openmmKernelsDir = "~/code/openmm/platforms/common/src/kernels"
 
 let preludePath = "\(scriptDir)/prelude.metal"
 guard let preludeContent = try? String(contentsOfFile: preludePath, encoding: .utf8) else {

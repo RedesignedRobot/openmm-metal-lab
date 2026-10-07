@@ -1,0 +1,21 @@
+#!/tmp/openmm-metal-bench/env/bin/python3
+"""The sampling-on arm of the gpuclock overhead check: runs the trunk venv's python on its arguments while a
+private gpuclock.py (the live script, so the same powermetrics, ps and log work every second) runs beside it,
+and stops that gpuclock by its pid when the run ends. Anything but a benchmark.py run (ab.sh's import check)
+runs bare. overhead.sh stops the global gpuclock first, since gpuclock.py is a singleton."""
+import os
+import signal
+import subprocess
+import sys
+
+PYTHON = "/tmp/openmm-metal-bench/ultra-r3-nbfmc/venv/bin/python"
+if sys.argv[1:2] != ["benchmark.py"]:
+    os.execv(PYTHON, [PYTHON] + sys.argv[1:])
+clock = subprocess.Popen(["/tmp/openmm-metal-bench/env/bin/python", "/tmp/openmm-metal-bench/ultra-tools/gpuclock.py"],
+                         cwd="/tmp/openmm-metal-bench", stdin=subprocess.DEVNULL)
+try:
+    code = subprocess.call([PYTHON] + sys.argv[1:])
+finally:
+    clock.send_signal(signal.SIGTERM)
+    clock.wait()
+sys.exit(code)

@@ -1,0 +1,28 @@
+steps by computeNonbonded: a 1321, b 1599
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+computeBondedForces                               40.58      35.93     4.65    1.00    0.92
+computeNonbonded                                 424.65     420.69     3.96    1.00    1.00
+findBlocksWithInteractions                       128.23     129.51    -1.28    1.00    1.00
+sortBoxData                                        8.37       9.01    -0.64    1.00    1.00
+removeCenterOfMassMomentum                        14.11      14.71    -0.60    1.00    1.00
+generateRandomNumbers                              2.58       2.01     0.57    0.25    0.19
+sortBuckets                                        6.80       7.31    -0.50    1.00    1.00
+integrateLangevinMiddleFused                      79.64      79.16     0.48    1.00    1.00
+calcCenterOfMassMomentum                           8.19       8.64    -0.45    1.00    1.00
+copyDataToBuckets                                  2.32       2.71    -0.40    1.00    1.00
+clearTwoBuffers                                    2.75       3.15    -0.40    1.00    1.00
+assignElementsToBuckets2                          11.45      11.75    -0.31    1.00    0.98
+computeSortKeys                                    1.61       1.88    -0.26    0.94    0.99
+computeKineticEnergy                               1.46       1.21     0.25    0.00    0.00
+findBlockBounds                                   19.34      19.49    -0.16    1.00    1.00
+computeBucketPositions                             2.01       1.93     0.08    0.99    0.96
+reduceEnergy                                       0.04       0.01     0.02    0.00    0.00
+computeRange                                       0.45       0.43     0.02    0.34    0.31
+copyInteractionCounts                              0.06       0.09    -0.02    0.05    0.07
+applyShakeToVelocities                             0.05       0.04     0.01    0.00    0.00
+applySettleToVelocities                            0.03       0.03     0.01    0.00    0.00
+copyDoubleBuffer                                   0.02       0.02     0.00    0.00    0.00
+computeParameters                                  0.01       0.00     0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00     0.00    0.00    0.00
+clearBuffer                                        0.00       0.00     0.00    0.00    0.00
+total                                            754.76     749.71     5.05

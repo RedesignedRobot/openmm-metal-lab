@@ -1,0 +1,22 @@
+test precision base_us candidate_us saved_us throughput_change_percent
+gbsa single 211.668 213.055 -1.388 -0.651
+gbsa mixed 277.306 277.821 -0.516 -0.186
+rf single 233.797 234.937 -1.140 -0.486
+rf mixed 290.732 290.343 +0.389 +0.134
+pme single 344.462 346.315 -1.853 -0.535
+pme mixed 401.712 401.784 -0.073 -0.016
+apoa1rf single 733.257 731.201 +2.056 +0.281
+apoa1rf mixed 869.605 865.182 +4.423 +0.511
+apoa1pme single 1185.833 1100.278 +85.555 +7.188
+apoa1pme mixed 1239.994 1232.015 +7.979 +0.650
+amber20-cellulose single 3951.418 3959.441 -8.023 -0.203
+amber20-cellulose mixed 4395.165 4390.188 +4.977 +0.113
+amber20-stmv single 11215.605 11104.869 +110.736 +0.997
+amber20-stmv mixed 12265.037 12289.390 -24.353 -0.198
+Kill threshold met: single False
+Kill threshold met: mixed False
+3 percent gain reached: True
+No loss over 1 percent on measured tests: True
+Raw throughput conditions, before quality review: True
+Accepted under kill rule: False
+Quality: GBSA single round 1 and STMV mixed candidate round 1 overlapped builds. APOA1 PME single baseline spread is 14.8%; its apparent gain is not a repeatable 3 percent win.

@@ -1,0 +1,118 @@
+{
+  "device" : "Apple M3 Ultra",
+  "recommendedMaxWorkingSetSize" : 83494174720,
+  "recordPrototype" : [
+    {
+      "allocatedBytes" : 834967240,
+      "allocatedSizes" : [
+        625655808,
+        208551936,
+        376832,
+        376832,
+        2884,
+        24,
+        2884,
+        16,
+        24
+      ],
+      "requestedLengths" : [
+        625648128,
+        208549376,
+        368896,
+        368900,
+        2884,
+        24,
+        2884,
+        4,
+        24
+      ],
+      "shareOfRecommendedWorkingSet" : 0.010000305324294604,
+      "test" : "apoa1rf",
+      "withinOnePercent" : false
+    },
+    {
+      "allocatedBytes" : 834967240,
+      "allocatedSizes" : [
+        625655808,
+        208551936,
+        376832,
+        376832,
+        2884,
+        24,
+        2884,
+        16,
+        24
+      ],
+      "requestedLengths" : [
+        625648128,
+        208549376,
+        368896,
+        368900,
+        2884,
+        24,
+        2884,
+        4,
+        24
+      ],
+      "shareOfRecommendedWorkingSet" : 0.010000305324294604,
+      "test" : "apoa1pme",
+      "withinOnePercent" : false
+    },
+    {
+      "allocatedBytes" : 834954400,
+      "allocatedSizes" : [
+        623738880,
+        207912960,
+        1638400,
+        1638400,
+        12772,
+        100,
+        12772,
+        16,
+        100
+      ],
+      "requestedLengths" : [
+        623735040,
+        207911680,
+        1634436,
+        1634440,
+        12772,
+        100,
+        12772,
+        4,
+        100
+      ],
+      "shareOfRecommendedWorkingSet" : 0.010000151541111011,
+      "test" : "amber20-cellulose",
+      "withinOnePercent" : false
+    },
+    {
+      "allocatedBytes" : 834994720,
+      "allocatedSizes" : [
+        619757568,
+        206585856,
+        4276224,
+        4276224,
+        49152,
+        264,
+        49152,
+        16,
+        264
+      ],
+      "requestedLengths" : [
+        619752960,
+        206584320,
+        4268380,
+        4268384,
+        33348,
+        264,
+        33348,
+        4,
+        264
+      ],
+      "shareOfRecommendedWorkingSet" : 0.010000634449052016,
+      "test" : "amber20-stmv",
+      "withinOnePercent" : false
+    }
+  ]
+}

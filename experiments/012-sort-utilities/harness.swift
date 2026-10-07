@@ -219,8 +219,8 @@ class Experiment012Harness {
                 "experiments/009-neighbour-list/captures/\(tarName)",
                 "experiments/010-compute-nonbonded/captures/\(tarName)",
                 "experiments/011-pme/captures/\(tarName)",
-                "/Users/amir/lab/009-neighbour-list/captures/\(tarName)",
-                "/Users/amir/lab/011-pme/captures/\(tarName)"
+                "~/lab/009-neighbour-list/captures/\(tarName)",
+                "~/lab/011-pme/captures/\(tarName)"
             ]
             var foundTar: String? = nil
             for p in candidatePaths {

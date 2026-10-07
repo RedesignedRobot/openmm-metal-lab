@@ -1,0 +1,144 @@
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                             ki-single/base-single
+rf                         1.010 (rounds 1.002..1.014)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                             kx-single/base-single
+rf                         1.003 (rounds 0.957..1.013)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                               kx-single/ki-single
+rf                         0.992 (rounds 0.955..0.999)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                               ki-mixed/base-mixed
+rf                         0.998 (rounds 0.994..1.011)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                               kx-mixed/base-mixed
+rf                         0.988 (rounds 0.986..0.996)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+rf                       1182.76       1442.69       1179.96       1457.48       1168.96       1446.36
+
+rounds, base-mixed:
+  rf                 1183.41 1173.34 1182.76   spread 0.9%
+rounds, base-single:
+  rf                 1431.69 1442.69 1462.47   spread 2.1%
+rounds, ki-mixed:
+  rf                 1179.96 1185.78 1175.27   spread 0.9%
+rounds, ki-single:
+  rf                 1451.85 1457.48 1465.76   spread 1.0%
+rounds, kx-mixed:
+  rf                 1166.90 1168.96 1173.88   spread 0.6%
+rounds, kx-single:
+  rf                 1450.13 1446.36 1400.04   spread 3.5%
+
+test                                 kx-mixed/ki-mixed
+rf                         0.991 (rounds 0.986..0.999)
+
+1 minute load before 24 runs: 11.53 to 17.47
+Background VM CPU before 24 runs: 4% to 18%
+runs with no result: 0
+runs that overlapped a build: 0

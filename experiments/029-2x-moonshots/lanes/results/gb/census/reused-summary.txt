@@ -1,0 +1,46 @@
+
+fused: GPU microseconds per integrator step, instrumented command buffers
+kernel single mixed excess
+integrateLangevinMiddleFused 16.212 66.828 50.616
+computeGBSAForce1 51.892 55.966 4.074
+computeNonbonded 55.006 55.289 0.283
+computeBornSum 45.434 45.819 0.385
+computeBondedForces 25.696 27.258 1.563
+removeCenterOfMassMomentum 6.436 10.203 3.767
+calcCenterOfMassMomentum 6.643 9.675 3.033
+reduceBornForce 7.310 9.127 1.817
+findBlocksWithInteractions 7.917 7.871 -0.046
+clearFourBuffers 7.195 7.802 0.607
+findBlockBounds 6.299 6.184 -0.114
+reduceBornSum 6.037 6.039 0.002
+sortBoxData 5.696 5.812 0.116
+sortShortList2 4.261 4.325 0.064
+computeSortKeys 4.161 4.145 -0.016
+generateRandomNumbers 2.496 3.710 1.214
+copyShortList 3.459 3.439 -0.020
+copyInteractionCounts 3.402 3.381 -0.021
+TOTAL 265.584 332.940 67.356
+
+split: GPU microseconds per integrator step, instrumented command buffers
+kernel single mixed excess
+integrateLangevinMiddleFusedShake 17.508 68.376 50.867
+computeGBSAForce1 51.601 56.130 4.529
+computeNonbonded 54.820 55.044 0.223
+computeBornSum 45.501 46.072 0.571
+integrateLangevinMiddleFusedFree 11.424 33.607 22.183
+computeBondedForces 25.466 26.502 1.036
+integrateLangevinMiddleFusedSettle 4.560 11.076 6.516
+removeCenterOfMassMomentum 6.389 10.120 3.732
+calcCenterOfMassMomentum 6.044 9.851 3.806
+reduceBornForce 7.285 9.192 1.908
+findBlocksWithInteractions 8.023 7.844 -0.179
+clearFourBuffers 6.786 7.842 1.055
+findBlockBounds 6.057 6.303 0.245
+reduceBornSum 5.953 6.020 0.068
+sortBoxData 5.575 5.766 0.191
+sortShortList2 4.413 4.318 -0.095
+computeSortKeys 4.149 4.121 -0.028
+copyShortList 3.458 3.473 0.015
+copyInteractionCounts 3.364 3.413 0.050
+generateRandomNumbers 3.832 2.682 -1.150
+TOTAL 282.241 377.820 95.579

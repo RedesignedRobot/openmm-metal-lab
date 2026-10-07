@@ -1,0 +1,12 @@
+2026-09-27T16:07:04Z round 1 gbsa v load { 15.40 14.88 16.25 } vm 21% top python 622.9%, node 45.1%, bun 29.5%, WindowServer 27.8%, chrome-headless-shell 25.3%
+2026-09-27T16:07:21Z round 1 gbsa u load { 15.55 14.92 16.24 } vm 28% top python 651.2%, com.apple.Virtualization.VirtualMachine 39.3%, WindowServer 29.3%, chrome-headless-shell 22.9%, superwhisper 22.1%
+2026-09-27T16:07:37Z round 1 gbsa base load { 15.59 14.97 16.23 } vm 123% top python 646.0%, com.apple.Virtualization.VirtualMachine 120.6%, chrome-headless-shell 30.8%, WindowServer 28.4%,  claude 22.2%
+2026-09-27T16:07:53Z round 1 gbsa vm load { 14.65 14.79 16.15 } vm 17% top python 655.8%, WindowServer 30.3%, superwhisper 19.3%, com.apple.Virtualization.VirtualMachine 15.0%, chrome-headless-shell 9.5%
+2026-09-27T16:08:10Z round 1 gbsa um load { 13.81 14.59 16.04 } vm 30% top python 556.0%, modelcatalogd 48.5%, TGOnDeviceInferenceProviderService 48.1%, WindowServer 24.8%, bun 17.5%
+2026-09-27T16:08:26Z round 1 gbsa basem load { 13.99 14.58 16.01 } vm 5% top python 657.5%, WindowServer 27.6%, superwhisper 20.6%,  claude 6.9%, backupd 5.9%
+2026-09-27T16:08:43Z round 2 gbsa basem load { 13.54 14.46 15.94 } vm 28% top python 649.9%, node 67.1%, node 49.7%, chrome-headless-shell 34.4%, axassetsd 32.3%
+2026-09-27T16:08:59Z round 2 gbsa um load { 13.09 14.29 15.85 } vm 28% top python 654.3%, chrome-headless-shell 49.3%, WindowServer 30.6%, chrome-headless-shell 24.9%, axassetsd 21.8%
+2026-09-27T16:09:15Z round 2 gbsa vm load { 12.31 14.07 15.74 } vm 49% top python 628.5%, com.apple.Virtualization.VirtualMachine 47.8%, WindowServer 30.8%, Finder 25.3%, superwhisper 18.9%
+2026-09-27T16:09:32Z round 2 gbsa base load { 13.75 14.33 15.81 } vm 24% top python 653.9%, WindowServer 30.0%, com.apple.Virtualization.VirtualMachine 25.3%, superwhisper 19.4%,  claude 7.8%
+2026-09-27T16:09:48Z round 2 gbsa u load { 13.15 14.17 15.72 } vm 56% top python 650.3%, com.apple.Virtualization.VirtualMachine 52.7%, bun 48.8%, WindowServer 31.7%, chrome-headless-shell 31.2%
+2026-09-27T16:10:04Z round 2 gbsa v load { 13.02 14.07 15.65 } vm 96% top python 657.0%, com.apple.Virtualization.VirtualMachine 52.7%, com.apple.Virtualization.VirtualMachine 29.5%, WindowServer 28.6%, superwhisper 20.9%

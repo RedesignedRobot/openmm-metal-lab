@@ -1,6 +1,6 @@
 # Where Metal can beat Apple's OpenCL by 2x or more on the M3 Ultra
 
-Research lane, 2026-09-24. Read-only: I ran nothing on any GPU. Tiers: **verified** means I read the code, binary or document; **lab** means one of our experiments measured it; **reported** means a source says so; **inference** means my reasoning.
+Research note, 2026-09-24. Read-only: I ran nothing on any GPU. Tiers: **verified** means I read the code, binary or document; **lab** means one of our experiments measured it; **reported** means a source says so; **inference** means my reasoning.
 
 ## Short answer
 
@@ -26,7 +26,7 @@ Everything else I checked lands between 1.0 and 1.6x, or needs measuring before 
 ## 1. Mixed precision: OpenCL can't run it, so the fallback is the CPU
 
 Mechanism:
-- Verified. OpenCL throws "This device does not support double precision" for mixed or double when `cl_khr_fp64` is missing (`/Users/amir/code/mini/hipdelta-gbsa/platforms/opencl/src/OpenCLContext.cpp:213-216`).
+- Verified. OpenCL throws "This device does not support double precision" for mixed or double when `cl_khr_fp64` is missing (`~/code/mini/hipdelta-gbsa/platforms/opencl/src/OpenCLContext.cpp:213-216`).
 - Lab 025. The M3 Ultra's OpenCL has no `cl_khr_fp64` (CL_DEVICE_DOUBLE_FP_CONFIG 0x0). benchmark.py printed "No compatible OpenCL platform is available" for mixed (`experiments/025-best-metal-vs-opencl/results/m3ultra-20260924T1701Z/README.txt`).
 - Verified. Metal mixed runs through df64. Metal still reports `supportsDoublePrecision() == false` (`MetalPlatform.cpp:154-156`), so double isn't a Metal win either.
 
@@ -117,7 +117,7 @@ Benchmark, after levers 1 and 2 land: `benchmark.py --test apoa1pme,apoa1ljpme -
 - Verified. Every DIIS iteration downloads the error array and waits on an event before the host decides whether it has converged (`plugins/amoeba/platforms/common/src/AmoebaCommonKernels.cpp:1313-1339`). benchmark.py uses mutual polarization with epsilon 1e-5, so expect about 10 or more syncs per step (inference).
 - Inference. The sync savings from section 2 apply per iteration. But AMOEBA's per-step GPU work is milliseconds, so single precision lands at 1.1 to 1.3x. The larger win is mixed, which Tinker-OpenMM users commonly run (inference). OpenCL can't do that at all, so it falls back to the CPU, as in section 1.
 
-Benchmark, once the plugins lane lands AMOEBA: `benchmark.py --test amoebapme,amoebagk` with Metal single against OpenCL single, and Metal mixed against `--platform CPU`.
+Benchmark, once the plugins experiment lands AMOEBA: `benchmark.py --test amoebapme,amoebagk` with Metal single against OpenCL single, and Metal mixed against `--platform CPU`.
 
 ## 6. Custom forces with heavy expressions
 
@@ -152,7 +152,7 @@ Benchmark: time `Context(...)` creation for amber20-dhfr and apoa1pme, 5 cold ru
 
 ## Sources
 
-- Code, all under `/Users/amir/code/mini/hipdelta-gbsa/`:
+- Code, all under `~/code/mini/hipdelta-gbsa/`:
   - `platforms/opencl/src/OpenCLContext.cpp:213-216,365-412`
   - `platforms/opencl/src/OpenCLKernels.cpp:53`
   - `platforms/opencl/src/OpenCLNonbondedUtilities.cpp:276-283,412`
@@ -164,6 +164,6 @@ Benchmark: time `Context(...)` creation for amber20-dhfr and apoa1pme, 5 cold ru
   - `platforms/common/src/CommonIntegrateCustomStepKernel.cpp:744-776`
   - `platforms/common/src/CommonMinimizeKernel.cpp:86`
   - `plugins/amoeba/platforms/common/src/AmoebaCommonKernels.cpp:1313-1339`
-- Binary: `/System/Library/Extensions/AppleMetalOpenGLRenderer.bundle/Contents/MacOS/AppleMetalOpenGLRenderer`. The disassembly is saved at `/private/tmp/claude-501/-Users-amir/2071129c-c6c2-47ff-a8dd-5b2d8f1554ee/scratchpad/rb/gl_dis.txt`.
+- Binary: `/System/Library/Extensions/AppleMetalOpenGLRenderer.bundle/Contents/MacOS/AppleMetalOpenGLRenderer`. The disassembly is saved at `/tmp/rb/gl_dis.txt`.
 - Lab: experiments 001, 008, 011, 024 and 025; research notes `2026-09-24-fah-precision.md` and `2026-09-23-fah-core-requirements.md`.
 - Web: [FAH forum t=43406, Apple M1-M4 clinfo](https://forum.foldingathome.org/viewtopic.php?t=43406); [MTLDevice.maxBufferLength](https://developer.apple.com/documentation/metal/mtldevice/maxbufferlength).

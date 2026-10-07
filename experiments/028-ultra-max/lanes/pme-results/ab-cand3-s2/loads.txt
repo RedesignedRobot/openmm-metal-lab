@@ -1,0 +1,8 @@
+2026-09-25T00:44:24Z round 1 amber20-cellulose cand2 load { 2.98 3.31 4.84 } vm 15% top superwhisper 22.8%, chrome-headless-shell 21.7%, com.apple.Virtualization.VirtualMachine 12.1%, chrome-headless-shell 8.1%, sysmond 5.3%
+2026-09-25T00:44:50Z round 1 amber20-cellulose cand3 load { 2.42 3.15 4.74 } vm 14% top superwhisper 25.3%, chrome-headless-shell 17.4%, com.apple.Virtualization.VirtualMachine 14.0%, chrome-headless-shell 12.3%, sysmond 8.0%
+2026-09-25T00:45:15Z round 1 amber20-stmv cand2 load { 2.31 3.06 4.66 } vm 8% top superwhisper 22.9%, com.apple.Virtualization.VirtualMachine 7.9%, chrome-headless-shell 6.3%,  claude 4.9%, powermetrics 3.3%
+2026-09-25T00:45:53Z round 1 amber20-stmv cand3 load { 1.96 2.89 4.52 } vm 3% top bun 32.7%, superwhisper 22.5%, chrome-headless-shell 18.5%, tccd 12.1%, chrome-headless-shell 9.3%
+2026-09-25T00:46:30Z round 2 amber20-cellulose cand3 load { 2.25 2.88 4.45 } vm 14% top superwhisper 24.2%, node 17.1%, com.apple.Virtualization.VirtualMachine 14.5%, sysmond 7.5%, bun 1.0%
+2026-09-25T00:46:55Z round 2 amber20-cellulose cand2 load { 1.98 2.77 4.37 } vm 75% top com.apple.Virtualization.VirtualMachine 74.7%, chrome-headless-shell 30.8%, chrome-headless-shell 28.3%, superwhisper 22.0%, bun 12.9%
+2026-09-25T00:47:20Z round 2 amber20-stmv cand3 load { 2.72 2.87 4.36 } vm 4% top ContextStoreAgent 63.4%, chrome-headless-shell 32.7%, bun 28.7%, superwhisper 24.2%, chrome-headless-shell 15.6%
+2026-09-25T00:47:58Z round 2 amber20-stmv cand2 load { 2.93 2.92 4.30 } vm 8% top ContextStoreAgent 36.9%, superwhisper 22.5%, chrome-headless-shell 14.4%, chrome-headless-shell 12.6%, com.apple.Virtualization.VirtualMachine 8.5%

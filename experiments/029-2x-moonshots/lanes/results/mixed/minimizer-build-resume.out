@@ -1,0 +1,7 @@
+2026-09-26T17:34:42Z build-policy demote pid=8588 tree=/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer taskpolicy_exit=0
+/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown ['CPU', 'Metal', 'OpenCL', 'Reference']
+built /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer
+commit 7484d7bef401f813dc871c1e156578954606d4ea-minimizer-only
+src 3a44f36d355b6e966447ad5844c26f7a16b16f6b
+toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+built 2026-09-26T17:36:10Z

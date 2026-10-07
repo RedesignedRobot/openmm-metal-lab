@@ -1,0 +1,14 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-pme/build'
+[1/2] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/__/common/src/CommonCalcNonbondedForce.cpp.o
+In file included from /tmp/openmm-metal-bench/ultra-pme/src/platforms/common/src/CommonCalcNonbondedForce.cpp:25:
+In file included from /tmp/openmm-metal-bench/ultra-pme/src/openmmapi/include/openmm/Context.h:33:
+In file included from /tmp/openmm-metal-bench/ultra-pme/src/openmmapi/include/openmm/Integrator.h:33:
+In file included from /tmp/openmm-metal-bench/ultra-pme/src/openmmapi/include/openmm/State.h:33:
+In file included from /tmp/openmm-metal-bench/ultra-pme/src/openmmapi/include/openmm/Vec3.h:33:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert:22:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+1 warning generated.
+[2/2] Linking CXX shared library libOpenMMMetal.dylib

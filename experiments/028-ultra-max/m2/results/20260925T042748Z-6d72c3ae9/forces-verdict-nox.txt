@@ -1,0 +1,13 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  1.239e-01  6.566e+02  5.389e-07  FAIL rel|dF| 1.24e-01 > base 2.47e-05
+gbsa            2489     mixed  1.279e-01  7.183e+02  6.194e-07  FAIL rel|dF| 1.28e-01 > base 2.47e-05
+rf             23558    single  6.063e-01  4.913e+03  2.549e-07  FAIL rel|dF| 6.06e-01 > base 2.21e-05
+rf             23558     mixed  5.977e-01  3.366e+03  2.216e-07  FAIL rel|dF| 5.98e-01 > base 2.21e-05
+pme            23558    single  4.681e-01  3.091e+03  1.400e-06  FAIL rel|dF| 4.68e-01 > base 2.05e-05
+pme            23558     mixed  4.589e-01  2.918e+03  1.330e-06  FAIL rel|dF| 4.59e-01 > base 2.05e-05
+apoa1rf        92224    single  7.010e-01  4.274e+03  1.122e-07  FAIL rel|dF| 7.01e-01 > base 5.99e-05
+apoa1rf        92224     mixed  7.001e-01  4.940e+03  1.112e-07  FAIL rel|dF| 7.00e-01 > base 5.99e-05
+apoa1pme       92224    single  5.892e-01  4.697e+03  7.844e-07  FAIL rel|dF| 5.89e-01 > base 7.75e-05
+apoa1pme       92224     mixed  5.852e-01  4.541e+03  7.564e-07  FAIL rel|dF| 5.85e-01 > base 7.75e-05
+apoa1ljpme     92224    single  5.857e-01  3.800e+03  1.013e-06  FAIL rel|dF| 5.86e-01 > base 7.75e-05
+apoa1ljpme     92224     mixed  5.836e-01  4.258e+03  1.068e-06  FAIL rel|dF| 5.84e-01 > base 7.75e-05

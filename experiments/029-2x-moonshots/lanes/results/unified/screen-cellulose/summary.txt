@@ -1,0 +1,22 @@
+median ns/day, host clock
+test                      base-m        base-s         cpu-m         cpu-s        opencl
+amber20-cellulose          74.50         82.01         23.99         25.00         47.24
+
+rounds, base-m:
+  amber20-cellulose  74.57 74.43   spread 0.2%
+rounds, base-s:
+  amber20-cellulose  82.09 81.94   spread 0.2%
+rounds, cpu-m:
+  amber20-cellulose  24.25 23.73   spread 2.2%
+rounds, cpu-s:
+  amber20-cellulose  24.45 25.55   spread 4.4%
+rounds, opencl:
+  amber20-cellulose  46.60 47.89   spread 2.7%
+
+test                                      cpu-s/base-s                        cpu-m/base-m                        cpu-s/opencl                        cpu-m/opencl
+amber20-cellulose          0.305 (rounds 0.298..0.312)         0.322 (rounds 0.319..0.325)         0.529 (rounds 0.525..0.534)         0.508 (rounds 0.495..0.520)
+
+1 minute load before 10 runs: 4.72 to 8.21
+Background VM CPU before 10 runs: 14% to 112%
+runs with no result: 0
+runs that overlapped a build: 0

@@ -1,0 +1,30 @@
+Test project /tmp/openmm-metal-bench/ultra-r3-gbown-b/build
+    Start 248: TestMetalCustomGBForceSingle
+    Start 249: TestMetalCustomGBForceMixed
+1/8 Test #248: TestMetalCustomGBForceSingle .....   Passed    5.61 sec
+    Start 268: TestMetalGBSAOBCForceSingle
+2/8 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    5.46 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+3/8 Test #249: TestMetalCustomGBForceMixed ......   Passed   22.26 sec
+    Start 294: TestMetalNonbondedForceSingle
+4/8 Test #294: TestMetalNonbondedForceSingle ....   Passed   10.00 sec
+    Start 295: TestMetalNonbondedForceMixed
+5/8 Test #269: TestMetalGBSAOBCForceMixed .......   Passed   34.76 sec
+    Start 300: TestMetalOwnedGBSingle
+6/8 Test #300: TestMetalOwnedGBSingle ...........***Failed    1.38 sec
+exception: Assertion failure at TestMetalOwnedGB.cpp:122.  Expected -965.791, found -965.851
+
+    Start 301: TestMetalOwnedGBMixed
+7/8 Test #301: TestMetalOwnedGBMixed ............***Failed    6.36 sec
+exception: Assertion failure at TestMetalOwnedGB.cpp:122.  Expected -965.791, found -965.851
+
+8/8 Test #295: TestMetalNonbondedForceMixed .....   Passed   30.57 sec
+
+75% tests passed, 2 tests failed out of 8
+
+Total Test time (real) =  62.85 sec
+
+The following tests FAILED:
+	300 - TestMetalOwnedGBSingle (Failed)
+	301 - TestMetalOwnedGBMixed (Failed)
+Errors while running CTest

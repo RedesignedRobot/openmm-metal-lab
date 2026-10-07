@@ -1,0 +1,21 @@
+== 2026-09-24T19:52:10Z round 1 pme load { 3.87 4.31 5.34 }
+ %CPU NI COMMAND
+ 37.4  0 /tmp/openmm-metal-bench/ultra-base/venv/bin/python benchmark.py --platform Metal --precision single --test amber20-dhfr --seconds 5 --style table --out
+ 18.6  0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtual
+ 16.6  0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+  8.5  0 claude --dangerously-skip-permissions
+  4.5  0 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+== 2026-09-24T20:12:27Z round 1 apoa1pme load { 14.11 8.63 6.54 }
+ %CPU NI COMMAND
+ 80.0  0 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
+ 49.7  0 /usr/libexec/textunderstandingd
+ 47.1  0 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 30.1  0 /usr/libexec/sysmond
+ 26.1  0 /tmp/openmm-metal-bench/ultra-plugins/venv/bin/python benchmark.py --platform Metal --precision single --test amoebagk --seconds 30 --style table --out
+== 2026-09-24T21:57:52Z round 1 amber20-dhfr load { 33.27 18.32 12.60 }
+ %CPU NI COMMAND
+100.0 10 /tmp/openmm-metal-bench/ultra-atomics/venv/bin/python /tmp/openmm-metal-bench/ultra-atomics/chunkstat.py apoa1rf apoa1pme amber20-cellulose
+ 99.3  0 /System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged
+ 22.0  0 /Applications/superwhisper.app/Contents/MacOS/superwhisper
+ 17.3  0 /usr/libexec/sysmond
+  9.2  0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtual

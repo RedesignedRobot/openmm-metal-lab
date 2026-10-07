@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- gpuqd, the M3 Ultra's GPU scheduler. Install: cp to ~/Library/LaunchAgents, then
+     launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.openmm.gpuqd.plist
+     Interactive: no launchd CPU or I/O throttling, which managed timing jobs would inherit.
+     AbandonProcessGroup: a daemon restart never kills a job.
+     WorkingDirectory and logs use the real path: launchd creates the log directory before the shell
+     runs, and a real /tmp/openmm-metal-bench directory would then block the symlink after a reboot. -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.openmm.gpuqd</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/sh</string>
+        <string>-c</string>
+        <string>[ -e /tmp/openmm-metal-bench ] || ln -sfn ~/code/metal/bench.noindex /tmp/openmm-metal-bench; exec /tmp/openmm-metal-bench/env/bin/python3 /tmp/openmm-metal-bench/ultra-tools/gpuq/gpuqd.py</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>5</integer>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>Nice</key>
+    <integer>0</integer>
+    <key>AbandonProcessGroup</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>~/code/metal/bench.noindex</string>
+    <key>StandardOutPath</key>
+    <string>~/code/metal/bench.noindex/gpuq/daemon.log</string>
+    <key>StandardErrorPath</key>
+    <string>~/code/metal/bench.noindex/gpuq/daemon.log</string>
+</dict>
+</plist>

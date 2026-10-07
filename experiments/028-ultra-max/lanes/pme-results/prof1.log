@@ -1,0 +1,35 @@
+load: { 8.39 5.92 4.06 }
+grid [0.0 /nm, 0, 0, 0]
+pme params [2.9202898720871846, 56, 56, 56]
+pme single empty=0.603ms recip=0.629ms direct=0.625ms all=0.773ms recip-empty=0.026ms
+pme single empty=0.259ms recip=0.502ms direct=0.564ms all=0.768ms recip-empty=0.243ms
+grid [0.0 /nm, 0, 0, 0]
+pme params [2.9202898720871846, 56, 56, 56]
+pme mixed empty=0.464ms recip=0.643ms direct=0.549ms all=0.840ms recip-empty=0.179ms
+pme mixed empty=0.282ms recip=0.536ms direct=0.559ms all=0.783ms recip-empty=0.254ms
+grid [0.0 /nm, 0, 0, 0]
+pme params [2.9202898720871846, 98, 98, 98]
+apoa1pme single empty=1.065ms recip=1.805ms direct=1.920ms all=2.644ms recip-empty=0.740ms
+apoa1pme single empty=1.046ms recip=2.016ms direct=2.181ms all=3.261ms recip-empty=0.970ms
+grid [0.0 /nm, 0, 0, 0]
+pme params [2.9202898720871846, 98, 98, 98]
+apoa1pme mixed empty=1.106ms recip=2.103ms direct=2.201ms all=3.240ms recip-empty=0.997ms
+apoa1pme mixed empty=0.998ms recip=2.094ms direct=2.239ms all=3.277ms recip-empty=1.096ms
+grid [0.0 /nm, 0, 0, 0]
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-pme/pmeprof.py", line 33, in <module>
+    print('pme params', f.getPMEParametersInContext(context))
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-pme/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/openmm.py", line 18080, in getPMEParametersInContext
+    return _openmm.NonbondedForce_getPMEParametersInContext(self, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+openmm.OpenMMException: getPMEParametersInContext: This Context is not using PME
+grid [0.0 /nm, 0, 0, 0]
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-pme/pmeprof.py", line 33, in <module>
+    print('pme params', f.getPMEParametersInContext(context))
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-pme/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/openmm.py", line 18080, in getPMEParametersInContext
+    return _openmm.NonbondedForce_getPMEParametersInContext(self, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+openmm.OpenMMException: getPMEParametersInContext: This Context is not using PME

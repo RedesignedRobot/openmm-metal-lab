@@ -1,0 +1,17 @@
+2026-09-29T13:16:36Z round 1 amber20-cellulose tr_s load { 3.06 2.55 3.00 } vm 29% top superwhisper 28.4%, com.apple.Virtualization.VirtualMachine 22.4%, powermetrics 8.7%, com.apple.Virtualization.VirtualMachine 6.4%, WhatsApp 3.8%
+2026-09-29T13:17:03Z round 1 amber20-cellulose r6_s load { 2.15 2.38 2.92 } vm 16% top PerfPowerServices 123.8%, runningboardd 44.9%, superwhisper 24.9%,  claude 13.9%, com.apple.Virtualization.VirtualMachine 9.3%
+2026-09-29T13:17:30Z round 1 amber20-cellulose tr_m load { 2.48 2.42 2.92 } vm 13% top WindowServer 43.9%, superwhisper 27.9%, com.apple.Virtualization.VirtualMachine 9.9%, ghostty 8.4%, powermetrics 4.7%
+2026-09-29T13:18:04Z round 1 amber20-cellulose r6_m load { 9.61 3.95 3.44 } vm 16% top bun 198.8%, bun 175.4%, bun 149.9%, bun 146.7%, bun 142.0%
+2026-09-29T13:18:37Z round 1 amber20-stmv tr_s load { 16.92 6.34 4.33 } vm 15% top bun 146.7%, bun 135.6%, bun 135.2%, bun 131.2%, bun 130.4%
+2026-09-29T13:19:20Z round 1 amber20-stmv r6_s load { 18.05 7.98 5.03 } vm 13% top  (node) 93.9%, node 93.1%, node 90.1%, node 88.4%, node 88.1%
+2026-09-29T13:20:00Z round 1 amber20-stmv tr_m load { 11.60 7.59 5.02 } vm 18% top spindump 97.7%, WindowServer 47.8%, superwhisper 28.4%, ghostty 17.4%, powermetrics 13.2%
+2026-09-29T13:20:44Z round 1 amber20-stmv r6_m load { 7.52 7.07 4.96 } vm 8% top tsc 637.1%, superwhisper 24.2%,  claude 8.8%, com.apple.Virtualization.VirtualMachine 5.2%, syspolicyd 3.6%
+2026-09-29T13:21:30Z round 2 amber20-cellulose r6_m load { 8.26 7.51 5.24 } vm 15% top superwhisper 23.2%, usernoted 16.7%, com.apple.Virtualization.VirtualMachine 15.6%, node 12.9%, TGOnDeviceInferenceProviderService 6.3%
+2026-09-29T13:22:01Z round 2 amber20-cellulose tr_m load { 6.29 7.09 5.17 } vm 20% top superwhisper 30.4%, com.apple.Virtualization.VirtualMachine 10.4%,  claude 8.6%, WhatsApp 4.2%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-29T13:22:33Z round 2 amber20-cellulose r6_s load { 5.73 6.85 5.14 } vm 15% top mds_stores 189.7%, superwhisper 33.7%, powermetrics 12.0%,  claude 10.6%, com.apple.Virtualization.VirtualMachine 8.9%
+2026-09-29T13:23:01Z round 2 amber20-cellulose tr_s load { 4.43 6.44 5.05 } vm 15% top superwhisper 27.7%, powermetrics 12.1%,  claude 10.4%, com.apple.Virtualization.VirtualMachine 8.9%, com.apple.Virtualization.VirtualMachine 6.5%
+2026-09-29T13:23:28Z round 2 amber20-stmv r6_m load { 3.80 6.13 4.98 } vm 11% top dasd 48.6%, superwhisper 23.3%, powermetrics 8.2%,  claude 7.5%, iStat Menus Menubar 6.4%
+2026-09-29T13:24:11Z round 2 amber20-stmv tr_m load { 3.38 5.73 4.89 } vm 32% top superwhisper 26.7%, com.apple.Virtualization.VirtualMachine 25.5%, limactl 11.3%,  claude 3.8%, WhatsApp 3.6%
+2026-09-29T13:24:56Z round 2 amber20-stmv r6_s load { 4.88 5.67 4.91 } vm 166% top com.apple.Virtualization.VirtualMachine 160.1%, superwhisper 26.5%,  claude 5.6%, powermetrics 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-29T13:25:36Z round 2 amber20-stmv tr_s load { 4.12 5.40 4.85 } vm 137% top com.apple.Virtualization.VirtualMachine 132.9%, superwhisper 26.2%, SystemUIServer 15.3%, WhatsApp 3.6%,  claude 2.8%
+2026-09-29T13:26:15Z builds: none ran during the 16 timed runs; timing hold of gpuq job 98 (r3-step): 0 builds paused

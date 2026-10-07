@@ -1,0 +1,21 @@
+2026-09-25T12:08:11Z round 1 pme base-cpu load { 1.44 1.52 1.69 } vm 4% top WindowServer 39.8%, superwhisper 20.5%, Dock 17.3%,  claude 10.6%, MenuBarAgent 6.8%
+2026-09-25T12:08:42Z round 1 pme base-cpu cpu threads 28, 6 samples: benchmark 1792% to 1836%, busiest other 63% (mds_stores), VM up to 7%
+2026-09-25T12:08:43Z round 1 apoa1pme base-cpu load { 7.45 3.06 2.24 } vm 5% top superwhisper 12.6%, com.apple.Virtualization.VirtualMachine 5.4%, sysmond 2.4%,  claude 0.6%, WindowServer 0.4%
+2026-09-25T12:09:18Z round 1 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2155% to 2187%, busiest other 14% (superwhisper), VM up to 6%
+2026-09-25T12:09:18Z round 1 amber20-dhfr base-cpu load { 16.94 5.90 3.31 } vm 5% top mediaanalysisd 111.3%, superwhisper 18.2%, com.apple.Virtualization.VirtualMachine 5.1%, sysmond 3.1%, sh 2.1%
+2026-09-25T12:09:52Z round 1 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1642% to 1684%, busiest other 34% (TGOnDeviceInferenceProviderService), VM up to 8%
+2026-09-25T12:09:52Z round 2 pme base-cpu load { 15.94 6.82 3.74 } vm 6% top superwhisper 15.5%, com.apple.Virtualization.VirtualMachine 5.6%, sysmond 5.0%, sh 2.1%,  claude 1.1%
+2026-09-25T12:10:23Z round 2 pme base-cpu cpu threads 28, 6 samples: benchmark 1786% to 1826%, busiest other 75% (mds_stores), VM up to 6%
+2026-09-25T12:10:23Z round 2 apoa1pme base-cpu load { 16.38 7.73 4.17 } vm 5% top superwhisper 14.9%, iStat Menus Menubar 6.2%, sysmond 5.5%, com.apple.Virtualization.VirtualMachine 4.8%, WindowServer 2.9%
+2026-09-25T12:10:59Z round 2 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2110% to 2161%, busiest other 84% (node), VM up to 6%
+2026-09-25T12:10:59Z round 2 amber20-dhfr base-cpu load { 19.23 9.31 4.89 } vm 6% top superwhisper 15.3%, com.apple.Virtualization.VirtualMachine 6.1%, iStat Menus Menubar 2.8%, WindowServer 2.4%,  claude 1.1%
+2026-09-25T12:11:32Z round 2 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1689% to 1805%, busiest other 28% (authd), VM up to 7%
+2026-09-25T12:11:33Z round 3 pme base-cpu load { 18.26 10.12 5.36 } vm 8% top superwhisper 13.1%, com.apple.Virtualization.VirtualMachine 7.6%, sysmond 5.0%, sh 2.2%, WindowServer 1.6%
+2026-09-25T12:12:04Z round 3 pme base-cpu cpu threads 28, 6 samples: benchmark 1821% to 1841%, busiest other 13% (superwhisper), VM up to 6%
+2026-09-25T12:12:04Z round 3 apoa1pme base-cpu load { 15.40 10.22 5.56 } vm 4% top superwhisper 13.5%, sysmond 5.4%, com.apple.Virtualization.VirtualMachine 4.4%, iStat Menus Menubar 2.3%,  claude 2.0%
+2026-09-25T12:12:39Z round 3 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2087% to 2189%, busiest other 62% (mediaanalysisd), VM up to 7%
+2026-09-25T12:12:39Z round 3 amber20-dhfr base-cpu load { 17.11 11.10 6.06 } vm 6% top corespotlightd 70.7%, spotlightknowledged.updater 60.1%, superwhisper 13.7%, cfprefsd 12.3%, sysmond 7.9%
+2026-09-25T12:13:13Z round 3 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1663% to 1693%, busiest other 234% (corespotlightd), VM up to 10% CPU BUSY
+2026-09-25T12:13:14Z rerun round 3 amber20-dhfr: a build or a busy CPU overlapped it
+2026-09-25T12:13:14Z round 3 amber20-dhfr base-cpu load { 17.24 11.87 6.54 } vm 5% top superwhisper 12.3%, com.apple.Virtualization.VirtualMachine 5.4%,  claude 4.9%, sysmond 3.1%, loginwindow 2.2%
+2026-09-25T12:13:47Z round 3 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1774% to 1809%, busiest other 15% (mds_stores), VM up to 8%

@@ -7,7 +7,7 @@ Can Metal build OpenMM's neighbour list (`findBlocksWithInteractions` and the fu
 ## Method
 
 1. Real inputs capture (step 1):
-   - We patched OpenMM's OpenCL backend (`platforms/opencl/src/OpenCLNonbondedUtilities.cpp` in `/Users/mas/code/wt/openmm-prof`) behind `OPENMM_CAPTURE_DIR`.
+   - We patched OpenMM's OpenCL backend (`platforms/opencl/src/OpenCLNonbondedUtilities.cpp` in `~/code/wt/openmm-prof`) behind `OPENMM_CAPTURE_DIR`.
    - At step 200 of an equilibrated MD simulation of ApoA1 (both `apoa1rf` and `apoa1pme`), the patch forces a neighbour list rebuild and writes every input buffer, argument scalar, intermediate buffer, and output buffer to disk before and after each kernel.
    - Captures were archived into `captures/apoa1rf.tar.gz` and `captures/apoa1pme.tar.gz` (17.5 MB total, under the 25 MB budget). The worktree diff is saved in `openmm-capture.patch`.
 

@@ -1,0 +1,36 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+apoa1rf                   358.00        414.78        389.33        458.09        281.19
+apoa1pme                  268.93        302.25        273.59        306.48        180.89
+apoa1ljpme                216.70        240.10        217.37        240.00        127.72
+
+rounds, base-m:
+  apoa1rf            358.71 357.28   spread 0.4%
+  apoa1pme           269.10 268.76   spread 0.1%
+  apoa1ljpme         217.94 215.46   spread 1.1%
+rounds, base-s:
+  apoa1rf            415.53 414.03   spread 0.4%
+  apoa1pme           301.79 302.70   spread 0.3%
+  apoa1ljpme         240.77 239.43   spread 0.6%
+rounds, cand-m:
+  apoa1rf            389.47 389.18   spread 0.1%
+  apoa1pme           272.58 274.59   spread 0.7%
+  apoa1ljpme         216.96 217.79   spread 0.4%
+rounds, cand-s:
+  apoa1rf            457.30 458.88   spread 0.3%
+  apoa1pme           305.23 307.73   spread 0.8%
+  apoa1ljpme         240.30 239.70   spread 0.2%
+rounds, cl-s:
+  apoa1rf            281.18 281.20   spread 0.0%
+  apoa1pme           180.78 181.00   spread 0.1%
+  apoa1ljpme         127.67 127.77   spread 0.1%
+
+test                                     cand-s/base-s                       cand-m/base-m                         cand-s/cl-s                         cand-m/cl-s
+apoa1rf                    1.104 (rounds 1.101..1.108)         1.088 (rounds 1.086..1.089)         1.629 (rounds 1.626..1.632)         1.385 (rounds 1.384..1.385)
+apoa1pme                   1.014 (rounds 1.011..1.017)         1.017 (rounds 1.013..1.022)         1.694 (rounds 1.688..1.700)         1.512 (rounds 1.508..1.517)
+apoa1ljpme                 1.000 (rounds 0.998..1.001)         1.003 (rounds 0.995..1.011)         1.879 (rounds 1.876..1.882)         1.702 (rounds 1.699..1.705)
+
+1 minute load before 30 runs: 1.07 to 3.22
+Background VM CPU before 30 runs: 8% to 45%
+runs with no result: 0
+runs that overlapped a build: 0

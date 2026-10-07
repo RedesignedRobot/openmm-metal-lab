@@ -1,0 +1,13 @@
+02:34:00Z waiting for the lease: 14 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 0 build processes
+02:39:05Z waiting for the lease: 13 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 41 build processes
+02:44:09Z waiting for the lease: 12 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 17 build processes
+02:49:13Z waiting for the lease: 12 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 1 build processes
+Test project /tmp/openmm-metal-bench/ultra-atomics/build-b
+    Start 112: TestMetalHarmonicBondForceSingle
+1/2 Test #112: TestMetalHarmonicBondForceSingle ...   Passed    1.08 sec
+    Start 113: TestMetalHarmonicBondForceMixed
+2/2 Test #113: TestMetalHarmonicBondForceMixed ....   Passed    3.07 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   4.16 sec

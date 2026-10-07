@@ -1,0 +1,256 @@
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                             k8-single/base-single
+pme                        1.013 (rounds 1.012..1.015)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                            k32-single/base-single
+pme                        1.010 (rounds 1.008..1.012)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                            c32-single/base-single
+pme                        1.004 (rounds 1.002..1.006)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                             ki-single/base-single
+pme                        1.010 (rounds 1.009..1.010)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                               k8-mixed/base-mixed
+pme                        1.007 (rounds 1.005..1.009)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                              k32-mixed/base-mixed
+pme                        1.006 (rounds 1.003..1.008)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                              c32-mixed/base-mixed
+pme                        1.002 (rounds 1.002..1.003)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single     c32-mixed    c32-single     k32-mixed    k32-single      k8-mixed     k8-single      ki-mixed     ki-single
+pme                       856.18        990.36        858.22        994.52        861.00       1000.12        861.99       1003.38        856.97        999.97
+
+rounds, base-mixed:
+  pme                856.43 855.94   spread 0.1%
+rounds, base-single:
+  pme                990.78 989.95   spread 0.1%
+rounds, c32-mixed:
+  pme                858.13 858.31   spread 0.0%
+rounds, c32-single:
+  pme                992.74 996.30   spread 0.4%
+rounds, k32-mixed:
+  pme                859.11 862.88   spread 0.4%
+rounds, k32-single:
+  pme                998.64 1001.60   spread 0.3%
+rounds, k8-mixed:
+  pme                860.68 863.29   spread 0.3%
+rounds, k8-single:
+  pme                1002.23 1004.53   spread 0.2%
+rounds, ki-mixed:
+  pme                858.12 855.81   spread 0.3%
+rounds, ki-single:
+  pme                999.69 1000.25   spread 0.1%
+
+test                               ki-mixed/base-mixed
+pme                        1.001 (rounds 1.000..1.002)
+
+1 minute load before 20 runs: 2.69 to 5.96
+Background VM CPU before 20 runs: 4% to 14%
+runs with no result: 0
+runs that overlapped a build: 0

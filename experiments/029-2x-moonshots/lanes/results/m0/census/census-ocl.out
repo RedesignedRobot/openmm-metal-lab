@@ -1,0 +1,58 @@
+14:02:50Z waiting for the lease: 15 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:07:54Z waiting for the lease: 14 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:12:58Z waiting for the lease: 14 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:18:03Z waiting for the lease: 12 in the queue, held by: r2-single-int 2026-09-27T14:16:03Z fused LM probe shader traces rf+gbsa, 0 build processes
+14:23:08Z waiting for the lease: 12 in the queue, held by: r2-single-int 2026-09-27T14:16:03Z fused LM probe shader traces rf+gbsa, 0 build processes
+14:28:12Z waiting for the lease: 11 in the queue, held by: r2-single-int 2026-09-27T14:23:17Z cm fold s1: bitwise, constraints, drift, ctests, 0 build processes
+14:33:17Z waiting for the lease: 8 in the queue, held by: r2-bonded 2026-09-27T14:32:08Z DeterministicForces bitwise forces r1 vs block bonded v1b, 9 tests x 2 precisions, 0 build processes
+14:38:21Z waiting for the lease: 7 in the queue, held by: ultra-r2-accum-nb 2026-09-27T14:33:39Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe4, about 8 min, 0 build processes
+14:43:25Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-gb 2026-09-27T14:41:12Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s7, about 4 min, 0 build processes
+14:48:30Z waiting for the lease: 3 in the queue, held by: r2-mixed 2026-09-27T14:46:48Z scoped no inf guard diag traces, 0 build processes
+14:53:35Z waiting for the lease: 2 in the queue, held by: ultra-r2-mixed 2026-09-27T14:52:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf1, about 7 min, 0 build processes
+14:58:43Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-27T14:58:00Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf2, about 12 min, 3 build processes
+15:04:24Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-27T14:58:00Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf2, about 12 min, 0 build processes
+gbsa-opencl: xctrace pid 21422 recording 15:04:54Z
+captured gbsa-opencl 15:04:59Z: Target app exited, ending recording...
+saved gbsa-opencl 15:05:37Z: Output file saved as: gbsa-opencl.trace
+exported gbsa-opencl 15:05:45Z, rows 152861, releasing
+rf-opencl: xctrace pid 27125 recording 15:05:47Z
+captured rf-opencl 15:05:51Z: Target app exited, ending recording...
+15:05:57Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(1) OpenCL shader census, 9 tests + stmv Metal). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved rf-opencl 15:06:19Z: Output file saved as: rf-opencl.trace
+exported rf-opencl 15:06:25Z, rows 78324, releasing
+pme-opencl: xctrace pid 32174 recording 15:06:27Z
+captured pme-opencl 15:06:30Z: Target app exited, ending recording...
+saved pme-opencl 15:07:00Z: Output file saved as: pme-opencl.trace
+exported pme-opencl 15:07:06Z, rows 106128, releasing
+amber20-dhfr-opencl: xctrace pid 36675 recording 15:07:08Z
+captured amber20-dhfr-opencl 15:07:14Z: Target app exited, ending recording...
+saved amber20-dhfr-opencl 15:07:56Z: Output file saved as: amber20-dhfr-opencl.trace
+exported amber20-dhfr-opencl 15:08:03Z, rows 110741, releasing
+apoa1rf-opencl: xctrace pid 42679 recording 15:08:05Z
+captured apoa1rf-opencl 15:08:11Z: Target app exited, ending recording...
+saved apoa1rf-opencl 15:08:39Z: Output file saved as: apoa1rf-opencl.trace
+exported apoa1rf-opencl 15:08:44Z, rows 46978, releasing
+apoa1pme-opencl: xctrace pid 46589 recording 15:08:46Z
+captured apoa1pme-opencl 15:08:52Z: Target app exited, ending recording...
+saved apoa1pme-opencl 15:09:23Z: Output file saved as: apoa1pme-opencl.trace
+exported apoa1pme-opencl 15:09:28Z, rows 52049, releasing
+apoa1ljpme-opencl: xctrace pid 50705 recording 15:09:30Z
+captured apoa1ljpme-opencl 15:09:36Z: Target app exited, ending recording...
+saved apoa1ljpme-opencl 15:10:05Z: Output file saved as: apoa1ljpme-opencl.trace
+exported apoa1ljpme-opencl 15:10:09Z, rows 51469, releasing
+amber20-cellulose-opencl: xctrace pid 55000 recording 15:10:11Z
+captured amber20-cellulose-opencl 15:10:26Z: Target app exited, ending recording...
+15:11:25Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(1) OpenCL shader census, 9 tests + stmv Metal). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved amber20-cellulose-opencl 15:11:35Z: Output file saved as: amber20-cellulose-opencl.trace
+exported amber20-cellulose-opencl 15:11:40Z, rows 30403, releasing
+amber20-stmv-opencl: xctrace pid 62546 recording 15:11:42Z
+captured amber20-stmv-opencl 15:12:12Z: Target app exited, ending recording...
+15:13:12Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(1) OpenCL shader census, 9 tests + stmv Metal). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+failed: amber20-stmv-opencl, xctrace 62546 still saving after 120s, stopped it
+failed amber20-stmv opencl
+amber20-stmv-metal: xctrace pid 76534 recording 15:14:30Z
+captured amber20-stmv-metal 15:14:55Z: Target app exited, ending recording...
+15:15:55Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-infra (M0(1) OpenCL shader census, 9 tests + stmv Metal). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved amber20-stmv-metal 15:16:34Z: Output file saved as: amber20-stmv-metal.trace
+exported amber20-stmv-metal 15:16:39Z, rows 23270, releasing
+census done 15:16:39Z

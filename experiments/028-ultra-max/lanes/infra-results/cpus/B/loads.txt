@@ -1,0 +1,7 @@
+2026-09-24T23:09:22Z round 1 pme cpu load { 5.10 5.05 5.74 } vm 8% top superwhisper 22.5%, sysmond 10.1%, python 8.1%, com.apple.Virtualization.VirtualMachine 7.8%,  claude 3.6%
+2026-09-24T23:09:29Z round 1 pme cpu cpu threads 28, 1 samples: benchmark 0% to 0%, busiest other 44% (python), VM up to 8% CPU BUSY
+2026-09-24T23:09:29Z round 1 pme metal load { 4.85 5.00 5.71 } vm 3% top python 34.1%, superwhisper 20.9%, sysmond 8.8%, com.apple.Virtualization.VirtualMachine 4.9%,  claude 4.5%
+2026-09-24T23:09:36Z rerun round 1 pme: a build or a busy CPU overlapped it
+2026-09-24T23:09:36Z round 1 pme cpu load { 4.87 5.00 5.71 } vm 5% top python 42.7%, superwhisper 12.9%, sysmond 7.9%, com.apple.Virtualization.VirtualMachine 4.7%,  claude 3.1%
+2026-09-24T23:09:43Z round 1 pme cpu cpu threads 28, 1 samples: benchmark 0% to 0%, busiest other 42% (python), VM up to 4% CPU BUSY
+2026-09-24T23:09:43Z round 1 pme metal load { 5.04 5.03 5.71 } vm 6% top python 58.0%, superwhisper 21.4%, com.apple.Virtualization.VirtualMachine 5.5%,  claude 3.7%, sysmond 3.5%

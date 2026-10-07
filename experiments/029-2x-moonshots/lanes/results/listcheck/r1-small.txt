@@ -1,0 +1,9 @@
+test              atoms precision steps       pairs     tiles   single excltiles uncovered duplicate excluded overflow  verdict
+pme               23558    single   100     3473254     12032        0      1253         0         0        0        0  PASS  (0 s check)
+pme               23558    single  1000     3474405     12408        0      1253         0         0        0        0  PASS  (0 s check)
+pme               23558     mixed   100     3473254     12031        0      1253         0         0        0        0  PASS  (0 s check)
+pme               23558     mixed  1000     3474870     12296        0      1253         0         0        0        0  PASS  (0 s check)
+apoa1pme          92224    single   100    13443549     45596        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224    single  1000    13480391     46691        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224     mixed   100    13443541     45596        0      5213         0         0        0        0  PASS  (1 s check)
+apoa1pme          92224     mixed  1000    13470229     46677        0      5213         0         0        0        0  PASS  (1 s check)

@@ -1,0 +1,7 @@
+rf aggregate diagnostic, 2x10 s, host wall clock, median ns/day
+case total_ns_day common_span_ns_day minimum_overlap
+f1 1184.390435 1184.390435 1.000000000 # 7484d7bef Metal single, 1 process
+f4 1495.269223 1492.587330 0.994977164 # 7484d7bef Metal single, 4 processes
+b1 696.555421 696.555421 1.000000000 # 6df2b8bcb Metal single, 1 process
+b4 1178.266784 1178.227180 0.997466931 # 6df2b8bcb Metal single, 4 processes
+o4 1228.564235 1228.292648 0.997759281 # 6df2b8bcb OpenCL single, 4 processes

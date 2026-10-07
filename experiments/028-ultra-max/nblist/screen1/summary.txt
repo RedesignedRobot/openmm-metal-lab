@@ -1,0 +1,42 @@
+median ns/day, host clock
+test                        base          sort
+gbsa                     1244.16       1296.56
+rf                        711.61        772.98
+pme                       538.21        593.03
+apoa1rf                   300.23        300.55
+apoa1pme                  194.46        200.49
+apoa1ljpme                144.79        160.51
+
+rounds, base:
+  gbsa               1245.97 1242.34   spread 0.3%
+  rf                 718.78 704.44   spread 2.0%
+  pme                536.40 540.03   spread 0.7%
+  apoa1rf            300.19 300.26   spread 0.0%
+  apoa1pme           195.18 193.74   spread 0.7%
+  apoa1ljpme         145.59 143.99   spread 1.1%
+rounds, sort:
+  gbsa               1297.40 1295.71   spread 0.1%
+  rf                 765.01 780.95   spread 2.1%
+  pme                590.72 595.34   spread 0.8%
+  apoa1rf            300.83 300.28   spread 0.2%
+  apoa1pme           201.39 199.60   spread 0.9%
+  apoa1ljpme         160.29 160.73   spread 0.3%
+
+test                                         sort/base
+gbsa                       1.042 (rounds 1.041..1.043)
+rf                         1.086 (rounds 1.064..1.109)
+pme                        1.102 (rounds 1.101..1.102)
+apoa1rf                    1.001 (rounds 1.000..1.002)
+apoa1pme                   1.031 (rounds 1.030..1.032)
+apoa1ljpme                 1.109 (rounds 1.101..1.116)
+
+1 minute load before 24 runs: 3.00 to 8.63
+Background VM CPU before 24 runs: 2% to 17%
+runs with no result: 0
+runs that overlapped a build: 6
+  2026-09-24T22:58:15Z round 1 apoa1rf base BUILD RUNNING during the run
+  2026-09-24T22:58:15Z round 1 apoa1rf sort load { 6.45 6.70 6.98 } BUILD RUNNING vm 6%
+  2026-09-24T22:58:34Z round 1 apoa1pme base load { 7.37 6.89 7.05 } BUILD RUNNING vm 8%
+  2026-09-24T22:58:53Z round 1 apoa1pme sort load { 8.41 7.14 7.13 } BUILD RUNNING vm 17%
+  2026-09-24T22:59:12Z round 1 apoa1ljpme base load { 8.63 7.28 7.18 } BUILD RUNNING vm 6%
+  2026-09-24T22:59:31Z round 1 apoa1ljpme sort load { 7.14 7.03 7.09 } BUILD RUNNING vm 5%

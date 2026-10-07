@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-int028/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-int028/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-int028/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-int028/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib
+window A pme single Metal steps 20 host_s 0.008346 us_per_step 417.31 ns_per_day 828.17 cpu_per_host 0.16
+window B pme single Metal steps 20 host_s 0.008331 us_per_step 416.57 ns_per_day 829.63 cpu_per_host 0.14
+window C pme single Metal steps 20 host_s 0.008500 us_per_step 425.02 ns_per_day 813.14 cpu_per_host 0.15

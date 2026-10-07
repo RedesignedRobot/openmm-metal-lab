@@ -1,0 +1,4 @@
++ set -eu
++ '[' /tmp/openmm-metal-bench/ultra-m29-unified '!=' --locked ']'
++ '[' 1 -eq 1 ']'
++ exec /tmp/openmm-metal-bench/env/bin/python3 /tmp/openmm-metal-bench/ultra-tools/locked.py /tmp/openmm-metal-bench/ultra-m29-unified/.build.lock /tmp/openmm-metal-bench/ultra-tools/build.sh --locked /tmp/openmm-metal-bench/ultra-m29-unified

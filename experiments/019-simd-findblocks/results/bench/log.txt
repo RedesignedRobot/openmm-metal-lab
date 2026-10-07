@@ -13,7 +13,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 34856
 elapsed_time: 60.182264
 ns_per_day: 200.16251964199944
@@ -34,7 +34,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 38056
 elapsed_time: 60.543328
 ns_per_day: 217.2353921475872
@@ -55,7 +55,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 24910
 elapsed_time: 60.233621
 ns_per_day: 142.92509493991736
@@ -76,7 +76,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 23649
 elapsed_time: 60.584307
 ns_per_day: 134.904479471887
@@ -97,7 +97,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 11703
 elapsed_time: 68.744144
 ns_per_day: 58.83492854314978
@@ -118,7 +118,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 13961
 elapsed_time: 65.275688
 ns_per_day: 73.91605891614653
@@ -139,7 +139,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8273
 elapsed_time: 63.250247
 ns_per_day: 45.20375706991309
@@ -160,7 +160,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7408
 elapsed_time: 65.681914
 ns_per_day: 38.97883974574796
@@ -181,7 +181,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8811
 elapsed_time: 64.727708
 ns_per_day: 47.04448363906225
@@ -202,7 +202,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 10219
 elapsed_time: 62.890999
 ns_per_day: 56.15567340566491
@@ -223,7 +223,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7237
 elapsed_time: 62.548017
 ns_per_day: 39.986994311905995
@@ -244,7 +244,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 6459
 elapsed_time: 63.698536
 ns_per_day: 35.04366882152519
@@ -265,7 +265,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1834
 elapsed_time: 60.307848
 ns_per_day: 10.509915724401239
@@ -286,7 +286,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 2111
 elapsed_time: 59.532644
 ns_per_day: 12.254816030008676
@@ -307,7 +307,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1563
 elapsed_time: 59.015798
 ns_per_day: 9.153020348890308
@@ -328,7 +328,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1420
 elapsed_time: 60.407944
 ns_per_day: 8.123964622931048
@@ -373,7 +373,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 34987
 elapsed_time: 60.551529
 ns_per_day: 199.68954376032355
@@ -394,7 +394,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 38084
 elapsed_time: 60.718894
 ns_per_day: 216.76663609847702
@@ -415,7 +415,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 24890
 elapsed_time: 60.343001
 ns_per_day: 142.55147833963377
@@ -436,7 +436,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 23553
 elapsed_time: 60.413038
 ns_per_day: 134.7377498214872
@@ -457,7 +457,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 11666
 elapsed_time: 68.556431
 ns_per_day: 58.8095024958344
@@ -478,7 +478,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 13895
 elapsed_time: 64.910833
 ns_per_day: 73.98013209905963
@@ -499,7 +499,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8270
 elapsed_time: 63.33341
 ns_per_day: 45.12802958185892
@@ -520,7 +520,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7435
 elapsed_time: 65.880273
 ns_per_day: 39.00311706358593
@@ -541,7 +541,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8951
 elapsed_time: 65.870202
 ns_per_day: 46.96305015126565
@@ -562,7 +562,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 10251
 elapsed_time: 63.154489
 ns_per_day: 56.096496956851304
@@ -583,7 +583,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7215
 elapsed_time: 62.554897
 ns_per_day: 39.86105196528418
@@ -604,7 +604,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 6481
 elapsed_time: 63.969909
 ns_per_day: 35.01386253339832
@@ -625,7 +625,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1784
 elapsed_time: 58.667586
 ns_per_day: 10.509217133972411
@@ -646,7 +646,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 2159
 elapsed_time: 60.646499
 ns_per_day: 12.303272444465424
@@ -667,7 +667,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1601
 elapsed_time: 60.458199
 ns_per_day: 9.151870369145465
@@ -688,7 +688,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1426
 elapsed_time: 60.534951
 ns_per_day: 8.141174509251687
@@ -733,7 +733,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 34968
 elapsed_time: 60.593039
 ns_per_day: 199.444375120383
@@ -754,7 +754,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 38016
 elapsed_time: 60.504299
 ns_per_day: 217.1470427250136
@@ -775,7 +775,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 24894
 elapsed_time: 60.368779
 ns_per_day: 142.51350685757612
@@ -796,7 +796,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 23569
 elapsed_time: 60.448194
 ns_per_day: 134.75086451714336
@@ -817,7 +817,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 11691
 elapsed_time: 68.623125
 ns_per_day: 58.878251318342016
@@ -838,7 +838,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 13915
 elapsed_time: 65.000616
 ns_per_day: 73.98428347202123
@@ -859,7 +859,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8266
 elapsed_time: 63.308876
 ns_per_day: 45.12368218320603
@@ -880,7 +880,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7455
 elapsed_time: 66.114781
 ns_per_day: 38.969319130014206
@@ -901,7 +901,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8965
 elapsed_time: 65.95525
 ns_per_day: 46.97585105052288
@@ -922,7 +922,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 10252
 elapsed_time: 63.141511
 ns_per_day: 56.11350035636618
@@ -943,7 +943,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7216
 elapsed_time: 62.379808
 ns_per_day: 39.97847508604066
@@ -964,7 +964,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 6563
 elapsed_time: 64.709881
 ns_per_day: 35.05141355460073
@@ -985,7 +985,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1898
 elapsed_time: 62.396054
 ns_per_day: 10.512664791270293
@@ -1006,7 +1006,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 2104
 elapsed_time: 59.108774
 ns_per_day: 12.301767585299602
@@ -1027,7 +1027,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1563
 elapsed_time: 58.970615
 ns_per_day: 9.160033348812792
@@ -1048,7 +1048,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1424
 elapsed_time: 60.728645
 ns_per_day: 8.10382645619707

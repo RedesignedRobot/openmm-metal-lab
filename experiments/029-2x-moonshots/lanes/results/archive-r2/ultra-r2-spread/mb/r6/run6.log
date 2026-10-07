@@ -1,0 +1,6 @@
+17:37:44Z waiting for the lease: 6 in the queue, held by: r2-single-int 2026-09-27T17:37:29Z s4 bf7a5624d (s3m on nf): repro bitwise, constraints, drift, ctests, 0 build processes
+17:42:48Z waiting for the lease: 5 in the queue, held by: ultra-r2-single-int 2026-09-27T17:41:30Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s4, about 11 min, 0 build processes
+17:47:52Z waiting for the lease: 5 in the queue, held by: ultra-r2-single-int 2026-09-27T17:41:30Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s4, about 11 min, 0 build processes
+17:52:56Z waiting for the lease: 4 in the queue, held by: ultra-r2-bonded 2026-09-27T17:50:29Z bonded ctests 44 (v1 88eca55da), 0 build processes
+17:58:01Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T17:57:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/s1, about 11 min, 0 build processes
+18:03:34Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T17:57:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/s1, about 11 min, 0 build processes

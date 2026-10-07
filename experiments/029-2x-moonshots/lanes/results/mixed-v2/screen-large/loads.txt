@@ -1,0 +1,20 @@
+2026-09-26T21:03:39Z round 1 amber20-dhfr baseS load { 14.40 9.78 8.21 } vm 6% top  node 206.1%, node 98.7%, superwhisper 22.9%,  claude 22.9%, sysmond 7.0%
+2026-09-26T21:03:57Z round 1 amber20-dhfr baseM load { 17.11 10.69 8.56 } vm 6% top node 100.0%,  codex 90.3%, superwhisper 21.8%, powermetrics 6.1%, WindowServer 4.8%
+2026-09-26T21:04:17Z round 1 amber20-dhfr mineS load { 12.35 10.08 8.41 } vm 11% top ffmpeg 216.8%, node 91.9%, chrome-headless-shell 67.8%, chrome-headless-shell 66.3%, chrome-headless-shell 59.1%
+2026-09-26T21:04:34Z round 1 amber20-dhfr mineM load { 10.59 9.80 8.33 } vm 5% top chrome-headless-shell 100.8%, node 99.1%, chrome-headless-shell 35.7%, superwhisper 20.9%, chrome-headless-shell 16.0%
+2026-09-26T21:04:54Z round 1 amber20-dhfr opencl load { 12.52 10.27 8.53 } vm 6% top node 102.7%, superwhisper 33.9%,  node 28.3%, WindowServer 26.3%, chrome-headless-shell 18.6%
+2026-09-26T21:05:15Z round 1 apoa1pme baseS load { 10.20 9.88 8.43 } vm 6% top node 104.0%, Paste 23.6%, superwhisper 23.5%, WindowServer 23.5%, coreduetd 6.2%
+2026-09-26T21:05:33Z round 1 apoa1pme baseM load { 28.70 14.14 10.00 } vm 12% top  ffmpeg 1352.4%,  ffmpeg 836.2%,  ffmpeg 339.9%, node 100.7%, superwhisper 12.9%
+2026-09-26T21:05:52Z round 1 apoa1pme mineS load { 25.26 14.39 10.18 } vm 10% top node 99.7%, superwhisper 18.6%, opendirectoryd 13.3%, powermetrics 13.1%,  codex 10.3%
+2026-09-26T21:06:11Z round 1 apoa1pme mineM load { 22.80 14.34 10.24 } vm 12% top  ffmpeg 1657.6%, node 254.5%, WindowServer 16.6%, superwhisper 16.0%, com.apple.Virtualization.VirtualMachine 7.3%
+2026-09-26T21:06:31Z round 1 apoa1pme opencl load { 19.17 14.10 10.25 } vm 33% top node 102.0%, io.tailscale.ipn.macsys.network-extension 45.0%, com.apple.Virtualization.VirtualMachine 28.7%, superwhisper 20.1%,  sshd-session: user@notty 4.5%
+2026-09-26T21:06:50Z round 2 amber20-dhfr opencl load { 14.73 13.41 10.09 } vm 8% top node 98.5%,  ffmpeg 43.2%, superwhisper 17.0%, WindowServer 8.1%, iStat Menus Menubar 4.7%
+2026-09-26T21:07:10Z round 2 amber20-dhfr mineM load { 11.84 12.83 9.96 } vm 5% top node 99.7%, com.apple.Safari.SafeBrowsing.Service 96.4%, superwhisper 19.7%, WindowServer 18.9%,  claude 4.2%
+2026-09-26T21:07:29Z round 2 amber20-dhfr mineS load { 9.66 12.28 9.83 } vm 7% top node 120.4%, io.tailscale.ipn.macsys.network-extension 23.8%, WindowServer 21.3%, superwhisper 18.7%, MenuBarAgent 7.1%
+2026-09-26T21:07:47Z round 2 amber20-dhfr baseM load { 7.88 11.71 9.68 } vm 8% top node 101.3%, node 94.3%, node 26.0%, superwhisper 16.8%, node 15.4%
+2026-09-26T21:08:07Z round 2 amber20-dhfr baseS load { 11.03 12.17 9.88 } vm 7% top node 98.5%, superwhisper 16.8%, WindowServer 13.2%, sysmond 6.8%,  claude 3.9%
+2026-09-26T21:08:24Z round 2 apoa1pme opencl load { 9.38 11.71 9.76 } vm 7% top node 261.5%, superwhisper 17.9%, com.apple.Virtualization.VirtualMachine 3.4%, WindowServer 3.4%, com.apple.Virtualization.VirtualMachine 3.2%
+2026-09-26T21:08:43Z round 2 apoa1pme mineM load { 8.62 11.38 9.69 } vm 7% top node 102.0%, superwhisper 18.6%, sysmond 7.0%, com.apple.Virtualization.VirtualMachine 4.4%, WindowServer 3.9%
+2026-09-26T21:09:02Z round 2 apoa1pme mineS load { 6.66 10.76 9.51 } vm 7% top node 179.5%, superwhisper 21.1%, WindowServer 18.6%,  claude 5.6%, ghostty 3.6%
+2026-09-26T21:09:21Z round 2 apoa1pme baseM load { 6.31 10.48 9.43 } vm 10% top node 200.0%, superwhisper 17.6%, com.apple.Virtualization.VirtualMachine 7.1%, sysmond 6.5%, WindowServer 3.7%
+2026-09-26T21:09:40Z round 2 apoa1pme baseS load { 5.24 9.96 9.27 } vm 8% top node 197.9%, superwhisper 20.0%, sysmond 6.2%, com.apple.Virtualization.VirtualMachine 4.5%, com.apple.Virtualization.VirtualMachine 3.5%

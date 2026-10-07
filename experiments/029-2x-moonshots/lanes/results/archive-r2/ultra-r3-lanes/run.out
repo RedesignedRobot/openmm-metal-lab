@@ -1,0 +1,7 @@
+== build ok 15:19Z
+program_source:934:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+
+FAIL
+gate exit=1

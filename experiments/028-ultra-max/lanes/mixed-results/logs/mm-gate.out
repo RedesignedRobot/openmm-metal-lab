@@ -1,0 +1,22 @@
+23:45:38Z waiting for the lease: 49 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 15 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-mixed/mm, 5fbce452a1316efc7a6d5e1f26bc73a2f4907788, logs in /tmp/openmm-metal-bench/ultra-mixed/mm/gate-20260924T234814Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.560e-02  6.544e-07  ok
+gbsa            2489     mixed  2.467e-05  8.554e-02  6.311e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.341e-01  1.131e-07  ok
+rf             23558     mixed  2.213e-05  7.341e-01  1.069e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.916e-01  1.325e-06  ok
+pme            23558     mixed  2.048e-05  3.916e-01  1.365e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.990e-05  1.327e+00  1.257e-08  ok
+apoa1rf        92224     mixed  5.990e-05  1.327e+00  1.497e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.202e-01  7.471e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.202e-01  7.346e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  7.495e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  7.671e-07  ok
+PASS

@@ -1,0 +1,40 @@
+# Experiment helper files
+
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/build-final.sh`: Build the final precision guard outside GPU leases.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/capture-md100.py`: Capture the PME state after the unchanged md100 force evaluation for diagnosis.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/check-md-baseline.sh`: Measure the frozen int028 md100 control and original candidate force determinism.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/compile-record-counts.py`: Compile the read-only observer against the frozen record candidate headers and libraries.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/confirm-selected.sh`: Queue the selected quick gate and three-round performance confirmation.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/confirm.sh`: Run all nine single/mixed confirmations with split STMV holds and raw ratio tables.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/device-memory.swift`: Query public device limits and compute prototype buffer capacities on each chip.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/diagnose-pme.sh`: Compare candidate and int028 forces at one captured PME trajectory state.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/finish-final.sh`: Wait for the final build, queue its checks and write a one-line verdict.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/force-spread.py`: Measure fresh-process default and deterministic force spread at identical positions.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/m2-memory.py`: Run the public memory query on the designated M2 under its lock and lease.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/m2-memory.sh`: Load the designated M2 connection environment for the public memory query.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/m2-ratio-table.py`: Join M2 paired-check medians with its frozen OpenCL-single denominator.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/measure-blocks.sh`: Run the dense prototype gate and three-test screen.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/measure-maxbits.sh`: Run the original MAX_BITS gate and all-nine-test screen.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/measure-records.sh`: Run the record prototype gate, smoke and large-system screen.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/pme-cutoff-diagnostic.py`: Inspect near-cutoff pairs without changing force-gate rules or tolerances.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/pme-force-diagnostic.py`: Capture or reevaluate a PME state and separate force-group contributions.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/profile-records.sh`: Keep paired sampled Metal captures and their exports inside one timing lease.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/ratio-table.py`: Require all expected raw arms and rounds before printing the 18-row table.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/ready-waiter.sh`: Wait for the authorized bench readiness and run the original gate and screen.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-allocated-memory.swift`: Check actual public MTLBuffer allocatedSize against the strict memory cap.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.cpp`: Read live tile counts through existing C++ accessors without modifying kernels.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.py`: Collect live tile counts at steps 1 and 100 on the three screened systems.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-counts.sh`: Lease the live-count and actual-allocation diagnostics.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-memory.py`: Retrieve benchmark atom/exclusion counts and lease the public device query.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/record-screen.sh`: Compare record accumulation with int028, MAX_BITS-only and OpenCL single.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/screen.sh`: Run the original MAX_BITS screen arms through ab.sh.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/smoke-arms.sh`: Run a force-only single-step check across frozen baseline and candidate arms.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/smoke.py`: Check finite forces after one step on a standard system.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/step-a-screen.sh`: Compare dense accumulation with int028, MAX_BITS-only and OpenCL single.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/summarize-pme-diagnostic.py`: Summarize same-position Reference errors and candidate-minus-int028 forces.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/validate-final.sh`: Validate the exact final source with md100, deterministic forces and state capture.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/validate-selected.sh`: Run selected md100/determinism checks and capture-state diagnosis.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/validate.sh`: Run the original candidate md100 and determinism checks.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/profile-tail.py`: Inspect the final 200 force intervals in existing shader traces without another GPU run.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/repair-apoa1pme.sh`: Replace the one build-overlapped confirmation round with all five paired arms, retaining original raw files.
+- `/tmp/openmm-metal-bench/ultra-m29-nonbonded/repair-dhfr.sh`: Replace the build-overlapped DHFR round with all five paired arms and preserve the original data.

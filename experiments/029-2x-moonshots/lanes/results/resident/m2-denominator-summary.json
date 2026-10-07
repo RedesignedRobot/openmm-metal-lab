@@ -1,0 +1,80 @@
+{
+  "clock": "benchmark.py host wall time",
+  "rounds": 3,
+  "seconds": 30,
+  "commit": "7484d7bef401f813dc871c1e156578954606d4ea",
+  "rows": [
+    {
+      "test": "gbsa",
+      "metal-single": 453.9644284749307,
+      "metal-mixed": 375.01933163132077,
+      "opencl-single": 374.0298622981896,
+      "single/opencl": 1.2137117226030858,
+      "mixed/opencl": 1.0026454287020066
+    },
+    {
+      "test": "rf",
+      "metal-single": 291.83392089291675,
+      "metal-mixed": 231.31309408109925,
+      "opencl-single": 253.03978849943354,
+      "single/opencl": 1.153312380726915,
+      "mixed/opencl": 0.9141372408379842
+    },
+    {
+      "test": "pme",
+      "metal-single": 238.6533896083635,
+      "metal-mixed": 195.80193117642713,
+      "opencl-single": 194.0866021149176,
+      "single/opencl": 1.2296232043212243,
+      "mixed/opencl": 1.0088379570914117
+    },
+    {
+      "test": "apoa1rf",
+      "metal-single": 78.56814822593765,
+      "metal-mixed": 63.920265002869954,
+      "opencl-single": 59.10538758686824,
+      "single/opencl": 1.3292891127812103,
+      "mixed/opencl": 1.0814625808675258
+    },
+    {
+      "test": "apoa1pme",
+      "metal-single": 59.75814242592338,
+      "metal-mixed": 50.75557932876851,
+      "opencl-single": 45.961028531097895,
+      "single/opencl": 1.3001915826468105,
+      "mixed/opencl": 1.1043177437690836
+    },
+    {
+      "test": "apoa1ljpme",
+      "metal-single": 44.70928747765386,
+      "metal-mixed": 39.552676560601384,
+      "opencl-single": 33.961942354871375,
+      "single/opencl": 1.3164526048151932,
+      "mixed/opencl": 1.164617622493788
+    },
+    {
+      "test": "amber20-dhfr",
+      "metal-single": 247.66070908460875,
+      "metal-mixed": 201.6037762869507,
+      "opencl-single": 207.02846010524607,
+      "single/opencl": 1.196264073831717,
+      "mixed/opencl": 0.9737974005335419
+    },
+    {
+      "test": "amber20-cellulose",
+      "metal-single": 13.273881687707867,
+      "metal-mixed": 11.502402034911402,
+      "opencl-single": 10.282225673432226,
+      "single/opencl": 1.2909541289300472,
+      "mixed/opencl": 1.118668506239066
+    },
+    {
+      "test": "amber20-stmv",
+      "metal-single": 4.593069149163109,
+      "metal-mixed": 4.043099687868238,
+      "opencl-single": 3.698474332986746,
+      "single/opencl": 1.2418821210133755,
+      "mixed/opencl": 1.0931804100430744
+    }
+  ]
+}

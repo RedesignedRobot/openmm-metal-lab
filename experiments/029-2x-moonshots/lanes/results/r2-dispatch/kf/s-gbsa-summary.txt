@@ -1,0 +1,26 @@
+median ns/day, host clock
+test                    kc-mixed     kc-single      kf-mixed     kf-single      ki-mixed     ki-single
+gbsa                     1284.51       1686.14       1294.87       1709.38       1279.00       1685.30
+
+rounds, kc-mixed:
+  gbsa               1283.85 1285.18   spread 0.1%
+rounds, kc-single:
+  gbsa               1685.06 1687.21   spread 0.1%
+rounds, kf-mixed:
+  gbsa               1296.17 1293.57   spread 0.2%
+rounds, kf-single:
+  gbsa               1703.06 1715.71   spread 0.7%
+rounds, ki-mixed:
+  gbsa               1279.09 1278.91   spread 0.0%
+rounds, ki-single:
+  gbsa               1693.77 1676.82   spread 1.0%
+
+test                               kc-single/ki-single                   kc-mixed/ki-mixed                 kf-single/ki-single                   kf-mixed/ki-mixed                 kf-single/kc-single                   kf-mixed/kc-mixed
+gbsa                       1.000 (rounds 0.995..1.006)         1.004 (rounds 1.004..1.005)         1.014 (rounds 1.005..1.023)         1.012 (rounds 1.011..1.013)         1.014 (rounds 1.011..1.017)         1.008 (rounds 1.007..1.010)
+
+1 minute load before 24 runs: 3.77 to 11.73
+Background VM CPU before 24 runs: 4% to 122%
+runs with no result: 0
+runs that overlapped a build: 2
+  2026-09-27T16:54:02Z round 1 gbsa ki-single load { 8.23 9.65 11.72 } BUILD RUNNING vm 6%
+  2026-09-27T16:54:19Z round 1 gbsa kc-single load { 11.14 10.18 11.87 } BUILD RUNNING vm 9%

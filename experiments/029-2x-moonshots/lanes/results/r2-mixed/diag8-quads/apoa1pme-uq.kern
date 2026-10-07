@@ -1,0 +1,35 @@
+steps by computeNonbonded: a 2225, b 2325
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+integrateLangevinMiddleFusedQuads                 93.06       0.00    93.06    1.00    0.00
+integrateLangevinMiddleFused                       0.00      50.84   -50.84    0.00    1.00
+gridSpreadCharge                                 209.20     204.22     4.97    1.00    0.98
+computeNonbonded                                 368.20     370.70    -2.49    1.00    1.00
+VkFFT_main                                        58.08      55.73     2.34    6.01    6.00
+findBlocksWithInteractions                       115.15     113.89     1.26    1.00    1.00
+computeBondedForces                              105.81     104.81     1.00    1.00    1.00
+computeSortKeys                                    1.87       0.97     0.90    1.00    0.67
+sortBoxData                                        8.85       8.00     0.85    1.00    1.00
+assignElementsToBuckets2                          11.76      10.91     0.85    1.00    1.00
+findBlockBounds                                   18.41      17.70     0.70    1.00    1.00
+copyDataToBuckets                                  2.42       1.72     0.70    1.00    0.97
+reciprocalConvolution                              6.33       5.70     0.62    1.00    1.00
+sortBuckets                                        6.91       6.31     0.60    1.00    1.00
+clearThreeBuffers                                  3.21       2.62     0.59    1.00    1.00
+gridInterpolateForce                              37.38      36.92     0.47    1.00    1.00
+calcCenterOfMassMomentum                           7.50       7.22     0.28    1.00    1.00
+removeCenterOfMassMomentum                        13.41      13.15     0.26    1.00    1.00
+generateRandomNumbers                              2.61       2.44     0.17    0.25    0.25
+computeKineticEnergy                               0.65       0.61     0.03    0.00    0.00
+computeBucketPositions                             2.00       1.98     0.02    1.00    1.00
+computeRange                                       0.42       0.44    -0.02    0.31    0.33
+applyShakeToVelocities                             0.01       0.02    -0.01    0.00    0.00
+applySettleToVelocities                            0.01       0.02    -0.01    0.00    0.00
+gridEvaluateEnergy                                 0.02       0.02     0.00    0.00    0.00
+reduceEnergy                                       0.02       0.02     0.00    0.00    0.00
+copyInteractionCounts                              0.09       0.09     0.00    0.07    0.07
+copyDoubleBuffer                                   0.01       0.01    -0.00    0.00    0.00
+clearBuffer                                        0.00       0.00     0.00    0.00    0.00
+computeExclusionParameters                         0.00       0.00    -0.00    0.00    0.00
+computeParameters                                  0.00       0.00    -0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00     0.00    0.00    0.00
+total                                           1073.40    1017.07    56.33

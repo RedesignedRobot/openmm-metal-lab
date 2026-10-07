@@ -1,0 +1,26 @@
+2026-09-27T10:26:57Z round 1 rf base-single load { 17.02 17.13 15.31 } vm 8% top python 674.7%, node 104.9%, superwhisper 21.6%, sysmond 4.8%, com.apple.Virtualization.VirtualMachine 4.8%
+2026-09-27T10:27:14Z round 1 rf ki-single load { 15.61 16.81 15.23 } vm 6% top python 622.5%, node 134.1%, superwhisper 21.2%, Finder 14.3%, WindowServer 9.3%
+2026-09-27T10:27:30Z round 1 rf kx-single load { 14.37 16.48 15.14 } vm 5% top python 655.9%, node 104.4%, superwhisper 20.1%, WindowServer 18.3%, sysmond 10.8%
+2026-09-27T10:27:48Z round 1 rf base-mixed load { 13.31 16.09 15.03 } vm 9% top python 652.3%, node 102.9%, superwhisper 14.6%, WindowServer 8.7%, com.apple.Virtualization.VirtualMachine 4.7%
+2026-09-27T10:28:04Z round 1 rf base-mixed BUILD RUNNING during the run
+2026-09-27T10:28:04Z round 1 rf ki-mixed load { 14.55 16.22 15.09 } BUILD RUNNING vm 6% top node 130.4%, corespotlightd 104.6%, coreduetd 96.5%, python 75.5%,  (ld) 34.0%
+2026-09-27T10:28:21Z round 1 rf kx-mixed load { 17.47 16.83 15.33 } vm 4% top python 653.6%, node 108.9%, superwhisper 21.1%, Finder 20.8%, WindowServer 9.9%
+2026-09-27T10:28:37Z round 2 rf kx-mixed load { 16.44 16.63 15.30 } vm 6% top python 663.8%, node 99.4%, superwhisper 18.0%, WindowServer 10.3%,  claude 7.8%
+2026-09-27T10:28:53Z round 2 rf ki-mixed load { 15.29 16.37 15.23 } vm 10% top python 658.8%, node 98.9%, superwhisper 19.0%, WindowServer 11.3%, com.apple.Virtualization.VirtualMachine 6.9%
+2026-09-27T10:29:10Z round 2 rf base-mixed load { 14.37 16.11 15.15 } vm 6% top python 666.5%, node 100.0%, superwhisper 18.9%, WindowServer 12.2%, sysmond 4.8%
+2026-09-27T10:29:26Z round 2 rf kx-single load { 13.63 15.86 15.08 } vm 8% top python 658.8%, node 99.7%, superwhisper 18.4%, powermetrics 13.6%, WindowServer 9.9%
+2026-09-27T10:29:43Z round 2 rf ki-single load { 12.96 15.56 14.99 } vm 14% top python 645.8%, node 109.7%, node 99.1%, superwhisper 19.9%, Finder 17.2%
+2026-09-27T10:29:59Z round 2 rf base-single load { 12.90 15.42 14.95 } vm 7% top python 668.9%, node 100.0%, node 100.0%, superwhisper 21.6%, WindowServer 12.3%
+2026-09-27T10:30:15Z round 3 rf base-single load { 13.16 15.35 14.93 } vm 4% top python 664.8%, node 99.9%, superwhisper 16.5%, WindowServer 6.2%,  claude 5.8%
+2026-09-27T10:30:32Z round 3 rf ki-single load { 12.90 15.18 14.88 } vm 7% top python 666.8%, node 99.1%, superwhisper 14.9%,  claude 14.2%, WindowServer 11.2%
+2026-09-27T10:30:48Z round 3 rf kx-single load { 16.54 15.81 15.11 } vm 11% top python 109.8%, node 98.5%, mds_stores 52.4%, mds 52.3%, mdworker_shared 46.9%
+2026-09-27T10:31:05Z round 3 rf base-mixed load { 16.02 15.74 15.09 } vm 16% top python 325.6%,  node 247.4%,  node 236.6%,  node 212.6%,  node 195.5%
+2026-09-27T10:31:22Z round 3 rf ki-mixed load { 14.44 15.40 14.99 } vm 18% top python 581.0%, node 98.7%, Finder 96.0%, superwhisper 17.5%, com.apple.Virtualization.VirtualMachine 14.5%
+2026-09-27T10:31:39Z round 3 rf kx-mixed load { 14.75 15.43 15.00 } vm 4% top python 584.3%, node 97.4%, Finder 93.5%, superwhisper 21.7%, WindowServer 14.9%
+2026-09-27T10:31:56Z rerun round 1 rf: a build or a busy CPU overlapped it
+2026-09-27T10:31:56Z round 1 rf base-single load { 14.11 15.26 14.95 } vm 5% top python 590.9%, node 100.0%, Finder 92.8%, superwhisper 13.9%, WindowServer 10.3%
+2026-09-27T10:32:12Z round 1 rf ki-single load { 13.83 15.11 14.90 } vm 5% top python 555.4%, node 98.6%, Finder 86.5%, launchd 41.3%, superwhisper 16.4%
+2026-09-27T10:32:28Z round 1 rf kx-single load { 13.95 15.07 14.89 } vm 13% top python 586.9%, node 98.8%, Finder 96.5%, superwhisper 21.4%, corespotlightd 12.9%
+2026-09-27T10:32:45Z round 1 rf base-mixed load { 13.91 15.00 14.87 } vm 4% top python 570.6%, Finder 119.6%, node 99.0%, superwhisper 12.7%, WindowServer 8.5%
+2026-09-27T10:33:01Z round 1 rf ki-mixed load { 13.33 14.82 14.81 } vm 4% top python 563.9%, node 100.0%, spotlightknowledged.updater 76.1%, superwhisper 16.1%, cfprefsd 16.0%
+2026-09-27T10:33:17Z round 1 rf kx-mixed load { 11.53 14.31 14.62 } vm 6% top python 655.8%, node 99.0%, superwhisper 18.6%, WindowServer 13.7%, spotlightknowledged.updater 9.4%

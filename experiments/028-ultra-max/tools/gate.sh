@@ -13,9 +13,10 @@
 # then forces and every ctest part run inside the hold. Other correctness tickets at the head of the
 # queue still join it, up to 3 members. Don't call it inside your own lease.sh. It
 # refuses a tree whose src changed after build.sh. Logs go to <dir>/gate-<time>/. The last line is
-# PASS or FAIL.
+# PASS or FAIL. --merge-path queues the gate's ticket in the merge-path class (lease.sh): only for a full
+# gate of ultra-integrated or of a candidate the lead listed in ultra-tools/merge-queue.txt.
 #   /bin/sh -c 'nohup /tmp/openmm-metal-bench/ultra-tools/gate.sh --quick /tmp/openmm-metal-bench/ultra-<lane> > /tmp/openmm-metal-bench/ultra-<lane>/gate.out 2>&1 < /dev/null &'
-# usage: gate.sh [--quick] <dir>
+# usage: gate.sh [--quick | --merge-path] <dir>
 set -eu
 TOOLS=/tmp/openmm-metal-bench/ultra-tools
 BASE=/tmp/openmm-metal-bench/ultra-base
@@ -27,8 +28,15 @@ unset PYTHONPATH
 nice_value=$(ps -o nice= -p $$ | tr -d ' ')
 [ "$nice_value" = 0 ] || { echo "running at nice $nice_value, not 0: launch through /bin/sh -c 'nohup ...'" >&2; exit 2; }
 quick=0
-[ "${1:-}" = --quick ] && { quick=1; shift; }
-[ $# -eq 1 ] || { echo "usage: gate.sh [--quick] <dir>" >&2; exit 2; }
+merge_path_flag=""
+while :; do
+    case "${1:-}" in
+    --quick) quick=1; shift ;;
+    --merge-path) merge_path_flag=--merge-path; shift ;;
+    *) break ;;
+    esac
+done
+[ $# -eq 1 ] || { echo "usage: gate.sh [--quick | --merge-path] <dir>" >&2; exit 2; }
 dir="${1%/}"
 dir="${dir%/venv}"
 [ -x "$dir/venv/bin/python" ] && [ -f "$dir/build/CTestTestfile.cmake" ] || { echo "$dir has no venv or build; run build.sh" >&2; exit 2; }
@@ -40,7 +48,7 @@ if [ -z "${GATE_HELD:-}" ]; then
     quick_flag=""
     [ $quick = 1 ] && quick_flag=--quick
     export GATE_HELD=1
-    exec "$TOOLS/lease.sh" --correctness --cap $GATE_CAP_SECONDS "$lane" "gate.sh${quick_flag:+ $quick_flag} $dir" "$0" $quick_flag "$dir"
+    exec "$TOOLS/lease.sh" --correctness $merge_path_flag --cap $GATE_CAP_SECONDS "$lane" "gate.sh${quick_flag:+ $quick_flag} $dir" "$0" $quick_flag "$dir"
 fi
 out="$dir/gate-$(date -u +%Y%m%dT%H%M%SZ)"
 mkdir -p "$out"

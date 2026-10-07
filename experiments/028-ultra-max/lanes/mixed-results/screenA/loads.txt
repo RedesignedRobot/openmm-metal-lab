@@ -1,0 +1,24 @@
+2026-09-24T21:25:38Z round 1 gbsa base load { 5.47 7.97 7.46 } top spotlightknowledged 99.7%, superwhisper 23.7%,  claude 17.6%, mds_stores 5.0%, mdworker_shared 4.6%
+2026-09-24T21:25:54Z round 1 gbsa c1 load { 4.77 7.69 7.37 } top spotlightknowledged 99.6%, superwhisper 18.3%, Finder 7.4%,  claude 6.9%, syspolicyd 2.5%
+2026-09-24T21:26:15Z round 1 gbsa c2 load { 5.26 7.57 7.34 } top spotlightknowledged 96.7%, mediaanalysisd 43.5%, superwhisper 21.1%,  claude 14.2%, Finder 10.5%
+2026-09-24T21:26:35Z round 1 gbsa c3 load { 6.26 7.62 7.36 } BUILD RUNNING top spotlightknowledged 100.0%,  (clang) 71.5%, clang 50.1%, clang 49.1%, clang 48.5%
+2026-09-24T21:26:55Z round 1 gbsa c4 load { 9.46 8.26 7.59 } BUILD RUNNING top spotlightknowledged 99.3%, clang 97.8%, clang 89.8%, clang 82.9%, clang 81.6%
+2026-09-24T21:27:13Z round 1 gbsa c5 load { 10.70 8.59 7.72 } BUILD RUNNING top clang 100.0%, spotlightknowledged 99.7%, clang 98.8%,  (clang) 97.9%, clang 86.4%
+2026-09-24T21:27:34Z round 1 pme base load { 11.92 9.00 7.89 } BUILD RUNNING top clang 99.9%, spotlightknowledged 99.8%, clang 98.5%, clang 97.6%, clang 96.9%
+2026-09-24T21:27:52Z round 1 pme c1 load { 12.82 9.40 8.06 } BUILD RUNNING top spotlightknowledged 70.1%,  claude 15.6%, fseventsd 14.5%, superwhisper 13.5%, cmake 12.0%
+2026-09-24T21:28:13Z round 1 pme c2 load { 10.74 9.16 8.00 } BUILD RUNNING top photolibraryd 101.2%, clang 100.0%, spotlightknowledged 99.1%, com.apple.Virtualization.VirtualMachine 74.1%, superwhisper 19.4%
+2026-09-24T21:28:33Z round 1 pme c3 load { 8.88 8.84 7.92 } top spotlightknowledged 99.3%, superwhisper 22.0%,  claude 8.6%, Finder 7.7%, iStat Menus Menubar 6.9%
+2026-09-24T21:28:52Z round 1 pme c4 load { 7.14 8.45 7.80 } top spotlightknowledged 99.6%, backupd 46.9%, superwhisper 23.9%,  claude 6.3%, Finder 4.1%
+2026-09-24T21:29:11Z round 1 pme c5 load { 7.68 8.47 7.82 } top backupd 99.1%, spotlightknowledged 97.3%, io.tailscale.ipn.macsys.network-extension 20.0%, superwhisper 18.5%,  claude 15.5%
+2026-09-24T21:29:31Z round 2 gbsa c5 load { 7.25 8.31 7.77 } BUILD RUNNING top spotlightknowledged 99.1%, clang 88.5%, clang 86.8%, clang 86.5%, backupd 49.5%
+2026-09-24T21:29:51Z round 2 gbsa c4 load { 7.67 8.34 7.80 } BUILD RUNNING top clang 99.2%, spotlightknowledged 99.1%, clang 94.2%, clang 92.8%, clang 83.2%
+2026-09-24T21:30:10Z round 2 gbsa c3 load { 8.69 8.53 7.87 } BUILD RUNNING top tsgolint 571.3%, clang 99.9%, clang 95.7%, clang 95.7%, spotlightknowledged 89.0%
+2026-09-24T21:30:29Z round 2 gbsa c2 load { 9.35 8.68 7.94 } BUILD RUNNING top spotlightknowledged 99.0%, clang 98.3%, clang 97.0%, clang 91.8%, clang 76.9%
+2026-09-24T21:30:48Z round 2 gbsa c1 load { 9.04 8.66 7.95 } BUILD RUNNING top clang 100.0%, spotlightknowledged 99.6%, backupd 50.7%, superwhisper 23.1%, com.apple.Virtualization.VirtualMachine 11.0%
+2026-09-24T21:31:08Z round 2 gbsa base load { 8.31 8.51 7.91 } top corespotlightd 217.7%, spotlightknowledged 82.5%, backupd 62.7%, superwhisper 17.9%, fseventsd 9.3%
+2026-09-24T21:31:24Z round 2 pme c5 load { 8.47 8.55 7.94 } BUILD RUNNING top corespotlightd 350.4%, clang 99.1%, clang 96.7%, clang 74.5%, spotlightknowledged 67.8%
+2026-09-24T21:31:44Z round 2 pme c4 load { 8.34 8.51 7.94 } BUILD RUNNING top backupd 186.3%, clang 99.8%, spotlightknowledged 99.3%, clang 98.2%, clang 98.2%
+2026-09-24T21:32:05Z round 2 pme c3 load { 9.38 8.75 8.03 } BUILD RUNNING top clang 99.3%, spotlightknowledged 99.3%, backupd 45.3%, superwhisper 16.6%, com.apple.Virtualization.VirtualMachine 7.8%
+2026-09-24T21:32:24Z round 2 pme c2 load { 8.62 8.62 8.00 } top spotlightknowledged 98.0%, backupd 54.9%, superwhisper 22.3%, TGOnDeviceInferenceProviderService 14.8%, SystemUIServer 12.4%
+2026-09-24T21:32:43Z round 2 pme c1 load { 7.53 8.37 7.93 } top backupd 165.3%, spotlightknowledged 98.2%, superwhisper 16.3%, SystemUIServer 11.0%,  claude 8.2%
+2026-09-24T21:33:03Z round 2 pme base load { 6.48 8.07 7.83 } top backupd 163.1%, spotlightknowledged 97.9%, superwhisper 18.7%, SystemUIServer 11.7%,  claude 9.5%

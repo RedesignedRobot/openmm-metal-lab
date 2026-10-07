@@ -1,0 +1,168 @@
+== trunk forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.472e-05  8.604e-02  5.125e-07  ok
+gbsa            2489     mixed  2.472e-05  8.604e-02  5.106e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.341e-01  1.887e-07  ok
+rf             23558     mixed  2.208e-05  7.341e-01  1.836e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  2.241e-07  ok
+pme            23558     mixed  2.043e-05  3.918e-01  2.716e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.183e-01  5.651e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.167e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.130e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.754e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  9.640e-08  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.396e-01  1.787e-07  ok
+trunk forces exit=0
+== trunk md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.907e-06  8.845e-03  4.762e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.90687996e-06 raw_max_force=0.00884532443
+gbsa            2489     mixed  1.349e-05  1.360e-01  5.539e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.34868795e-05 raw_max_force=0.136038258
+rf             23558    single  1.052e-06  1.174e-02  2.288e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.05223169e-06 raw_max_force=0.011742944
+rf             23558     mixed  2.041e-05  2.864e-01  2.629e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.08086595e-05 raw_max_force=0.418494292
+# cutoff pair {'i': 9469, 'j': 13803, 'distance_minus_cutoff_nm': -5.060324936856375e-09, 'pair_force_norm': 0.45988642106694966}
+pme            23558    single  1.359e-06  1.615e-02  3.867e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.35916776e-06 raw_max_force=0.0161489796
+pme            23558     mixed  1.883e-05  3.001e-01  3.894e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.88347959e-05 raw_max_force=0.300136721
+apoa1rf        92224    single  1.574e-06  4.353e-02  2.085e-07  ok
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.25136218e-06 raw_max_force=0.4558563
+# cutoff pair {'i': 5200, 'j': 35822, 'distance_minus_cutoff_nm': -2.125918308060193e-08, 'pair_force_norm': 0.6417472116794763}
+apoa1rf        92224     mixed  5.256e-05  8.750e-01  1.751e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25574059e-05 raw_max_force=0.874955289
+apoa1pme       92224    single  5.253e-05  2.544e-01  2.205e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25281209e-05 raw_max_force=0.254398048
+apoa1pme       92224     mixed  7.429e-05  6.891e-01  2.472e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.42929802e-05 raw_max_force=0.689093469
+apoa1ljpme     92224    single  5.252e-05  2.513e-01  2.359e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25211093e-05 raw_max_force=0.251308858
+apoa1ljpme     92224     mixed  7.491e-05  7.702e-01  1.884e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.49139086e-05 raw_max_force=0.770158206
+trunk md100 exit=0
+== trunk ctest
+trunk ctest exit=0
+
+100% tests passed out of 2
+
+Total Test time (real) =  41.40 sec
+== lanes32 forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.472e-05  8.606e-02  5.205e-07  ok
+gbsa            2489     mixed  2.472e-05  8.606e-02  5.106e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.341e-01  1.657e-07  ok
+rf             23558     mixed  2.208e-05  7.341e-01  1.836e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  2.404e-07  ok
+pme            23558     mixed  2.043e-05  3.918e-01  2.717e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.183e-01  4.992e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.167e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.044e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.756e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  1.823e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.396e-01  1.683e-07  ok
+lanes32 forces exit=0
+== lanes32 md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.946e-06  7.763e-03  6.432e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.94563409e-06 raw_max_force=0.00776318134
+gbsa            2489     mixed  1.307e-05  8.258e-02  3.926e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.30699202e-05 raw_max_force=0.082582613
+rf             23558    single  1.052e-06  1.174e-02  2.220e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.05223169e-06 raw_max_force=0.011742944
+rf             23558     mixed  2.041e-05  2.864e-01  2.629e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.08086595e-05 raw_max_force=0.418494292
+# cutoff pair {'i': 9469, 'j': 13803, 'distance_minus_cutoff_nm': -5.060324936856375e-09, 'pair_force_norm': 0.45988642106694966}
+pme            23558    single  1.357e-06  1.698e-02  3.472e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.35724285e-06 raw_max_force=0.0169801264
+pme            23558     mixed  1.963e-05  3.342e-01  4.408e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.96265971e-05 raw_max_force=0.334174224
+apoa1rf        92224    single  1.574e-06  4.353e-02  2.085e-07  ok
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.25136218e-06 raw_max_force=0.4558563
+# cutoff pair {'i': 5200, 'j': 35822, 'distance_minus_cutoff_nm': -2.125918308060193e-08, 'pair_force_norm': 0.6417472116794763}
+apoa1rf        92224     mixed  5.256e-05  8.750e-01  1.751e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25574059e-05 raw_max_force=0.874955289
+apoa1pme       92224    single  5.253e-05  2.538e-01  2.179e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25269363e-05 raw_max_force=0.253844632
+apoa1pme       92224     mixed  7.447e-05  6.871e-01  2.975e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.44711381e-05 raw_max_force=0.687085251
+apoa1ljpme     92224    single  5.252e-05  2.512e-01  3.030e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25229075e-05 raw_max_force=0.251164321
+apoa1ljpme     92224     mixed  7.454e-05  7.794e-01  2.528e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.45350263e-05 raw_max_force=0.779431286
+lanes32 md100 exit=0
+== lanes32 ctest
+lanes32 ctest exit=0
+
+100% tests passed out of 2
+
+Total Test time (real) =  36.13 sec
+== fold forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.472e-05  8.604e-02  5.046e-07  ok
+gbsa            2489     mixed  2.472e-05  8.604e-02  5.106e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.341e-01  2.037e-07  ok
+rf             23558     mixed  2.208e-05  7.341e-01  1.836e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  2.599e-07  ok
+pme            23558     mixed  2.043e-05  3.918e-01  2.717e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.183e-01  5.065e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.167e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.273e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.754e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  9.067e-08  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.396e-01  1.701e-07  ok
+fold forces exit=0
+== fold md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.966e-06  9.056e-03  6.016e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.96623292e-06 raw_max_force=0.00905561904
+gbsa            2489     mixed  1.330e-05  1.391e-01  5.979e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.33017024e-05 raw_max_force=0.139147359
+rf             23558    single  1.052e-06  1.174e-02  2.149e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.05223169e-06 raw_max_force=0.011742944
+rf             23558     mixed  2.041e-05  2.864e-01  2.629e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.08086595e-05 raw_max_force=0.418494292
+# cutoff pair {'i': 9469, 'j': 13803, 'distance_minus_cutoff_nm': -5.060324936856375e-09, 'pair_force_norm': 0.45988642106694966}
+pme            23558    single  1.372e-06  2.418e-02  3.849e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.37162527e-06 raw_max_force=0.0241778196
+pme            23558     mixed  1.952e-05  3.388e-01  4.437e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.95197225e-05 raw_max_force=0.338758556
+apoa1rf        92224    single  1.574e-06  4.353e-02  2.214e-07  ok
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.25136218e-06 raw_max_force=0.4558563
+# cutoff pair {'i': 5200, 'j': 35822, 'distance_minus_cutoff_nm': -2.125918308060193e-08, 'pair_force_norm': 0.6417472116794763}
+apoa1rf        92224     mixed  5.256e-05  8.750e-01  1.751e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25574059e-05 raw_max_force=0.874955289
+apoa1pme       92224    single  5.254e-05  4.005e-01  2.202e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25365195e-05 raw_max_force=0.400508417
+apoa1pme       92224     mixed  7.442e-05  7.288e-01  1.862e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.44237517e-05 raw_max_force=0.72880506
+apoa1ljpme     92224    single  5.252e-05  2.549e-01  2.134e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25198247e-05 raw_max_force=0.25488252
+apoa1ljpme     92224     mixed  7.406e-05  6.723e-01  1.677e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.40607847e-05 raw_max_force=0.672344167
+fold md100 exit=0
+== fold ctest
+fold ctest exit=0
+
+100% tests passed out of 2
+
+Total Test time (real) =  37.93 sec

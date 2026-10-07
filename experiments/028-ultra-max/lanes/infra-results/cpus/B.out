@@ -1,0 +1,5 @@
+estimate: 1 rounds, 1 tests, 2 configurations, about 0 min 26 s
+cpu CPU mixed settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+metal Metal single settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+2026-09-24T23:09:36Z rerun round 1 pme: a build or a busy CPU overlapped it
+done /tmp/openmm-metal-bench/ultra-infra/cpus/B

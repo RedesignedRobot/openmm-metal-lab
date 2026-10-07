@@ -1,0 +1,23 @@
+M2 check 20260927T154346Z-685eedb75, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r2-single-int-p-bce69730f8: 685eedb75f09 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+apoa1rf            single      78.56      78.72  1.002  1.002..1.003      299      298     -1   -0.5      344      340  
+apoa1rf            mixed       63.97      65.02  1.016  1.016..1.017      300      300     -1   -0.2      346      346  
+apoa1pme           single      59.90      60.01  1.002  1.001..1.003      309      296    -13   -4.2      355      338  
+apoa1pme           mixed       50.74      51.30  1.011  1.009..1.013      296      298     +2   +0.7      351      356  
+apoa1ljpme         single      44.81      44.95  1.003  1.003..1.003      310      296    -14   -4.4      355      344  
+apoa1ljpme         mixed       39.56      40.02  1.012  1.010..1.014      299      305     +6   +1.9      352      354  
+amber20-cellulose  single      13.29      13.39  1.007  1.006..1.009     1500     1500     +0   +0.0     1512     1528  
+amber20-cellulose  mixed       11.47      11.57  1.008  1.005..1.011     1500     1500     +0   +0.0     1528     1528  
+amber20-stmv       single       4.58       4.62  1.008  1.008..1.008     3562     3562     +0   +0.0     2830     2696  
+amber20-stmv       mixed        4.05       4.14  1.022  1.022..1.023     3562     3562     +0   +0.0     2815     2823  
+
+1-minute load before 40 runs: 1.00 to 1.79; memory free 63% to 68%
+Spotlight CPU before 40 runs: 0% to 2%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r2-single-int-p-bce69730f8 685eedb75f09 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 1329 s; tests=apoa1rf,apoa1pme,apoa1ljpme,amber20-cellulose,amber20-stmv; rounds=2; seconds=15
