@@ -20,16 +20,18 @@ parser.add_argument('worktree')
 a = parser.parse_args()
 here = Path(__file__).resolve().parent
 host = os.environ['M2']
-root = '~/lab/ultra-m2.noindex'
 token = uuid.uuid4().hex
 source = Path(a.worktree).resolve()
 label = re.sub(r'[^A-Za-z0-9_.-]', '-', source.name)[:40]
 candidate = 'cand-' + label + '-' + hashlib.sha256(str(source).encode()).hexdigest()[:10]
-upload = f'{root}/uploads/{token}'
 ssh = ['ssh', '-o', 'ConnectTimeout=15', host]
 
 def remote(command):
     return subprocess.check_output(ssh + [command], text=True, timeout=60)
+
+# Absolute, because quoted paths and argv lists never expand ~.
+root = remote('cd && pwd').strip() + '/lab/ultra-m2.noindex'
+upload = f'{root}/uploads/{token}'
 
 if not a.baseline:
     print('Waiting for the M2 8ae6cf17b forces baseline', flush=True)

@@ -4,8 +4,8 @@ usage: bg.sh <log> /tmp/openmm-metal-bench/env/bin/python /tmp/openmm-metal-benc
 stop:  touch /tmp/openmm-metal-bench/ultra-lead/gpuclock.stop (ends within CHUNK s), or kill the pid in
        ultra-lead/gpuclock.pid (its root powermetrics child then dies on the next write, within 1 s).
 
-Runs one root `powermetrics --samplers cpu_power,gpu_power -i 1000` at a time, in CHUNK-sample runs, with the password piped
-from Keychain and the credential dropped after each run. Every 1 s sample is tagged with the lease hold running at
+Runs one root `powermetrics --samplers cpu_power,gpu_power -i 1000` at a time, in CHUNK-sample runs, through
+`sudo -n`, which needs the sudoers rule in the tools README. Every 1 s sample is tagged with the lease hold running at
 that moment (/tmp/openmm-lease pid, owner and correctness marker) and with the benchmark.py run in progress (tree,
 platform, precision, test, from its command line), and appended to ultra-lead/gpuclock.log:
     <UTC> freq=<MHz> active=<%> top=<% of active time at TOP_MHZ> power=<mW> pkg=<mW> hold=<pid|none> <kind> run=<run|-> <owner>
@@ -47,8 +47,7 @@ FLAG_MHZ = 1375
 DEEP_MHZ = 1330
 BUSY_PERCENT = 90.0
 CHUNK = 300
-POWERMETRICS = (f"security find-generic-password -s sudo-password -w | sudo -S -p '' /usr/bin/powermetrics "
-                f"--samplers cpu_power,gpu_power -i 1000 -n {CHUNK}; sudo -k")
+POWERMETRICS = ["sudo", "-n", "/usr/bin/powermetrics", "--samplers", "cpu_power,gpu_power", "-i", "1000", "-n", str(CHUNK)]
 BENCH = re.compile(r"bench\.noindex/([^/ ]+)/venv/bin/python.* benchmark\.py (.*)")
 
 
@@ -148,7 +147,7 @@ def main():
     sample, pkg = {}, None
     try:
         while not os.path.exists(STOP):
-            proc = subprocess.Popen(["/bin/sh", "-c", POWERMETRICS], stdout=subprocess.PIPE, text=True)
+            proc = subprocess.Popen(POWERMETRICS, stdout=subprocess.PIPE, text=True)
             for line in proc.stdout:
                 # The cpu_power section (with the combined line) comes before the GPU section of each sample.
                 if m := re.match(r"Combined Power \(CPU \+ GPU \+ ANE\): (\d+) mW", line):

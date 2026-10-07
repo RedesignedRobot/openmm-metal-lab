@@ -5,7 +5,7 @@ Per test and precision: median ns/day of base and candidate (benchmark.py's host
 medians with the lowest and highest single-round ratio, and the median peak memory footprint of each
 (from /usr/bin/time -l) with the candidate's delta. Flags:
   SLOWER  median ratio below SPEED_FLAG and every round's ratio below 1. Reported, never part of the
-          verdict: M2 speed is not gated (owner ruling R3-5, ROUND3 "Chip"). The verdict comes from the
+          verdict: M2 speed is not gated. The verdict comes from the
           forces gate, GROWTH and missing rows only.
   GROWTH  the candidate's lowest round above POOL_QUANTILE of the base footprints, and its median above the
           base median by FOOTPRINT_FLAG_MB and FOOTPRINT_FLAG_PCT percent. The base footprints are pooled

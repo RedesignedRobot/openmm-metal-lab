@@ -20,7 +20,7 @@ import statistics
 import subprocess
 import sys
 
-ROOT = Path("~/lab/ultra-m2.noindex")
+ROOT = Path("~/lab/ultra-m2.noindex").expanduser()
 HERE = Path(__file__).resolve().parent
 TESTS = ["gbsa", "rf", "pme", "apoa1rf", "apoa1pme", "apoa1ljpme", "amber20-dhfr", "amber20-cellulose", "amber20-stmv"]
 UNITS = [("fah-gbsa", "gbsa", []), ("fah-gbsa-obc", "gbsa", ["obc"]), ("fah-tip3p-hmr", "tip3p-hmr", []),

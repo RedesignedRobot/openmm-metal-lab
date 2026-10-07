@@ -2,7 +2,8 @@
 set -euo pipefail
 
 SDK_PATH=$(xcrun --show-sdk-path)
-METAL_REF_PATH="$HOME/code/metal-ref"
+# Point METAL_CPP_DIR at an unpacked metal-cpp (https://developer.apple.com/metal/cpp/).
+METAL_REF_PATH="${METAL_CPP_DIR:?set METAL_CPP_DIR to the metal-cpp directory}"
 
 clang++ -std=c++17 \
     -isysroot "${SDK_PATH}" \

@@ -29,10 +29,12 @@ import xml.etree.ElementTree as ET
 sys.dont_write_bytecode = True
 BENCH = Path('/tmp/openmm-metal-bench')
 TOOLS = BENCH / 'ultra-tools'
-CODE = Path('~/code/metal/openmm-metal')
-REPORTS = Path('~/.cdx/reports')
-ROUND3 = Path('~/code/metal/lab/experiments/029-2x-moonshots/ROUND3.md')
 HERE = Path(__file__).absolute()
+LAB_ROOT = Path(os.environ.get('LAB_ROOT', HERE.parents[3]))
+CODE = Path(os.environ.get('OPENMM_SRC', '~/openmm')).expanduser()
+# The campaign read private planning notes that are not published here.
+REPORTS = Path(os.environ.get('M029_REPORTS', LAB_ROOT / 'm029-reports'))
+ROUND3 = LAB_ROOT / 'experiments/029-2x-moonshots/ROUND3.md'
 PY = BENCH / 'env/bin/python3'
 HOLDOUT = BENCH / 'holdout'
 FLAGS = ('OPENMM_METAL_FOLD_ORDERED_FORCES', 'OPENMM_METAL_DEFER_BAROSTAT_ENERGIES',
@@ -60,7 +62,7 @@ ARMS = {
 }
 NEW_SCREENS = ('pme-energy-only', 'coop-shake')
 FAH_UNITS = ('tip4pew', 'tip3p-hmr')
-COMMIT_INPUTS = {'stack3': 'head-reviewed stack3', 'stack4': 'head-reviewed final stack4',
+COMMIT_INPUTS = {'stack3': 'reviewed stack3', 'stack4': 'reviewed final stack4',
                  'pme-base': 'lane/m029-pme-base5 9925fa322 (stack5 without PME energy-only)',
                  'reorder-diag': 'lane/m029-reorder-diag5 35930334d (adaptive reorder diagnostic on stack5)'}
 FIXED_COMMITS = {'pme-base': '9925fa322', 'reorder-diag': '35930334d'}
@@ -81,7 +83,7 @@ def commit_input(args, name):
 # reports/m029-scatter-fold-kill.py: >=5 us saved AND >=1% throughput.
 # reports/m029-baro-defer-r1.md:161: kill below 1% throughput.
 # reports/m029-pme-owner-r1.md:45: combined GPU replay >40 us is DEAD.
-# Device barostat: head's cdx question reply, 2026-10-03, recorded in ROUND3.md
+# Device barostat: threshold set on 2026-10-03, recorded in ROUND3.md
 # "m029 campaign": <1% tip4pew mixed is KILL, provisional. Same stack3 on/off.
 # Model: reports/m029-tip4pew-next-r1.md item 2, 15-18 us net, phase 1 ~8 us.
 # Mission: ROUND3.md:21, mixed/OpenCL single >=2. No cross-build projections.
@@ -139,7 +141,7 @@ def hazards(any_hour=False, idle=False, builders=False):
         if re.search(r'blender|remotion|ffmpeg|headless|ms-playwright|chrome for testing|chromium|davinci|unreal', line, re.I):
             errors.append('GPU process ' + line.strip())
     if not any_hour and dt.datetime.now(dt.timezone.utc).hour >= 7:
-        errors.append('outside 00:00-07:00 UTC (owner release requires --any-hour)')
+        errors.append('outside 00:00-07:00 UTC (daytime runs need --any-hour)')
     if idle or builders:
         for line in capture(['ps', '-axo', 'stat=,ucomm=']).splitlines():
             parts = line.split()
@@ -271,7 +273,7 @@ def preflight(args):
             errors.append('missing ' + str(path))
         elif (path.suffix == '.sh' or path in (PY, TOOLS / 'gpuq/gpuq')) and not os.access(path, os.X_OK):
             errors.append('not executable: ' + str(path))
-    canonical_worker = HERE.with_name('holdout.py')
+    canonical_worker = HERE.parents[1] / 'tools/holdout.py'
     if not (TOOLS / 'holdout.py').exists() or digest(TOOLS / 'holdout.py') != digest(canonical_worker):
         errors.append('head must install canonical lab holdout.py into ultra-tools before running')
     identities['tools'] = {str(p): digest(p) for p in required if p.is_file()}
@@ -710,7 +712,7 @@ def campaign(argv):
         if not sha and (args.out / (name + '.commit')).exists():
             sha = (args.out / (name + '.commit')).read_text().strip()
         if sha and not re.fullmatch('[0-9a-f]{9,40}', sha):
-            parser.error(f'--{name}-commit must be the head-reviewed merged commit SHA')
+            parser.error(f'--{name}-commit must be the reviewed merged commit SHA')
         if sha and name in FIXED_COMMITS and not sha.startswith(FIXED_COMMITS[name]):
             parser.error(f'--{name}-commit must identify {COMMIT_INPUTS[name]}')
         setattr(args, name.replace('-', '_') + '_commit', sha)
@@ -762,7 +764,7 @@ def campaign(argv):
         print(f'\n{step}: {rule}\n  output: {args.out / step}\n  command: {shlex.join(cmd)}')
         if step == 'holdout':
             print(f'  payload: {TOOLS}/holdout.sh {arm("trunk")} {arm("candidate")} {args.out / step}/attempt-NNN/data')
-            for item, precisions in holdout_module(HERE.with_name('holdout.py')).ITEMS:
+            for item, precisions in holdout_module(HERE.parents[1] / 'tools/holdout.py').ITEMS:
                 for name in ('trunk', 'candidate'):
                     for platform, precision in [('Metal', p) for p in precisions] + [('OpenCL', 'single')]:
                         props = json.dumps({'Precision': precision}, sort_keys=True)

@@ -74,7 +74,10 @@ mkdir -p "$dest/tmpl"
 "$bench/env/bin/python3" "$dest/shadertemplate.py" "$dest/tmpl/mst-shader.tracetemplate.new"
 mv "$dest/tmpl/mst-shader.tracetemplate.new" "$dest/tmpl/mst-shader.tracetemplate"
 # The launch agent is installed by hand (the plist's own comment), when the queue is empty, because a
-# bootout stops gpuqd. install.sh only says when the running agent's copy differs from the lab's.
+# bootout stops gpuqd. install.sh writes the agent file with this user's home and says when the running
+# agent differs from it.
+sed "s|__HOME__|$HOME|g" "$here/gpuq/com.openmm.gpuqd.plist" > "$dest/com.openmm.gpuqd.plist.new"
+mv "$dest/com.openmm.gpuqd.plist.new" "$dest/com.openmm.gpuqd.plist"
 agent=$HOME/Library/LaunchAgents/com.openmm.gpuqd.plist
-[ ! -e "$agent" ] || cmp -s "$here/gpuq/com.openmm.gpuqd.plist" "$agent" \
-    || echo "install.sh: $agent differs from gpuq/com.openmm.gpuqd.plist; reinstall the launch agent when the queue is empty" >&2
+[ ! -e "$agent" ] || cmp -s "$dest/com.openmm.gpuqd.plist" "$agent" \
+    || echo "install.sh: $agent differs from $dest/com.openmm.gpuqd.plist; reinstall the launch agent when the queue is empty" >&2

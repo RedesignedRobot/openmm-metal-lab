@@ -5,7 +5,7 @@ Reads <outdir>/ab/result.json (or <outdir>/result.json) and prints the scoreboar
 the OpenCL arm per test with the 2x count, the rows still under 2x and the step-time cut each needs, every other
 tree against the reference tree (--ref, default the first Metal tree in configs.txt) at the same precision with
 its per-round range, power, run hygiene, and the arms' commits. A tree is a label without its -single, -mixed or
--opencl suffix. -o writes FILE (atomically) instead of printing. The head adds judgment (levers, verdicts) below
+-opencl suffix. -o writes FILE (atomically) instead of printing. A person adds judgment (levers, verdicts) below
 the generated part; rerunning overwrites the file.
 """
 import json

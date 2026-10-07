@@ -14,7 +14,7 @@ shift
 command -v "$1" > /dev/null 2>&1 || { echo "bg.sh: cannot run $1" >&2; exit 2; }
 nice_now="$(ps -o nice= -p $$ | tr -d ' ')"
 [ "$nice_now" = 0 ] || { echo "bg.sh: running at nice $nice_now, not 0; call it in the foreground" >&2; exit 3; }
-# The job starts in a new session (setsid): the Codex exec tool kills its call's process group
+# The job starts in a new session (setsid): some agent shells kill a call's process group
 # when the call returns, and nohup alone does not leave that group. bg.sh returns only after the
 # child has called setsid and exec'd (the close-on-exec pipe reaches EOF), so no race remains.
 # fd 3 carries the pid back; the child closes it so the caller's $(...) does not wait on the job.

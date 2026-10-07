@@ -1,6 +1,6 @@
 #!/bin/sh
 # Runs on the M3 Ultra at nice 0, head only: the holdout check of a candidate tree against a baseline
-# tree, at merges and in w-windows. Lanes never run it or read its per-candidate results (RULES.md).
+# tree, at merges and in w-windows. Lanes never run it or read its per-candidate results.
 # The frozen set is /tmp/openmm-metal-bench/holdout (built once by lab tools/holdout/build.py): the four
 # FAH corpus units in mixed (tip3p-hmr, tip4pew with virtual sites, gbsa, neq) and DHFR solvated in PME
 # boxes of 47k, 170k and 560k atoms in single and mixed. MANIFEST.sha256 pins every file; the run refuses

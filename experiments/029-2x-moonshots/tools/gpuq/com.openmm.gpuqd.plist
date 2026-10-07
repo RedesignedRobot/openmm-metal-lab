@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- gpuqd, the M3 Ultra's GPU scheduler. Install: cp to ~/Library/LaunchAgents, then
+<!-- gpuqd, the M3 Ultra's GPU scheduler. launchd expands no ~ or $HOME, so install.sh writes
+     ultra-tools/com.openmm.gpuqd.plist with __HOME__ replaced. Copy that file to ~/Library/LaunchAgents, then
      launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.openmm.gpuqd.plist
      Interactive: no launchd CPU or I/O throttling, which managed timing jobs would inherit.
      AbandonProcessGroup: a daemon restart never kills a job.
@@ -14,7 +15,7 @@
     <array>
         <string>/bin/sh</string>
         <string>-c</string>
-        <string>[ -e /tmp/openmm-metal-bench ] || ln -sfn ~/code/metal/bench.noindex /tmp/openmm-metal-bench; exec /tmp/openmm-metal-bench/env/bin/python3 /tmp/openmm-metal-bench/ultra-tools/gpuq/gpuqd.py</string>
+        <string>[ -e /tmp/openmm-metal-bench ] || ln -sfn __HOME__/code/metal/bench.noindex /tmp/openmm-metal-bench; exec /tmp/openmm-metal-bench/env/bin/python3 /tmp/openmm-metal-bench/ultra-tools/gpuq/gpuqd.py</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -29,10 +30,10 @@
     <key>AbandonProcessGroup</key>
     <true/>
     <key>WorkingDirectory</key>
-    <string>~/code/metal/bench.noindex</string>
+    <string>__HOME__/code/metal/bench.noindex</string>
     <key>StandardOutPath</key>
-    <string>~/code/metal/bench.noindex/gpuq/daemon.log</string>
+    <string>__HOME__/code/metal/bench.noindex/gpuq/daemon.log</string>
     <key>StandardErrorPath</key>
-    <string>~/code/metal/bench.noindex/gpuq/daemon.log</string>
+    <string>__HOME__/code/metal/bench.noindex/gpuq/daemon.log</string>
 </dict>
 </plist>

@@ -33,7 +33,7 @@
 # Lead and infra only, never lanes: LEASE_TICKET_US=<16 digits> dates the ticket instead of the clock,
 # so a restarted job keeps its original place (and window.sh goes next), and --cap SECONDS replaces the
 # 20 minute cap (window.sh's hold).
-# Queue classes (RULES.md, GPU scheduling): --merge-path tickets go first, FIFO among themselves,
+# Queue classes: --merge-path tickets go first, FIFO among themselves,
 # then every other ticket, FIFO. A merge-path ticket's time has a leading 0, so it sorts ahead of every
 # other ticket in the queue and waiters of any version see it first; it never preempts a running hold.
 # In the day slot (07:00-24:00 UTC) correctness is the product and timings are provisional, so a
@@ -50,7 +50,7 @@
 # --merge-path needs --correctness, never --quick, and a command that names ultra-integrated (its gates
 # and checks) or gate.sh on a candidate dir listed in ultra-tools/merge-queue.txt (one path per line;
 # the lead edits it). Anything else is refused.
-# A timing hold carries only timing (RULES.md). When the GPU of an outer timing hold (not nested, not
+# A timing hold carries only timing. When the GPU of an outer timing hold (not nested, not
 # the window) reads under 10% for 60 s straight, lease.sh writes one line to the holder's stderr and to
 # /tmp/openmm-lease-idle.log, and warns again after the GPU has been busy.
 # usage: lease.sh [--correctness [--merge-path]] [--cap SECONDS] <lane> <what> <command...>

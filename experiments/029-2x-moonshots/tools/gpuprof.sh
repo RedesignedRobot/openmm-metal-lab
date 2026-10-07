@@ -12,7 +12,7 @@
 #       Submit it as a gpuq job; by day it is a screen, not a 3x30 number. PROF_SECONDS sets the window length.
 #       Record files are gzipped after the summary.
 #
-# The patch is `git diff 5071882fa lab/gpuprof` in the openmm-metal repo (branch lab/gpuprof, pushed to private).
+# The patch is `git diff 5071882fa lab/gpuprof` in the openmm-metal repo (branch lab/gpuprof, not published).
 set -eu
 here=$(cd "$(dirname "$0")" && pwd)
 bench=/tmp/openmm-metal-bench

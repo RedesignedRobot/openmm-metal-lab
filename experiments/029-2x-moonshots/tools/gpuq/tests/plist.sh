@@ -4,8 +4,10 @@
 # and the log directories before the command runs, so a /tmp/openmm-metal-bench path there becomes a
 # real folder that blocks the symlink, and gpuqd loops on a missing python. The plist must keep those
 # keys under the real bench path and recreate the symlink before it starts gpuqd. Read only, no daemon.
-# usage: plist.sh   (checks the lab plist beside this test; the installed launch agent is install.sh's note)
-plist=$(cd "$(dirname "$0")/.." && pwd)/com.openmm.gpuqd.plist
+# usage: plist.sh   (checks the lab plist beside this test, with __HOME__ replaced as install.sh does)
+plist=$(mktemp -t gpuqd-plist)
+trap 'rm -f "$plist"' EXIT
+sed "s|__HOME__|$HOME|g" "$(cd "$(dirname "$0")/.." && pwd)/com.openmm.gpuqd.plist" > "$plist"
 fail=0
 ok() { echo "  PASS $*"; }
 bad() { echo "  FAIL $*"; fail=1; }
