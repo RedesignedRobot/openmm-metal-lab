@@ -1,0 +1,41 @@
+mode serial
+dispatch mode 0: 36 dispatches, 0 barriers, 11 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 2 event waits 0.0007 s, 36 finishes 0.0092 s
+test           atoms         config    rel|dF|    max|dF|    rel|dE|
+gbsa            2489   Metal-single  2.468e-05  8.567e-02  6.389e-07
+dispatch mode 0: 29 dispatches, 0 barriers, 11 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 4 event waits 0.0015 s, 72 finishes 0.0198 s
+rf             23558   Metal-single  2.213e-05  7.340e-01  2.054e-07
+dispatch mode 0: 47 dispatches, 0 barriers, 12 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 6 event waits 0.0023 s, 114 finishes 0.0311 s
+pme            23558   Metal-single  2.048e-05  3.918e-01  1.159e-06
+mode barrier
+dispatch mode 1: 36 dispatches, 36 barriers, 11 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 2 event waits 0.0006 s, 36 finishes 0.0098 s
+test           atoms         config    rel|dF|    max|dF|    rel|dE|
+gbsa            2489   Metal-single  2.468e-05  8.567e-02  6.562e-07
+dispatch mode 1: 29 dispatches, 29 barriers, 11 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 4 event waits 0.0015 s, 72 finishes 0.0203 s
+rf             23558   Metal-single  2.213e-05  7.340e-01  2.187e-07
+dispatch mode 1: 47 dispatches, 47 barriers, 12 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 6 event waits 0.0022 s, 114 finishes 0.0317 s
+pme            23558   Metal-single  2.048e-05  3.918e-01  1.166e-06
+mode none
+dispatch mode 2: 22 dispatches, 0 barriers, 8 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 1 event waits 0.0000 s, 35 finishes 0.0092 s
+test           atoms         config    rel|dF|    max|dF|    rel|dE|
+gbsa            2489   Metal-single  8.541e-01  4.892e+03        nan
+dispatch mode 2: 19 dispatches, 0 barriers, 8 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 2 event waits 0.0000 s, 70 finishes 0.0186 s
+rf             23558   Metal-single  8.259e-01  2.887e+03  8.771e-01
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-dispatch/fcheck.py", line 38, in <module>
+    f, e = forces_and_energy(system, positions, platform, {"Precision": precision})
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-dispatch/fcheck.py", line 28, in forces_and_energy
+    state = context.getState(getForces=True, getEnergy=True)
+  File "/tmp/openmm-metal-bench/ultra-dispatch/build/python/build/lib.macosx-11.0-arm64-cpython-313/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error executing METAL command buffer: Caused GPU Address Fault Error (0000000b:kIOGPUCommandBufferCallbackErrorPageFault)
+dispatch mode 2: 28 dispatches, 0 barriers, 8 commits; after 5 s: 0 buffers, GPU busy 0.0000 s over 0.0000 s span, nan
+host: 3 event waits 0.0000 s, 109 finishes 7.2177 s

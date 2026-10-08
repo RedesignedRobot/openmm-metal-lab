@@ -1,0 +1,27 @@
+# atomics lane pids, recorded from lease tickets (ticket suffix = lease.sh pid); kill only these
+28405 /bin/sh -c /tmp/openmm-metal-bench/ultra-tools/lease.sh atomics "probe 1a counters base/lo/plain/words + atomic ubench, 
+28413 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh atomics probe 1a counters base/lo/plain/words + atomic ubench, ~10 
+28940 /bin/sh /tmp/openmm-metal-bench/ultra-tools/gate.sh --quick /tmp/openmm-metal-bench/ultra-atomics
+29009 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --correctness ultra-atomics gate.sh forces /tmp/openmm-metal-bench/
+11498 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --correctness ultra-atomics bonded check: ctest + bitwise dump, 71a
+11024 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-atomics words screen a: rf,gbsa, ultra-base/p0/words 2x15 s, 
+11159 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-atomics words screen b: pme, ultra-base/p0/words 2x15 s, ~6 m
+34122 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-atomics screen bonded a: apoa1rf,apoa1pme,cellulose, b0/bonde
+34354 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-atomics screen bonded b: pme,gbsa,rf, b0/bonded 2x15 s, ~12 m
+78693 bbp.sh census plugin build
+87308 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-atomics census 1b: bonded b0 vs d8ab45b2b counters,
+33678 hazard probe hz (timing)
+26276 chk (requeued for burst, 00:00Z)
+32967 gb (build.sh d8ab45b2b then full gate.sh, 00:00Z)
+95468 chkb (bond test fix, 00:06Z)
+97124 hz3smoke (00:06Z)
+31542 gb2 (build.sh 0315b09fd then full gate.sh, 00:19Z)
+67686 chkb2 (float positions, 02:34Z)
+70924 hz3 timing (02:34Z)
+note: gb3 builds and gates 1a29563d1 (floor), synced 02:37Z over d3cdbf963 before the chain started
+90857 s3 (floor confirm 3x30, 02:37Z)
+78204 gb3 (build.sh d3cdbf963 then full gate.sh, 02:50Z)
+03:44Z d3chain.sh pid 11294: waits for window 1, build.sh gb at b919bfe7a (serial base), plugins-d3s, correctness ticket dumpd3 x3
+03:44Z killed 11294 (d3chain): dispatch owns the d3 and d3floor trees. Its child build.sh (pid not recorded) keeps waiting for the window, then builds gb b919bfe7a incrementally
+03:45Z d3check.sh pid 20417: waits for ultra-dispatch d3floor+d3 BUILT, then correctness ticket dumpd3 x3 each, cmpd3 -> bw-cmp.txt
+07:07Z d3screen.sh pid 86730: gate --quick ultra-dispatch/d3, then 6 screen tickets d3s-*

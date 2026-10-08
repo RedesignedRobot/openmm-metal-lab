@@ -1,0 +1,32 @@
+start 2026-09-25T03:48:24Z after 300 s of preflight, load { 2.87 5.75 5.35 }
+holder: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, pid 65668, held 302 s
+correctness burst: queued correctness tickets join a correctness hold with room
+build processes: 0
+queue, oldest first:
+  1790303828714965-ultra-infra-65447  waiting 4276 s
+  1790303828714966-ultra-nonbonded-87101  waiting 4276 s
+  1790303867195605-ultra-atomics-90857  waiting 4237 s
+  1790303877264337-ultra-profiler-91823  waiting 4227 s
+  1790304249429598-ultra-profiler-33251  waiting 3855 s
+  1790304259550757-ultra-nblist-34318  waiting 3845 s
+  1790304692052671-ultra-profiler-81732  waiting 3412 s
+  1790305299731507-ultra-nblist-34048  waiting 2805 s
+  1790307294482498-ultra-integrated-67118  waiting 810 s
+  1790307485041626-plugins-79375  waiting 619 s
+  1790307485338497-head-79373  waiting 619 s
+  1790307486968403-ultra-plugins-79381  waiting 618 s
+  1790307551355142-ultra-nblist-85063  waiting 553 s
+  1790307576253826-ultra-mixed-87455  waiting 528 s
+  1790307611950883-plugins-88937  waiting 493 s
+ %CPU   PID COMMAND
+ 25.6  1290 other
+ 13.9 14409 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+  6.2 90735 other
+  6.1   790 other
+  4.2  1387 other
+  4.1 65447 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --cap 3600 ultra-infra A/A rf single 2x15 s, round 2 beside a taskpolicy -b build, about 5 min 
+  2.0   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+  1.5 79373 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --correctness --cap 2700 head gate.sh /tmp/openmm-metal-bench/ultra-plugins/head /tmp/openmm-me
+  1.5 81732 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-profiler workloads rf concurrency traces, Metal and OpenCL N=1 and N=4, capture and save 
+  1.5   717 other
+end 2026-09-25T05:26:43Z

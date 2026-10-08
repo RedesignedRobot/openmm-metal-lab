@@ -1,0 +1,321 @@
+== trunk forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 102, in metal
+    return evaluate(context)
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 66, in evaluate
+    state = context.getState(getForces=True, getEnergy=True, getPositions=True)
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:357:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:357:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:358:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:472:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:472:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:594:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+trunk forces exit=1
+== trunk md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 107, in metal
+    context.setVelocitiesToTemperature(300*u.kelvin, args.seed)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 5947, in setVelocitiesToTemperature
+    return _openmm.Context_setVelocitiesToTemperature(self, *args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:357:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:357:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:358:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:472:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:472:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:594:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+trunk md100 exit=1
+== trunk ctest
+trunk ctest exit=8
+The following tests FAILED:
+	268 - TestMetalGBSAOBCForceSingle (Failed)
+	269 - TestMetalGBSAOBCForceMixed (Failed)
+Errors while running CTest
+== lanes32 forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 102, in metal
+    return evaluate(context)
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 66, in evaluate
+    state = context.getState(getForces=True, getEnergy=True, getPositions=True)
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:357:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:357:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:358:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:472:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:472:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:594:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+lanes32 forces exit=1
+== lanes32 md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 107, in metal
+    context.setVelocitiesToTemperature(300*u.kelvin, args.seed)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 5947, in setVelocitiesToTemperature
+    return _openmm.Context_setVelocitiesToTemperature(self, *args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:357:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:357:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:358:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:472:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:472:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:472:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:594:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+lanes32 md100 exit=1
+== lanes32 ctest
+lanes32 ctest exit=8
+The following tests FAILED:
+	268 - TestMetalGBSAOBCForceSingle (Failed)
+	269 - TestMetalGBSAOBCForceMixed (Failed)
+Errors while running CTest
+== fold forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 102, in metal
+    return evaluate(context)
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 66, in evaluate
+    state = context.getState(getForces=True, getEnergy=True, getPositions=True)
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:358:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:359:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:359:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:359:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:473:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:473:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:474:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:595:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+fold forces exit=1
+== fold md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 107, in metal
+    context.setVelocitiesToTemperature(300*u.kelvin, args.seed)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-r3-gbfold/venv/lib/python3.13/site-packages/openmm/openmm.py", line 5947, in setVelocitiesToTemperature
+    return _openmm.Context_setVelocitiesToTemperature(self, *args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+openmm.OpenMMException: Error compiling program: program_source:358:54: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:358:77: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const float2* RESTRICT global_params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
+                                                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:359:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:359:32: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                               ^~~~~~~~~~~~~~~~~~~~~
+program_source:359:55: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter,
+                                                      ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:110: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                             ^~~~~~~~~~~~~~
+program_source:473:126: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                             ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:149: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+program_source:473:175: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
+program_source:473:198: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, int needEnergy, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY,
+                                                                                                                                                                                                     ^~~~~~~~~~~~~~~~~~~~~
+program_source:474:9: error: invalid type 'real4' (aka 'float4') for input declaration in a kernel function
+        real4 periodicBoxVecZ, GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize
+        ^~~~~~~~~~~~~~~~~~~~~
+program_source:595:86: error: invalid type 'int' for input declaration in a kernel function
+        GLOBAL const real* RESTRICT bornRadii, GLOBAL const real* RESTRICT obcChain, int needEnergy) {
+                                                                                     ^~~~~~~~~~~~~~
+
+fold md100 exit=1
+== fold ctest
+fold ctest exit=8
+The following tests FAILED:
+	268 - TestMetalGBSAOBCForceSingle (Failed)
+	269 - TestMetalGBSAOBCForceMixed (Failed)
+Errors while running CTest

@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-gpuprof-trunk/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib target tip4pew atoms 38876 cycle 0
+window A tip4pew mixed Metal steps 4460 host_s 2.544018 us_per_step 570.41 ns_per_day 302.94 cpu_per_host 0.22
+window B tip4pew mixed Metal steps 4460 host_s 2.534511 us_per_step 568.28 ns_per_day 304.08 cpu_per_host 0.19
+window C tip4pew mixed Metal steps 4460 host_s 2.525092 us_per_step 566.16 ns_per_day 305.21 cpu_per_host 0.18

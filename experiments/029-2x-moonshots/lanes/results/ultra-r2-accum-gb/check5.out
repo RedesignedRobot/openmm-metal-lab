@@ -1,0 +1,23 @@
+09:53:51Z waiting for the lease: 17 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:58:54Z waiting for the lease: 15 in the queue, held by: ultra-profiler 2026-09-27T09:57:58Z sampled shader timeline s-single, 0 build processes
+10:03:58Z waiting for the lease: 14 in the queue, held by: r2-mixed 2026-09-27T09:58:55Z fused kernel additive diags, 0 build processes
+10:09:02Z waiting for the lease: 13 in the queue, held by: ultra-r2-mixed 2026-09-27T10:04:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a2, about 7 min, 0 build processes
+10:14:05Z waiting for the lease: 12 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:19:09Z waiting for the lease: 12 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:24:14Z waiting for the lease: 10 in the queue, held by: r2-mixed 2026-09-27T10:23:14Z inline cluster diag traces, 0 build processes
+10:29:18Z waiting for the lease: 9 in the queue, held by: ultra-r2-dispatch 2026-09-27T10:26:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-rf, about 6 min, 0 build processes
+10:34:21Z waiting for the lease: 7 in the queue, held by: ultra-r2-accum-nb 2026-09-27T10:33:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe1, about 10 min, 0 build processes
+10:39:25Z waiting for the lease: 7 in the queue, held by: ultra-r2-accum-nb 2026-09-27T10:33:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe1, about 10 min, 0 build processes
+10:44:28Z waiting for the lease: 6 in the queue, held by: ultra-r2-accum-gb 2026-09-27T10:42:32Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s3, about 4 min, 0 build processes
+== owned h (tree p)
+gbsa single rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 5.195e-07 E -21993.710938 Eref -21993.722363 bitwise-repeat True
+gbsa mixed rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.862e-07 E -21993.711670 Eref -21993.722363 bitwise-repeat True
+Test project /tmp/openmm-metal-bench/ultra-r2-accum-gb-p/build
+    Start 268: TestMetalGBSAOBCForceSingle
+1/2 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    7.04 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+2/2 Test #269: TestMetalGBSAOBCForceMixed .......   Passed   34.50 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  41.55 sec

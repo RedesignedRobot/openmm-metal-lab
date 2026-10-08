@@ -1,0 +1,5 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+pme            23558    single  1.364e-06  1.300e-02  1.340e-06
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.3640602e-06 raw_max_force=0.0130030547
+pme            23558     mixed  1.959e-05  3.067e-01  1.350e-06
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.95915569e-05 raw_max_force=0.306683595

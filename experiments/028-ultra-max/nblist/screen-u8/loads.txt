@@ -1,0 +1,70 @@
+2026-09-25T05:56:37Z round 1 gbsa s2t4 load { 21.67 16.60 13.31 } BUILD RUNNING vm 74% top clang 86.9%, clang 86.7%, clang 85.2%, clang 85.1%, clang 85.0%
+2026-09-25T05:56:54Z round 1 gbsa u8 load { 18.37 16.18 13.23 } BUILD RUNNING vm 9% top clang 91.6%,  (clang) 90.9%, clang 90.0%, clang 89.7%, clang 89.5%
+2026-09-25T05:57:10Z round 1 rf s2t4 load { 16.50 15.87 13.18 } BUILD RUNNING vm 12% top clang 90.4%, clang 90.4%, clang 90.2%, clang 89.8%, clang 89.7%
+2026-09-25T05:57:26Z round 1 rf u8 load { 14.91 15.55 13.11 } BUILD RUNNING vm 11% top clang 86.2%, clang 86.1%, clang 85.6%, clang 84.3%, clang 79.5%
+2026-09-25T05:57:43Z round 1 pme s2t4 load { 14.25 15.38 13.09 } BUILD RUNNING vm 8% top clang 92.4%, clang 91.6%, clang 91.2%, clang 90.6%, clang 89.5%
+2026-09-25T05:58:00Z round 1 pme u8 load { 12.83 14.98 13.00 } BUILD RUNNING vm 12% top clang 87.8%, clang 87.1%, clang 86.5%, clang 86.4%, clang 85.3%
+2026-09-25T05:58:16Z round 1 amber20-dhfr s2t4 load { 12.34 14.77 12.96 } BUILD RUNNING vm 9% top clang 88.9%, clang 86.5%, clang 86.5%, clang 85.0%, clang 83.4%
+2026-09-25T05:58:33Z round 1 amber20-dhfr u8 load { 11.75 14.52 12.90 } BUILD RUNNING vm 15% top clang 85.2%, clang 84.5%, clang 84.0%, clang 83.5%, clang 83.5%
+2026-09-25T05:58:51Z round 1 apoa1rf s2t4 load { 11.63 14.30 12.86 } BUILD RUNNING vm 7% top clang 88.3%, clang 85.6%, clang 85.0%, clang 84.9%, clang 84.3%
+2026-09-25T05:59:09Z round 1 apoa1rf u8 load { 10.89 13.96 12.77 } BUILD RUNNING vm 9% top clang 88.7%, clang 85.8%, clang 84.7%, clang 80.3%, clang 80.3%
+2026-09-25T05:59:28Z round 1 apoa1pme s2t4 load { 10.82 13.80 12.73 } BUILD RUNNING vm 11% top clang 87.9%, clang 87.1%, clang 86.9%, clang 86.5%, clang 85.3%
+2026-09-25T05:59:47Z round 1 apoa1pme u8 load { 10.96 13.63 12.70 } BUILD RUNNING vm 4% top swig 90.0%, other 20.9%, com.apple.Virtualization.VirtualMachine 8.2%,  (cmake) 7.8%,  ninja 7.5%
+2026-09-25T06:00:05Z round 1 apoa1ljpme s2t4 load { 8.92 12.99 12.49 } BUILD RUNNING vm 8% top python 99.1%, other 23.0%, com.apple.Virtualization.VirtualMachine 8.2%,  other 3.8%, other 3.7%
+2026-09-25T06:00:24Z round 1 apoa1ljpme u8 load { 7.36 12.37 12.28 } BUILD RUNNING vm 11% top clang 99.6%, other 22.4%, com.apple.Virtualization.VirtualMachine 10.9%,  other 4.2%, other 3.7%
+2026-09-25T06:00:43Z round 2 gbsa u8 load { 6.09 11.85 12.09 } BUILD RUNNING vm 7% top clang 99.4%, other 21.5%, com.apple.Virtualization.VirtualMachine 7.3%, other 5.5%, WindowServer 4.9%
+2026-09-25T06:00:59Z round 2 gbsa s2t4 load { 5.25 11.38 11.92 } BUILD RUNNING vm 5% top clang 99.9%, other 20.9%, com.apple.Virtualization.VirtualMachine 5.4%, other 3.1%,  other 2.6%
+2026-09-25T06:01:15Z round 2 rf u8 load { 5.66 11.05 11.79 } BUILD RUNNING vm 6% top clang 99.5%, other 22.5%, com.apple.Virtualization.VirtualMachine 6.1%,  other 5.4%, powermetrics 4.9%
+2026-09-25T06:01:32Z round 2 rf s2t4 load { 4.99 10.64 11.63 } BUILD RUNNING vm 10% top clang 90.8%, clang 90.7%, clang 90.4%, clang 90.3%, clang 89.5%
+2026-09-25T06:01:48Z round 2 pme u8 load { 6.09 10.61 11.60 } BUILD RUNNING vm 10% top clang 89.1%, clang 88.2%, clang 88.0%, clang 86.5%, clang 77.8%
+2026-09-25T06:02:05Z round 2 pme s2t4 load { 6.98 10.52 11.54 } BUILD RUNNING vm 8% top clang 88.8%, clang 86.2%, clang 82.6%, clang 75.2%, clang 54.3%
+2026-09-25T06:02:21Z round 2 amber20-dhfr u8 load { 7.73 10.51 11.52 } BUILD RUNNING vm 10% top clang 85.6%, clang 85.2%, clang 85.0%, clang 85.0%, clang 79.5%
+2026-09-25T06:02:39Z round 2 amber20-dhfr s2t4 load { 8.40 10.52 11.51 } BUILD RUNNING vm 19% top clang 87.2%, clang 86.5%, clang 86.0%, clang 85.0%, clang 62.4%
+2026-09-25T06:02:56Z round 2 apoa1rf u8 load { 8.86 10.48 11.47 } BUILD RUNNING vm 11% top clang 86.7%, clang 86.1%, clang 85.9%, clang 85.8%, clang 84.6%
+2026-09-25T06:03:15Z round 2 apoa1rf s2t4 load { 9.10 10.43 11.43 } BUILD RUNNING vm 16% top clang 87.4%, clang 86.7%, clang 86.4%, clang 74.9%, clang 38.6%
+2026-09-25T06:03:34Z round 2 apoa1pme u8 load { 9.07 10.36 11.39 } BUILD RUNNING vm 13% top clang 87.1%, clang 86.3%, clang 85.9%, clang 85.6%, clang 85.2%
+2026-09-25T06:03:52Z round 2 apoa1pme s2t4 load { 9.70 10.42 11.38 } BUILD RUNNING vm 12% top clang 89.8%, clang 89.5%, clang 88.6%, clang 88.5%, clang 87.9%
+2026-09-25T06:04:11Z round 2 apoa1ljpme u8 load { 9.80 10.39 11.35 } BUILD RUNNING vm 11% top clang 89.4%, clang 89.4%, clang 89.3%, clang 89.3%, clang 87.9%
+2026-09-25T06:04:29Z round 2 apoa1ljpme s2t4 load { 10.01 10.40 11.33 } BUILD RUNNING vm 8% top clang 88.2%, clang 88.0%, clang 87.6%, clang 86.7%, clang 86.0%
+2026-09-25T06:04:48Z rerun round 1 amber20-dhfr: a build or a busy CPU overlapped it
+2026-09-25T06:04:48Z round 1 amber20-dhfr s2t4 load { 10.29 10.44 11.33 } BUILD RUNNING vm 14% top clang 88.5%, clang 87.4%, clang 86.8%, clang 86.3%, clang 84.4%
+2026-09-25T06:05:06Z round 1 amber20-dhfr u8 load { 10.32 10.43 11.30 } BUILD RUNNING vm 8% top clang 86.7%, clang 86.4%, clang 86.2%, clang 85.5%, clang 85.3%
+2026-09-25T06:05:23Z rerun round 1 apoa1ljpme: a build or a busy CPU overlapped it
+2026-09-25T06:05:23Z round 1 apoa1ljpme s2t4 load { 10.53 10.47 11.30 } BUILD RUNNING vm 18% top clang 85.2%, clang 84.9%, clang 84.6%, clang 84.1%, clang 84.1%
+2026-09-25T06:05:42Z round 1 apoa1ljpme u8 load { 11.99 10.85 11.42 } BUILD RUNNING vm 7% top clang 88.6%, clang 88.3%, clang 87.9%, clang 87.7%, clang 87.7%
+2026-09-25T06:06:00Z rerun round 1 apoa1pme: a build or a busy CPU overlapped it
+2026-09-25T06:06:00Z round 1 apoa1pme s2t4 load { 11.36 10.78 11.38 } BUILD RUNNING vm 24% top clang 87.1%, clang 87.0%, clang 86.8%, clang 85.9%, clang 85.2%
+2026-09-25T06:06:19Z round 1 apoa1pme u8 load { 10.99 10.73 11.35 } BUILD RUNNING vm 11% top clang 89.7%, clang 88.7%, clang 88.1%, clang 87.7%, clang 87.6%
+2026-09-25T06:06:37Z rerun round 1 apoa1rf: a build or a busy CPU overlapped it
+2026-09-25T06:06:38Z round 1 apoa1rf s2t4 load { 11.34 10.82 11.37 } BUILD RUNNING vm 10% top clang 88.9%, clang 88.5%, clang 88.3%, clang 88.0%, clang 88.0%
+2026-09-25T06:06:56Z round 1 apoa1rf u8 load { 14.94 11.64 11.65 } BUILD RUNNING vm 9% top swig 79.3%, other 22.3%, com.apple.Virtualization.VirtualMachine 8.7%,  ninja 6.9%, other 6.0%
+2026-09-25T06:07:15Z rerun round 1 gbsa: a build or a busy CPU overlapped it
+2026-09-25T06:07:15Z round 1 gbsa s2t4 load { 12.09 11.21 11.49 } BUILD RUNNING vm 6% top python 87.9%, other 23.1%, com.apple.Virtualization.VirtualMachine 9.3%, other 6.3%, other 4.8%
+2026-09-25T06:07:31Z round 1 gbsa u8 load { 10.00 10.79 11.34 } BUILD RUNNING vm 18% top clang 99.8%, other 22.1%, com.apple.Virtualization.VirtualMachine 17.9%, powermetrics 13.0%, other 5.1%
+2026-09-25T06:07:48Z rerun round 1 pme: a build or a busy CPU overlapped it
+2026-09-25T06:07:48Z round 1 pme s2t4 load { 8.38 10.39 11.18 } BUILD RUNNING vm 5% top clang 99.9%, other 21.0%, com.apple.Virtualization.VirtualMachine 5.2%, other 4.9%, WindowServer 4.5%
+2026-09-25T06:08:05Z round 1 pme u8 load { 7.22 9.99 11.02 } BUILD RUNNING vm 8% top clang 99.8%, other 19.8%, com.apple.Virtualization.VirtualMachine 7.4%, other 5.6%, WindowServer 5.0%
+2026-09-25T06:08:21Z rerun round 1 rf: a build or a busy CPU overlapped it
+2026-09-25T06:08:21Z round 1 rf s2t4 load { 6.67 9.73 10.91 } BUILD RUNNING vm 8% top clang 99.3%, other 22.3%, com.apple.Virtualization.VirtualMachine 7.9%,  other 7.6%, other 4.5%
+2026-09-25T06:08:38Z round 1 rf u8 load { 6.08 9.45 10.79 } BUILD RUNNING vm 8% top  cmake 20.8%, other 20.7%, com.apple.Virtualization.VirtualMachine 8.2%, other 4.6%, WindowServer 4.3%
+2026-09-25T06:08:54Z rerun round 2 amber20-dhfr: a build or a busy CPU overlapped it
+2026-09-25T06:08:54Z round 2 amber20-dhfr u8 load { 6.77 9.43 10.76 } BUILD RUNNING vm 9% top clang 92.2%, clang 91.8%, clang 91.3%, clang 86.8%, clang 85.0%
+2026-09-25T06:09:11Z round 2 amber20-dhfr s2t4 load { 8.12 9.56 10.77 } BUILD RUNNING vm 9% top clang 85.6%, clang 85.6%, clang 84.9%, clang 84.2%, clang 83.9%
+2026-09-25T06:09:29Z rerun round 2 apoa1ljpme: a build or a busy CPU overlapped it
+2026-09-25T06:09:29Z round 2 apoa1ljpme u8 load { 8.99 9.68 10.79 } BUILD RUNNING vm 8% top clang 87.0%, clang 87.0%, clang 86.3%, clang 85.4%, clang 84.4%
+2026-09-25T06:09:47Z round 2 apoa1ljpme s2t4 load { 9.05 9.65 10.76 } BUILD RUNNING vm 14% top clang 90.3%, clang 89.2%, clang 88.7%, clang 88.0%, clang 78.1%
+2026-09-25T06:10:06Z rerun round 2 apoa1pme: a build or a busy CPU overlapped it
+2026-09-25T06:10:06Z round 2 apoa1pme u8 load { 8.96 9.59 10.71 } BUILD RUNNING vm 16% top clang 87.8%, clang 87.4%, clang 86.2%, clang 85.6%, clang 84.9%
+2026-09-25T06:10:25Z round 2 apoa1pme s2t4 load { 9.20 9.60 10.68 } BUILD RUNNING vm 11% top clang 89.7%, clang 88.6%, clang 88.3%, clang 87.9%, clang 87.7%
+2026-09-25T06:10:43Z rerun round 2 apoa1rf: a build or a busy CPU overlapped it
+2026-09-25T06:10:43Z round 2 apoa1rf u8 load { 9.36 9.62 10.67 } BUILD RUNNING vm 12% top clang 89.5%, clang 88.5%, clang 88.5%, clang 87.3%, clang 76.5%
+2026-09-25T06:11:02Z round 2 apoa1rf s2t4 load { 9.61 9.66 10.66 } BUILD RUNNING vm 10% top clang 89.4%, clang 89.1%, clang 88.9%, clang 88.9%, clang 88.4%
+2026-09-25T06:11:20Z rerun round 2 gbsa: a build or a busy CPU overlapped it
+2026-09-25T06:11:21Z round 2 gbsa u8 load { 9.67 9.66 10.64 } BUILD RUNNING vm 8% top clang 88.6%, clang 88.2%, clang 87.3%, clang 87.3%, clang 87.2%
+2026-09-25T06:11:37Z round 2 gbsa s2t4 load { 9.97 9.73 10.65 } BUILD RUNNING vm 9% top clang 91.0%, clang 90.9%, clang 89.2%, clang 89.2%, clang 89.0%
+2026-09-25T06:11:53Z rerun round 2 pme: a build or a busy CPU overlapped it
+2026-09-25T06:11:53Z round 2 pme u8 load { 10.12 9.77 10.65 } BUILD RUNNING vm 15% top clang 90.6%, clang 90.4%, clang 90.0%, clang 89.4%, clang 89.2%
+2026-09-25T06:12:10Z round 2 pme s2t4 load { 9.88 9.74 10.61 } BUILD RUNNING vm 20% top clang 88.4%, clang 87.8%, clang 87.3%, clang 85.1%, clang 84.4%
+2026-09-25T06:12:26Z rerun round 2 rf: a build or a busy CPU overlapped it
+2026-09-25T06:12:26Z round 2 rf u8 load { 9.68 9.70 10.58 } BUILD RUNNING vm 10% top clang 88.5%, clang 86.1%, clang 85.7%, clang 85.5%, clang 83.4%
+2026-09-25T06:12:43Z round 2 rf s2t4 load { 9.76 9.72 10.57 } BUILD RUNNING vm 9% top clang 92.7%, clang 91.6%, clang 91.3%, clang 91.0%, clang 88.5%

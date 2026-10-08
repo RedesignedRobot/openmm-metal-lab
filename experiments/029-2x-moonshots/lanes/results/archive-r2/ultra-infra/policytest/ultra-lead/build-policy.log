@@ -1,0 +1,18 @@
+2026-09-28T17:57:05Z build-policy stop pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:07Z build-policy stop pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4
+2026-09-28T17:57:08Z build-policy continue pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:08Z build-policy continue pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4
+2026-09-28T17:57:10Z build-policy stop pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:10Z build-policy stop pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=3
+2026-09-28T17:57:11Z build-policy continue pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:11Z build-policy continue pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=3
+2026-09-28T17:57:11Z build-policy recovered after a dead holder: owner 77171 released 2 builds
+2026-09-28T17:57:15Z build-policy stop pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:16Z build-policy stop pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4
+2026-09-28T17:57:16Z build-policy continue pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:16Z build-policy continue pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4
+2026-09-28T17:57:16Z build-policy recovered after a dead holder: owner 77676 released 2 builds
+2026-09-28T17:57:16Z build-policy stop pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:16Z build-policy stop pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4
+2026-09-28T17:57:17Z build-policy continue pid=76462 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake1 children=4
+2026-09-28T17:57:17Z build-policy continue pid=76840 tree=/tmp/openmm-metal-bench/ultra-infra/policytest/ultra-fake2 children=4

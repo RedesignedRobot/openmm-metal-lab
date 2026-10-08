@@ -1,0 +1,22 @@
+Waiting outside GPU queue for Node/Bun/build CPU below 50% across two 30 s samples
+/tmp/openmm-metal-bench/ultra-m29-unified/tools/screen-dhfr-quiet.sh: line 32: 56030 Terminated: 15          python3 -  <<'PY'
+import datetime
+import os
+import subprocess
+import time
+quiet=0
+print('Waiting outside GPU queue for Node/Bun/build CPU below 50% across two 30 s samples',flush=True)
+while quiet < 2:
+    rows=subprocess.check_output(['ps','-A','-o','pcpu=,comm='],text=True)
+    total=0.
+    for row in rows.splitlines():
+        fields=row.strip().split(None,1)
+        if len(fields)==2 and os.path.basename(fields[1]) in {'node','bun','clang','clang++','ninja','cc1plus'}:
+            total+=float(fields[0])
+    quiet=quiet+1 if total<50 else 0
+    if quiet:
+        print(datetime.datetime.now(datetime.timezone.utc).isoformat(),f'quiet sample {quiet}: watched CPU {total:.1f}%',flush=True)
+    if quiet < 2:
+        time.sleep(30)
+PY
+

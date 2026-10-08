@@ -1,0 +1,19 @@
+== buggy torque (r2-correctness tree) 2026-09-27T07:06:27Z
+Metal:single                             fails  1/50  worst 1.04e-04  drift/250fs mean +3.14e-06 |3.59e-05|  noise 8.74e-06
+Metal:mixed                              fails  0/50  worst 9.48e-05  drift/250fs mean -1.17e-07 |5.43e-06|  noise 2.96e-06
+OpenCL:single                            fails  1/50  worst 1.04e-04  drift/250fs mean +3.21e-06 |3.60e-05|  noise 8.73e-06
+Metal:single,tol=1e-8                    fails  1/50  worst 1.04e-04  drift/250fs mean +3.14e-06 |3.59e-05|  noise 8.74e-06
+Metal:single,dt=0.00025                  fails 32/50  worst 2.89e-04  drift/250fs mean +3.20e-06 |1.20e-04|  noise 2.58e-05
+== fixed torque (r2-gayberne tree) 2026-09-27T07:08:56Z
+Metal:single                             fails  0/50  worst 8.49e-05  drift/250fs mean +9.56e-06 |3.48e-05|  noise 7.31e-06
+Metal:mixed                              fails  0/50  worst 5.07e-07  drift/250fs mean +6.61e-09 |1.04e-08|  noise 6.17e-09
+OpenCL:single                            fails  0/50  worst 8.49e-05  drift/250fs mean +9.47e-06 |3.48e-05|  noise 7.32e-06
+Total Test time (real) =   9.94 sec
+
+The following tests FAILED:
+	136 - TestOpenCLGayBerneForceMixed (Failed)
+	137 - TestOpenCLGayBerneForceDouble (Failed)
+Errors while running CTest
+Output from these tests are in: /tmp/openmm-metal-bench/ultra-r2-gayberne/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
+== end 2026-09-27T07:10:26Z

@@ -1,0 +1,19 @@
+06:34:07Z waiting for the lease: 2 in the queue, held by: r2-mixed 2026-09-27T06:33:33Z census 8ae6 single/mixed gbsa rf pme dhfr, 0 build processes
+2026-09-27T06:38:36Z build-policy demote pid=74769 tree=/tmp/openmm-metal-bench/ultra-r2-dispatch-k32 taskpolicy_exit=0
+gbsa-single: xctrace pid 76299 recording 06:38:38Z
+captured gbsa-single 06:38:44Z: Target app exited, ending recording...
+06:39:42Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-profiler (sampled shader timeline gbsa-single). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved gbsa-single 06:39:45Z: Output file saved as: gbsa-single.trace
+exported gbsa-single 06:40:00Z, rows 344874, releasing
+2026-09-27T06:40:00Z build-policy promote pid=79200 tree=/tmp/openmm-metal-bench/ultra-r2-dispatch-c32 taskpolicy_exit=0
+06:40:00Z waiting for the lease: 4 in the queue, held by: nobody, 1 build processes
+06:45:44Z waiting for the lease: 1 in the queue, held by: r2-mixed 2026-09-27T06:40:23Z census 8ae6 single/mixed apoa1rf apoa1pme apoa1ljpme cellulose BUILD RUNNING, 3 build processes
+2026-09-27T06:46:55Z build-policy demote pid=14644 tree=/tmp/openmm-metal-bench/ultra-r2-mixed taskpolicy_exit=0
+gbsa-mixed: xctrace pid 14897 recording 06:46:56Z
+captured gbsa-mixed 06:47:03Z: Target app exited, ending recording...
+saved gbsa-mixed 06:47:59Z: Output file saved as: gbsa-mixed.trace
+06:48:01Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-profiler (sampled shader timeline gbsa-mixed). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+exported gbsa-mixed 06:48:11Z, rows 254104, releasing
+2026-09-27T06:48:11Z build-policy promote pid=14644 tree=/tmp/openmm-metal-bench/ultra-r2-mixed taskpolicy_exit=0
+2026-09-27T06:48:11Z build-policy promote pid=18741 tree=/tmp/openmm-metal-bench/ultra-r2-correctness-before taskpolicy_exit=0
+PROF0 DONE

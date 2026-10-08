@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-gpuprof-trunk/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib target tip3p-hmr atoms 29451 cycle 0
+window A tip3p-hmr mixed Metal steps 5480 host_s 2.655269 us_per_step 484.54 ns_per_day 713.26 cpu_per_host 0.23
+window B tip3p-hmr mixed Metal steps 5480 host_s 2.932090 us_per_step 535.05 ns_per_day 645.92 cpu_per_host 0.19
+window C tip3p-hmr mixed Metal steps 5480 host_s 2.642528 us_per_step 482.21 ns_per_day 716.70 cpu_per_host 0.21

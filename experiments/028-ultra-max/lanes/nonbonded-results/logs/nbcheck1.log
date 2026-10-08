@@ -1,0 +1,27 @@
+19:51:36Z lease taken: nbcheck forces of kernel variants
+test         variant       rel|dF|    max|dF|    rel|dE|
+gbsa         base        2.468e-05  8.567e-02  6.390e-07
+gbsa         tiles4      2.468e-05  8.563e-02  6.209e-07
+gbsa         tgp         2.468e-05  8.567e-02  6.118e-07
+gbsa         tgpf        2.468e-05  8.567e-02  6.223e-07
+gbsa         tgf         2.468e-05  8.567e-02  6.043e-07
+gbsa         nobr        2.468e-05  8.567e-02  6.164e-07
+rf           base        2.213e-05  7.340e-01  2.116e-07
+rf           tiles4      2.213e-05  7.342e-01  2.054e-07
+rf           tgp         2.213e-05  7.340e-01  1.966e-07
+rf           tgpf        2.213e-05  7.340e-01  2.072e-07
+rf           tgf         2.213e-05  7.340e-01  2.134e-07
+rf           nobr        2.213e-05  7.340e-01  2.125e-07
+pme          base        2.048e-05  3.918e-01  1.205e-06
+pme          tiles4      2.048e-05  3.919e-01  1.198e-06
+pme          tgp         2.048e-05  3.918e-01  1.140e-06
+pme          tgpf        2.048e-05  3.918e-01  1.231e-06
+pme          tgf         2.048e-05  3.918e-01  1.140e-06
+pme          nobr        2.048e-05  3.918e-01  1.175e-06
+apoa1pme     base        7.747e-05  7.200e-01  5.807e-07
+apoa1pme     tiles4      7.747e-05  7.200e-01  5.864e-07
+apoa1pme     tgp         7.747e-05  7.200e-01  6.094e-07
+apoa1pme     tgpf        7.747e-05  7.200e-01  5.749e-07
+apoa1pme     tgf         7.747e-05  7.200e-01  5.663e-07
+apoa1pme     nobr        7.747e-05  7.200e-01  5.893e-07
+19:51:48Z LEASED_DONE rc=0 nbcheck forces of kernel variants

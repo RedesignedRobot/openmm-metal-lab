@@ -1,0 +1,5 @@
+test              atoms precision steps       pairs     tiles   single excltiles uncovered duplicate excluded overflow  verdict
+amber20-stmv    1067095    single   100   160488179    510525        0     57294         0         0        0        0  PASS  (17 s check)
+amber20-stmv    1067095    single  1000   160444832    521831        0     57294         0         0        0        0  PASS  (18 s check)
+amber20-stmv    1067095     mixed   100   160488649    510502        0     57294         0         0        0        0  PASS  (17 s check)
+amber20-stmv    1067095     mixed  1000   160441565    521400        0     57294         0         0        0        0  PASS  (17 s check)

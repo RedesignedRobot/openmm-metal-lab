@@ -1,0 +1,32 @@
+--- a/platforms/metal/src/kernels/nonbondedOwned.metal
++++ b/platforms/metal/src/kernels/nonbondedOwned.metal
+@@ -50,8 +50,7 @@
+             real4 shflPosq = posq[j];
+             DECLARE_LOCAL_PARAMETERS
+             LOAD_LOCAL_PARAMETERS_FROM_GLOBAL
+-            const int exclusionTile = pairExclusions[owner];
+-            const tileflags excl = (exclusionTile < 0 ? (tileflags) -1 : exclusions[exclusionTile*TILE_SIZE+lane]);
++            // Timing-only ceiling probe: intentionally omit exclusion-mask reads.
+             // Diagonal pairs are evaluated from both sides. Off-diagonal pairs
+             // rotate each y atom and its force back to its original lane.
+             for (unsigned int k = 0; k < TILE_SIZE; k++) {
+@@ -67,7 +66,7 @@
+                     real invR = RSQRT(r2);
+                     real r = r2*invR;
+                     LOAD_ATOM2_PARAMETERS
+-                    bool isExcluded = ((excl & ((tileflags) 1 << column)) == 0);
++                    bool isExcluded = false; // Incorrect forces, diagnostic only.
+                     real dEdR = 0;
+                     real tempEnergy = 0;
+                     const real interactionScale = (x == y ? 0.5f : 1.0f);
+--- a/platforms/common/src/CommonKernels.cpp
++++ b/platforms/common/src/CommonKernels.cpp
+@@ -1981,7 +1981,7 @@
+     bool useCutoff = (force.getNonbondedMethod() != GBSAOBCForce::NoCutoff);
+     bool usePeriodic = (force.getNonbondedMethod() != GBSAOBCForce::NoCutoff && force.getNonbondedMethod() != GBSAOBCForce::CutoffNonPeriodic);
+     cutoff = force.getCutoffDistance();
+-    string source = CommonKernelSources::gbsaObc2;
++    string source = ""; // GB ownership timing-only ceiling: omit OBC2 arithmetic.
+     map<string, string> replacements;
+     replacements["CHARGE1"] = prefix+"charge1";
+     replacements["CHARGE2"] = prefix+"charge2";

@@ -1,0 +1,236 @@
+2026-09-27 18:04:56.111881+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:206:48: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    for (unsigned int index = GLOBAL_ID; index < bufferSize; index += GLOBAL_SIZE)
+                                         ~~~~~ ^ ~~~~~~~~~~
+program_source:211:43: warning: comparison of integers of different signs: 'unsigned int' and '__private int' [-Wsign-compare]
+        if (thread%(i*2) == 0 && thread+i < workGroupSize)
+                                 ~~~~~~~~ ^ ~~~~~~~~~~~~~
+2026-09-27 18:04:56.198529+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:1460:15: warning: unused variable 'v' [-Wunused-variable]
+        real4 v = symmetryOffset[index];
+              ^
+2026-09-27 18:04:56.265658+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:178:38: warning: comparison of integers of different signs: '__private int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+    for (int index = LOCAL_ID; index < NUM_GROUPS; index += LOCAL_SIZE)
+                               ~~~~~ ^ ~~~~~~~~~~
+2026-09-27 18:04:56.336193+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:139:45: warning: comparison of integers of different signs: '__private int' and '__private uint' (aka '__private unsigned int') [-Wsign-compare]
+    for (int index = get_local_id(0); index < length; index += get_local_size(0))
+                                      ~~~~~ ^ ~~~~~~
+program_source:149:36: warning: comparison of integers of different signs: '__private int' and '__private uint' (aka '__private unsigned int') [-Wsign-compare]
+                if (ixj > i && ixj < length) {
+                               ~~~ ^ ~~~~~~
+program_source:149:25: warning: comparison of integers of different signs: '__private int' and '__private unsigned int' [-Wsign-compare]
+                if (ixj > i && ixj < length) {
+                    ~~~ ^ ~
+program_source:169:45: warning: comparison of integers of different signs: '__private int' and '__private uint' (aka '__private unsigned int') [-Wsign-compare]
+    for (int index = get_local_id(0); index < length; index += get_local_size(0))
+                                      ~~~~~ ^ ~~~~~~
+program_source:180:50: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and '__private int' [-Wsign-compare]
+    unsigned int value = dataIn[get_global_id(0) < length ? get_global_id(0) : 0];
+                                ~~~~~~~~~~~~~~~~ ^ ~~~~~~
+program_source:186:29: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and '__private int' [-Wsign-compare]
+        if (get_local_id(0) < numInBlock)
+            ~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~
+program_source:191:68: warning: comparison of integers of different signs: 'int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+            if (otherKey < key || (otherKey == key && blockStart+i < get_global_id(0)))
+                                                      ~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~
+program_source:195:26: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and '__private int' [-Wsign-compare]
+    if (get_global_id(0) < length)
+        ~~~~~~~~~~~~~~~~ ^ ~~~~~~
+program_source:284:25: warning: comparison of integers of different signs: '__private int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+                if (ixj > get_local_id(0)) {
+                    ~~~ ^ ~~~~~~~~~~~~~~~
+program_source:393:45: warning: comparison of integers of different signs: '__private int' and '__private uint' (aka '__private unsigned int') [-Wsign-compare]
+    for (int index = get_group_id(0); index < numBuckets; index += get_num_groups(0)) {
+                                      ~~~~~ ^ ~~~~~~~~~~
+program_source:397:20: warning: comparison of integers of different signs: '__private int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+        if (length <= get_local_size(0)) {
+            ~~~~~~ ^  ~~~~~~~~~~~~~~~~~
+program_source:400:33: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and '__private int' [-Wsign-compare]
+            if (get_local_id(0) < length)
+                ~~~~~~~~~~~~~~~ ^ ~~~~~~
+program_source:408:31: warning: comparison of integers of different signs: '__private int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+            for (int k = 2; k <= get_local_size(0); k *= 2) {
+                            ~ ^  ~~~~~~~~~~~~~~~~~
+program_source:411:29: warning: comparison of integers of different signs: '__private int' and 'size_t' (aka 'unsigned long') [-Wsign-compare]
+                    if (ixj > get_local_id(0)) {
+                        ~~~ ^ ~~~~~~~~~~~~~~~
+program_source:428:33: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and '__private int' [-Wsign-compare]
+            if (get_local_id(0) < length)
+                ~~~~~~~~~~~~~~~ ^ ~~~~~~
+openmm /tmp/openmm-metal-bench/ultra-r1/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-r1/prefix/lib/plugins/libOpenMMOpenCL.dylib /tmp/openmm-metal-bench/ultra-r1/prefix/lib/plugins/libOpenMMRPMDOpenCL.dylib /tmp/openmm-metal-bench/ultra-r1/prefix/lib/plugins/libOpenMMDrudeOpenCL.dylib /tmp/openmm-metal-bench/ultra-r1/prefix/lib/plugins/libOpenMMAmoebaOpenCL.dylib
+2026-09-27 18:04:56.414328+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:141:26: warning: unsupported OpenCL extension 'cl_khr_byte_addressable_store' - ignoring [-Wignored-pragmas]
+#pragma OPENCL EXTENSION cl_khr_byte_addressable_store : enable
+                         ^
+program_source:315:15: warning: unused variable 'warpMask' [-Wunused-variable]
+    const int warpMask = (1<<indexInWarp)-1;
+              ^
+program_source:331:57: warning: comparison of integers of different signs: '__private int' and 'unsigned int' [-Wsign-compare]
+    for (int block1 = startBlockIndex+warpIndex; block1 < startBlockIndex+numBlocks; block1 += totalWarps) {
+                                                 ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:501:45: warning: comparison of integers of different signs: 'const __private int' and '__private unsigned int' [-Wsign-compare]
+                            if (indexInWarp < tilesToStore)
+                                ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+program_source:503:47: warning: comparison of integers of different signs: '__private int' and '__private unsigned int' [-Wsign-compare]
+                            for (int j = 0; j < tilesToStore; j++)
+                                            ~ ^ ~~~~~~~~~~~~
+program_source:526:33: warning: comparison of integers of different signs: 'const __private int' and '__private unsigned int' [-Wsign-compare]
+                if (indexInWarp < tilesToStore)
+                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+program_source:528:35: warning: comparison of integers of different signs: '__private int' and '__private unsigned int' [-Wsign-compare]
+                for (int j = 0; j < tilesToStore; j++)
+                                ~ ^ ~~~~~~~~~~~~
+2026-09-27 18:04:56.459817+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:364:18: warning: unused variable 'charge1' [-Wunused-variable]
+            real charge1 = charge[atom1];
+                 ^
+program_source:323:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:311:9: warning: unused variable 'skipBase' [-Wunused-variable]
+    int skipBase = 0;
+        ^
+program_source:312:9: warning: unused variable 'currentSkipIndex' [-Wunused-variable]
+    int currentSkipIndex = tbx;
+        ^
+program_source:179:44: warning: comparison of integers of different signs: '__private int' and 'const __private unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+program_source:560:30: warning: unused variable 'r' [-Wunused-variable]
+                        real r = r2*invR;
+                             ^
+program_source:619:30: warning: unused variable 'r' [-Wunused-variable]
+                        real r = r2*invR;
+                             ^
+program_source:828:34: warning: unused variable 'r' [-Wunused-variable]
+                            real r = r2*invR;
+                                 ^
+program_source:695:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:683:9: warning: unused variable 'skipBase' [-Wunused-variable]
+    int skipBase = 0;
+        ^
+program_source:684:9: warning: unused variable 'currentSkipIndex' [-Wunused-variable]
+    int currentSkipIndex = tbx;
+        ^
+program_source:529:44: warning: comparison of integers of different signs: '__private int' and 'const __private unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+2026-09-27 18:04:56.519302+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:292:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:307:28: warning: unused variable 'interactionScale' [-Wunused-variable]
+                const real interactionScale = 0.5f;
+                           ^
+program_source:508:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:523:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 1.0f;
+                               ^
+program_source:265:20: warning: unused variable 'hasExclusions' [-Wunused-variable]
+        const bool hasExclusions = true;
+                   ^
+program_source:1047:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:1062:36: warning: unused variable 'interactionScale' [-Wunused-variable]
+                        const real interactionScale = 1.0f;
+                                   ^
+program_source:780:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:732:20: warning: unused variable 'hasExclusions' [-Wunused-variable]
+        const bool hasExclusions = false;
+                   ^
+program_source:738:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:725:9: warning: unused variable 'skipBase' [-Wunused-variable]
+    int skipBase = 0;
+        ^
+program_source:726:9: warning: unused variable 'currentSkipIndex' [-Wunused-variable]
+    int currentSkipIndex = tbx;
+        ^
+program_source:250:44: warning: comparison of integers of different signs: '__private int' and 'const __private unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+program_source:446:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:662:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1201:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+2026-09-27 18:04:56.557544+0300 python[21628:17854757] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:292:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:307:28: warning: unused variable 'interactionScale' [-Wunused-variable]
+                const real interactionScale = 0.5f;
+                           ^
+program_source:508:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:523:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 1.0f;
+                               ^
+program_source:254:15: warning: unused variable 'force' [-Wunused-variable]
+        real4 force = 0;
+              ^
+program_source:265:20: warning: unused variable 'hasExclusions' [-Wunused-variable]
+        const bool hasExclusions = true;
+                   ^
+program_source:1047:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = localData[atom2].obc3_charge;
+      ^
+program_source:1062:36: warning: unused variable 'interactionScale' [-Wunused-variable]
+                        const real interactionScale = 1.0f;
+                                   ^
+program_source:780:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:732:20: warning: unused variable 'hasExclusions' [-Wunused-variable]
+        const bool hasExclusions = false;
+                   ^
+program_source:733:15: warning: unused variable 'force' [-Wunused-variable]
+        real4 force = 0;
+              ^
+program_source:738:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:725:9: warning: unused variable 'skipBase' [-Wunused-variable]
+    int skipBase = 0;
+        ^
+program_source:726:9: warning: unused variable 'currentSkipIndex' [-Wunused-variable]
+    int currentSkipIndex = tbx;
+        ^
+program_source:250:44: warning: comparison of integers of different signs: '__private int' and 'const __private unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+program_source:446:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:662:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1201:88: warning: comparison of integers of different signs: '__private unsigned int' and '__private int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+window A gbsa single OpenCL steps 2557 host_s 0.859911 us_per_step 336.30 ns_per_day 1027.66 cpu_per_host 0.76
+window B gbsa single OpenCL steps 2557 host_s 0.853411 us_per_step 333.75 ns_per_day 1035.49 cpu_per_host 0.77
+window C gbsa single OpenCL steps 2557 host_s 0.955458 us_per_step 373.66 ns_per_day 924.90 cpu_per_host 0.81

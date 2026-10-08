@@ -1,0 +1,23 @@
+preflight: not quiet after 60 s (load 6.24, 0 build processes); starting anyway
+start 2026-09-29T02:15:54Z after 60 s of preflight, load { 6.24 5.18 4.04 }
+holder: window 2026-09-29T02:14:53Z dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits, pid 4494, held 60 s
+build processes: 0 gpuq build jobs, 0 paused
+queue, oldest first:
+
+gpuq 02:15:54Z, day slot. GPU: window job 3 has it alone.
+running:
+      3  window      window                 ran    60s of ~6m     dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, bui
+queued: none
+ %CPU   PID COMMAND
+ 21.6   608 other
+ 17.3   181 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+  5.8  6047 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+  5.5 36821 other
+  5.4 80429 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+  4.7   584 other
+  3.4 37518 other
+  3.0 19360 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-r3-gbfold ab.sh /tmp/openmm-metal-bench/ultra-r3-gbfold/ab-rf, about 11 min /tmp/openmm-m
+  1.6  8613 other
+  1.5  7696 other
+ps: stdout: Broken pipe
+end 2026-09-29T02:16:10Z

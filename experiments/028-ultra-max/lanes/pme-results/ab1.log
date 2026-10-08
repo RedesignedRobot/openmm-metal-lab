@@ -1,0 +1,16 @@
+load: { 4.44 6.08 4.58 }
+pme single round 0 fixed 542.37 ns/day load1=4.44
+pme single round 0 float 590.06 ns/day load1=3.90
+pme single round 1 float 602.17 ns/day load1=4.16
+pme single round 1 fixed 537.67 ns/day load1=3.79
+apoa1pme single round 0 fixed 193.64 ns/day load1=3.60
+apoa1pme single round 0 float 225.30 ns/day load1=3.86
+apoa1pme single round 1 float 225.03 ns/day load1=3.89
+apoa1pme single round 1 fixed 194.76 ns/day load1=4.06
+apoa1ljpme single round 0 fixed 144.88 ns/day load1=3.25
+apoa1ljpme single round 0 float 168.62 ns/day load1=3.70
+apoa1ljpme single round 1 float 166.56 ns/day load1=8.17
+apoa1ljpme single round 1 fixed 141.19 ns/day load1=16.58
+SUMMARY pme single fixed=540.02 (1.000) float=596.12 (1.104)
+SUMMARY apoa1pme single fixed=194.20 (1.000) float=225.17 (1.159)
+SUMMARY apoa1ljpme single fixed=143.04 (1.000) float=167.59 (1.172)

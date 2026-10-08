@@ -1,0 +1,155 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-r6d",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_m",
+   "median": 297.84574920954464,
+   "rounds": {
+    "1": 298.23390812380063,
+    "2": 298.5956602526496,
+    "3": 297.8914778380625,
+    "4": 297.47696693482794,
+    "5": 297.33509450000497,
+    "6": 297.8000205810268
+   },
+   "spread": 0.004232277129991206
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_m",
+   "median": 297.7962322502358,
+   "rounds": {
+    "1": 295.48374432091606,
+    "2": 298.41588184127573,
+    "3": 298.17915434574803,
+    "4": 298.2421074122584,
+    "5": 295.9540563935907,
+    "6": 297.41331015472355
+   },
+   "spread": 0.00984612027561122
+  },
+  {
+   "test": "amber20-cellulose",
+   "label": "r6_m",
+   "median": 111.3764260324364,
+   "rounds": {
+    "1": 111.37804576111952,
+    "2": 111.42340322734961,
+    "3": 111.44794949032617,
+    "4": 111.18516521285827,
+    "5": 111.37480630375327,
+    "6": 111.07370739853356
+   },
+   "spread": 0.0033601553320055213
+  },
+  {
+   "test": "amber20-cellulose",
+   "label": "tr_m",
+   "median": 111.48507529110681,
+   "rounds": {
+    "1": 111.49301710961349,
+    "2": 111.46604396278455,
+    "3": 111.52140716829999,
+    "4": 111.46266330018976,
+    "5": 111.53372095120845,
+    "6": 111.47713347260013
+   },
+   "spread": 0.0006373736648887512
+  }
+ ],
+ "ratios": [
+  {
+   "test": "apoa1ljpme",
+   "num": "r6_m",
+   "den": "tr_m",
+   "ratio": 1.0001662779912783,
+   "round_min": 0.9974344988235587,
+   "round_max": 1.0093073269028894
+  },
+  {
+   "test": "amber20-cellulose",
+   "num": "r6_m",
+   "den": "tr_m",
+   "ratio": 0.9990254367377274,
+   "round_min": 0.9963810867619256,
+   "round_max": 0.9996174553799615
+  }
+ ],
+ "power": [
+  {
+   "test": "apoa1ljpme",
+   "label": "r6_m",
+   "gpu_w": 72.31373571428571,
+   "pkg_w": 74.72463333333334,
+   "ns_per_day_per_gpu_w": 4.118799094909774
+  },
+  {
+   "test": "apoa1ljpme",
+   "label": "tr_m",
+   "gpu_w": 72.17935714285714,
+   "pkg_w": 74.71610714285714,
+   "ns_per_day_per_gpu_w": 4.125781165670934
+  },
+  {
+   "test": "amber20-cellulose",
+   "label": "r6_m",
+   "gpu_w": 82.8510625,
+   "pkg_w": 85.35915625,
+   "ns_per_day_per_gpu_w": 1.3442968945924672
+  },
+  {
+   "test": "amber20-cellulose",
+   "label": "tr_m",
+   "gpu_w": 83.16662500000001,
+   "pkg_w": 85.69867500000001,
+   "ns_per_day_per_gpu_w": 1.3405025789023757
+  }
+ ],
+ "hygiene": {
+  "runs": 24,
+  "load": [
+   1.66,
+   3.83
+  ],
+  "vm_cpu": [
+   9,
+   36
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [
+   "2026-09-29T13:42:35Z round 5 apoa1ljpme tr_m after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T13:42:37Z round 5 apoa1ljpme r6_m load { 2.81 2.77 3.44 } FOREIGN GPU renderers chrome-headless-shell vm 12%",
+   "2026-09-29T13:44:28Z round 6 apoa1ljpme r6_m after the run: FOREIGN GPU 13%"
+  ],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T13:33:39Z",
+ "last_run": "2026-09-29T13:44:29Z",
+ "arms": {
+  "tr_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk",
+   "commit": "5071882fa51d37dcc2f4b3b730eaad64ff0806f3",
+   "src": "99c921074c6cbbff04cbdefc44c672fa1665dc19",
+   "built": "2026-09-28T23:39:36Z"
+  },
+  "r6_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-r6",
+   "commit": "82a1f9c98c2af0dc41e2f4e7f1c5d80c4780f080",
+   "src": "893a1fe66dd599f0e257422c57fe146e27463fcf",
+   "built": "2026-09-29T11:26:13Z"
+  }
+ },
+ "gpuq_job": null,
+ "written": "2026-09-29T13:44:58Z"
+}

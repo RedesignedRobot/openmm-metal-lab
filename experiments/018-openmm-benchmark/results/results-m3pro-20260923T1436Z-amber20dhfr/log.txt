@@ -13,7 +13,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 68431
 elapsed_time: 61.245101
 ns_per_day: 386.1493117629114
@@ -34,7 +34,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/d3/096tyyk123n487dkqysp67580000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Pro', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 47026
 elapsed_time: 60.976206
 ns_per_day: 266.53323757138975

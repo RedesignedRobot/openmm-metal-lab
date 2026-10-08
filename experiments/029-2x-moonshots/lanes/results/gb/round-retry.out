@@ -1,0 +1,142 @@
+21:28:21Z waiting for the lease: 3 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:27:42Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-large, about 7 min, 0 build processes
+21:33:24Z waiting for the lease: 3 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:27:42Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-large, about 7 min, 0 build processes
+21:38:48Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T21:35:03Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-apoa1pme, about 9 min, 0 build processes
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.569e-02  5.992e-07  ok
+gbsa            2489     mixed  2.468e-05  8.569e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.342e-01  2.045e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  1.198e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  5.504e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.200e-01  5.749e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.201e-01  5.873e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  5.920e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.879e-07  ok
+estimate: 3 rounds, 1 tests, 4 configurations, about 6 min 48 s
+21:44:54Z waiting for the lease: 2 in the queue, held by: ultra-gate 2026-09-26T21:43:34Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:49:57Z waiting for the lease: 2 in the queue, held by: ultra-gate 2026-09-26T21:43:34Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:55:00Z waiting for the lease: 2 in the queue, held by: ultra-gate 2026-09-26T21:43:34Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+22:00:03Z waiting for the lease: 2 in the queue, held by: ultra-gate 2026-09-26T21:43:34Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+22:05:21Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T22:02:48Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-apoa1ljpme, about 9 min, 0 build processes
+22:10:58Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T22:02:48Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-apoa1ljpme, about 9 min, 0 build processes
+base-single Metal single settings=none /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 962ac562afadf240b808b9ceb7f8c07518d41eb9 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:21Z 
+mine-single Metal single settings=none /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src dfd70b9f8ec6be69389632fcae6f387183b77643 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T21:28:21Z 
+base-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-int028/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src 962ac562afadf240b808b9ceb7f8c07518d41eb9 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T16:40:21Z 
+mine-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 7484d7bef401f813dc871c1e156578954606d4ea src dfd70b9f8ec6be69389632fcae6f387183b77643 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T21:28:21Z 
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:11:23.582053+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1606.52
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:11:54.343178+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1371.04
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:12:25.121512+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1229.9
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:12:56.062461+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1095.75
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:13:27.389997+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1100.13
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:13:58.031779+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1229.81
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:14:29.402065+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1368.63
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:15:00.482001+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1599.4
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:15:31.356450+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1589.32
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:16:03.557351+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1365.56
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:16:33.941012+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1238.16
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:17:05.185362+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              mixed       HBonds        1.5            4         NVT        Metal      1096.48
+done /tmp/openmm-metal-bench/ultra-m29-gb/screen

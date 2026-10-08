@@ -1,0 +1,21 @@
+19:59:24Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T19:59:05Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe8, about 17 min, 0 build processes
+20:05:05Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T19:59:05Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe8, about 17 min, 0 build processes
+spread-pme: xctrace pid 99305 recording 20:10:05Z
+captured spread-pme 20:10:08Z: Target app exited, ending recording...
+saved spread-pme 20:10:36Z: Output file saved as: spread-pme.trace
+exported spread-pme 20:10:42Z, rows 104815, releasing
+fft-pme: xctrace pid 797 recording 20:10:43Z
+captured fft-pme 20:10:47Z: Target app exited, ending recording...
+20:11:08Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (shader census pme+dhfr, spread and pmefft, about 4 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved fft-pme 20:11:13Z: Output file saved as: fft-pme.trace
+exported fft-pme 20:11:19Z, rows 89735, releasing
+spread-amber20-dhfr: xctrace pid 1884 recording 20:11:21Z
+captured spread-amber20-dhfr 20:11:24Z: Target app exited, ending recording...
+saved spread-amber20-dhfr 20:11:59Z: Output file saved as: spread-amber20-dhfr.trace
+exported spread-amber20-dhfr 20:12:06Z, rows 122748, releasing
+fft-amber20-dhfr: xctrace pid 3851 recording 20:12:08Z
+captured fft-amber20-dhfr 20:12:12Z: Target app exited, ending recording...
+20:12:23Z lease.sh: GPU under 10% for 60 s in the timing hold of r2-spread (shader census pme+dhfr, spread and pmefft, about 4 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+saved fft-amber20-dhfr 20:12:44Z: Output file saved as: fft-amber20-dhfr.trace
+exported fft-amber20-dhfr 20:12:50Z, rows 103139, releasing
+census done 20:12:50Z

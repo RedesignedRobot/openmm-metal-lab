@@ -48,8 +48,8 @@
 18:52:42:I1:   Hostname: M2
 18:52:42:I1: UTC Offset: 3
 18:52:42:I1:        PID: 26203
-18:52:42:I1:        CWD: /Users/amir/lab/fah-client/run-instrumented-apple
-18:52:42:I1:       Exec: /Users/amir/lab/fah-client/fah-client-instrumented
+18:52:42:I1:        CWD: ~/lab/fah-client/run-instrumented-apple
+18:52:42:I1:       Exec: ~/lab/fah-client/fah-client-instrumented
 18:52:42:I1:*******************************************************************
 18:52:42:I2:<config>
 18:52:42:I2:  <!-- Client -->
@@ -684,7 +684,7 @@
 18:52:42:D5:bstream_gets()
 18:52:42:D5:bstream_gets()
 18:52:42:D5:bstream_destroy()
-18:52:42:I1:F@H ID = g18jsgpCTkeqiS2crj1TiffNTULF9L-JowmkfPBS26I
+18:52:42:I1:F@H ID = <client-id>
 18:52:42:I3:Loading default resource group
 18:52:42:D5:SQL: CREATE TABLE IF NOT EXISTS "groups" (name TEXT PRIMARY KEY,value)
 18:52:42:D5:SQL: REPLACE INTO "groups" (name, value) VALUES (@NAME, @VALUE)
@@ -755,7 +755,7 @@
 18:52:45:D5:REQ1:Host: 127.0.0.1:7396
 18:52:45:D5:REQ1:Upgrade: websocket
 18:52:45:D5:REQ1:Connection: Upgrade
-18:52:45:D5:REQ1:Sec-WebSocket-Key: Mci+cvapRHlp4lV0KvmlMQ==
+18:52:45:D5:REQ1:Sec-WebSocket-Key: <nonce>
 18:52:45:D5:REQ1:Sec-WebSocket-Version: 13
 18:52:45:D5:REQ1:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 18:52:45:D5:REQ1:User-Agent: Python/3.14 websockets/17.1
@@ -764,7 +764,7 @@
 18:52:45:I4:REQ1:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
 18:52:45:D5:REQ1:Upgrade: websocket
 18:52:45:D5:REQ1:Connection: upgrade
-18:52:45:D5:REQ1:Sec-WebSocket-Accept: AQvIelGXKjwdS/L5eVxRPcMHLtI=
+18:52:45:D5:REQ1:Sec-WebSocket-Accept: <nonce>
 18:52:45:D5:REQ1:Date: Wed, 23 Sep 2026 18:52:45 GMT
 18:52:45:D5:REQ1:
 18:52:45:D4:CON1:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
@@ -862,7 +862,7 @@
 18:52:45:D5:REQ2:Host: 127.0.0.1:7396
 18:52:45:D5:REQ2:Upgrade: websocket
 18:52:45:D5:REQ2:Connection: Upgrade
-18:52:45:D5:REQ2:Sec-WebSocket-Key: 5DDfHgcmeRlSPC0oVtodtQ==
+18:52:45:D5:REQ2:Sec-WebSocket-Key: <nonce>
 18:52:45:D5:REQ2:Sec-WebSocket-Version: 13
 18:52:45:D5:REQ2:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 18:52:45:D5:REQ2:User-Agent: Python/3.14 websockets/17.1
@@ -871,7 +871,7 @@
 18:52:45:I4:REQ2:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
 18:52:45:D5:REQ2:Upgrade: websocket
 18:52:45:D5:REQ2:Connection: upgrade
-18:52:45:D5:REQ2:Sec-WebSocket-Accept: uS7pRlhQ4C8RwE5O4FqlYT86UDc=
+18:52:45:D5:REQ2:Sec-WebSocket-Accept: <nonce>
 18:52:45:D5:REQ2:Date: Wed, 23 Sep 2026 18:52:45 GMT
 18:52:45:D5:REQ2:
 18:52:45:D4:CON2:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
@@ -1063,7 +1063,7 @@
 18:52:45:D3:WU1:  "time": "2026-09-23T18:52:45Z",
 18:52:45:D3:WU1:  "wu": 1,
 18:52:45:D3:WU1:  "version": "8.5.7",
-18:52:45:D3:WU1:  "id": "g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=",
+18:52:45:D3:WU1:  "id": "<client-id>",
 18:52:45:D3:WU1:  "user": "Anonymous",
 18:52:45:D3:WU1:  "team": 0,
 18:52:45:D3:WU1:  "passkey": "",
@@ -1120,7 +1120,7 @@
 18:52:45:D4:CON3:Accept: */*
 18:52:45:D4:CON3:Content-Length: 2061
 18:52:45:D4:CON3:
-18:52:45:D4:CON3:{"data":{"time":"2026-09-23T18:52:45Z","wu":1,"version":"8.5.7","id":"g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3267444736},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"aT1gqmU9+puwmy5pFN/hP1WulUL1e1ocl4+dZnWq36wkjmdsga0m8mUvZhgsueLvRSJJBNdCzE/U53KQQj9KPeQawsOFjsUde5QSW7rEjwlH3X9Pk8OTcx35WSrv72nyfaAwfIyaCx0bEtUwm/REGkENqChQWKS73ZL+vJl+0xnh6OiubImhG62t8EnQJk6z22H2ycdiF7CawQx2jFlWNqMtWBoPAd6YggMI4lP/O6C0d7nJaOREpU/4l1HlFSFQnIPvRfwjxYbE8qKB6JZS4StNVFRtLOYRJ6JipIwRsEWsQNR8qKOPFLBwLnSMJY1PnIEQ5NotbnWf8bg7fSPLNEMqbqLQAvh5ShyXBIDcS4bXHE5eCsogJL26MdP95t3rA60YepUercaW0bTZMYnGpLEdj3SSgfu2NP1jz3EabKoUCuj8ppenNsL3gf3eB8F+J3Tc5Aeh4E6oP7glS1cJzN28JY7LFMgGA/BdLl6f8AwqIK3sxjA9hPYuMyrYvspOGf36kRkBdzOGlBUbC8Ixc1Swk0xEElQUcbXqsxF4mv0dDCqLZNy85B5BRCcckdydR60idfUnE/Mt9rWHM8+MJe0kTcoOc4IBXCOAi74cZjxFPFUPGghhw2QKTpHlbZRP/zbiNjuDDaO1LmWsTcc8qZMYPt90aMBDARXyak4eJf4=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:45:D4:CON3:{"data":{"time":"2026-09-23T18:52:45Z","wu":1,"version":"8.5.7","id":"<client-id>","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3267444736},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"aT1gqmU9+puwmy5pFN/hP1WulUL1e1ocl4+dZnWq36wkjmdsga0m8mUvZhgsueLvRSJJBNdCzE/U53KQQj9KPeQawsOFjsUde5QSW7rEjwlH3X9Pk8OTcx35WSrv72nyfaAwfIyaCx0bEtUwm/REGkENqChQWKS73ZL+vJl+0xnh6OiubImhG62t8EnQJk6z22H2ycdiF7CawQx2jFlWNqMtWBoPAd6YggMI4lP/O6C0d7nJaOREpU/4l1HlFSFQnIPvRfwjxYbE8qKB6JZS4StNVFRtLOYRJ6JipIwRsEWsQNR8qKOPFLBwLnSMJY1PnIEQ5NotbnWf8bg7fSPLNEMqbqLQAvh5ShyXBIDcS4bXHE5eCsogJL26MdP95t3rA60YepUercaW0bTZMYnGpLEdj3SSgfu2NP1jz3EabKoUCuj8ppenNsL3gf3eB8F+J3Tc5Aeh4E6oP7glS1cJzN28JY7LFMgGA/BdLl6f8AwqIK3sxjA9hPYuMyrYvspOGf36kRkBdzOGlBUbC8Ixc1Swk0xEElQUcbXqsxF4mv0dDCqLZNy85B5BRCcckdydR60idfUnE/Mt9rWHM8+MJe0kTcoOc4IBXCOAi74cZjxFPFUPGghhw2QKTpHlbZRP/zbiNjuDDaO1LmWsTcc8qZMYPt90aMBDARXyak4eJf4=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
 18:52:45:D4:FD14:cb::Event::FD::write() length=2193
 18:52:45:D4:FD14:old events=4 new events=4
 18:52:45:D4:FD14:old events=4 new events=4
@@ -1145,7 +1145,7 @@
 18:52:47:D3:WU1:  "time": "2026-09-23T18:52:47Z",
 18:52:47:D3:WU1:  "wu": 1,
 18:52:47:D3:WU1:  "version": "8.5.7",
-18:52:47:D3:WU1:  "id": "g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=",
+18:52:47:D3:WU1:  "id": "<client-id>",
 18:52:47:D3:WU1:  "user": "Anonymous",
 18:52:47:D3:WU1:  "team": 0,
 18:52:47:D3:WU1:  "passkey": "",
@@ -1202,7 +1202,7 @@
 18:52:47:D4:CON4:Accept: */*
 18:52:47:D4:CON4:Content-Length: 2061
 18:52:47:D4:CON4:
-18:52:47:D4:CON4:{"data":{"time":"2026-09-23T18:52:47Z","wu":1,"version":"8.5.7","id":"g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3275603968},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"hCkBpA/vy+mtbSw5ZFn1TGgfvQQItgNy5k4iDCArryBAXjRrva2cCG8VXTRG9joC4nSqOKqBpYnCwWyGc8Ghwr2R5x8D0VRPiBcTJ3LQoD1Z2yOK1F6WKfw5h6SQ2h48CiEntoekHPbtsHsoJfVn1KSYVNe10VdHN4A3Jja6bfoF2gNZtPSeotI0xby6H8K7C5oyaI9G65coYP7bRD49hzzE9V2lVyuoyJO6s1Vfr34up9q4nypMbLrz14sFvrVicKpj+6YyB/WlWim9c1W4Yi3EYsJdihYf7iB2QEO1q4ChBWAS4Nh8DNBLfSbuOPWpe/54Gi4095qxHKb+xEFNiJHRAE7g3Qn0xhSGdb5LsDbh+doJpIRH5AERy7oIJI2ihYuDVUof1MywNF74pdmaCVIJameHcKabBQLh7ptXAIWQsNgeES09QvtbO2hpaf4PNc3MTznvMUz8NyLx5s/SLgR1ofVjTrbBWBHUJlIuk7Xu847qOvozNz/V+K4NfWZ90Mk06azY80ER8bK2fyzT/e1rRXcheXCG0Xs1r7r7RVb08/dLAhYVPmzzEl45LtUqS67aWsoJ5VTYA05aTRhyeUwugHwk0vHk3IUehr0iWir9Ko4FUGycKHNmBiXkb9LlA/YGD+AC7rZNYrzxvvFeM2bK0Y1hrOcqTcTikDicwzw=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:47:D4:CON4:{"data":{"time":"2026-09-23T18:52:47Z","wu":1,"version":"8.5.7","id":"<client-id>","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3275603968},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"hCkBpA/vy+mtbSw5ZFn1TGgfvQQItgNy5k4iDCArryBAXjRrva2cCG8VXTRG9joC4nSqOKqBpYnCwWyGc8Ghwr2R5x8D0VRPiBcTJ3LQoD1Z2yOK1F6WKfw5h6SQ2h48CiEntoekHPbtsHsoJfVn1KSYVNe10VdHN4A3Jja6bfoF2gNZtPSeotI0xby6H8K7C5oyaI9G65coYP7bRD49hzzE9V2lVyuoyJO6s1Vfr34up9q4nypMbLrz14sFvrVicKpj+6YyB/WlWim9c1W4Yi3EYsJdihYf7iB2QEO1q4ChBWAS4Nh8DNBLfSbuOPWpe/54Gi4095qxHKb+xEFNiJHRAE7g3Qn0xhSGdb5LsDbh+doJpIRH5AERy7oIJI2ihYuDVUof1MywNF74pdmaCVIJameHcKabBQLh7ptXAIWQsNgeES09QvtbO2hpaf4PNc3MTznvMUz8NyLx5s/SLgR1ofVjTrbBWBHUJlIuk7Xu847qOvozNz/V+K4NfWZ90Mk06azY80ER8bK2fyzT/e1rRXcheXCG0Xs1r7r7RVb08/dLAhYVPmzzEl45LtUqS67aWsoJ5VTYA05aTRhyeUwugHwk0vHk3IUehr0iWir9Ko4FUGycKHNmBiXkb9LlA/YGD+AC7rZNYrzxvvFeM2bK0Y1hrOcqTcTikDicwzw=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
 18:52:47:D4:FD14:cb::Event::FD::write() length=2193
 18:52:47:D4:FD14:old events=4 new events=4
 18:52:47:D4:FD14:old events=4 new events=4
@@ -1226,7 +1226,7 @@
 18:52:51:D3:WU1:  "time": "2026-09-23T18:52:51Z",
 18:52:51:D3:WU1:  "wu": 1,
 18:52:51:D3:WU1:  "version": "8.5.7",
-18:52:51:D3:WU1:  "id": "g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=",
+18:52:51:D3:WU1:  "id": "<client-id>",
 18:52:51:D3:WU1:  "user": "Anonymous",
 18:52:51:D3:WU1:  "team": 0,
 18:52:51:D3:WU1:  "passkey": "",
@@ -1283,7 +1283,7 @@
 18:52:51:D4:CON5:Accept: */*
 18:52:51:D4:CON5:Content-Length: 2061
 18:52:51:D4:CON5:
-18:52:51:D4:CON5:{"data":{"time":"2026-09-23T18:52:51Z","wu":1,"version":"8.5.7","id":"g18jsgpCTkeqiS2crj1TiffNTULF9L+JowmkfPBS26I=","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3295068160},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"WBxkdG1leAg4qbUuIqzgoLh9ZcYsrC/yCvZ7DBtrnqhInI1M7nHkeksT2OJtBxDDsVQQvcm24xuPGAaBcKtQSUR70XkL/hEyGbqp3RyCR3GC794zkgcsKEQSXpzxIWmZI6/P05r/fnCpbtCJQqobx/T51uahnF95lRyyKFWWuwDINzZor5CoPbioeHJy5RExJJti70I8MybXV5A5hhKTzwAj0P/j2AVaAwupp1J8YT6CBoxydHNGhXC50tBLDp1dASf+w2IewGqeWuRiYbnCQobP+YHc1M6UEj/Xw5vw7HS1huLgUGJS2F8dgpAyXZX7xFTeBgjENFSyuTXxXT6gNGiBVyPiFPWHdu7T7DIU7NiJ9FIH3zJcXCvbCCvBBo/fX0mGOWQ1JPjFm/BlHykx23LX6CIT1z024ovIoHsTsd1t5bU7HhtcXadF64HK8ibOHzKBW9I/xQMTkIRXMgCe6xfd7TIRPkQbKt+C+4dmnvmCvzRcpu4EO2AfcqDg/NN2+pwsTtbQOOIm73PjQYkJ6qKbDTJ2o2vzvfYpBGl25Jhb9WGbDLJtrd+nZxy/wNyJKq8KWiECN+tq9YRus5aHGLIEtr7hATqvwrzfFZirpY0YBlAIXipx0S9VNLmiBnpPv+yXd9QzMGiiCxN+lSPQkZNoQjmJcvUOQB58xKwlq30=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
+18:52:51:D4:CON5:{"data":{"time":"2026-09-23T18:52:51Z","wu":1,"version":"8.5.7","id":"<client-id>","user":"Anonymous","team":0,"passkey":"","os":{"version":"27.0","type":"macosx","memory":3295068160},"project":{"cause":"any","beta":false},"resources":{"cpu":{"cpu":"arm64","cpus":0,"vendor":"Apple","signature":2171136,"family":8,"model":0,"stepping":0,"features":0,"extended":0,"80000001":0},"gpu:soc:0":{"gpu":"apple","vendor":4203,"device":33042,"opencl":{"platform":0,"device":0,"compute":"1.2","driver":"1.0"}}}},"signature":"WBxkdG1leAg4qbUuIqzgoLh9ZcYsrC/yCvZ7DBtrnqhInI1M7nHkeksT2OJtBxDDsVQQvcm24xuPGAaBcKtQSUR70XkL/hEyGbqp3RyCR3GC794zkgcsKEQSXpzxIWmZI6/P05r/fnCpbtCJQqobx/T51uahnF95lRyyKFWWuwDINzZor5CoPbioeHJy5RExJJti70I8MybXV5A5hhKTzwAj0P/j2AVaAwupp1J8YT6CBoxydHNGhXC50tBLDp1dASf+w2IewGqeWuRiYbnCQobP+YHc1M6UEj/Xw5vw7HS1huLgUGJS2F8dgpAyXZX7xFTeBgjENFSyuTXxXT6gNGiBVyPiFPWHdu7T7DIU7NiJ9FIH3zJcXCvbCCvBBo/fX0mGOWQ1JPjFm/BlHykx23LX6CIT1z024ovIoHsTsd1t5bU7HhtcXadF64HK8ibOHzKBW9I/xQMTkIRXMgCe6xfd7TIRPkQbKt+C+4dmnvmCvzRcpu4EO2AfcqDg/NN2+pwsTtbQOOIm73PjQYkJ6qKbDTJ2o2vzvfYpBGl25Jhb9WGbDLJtrd+nZxy/wNyJKq8KWiECN+tq9YRus5aHGLIEtr7hATqvwrzfFZirpY0YBlAIXipx0S9VNLmiBnpPv+yXd9QzMGiiCxN+lSPQkZNoQjmJcvUOQB58xKwlq30=","pub-key":"-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAl0mug7nOyArrgpCtaBmO\nOHrkS9r4JjwrYZ+ZcheNmOCDPiYn26QC0pMhI2RYpvMzPnAImPnb/TMivvk90zrm\nEGw5rDIXsXoFJaBHhqMBEV3tHodEkGmxDMbFMopapxcbApbb1obkec39EDMNffCw\nsRq8fO6v4wJ7wgBPKBUt4rhdFB2atqKD5cqXgFKnDtP0/W+Jo1MtrohfmCGX3dwH\ncpHaLYB4Ih20SpJwyOoNTMPFvT4LDHZlNSbL3hdpTm0aaxmYaCt+YhMrYl38cOTO\ngB3LGGnBKwKjseo98dV6Ay5abHTa6y9IZjSU7iZdXkPDs4FPCEMFa5FTpsq7FbHY\nV/Nn918m0wvmUCeSTKtpIpAMP302q8M1d2xELszHxrNUIhPR/Oq0wmFZskhYh5Ny\nBGh5e40bPX5kJHox7dEcR1SArG1ocI9qa4MMhuui5AnZy/Guv4J5DwPcpT+fAGdu\nw/Z5iNF5EtJyX2/VY3db7Ele77Dl8/ioY8ZhTg7s+AoiVshMXM6vDy70dGYRbblZ\nN3G79/eTVElEZDZ6LixwoLJMI5rfMmmbs8W9mWQCQSSmukVu+cfQLhhhc2pBWNYa\nRqLa1TSE7kaUHDvxvpky6/8ERZhnw+CjQXnqC6yE9Li2jv8BprFOlcF5DaXkH00D\nqTf5UhJQqzIveW4PBvxD4yUCAwEAAQ==\n-----END PUBLIC KEY-----\n"}
 18:52:51:D4:FD14:cb::Event::FD::write() length=2193
 18:52:51:D4:FD14:old events=4 new events=4
 18:52:51:D4:FD14:old events=4 new events=4
@@ -1341,7 +1341,7 @@
 18:52:51:D5:REQ6:Host: 127.0.0.1:7396
 18:52:51:D5:REQ6:Upgrade: websocket
 18:52:51:D5:REQ6:Connection: Upgrade
-18:52:51:D5:REQ6:Sec-WebSocket-Key: mTtapmeCBTqf2jdmf7yZLA==
+18:52:51:D5:REQ6:Sec-WebSocket-Key: <nonce>
 18:52:51:D5:REQ6:Sec-WebSocket-Version: 13
 18:52:51:D5:REQ6:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 18:52:51:D5:REQ6:User-Agent: Python/3.14 websockets/17.1
@@ -1350,7 +1350,7 @@
 18:52:51:I4:REQ6:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
 18:52:51:D5:REQ6:Upgrade: websocket
 18:52:51:D5:REQ6:Connection: upgrade
-18:52:51:D5:REQ6:Sec-WebSocket-Accept: gz49AriaFcuzJQ4MKji63uuuM9U=
+18:52:51:D5:REQ6:Sec-WebSocket-Accept: <nonce>
 18:52:51:D5:REQ6:Date: Wed, 23 Sep 2026 18:52:51 GMT
 18:52:51:D5:REQ6:
 18:52:51:D4:CON6:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0

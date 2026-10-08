@@ -1,0 +1,65 @@
+Test project /tmp/openmm-metal-bench/ultra-atomics/gb/build
+      Start 287: TestMetalMonteCarloAnisotropicBarostatMixed
+      Start 291: TestMetalMonteCarloFlexibleBarostatMixed
+ 1/27 Test #291: TestMetalMonteCarloFlexibleBarostatMixed ......***Failed  182.91 sec
+exception: Assertion failure at TestMonteCarloFlexibleBarostat.h:237.  Expected 0, found -0.417542 (This test is stochastic and may occasionally fail)
+
+      Start 263: TestMetalDispersionPMEMixed
+ 2/27 Test #287: TestMetalMonteCarloAnisotropicBarostatMixed ...   Passed  183.61 sec
+      Start 295: TestMetalNonbondedForceMixed
+ 3/27 Test #295: TestMetalNonbondedForceMixed ..................   Passed   24.91 sec
+      Start 219: TestMetalAndersenThermostatMixed
+ 4/27 Test #219: TestMetalAndersenThermostatMixed ..............   Passed   22.48 sec
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+ 5/27 Test #263: TestMetalDispersionPMEMixed ...................   Passed   50.16 sec
+      Start 319: TestMetalVariableLangevinIntegratorMixed
+ 6/27 Test #283: TestMetalLocalEnergyMinimizerMixed ............   Passed   21.85 sec
+      Start 255: TestMetalCustomManyParticleForceMixed
+ 7/27 Test #319: TestMetalVariableLangevinIntegratorMixed ......   Passed   21.34 sec
+      Start 323: TestMetalVerletIntegratorMixed
+ 8/27 Test #255: TestMetalCustomManyParticleForceMixed .........   Passed   11.96 sec
+      Start 279: TestMetalLangevinIntegratorMixed
+ 9/27 Test #323: TestMetalVerletIntegratorMixed ................   Passed   14.30 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+10/27 Test #231: TestMetalCompoundIntegratorMixed ..............   Passed    3.91 sec
+      Start 227: TestMetalCheckpointsMixed
+11/27 Test #227: TestMetalCheckpointsMixed .....................   Passed    1.73 sec
+      Start 239: TestMetalCustomCPPForceMixed
+12/27 Test #279: TestMetalLangevinIntegratorMixed ..............   Passed   12.17 sec
+      Start 251: TestMetalCustomHbondForceMixed
+13/27 Test #239: TestMetalCustomCPPForceMixed ..................   Passed    5.11 sec
+      Start 235: TestMetalCustomAngleForceMixed
+14/27 Test #235: TestMetalCustomAngleForceMixed ................   Passed    1.01 sec
+      Start 223: TestMetalCMAPTorsionForceMixed
+15/27 Test #251: TestMetalCustomHbondForceMixed ................   Passed    4.75 sec
+      Start 271: TestMetalGayBerneForceMixed
+16/27 Test #223: TestMetalCMAPTorsionForceMixed ................   Passed    1.53 sec
+      Start 259: TestMetalCustomTorsionForceMixed
+17/27 Test #271: TestMetalGayBerneForceMixed ...................   Passed    0.54 sec
+      Start 267: TestMetalFFTMixed
+18/27 Test #267: TestMetalFFTMixed .............................   Passed    0.24 sec
+      Start 315: TestMetalSettleMixed
+19/27 Test #259: TestMetalCustomTorsionForceMixed ..............   Passed    1.50 sec
+      Start 299: TestMetalOrientationRestraintForceMixed
+20/27 Test #315: TestMetalSettleMixed ..........................   Passed    1.06 sec
+      Start 311: TestMetalRMSDForceMixed
+21/27 Test #311: TestMetalRMSDForceMixed .......................   Passed    1.11 sec
+      Start 243: TestMetalCustomCentroidBondForceMixed
+22/27 Test #299: TestMetalOrientationRestraintForceMixed .......   Passed    1.26 sec
+      Start 247: TestMetalCustomExternalForceMixed
+23/27 Test #243: TestMetalCustomCentroidBondForceMixed .........   Passed    1.67 sec
+      Start 303: TestMetalPythonForceMixed
+24/27 Test #247: TestMetalCustomExternalForceMixed .............   Passed    2.82 sec
+      Start 307: TestMetalRBTorsionForceMixed
+25/27 Test #307: TestMetalRBTorsionForceMixed ..................   Passed    0.58 sec
+      Start 275: TestMetalHarmonicBondForceMixed
+26/27 Test #303: TestMetalPythonForceMixed .....................   Passed    3.40 sec
+27/27 Test #275: TestMetalHarmonicBondForceMixed ...............   Passed    3.11 sec
+
+96% tests passed, 1 tests failed out of 27
+
+Total Test time (real) = 291.28 sec
+
+The following tests FAILED:
+	291 - TestMetalMonteCarloFlexibleBarostatMixed (Failed)
+Errors while running CTest

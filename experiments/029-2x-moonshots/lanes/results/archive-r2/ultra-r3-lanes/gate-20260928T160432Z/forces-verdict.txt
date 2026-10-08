@@ -1,0 +1,55 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.472e-05  8.604e-02  4.595e-07  ok
+gbsa            2489     mixed  2.472e-05  8.604e-02  5.106e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.340e-01  1.935e-07  ok
+rf             23558     mixed  2.208e-05  7.340e-01  1.787e-07  ok
+pme: Reference cached
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 140, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 102, in metal
+    return evaluate(context)
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 66, in evaluate
+    state = context.getState(getForces=True, getEnergy=True, getPositions=True)
+  File "/tmp/openmm-metal-bench/ultra-r3-lanes/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:260:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:261:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:262:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:309:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:310:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:311:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:601:39: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int index = GLOBAL_ID; index < gridSize; index += GLOBAL_SIZE) {
+                                ~~~~~ ^ ~~~~~~~~
+program_source:659:39: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int index = GLOBAL_ID; index < gridSize; index += GLOBAL_SIZE) {
+                                ~~~~~ ^ ~~~~~~~~
+program_source:757:17: error: use of undeclared identifier 'pos'
+            q = pos.w*EPSILON_FACTOR;
+                ^
+program_source:932:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:933:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:934:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+

@@ -1,0 +1,32 @@
+median ns/day, host clock
+test                         cut       cutxres          s2t4          xres
+apoa1rf                   308.89        326.30        299.99        316.78
+apoa1pme                  234.70        242.91        230.13        238.72
+apoa1ljpme                200.36        200.40        198.82        198.33
+
+rounds, cut:
+  apoa1rf            309.63 308.15   spread 0.5%
+  apoa1pme           234.94 234.45   spread 0.2%
+  apoa1ljpme         200.33 200.39   spread 0.0%
+rounds, cutxres:
+  apoa1rf            325.81 326.80   spread 0.3%
+  apoa1pme           242.84 242.98   spread 0.1%
+  apoa1ljpme         200.37 200.43   spread 0.0%
+rounds, s2t4:
+  apoa1rf            299.90 300.08   spread 0.1%
+  apoa1pme           230.05 230.20   spread 0.1%
+  apoa1ljpme         198.79 198.85   spread 0.0%
+rounds, xres:
+  apoa1rf            318.04 315.51   spread 0.8%
+  apoa1pme           239.21 238.23   spread 0.4%
+  apoa1ljpme         198.37 198.30   spread 0.0%
+
+test                                          cut/s2t4                           xres/s2t4                        cutxres/s2t4                        cutxres/xres
+apoa1rf                    1.030 (rounds 1.027..1.032)         1.056 (rounds 1.051..1.060)         1.088 (rounds 1.086..1.089)         1.030 (rounds 1.024..1.036)
+apoa1pme                   1.020 (rounds 1.018..1.021)         1.037 (rounds 1.035..1.040)         1.056 (rounds 1.056..1.056)         1.018 (rounds 1.015..1.020)
+apoa1ljpme                 1.008 (rounds 1.008..1.008)         0.998 (rounds 0.997..0.998)         1.008 (rounds 1.008..1.008)         1.010 (rounds 1.010..1.011)
+
+1 minute load before 24 runs: 1.52 to 3.90
+Background VM CPU before 24 runs: 4% to 15%
+runs with no result: 0
+runs that overlapped a build: 0

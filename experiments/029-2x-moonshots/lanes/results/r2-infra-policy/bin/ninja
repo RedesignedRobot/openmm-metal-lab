@@ -1,0 +1,6 @@
+#!/bin/sh
+# Fake ninja for build-policy tests: two jobs that each append a line every 0.2 s.
+out=$2/../ticks
+( while :; do echo a >> "$out"; sleep 0.2; done ) &
+( while :; do echo b >> "$out"; sleep 0.2; done ) &
+wait

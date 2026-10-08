@@ -1,0 +1,22 @@
+base Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+one Metal single settings=DISPATCH_WAIT=block /tmp/openmm-metal-bench/ultra-dispatch/t4/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 99aa5dbd5fc39d0fbe44b605e032c5acbbc96a87 src 969c79240c0f07a3e3fd52cfc47ceb5c0ea6aa47 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:31:33Z 
+poll Metal single settings=none /tmp/openmm-metal-bench/ultra-dispatch/t2/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 17fc67494a10e35a1234410605de7445dd839325 src cd15e7d6e24c9caa98eeda20f35a00b59c8c8023 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:31:21Z 
+none Metal single settings=DISPATCH_WAIT=none /tmp/openmm-metal-bench/ultra-dispatch/t4/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 99aa5dbd5fc39d0fbe44b605e032c5acbbc96a87 src 969c79240c0f07a3e3fd52cfc47ceb5c0ea6aa47 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T21:31:33Z 
+21:31:48Z waiting for the lease: 25 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 3 build processes
+21:36:53Z waiting for the lease: 25 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:41:57Z waiting for the lease: 25 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:47:02Z waiting for the lease: 24 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:52:07Z waiting for the lease: 23 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:57:13Z waiting for the lease: 22 in the queue, held by: ultra-workloads 2026-09-24T21:55:40Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 apoa1pme, 0 build processes
+22:02:17Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:07:22Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:12:26Z waiting for the lease: 7 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:17:30Z waiting for the lease: 6 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 13 build processes
+22:22:34Z waiting for the lease: 5 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:27:38Z waiting for the lease: 5 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 3 build processes
+22:32:42Z waiting for the lease: 5 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:37:46Z waiting for the lease: 4 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:42:50Z waiting for the lease: 4 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 11 build processes
+22:47:54Z waiting for the lease: 4 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:52:58Z waiting for the lease: 3 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 1 build processes
+22:58:02Z waiting for the lease: 2 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 10 build processes

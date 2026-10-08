@@ -1,0 +1,6 @@
+host clock, median us/step; positive saved_us means faster
+test precision base_us mine_us saved_us speedup
+amber20-cellulose single 3951.418 3959.441 -8.023 0.99797
+amber20-cellulose mixed 4395.165 4390.188 4.977 1.00113
+amber20-stmv single 11215.605 11104.869 110.736 1.00997
+amber20-stmv mixed 12265.037 12289.390 -24.353 0.99802

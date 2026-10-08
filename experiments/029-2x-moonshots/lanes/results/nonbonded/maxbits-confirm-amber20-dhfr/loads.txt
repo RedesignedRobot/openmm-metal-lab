@@ -1,0 +1,22 @@
+2026-09-26T22:20:48Z round 1 amber20-dhfr base-s load { 1.78 2.28 3.04 } vm 4% top  cmake 24.9%, other 23.9%, other 19.2%, other 7.5%, other 6.8%
+2026-09-26T22:21:21Z round 1 amber20-dhfr base-s BUILD RUNNING during the run
+2026-09-26T22:21:21Z round 1 amber20-dhfr cand-s load { 4.21 2.97 3.27 } vm 18% top other 18.2%, com.apple.Virtualization.VirtualMachine 11.0%, WindowServer 6.0%, other 3.9%, other 2.7%
+2026-09-26T22:21:53Z round 1 amber20-dhfr cl-s load { 3.29 2.86 3.22 } vm 10% top other 18.4%, other 5.4%, com.apple.Virtualization.VirtualMachine 5.2%, com.apple.Virtualization.VirtualMachine 2.6%, WindowServer 1.6%
+2026-09-26T22:22:27Z round 1 amber20-dhfr base-m load { 3.14 2.87 3.21 } vm 5% top other 16.5%, other 6.4%, other 5.4%, powermetrics 3.4%, WindowServer 3.0%
+2026-09-26T22:23:02Z round 1 amber20-dhfr cand-m load { 2.49 2.74 3.15 } vm 4% top other 15.3%, com.apple.Virtualization.VirtualMachine 2.7%, com.apple.Virtualization.VirtualMachine 1.8%, WindowServer 1.5%, other 1.1%
+2026-09-26T22:23:37Z round 2 amber20-dhfr cand-m load { 2.63 2.74 3.13 } vm 4% top other 67.4%, other 19.1%, other 11.5%, WindowServer 11.3%, other 8.0%
+2026-09-26T22:24:12Z round 2 amber20-dhfr base-m load { 2.40 2.67 3.09 } vm 6% top other 18.2%, other 15.1%, other 4.9%, powermetrics 3.1%, com.apple.Virtualization.VirtualMachine 3.0%
+2026-09-26T22:24:46Z round 2 amber20-dhfr cl-s load { 2.33 2.61 3.05 } vm 6% top other 17.8%, com.apple.Virtualization.VirtualMachine 4.2%, WindowServer 3.9%, other 3.8%, other 1.7%
+2026-09-26T22:25:20Z round 2 amber20-dhfr cand-s load { 2.14 2.53 3.00 } vm 4% top other 15.8%, other 4.0%, com.apple.Virtualization.VirtualMachine 2.3%, com.apple.Virtualization.VirtualMachine 1.9%, WindowServer 1.5%
+2026-09-26T22:25:52Z round 2 amber20-dhfr base-s load { 2.26 2.52 2.98 } vm 4% top other 17.5%, WindowServer 5.4%, other 5.0%, com.apple.Virtualization.VirtualMachine 2.1%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-26T22:26:24Z round 3 amber20-dhfr base-s load { 1.98 2.44 2.93 } vm 4% top other 18.0%, other 11.0%, other 4.9%, other 4.7%, other 4.0%
+2026-09-26T22:26:56Z round 3 amber20-dhfr cand-s load { 2.49 2.52 2.94 } vm 105% top com.apple.Virtualization.VirtualMachine 105.8%, other 17.7%, other 5.4%, other 2.6%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-26T22:27:29Z round 3 amber20-dhfr cl-s load { 2.35 2.48 2.91 } vm 5% top other 32.0%, WindowServer 19.7%, other 5.7%, com.apple.Virtualization.VirtualMachine 2.5%, com.apple.Virtualization.VirtualMachine 2.2%
+2026-09-26T22:28:03Z round 3 amber20-dhfr base-m load { 2.23 2.44 2.88 } vm 5% top other 15.6%, WindowServer 11.6%, other 3.5%, com.apple.Virtualization.VirtualMachine 2.7%,  other 2.3%
+2026-09-26T22:28:37Z round 3 amber20-dhfr cand-m load { 2.36 2.44 2.86 } vm 7% top other 18.7%, other 17.0%, WindowServer 6.3%, powermetrics 4.9%, other 4.3%
+2026-09-26T22:37:20Z rerun round 1 amber20-dhfr: a build overlapped the original paired round
+2026-09-26T22:37:20Z round 1 amber20-dhfr base-s load { 4.28 2.89 2.81 } vm 7% top other 29.8%, other 13.3%,  other 13.1%, other 11.7%, other 11.1%
+2026-09-26T22:37:53Z round 1 amber20-dhfr cand-s load { 3.97 2.95 2.83 } vm 6% top other 17.0%, WindowServer 5.5%, com.apple.Virtualization.VirtualMachine 4.2%,  other 1.9%, com.apple.Virtualization.VirtualMachine 1.8%
+2026-09-26T22:38:24Z round 1 amber20-dhfr cl-s load { 3.69 2.97 2.84 } vm 72% top other 97.5%, com.apple.Virtualization.VirtualMachine 69.4%, other 21.2%, other 17.3%, other 15.1%
+2026-09-26T22:38:59Z round 1 amber20-dhfr base-m load { 3.72 3.05 2.88 } vm 9% top other 99.6%, other 17.4%, com.apple.Virtualization.VirtualMachine 5.0%, com.apple.Virtualization.VirtualMachine 4.8%, other 4.6%
+2026-09-26T22:39:34Z round 1 amber20-dhfr cand-m load { 5.81 3.62 3.09 } vm 4% top other 247.7%, other 17.5%, com.apple.Virtualization.VirtualMachine 2.4%, WindowServer 2.0%, com.apple.Virtualization.VirtualMachine 2.0%

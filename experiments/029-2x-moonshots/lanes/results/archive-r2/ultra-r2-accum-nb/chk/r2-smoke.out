@@ -1,0 +1,60 @@
+13:19:55Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts no new hold ahead of it and waits in plain FIFO order
+13:19:55Z waiting for the lease: 11 in the queue, held by: ultra-profiler 2026-09-27T13:19:16Z sampled shader timeline t-single, 5 build processes
+13:25:01Z waiting for the lease: 9 in the queue, held by: ultra-r2-accum-gb 2026-09-27T13:24:53Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s6, about 3 min, 0 build processes
+13:30:05Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:35:10Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:40:15Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 3 build processes
+13:45:20Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 0 build processes
+13:50:24Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+13:55:29Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+14:00:33Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:05:37Z waiting for the lease: 6 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:10:42Z waiting for the lease: 6 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 3 build processes
+14:15:46Z waiting for the lease: 6 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:20:51Z waiting for the lease: 4 in the queue, held by: r2-single-int 2026-09-27T14:16:03Z fused LM probe shader traces rf+gbsa, 0 build processes
+14:25:56Z waiting for the lease: 3 in the queue, held by: r2-single-int 2026-09-27T14:23:17Z cm fold s1: bitwise, constraints, drift, ctests, 0 build processes
+14:31:01Z waiting for the lease: 2 in the queue, held by: ultra-r2-dispatch-kz 2026-09-27T14:28:41Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kz/p-gbsa, about 4 min, 0 build processes
+apoa1rf single E -1333620.597773689
+amber20-cellulose single E -2997837.1797054373
+== P_NOPBC
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE 0.0059 (E -1333620.60)
+Traceback (most recent call last):
+  File "~/code/metal/bench.noindex/ultra-r2-accum-nb/chk/dumpf.py", line 55, in <module>
+    fa, fb = a[k], b[k]
+                   ~^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-accum-nb-r/pydeps/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'apoa1pme_f is not a file in the archive'
+apoa1rf single E -1333620.611445564
+amber20-cellulose single E -2997837.3672054373
+== P_QUNROLL
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE -0.0078 (E -1333620.60)
+Traceback (most recent call last):
+  File "~/code/metal/bench.noindex/ultra-r2-accum-nb/chk/dumpf.py", line 55, in <module>
+    fa, fb = a[k], b[k]
+                   ~^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-accum-nb-r/pydeps/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'apoa1pme_f is not a file in the archive'
+apoa1rf single E -1333620.609492439
+amber20-cellulose single E -2997837.2734554373
+== g P_NBMULT=160
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE -0.0059 (E -1333620.60)
+Traceback (most recent call last):
+  File "~/code/metal/bench.noindex/ultra-r2-accum-nb/chk/dumpf.py", line 55, in <module>
+    fa, fb = a[k], b[k]
+                   ~^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-accum-nb-g/pydeps/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'apoa1pme_f is not a file in the archive'
+apoa1rf single E -1333620.605586189
+amber20-cellulose single E -2997837.4297054373
+== q manual c
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE -0.0020 (E -1333620.60)
+Traceback (most recent call last):
+  File "~/code/metal/bench.noindex/ultra-r2-accum-nb/chk/dumpf.py", line 55, in <module>
+    fa, fb = a[k], b[k]
+                   ~^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-accum-nb-q/pydeps/numpy/lib/_npyio_impl.py", line 243, in __getitem__
+    raise KeyError(f"{key} is not a file in the archive") from None
+KeyError: 'apoa1pme_f is not a file in the archive'

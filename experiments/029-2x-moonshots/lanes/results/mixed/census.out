@@ -1,0 +1,6 @@
+17:18:03Z waiting for the lease: 3 in the queue, held by: ultra-m29-unified 2026-09-26T17:17:56Z Bet 2 baseline shader costs BUILD RUNNING, 28 build processes
+17:23:08Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T17:22:49Z gate.sh --quick /tmp/openmm-metal-bench/ultra-m29-nonbonded, 29 build processes
+2026-09-26T17:23:13Z build-policy demote pid=13445 tree=/tmp/openmm-metal-bench/ultra-m29-nonbonded-blocks darwin_priority=0
+2026-09-26T17:23:13Z build-policy demote pid=16355 tree=/tmp/openmm-metal-bench/ultra-infra-cache-warm darwin_priority=0
+2026-09-26T17:23:37Z build-policy promote pid=13445 tree=/tmp/openmm-metal-bench/ultra-m29-nonbonded-blocks darwin_priority=0
+2026-09-26T17:23:37Z build-policy promote pid=16355 tree=/tmp/openmm-metal-bench/ultra-infra-cache-warm darwin_priority=0

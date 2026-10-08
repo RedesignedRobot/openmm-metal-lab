@@ -1,0 +1,91 @@
+02:34:23Z waiting for the lease: 16 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 39 build processes
+02:39:27Z waiting for the lease: 15 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 3 build processes
+02:44:32Z waiting for the lease: 14 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 17 build processes
+02:49:36Z waiting for the lease: 14 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 3 build processes
+02:54:41Z waiting for the lease: 5 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 17 build processes
+02:59:46Z waiting for the lease: 5 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 17 build processes
+03:04:51Z waiting for the lease: 5 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 0 build processes
+03:09:55Z waiting for the lease: 5 in the queue, held by: ultra-nblist 2026-09-25T02:51:12Z gate.sh /tmp/openmm-metal-bench/ultra-nblist, 0 build processes
+03:15:00Z waiting for the lease: 4 in the queue, held by: ultra-nonbonded 2026-09-25T03:10:00Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresw, about 12 min, 0 build processes
+03:20:04Z waiting for the lease: 4 in the queue, held by: ultra-nonbonded 2026-09-25T03:10:00Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresw, about 12 min, 0 build processes
+03:25:08Z waiting for the lease: 2 in the queue, held by: ultra-mixed 2026-09-25T03:22:08Z fused LangevinMiddle screen pme and apoa1pme, single and mixed, 2x15 s, 0 build processes
+ 6:29  up 1 day, 13:43, 2 users, load averages: 1.69 2.39 4.26
+device Apple M3 Ultra iters 100000
+orig and alias share contents: 1
+one producer alone (T)                       median   1453.4 us  min   1452.4 us
+serial distinct x, shared const p            median   2983.5 us  min   2977.1 us
+serial distinct x, shared unwritten rw w     median   2977.9 us  min   2976.6 us
+serial same x tracked                        median   2981.0 us  min   2976.8 us  stale 0/30
+serial same x untracked                      median   2979.3 us  min   2976.9 us  stale 0/30
+serial orig then tracked alias               median   2978.5 us  min   2977.0 us  stale 0/30
+serial orig then untracked alias             median   2978.0 us  min   2976.6 us  stale 0/30
+serial untracked alias then orig             median   2978.8 us  min   2976.9 us  stale 0/30
+passes distinct x                            median   2977.9 us  min   2977.0 us
+passes same x tracked                        median   2979.1 us  min   2977.0 us  stale 0/30
+passes same x untracked                      median   2978.7 us  min   2977.1 us  stale 0/30
+passes same x untracked + fence              median   2981.7 us  min   2978.9 us  stale 0/30
+passes orig then untracked alias             median   2982.0 us  min   2977.0 us  stale 0/30
+passes orig then untracked alias + fence     median   2984.2 us  min   2979.7 us  stale 0/30
+passes untracked alias then orig + fence     median   2984.3 us  min   2979.5 us  stale 0/30
+cbs distinct x                               median   1536.9 us  min   1534.7 us
+cbs same x tracked                           median   2983.1 us  min   2979.0 us  stale 0/30
+cbs same x untracked                         median   1535.9 us  min   1534.4 us  stale 30/30
+cbs same x untracked + fence                 median   2979.8 us  min   2979.0 us  stale 0/30
+cbs untracked alias then orig + fence        median   2979.7 us  min   2978.6 us  stale 0/30
+concurrent distinct x                        median   1527.1 us  min   1525.8 us
+concurrent same x tracked                    median   1526.9 us  min   1525.5 us  stale 30/30
+concurrent orig then untracked alias         median   1526.4 us  min   1525.6 us  stale 30/30
+concurrent same x tracked + barrier          median   2977.9 us  min   2976.2 us  stale 0/30
+concurrent distinct x + barrier              median   2978.7 us  min   2976.6 us
+serial distinct x + join                     median   2980.1 us  min   2978.5 us  join early 0/30
+serial orig, tracked alias + join            median   2983.0 us  min   2978.4 us  stale 0/30  join early 0/30
+passes orig, tracked alias + join            median   2985.1 us  min   2978.9 us  stale 0/30  join early 0/30
+concurrent distinct x + barrier + join       median   2984.2 us  min   2978.4 us  join early 0/30
+passes distinct x, orig at declared rw index median   2981.3 us  min   2977.0 us
+passes distinct x, orig at undeclared index  median   2982.9 us  min   2977.2 us
+d3 orig + untracked alias, then join pass    median   1530.1 us  min   1528.9 us  stale 30/30  join early 0/30
+d3 orig + untracked alias, fence, join pass  median   1529.6 us  min   1528.6 us  stale 30/30  join early 0/30
+serial distinct x, shared const p            median   2981.1 us  min   2977.1 us
+serial distinct x, shared unwritten rw w     median   2978.0 us  min   2976.7 us
+serial same x tracked                        median   2978.7 us  min   2976.8 us  stale 0/30
+serial same x untracked                      median   2978.6 us  min   2976.9 us  stale 0/30
+serial orig then tracked alias               median   2980.0 us  min   2977.0 us  stale 0/30
+serial orig then untracked alias             median   2979.5 us  min   2977.0 us  stale 0/30
+serial untracked alias then orig             median   2978.0 us  min   2976.7 us  stale 0/30
+passes distinct x                            median   2977.6 us  min   2976.9 us
+passes same x tracked                        median   2981.0 us  min   2977.2 us  stale 0/30
+passes same x untracked                      median   2982.7 us  min   2977.0 us  stale 0/30
+passes same x untracked + fence              median   2985.0 us  min   2979.1 us  stale 0/30
+passes orig then untracked alias             median   2977.5 us  min   2977.0 us  stale 0/30
+passes orig then untracked alias + fence     median   2983.0 us  min   2979.0 us  stale 0/30
+passes untracked alias then orig + fence     median   2979.7 us  min   2979.1 us  stale 0/30
+cbs distinct x                               median   1536.0 us  min   1534.8 us
+cbs same x tracked                           median   2979.9 us  min   2979.0 us  stale 0/30
+cbs same x untracked                         median   1536.2 us  min   1534.5 us  stale 30/30
+cbs same x untracked + fence                 median   2980.5 us  min   2978.9 us  stale 0/30
+cbs untracked alias then orig + fence        median   2979.5 us  min   2979.0 us  stale 0/30
+concurrent distinct x                        median   1526.0 us  min   1525.7 us
+concurrent same x tracked                    median   1526.2 us  min   1525.6 us  stale 30/30
+concurrent orig then untracked alias         median   1525.8 us  min   1525.5 us  stale 30/30
+concurrent same x tracked + barrier          median   2979.0 us  min   2976.6 us  stale 0/30
+concurrent distinct x + barrier              median   2978.0 us  min   2976.4 us
+serial distinct x + join                     median   2982.6 us  min   2978.6 us  join early 0/30
+serial orig, tracked alias + join            median   2983.6 us  min   2978.8 us  stale 0/30  join early 0/30
+passes orig, tracked alias + join            median   2983.2 us  min   2978.8 us  stale 0/30  join early 0/30
+concurrent distinct x + barrier + join       median   2979.9 us  min   2977.8 us  join early 0/30
+passes distinct x, orig at declared rw index median   2977.6 us  min   2976.5 us
+passes distinct x, orig at undeclared index  median   2977.5 us  min   2976.8 us
+d3 orig + untracked alias, then join pass    median   1529.9 us  min   1528.9 us  stale 30/30  join early 0/30
+d3 orig + untracked alias, fence, join pass  median   1530.1 us  min   1529.2 us  stale 30/30  join early 0/30
+noop dispatches in one serial encoder  k= 1 median     3.4 us  min     2.7 us
+noop dispatches in one serial encoder  k= 2 median     5.0 us  min     4.2 us
+noop dispatches in one serial encoder  k= 8 median    14.9 us  min    11.8 us
+noop dispatches in one serial encoder  k=32 median    54.2 us  min    44.5 us
+noop passes                            k= 1 median     3.6 us  min     2.9 us
+noop passes                            k= 2 median     5.2 us  min     4.2 us
+noop passes                            k= 8 median    14.9 us  min    11.6 us
+noop passes                            k=32 median    55.1 us  min    44.5 us
+noop passes with fence                 k= 1 median     3.9 us  min     3.0 us
+noop passes with fence                 k= 2 median    15.5 us  min    13.2 us
+noop passes with fence                 k= 8 median    68.4 us  min    63.6 us
+noop passes with fence                 k=32 median   715.2 us  min   599.4 us

@@ -159,7 +159,7 @@ As documented by Asahi Linux and Asahi Lina ("SW:AGX driver notes"):
   * M3, M4, and M5 (Apple 9 and later): Native hardware support for 32-bit floating-point atomic addition (`atomic_fetch_add_explicit<float>`).
 - 64-bit integer atomics:
   * M1 and M2 (Apple 7 and Apple 8): No 64-bit atomics.
-  * M3, M4, and M5 (Apple 9 and later): Hardware supports 64-bit integer atomic `min` and `max` only. As verified by NORPG and Codex in OpenMM issue #5397 (comment 16), **64-bit integer atomic add is not implemented on the GPU**, despite being referenced in compiler intermediate representations.
+  * M3, M4, and M5 (Apple 9 and later): Hardware supports 64-bit integer atomic `min` and `max` only. As verified in OpenMM issue #5397 (comment 16), **64-bit integer atomic add is not implemented on the GPU**, despite being referenced in compiler intermediate representations.
 
 ## Hardware feature comparison table
 

@@ -1,0 +1,20 @@
+19:47:22Z waiting for the lease: 10 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:42:27Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-rf, about 9 min, 0 build processes
+19:52:26Z waiting for the lease: 8 in the queue, held by: ultra-m29-unified 2026-09-26T19:50:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-unified/screen-dhfr-quiet, about 4 min, 0 build processes
+19:57:30Z waiting for the lease: 7 in the queue, held by: ultra-m29-mixed-minimizer 2026-09-26T19:54:08Z gate.sh /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer, 16 build processes
+20:02:33Z waiting for the lease: 7 in the queue, held by: ultra-m29-mixed-minimizer 2026-09-26T19:54:08Z gate.sh /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer, 0 build processes
+20:07:37Z waiting for the lease: 7 in the queue, held by: ultra-m29-mixed-minimizer 2026-09-26T19:54:08Z gate.sh /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer, 0 build processes
+20:12:40Z waiting for the lease: 7 in the queue, held by: ultra-m29-mixed-minimizer 2026-09-26T19:54:08Z gate.sh /tmp/openmm-metal-bench/ultra-m29-mixed-minimizer, 0 build processes
+20:17:44Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T20:17:07Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-control, about 9 min, 0 build processes
+20:22:49Z waiting for the lease: 6 in the queue, held by: ultra-m29-resident 2026-09-26T20:17:07Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-control, about 9 min, 0 build processes
+20:27:52Z waiting for the lease: 5 in the queue, held by: ultra-m29-mixed-v2 2026-09-26T20:25:23Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-small, about 10 min, 0 build processes
+20:32:56Z waiting for the lease: 5 in the queue, held by: ultra-m29-mixed-v2 2026-09-26T20:25:23Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-small, about 10 min, 0 build processes
+20:38:14Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:35:26Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/records-screen-amber20-stmv, about 10 min, 0 build processes
+maxbits: xctrace pid 78967 recording 20:40:50Z
+captured maxbits 20:41:03Z: Target app exited, ending recording...
+saved maxbits 20:42:00Z: Output file saved as: maxbits.trace
+20:42:03Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-m29-nonbonded (cellulose record accumulation sampled shader comparison). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+exported maxbits 20:42:04Z, rows 35398, releasing
+records: xctrace pid 83401 recording 20:42:05Z
+captured records 20:42:18Z: Target app exited, ending recording...
+saved records 20:43:12Z: Output file saved as: records.trace
+exported records 20:43:16Z, rows 35778, releasing

@@ -1,0 +1,41 @@
+Test project /tmp/openmm-metal-bench/ultra-r2-correctness/build
+      Start 228: TestMetalCommandBatchingSingle
+ 1/18 Test #228: TestMetalCommandBatchingSingle ..................   Passed    1.68 sec
+      Start 229: TestMetalCommandBatchingMixed
+ 2/18 Test #229: TestMetalCommandBatchingMixed ...................   Passed    0.27 sec
+      Start 282: TestMetalLocalEnergyMinimizerSingle
+ 3/18 Test #282: TestMetalLocalEnergyMinimizerSingle .............   Passed   14.72 sec
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+ 4/18 Test #283: TestMetalLocalEnergyMinimizerMixed ..............   Passed   30.67 sec
+      Start 284: TestMetalMixedPrecisionSingle
+ 5/18 Test #284: TestMetalMixedPrecisionSingle ...................   Passed    0.61 sec
+      Start 285: TestMetalMixedPrecisionMixed
+ 6/18 Test #285: TestMetalMixedPrecisionMixed ....................   Passed   13.05 sec
+      Start 408: TestMetalAmoebaExtrapolatedPolarizationSingle
+ 7/18 Test #408: TestMetalAmoebaExtrapolatedPolarizationSingle ...   Passed    2.78 sec
+      Start 409: TestMetalAmoebaExtrapolatedPolarizationMixed
+ 8/18 Test #409: TestMetalAmoebaExtrapolatedPolarizationMixed ....   Passed    8.91 sec
+      Start 410: TestMetalAmoebaGeneralizedKirkwoodForceSingle
+ 9/18 Test #410: TestMetalAmoebaGeneralizedKirkwoodForceSingle ...   Passed    4.50 sec
+      Start 411: TestMetalAmoebaGeneralizedKirkwoodForceMixed
+10/18 Test #411: TestMetalAmoebaGeneralizedKirkwoodForceMixed ....   Passed   13.49 sec
+      Start 412: TestMetalAmoebaMultipoleForceSingle
+11/18 Test #412: TestMetalAmoebaMultipoleForceSingle .............   Passed   11.81 sec
+      Start 413: TestMetalAmoebaMultipoleForceMixed
+12/18 Test #413: TestMetalAmoebaMultipoleForceMixed ..............   Passed   32.05 sec
+      Start 414: TestMetalAmoebaTorsionTorsionForceSingle
+13/18 Test #414: TestMetalAmoebaTorsionTorsionForceSingle ........   Passed    0.57 sec
+      Start 415: TestMetalAmoebaTorsionTorsionForceMixed
+14/18 Test #415: TestMetalAmoebaTorsionTorsionForceMixed .........   Passed    2.60 sec
+      Start 416: TestMetalAmoebaVdwForceSingle
+15/18 Test #416: TestMetalAmoebaVdwForceSingle ...................   Passed    3.00 sec
+      Start 417: TestMetalAmoebaVdwForceMixed
+16/18 Test #417: TestMetalAmoebaVdwForceMixed ....................   Passed   12.84 sec
+      Start 418: TestMetalHippoNonbondedForceSingle
+17/18 Test #418: TestMetalHippoNonbondedForceSingle ..............   Passed    6.49 sec
+      Start 419: TestMetalHippoNonbondedForceMixed
+18/18 Test #419: TestMetalHippoNonbondedForceMixed ...............   Passed   15.73 sec
+
+100% tests passed out of 18
+
+Total Test time (real) = 175.77 sec

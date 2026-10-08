@@ -1,0 +1,15 @@
+test forces_base_mine repeat_force_bits energy_base_repeat energy_mine_repeat energy_base_mine delta_energy
+amber20-cellulose-mixed True True False True False -1.4901161193847656e-08
+amber20-cellulose-single True True False False False -0.15625
+amber20-stmv-mixed True True False False False -7.450580596923828e-09
+amber20-stmv-single True True False False False -0.5
+apoa1pme-mixed True True True False False 9.313225746154785e-10
+apoa1pme-single True True False False False -0.05078125
+apoa1rf-mixed True True False False False 2.3283064365386963e-10
+apoa1rf-single True True False False False 0.02734375
+gbsa-mixed True True False False False -1.8189894035458565e-11
+gbsa-single True True False False False -0.001529693603515625
+pme-mixed True True False False False 2.3283064365386963e-10
+pme-single True True False False False 0.015625
+rf-mixed True True False False False -5.820766091346741e-11
+rf-single True True False False False 0.006561279296875

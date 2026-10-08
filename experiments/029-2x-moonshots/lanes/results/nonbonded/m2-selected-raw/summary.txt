@@ -1,0 +1,29 @@
+M2 check 20260926T193843Z-7484d7bef, base 7484d7bef401
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-src-0cf46dfc89: 7484d7bef401 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     452.36     454.17  1.004  1.002..1.006       67       68     +1   +0.8       90       90  
+gbsa               mixed      377.18     376.04  0.997  0.991..1.003       70       71     +0   +0.4       95       95  
+rf                 single     292.09     291.62  0.998  0.995..1.002      119      119     +1   +0.5      136      137  
+rf                 mixed      230.89     232.21  1.006  1.002..1.009      124      123     -1   -0.6      143      143  
+pme                single     239.08     239.63  1.002  1.002..1.003      124      124     +0   +0.3      140      140  
+pme                mixed      195.92     196.49  1.003  1.003..1.003      128      129     +0   +0.2      146      146  
+apoa1rf            single      78.66      78.70  1.001  1.000..1.001      298      302     +4   +1.2      341      346  
+apoa1rf            mixed       63.96      64.12  1.003  1.001..1.004      298      299     +1   +0.3      342      341  
+apoa1pme           single      59.86      59.84  1.000  1.000..1.000      302      296     -6   -1.9      346      345  
+apoa1pme           mixed       50.86      50.74  0.998  0.997..0.998      305      296     -9   -2.9      351      345  
+apoa1ljpme         single      44.75      44.78  1.001  1.000..1.001      304      302     -2   -0.7      354      348  
+apoa1ljpme         mixed       39.52      39.51  1.000  0.999..1.000      296      304     +8   +2.5      352      356  
+amber20-dhfr       single     247.38     247.24  0.999  0.999..1.000      137      136     -1   -0.4      152      152  
+amber20-dhfr       mixed      201.36     201.34  1.000  0.999..1.001      146      146     +0   +0.2      159      159  
+amber20-cellulose  single      13.27      13.28  1.001  1.000..1.001     1500     1500     +0   +0.0     1527     1528  
+amber20-cellulose  mixed       11.45      11.44  1.000  0.999..1.001     1500     1500     +0   +0.0     1528     1528  
+
+1-minute load before 72 runs: 0.69 to 2.75; memory free 60% to 65%
+Spotlight CPU before 72 runs: 0% to 0%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-src-0cf46dfc89 7484d7bef401 PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 2445 s; tests=gbsa,rf,pme,apoa1rf,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose,amber20-stmv; rounds=2; seconds=15

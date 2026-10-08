@@ -1,0 +1,67 @@
+Test project /tmp/openmm-metal-bench/ultra-atomics/gb/build
+      Start 216: TestMetalATMForceSingle
+      Start 220: TestMetalBrownianIntegratorSingle
+ 1/28 Test #216: TestMetalATMForceSingle ...................   Passed    4.74 sec
+      Start 224: TestMetalCMMotionRemoverSingle
+ 2/28 Test #224: TestMetalCMMotionRemoverSingle ............   Passed    1.76 sec
+      Start 228: TestMetalCommandBatchingSingle
+ 3/28 Test #228: TestMetalCommandBatchingSingle ............   Passed    1.18 sec
+      Start 232: TestMetalConstantPotentialForceSingle
+ 4/28 Test #232: TestMetalConstantPotentialForceSingle .....   Passed   17.18 sec
+      Start 236: TestMetalCustomBondForceSingle
+ 5/28 Test #236: TestMetalCustomBondForceSingle ............   Passed    0.60 sec
+      Start 240: TestMetalCustomCVForceSingle
+ 6/28 Test #240: TestMetalCustomCVForceSingle ..............   Passed    1.29 sec
+      Start 244: TestMetalCustomCompoundBondForceSingle
+ 7/28 Test #244: TestMetalCustomCompoundBondForceSingle ....   Passed    2.79 sec
+      Start 248: TestMetalCustomGBForceSingle
+ 8/28 Test #248: TestMetalCustomGBForceSingle ..............   Passed    4.71 sec
+      Start 252: TestMetalCustomIntegratorSingle
+ 9/28 Test #220: TestMetalBrownianIntegratorSingle .........   Passed   35.42 sec
+      Start 256: TestMetalCustomNonbondedForceSingle
+10/28 Test #256: TestMetalCustomNonbondedForceSingle .......   Passed    6.70 sec
+      Start 260: TestMetalDPDIntegratorSingle
+11/28 Test #260: TestMetalDPDIntegratorSingle ..............***Failed    8.19 sec
+exception: Assertion failure at TestDPDIntegrator.h:416.  Expected 300, found 295.853 (This test is stochastic and may occasionally fail)
+
+      Start 264: TestMetalEwaldSingle
+12/28 Test #264: TestMetalEwaldSingle ......................   Passed    9.17 sec
+      Start 268: TestMetalGBSAOBCForceSingle
+13/28 Test #268: TestMetalGBSAOBCForceSingle ...............   Passed    1.57 sec
+      Start 272: TestMetalHarmonicAngleForceSingle
+14/28 Test #272: TestMetalHarmonicAngleForceSingle .........   Passed    0.37 sec
+      Start 276: TestMetalLCPOForceSingle
+15/28 Test #276: TestMetalLCPOForceSingle ..................   Passed    2.91 sec
+      Start 280: TestMetalLangevinMiddleIntegratorSingle
+16/28 Test #280: TestMetalLangevinMiddleIntegratorSingle ...   Passed    6.91 sec
+      Start 284: TestMetalMixedPrecisionSingle
+17/28 Test #284: TestMetalMixedPrecisionSingle .............   Passed    0.45 sec
+      Start 288: TestMetalMonteCarloBarostatSingle
+18/28 Test #252: TestMetalCustomIntegratorSingle ...........   Passed   40.80 sec
+      Start 292: TestMetalMultipleForcesSingle
+19/28 Test #292: TestMetalMultipleForcesSingle .............   Passed    0.42 sec
+      Start 296: TestMetalNoseHooverIntegratorSingle
+20/28 Test #296: TestMetalNoseHooverIntegratorSingle .......   Passed   28.37 sec
+      Start 300: TestMetalPeriodicTorsionForceSingle
+21/28 Test #300: TestMetalPeriodicTorsionForceSingle .......   Passed    0.33 sec
+      Start 304: TestMetalQTBIntegratorSingle
+22/28 Test #288: TestMetalMonteCarloBarostatSingle .........   Passed   45.17 sec
+      Start 308: TestMetalRGForceSingle
+23/28 Test #308: TestMetalRGForceSingle ....................   Passed    0.77 sec
+      Start 312: TestMetalRandomSingle
+24/28 Test #312: TestMetalRandomSingle .....................   Passed    0.53 sec
+      Start 316: TestMetalSortSingle
+25/28 Test #316: TestMetalSortSingle .......................   Passed    0.49 sec
+      Start 320: TestMetalVariableVerletIntegratorSingle
+26/28 Test #320: TestMetalVariableVerletIntegratorSingle ...   Passed    5.19 sec
+      Start 324: TestMetalVirtualSitesSingle
+27/28 Test #324: TestMetalVirtualSitesSingle ...............   Passed    7.89 sec
+28/28 Test #304: TestMetalQTBIntegratorSingle ..............   Passed   43.58 sec
+
+96% tests passed, 1 tests failed out of 28
+
+Total Test time (real) = 147.76 sec
+
+The following tests FAILED:
+	260 - TestMetalDPDIntegratorSingle (Failed)
+Errors while running CTest

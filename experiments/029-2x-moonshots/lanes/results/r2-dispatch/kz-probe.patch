@@ -1,0 +1,37 @@
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index a33cca95d..58934d9f0 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -301,7 +301,7 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         rebuildNeighborList.initialize<int>(context, 1, "rebuildNeighborList");
+         if (useIndirectRebuild) {
+             displacementFlags.initialize<unsigned int>(context, numAtomBlocks, "displacementFlags");
+-            rebuildDispatch.initialize<unsigned int>(context, 15, "rebuildDispatch");
++            rebuildDispatch.initialize<unsigned int>(context, 18, "rebuildDispatch");
+         }
+         blockSorter = context.createSort(new BlockSortTrait(), numAtomBlocks, false);
+         vector<unsigned int> count(2, 0);
+@@ -457,6 +457,9 @@ void MetalNonbondedUtilities::prepareInteractions(int forceGroups) {
+         context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64, 0, dispatch, 9*sizeof(unsigned int));
+         context.executeKernelFlat(kernels.findInteractingBlocksKernel, &findInteractingBlocksArgs[0], context.getNumAtomBlocks()*context.getSIMDWidth()*numTilesInBatch,
+                 findInteractingBlocksThreadBlockSize, 0, dispatch, 12*sizeof(unsigned int));
++        // PROBE: five dispatches that always have zero threadgroups.
++        for (int i = 0; i < 5; i++)
++            context.executeKernelFlat(kernels.prepareRebuildDispatchKernel, args, 32, 32, 0, dispatch, 15*sizeof(unsigned int));
+     }
+     else {
+         context.executeKernelFlat(kernels.computeSortKeysKernel, &computeSortKeysArgs[0], context.getNumAtomBlocks());
+diff --git a/platforms/metal/src/kernels/findInteractingBlocks.metal b/platforms/metal/src/kernels/findInteractingBlocks.metal
+index 378abd90c..f932ae8dd 100644
+--- a/platforms/metal/src/kernels/findInteractingBlocks.metal
++++ b/platforms/metal/src/kernels/findInteractingBlocks.metal
+@@ -706,6 +706,9 @@ extern "C" __global__ void prepareRebuildDispatch(const unsigned int* __restrict
+             dispatch[3*i+1] = 1;
+             dispatch[3*i+2] = 1;
+         }
++        dispatch[15] = 0;
++        dispatch[16] = 1;
++        dispatch[17] = 1;
+     }
+ }
+ #endif

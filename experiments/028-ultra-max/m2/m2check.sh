@@ -16,13 +16,13 @@
 # The GPU lease /tmp/openmm-lease is taken per step (forces) and per (round, test), with an owner
 # line "ultra-m2 <UTC time> <what>", and removed on exit; a lease someone else holds is waited on.
 # Refuses to run at a nice value other than 0, or on a tree whose src changed after m2build.sh.
-# Output goes to /Users/amir/lab/ultra-m2/checks/<UTC time>-<first candidate commit>/. The last line of
+# Output goes to $HOME/lab/ultra-m2/checks/<UTC time>-<first candidate commit>/. The last line of
 # the output is "CHECK DONE <outdir>" or "CHECK FAILED".
-#   /bin/sh -c 'nohup /Users/amir/lab/ultra-m2/tools/m2check.sh /Users/amir/lab/ultra-m2/cand > /Users/amir/lab/ultra-m2/cand/check.out 2>&1 < /dev/null &'
+#   /bin/sh -c 'nohup $HOME/lab/ultra-m2/tools/m2check.sh $HOME/lab/ultra-m2/cand > $HOME/lab/ultra-m2/cand/check.out 2>&1 < /dev/null &'
 # usage: m2check.sh [-r rounds] [-s seconds] [-t tests|all] <candidate dir>...   (defaults 2, 15, all 8)
 #        m2check.sh --baseline
 set -eu
-ROOT=/Users/amir/lab/ultra-m2
+ROOT=$HOME/lab/ultra-m2
 BASE=$ROOT/base
 TOOLS=$ROOT/tools
 BENCH=$BASE/benchmarks

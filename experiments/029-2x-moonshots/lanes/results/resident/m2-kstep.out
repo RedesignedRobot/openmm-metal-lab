@@ -1,0 +1,46 @@
+Waiting for the M2 7484d7bef forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-aef38eb19d424d92bcd1d66d5ec27129/src: 7484d7bef+kstep-029ec544c-D3-preserved, 2517 working-tree blobs verified
+M2 pid=73828 log=~/lab/ultra-m2.noindex/uploads/aef38eb19d424d92bcd1d66d5ec27129/run.log
+19:07:51Z memory free 60%, 0 other build processes, load { 1.89 1.60 1.45 }, -j4
+forces gate cand-kstep-source-db272845a2 PASS, 18 s
+  loads ~/lab/ultra-m2.noindex/base/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/base/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/base/prefix/lib/plugins/libOpenMMMetal.dylib
+cand-kstep-source-db272845a2 ~/lab/ultra-m2.noindex/cand-kstep-source-db272845a2: commit 7484d7bef+kstep-029ec544c-D3-preserved src 81b91e48bfe49e50092cb879758c3e2d1150e09a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-26T19:08:49Z steps venv 7s, configure 2s, ninja -j4 23s (1429 edges), install+python 28s 
+  loads ~/lab/ultra-m2.noindex/cand-kstep-source-db272845a2/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-kstep-source-db272845a2/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-kstep-source-db272845a2/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.584e-02  5.889e-07  ok
+gbsa            2489     mixed  2.467e-05  8.584e-02  6.194e-07  ok
+rf             23558    single  2.213e-05  7.342e-01  2.266e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.216e-07  ok
+pme            23558    single  2.048e-05  3.920e-01  1.244e-06  ok
+pme            23558     mixed  2.048e-05  3.920e-01  1.330e-06  ok
+apoa1rf        92224    single  5.987e-05  1.327e+00  1.063e-07  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.197e-01  7.844e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.105e-06  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06  ok
+forces gate cand-kstep-source-db272845a2 PASS, 18 s
+A/B 557 s
+M2 check 20260926T190850Z-7484d7bef, base 7484d7bef401
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-kstep-source-db272845a2: 7484d7bef+ks against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     452.96     483.91  1.068  1.057..1.080       67       68     +1   +0.9       90       91  
+gbsa               mixed      375.61     408.81  1.088  1.082..1.095       70       71     +0   +0.6       95       96  
+rf                 single     292.24     290.90  0.995  0.994..0.996      118      118     -0   -0.2      136      136  
+rf                 mixed      231.80     231.49  0.999  0.995..1.003      122      121     -1   -0.6      142      141  
+pme                single     238.98     238.72  0.999  0.999..0.999      123      123     -0   -0.1      139      139  
+pme                mixed      195.82     196.46  1.003  1.002..1.004      129      127     -3   -2.0      147      144  
+amber20-dhfr       single     247.50     247.84  1.001  1.001..1.002      137      136     -1   -0.8      152      151  
+amber20-dhfr       mixed      201.34     201.69  1.002  1.001..1.003      147      145     -2   -1.4      160      158  
+
+1-minute load before 32 runs: 0.88 to 2.41; memory free 60% to 64%
+Spotlight CPU before 32 runs: 0% to 0%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-kstep-source-db272845a2 7484d7bef+ks PASS: gate PASS; slower: none; footprint growth: none; missing: none
+CHECK WALL 576 s; tests=gbsa,rf,pme,amber20-dhfr; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260926T190850Z-7484d7bef
+

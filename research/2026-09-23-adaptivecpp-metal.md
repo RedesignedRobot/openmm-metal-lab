@@ -26,7 +26,7 @@ Research for the reply to bdenhollander on [openmm/openmm#5397](https://github.c
 **Status: experimental and unreleased.** Verified.
 - The doc says: "The Metal backend is experimental. It is under active development, and not all SYCL features are supported yet. Expect rough edges." ([install-metal.md:3](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/d39e7e71c7c1b2c96bafa58693412d4e1c526b24/doc/install-metal.md?plain=1#L3))
 - It was added in [PR #1961](https://github.com/AdaptiveCpp/AdaptiveCpp/pull/1961) (commit 94e17498, 2026-02-26). The latest release is v25.10.0 (2025-11-05) (`gh api repos/AdaptiveCpp/AdaptiveCpp/releases`). Metal is therefore on `develop` only. The umbrella issue [#864](https://github.com/AdaptiveCpp/AdaptiveCpp/issues/864) (opened 2022-11-13) is still open.
-- It requires macOS 26 ("other versions are unlikely to work"), Apple Silicon, metal-cpp downloaded separately, and an LLVM ≥15 build, with a 2-stage build recommended ([install-metal.md:9-13](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/d39e7e71c7c1b2c96bafa58693412d4e1c526b24/doc/install-metal.md?plain=1#L9-L13)). The runtime compiles as MSL 4.0 ([metal_code_object.cpp:35](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/d39e7e71c7c1b2c96bafa58693412d4e1c526b24/src/runtime/metal/metal_code_object.cpp#L35)). Our platform compiles as MSL 3.1, which means macOS 14 (`/Users/amir/code/mini/openmm-metal/platforms/metal/src/MetalContext.cpp:489`).
+- It requires macOS 26 ("other versions are unlikely to work"), Apple Silicon, metal-cpp downloaded separately, and an LLVM ≥15 build, with a 2-stage build recommended ([install-metal.md:9-13](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/d39e7e71c7c1b2c96bafa58693412d4e1c526b24/doc/install-metal.md?plain=1#L9-L13)). The runtime compiles as MSL 4.0 ([metal_code_object.cpp:35](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/d39e7e71c7c1b2c96bafa58693412d4e1c526b24/src/runtime/metal/metal_code_object.cpp#L35)). Our platform compiles as MSL 3.1, which means macOS 14 (`~/code/mini/openmm-metal/platforms/metal/src/MetalContext.cpp:489`).
 - Activity is high. There are 38 Metal commits since February, mostly by Alexey Ozeritskiy, plus Andrey Alekseenko (al42and, the GROMACS reviewer) and Anudit Nagar (the author of !6137) (`git log --grep=metal` on the clone at d39e7e71).
 
 **Compilation flow: generic SSCP, LLVM IR to MSL source at runtime.** Verified.
@@ -106,7 +106,7 @@ Inference on effort: a SYCL platform means rewriting the shared kernel layer, no
 - A macOS 26 floor.
 - An LLVM plus metal-cpp toolchain on every build machine. conda-forge packaging would need ACpp built with the Metal backend. I have not verified whether conda-forge ships one; I did not check.
 
-For comparison, our native platform is about 4.5k host lines plus 1.9k lines of `.metal` kernels, and touched 67 lines in `platforms/common` (git diff 3c9effc96..metal, local repo `/Users/amir/code/mini/openmm-metal`).
+For comparison, our native platform is about 4.5k host lines plus 1.9k lines of `.metal` kernels, and touched 67 lines in `platforms/common` (git diff 3c9effc96..metal, local repo `~/code/mini/openmm-metal`).
 
 ## 4. The Intel GPU angle
 

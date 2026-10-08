@@ -1,0 +1,33 @@
+13:24:47Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts no new hold ahead of it and waits in plain FIFO order
+13:24:47Z waiting for the lease: 12 in the queue, held by: r2-mixed 2026-09-27T13:20:55Z no inf guard diag traces, 0 build processes
+13:29:51Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:34:56Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:40:01Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 3 build processes
+13:45:05Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 0 build processes
+13:50:10Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+13:55:14Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+14:00:19Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:05:23Z waiting for the lease: 9 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:10:28Z waiting for the lease: 8 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 3 build processes
+14:15:32Z waiting for the lease: 8 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:20:37Z waiting for the lease: 6 in the queue, held by: r2-single-int 2026-09-27T14:16:03Z fused LM probe shader traces rf+gbsa, 0 build processes
+14:25:42Z waiting for the lease: 5 in the queue, held by: r2-single-int 2026-09-27T14:23:17Z cm fold s1: bitwise, constraints, drift, ctests, 3 build processes
+14:30:46Z waiting for the lease: 4 in the queue, held by: ultra-r2-dispatch-kz 2026-09-27T14:28:41Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kz/p-gbsa, about 4 min, 0 build processes
+14:36:07Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T14:33:39Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe4, about 8 min, 2 build processes
+== owned u (tree q)
+openmm.OpenMMException: Error compiling program: program_source:293:12: error: use of undeclared identifier 'make_uint2'
+2/2 Test #269: TestMetalGBSAOBCForceMixed .......***Failed    2.39 sec
+exception: Error compiling program: program_source:925:12: error: use of undeclared identifier 'make_uint2'
+    return make_uint2(index-y*(y+1)/2, y);
+           ^
+
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   3.69 sec
+
+The following tests FAILED:
+	268 - TestMetalGBSAOBCForceSingle (Failed)
+	269 - TestMetalGBSAOBCForceMixed (Failed)
+Errors while running CTest

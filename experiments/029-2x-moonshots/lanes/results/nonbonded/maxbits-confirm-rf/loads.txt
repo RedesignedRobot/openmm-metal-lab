@@ -1,0 +1,15 @@
+2026-09-26T19:42:29Z round 1 rf base-s load { 3.61 4.03 4.78 } vm 44% top other 100.4%, com.apple.Virtualization.VirtualMachine 25.8%, other 21.9%, other 5.0%, com.apple.Virtualization.VirtualMachine 4.4%
+2026-09-26T19:43:00Z round 1 rf cand-s load { 4.14 4.11 4.78 } vm 115% top com.apple.Virtualization.VirtualMachine 110.4%, other 98.2%, other 25.8%, WindowServer 9.2%, other 7.0%
+2026-09-26T19:43:32Z round 1 rf cl-s load { 3.94 4.05 4.73 } vm 107% top com.apple.Virtualization.VirtualMachine 102.9%, other 98.9%, other 23.6%,  other 12.1%, com.apple.Virtualization.VirtualMachine 3.7%
+2026-09-26T19:44:03Z round 1 rf base-m load { 4.26 4.12 4.73 } vm 106% top other 104.2%, com.apple.Virtualization.VirtualMachine 103.2%, other 24.7%, WindowServer 3.5%, com.apple.Virtualization.VirtualMachine 2.5%
+2026-09-26T19:44:35Z round 1 rf cand-m load { 4.63 4.23 4.75 } vm 104% top com.apple.Virtualization.VirtualMachine 99.5%, other 98.8%, other 21.7%, WindowServer 6.4%, com.apple.Virtualization.VirtualMachine 4.9%
+2026-09-26T19:45:06Z round 2 rf cand-m load { 4.35 4.20 4.72 } vm 115% top other 393.1%, com.apple.Virtualization.VirtualMachine 91.3%, other 25.5%, WindowServer 8.1%, com.apple.Virtualization.VirtualMachine 7.0%
+2026-09-26T19:45:37Z round 2 rf base-m load { 7.07 4.85 4.93 } vm 190% top other 358.4%, com.apple.Virtualization.VirtualMachine 167.0%, other 20.9%, other 18.7%, other 17.2%
+2026-09-26T19:46:09Z round 2 rf cl-s load { 7.07 5.07 5.01 } vm 117% top com.apple.Virtualization.VirtualMachine 114.4%, other 99.3%, other 24.2%, WindowServer 6.7%, other 5.5%
+2026-09-26T19:46:41Z round 2 rf cand-s load { 7.29 5.35 5.11 } vm 38% top other 99.6%, com.apple.Virtualization.VirtualMachine 34.3%, other 21.6%, powermetrics 9.9%, other 6.9%
+2026-09-26T19:47:12Z round 2 rf base-s load { 6.50 5.34 5.12 } vm 37% top other 99.2%, com.apple.Virtualization.VirtualMachine 45.8%, other 18.9%, other 6.4%, other 4.6%
+2026-09-26T19:47:44Z round 3 rf base-s load { 5.35 5.19 5.07 } vm 48% top other 107.1%, com.apple.Virtualization.VirtualMachine 71.2%, other 20.3%, powermetrics 7.5%, other 4.6%
+2026-09-26T19:48:15Z round 3 rf cand-s load { 5.74 5.30 5.11 } vm 103% top other 173.5%, com.apple.Virtualization.VirtualMachine 100.9%, other 99.4%, other 26.1%, other 8.9%
+2026-09-26T19:48:47Z round 3 rf cl-s load { 6.39 5.50 5.19 } vm 111% top other 164.9%, other 107.6%, com.apple.Virtualization.VirtualMachine 102.1%, other 89.7%, Python 73.2%
+2026-09-26T19:49:21Z round 3 rf base-m load { 6.48 5.63 5.25 } vm 112% top other 165.7%, com.apple.Virtualization.VirtualMachine 110.5%, other 74.6%, other 27.1%, other 16.0%
+2026-09-26T19:49:53Z round 3 rf cand-m load { 6.85 5.78 5.32 } vm 108% top other 186.9%, other 103.5%, com.apple.Virtualization.VirtualMachine 102.2%, other 49.0%, other 25.1%

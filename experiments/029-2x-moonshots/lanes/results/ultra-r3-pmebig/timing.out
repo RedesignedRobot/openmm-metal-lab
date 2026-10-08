@@ -1,0 +1,6 @@
+20:36:47Z waiting for the lease: 1 in the queue, held by: r2-fah 2026-09-27T20:36:28Z fah corpus /tmp/openmm-metal-bench/ultra-r2-fah /tmp/openmm-metal-bench/ultra-r2-fah/fah/corpus /tmp/openmm-metal-bench/ultra-r2-fah/fah/r1, 3 build processes
+TIMING 98x98x98 dispersion=0 VkFFT_us=165.833 fused_us=148.208 saving=0.106281
+TIMING 231x112x110 dispersion=0 VkFFT_us=271.267 fused_us=319.192 saving=-0.176671
+TIMING 198x200x200 dispersion=0 VkFFT_us=561.142 fused_us=690.592 saving=-0.23069
+TIMING 49x49x49 dispersion=1 VkFFT_us=116.317 fused_us=109.183 saving=0.0613274
+Done

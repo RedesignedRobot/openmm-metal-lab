@@ -1,0 +1,3 @@
+rule s
+  command = sleep 20
+build out: s

@@ -1,0 +1,65 @@
+diff --git a/platforms/metal/src/MetalContext.cpp b/platforms/metal/src/MetalContext.cpp
+index b98374e83..edb2f5164 100644
+--- a/platforms/metal/src/MetalContext.cpp
++++ b/platforms/metal/src/MetalContext.cpp
+@@ -27,6 +27,8 @@
+   #define _USE_MATH_DEFINES // Needed to get M_PI
+ #endif
+ #include "MetalContext.h"
++#include <mutex>
++#include <cstdio>
+ #include "MetalArray.h"
+ #include "MetalBondedUtilities.h"
+ #include "MetalEvent.h"
+@@ -65,6 +67,12 @@
+ using namespace OpenMM;
+ using namespace std;
+ 
++static map<void*, string> censusNames;
++static map<string, pair<double, long> > censusData;
++static mutex censusLock;
++static bool censusEnabled = getenv("OPENMM_METAL_CENSUS") != NULL;
++
++
+ const int MetalContext::ThreadBlockSize = 64;
+ const int MetalContext::TileSize = 32;
+ 
+@@ -295,6 +303,14 @@ MetalContext::MetalContext(const System& system, int deviceIndex, bool useBlocki
+ 
+ MetalContext::~MetalContext() {
+     pushAsCurrent();
++    if (censusEnabled) {
++        getCurrentStream().finish();
++        getCurrentStream().finish();
++        lock_guard<mutex> g(censusLock);
++        for (auto& e : censusData)
++            fprintf(stderr, "CENSUS %s %ld %.3f\n", e.first.c_str(), e.second.second, e.second.first*1e6);
++        censusData.clear();
++    }
+     for (auto force : forces)
+         delete force;
+     for (auto listener : reorderListeners)
+@@ -518,6 +534,7 @@ metalFunction_t MetalContext::getKernel(metalModule_t& module, const string& nam
+     if (kernel == NULL)
+         throw OpenMMException("Error creating kernel "+name);
+     kernelArgumentSizes[kernel] = sizes;
++    censusNames[kernel] = name;
+     return kernel;
+ }
+ 
+@@ -608,6 +625,15 @@ void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, i
+     }
+     encoder->setThreadgroupMemoryLength((sharedSize+15)/16*16, 0);
+     encoder->dispatchThreadgroups(MTL::Size(gridSize, 1, 1), MTL::Size(blockSize, 1, 1));
++    if (censusEnabled) {
++        string name = censusNames[kernel];
++        queue.getCommandBuffer()->addCompletedHandler([name](MTL::CommandBuffer* b) {
++            lock_guard<mutex> g(censusLock);
++            censusData[name].first += b->GPUEndTime()-b->GPUStartTime();
++            censusData[name].second++;
++        });
++        queue.commit();
++    }
+ }
+ 
+ int MetalContext::computeThreadBlockSize(double memory) const {

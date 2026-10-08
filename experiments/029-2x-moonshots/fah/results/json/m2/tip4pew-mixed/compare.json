@@ -1,0 +1,86 @@
+{
+ "case": "tip4pew",
+ "precision": "mixed",
+ "atoms": 38876,
+ "steps": 2500,
+ "error": null,
+ "checks": 6,
+ "max_df": 0.7165736248497862,
+ "max_abs_de": 0.4546874076477252,
+ "max_constraint": 7.744363771966193e-06,
+ "verdict": "PASS",
+ "rows": [
+  {
+   "step": 0,
+   "max_df": 0.41337054220149916,
+   "rms_df": 0.09020345168491169,
+   "atoms_over": 0,
+   "metal_e": -471851.8918934609,
+   "de": 0.4546874076477252,
+   "constraint": 7.744363771966193e-06,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  },
+  {
+   "step": 500,
+   "max_df": 0.416926924018321,
+   "rms_df": 0.08959555724820009,
+   "atoms_over": 0,
+   "metal_e": -464176.98867601296,
+   "de": 0.43088830448687077,
+   "constraint": 5.085324252674643e-07,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  },
+  {
+   "step": 1000,
+   "max_df": 0.43265185215400037,
+   "rms_df": 0.0875302442503549,
+   "atoms_over": 0,
+   "metal_e": -460573.8895538305,
+   "de": 0.3132399402093142,
+   "constraint": 5.125172286311617e-07,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  },
+  {
+   "step": 1500,
+   "max_df": 0.6963461827739097,
+   "rms_df": 0.08694851628868489,
+   "atoms_over": 0,
+   "metal_e": -459160.7826460446,
+   "de": 0.24170510785188526,
+   "constraint": 5.079679314793595e-07,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  },
+  {
+   "step": 2000,
+   "max_df": 0.6636775317659286,
+   "rms_df": 0.09032916855835901,
+   "atoms_over": 0,
+   "metal_e": -457781.56362681184,
+   "de": 0.25276637414935976,
+   "constraint": 5.103485732894458e-07,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  },
+  {
+   "step": 2500,
+   "max_df": 0.7165736248497862,
+   "rms_df": 0.08964499866279363,
+   "atoms_over": 0,
+   "metal_e": -457670.65065732924,
+   "de": 0.26738524524262175,
+   "constraint": 5.135314432865723e-07,
+   "finite": true,
+   "globals": {},
+   "pass": true
+  }
+ ]
+}

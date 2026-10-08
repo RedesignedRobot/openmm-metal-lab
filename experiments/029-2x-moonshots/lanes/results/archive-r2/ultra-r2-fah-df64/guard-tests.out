@@ -1,0 +1,20 @@
+18:01:16Z waiting for the lease: 3 in the queue, held by: ultra-r3-nbfma 2026-09-28T17:55:44Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1pme, about 11 min BUILD RUNNING, 0 build processes running
+      Start 285: TestMetalMixedPrecisionMixed
+ 6/12 Test #285: TestMetalMixedPrecisionMixed ...............   Passed   16.27 sec
+      Start 414: TestMetalAmoebaTorsionTorsionForceSingle
+ 7/12 Test #414: TestMetalAmoebaTorsionTorsionForceSingle ...   Passed    1.02 sec
+      Start 415: TestMetalAmoebaTorsionTorsionForceMixed
+ 8/12 Test #415: TestMetalAmoebaTorsionTorsionForceMixed ....   Passed    2.44 sec
+      Start 432: TestMetalRpmdSingle
+ 9/12 Test #432: TestMetalRpmdSingle ........................   Passed   69.39 sec
+      Start 433: TestMetalRpmdMixed
+10/12 Test #433: TestMetalRpmdMixed .........................   Passed   96.26 sec
+      Start 450: TestMetalDrudeForceSingle
+11/12 Test #450: TestMetalDrudeForceSingle ..................   Passed    1.47 sec
+      Start 451: TestMetalDrudeForceMixed
+12/12 Test #451: TestMetalDrudeForceMixed ...................   Passed    4.41 sec
+
+100% tests passed out of 12
+
+Total Test time (real) = 206.04 sec
+['Reference', 'CPU', 'Metal', 'OpenCL'] Metal speed 100.0 load failures ()

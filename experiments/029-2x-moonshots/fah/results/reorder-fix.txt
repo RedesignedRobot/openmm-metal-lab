@@ -1,0 +1,13 @@
+TestMetalMixedPrecision single
+Done
+TestMetalMixedPrecision mixed
+Done
+nobaro seed 1 steps 760: over 1e-6 at none
+nobaro seed 2 steps 760: over 1e-6 at none
+nobaro seed 3 steps 760: over 1e-6 at none
+baro seed 1 steps 760: over 1e-6 at none
+baro seed 2 steps 760: over 1e-6 at none
+old single: max |dx| after wrap 4.38e-07 nm
+fixed single: max |dx| after wrap 2.35e-07 nm
+old mixed: max |dx| after wrap 4.29e-07 nm
+fixed mixed: max |dx| after wrap 7.11e-15 nm

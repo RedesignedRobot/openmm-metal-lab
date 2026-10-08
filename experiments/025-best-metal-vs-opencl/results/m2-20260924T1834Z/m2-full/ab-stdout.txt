@@ -250,25 +250,25 @@ system: Darwin
 
 Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -276,17 +276,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -551,25 +551,25 @@ system: Darwin
 
 Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -577,17 +577,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -906,25 +906,25 @@ system: Darwin
 
 Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -932,17 +932,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 564, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/fast/src/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/venv-openmm-simd/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -982,4 +982,4 @@ system: Darwin
 
 Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
 amber20-cellulose single      HBonds        1.5            4         NVT        Metal      12.3025
-/Users/amir/lab/fast/out/m2-full
+~/lab/fast/out/m2-full

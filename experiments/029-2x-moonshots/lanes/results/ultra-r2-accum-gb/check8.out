@@ -1,0 +1,27 @@
+18:18:19Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T18:14:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/s2, about 8 min, 5 build processes
+== owned f (tree q)
+gbsa single rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.185e-07 E -21993.713158 Eref -21993.722363 bitwise-repeat True
+gbsa mixed rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.862e-07 E -21993.711670 Eref -21993.722363 bitwise-repeat True
+Test project /tmp/openmm-metal-bench/ultra-r2-accum-gb-q/build
+    Start 268: TestMetalGBSAOBCForceSingle
+1/2 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    4.59 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+2/2 Test #269: TestMetalGBSAOBCForceMixed .......   Passed    6.25 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  10.85 sec
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS

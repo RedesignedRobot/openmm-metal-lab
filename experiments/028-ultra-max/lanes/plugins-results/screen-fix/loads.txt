@@ -1,0 +1,16 @@
+2026-09-25T06:49:40Z round 1 amoebagk bar-single load { 2.67 3.15 3.97 } vm 12% top other 21.2%, com.apple.Virtualization.VirtualMachine 12.0%, other 4.0%, other 2.0%, WindowServer 1.6%
+2026-09-25T06:50:00Z round 1 amoebagk fix-single load { 2.41 3.06 3.92 } vm 12% top other 21.4%, other 20.6%, com.apple.Virtualization.VirtualMachine 11.6%,  other 6.4%, other 4.9%
+2026-09-25T06:50:21Z round 1 amoebagk bar-mixed load { 2.70 3.09 3.91 } vm 9% top other 21.5%, powermetrics 13.3%, com.apple.Virtualization.VirtualMachine 9.2%, other 8.2%, other 0.9%
+2026-09-25T06:50:47Z round 1 amoebagk fix-mixed load { 2.19 2.93 3.83 } vm 10% top other 23.7%, other 9.8%, com.apple.Virtualization.VirtualMachine 7.7%,  other 1.7%, other 1.3%
+2026-09-25T06:51:14Z round 1 amoebapme bar-single load { 1.92 2.79 3.74 } vm 6% top other 21.0%, com.apple.Virtualization.VirtualMachine 5.1%, other 4.9%,  other 2.4%, other 2.1%
+2026-09-25T06:51:40Z round 1 amoebapme fix-single load { 1.64 2.65 3.66 } vm 5% top other 22.6%, other 5.2%, com.apple.Virtualization.VirtualMachine 5.1%,  other 3.1%, other 1.4%
+2026-09-25T06:52:06Z round 1 amoebapme bar-mixed load { 1.49 2.53 3.59 } vm 6% top other 58.6%, other 20.7%, powermetrics 13.5%, com.apple.Virtualization.VirtualMachine 5.8%, other 4.6%
+2026-09-25T06:52:38Z round 1 amoebapme fix-mixed load { 1.66 2.48 3.54 } vm 14% top other 22.2%, com.apple.Virtualization.VirtualMachine 13.6%, other 3.1%,  other 1.2%, other 1.2%
+2026-09-25T06:53:10Z round 2 amoebagk fix-mixed load { 1.94 2.45 3.48 } vm 6% top other 23.7%,  other 6.6%, com.apple.Virtualization.VirtualMachine 5.6%, other 1.6%, other 1.4%
+2026-09-25T06:53:30Z round 2 amoebagk bar-mixed load { 1.61 2.33 3.41 } vm 4% top other 22.5%,  other 12.6%, other 5.5%, com.apple.Virtualization.VirtualMachine 4.1%, other 2.4%
+2026-09-25T06:53:51Z round 2 amoebagk fix-single load { 1.73 2.31 3.38 } vm 9% top other 21.9%, com.apple.Virtualization.VirtualMachine 8.6%, powermetrics 3.9%, WindowServer 2.0%, other 0.9%
+2026-09-25T06:54:11Z round 2 amoebagk bar-single load { 1.75 2.28 3.34 } vm 14% top other 23.4%, com.apple.Virtualization.VirtualMachine 10.4%, other 4.5%,  other 1.9%, other 1.9%
+2026-09-25T06:54:31Z round 2 amoebapme fix-mixed load { 1.74 2.24 3.30 } vm 16% top other 19.6%, com.apple.Virtualization.VirtualMachine 15.5%, other 2.1%,  other 1.8%, other 0.8%
+2026-09-25T06:54:57Z round 2 amoebapme bar-mixed load { 1.27 2.09 3.22 } vm 12% top other 24.9%, com.apple.Virtualization.VirtualMachine 12.0%, other 5.0%,  other 3.1%, other 3.0%
+2026-09-25T06:55:23Z round 2 amoebapme fix-single load { 1.09 1.99 3.15 } vm 6% top other 21.6%, other 9.0%, com.apple.Virtualization.VirtualMachine 5.6%,  other 3.4%, WindowServer 0.8%
+2026-09-25T06:55:49Z round 2 amoebapme bar-single load { 2.23 2.18 3.18 } vm 8% top other 22.0%, com.apple.Virtualization.VirtualMachine 8.2%,  other 1.4%, WindowServer 1.3%, other 0.8%

@@ -1,0 +1,13 @@
+Test project /tmp/openmm-metal-bench/ultra-m29-gb/build
+    Start 248: TestMetalCustomGBForceSingle
+1/4 Test #248: TestMetalCustomGBForceSingle .....   Passed    3.95 sec
+    Start 249: TestMetalCustomGBForceMixed
+2/4 Test #249: TestMetalCustomGBForceMixed ......   Passed   23.03 sec
+    Start 268: TestMetalGBSAOBCForceSingle
+3/4 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    5.90 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+4/4 Test #269: TestMetalGBSAOBCForceMixed .......   Passed   31.56 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =  64.44 sec

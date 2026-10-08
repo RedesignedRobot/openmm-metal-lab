@@ -1,0 +1,78 @@
+median ns/day, host clock
+test                  base-mixed   base-opencl   base-single     int-mixed    int-single
+gbsa                      830.30       1138.31       1241.00        907.13       1243.46
+rf                        464.55        657.40        715.11        534.44        715.70
+pme                       399.47        522.45        534.93        503.28        624.03
+apoa1rf                   243.33        281.49        300.38        259.88        300.09
+apoa1pme                  167.33        181.41        193.40        205.61        230.03
+apoa1ljpme                129.04        127.44        143.88        180.15        198.83
+amber20-dhfr              412.75        563.06        570.87        529.36        673.95
+amber20-cellulose          48.97         48.01         54.22         59.94         65.57
+amber20-stmv               19.32         18.63         21.31         24.04         26.34
+
+rounds, base-mixed:
+  gbsa               833.00 827.27 830.30   spread 0.7%
+  rf                 463.06 467.19 464.55   spread 0.9%
+  pme                398.79 399.47 400.13   spread 0.3%
+  apoa1rf            243.33 243.03 243.41   spread 0.2%
+  apoa1pme           166.99 167.75 167.33   spread 0.5%
+  apoa1ljpme         129.04 129.08 128.99   spread 0.1%
+  amber20-dhfr       413.71 412.17 412.75   spread 0.4%
+  amber20-cellulose  48.99 48.97 48.92   spread 0.1%
+  amber20-stmv       19.30 19.32 19.34   spread 0.2%
+rounds, base-opencl:
+  gbsa               1138.31 1138.18 1141.17   spread 0.3%
+  rf                 657.40 666.84 654.59   spread 1.9%
+  pme                523.68 520.77 522.45   spread 0.6%
+  apoa1rf            282.27 281.11 281.49   spread 0.4%
+  apoa1pme           181.41 181.43 181.26   spread 0.1%
+  apoa1ljpme         127.44 127.44 127.29   spread 0.1%
+  amber20-dhfr       563.06 563.25 562.60   spread 0.1%
+  amber20-cellulose  48.02 46.15 48.01   spread 3.9%
+  amber20-stmv       18.62 18.65 18.63   spread 0.2%
+rounds, base-single:
+  gbsa               1238.81 1241.00 1244.90   spread 0.5%
+  rf                 715.11 717.88 707.93   spread 1.4%
+  pme                538.40 533.69 534.93   spread 0.9%
+  apoa1rf            301.34 300.38 299.66   spread 0.6%
+  apoa1pme           193.82 193.30 193.40   spread 0.3%
+  apoa1ljpme         144.00 143.88 143.86   spread 0.1%
+  amber20-dhfr       570.82 572.01 570.87   spread 0.2%
+  amber20-cellulose  54.30 54.22 54.21   spread 0.2%
+  amber20-stmv       21.30 21.31 21.33   spread 0.1%
+rounds, int-mixed:
+  gbsa               903.01 911.85 907.13   spread 1.0%
+  rf                 534.31 534.44 542.24   spread 1.5%
+  pme                503.28 502.68 504.10   spread 0.3%
+  apoa1rf            259.88 258.45 260.04   spread 0.6%
+  apoa1pme           205.61 206.03 205.42   spread 0.3%
+  apoa1ljpme         179.42 180.50 180.15   spread 0.6%
+  amber20-dhfr       530.05 529.36 527.73   spread 0.4%
+  amber20-cellulose  59.90 59.94 59.95   spread 0.1%
+  amber20-stmv       24.00 24.04 24.06   spread 0.2%
+rounds, int-single:
+  gbsa               1224.36 1245.85 1243.46   spread 1.7%
+  rf                 715.70 710.47 717.63   spread 1.0%
+  pme                624.03 622.93 628.61   spread 0.9%
+  apoa1rf            299.88 300.21 300.09   spread 0.1%
+  apoa1pme           230.03 230.99 229.96   spread 0.5%
+  apoa1ljpme         198.77 199.54 198.83   spread 0.4%
+  amber20-dhfr       673.01 674.97 673.95   spread 0.3%
+  amber20-cellulose  65.62 65.57 65.45   spread 0.3%
+  amber20-stmv       26.26 26.34 26.34   spread 0.3%
+
+test                           base-single/base-opencl              base-mixed/base-opencl              int-single/base-opencl              int-single/base-single               int-mixed/base-opencl                int-mixed/base-mixed
+gbsa                       1.090 (rounds 1.088..1.091)         0.729 (rounds 0.727..0.732)         1.092 (rounds 1.076..1.095)         1.002 (rounds 0.988..1.004)         0.797 (rounds 0.793..0.801)         1.093 (rounds 1.084..1.102)
+rf                         1.088 (rounds 1.077..1.088)         0.707 (rounds 0.701..0.710)         1.089 (rounds 1.065..1.096)         1.001 (rounds 0.990..1.014)         0.813 (rounds 0.801..0.828)         1.150 (rounds 1.144..1.167)
+pme                        1.024 (rounds 1.024..1.028)         0.765 (rounds 0.762..0.767)         1.194 (rounds 1.192..1.203)         1.167 (rounds 1.159..1.175)         0.963 (rounds 0.961..0.965)         1.260 (rounds 1.258..1.262)
+apoa1rf                    1.067 (rounds 1.065..1.069)         0.864 (rounds 0.862..0.865)         1.066 (rounds 1.062..1.068)         0.999 (rounds 0.995..1.001)         0.923 (rounds 0.919..0.924)         1.068 (rounds 1.063..1.068)
+apoa1pme                   1.066 (rounds 1.065..1.068)         0.922 (rounds 0.921..0.925)         1.268 (rounds 1.268..1.273)         1.189 (rounds 1.187..1.195)         1.133 (rounds 1.133..1.136)         1.229 (rounds 1.228..1.231)
+apoa1ljpme                 1.129 (rounds 1.129..1.130)         1.013 (rounds 1.013..1.013)         1.560 (rounds 1.560..1.566)         1.382 (rounds 1.380..1.387)         1.414 (rounds 1.408..1.416)         1.396 (rounds 1.390..1.398)
+amber20-dhfr               1.014 (rounds 1.014..1.016)         0.733 (rounds 0.732..0.735)         1.197 (rounds 1.195..1.198)         1.181 (rounds 1.179..1.181)         0.940 (rounds 0.938..0.941)         1.282 (rounds 1.279..1.284)
+amber20-cellulose          1.129 (rounds 1.129..1.175)         1.020 (rounds 1.019..1.061)         1.366 (rounds 1.363..1.421)         1.209 (rounds 1.207..1.209)         1.248 (rounds 1.247..1.299)         1.224 (rounds 1.223..1.225)
+amber20-stmv               1.144 (rounds 1.142..1.145)         1.037 (rounds 1.036..1.038)         1.414 (rounds 1.410..1.414)         1.236 (rounds 1.233..1.236)         1.290 (rounds 1.289..1.291)         1.244 (rounds 1.244..1.244)
+
+1 minute load before 135 runs: 0.98 to 3.96
+Background VM CPU before 135 runs: 2% to 74%
+runs with no result: 0
+runs that overlapped a build: 0

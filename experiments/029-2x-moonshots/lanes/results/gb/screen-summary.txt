@@ -1,0 +1,20 @@
+median ns/day, host clock
+test                  base-mixed   base-single    mine-mixed   mine-single
+gbsa                     1229.90       1599.40       1096.48       1368.63
+
+rounds, base-mixed:
+  gbsa               1229.90 1229.81 1238.16   spread 0.7%
+rounds, base-single:
+  gbsa               1606.52 1599.40 1589.32   spread 1.1%
+rounds, mine-mixed:
+  gbsa               1095.75 1100.13 1096.48   spread 0.4%
+rounds, mine-single:
+  gbsa               1371.04 1368.63 1365.56   spread 0.4%
+
+test                           mine-single/base-single               mine-mixed/base-mixed
+gbsa                       0.856 (rounds 0.853..0.859)         0.892 (rounds 0.886..0.895)
+
+1 minute load before 12 runs: 2.19 to 4.05
+Background VM CPU before 12 runs: 3% to 12%
+runs with no result: 0
+runs that overlapped a build: 0

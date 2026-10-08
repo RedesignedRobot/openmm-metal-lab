@@ -1,0 +1,10 @@
+19:26:58Z waiting for the lease: 3 in the queue, held by: ultra-r2-mixed 2026-09-27T19:25:55Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-gq-dhfr, about 2 min, 0 build processes
+device Apple M3 Ultra grid 56x56x56 reps 30
+vkfft+conv     median    41.03 us  p10    40.92  p90    41.48  relL2 vs double 2.322e-07
+vkfft only     median    36.29 us  p10    36.14  p90    36.48  relL2 vs double 2.397e+03
+fused t256     median    59.00 us  p10    58.88  p90    59.11  relL2 vs double 2.163e-07
+k1 only t256   median    15.24 us  p10    15.20  p90    15.27  relL2 vs double 9.995e-01
+fused t512     median    50.59 us  p10    50.48  p90    50.72  relL2 vs double 2.163e-07
+k1 only t512   median    12.58 us  p10    12.55  p90    12.61  relL2 vs double 9.995e-01
+fused t1024    median    48.17 us  p10    48.06  p90    48.27  relL2 vs double 2.163e-07
+k1 only t1024  median    12.02 us  p10    11.96  p90    12.05  relL2 vs double 9.995e-01

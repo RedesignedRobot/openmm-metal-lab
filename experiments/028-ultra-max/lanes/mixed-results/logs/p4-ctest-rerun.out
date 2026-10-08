@@ -1,0 +1,278 @@
+Test project /tmp/openmm-metal-bench/ultra-mixed/t4/build
+        Start   1: TestReferenceATMForce
+  1/446 Test   #1: TestReferenceATMForce ............................   Passed    0.67 sec
+        Start   2: TestReferenceAndersenThermostat
+  2/446 Test   #2: TestReferenceAndersenThermostat ..................   Passed    0.38 sec
+        Start   3: TestReferenceBrownianIntegrator
+  3/446 Test   #3: TestReferenceBrownianIntegrator ..................   Passed    0.31 sec
+        Start   4: TestReferenceCMAPTorsionForce
+  4/446 Test   #4: TestReferenceCMAPTorsionForce ....................   Passed    0.27 sec
+        Start   5: TestReferenceCMMotionRemover
+  5/446 Test   #5: TestReferenceCMMotionRemover .....................   Passed    0.28 sec
+        Start   6: TestReferenceCheckpoints
+  6/446 Test   #6: TestReferenceCheckpoints .........................   Passed    0.42 sec
+        Start   7: TestReferenceCompoundIntegrator
+  7/446 Test   #7: TestReferenceCompoundIntegrator ..................   Passed    0.26 sec
+        Start   8: TestReferenceConstantPotentialForce
+  8/446 Test   #8: TestReferenceConstantPotentialForce ..............   Passed    6.46 sec
+        Start   9: TestReferenceCustomAngleForce
+  9/446 Test   #9: TestReferenceCustomAngleForce ....................   Passed    0.27 sec
+        Start  10: TestReferenceCustomBondForce
+ 10/446 Test  #10: TestReferenceCustomBondForce .....................   Passed    0.27 sec
+        Start  11: TestReferenceCustomCPPForce
+ 11/446 Test  #11: TestReferenceCustomCPPForce ......................   Passed    0.25 sec
+        Start  12: TestReferenceCustomCVForce
+ 12/446 Test  #12: TestReferenceCustomCVForce .......................   Passed    0.26 sec
+        Start  13: TestReferenceCustomCentroidBondForce
+ 13/446 Test  #13: TestReferenceCustomCentroidBondForce .............   Passed    0.30 sec
+        Start  14: TestReferenceCustomCompoundBondForce
+ 14/446 Test  #14: TestReferenceCustomCompoundBondForce .............   Passed    0.30 sec
+        Start  15: TestReferenceCustomExternalForce
+ 15/446 Test  #15: TestReferenceCustomExternalForce .................   Passed    0.26 sec
+        Start  16: TestReferenceCustomGBForce
+ 16/446 Test  #16: TestReferenceCustomGBForce .......................   Passed    0.36 sec
+        Start  17: TestReferenceCustomHbondForce
+ 17/446 Test  #17: TestReferenceCustomHbondForce ....................   Passed    1.44 sec
+        Start  18: TestReferenceCustomIntegrator
+ 18/446 Test  #18: TestReferenceCustomIntegrator ....................   Passed    0.65 sec
+        Start  19: TestReferenceCustomManyParticleForce
+ 19/446 Test  #19: TestReferenceCustomManyParticleForce .............   Passed   12.80 sec
+        Start  20: TestReferenceCustomNonbondedForce
+ 20/446 Test  #20: TestReferenceCustomNonbondedForce ................   Passed   16.03 sec
+        Start  21: TestReferenceCustomTorsionForce
+ 21/446 Test  #21: TestReferenceCustomTorsionForce ..................   Passed    0.25 sec
+        Start  22: TestReferenceDPDIntegrator
+ 22/446 Test  #22: TestReferenceDPDIntegrator .......................   Passed    7.10 sec
+        Start  23: TestReferenceDispersionPME
+ 23/446 Test  #23: TestReferenceDispersionPME .......................   Passed    0.54 sec
+        Start  24: TestReferenceEwald
+ 24/446 Test  #24: TestReferenceEwald ...............................   Passed    0.63 sec
+        Start  25: TestReferenceGBSAOBCForce
+ 25/446 Test  #25: TestReferenceGBSAOBCForce ........................   Passed    0.65 sec
+        Start  26: TestReferenceGayBerneForce
+ 26/446 Test  #26: TestReferenceGayBerneForce .......................   Passed    0.27 sec
+        Start  27: TestReferenceHarmonicAngleForce
+ 27/446 Test  #27: TestReferenceHarmonicAngleForce ..................   Passed    0.26 sec
+        Start  28: TestReferenceHarmonicBondForce
+ 28/446 Test  #28: TestReferenceHarmonicBondForce ...................   Passed    0.26 sec
+        Start  29: TestReferenceKineticEnergy
+ 29/446 Test  #29: TestReferenceKineticEnergy .......................   Passed    0.24 sec
+        Start  30: TestReferenceLCPOForce
+ 30/446 Test  #30: TestReferenceLCPOForce ...........................   Passed    3.05 sec
+        Start  31: TestReferenceLangevinIntegrator
+ 31/446 Test  #31: TestReferenceLangevinIntegrator ..................   Passed    0.30 sec
+        Start  32: TestReferenceLangevinMiddleIntegrator
+ 32/446 Test  #32: TestReferenceLangevinMiddleIntegrator ............   Passed    0.51 sec
+        Start  33: TestReferenceLocalEnergyMinimizer
+ 33/446 Test  #33: TestReferenceLocalEnergyMinimizer ................   Passed    0.69 sec
+        Start  34: TestReferenceMonteCarloAnisotropicBarostat
+ 34/446 Test  #34: TestReferenceMonteCarloAnisotropicBarostat .......   Passed    3.79 sec
+        Start  35: TestReferenceMonteCarloBarostat
+ 35/446 Test  #35: TestReferenceMonteCarloBarostat ..................   Passed    4.38 sec
+        Start  36: TestReferenceMonteCarloFlexibleBarostat
+ 36/446 Test  #36: TestReferenceMonteCarloFlexibleBarostat ..........   Passed    3.84 sec
+        Start  37: TestReferenceMonteCarloMembraneBarostat
+ 37/446 Test  #37: TestReferenceMonteCarloMembraneBarostat ..........   Passed    5.14 sec
+        Start  38: TestReferenceNeighborList
+ 38/446 Test  #38: TestReferenceNeighborList ........................   Passed    0.36 sec
+        Start  39: TestReferenceNonbondedForce
+ 39/446 Test  #39: TestReferenceNonbondedForce ......................   Passed    0.62 sec
+        Start  40: TestReferenceNoseHooverIntegrator
+ 40/446 Test  #40: TestReferenceNoseHooverIntegrator ................   Passed    0.83 sec
+        Start  41: TestReferenceOrientationRestraintForce
+ 41/446 Test  #41: TestReferenceOrientationRestraintForce ...........   Passed    0.33 sec
+        Start  42: TestReferencePeriodicTorsionForce
+ 42/446 Test  #42: TestReferencePeriodicTorsionForce ................   Passed    0.25 sec
+        Start  43: TestReferencePythonForce
+ 43/446 Test  #43: TestReferencePythonForce .........................   Passed    0.26 sec
+        Start  44: TestReferenceQTBIntegrator
+ 44/446 Test  #44: TestReferenceQTBIntegrator .......................   Passed   19.17 sec
+        Start  45: TestReferenceRBTorsionForce
+ 45/446 Test  #45: TestReferenceRBTorsionForce ......................   Passed    0.26 sec
+        Start  46: TestReferenceRGForce
+ 46/446 Test  #46: TestReferenceRGForce .............................   Passed    0.29 sec
+        Start  47: TestReferenceRMSDForce
+ 47/446 Test  #47: TestReferenceRMSDForce ...........................   Passed    0.34 sec
+        Start  48: TestReferenceRandom
+ 48/446 Test  #48: TestReferenceRandom ..............................   Passed    0.35 sec
+        Start  49: TestReferenceSettle
+ 49/446 Test  #49: TestReferenceSettle ..............................   Passed    0.29 sec
+        Start  50: TestReferenceVariableLangevinIntegrator
+ 50/446 Test  #50: TestReferenceVariableLangevinIntegrator ..........   Passed    8.26 sec
+        Start  51: TestReferenceVariableVerletIntegrator
+ 51/446 Test  #51: TestReferenceVariableVerletIntegrator ............   Passed    1.79 sec
+        Start  52: TestReferenceVerletIntegrator
+ 52/446 Test  #52: TestReferenceVerletIntegrator ....................   Passed    0.47 sec
+        Start  53: TestReferenceVirtualSites
+ 53/446 Test  #53: TestReferenceVirtualSites ........................   Passed    1.31 sec
+        Start  54: TestOpenCLATMForceSingle
+ 54/446 Test  #54: TestOpenCLATMForceSingle .........................   Passed    4.36 sec
+        Start  55: TestOpenCLATMForceMixed
+ 55/446 Test  #55: TestOpenCLATMForceMixed ..........................***Failed    0.06 sec
+exception: No compatible OpenCL platform is available
+
+        Start  56: TestOpenCLATMForceDouble
+ 56/446 Test  #56: TestOpenCLATMForceDouble .........................***Failed    0.06 sec
+exception: No compatible OpenCL platform is available
+
+        Start  57: TestOpenCLAndersenThermostatSingle
+ 57/446 Test  #57: TestOpenCLAndersenThermostatSingle ...............   Passed   16.23 sec
+        Start  58: TestOpenCLAndersenThermostatMixed
+ 58/446 Test  #58: TestOpenCLAndersenThermostatMixed ................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  59: TestOpenCLAndersenThermostatDouble
+ 59/446 Test  #59: TestOpenCLAndersenThermostatDouble ...............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  60: TestOpenCLBrownianIntegratorSingle
+ 60/446 Test  #60: TestOpenCLBrownianIntegratorSingle ...............   Passed   27.60 sec
+        Start  61: TestOpenCLBrownianIntegratorMixed
+ 61/446 Test  #61: TestOpenCLBrownianIntegratorMixed ................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  62: TestOpenCLBrownianIntegratorDouble
+ 62/446 Test  #62: TestOpenCLBrownianIntegratorDouble ...............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  63: TestOpenCLCMAPTorsionForceSingle
+ 63/446 Test  #63: TestOpenCLCMAPTorsionForceSingle .................   Passed    0.75 sec
+        Start  64: TestOpenCLCMAPTorsionForceMixed
+ 64/446 Test  #64: TestOpenCLCMAPTorsionForceMixed ..................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  65: TestOpenCLCMAPTorsionForceDouble
+ 65/446 Test  #65: TestOpenCLCMAPTorsionForceDouble .................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  66: TestOpenCLCMMotionRemoverSingle
+ 66/446 Test  #66: TestOpenCLCMMotionRemoverSingle ..................   Passed    1.87 sec
+        Start  67: TestOpenCLCMMotionRemoverMixed
+ 67/446 Test  #67: TestOpenCLCMMotionRemoverMixed ...................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  68: TestOpenCLCMMotionRemoverDouble
+ 68/446 Test  #68: TestOpenCLCMMotionRemoverDouble ..................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  69: TestOpenCLCheckpointsSingle
+ 69/446 Test  #69: TestOpenCLCheckpointsSingle ......................   Passed    1.31 sec
+        Start  70: TestOpenCLCheckpointsMixed
+ 70/446 Test  #70: TestOpenCLCheckpointsMixed .......................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  71: TestOpenCLCheckpointsDouble
+ 71/446 Test  #71: TestOpenCLCheckpointsDouble ......................***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+        Start  72: TestOpenCLCompoundIntegratorSingle
+ 72/446 Test  #72: TestOpenCLCompoundIntegratorSingle ...............   Passed    2.82 sec
+        Start  73: TestOpenCLCompoundIntegratorMixed
+ 73/446 Test  #73: TestOpenCLCompoundIntegratorMixed ................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  74: TestOpenCLCompoundIntegratorDouble
+ 74/446 Test  #74: TestOpenCLCompoundIntegratorDouble ...............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  75: TestOpenCLConstantPotentialForceSingle
+ 75/446 Test  #75: TestOpenCLConstantPotentialForceSingle ...........   Passed   22.71 sec
+        Start  76: TestOpenCLConstantPotentialForceMixed
+ 76/446 Test  #76: TestOpenCLConstantPotentialForceMixed ............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  77: TestOpenCLConstantPotentialForceDouble
+ 77/446 Test  #77: TestOpenCLConstantPotentialForceDouble ...........***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+        Start  78: TestOpenCLCustomAngleForceSingle
+ 78/446 Test  #78: TestOpenCLCustomAngleForceSingle .................   Passed    0.74 sec
+        Start  79: TestOpenCLCustomAngleForceMixed
+ 79/446 Test  #79: TestOpenCLCustomAngleForceMixed ..................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  80: TestOpenCLCustomAngleForceDouble
+ 80/446 Test  #80: TestOpenCLCustomAngleForceDouble .................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  81: TestOpenCLCustomBondForceSingle
+ 81/446 Test  #81: TestOpenCLCustomBondForceSingle ..................   Passed    0.67 sec
+        Start  82: TestOpenCLCustomBondForceMixed
+ 82/446 Test  #82: TestOpenCLCustomBondForceMixed ...................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  83: TestOpenCLCustomBondForceDouble
+ 83/446 Test  #83: TestOpenCLCustomBondForceDouble ..................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  84: TestOpenCLCustomCPPForceSingle
+ 84/446 Test  #84: TestOpenCLCustomCPPForceSingle ...................   Passed    0.52 sec
+        Start  85: TestOpenCLCustomCPPForceMixed
+ 85/446 Test  #85: TestOpenCLCustomCPPForceMixed ....................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  86: TestOpenCLCustomCPPForceDouble
+ 86/446 Test  #86: TestOpenCLCustomCPPForceDouble ...................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  87: TestOpenCLCustomCVForceSingle
+ 87/446 Test  #87: TestOpenCLCustomCVForceSingle ....................   Passed    1.00 sec
+        Start  88: TestOpenCLCustomCVForceMixed
+ 88/446 Test  #88: TestOpenCLCustomCVForceMixed .....................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  89: TestOpenCLCustomCVForceDouble
+ 89/446 Test  #89: TestOpenCLCustomCVForceDouble ....................***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+        Start  90: TestOpenCLCustomCentroidBondForceSingle
+ 90/446 Test  #90: TestOpenCLCustomCentroidBondForceSingle ..........   Passed    0.70 sec
+        Start  91: TestOpenCLCustomCentroidBondForceMixed
+ 91/446 Test  #91: TestOpenCLCustomCentroidBondForceMixed ...........***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  92: TestOpenCLCustomCentroidBondForceDouble
+ 92/446 Test  #92: TestOpenCLCustomCentroidBondForceDouble ..........***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  93: TestOpenCLCustomCompoundBondForceSingle
+ 93/446 Test  #93: TestOpenCLCustomCompoundBondForceSingle ..........   Passed    3.43 sec
+        Start  94: TestOpenCLCustomCompoundBondForceMixed
+ 94/446 Test  #94: TestOpenCLCustomCompoundBondForceMixed ...........***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  95: TestOpenCLCustomCompoundBondForceDouble
+ 95/446 Test  #95: TestOpenCLCustomCompoundBondForceDouble ..........***Failed    0.03 sec
+exception: No compatible OpenCL platform is available
+
+        Start  96: TestOpenCLCustomExternalForceSingle
+ 96/446 Test  #96: TestOpenCLCustomExternalForceSingle ..............   Passed    0.84 sec
+        Start  97: TestOpenCLCustomExternalForceMixed
+ 97/446 Test  #97: TestOpenCLCustomExternalForceMixed ...............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  98: TestOpenCLCustomExternalForceDouble
+ 98/446 Test  #98: TestOpenCLCustomExternalForceDouble ..............***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start  99: TestOpenCLCustomGBForceSingle
+ 99/446 Test  #99: TestOpenCLCustomGBForceSingle ....................   Passed    2.91 sec
+        Start 100: TestOpenCLCustomGBForceMixed
+100/446 Test #100: TestOpenCLCustomGBForceMixed .....................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start 101: TestOpenCLCustomGBForceDouble
+101/446 Test #101: TestOpenCLCustomGBForceDouble ....................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start 102: TestOpenCLCustomHbondForceSingle
+102/446 Test #102: TestOpenCLCustomHbondForceSingle .................   Passed    1.12 sec
+        Start 103: TestOpenCLCustomHbondForceMixed
+103/446 Test #103: TestOpenCLCustomHbondForceMixed ..................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start 104: TestOpenCLCustomHbondForceDouble
+104/446 Test #104: TestOpenCLCustomHbondForceDouble .................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start 105: TestOpenCLCustomIntegratorSingle

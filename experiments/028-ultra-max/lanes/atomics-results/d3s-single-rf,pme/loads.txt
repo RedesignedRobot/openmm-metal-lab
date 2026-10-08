@@ -1,0 +1,8 @@
+2026-09-25T08:32:01Z round 1 rf ser load { 2.14 2.97 3.35 } vm 8% top other 19.6%, other 12.8%, com.apple.Virtualization.VirtualMachine 7.0%, other 5.3%, powermetrics 4.8%
+2026-09-25T08:32:17Z round 1 rf d3 load { 2.17 2.94 3.33 } vm 106% top com.apple.Virtualization.VirtualMachine 106.2%, other 19.1%, other 5.1%, other 3.1%,  other 1.7%
+2026-09-25T08:32:34Z round 1 pme ser load { 2.35 2.94 3.32 } vm 6% top other 19.4%, other 7.2%, com.apple.Virtualization.VirtualMachine 7.1%,  other 5.9%, other 2.1%
+2026-09-25T08:32:50Z round 1 pme d3 load { 2.55 2.95 3.32 } vm 7% top other 19.2%, other 7.3%, com.apple.Virtualization.VirtualMachine 7.0%,  other 2.9%, WindowServer 2.0%
+2026-09-25T08:33:07Z round 2 rf d3 load { 2.34 2.88 3.29 } vm 6% top other 18.4%, other 5.9%, com.apple.Virtualization.VirtualMachine 5.5%, other 2.1%,  other 1.7%
+2026-09-25T08:33:23Z round 2 rf ser load { 3.90 3.20 3.39 } vm 12% top other 112.3%, other 94.8%, other 92.9%, other 86.8%, other 59.1%
+2026-09-25T08:33:40Z round 2 pme d3 load { 4.52 3.38 3.45 } vm 9% top other 257.8%, other 156.6%, other 18.6%, com.apple.Virtualization.VirtualMachine 8.9%, other 5.6%
+2026-09-25T08:33:57Z round 2 pme ser load { 4.67 3.47 3.48 } vm 6% top other 112.4%, other 24.0%, other 6.3%, com.apple.Virtualization.VirtualMachine 5.4%,  other 4.0%

@@ -1,0 +1,43 @@
+median ns/day, host clock
+test                      base-m        base-s         cpu-m         cpu-s        opencl
+pme                       789.87        902.23        136.91        150.23        523.24
+apoa1pme                  268.64        301.28         62.33         65.45        181.46
+apoa1ljpme                217.78        239.88         42.21         46.47        124.89
+amber20-dhfr              779.18        943.17        128.51        122.75        565.86
+
+rounds, base-m:
+  pme                786.95 792.78   spread 0.7%
+  apoa1pme           270.23 267.05   spread 1.2%
+  apoa1ljpme         217.94 217.63   spread 0.1%
+  amber20-dhfr       741.92 816.44   spread 9.6%
+rounds, base-s:
+  pme                895.26 909.20   spread 1.5%
+  apoa1pme           302.12 300.43   spread 0.6%
+  apoa1ljpme         239.74 240.02   spread 0.1%
+  amber20-dhfr       935.53 950.80   spread 1.6%
+rounds, cpu-m:
+  pme                146.68 127.14   spread 14.3%
+  apoa1pme           65.17 59.48   spread 9.1%
+  apoa1ljpme         40.90 43.52   spread 6.2%
+  amber20-dhfr       134.43 122.59   spread 9.2%
+rounds, cpu-s:
+  pme                153.95 146.51   spread 4.9%
+  apoa1pme           68.25 62.66   spread 8.5%
+  apoa1ljpme         46.34 46.60   spread 0.6%
+  amber20-dhfr       106.39 139.11   spread 26.7%
+rounds, opencl:
+  pme                521.66 524.82   spread 0.6%
+  apoa1pme           181.04 181.88   spread 0.5%
+  apoa1ljpme         121.53 128.25   spread 5.4%
+  amber20-dhfr       564.17 567.55   spread 0.6%
+
+test                                      cpu-s/base-s                        cpu-m/base-m                        cpu-s/opencl                        cpu-m/opencl
+pme                        0.167 (rounds 0.161..0.172)         0.173 (rounds 0.160..0.186)         0.287 (rounds 0.279..0.295)         0.262 (rounds 0.242..0.281)
+apoa1pme                   0.217 (rounds 0.209..0.226)         0.232 (rounds 0.223..0.241)         0.361 (rounds 0.345..0.377)         0.343 (rounds 0.327..0.360)
+apoa1ljpme                 0.194 (rounds 0.193..0.194)         0.194 (rounds 0.188..0.200)         0.372 (rounds 0.363..0.381)         0.338 (rounds 0.337..0.339)
+amber20-dhfr               0.130 (rounds 0.114..0.146)         0.165 (rounds 0.150..0.181)         0.217 (rounds 0.189..0.245)         0.227 (rounds 0.216..0.238)
+
+1 minute load before 40 runs: 2.11 to 22.00
+Background VM CPU before 40 runs: 8% to 90%
+runs with no result: 0
+runs that overlapped a build: 0

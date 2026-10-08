@@ -1,0 +1,25 @@
+09:20:02Z waiting for the lease: 6 in the queue, held by: ultra-r2-accum-nb 2026-09-28T09:18:35Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/irl/ab-rf-mixed, about 6 min, 0 build processes
+09:25:06Z waiting for the lease: 5 in the queue, held by: ultra-r3-interp 2026-09-28T09:23:39Z ab.sh /tmp/openmm-metal-bench/ultra-r3-interp/c-amber20-dhfr, about 7 min, 0 build processes
+09:30:10Z waiting for the lease: 5 in the queue, held by: ultra-r3-interp 2026-09-28T09:23:39Z ab.sh /tmp/openmm-metal-bench/ultra-r3-interp/c-amber20-dhfr, about 7 min, 0 build processes
+09:35:14Z waiting for the lease: 2 in the queue, held by: r2-dispatch 2026-09-28T09:33:52Z gbsa host CPU per step and shader traces, about 6 min, 0 build processes
+09:40:46Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-28T09:35:56Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/is-e, about 14 min, 0 build processes
+09:46:22Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-28T09:35:56Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/is-e, about 14 min, 0 build processes
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-integrated", "energy": -1388810.853633064, "bitwise_repeat": true, "us_median": 379.6250093728304, "us_min": 376.7500165849924, "us_p90": 393.7625006074086}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.843867439, "bitwise_repeat": true, "us_median": 780.3750049788505, "us_min": 765.7916576135904, "us_p90": 818.2749996194618}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.841914314, "bitwise_repeat": true, "us_median": 598.5208263155073, "us_min": 591.9583491049707, "us_p90": 634.8124996293337}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-integrated", "energy": -1388810.7691316793, "bitwise_repeat": true, "us_median": 379.37500746920705, "us_min": 376.1249827221036, "us_p90": 388.97081976756454}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.7691316798, "bitwise_repeat": true, "us_median": 782.375005655922, "us_min": 770.5000170972198, "us_p90": 811.9875041302294}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.7691316793, "bitwise_repeat": true, "us_median": 596.5625023236498, "us_min": 586.8333391845226, "us_p90": 689.7000101162122}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-integrated", "energy": -1388810.857539314, "bitwise_repeat": true, "us_median": 379.8749821726233, "us_min": 376.24998367391527, "us_p90": 651.7124944366515}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.853633064, "bitwise_repeat": true, "us_median": 781.9166639819741, "us_min": 768.5000018682331, "us_p90": 815.5499817803502}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.865351814, "bitwise_repeat": true, "us_median": 597.562495386228, "us_min": 589.0000029467046, "us_p90": 616.4249876746908}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-integrated", "energy": -1388810.76913168, "bitwise_repeat": true, "us_median": 379.2916832026094, "us_min": 375.20835758186877, "us_p90": 392.34583964571357}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.7691316798, "bitwise_repeat": true, "us_median": 781.6875004209578, "us_min": 770.3333394601941, "us_p90": 797.6208318723366}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.76913168, "bitwise_repeat": true, "us_median": 598.7916811136529, "us_min": 591.791671467945, "us_p90": 647.6499896962202}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-integrated", "energy": -1388810.849726814, "bitwise_repeat": true, "us_median": 379.708333639428, "us_min": 374.99997415579855, "us_p90": 652.5916483951733}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.871211189, "bitwise_repeat": true, "us_median": 780.7916699675843, "us_min": 768.5833261348307, "us_p90": 797.3083207616583}
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.849726814, "bitwise_repeat": true, "us_median": 596.9166668364778, "us_min": 585.1666792295873, "us_p90": 609.2624855227768}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-integrated", "energy": -1388810.7691316784, "bitwise_repeat": true, "us_median": 379.54168510623276, "us_min": 375.95833418890834, "us_p90": 651.1999934446067}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.7691316796, "bitwise_repeat": true, "us_median": 783.2499977666885, "us_min": 769.4166561122984, "us_p90": 864.4000015920029}
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-g", "energy": -1388810.7691316796, "bitwise_repeat": true, "us_median": 597.5000094622374, "us_min": 589.0416796319187, "us_p90": 687.970846774988}
+timing done

@@ -1,0 +1,106 @@
+16:53:06Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+16:53:06Z waiting for the lease: 14 in the queue, held by: ultra-r2-dispatch-kf 2026-09-27T16:50:37Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kf/s-gbsa, about 4 min, 0 build processes
+16:58:10Z waiting for the lease: 13 in the queue, held by: ultra-r2-accum-nb 2026-09-27T16:57:19Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe6, about 17 min, 0 build processes
+17:03:14Z waiting for the lease: 13 in the queue, held by: ultra-r2-accum-nb 2026-09-27T16:57:19Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe6, about 17 min, 0 build processes
+17:08:18Z waiting for the lease: 13 in the queue, held by: ultra-r2-accum-nb 2026-09-27T16:57:19Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe6, about 17 min, 0 build processes
+17:13:22Z waiting for the lease: 11 in the queue, held by: ultra-r2-accum-nb 2026-09-27T17:11:51Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe7, about 7 min, 0 build processes
+17:18:26Z waiting for the lease: 8 in the queue, held by: r2-accum-gb 2026-09-27T17:17:47Z detforces variant v, 0 build processes
+17:23:30Z waiting for the lease: 7 in the queue, held by: ultra-r2-bonded 2026-09-27T17:19:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab3, about 11 min, 0 build processes
+17:28:34Z waiting for the lease: 6 in the queue, held by: r2-mixed 2026-09-27T17:28:21Z quads (gated and ungated) against nf traces, 0 build processes
+17:33:39Z waiting for the lease: 6 in the queue, held by: r2-mixed 2026-09-27T17:28:21Z quads (gated and ungated) against nf traces, 0 build processes
+17:38:43Z waiting for the lease: 2 in the queue, held by: r2-single-int 2026-09-27T17:37:29Z s4 bf7a5624d (s3m on nf): repro bitwise, constraints, drift, ctests, 0 build processes
+17:44:03Z waiting for the lease: 1 in the queue, held by: ultra-r2-single-int 2026-09-27T17:41:30Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s4, about 11 min, 0 build processes
+17:49:42Z waiting for the lease: 1 in the queue, held by: ultra-r2-single-int 2026-09-27T17:41:30Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s4, about 11 min, 0 build processes
+Test project /tmp/openmm-metal-bench/ultra-r2-bonded/build
+      Start 222: TestMetalCMAPTorsionForceSingle
+      Start 223: TestMetalCMAPTorsionForceMixed
+ 1/44 Test #222: TestMetalCMAPTorsionForceSingle ............   Passed    1.44 sec
+      Start 232: TestMetalConstantPotentialForceSingle
+ 2/44 Test #223: TestMetalCMAPTorsionForceMixed .............   Passed    3.98 sec
+      Start 233: TestMetalConstantPotentialForceMixed
+ 3/44 Test #232: TestMetalConstantPotentialForceSingle ......   Passed   12.60 sec
+      Start 234: TestMetalCustomAngleForceSingle
+ 4/44 Test #234: TestMetalCustomAngleForceSingle ............   Passed    0.68 sec
+      Start 235: TestMetalCustomAngleForceMixed
+ 5/44 Test #235: TestMetalCustomAngleForceMixed .............   Passed    2.17 sec
+      Start 236: TestMetalCustomBondForceSingle
+ 6/44 Test #236: TestMetalCustomBondForceSingle .............   Passed    0.59 sec
+      Start 237: TestMetalCustomBondForceMixed
+ 7/44 Test #237: TestMetalCustomBondForceMixed ..............   Passed    1.18 sec
+      Start 242: TestMetalCustomCentroidBondForceSingle
+ 8/44 Test #242: TestMetalCustomCentroidBondForceSingle .....   Passed    0.77 sec
+      Start 243: TestMetalCustomCentroidBondForceMixed
+ 9/44 Test #243: TestMetalCustomCentroidBondForceMixed ......   Passed    2.72 sec
+      Start 244: TestMetalCustomCompoundBondForceSingle
+10/44 Test #244: TestMetalCustomCompoundBondForceSingle .....   Passed    2.54 sec
+      Start 245: TestMetalCustomCompoundBondForceMixed
+11/44 Test #245: TestMetalCustomCompoundBondForceMixed ......   Passed    4.84 sec
+      Start 246: TestMetalCustomExternalForceSingle
+12/44 Test #246: TestMetalCustomExternalForceSingle .........   Passed    0.68 sec
+      Start 247: TestMetalCustomExternalForceMixed
+13/44 Test #247: TestMetalCustomExternalForceMixed ..........   Passed    2.96 sec
+      Start 248: TestMetalCustomGBForceSingle
+14/44 Test #248: TestMetalCustomGBForceSingle ...............   Passed    2.95 sec
+      Start 249: TestMetalCustomGBForceMixed
+15/44 Test #233: TestMetalConstantPotentialForceMixed .......   Passed   43.90 sec
+      Start 256: TestMetalCustomNonbondedForceSingle
+16/44 Test #249: TestMetalCustomGBForceMixed ................   Passed   18.60 sec
+      Start 257: TestMetalCustomNonbondedForceMixed
+17/44 Test #256: TestMetalCustomNonbondedForceSingle ........   Passed   10.44 sec
+      Start 258: TestMetalCustomTorsionForceSingle
+18/44 Test #258: TestMetalCustomTorsionForceSingle ..........   Passed    0.93 sec
+      Start 259: TestMetalCustomTorsionForceMixed
+19/44 Test #259: TestMetalCustomTorsionForceMixed ...........   Passed    2.49 sec
+      Start 272: TestMetalHarmonicAngleForceSingle
+20/44 Test #272: TestMetalHarmonicAngleForceSingle ..........   Passed    0.45 sec
+      Start 273: TestMetalHarmonicAngleForceMixed
+21/44 Test #273: TestMetalHarmonicAngleForceMixed ...........   Passed    0.65 sec
+      Start 274: TestMetalHarmonicBondForceSingle
+22/44 Test #274: TestMetalHarmonicBondForceSingle ...........   Passed    0.64 sec
+      Start 275: TestMetalHarmonicBondForceMixed
+23/44 Test #275: TestMetalHarmonicBondForceMixed ............   Passed    2.05 sec
+      Start 292: TestMetalMultipleForcesSingle
+24/44 Test #292: TestMetalMultipleForcesSingle ..............   Passed    0.50 sec
+      Start 293: TestMetalMultipleForcesMixed
+25/44 Test #293: TestMetalMultipleForcesMixed ...............   Passed    1.48 sec
+      Start 294: TestMetalNonbondedForceSingle
+26/44 Test #294: TestMetalNonbondedForceSingle ..............   Passed    6.31 sec
+      Start 295: TestMetalNonbondedForceMixed
+27/44 Test #257: TestMetalCustomNonbondedForceMixed .........   Passed   28.10 sec
+      Start 300: TestMetalPeriodicTorsionForceSingle
+28/44 Test #300: TestMetalPeriodicTorsionForceSingle ........   Passed    0.41 sec
+      Start 301: TestMetalPeriodicTorsionForceMixed
+29/44 Test #301: TestMetalPeriodicTorsionForceMixed .........   Passed    0.67 sec
+      Start 306: TestMetalRBTorsionForceSingle
+30/44 Test #306: TestMetalRBTorsionForceSingle ..............   Passed    0.48 sec
+      Start 307: TestMetalRBTorsionForceMixed
+31/44 Test #307: TestMetalRBTorsionForceMixed ...............   Passed    0.66 sec
+      Start 412: TestMetalAmoebaMultipoleForceSingle
+32/44 Test #412: TestMetalAmoebaMultipoleForceSingle ........   Passed    6.35 sec
+      Start 413: TestMetalAmoebaMultipoleForceMixed
+33/44 Test #295: TestMetalNonbondedForceMixed ...............   Passed   27.92 sec
+      Start 414: TestMetalAmoebaTorsionTorsionForceSingle
+34/44 Test #414: TestMetalAmoebaTorsionTorsionForceSingle ...   Passed    0.58 sec
+      Start 415: TestMetalAmoebaTorsionTorsionForceMixed
+35/44 Test #415: TestMetalAmoebaTorsionTorsionForceMixed ....   Passed    2.01 sec
+      Start 418: TestMetalHippoNonbondedForceSingle
+36/44 Test #418: TestMetalHippoNonbondedForceSingle .........   Passed    3.00 sec
+      Start 419: TestMetalHippoNonbondedForceMixed
+37/44 Test #413: TestMetalAmoebaMultipoleForceMixed .........   Passed   22.83 sec
+      Start 450: TestMetalDrudeForceSingle
+38/44 Test #450: TestMetalDrudeForceSingle ..................   Passed    1.15 sec
+      Start 451: TestMetalDrudeForceMixed
+39/44 Test #451: TestMetalDrudeForceMixed ...................   Passed    1.10 sec
+      Start 452: TestMetalDrudeLangevinIntegratorSingle
+40/44 Test #419: TestMetalHippoNonbondedForceMixed ..........   Passed   11.11 sec
+      Start 453: TestMetalDrudeLangevinIntegratorMixed
+41/44 Test #452: TestMetalDrudeLangevinIntegratorSingle .....   Passed   75.92 sec
+      Start 456: TestMetalDrudeSCFIntegratorSingle
+42/44 Test #456: TestMetalDrudeSCFIntegratorSingle ..........   Passed    4.17 sec
+      Start 457: TestMetalDrudeSCFIntegratorMixed
+43/44 Test #457: TestMetalDrudeSCFIntegratorMixed ...........   Passed    7.59 sec
+44/44 Test #453: TestMetalDrudeLangevinIntegratorMixed ......   Passed   99.99 sec
+
+100% tests passed out of 44
+
+Total Test time (real) = 218.46 sec

@@ -1,0 +1,23 @@
+median ns/day, host clock
+test                         cut          s2t4            u8
+apoa1rf                   309.00        299.76        323.22
+apoa1pme                  235.42        230.24        241.20
+
+rounds, cut:
+  apoa1rf            309.00 309.40 308.71   spread 0.2%
+  apoa1pme           235.58 235.42 234.58   spread 0.4%
+rounds, s2t4:
+  apoa1rf            299.76 299.73 300.87   spread 0.4%
+  apoa1pme           229.59 230.56 230.24   spread 0.4%
+rounds, u8:
+  apoa1rf            323.22 323.48 322.83   spread 0.2%
+  apoa1pme           241.20 241.84 240.79   spread 0.4%
+
+test                                           u8/s2t4                            cut/s2t4
+apoa1rf                    1.078 (rounds 1.073..1.079)         1.031 (rounds 1.026..1.032)
+apoa1pme                   1.048 (rounds 1.046..1.051)         1.023 (rounds 1.019..1.026)
+
+1 minute load before 18 runs: 1.69 to 3.00
+Background VM CPU before 18 runs: 5% to 22%
+runs with no result: 0
+runs that overlapped a build: 0

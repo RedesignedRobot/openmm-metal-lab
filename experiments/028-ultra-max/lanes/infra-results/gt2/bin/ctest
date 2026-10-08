@@ -1,0 +1,6 @@
+#!/bin/sh
+case "$*" in
+*" -N "*) i=1; while [ $i -le 65 ]; do echo "  Test #$i: TestMetalFake$i"; i=$((i+1)); done; exit 0 ;;
+*--tests-from-file*) f=$(echo "$*" | sed 's/.*--tests-from-file \([^ ]*\).*/\1/'); set -- "ctest ${f##*/}"; echo "$(date +%H:%M:%S) $1 owner=[$(cat /tmp/openmm-metal-bench/ultra-infra/gt2/lease/owner 2>/dev/null)] members=$(ls /tmp/openmm-metal-bench/ultra-infra/gt2/lease/members 2>/dev/null | wc -l | tr -d " ") queue=[$(ls /tmp/openmm-metal-bench/ultra-infra/gt2/queue | sed "s/^[0-9]*-//" | tr "\n" " ")]" >> /tmp/openmm-metal-bench/ultra-infra/gt2/trace.txt; sleep 2
+    echo "100% tests passed, 0 tests failed out of $(wc -l < $f | tr -d ' ')" ;;
+esac

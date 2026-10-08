@@ -1,0 +1,7 @@
+2026-09-24T20:50:19Z round 1 amber20-stmv metal load { 12.99 15.77 15.31 } top other 102.0%, other 79.9%, other 47.8%, other 35.3%, other 21.8%
+2026-09-24T20:51:16Z round 1 amber20-stmv mixed load { 7.40 13.77 14.60 } top other 97.9%, other 24.3%,  other 8.1%, com.apple.Virtualization.VirtualMachine 5.6%, other 4.9%
+2026-09-24T20:54:27Z round 1 amber20-stmv opencl load { 3.58 9.16 12.48 } top other 30.8%, other 21.0%,  other 18.7%, other 9.2%, other 8.7%
+2026-09-24T22:50:29Z round 2 amber20-stmv opencl load { 3.52 5.69 6.67 } vm 147% top com.apple.Virtualization.VirtualMachine 146.6%, other 21.5%, other 5.9%,  other 4.0%,  other 1.3%
+2026-09-24T22:51:27Z round 2 amber20-stmv opencl BUILD RUNNING during the run
+2026-09-24T22:51:27Z round 2 amber20-stmv mixed load { 4.97 5.66 6.59 } BUILD RUNNING vm 5% top python 98.6%, clang 83.1%,  (clang) 46.8%, clang 46.0%, python 42.9%
+2026-09-24T22:54:41Z round 2 amber20-stmv metal load { 10.20 8.28 7.56 } BUILD RUNNING vm 60% top swig 100.0%, com.apple.Virtualization.VirtualMachine 60.5%, other 20.9%, WindowServer 5.7%,  other 4.6%

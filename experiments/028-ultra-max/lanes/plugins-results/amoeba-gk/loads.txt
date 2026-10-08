@@ -1,0 +1,17 @@
+2026-09-24T22:35:05Z round 1 amoebagk metal-single load { 4.96 7.03 7.58 } vm 117% top com.apple.Virtualization.VirtualMachine 123.0%, other 53.8%, other 23.1%, other 6.3%, other 5.8%
+2026-09-24T22:35:41Z round 1 amoebagk metal-single BUILD RUNNING during the run
+2026-09-24T22:35:41Z round 1 amoebagk cand-single load { 6.74 7.20 7.62 } BUILD RUNNING vm 102% top com.apple.Virtualization.VirtualMachine 102.2%, clang 82.2%,  (clang) 66.7%, clang 46.9%, clang 30.3%
+2026-09-24T22:36:18Z round 1 amoebagk metal-mixed load { 8.27 7.56 7.73 } BUILD RUNNING vm 127% top com.apple.Virtualization.VirtualMachine 141.8%, clang 100.0%, clang 89.2%, clang 87.4%, clang 82.2%
+2026-09-24T22:36:55Z round 1 amoebagk cand-mixed load { 8.58 7.75 7.79 } BUILD RUNNING vm 111% top com.apple.Virtualization.VirtualMachine 110.7%, clang 99.9%, other 25.1%, other 5.5%, other 3.6%
+2026-09-24T22:37:38Z round 1 amoebagk opencl-single load { 6.82 7.40 7.66 } vm 30% top com.apple.Virtualization.VirtualMachine 30.5%, other 24.6%, other 6.1%, WindowServer 3.2%, other 1.9%
+2026-09-24T22:38:11Z round 2 amoebagk opencl-single load { 6.06 7.16 7.56 } vm 43% top com.apple.Virtualization.VirtualMachine 67.3%, other 53.2%, other 25.1%, other 15.1%, other 8.8%
+2026-09-24T22:38:44Z round 2 amoebagk cand-mixed load { 5.75 6.98 7.48 } vm 49% top other 124.0%, com.apple.Virtualization.VirtualMachine 49.0%, other 22.7%, other 10.5%, other 9.6%
+2026-09-24T22:39:19Z round 2 amoebagk metal-mixed load { 4.40 6.51 7.29 } vm 80% top other 87.7%, com.apple.Virtualization.VirtualMachine 80.3%, other 20.9%, other 4.2%, other 3.6%
+2026-09-24T22:39:56Z round 2 amoebagk cand-single load { 5.47 6.55 7.27 } vm 75% top com.apple.Virtualization.VirtualMachine 54.0%, other 22.8%,  other 6.9%, other 5.4%,  other 2.5%
+2026-09-24T22:40:32Z round 2 amoebagk metal-single load { 4.41 6.17 7.10 } vm 102% top com.apple.Virtualization.VirtualMachine 101.7%, other 21.5%, other 1.8%, other 1.6%, WindowServer 1.6%
+2026-09-24T22:41:06Z round 3 amoebagk metal-single load { 3.91 5.85 6.95 } vm 101% top com.apple.Virtualization.VirtualMachine 100.7%, other 22.9%, other 13.8%,  other 4.4%,  other 2.9%
+2026-09-24T22:41:39Z round 3 amoebagk cand-single load { 4.02 5.69 6.85 } vm 102% top com.apple.Virtualization.VirtualMachine 100.6%, other 24.3%, other 9.3%, powermetrics 3.0%, other 1.6%
+2026-09-24T22:42:14Z round 3 amoebagk metal-mixed load { 3.23 5.31 6.66 } vm 104% top com.apple.Virtualization.VirtualMachine 103.9%, other 52.7%, other 20.4%, other 16.7%, other 13.9%
+2026-09-24T22:42:50Z round 3 amoebagk metal-mixed BUILD RUNNING during the run
+2026-09-24T22:42:50Z round 3 amoebagk cand-mixed load { 5.62 5.69 6.74 } BUILD RUNNING vm 103% top com.apple.Virtualization.VirtualMachine 103.2%, clang 66.4%, clang 41.7%, clang 38.7%, other 21.8%
+2026-09-24T22:43:32Z round 3 amoebagk opencl-single load { 15.96 7.92 7.49 } BUILD RUNNING vm 100% top com.apple.Virtualization.VirtualMachine 101.5%, swig 99.7%, other 21.4%, other 5.7%, other 1.7%

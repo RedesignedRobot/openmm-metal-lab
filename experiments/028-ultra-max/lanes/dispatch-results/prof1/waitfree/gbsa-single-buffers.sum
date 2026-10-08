@@ -1,0 +1,5 @@
+windows us/step: A 262.98  B (recorded) 263.47  C 262.81  B/mean(A,C) 1.002
+per step: wall 263.47 us, GPU busy 261.49 us, idle gap 1.98 us (of which the host committed after the GPU ran dry 0.74 us), buffers 1.00, dispatches 20.25, blits 1.00
+host wait event: 0.00/step, 1.07 us/step, median 236.35 us
+host wait finish: 0.02/step, 66.83 us/step, median 0.12 us
+json {"steps": 10585, "wall_us": 263.47, "unprofiled_us": [262.98, 262.81], "ns_day_unprofiled": 1314.585, "cpu_cores": 0.32, "busy_us": 261.4921191775992, "gap_us": 1.9778808224008344, "buffers": 1.0042512990080303, "dispatches": 20.25139348134152, "blits": 1.0000944733112895, "late_commit_us": 0.7420399691029701, "wait_event": 0.003967879074161549, "wait_event_us": 1.0678555503070384, "wait_finish": 0.020028341993386867, "wait_finish_us": 66.82698856872933}

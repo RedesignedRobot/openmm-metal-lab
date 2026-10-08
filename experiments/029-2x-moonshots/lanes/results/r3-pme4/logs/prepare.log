@@ -1,0 +1,10 @@
+usage: analyze.py [-h] [--platform {Metal,OpenCL,CPU,Reference}] [--test TEST]
+                  [--ensemble ENSEMBLE] [--pme-cutoff PME_CUTOFF]
+                  [--seconds SECONDS]
+                  [--polarization {direct,extrapolated,mutual}]
+                  [--mutual-epsilon EPSILON]
+                  [--bond-constraints BOND_CONSTRAINTS] [--disable-pme-stream]
+                  [--device DEVICE] [--opencl-platform OPENCL_PLATFORM]
+                  [--precision PRECISION] [--style {simple,table}]
+                  [--outfile OUTFILE] [--serialize SERIALIZE] [--verbose]
+analyze.py: error: unrecognized arguments: prepare --tests amber20-cellulose amber20-stmv pme amber20-dhfr apoa1pme apoa1ljpme

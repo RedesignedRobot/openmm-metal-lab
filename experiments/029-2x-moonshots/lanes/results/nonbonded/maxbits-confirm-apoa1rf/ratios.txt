@@ -1,0 +1,19 @@
+median ns/day, host clock
+test                      base-m        base-s        cand-m        cand-s          cl-s
+apoa1rf                   355.99        413.77        384.76        456.80        280.34
+
+rounds, base-m:
+  apoa1rf            355.99 353.76 357.05   spread 0.9%
+rounds, base-s:
+  apoa1rf            413.77 411.39 414.14   spread 0.7%
+rounds, cand-m:
+  apoa1rf            377.46 384.76 389.50   spread 3.1%
+rounds, cand-s:
+  apoa1rf            456.80 448.52 457.07   spread 1.9%
+rounds, cl-s:
+  apoa1rf            282.68 280.10 280.34   spread 0.9%
+
+1 minute load before 15 runs: 1.44 to 5.71
+Background VM CPU before 15 runs: 3% to 10%
+runs with no result: 0
+runs that overlapped a build: 0

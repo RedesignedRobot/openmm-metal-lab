@@ -1,0 +1,44 @@
+20:35:53Z waiting for the lease: 2 in the queue, held by: ultra-profiler 2026-09-27T20:34:21Z sampled shader timeline par256-amber20-cellulose, 0 build processes
+control apoa-grid single evaluated
+control apoa-grid mixed evaluated
+control ljpme-grid single evaluated
+control ljpme-grid mixed evaluated
+control cellulose-grid single evaluated
+control cellulose-grid mixed evaluated
+control stmv-grid single evaluated
+control stmv-grid mixed evaluated
+candidate apoa-grid single evaluated
+candidate apoa-grid mixed evaluated
+candidate ljpme-grid single evaluated
+candidate ljpme-grid mixed evaluated
+candidate cellulose-grid single evaluated
+candidate cellulose-grid mixed evaluated
+candidate stmv-grid single evaluated
+candidate stmv-grid mixed evaluated
+candidate apoa-grid single evaluated
+candidate apoa-grid mixed evaluated
+candidate ljpme-grid single evaluated
+candidate ljpme-grid mixed evaluated
+candidate cellulose-grid single evaluated
+candidate cellulose-grid mixed evaluated
+candidate stmv-grid single evaluated
+candidate stmv-grid mixed evaluated
+candidate apoa-grid single evaluated
+candidate apoa-grid mixed evaluated
+candidate ljpme-grid single evaluated
+candidate ljpme-grid mixed evaluated
+candidate cellulose-grid single evaluated
+candidate cellulose-grid mixed evaluated
+candidate stmv-grid single evaluated
+candidate stmv-grid mixed evaluated
+{"case": "apoa-grid", "precision": "single", "fused_vkfft": 9.57666197493345e-07, "reference_fused": 1.724176024753219e-06, "reference_vkfft": 1.7530872601387583e-06, "energy_delta": 3.72874410485809e-07, "energy_reference_fused": 0.008125329710310325, "energy_reference_vkfft": 0.005313371919328347}
+{"case": "apoa-grid", "precision": "mixed", "fused_vkfft": 9.57666197493345e-07, "reference_fused": 1.724176024753219e-06, "reference_vkfft": 1.7530872601387583e-06, "energy_delta": 3.655494172427267e-07, "energy_reference_fused": 0.00641671780613251, "energy_reference_vkfft": 0.006757984490832314}
+{"case": "ljpme-grid", "precision": "single", "fused_vkfft": 9.576641924398243e-07, "reference_fused": 1.7241913919298579e-06, "reference_vkfft": 1.7531048380603022e-06, "energy_delta": 4.811336766642472e-07, "energy_reference_fused": 0.012224191232235171, "energy_reference_vkfft": 0.005120760397403501}
+Traceback (most recent call last):
+  File "~/code/wt/r3-pmebig/platforms/metal/tests/checkPmePencils.py", line 122, in <module>
+    main()
+    ~~~~^^
+  File "~/code/wt/r3-pmebig/platforms/metal/tests/checkPmePencils.py", line 114, in main
+    assert row["energy_reference_fused"] <= row["energy_reference_vkfft"]+abs(float(np.spacing(np.float32(eref))))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

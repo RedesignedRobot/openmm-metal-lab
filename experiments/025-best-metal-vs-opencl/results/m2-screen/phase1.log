@@ -20,7 +20,7 @@ Installed 4 packages in 107ms
  + numpy==2.5.3
  + scipy==1.18.1
  + setuptools==84.0.0
-venv /Users/amir/lab/fast/scr/venv ready, no openmm
+venv ~/lab/fast/scr/venv ready, no openmm
 Using CPython 3.13.15
 Creating virtual environment at: venv-base
 Activate with: source venv-base/bin/activate
@@ -31,7 +31,7 @@ Installed 4 packages in 28ms
  + numpy==2.5.3
  + scipy==1.18.1
  + setuptools==84.0.0
-venv /Users/amir/lab/fast/venv-base ready, no openmm
+venv ~/lab/fast/venv-base ready, no openmm
 CMake Warning (policy) at CMakeLists.txt:15 (find_package):
   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
@@ -45,5 +45,5 @@ CMake Warning (author) at CMakeLists.txt:21 (PROJECT):
   both commands.
 This warning is for project developers.  Use -Wno-author to suppress it.
 
-built and installed /Users/amir/lab/fast/scr
+built and installed ~/lab/fast/scr
 end 16:29:42Z

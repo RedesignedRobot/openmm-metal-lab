@@ -1,0 +1,40 @@
+median ns/day, host clock
+test                      base-m        base-s        mine-m        mine-s
+pme                       848.21        979.55        844.07        977.41
+apoa1pme                  274.42        307.02        273.10        305.29
+apoa1ljpme                218.58        239.31        216.39        238.33
+amber20-dhfr              867.18       1019.05        860.10       1004.96
+
+rounds, base-m:
+  pme                849.36 847.06   spread 0.3%
+  apoa1pme           274.89 273.94   spread 0.3%
+  apoa1ljpme         220.36 216.80   spread 1.6%
+  amber20-dhfr       867.50 866.87   spread 0.1%
+rounds, base-s:
+  pme                982.44 976.66   spread 0.6%
+  apoa1pme           307.33 306.72   spread 0.2%
+  apoa1ljpme         241.23 237.39   spread 1.6%
+  amber20-dhfr       1018.78 1019.32   spread 0.1%
+rounds, mine-m:
+  pme                844.64 843.49   spread 0.1%
+  apoa1pme           272.97 273.22   spread 0.1%
+  apoa1ljpme         217.85 214.94   spread 1.3%
+  amber20-dhfr       857.20 863.01   spread 0.7%
+rounds, mine-s:
+  pme                977.31 977.52   spread 0.0%
+  apoa1pme           305.36 305.22   spread 0.0%
+  apoa1ljpme         239.63 237.03   spread 1.1%
+  amber20-dhfr       1000.79 1009.12   spread 0.8%
+
+test                                     mine-s/base-s                       mine-m/base-m
+pme                        0.998 (rounds 0.995..1.001)         0.995 (rounds 0.994..0.996)
+apoa1pme                   0.994 (rounds 0.994..0.995)         0.995 (rounds 0.993..0.997)
+apoa1ljpme                 0.996 (rounds 0.993..0.998)         0.990 (rounds 0.989..0.991)
+amber20-dhfr               0.986 (rounds 0.982..0.990)         0.992 (rounds 0.988..0.996)
+
+1 minute load before 32 runs: 2.17 to 4.99
+Background VM CPU before 32 runs: 3% to 35%
+runs with no result: 0
+runs that overlapped a build: 2
+  2026-09-27T07:46:48Z round 1 apoa1pme mine-m BUILD RUNNING during the run
+  2026-09-27T07:46:48Z round 1 apoa1pme base-s load { 2.92 3.83 7.98 } BUILD RUNNING vm 5%

@@ -1,0 +1,27 @@
+08:09:36Z waiting for the lease: 26 in the queue, held by: r2-mixed 2026-09-27T08:07:11Z e3 mixed traces gbsa rf pme apoa1pme, 0 build processes
+08:14:41Z waiting for the lease: 24 in the queue, held by: ultra-r2-mixed 2026-09-27T08:13:02Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a, about 7 min, 0 build processes
+08:19:45Z waiting for the lease: 23 in the queue, held by: ultra-r2-mixed 2026-09-27T08:18:50Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4b, about 12 min, 0 build processes
+08:24:49Z waiting for the lease: 23 in the queue, held by: ultra-r2-mixed 2026-09-27T08:18:50Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4b, about 12 min, 0 build processes
+08:29:54Z waiting for the lease: 21 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:28:36Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1b, about 6 min, 0 build processes
+08:34:57Z waiting for the lease: 20 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:40:01Z waiting for the lease: 20 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:45:06Z waiting for the lease: 10 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+08:50:11Z waiting for the lease: 10 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+08:55:16Z waiting for the lease: 10 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:00:22Z waiting for the lease: 10 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:05:27Z waiting for the lease: 9 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:10:33Z waiting for the lease: 8 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:15:38Z waiting for the lease: 8 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:20:43Z waiting for the lease: 8 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:25:47Z waiting for the lease: 7 in the queue, held by: ultra-r2-dispatch 2026-09-27T09:21:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-pme, about 7 min, 0 build processes
+09:30:51Z waiting for the lease: 5 in the queue, held by: ultra-profiler 2026-09-27T09:30:05Z sampled shader timeline mine-cell, 9 build processes
+09:36:06Z waiting for the lease: 4 in the queue, held by: ultra-r2-correctness 2026-09-27T09:33:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1b, about 7 min, 0 build processes
+09:41:10Z waiting for the lease: 3 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:46:13Z waiting for the lease: 3 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:51:18Z waiting for the lease: 2 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:56:21Z waiting for the lease: 2 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+s-single: xctrace pid 52180 recording 09:58:00Z
+captured s-single 09:58:04Z: Target app exited, ending recording...
+saved s-single 09:58:45Z: Output file saved as: s-single.trace
+exported s-single 09:58:55Z, rows 216324, releasing
+PROF3 DONE

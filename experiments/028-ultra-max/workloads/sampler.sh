@@ -1,5 +1,5 @@
 #!/bin/sh
-# Every 20 s while the workloads lane holds the lease: load, owner, the Hyperscale VM's CPU and the top 6
+# Every 20 s while the workloads lane holds the lease: load, owner, the background VM's CPU and the top 6
 # processes, to psamples.txt. Stops when /tmp/openmm-metal-bench/ultra-workloads/sampler.stop exists.
 D=/tmp/openmm-metal-bench/ultra-workloads
 until [ -e "$D/sampler.stop" ]; do

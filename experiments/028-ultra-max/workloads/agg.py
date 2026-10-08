@@ -2,6 +2,8 @@
 
   agg.py prep <dir>                  serialize the gbsa and rf systems (benchmark.py's settings) into <dir>; no GPU
   agg.py all <dir> <window_s>        every case, one JSON line each to <dir>/agg.jsonl; run it under one lease.sh hold
+  agg.py case <dir> <window_s> <name> <n> <platform> <precision> <test>
+                                     one case, one JSON line to <dir>/agg.jsonl; <name> must be new in <dir>
   agg.py child <dir> <case> <index> <platform> <precision> <test>
 
 Children build their Context, warm up, report ready, then wait for a shared go file that holds the start and
@@ -145,10 +147,29 @@ def run_case(root, case, n, platform, precision, test, window):
             'load1_before': load, **cpu}
 
 
-def run_all(root, window):
+def check_nice():
     nice = int(subprocess.run(['ps', '-o', 'nice=', '-p', str(os.getpid())], capture_output=True, text=True).stdout)
     if nice != 0:
         sys.exit(f'running at nice {nice}, not 0')
+
+
+def run_one(root, name, n, platform, precision, test, window):
+    check_nice()
+    log = f'{root}/agg.jsonl'
+    if glob.glob(f'{root}/{name}.*') or (os.path.exists(log) and any(json.loads(line)['case'] == name for line in open(log))):
+        sys.exit(f'{root} already has a case named {name}')
+    result = run_case(root, name, n, platform, precision, test, window)
+    result['utc'] = time.strftime('%H:%M:%SZ', time.gmtime())
+    with open(log, 'a') as out:
+        out.write(json.dumps(result) + '\n')
+    print(result.get('total_ns_day', result.get('error')), result.get('common_ns_day'), result.get('overlap'),
+          test, platform, precision, n, flush=True)
+    if 'error' in result:
+        sys.exit(1)
+
+
+def run_all(root, window):
+    check_nice()
     out = open(f'{root}/agg.jsonl', 'a')
     case = 0
     for test in TESTS:
@@ -170,6 +191,8 @@ if __name__ == '__main__':
         prep(sys.argv[2])
     elif mode == 'all':
         run_all(sys.argv[2], float(sys.argv[3]))
+    elif mode == 'case':
+        run_one(sys.argv[2], sys.argv[4], int(sys.argv[5]), sys.argv[6], sys.argv[7], sys.argv[8], float(sys.argv[3]))
     elif mode == 'child':
         child(sys.argv[2], sys.argv[3], int(sys.argv[4]), sys.argv[5], sys.argv[6], sys.argv[7])
     else:

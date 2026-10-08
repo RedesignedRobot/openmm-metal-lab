@@ -1,0 +1,77 @@
+[
+  {
+    "test": "gbsa",
+    "outdir": "~/code/metal/bench.noindex/ultra-m29-mixed/screen-small",
+    "medians": {
+      "baseM": 1231.5497029564872,
+      "baseS": 1601.25703001644,
+      "mineM": 1296.0220218897841,
+      "mineS": 1610.8904988423255,
+      "opencl": 1165.8697072393634
+    },
+    "single_over_single": 1.0060161914329186,
+    "mixed_over_mixed": 1.0523505618803066,
+    "mixed_over_single": 0.8093778809992035,
+    "mixed_over_opencl_single": 1.1116353858773855
+  },
+  {
+    "test": "rf",
+    "outdir": "~/code/metal/bench.noindex/ultra-m29-mixed/screen-small",
+    "medians": {
+      "baseM": 1018.3395317306215,
+      "baseS": 1224.3816331728383,
+      "mineM": 1040.4362582491342,
+      "mineS": 1215.6283424715184,
+      "opencl": 677.5076831949126
+    },
+    "single_over_single": 0.9928508477551752,
+    "mixed_over_mixed": 1.0216987810352018,
+    "mixed_over_single": 0.8497646730888704,
+    "mixed_over_opencl_single": 1.535681858754376
+  },
+  {
+    "test": "pme",
+    "outdir": "~/code/metal/bench.noindex/ultra-m29-mixed/screen-small",
+    "medians": {
+      "baseM": 789.0628290891175,
+      "baseS": 902.6594825461102,
+      "mineM": 795.4742081709678,
+      "mineS": 898.5119250504165,
+      "opencl": 522.9398230945812
+    },
+    "single_over_single": 0.9954051803854154,
+    "mixed_over_mixed": 1.008125308714962,
+    "mixed_over_single": 0.8812561365080801,
+    "mixed_over_opencl_single": 1.5211582156119228
+  },
+  {
+    "test": "amber20-dhfr",
+    "outdir": "~/code/metal/bench.noindex/ultra-m29-mixed/screen-large",
+    "medians": {
+      "baseM": 810.3487489268188,
+      "baseS": 944.7828392660024,
+      "mineM": 829.9131060460538,
+      "mineS": 943.2418740114874,
+      "opencl": 567.882075808689
+    },
+    "single_over_single": 0.9983689741277348,
+    "mixed_over_mixed": 1.0241431323799106,
+    "mixed_over_single": 0.8784167869632451,
+    "mixed_over_opencl_single": 1.4614180327213553
+  },
+  {
+    "test": "apoa1pme",
+    "outdir": "~/code/metal/bench.noindex/ultra-m29-mixed/screen-large",
+    "medians": {
+      "baseM": 269.7219035129244,
+      "baseS": 302.50927849990137,
+      "mineM": 267.0070391772849,
+      "mineS": 301.99785534445743,
+      "opencl": 181.56300223596764
+    },
+    "single_over_single": 0.9983093967960917,
+    "mixed_over_mixed": 0.989934579653041,
+    "mixed_over_single": 0.8826408251057065,
+    "mixed_over_opencl_single": 1.4706026882628338
+  }
+]

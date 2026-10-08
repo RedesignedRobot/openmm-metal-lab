@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-dispatch/t6/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-dispatch/t6/prefix/lib/plugins/libOpenMMMetal.dylib
+window A rf single Metal steps 7503 host_s 3.525426 us_per_step 469.87 ns_per_day 735.52 cpu_per_host 0.28
+window B rf single Metal steps 7503 host_s 3.530215 us_per_step 470.51 ns_per_day 734.53 cpu_per_host 0.29
+window C rf single Metal steps 7503 host_s 3.529578 us_per_step 470.42 ns_per_day 734.66 cpu_per_host 0.29

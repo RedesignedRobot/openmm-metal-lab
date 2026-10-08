@@ -1,0 +1,9 @@
+base-gbsa-single-r1  load { 3.48 3.67 5.57 } 00:39:23Z
+kill-gbsa-single-r1 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e/lib/plugins load { 3.55 3.68 5.56 } 00:39:31Z
+rsqrt-gbsa-single-r1 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins load { 3.35 3.64 5.53 } 00:39:36Z
+rsqrt-gbsa-single-r2 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins load { 3.24 3.61 5.51 } 00:39:43Z
+kill-gbsa-single-r2 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e/lib/plugins load { 3.05 3.56 5.47 } 00:39:51Z
+base-gbsa-single-r2  load { 3.20 3.58 5.46 } 00:39:56Z
+base-gbsa-single-r3  load { 3.19 3.57 5.45 } 00:40:04Z
+kill-gbsa-single-r3 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e/lib/plugins load { 3.24 3.57 5.42 } 00:40:11Z
+rsqrt-gbsa-single-r3 OPENMM_PLUGIN_DIR=/tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins load { 3.14 3.54 5.40 } 00:40:18Z

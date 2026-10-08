@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-gpuprof-trunk/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-gpuprof-trunk/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib target pme45k atoms 45284 cycle 0
+window A pme45k mixed Metal steps 6380 host_s 2.985282 us_per_step 467.91 ns_per_day 369.30 cpu_per_host 0.06
+window B pme45k mixed Metal steps 6380 host_s 2.992306 us_per_step 469.01 ns_per_day 368.43 cpu_per_host 0.07
+window C pme45k mixed Metal steps 6380 host_s 2.995889 us_per_step 469.58 ns_per_day 367.99 cpu_per_host 0.06

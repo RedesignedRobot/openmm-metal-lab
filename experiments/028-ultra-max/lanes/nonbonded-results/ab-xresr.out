@@ -1,0 +1,148 @@
+estimate: 2 rounds, 3 tests, 2 configurations, about 7 min 40 s
+02:37:08Z waiting for the lease: 19 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 0 build processes
+02:42:13Z waiting for the lease: 17 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 0 build processes
+02:47:16Z waiting for the lease: 18 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 17 build processes
+02:52:21Z waiting for the lease: 9 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 17 build processes
+02:57:26Z waiting for the lease: 7 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 17 build processes
+03:02:31Z waiting for the lease: 7 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 0 build processes
+03:07:36Z waiting for the lease: 7 in the queue, held by: ultra-integrated 2026-09-25T02:50:45Z gate.sh /tmp/openmm-metal-bench/ultra-integrated, 0 build processes
+03:12:40Z waiting for the lease: 6 in the queue, held by: ultra-nonbonded 2026-09-25T03:10:00Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresw, about 12 min, 0 build processes
+03:17:45Z waiting for the lease: 6 in the queue, held by: ultra-nonbonded 2026-09-25T03:10:00Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresw, about 12 min, 0 build processes
+03:22:49Z waiting for the lease: 4 in the queue, held by: ultra-mixed 2026-09-25T03:22:08Z fused LangevinMiddle screen pme and apoa1pme, single and mixed, 2x15 s, 0 build processes
+03:27:52Z waiting for the lease: 3 in the queue, held by: ultra-pme 2026-09-25T03:27:08Z onebuf PME-pass probe, pme+apoa1pme single, ~8 min, 0 build processes
+03:33:16Z waiting for the lease: 1 in the queue, held by: ultra-dispatch 2026-09-25T03:29:39Z screen8: base, poll t2, waitfree t5, waitfree+k t10 in one session, about 16 min, 0 build processes
+03:38:28Z waiting for the lease: 3 in the queue, held by: ultra-dispatch 2026-09-25T03:29:39Z screen8: base, poll t2, waitfree t5, waitfree+k t10 in one session, about 16 min, 0 build processes
+03:43:32Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 17 build processes
+03:48:41Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+03:53:45Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+03:58:50Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:03:54Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:08:58Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:14:03Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:19:07Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:24:11Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:29:15Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:34:20Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:39:24Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:44:29Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:49:33Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:54:37Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:59:42Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:04:46Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:09:51Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:14:55Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:20:00Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:25:04Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:30:10Z waiting for the lease: 2 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:35:59Z waiting for the lease: 1 in the queue, held by: ultra-infra 2026-09-25T05:31:48Z A/A rf single 2x15 s, round 2 beside a taskpolicy -b build, about 5 min, 34 build processes
+tiles Metal single settings=none /tmp/openmm-metal-bench/ultra-nonbonded/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6d72c3ae9bbd0945c70994e01d95398bbb3d64f7 src 35948dc4d6e0367232d7e849643cfc5a3ad96f2d toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:37:09Z 
+xres Metal single settings=none /tmp/openmm-metal-bench/ultra-nonbonded-xres/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 761d5a666104d03ad9a218f04ca5a632e0466fbe src 56600f91a06017c9af072503acb23108867d3c7c toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T23:58:25Z 
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:36:01.914337+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1317.87
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:36:18.137627+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1312.83
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:36:34.332331+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      144.916
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:36:53.353675+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      145.851
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:37:12.447732+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-stmv      single      HBonds        1.5            4         NVT        Metal      21.3035
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:37:51.374715+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-stmv      single      HBonds        1.5            4         NVT        Metal      21.7455
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:38:31.531283+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1304.93
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:38:47.540940+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+gbsa              single      HBonds        1.5            4         NVT        Metal      1319.78
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:39:03.712098+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      145.362
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:39:22.345992+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+apoa1ljpme        single      HBonds        1.5            4         NVT        Metal      144.424
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:39:41.013674+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-stmv      single      HBonds        1.5            4         NVT        Metal      21.75
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:40:21.223704+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-stmv      single      HBonds        1.5            4         NVT        Metal      21.2831
+done /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresr

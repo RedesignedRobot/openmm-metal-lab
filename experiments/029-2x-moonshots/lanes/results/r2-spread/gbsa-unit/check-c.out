@@ -1,0 +1,88 @@
+== forces
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.472e-05  8.604e-02  4.563e-07  ok
+gbsa            2489     mixed  2.472e-05  8.604e-02  5.106e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.341e-01  1.860e-07  ok
+rf             23558     mixed  2.208e-05  7.341e-01  1.836e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  2.306e-07  ok
+pme            23558     mixed  2.043e-05  3.918e-01  2.717e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.183e-01  5.358e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.167e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.015e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.757e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  9.353e-08  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.396e-01  1.687e-07  ok
+forces exit=0
+== md100
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.966e-06  9.056e-03  5.497e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.96623292e-06 raw_max_force=0.00905561904
+gbsa            2489     mixed  1.330e-05  1.391e-01  5.979e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.33017024e-05 raw_max_force=0.139147359
+rf             23558    single  1.052e-06  1.174e-02  2.279e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.05223169e-06 raw_max_force=0.011742944
+rf             23558     mixed  2.041e-05  2.864e-01  2.629e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.08086595e-05 raw_max_force=0.418494292
+# cutoff pair {'i': 9469, 'j': 13803, 'distance_minus_cutoff_nm': -5.060324936856375e-09, 'pair_force_norm': 0.45988642106694966}
+pme            23558    single  1.341e-06  1.706e-02  4.237e-07  ok
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.34077954e-06 raw_max_force=0.0170550307
+pme            23558     mixed  1.982e-05  3.012e-01  4.292e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.00548509e-05 raw_max_force=0.332190216
+# cutoff pair {'i': 6704, 'j': 21830, 'distance_minus_cutoff_nm': -4.544702436604098e-08, 'pair_force_norm': 0.3467758485587963}
+apoa1rf        92224    single  1.574e-06  4.353e-02  2.300e-07  ok
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.25136218e-06 raw_max_force=0.4558563
+# cutoff pair {'i': 5200, 'j': 35822, 'distance_minus_cutoff_nm': -2.125918308060193e-08, 'pair_force_norm': 0.6417472116794763}
+apoa1rf        92224     mixed  5.256e-05  8.750e-01  1.751e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25574059e-05 raw_max_force=0.874955289
+apoa1pme       92224    single  5.253e-05  2.569e-01  2.273e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25253885e-05 raw_max_force=0.256939955
+apoa1pme       92224     mixed  7.440e-05  7.108e-01  2.282e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.43990867e-05 raw_max_force=0.710791989
+apoa1ljpme     92224    single  5.253e-05  2.539e-01  1.736e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25348898e-05 raw_max_force=0.253873643
+apoa1ljpme     92224     mixed  7.449e-05  7.464e-01  2.178e-07  ok
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.44882077e-05 raw_max_force=0.746406322
+md100 exit=0
+== ctest
+ctest exit=0
+100% tests passed out of 2
+
+Total Test time (real) =  33.44 sec
+== detforces
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+detforces exit=0
+cand single seed 1 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2037.7740834650667, "drift_kt_per_ns_per_dof": 0.13086010361651776, "rms_kj": 10.021334239138831, "e_first": -13941.156312942505, "e_last": -13641.294807434082}
+trunk single seed 1 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2351.8464472027345, "drift_kt_per_ns_per_dof": 0.15102894490039034, "rms_kj": 10.906878341902331, "e_first": -13941.156661987305, "e_last": -13605.434467315674}
+cand single seed 2 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2600.68466376544, "drift_kt_per_ns_per_dof": 0.16700863326102278, "rms_kj": 10.677573347295708, "e_first": -14341.497005462646, "e_last": -13985.109481811523}
+trunk single seed 2 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2766.072916837763, "drift_kt_per_ns_per_dof": 0.17762940035665556, "rms_kj": 10.346091918269938, "e_first": -14341.496383666992, "e_last": -13987.721389770508}
+cand single seed 3 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 3, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2115.325252827505, "drift_kt_per_ns_per_dof": 0.1358402209615644, "rms_kj": 10.629269914833365, "e_first": -14215.1367893219, "e_last": -13941.192947387695}
+trunk single seed 3 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 3, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2674.803132739344, "drift_kt_per_ns_per_dof": 0.17176831226986078, "rms_kj": 14.471235881662569, "e_first": -14215.133972167969, "e_last": -13891.554523468018}
+cand single seed 4 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 4, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2599.7921871540602, "drift_kt_per_ns_per_dof": 0.1669513209304813, "rms_kj": 10.212029826930605, "e_first": -14377.575038909912, "e_last": -14019.478591918945}
+trunk single seed 4 drift {"test": "gbsa", "precision": "single", "ps": 100.0, "seed": 4, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 3020.058825180462, "drift_kt_per_ns_per_dof": 0.1939396589631174, "rms_kj": 10.57771258814596, "e_first": -14377.574745178223, "e_last": -13990.450584411621}
+cand mixed seed 1 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2439.484733075811, "drift_kt_per_ns_per_dof": 0.15665682841465306, "rms_kj": 14.196992645454984, "e_first": -13941.159106242994, "e_last": -13605.597638796622}
+trunk mixed seed 1 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 1, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2336.2277988467977, "drift_kt_per_ns_per_dof": 0.15002595935906263, "rms_kj": 12.00755889925408, "e_first": -13941.159106745534, "e_last": -13630.313714702213}
+cand mixed seed 2 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 1953.834481567311, "drift_kt_per_ns_per_dof": 0.12546973915413753, "rms_kj": 13.519653689584832, "e_first": -14341.501096384964, "e_last": -14046.45846620934}
+trunk mixed seed 2 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 2, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2133.831939244962, "drift_kt_per_ns_per_dof": 0.13702866816080875, "rms_kj": 9.453183572709413, "e_first": -14341.501096631102, "e_last": -14032.13437197321}
+cand mixed seed 3 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 3, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 1939.2337609656142, "drift_kt_per_ns_per_dof": 0.12453212206188118, "rms_kj": 9.34449465195429, "e_first": -14215.138604274234, "e_last": -13937.717394708463}
+trunk mixed seed 3 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 3, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2242.4420906265464, "drift_kt_per_ns_per_dof": 0.14400330572192258, "rms_kj": 11.608559150675754, "e_first": -14215.138605118955, "e_last": -13908.306349771163}
+cand mixed seed 4 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 4, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c/prefix/lib", "drift_kj_per_ns": 2337.817466759679, "drift_kt_per_ns_per_dof": 0.15012804334839366, "rms_kj": 12.67017620317468, "e_first": -14377.577294883966, "e_last": -14045.921223504258}
+trunk mixed seed 4 drift {"test": "gbsa", "precision": "mixed", "ps": 100.0, "seed": 4, "tolerance": 1e-08, "integrator": "verlet", "ewald_error_tolerance": null, "openmm": "/tmp/openmm-metal-bench/ultra-r2-fah-trunk/prefix/lib", "drift_kj_per_ns": 2752.928368698256, "drift_kt_per_ns_per_dof": 0.17678529455244232, "rms_kj": 11.946134431397503, "e_first": -14377.577295238203, "e_last": -14021.721915122704}

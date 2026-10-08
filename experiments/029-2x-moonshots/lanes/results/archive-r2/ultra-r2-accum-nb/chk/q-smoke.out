@@ -1,0 +1,39 @@
+09:12:15Z waiting for the lease: 17 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:17:21Z waiting for the lease: 17 in the queue, held by: ultra-gate 2026-09-27T08:42:44Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+09:22:27Z waiting for the lease: 16 in the queue, held by: ultra-r2-dispatch 2026-09-27T09:21:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-pme, about 7 min, 0 build processes
+09:27:31Z waiting for the lease: 15 in the queue, held by: ultra-r2-accum-gb 2026-09-27T09:26:48Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s2, about 4 min, 0 build processes
+09:32:45Z waiting for the lease: 14 in the queue, held by: ultra-profiler 2026-09-27T09:30:05Z sampled shader timeline mine-cell, 0 build processes
+09:37:49Z waiting for the lease: 13 in the queue, held by: ultra-r2-correctness 2026-09-27T09:33:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1b, about 7 min, 0 build processes
+09:42:53Z waiting for the lease: 12 in the queue, held by: ultra-r2-correctness 2026-09-27T09:38:40Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3e, about 16 min, 0 build processes
+09:47:57Z waiting for the lease: 11 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:53:01Z waiting for the lease: 11 in the queue, held by: ultra-r2-correctness 2026-09-27T09:47:17Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2e, about 11 min, 0 build processes
+09:58:04Z waiting for the lease: 9 in the queue, held by: ultra-profiler 2026-09-27T09:57:58Z sampled shader timeline s-single, 0 build processes
+10:03:08Z waiting for the lease: 8 in the queue, held by: r2-mixed 2026-09-27T09:58:55Z fused kernel additive diags, 0 build processes
+10:08:12Z waiting for the lease: 7 in the queue, held by: ultra-r2-mixed 2026-09-27T10:04:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a2, about 7 min, 0 build processes
+10:13:16Z waiting for the lease: 6 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:18:20Z waiting for the lease: 6 in the queue, held by: ultra-r2-mixed 2026-09-27T10:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-def, about 10 min, 0 build processes
+10:23:24Z waiting for the lease: 4 in the queue, held by: r2-mixed 2026-09-27T10:23:14Z inline cluster diag traces, 0 build processes
+10:28:28Z waiting for the lease: 3 in the queue, held by: ultra-r2-dispatch 2026-09-27T10:26:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-rf, about 6 min, 0 build processes
+10:33:32Z waiting for the lease: 3 in the queue, held by: ultra-r2-dispatch 2026-09-27T10:26:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s2-rf, about 6 min, 0 build processes
+10:38:35Z waiting for the lease: 2 in the queue, held by: ultra-r2-accum-nb 2026-09-27T10:33:34Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe1, about 10 min, 0 build processes
+10:43:47Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-gb 2026-09-27T10:42:32Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s3, about 4 min, 0 build processes
+apoa1rf single E -1333620.595820564
+apoa1pme single E -1361415.926506049
+amber20-cellulose single E -2997837.3047054373
+== P_XLOAD
+apoa1pme           rel|dF| 1.193e-07  max|dF| 8.180e-04 at 888  |F|max 2759.4  dE -0.0664 (E -1361415.86)
+apoa1rf            rel|dF| 1.308e-07  max|dF| 9.295e-04 at 44721  |F|max 2822.1  dE 0.0000 (E -1333620.60)
+apoa1rf single E -1333620.582148689
+apoa1pme single E -1361415.918693549
+amber20-cellulose single E -2997837.2734554373
+== P_GREDUCE
+apoa1pme           rel|dF| 1.171e-07  max|dF| 8.498e-04 at 888  |F|max 2759.4  dE -0.0586 (E -1361415.86)
+apoa1rf            rel|dF| 1.308e-07  max|dF| 9.295e-04 at 44721  |F|max 2822.1  dE 0.0137 (E -1333620.60)
+apoa1rf single E -1333620.611445564
+apoa1pme single E -1361415.887443549
+amber20-cellulose single E -2997837.0234554373
+== both
+apoa1pme           rel|dF| 1.162e-07  max|dF| 8.430e-04 at 888  |F|max 2759.4  dE -0.0273 (E -1361415.86)
+apoa1rf            rel|dF| 1.308e-07  max|dF| 9.295e-04 at 44721  |F|max 2822.1  dE -0.0156 (E -1333620.60)
+apoa1rf            rel|dF| 0.000e+00  max|dF| 0.000e+00 at 0  |F|max 2822.1  dE -0.0137 (E -1333620.60)
+amber20-cellulose  rel|dF| 1.327e-07  max|dF| 8.313e-04 at 93492  |F|max 5509.8  dE 0.4375 (E -2997837.46)

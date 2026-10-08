@@ -1,0 +1,10 @@
+holder: infra 2026-09-29T06:50:12Z sleep 20, pid 66492, held 2 s
+build processes: 0 gpuq build jobs, 0 paused
+queue, oldest first:
+  1790664612814284-other-0  correctness  waiting 2 s
+
+gpuq 06:50:14Z, day slot. GPU: timing job 5 has it alone.
+running:
+      5  timing      infra                  ran     2s of ~20s    sleep 20
+queued, in predicted order:
+    1.     6  correctness other                  waited     2s  starts 06:50:32Z (+17s) est 5s     sleep 5

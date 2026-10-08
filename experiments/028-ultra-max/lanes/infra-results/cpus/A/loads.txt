@@ -1,0 +1,5 @@
+2026-09-24T23:09:00Z round 1 pme cpu load { 6.21 5.23 5.82 } vm 11% top other 22.5%, com.apple.Virtualization.VirtualMachine 11.0%, python 8.1%, other 7.6%,  other 4.5%
+2026-09-24T23:09:07Z round 1 pme cpu cpu threads 28, 1 samples: benchmark 0% to 0%, busiest other 20% (other), VM up to 5%
+2026-09-24T23:09:07Z round 1 pme cpu4 load { 5.73 5.16 5.79 } vm 6% top other 22.7%, python 7.5%, com.apple.Virtualization.VirtualMachine 6.4%, other 6.2%, other 5.6%
+2026-09-24T23:09:14Z round 1 pme cpu4 cpu threads 4, 1 samples: benchmark 0% to 0%, busiest other 21% (other), VM up to 10%
+2026-09-24T23:09:14Z round 1 pme metal load { 5.68 5.16 5.78 } vm 7% top other 21.3%, python 8.7%, com.apple.Virtualization.VirtualMachine 6.7%,  other 2.2%, other 1.8%

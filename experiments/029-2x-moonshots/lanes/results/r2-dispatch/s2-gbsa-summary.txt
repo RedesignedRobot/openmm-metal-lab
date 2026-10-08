@@ -1,0 +1,144 @@
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                             ki-single/base-single
+gbsa                       1.035 (rounds 1.029..1.040)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                             kx-single/base-single
+gbsa                       1.030 (rounds 1.027..1.031)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                               kx-single/ki-single
+gbsa                       0.995 (rounds 0.987..0.999)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                               ki-mixed/base-mixed
+gbsa                       1.025 (rounds 1.023..1.026)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                               kx-mixed/base-mixed
+gbsa                       1.022 (rounds 1.021..1.023)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0
+median ns/day, host clock
+test                  base-mixed   base-single      ki-mixed     ki-single      kx-mixed     kx-single
+gbsa                     1249.07       1629.04       1280.39       1685.26       1276.85       1677.52
+
+rounds, base-mixed:
+  gbsa               1251.19 1246.23 1249.07   spread 0.4%
+rounds, base-single:
+  gbsa               1632.16 1629.04 1623.13   spread 0.6%
+rounds, ki-mixed:
+  gbsa               1280.39 1277.45 1281.67   spread 0.3%
+rounds, ki-single:
+  gbsa               1679.99 1685.26 1687.66   spread 0.5%
+rounds, kx-mixed:
+  gbsa               1276.85 1275.25 1278.07   spread 0.2%
+rounds, kx-single:
+  gbsa               1677.52 1679.48 1666.25   spread 0.8%
+
+test                                 kx-mixed/ki-mixed
+gbsa                       0.997 (rounds 0.997..0.998)
+
+1 minute load before 18 runs: 12.68 to 16.52
+Background VM CPU before 18 runs: 105% to 207%
+runs with no result: 0
+runs that overlapped a build: 0

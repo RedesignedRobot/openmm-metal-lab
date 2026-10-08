@@ -1,0 +1,12 @@
+2026-09-25T00:27:18Z round 1 pme base load { 1.84 3.57 8.25 } vm 17% top other 24.5%, com.apple.Virtualization.VirtualMachine 15.4%,  other 6.5%, other 5.0%, other 1.2%
+2026-09-25T00:27:39Z round 1 pme cand2 load { 1.76 3.44 8.09 } vm 4% top other 22.3%, other 5.0%,  other 4.9%, other 4.8%, com.apple.Virtualization.VirtualMachine 4.4%
+2026-09-25T00:28:00Z round 1 apoa1pme base load { 2.15 3.40 7.94 } vm 4% top other 32.0%, other 21.6%,  other 5.6%, com.apple.Virtualization.VirtualMachine 3.9%, other 2.4%
+2026-09-25T00:28:21Z round 1 apoa1pme cand2 load { 2.19 3.32 7.81 } vm 5% top other 19.2%, com.apple.Virtualization.VirtualMachine 5.1%,  other 2.6%, WindowServer 2.0%,  other 1.2%
+2026-09-25T00:28:42Z round 1 apoa1ljpme base load { 2.38 3.30 7.70 } vm 12% top other 140.4%, other 18.2%, powermetrics 12.4%, com.apple.Virtualization.VirtualMachine 11.6%, other 5.2%
+2026-09-25T00:29:02Z round 1 apoa1ljpme cand2 load { 2.21 3.20 7.56 } vm 8% top other 22.0%, com.apple.Virtualization.VirtualMachine 8.5%, other 5.0%, other 3.6%, WindowServer 2.5%
+2026-09-25T00:29:22Z round 2 pme cand2 load { 2.00 3.09 7.42 } vm 8% top other 59.5%, other 25.8%, other 10.5%, com.apple.Virtualization.VirtualMachine 9.7%,  other 5.1%
+2026-09-25T00:29:39Z round 2 pme base load { 2.00 3.03 7.32 } vm 5% top other 99.6%, other 13.5%, other 5.1%, com.apple.Virtualization.VirtualMachine 4.8%, other 3.8%
+2026-09-25T00:29:55Z round 2 apoa1pme cand2 load { 3.06 3.21 7.28 } vm 6% top other 36.1%, other 22.6%, com.apple.Virtualization.VirtualMachine 5.8%, other 5.4%, other 4.5%
+2026-09-25T00:30:14Z round 2 apoa1pme base load { 3.03 3.20 7.21 } vm 2% top other 172.3%, other 86.1%, other 44.6%, other 22.5%, other 7.0%
+2026-09-25T00:30:33Z round 2 apoa1ljpme cand2 load { 3.20 3.23 7.13 } vm 15% top other 21.0%, com.apple.Virtualization.VirtualMachine 15.0%, powermetrics 13.4%, other 8.1%, other 2.4%
+2026-09-25T00:30:51Z round 2 apoa1ljpme base load { 3.82 3.37 7.09 } vm 3% top other 91.2%, other 26.5%, other 23.0%, other 9.3%, other 7.9%

@@ -1,0 +1,66 @@
+Test project /tmp/openmm-metal-bench/ultra-plugins/bar/build
+      Start 218: TestMetalAndersenThermostatSingle
+      Start 223: TestMetalCMAPTorsionForceMixed
+ 1/27 Test #223: TestMetalCMAPTorsionForceMixed ..................   Passed    9.82 sec
+      Start 228: TestMetalCommandBatchingSingle
+ 2/27 Test #228: TestMetalCommandBatchingSingle ..................   Passed    1.14 sec
+      Start 233: TestMetalConstantPotentialForceMixed
+ 3/27 Test #218: TestMetalAndersenThermostatSingle ...............   Passed   26.08 sec
+      Start 238: TestMetalCustomCPPForceSingle
+ 4/27 Test #238: TestMetalCustomCPPForceSingle ...................   Passed    3.58 sec
+      Start 243: TestMetalCustomCentroidBondForceMixed
+ 5/27 Test #243: TestMetalCustomCentroidBondForceMixed ...........   Passed    5.73 sec
+      Start 248: TestMetalCustomGBForceSingle
+ 6/27 Test #248: TestMetalCustomGBForceSingle ....................   Passed    3.22 sec
+      Start 253: TestMetalCustomIntegratorMixed
+ 7/27 Test #233: TestMetalConstantPotentialForceMixed ............   Passed   67.35 sec
+      Start 258: TestMetalCustomTorsionForceSingle
+ 8/27 Test #258: TestMetalCustomTorsionForceSingle ...............   Passed    1.78 sec
+      Start 263: TestMetalDispersionPMEMixed
+ 9/27 Test #263: TestMetalDispersionPMEMixed .....................   Passed   63.52 sec
+      Start 268: TestMetalGBSAOBCForceSingle
+10/27 Test #253: TestMetalCustomIntegratorMixed ..................   Passed  106.21 sec
+      Start 273: TestMetalHarmonicAngleForceMixed
+11/27 Test #273: TestMetalHarmonicAngleForceMixed ................   Passed    0.67 sec
+      Start 278: TestMetalLangevinIntegratorSingle
+12/27 Test #268: TestMetalGBSAOBCForceSingle .....................   Passed    8.13 sec
+      Start 283: TestMetalLocalEnergyMinimizerMixed
+13/27 Test #278: TestMetalLangevinIntegratorSingle ...............   Passed    8.25 sec
+      Start 288: TestMetalMonteCarloBarostatSingle
+14/27 Test #283: TestMetalLocalEnergyMinimizerMixed ..............   Passed   24.61 sec
+      Start 293: TestMetalMultipleForcesMixed
+15/27 Test #293: TestMetalMultipleForcesMixed ....................   Passed    2.80 sec
+      Start 298: TestMetalOrientationRestraintForceSingle
+16/27 Test #298: TestMetalOrientationRestraintForceSingle ........   Passed    1.14 sec
+      Start 303: TestMetalPythonForceMixed
+17/27 Test #303: TestMetalPythonForceMixed .......................   Passed    6.86 sec
+      Start 308: TestMetalRGForceSingle
+18/27 Test #308: TestMetalRGForceSingle ..........................   Passed    0.82 sec
+      Start 313: TestMetalRandomMixed
+19/27 Test #313: TestMetalRandomMixed ............................   Passed    0.42 sec
+      Start 318: TestMetalVariableLangevinIntegratorSingle
+20/27 Test #288: TestMetalMonteCarloBarostatSingle ...............   Passed   45.50 sec
+      Start 323: TestMetalVerletIntegratorMixed
+21/27 Test #318: TestMetalVariableLangevinIntegratorSingle .......   Passed   16.13 sec
+      Start 410: TestMetalAmoebaGeneralizedKirkwoodForceSingle
+22/27 Test #410: TestMetalAmoebaGeneralizedKirkwoodForceSingle ...***Failed    3.39 sec
+exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+FAIL - ERROR.  Test failed.
+
+      Start 415: TestMetalAmoebaTorsionTorsionForceMixed
+23/27 Test #415: TestMetalAmoebaTorsionTorsionForceMixed .........   Passed    0.64 sec
+      Start 420: TestMetalWcaDispersionForceSingle
+24/27 Test #420: TestMetalWcaDispersionForceSingle ...............   Passed    0.44 sec
+      Start 451: TestMetalDrudeForceMixed
+25/27 Test #451: TestMetalDrudeForceMixed ........................   Passed    4.45 sec
+      Start 456: TestMetalDrudeSCFIntegratorSingle
+26/27 Test #323: TestMetalVerletIntegratorMixed ..................   Passed   18.50 sec
+27/27 Test #456: TestMetalDrudeSCFIntegratorSingle ...............   Passed    4.68 sec
+
+96% tests passed, 1 tests failed out of 27
+
+Total Test time (real) = 218.14 sec
+
+The following tests FAILED:
+	410 - TestMetalAmoebaGeneralizedKirkwoodForceSingle (Failed)
+Errors while running CTest

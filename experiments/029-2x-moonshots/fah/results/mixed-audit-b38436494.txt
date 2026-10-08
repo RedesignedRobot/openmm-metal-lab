@@ -1,0 +1,77 @@
+TestMetalMixedPrecision single: Done
+TestMetalMixedPrecision mixed: Done
+control (tanh, ^1.5)                            2 per-DOF/sum expressions, FAILS in mixed
+    v = v + dt*f/m + 0.001*tanh(v)   uses tanh
+    x = x + dt*v*abs(v)^1.5   uses pow
+    Metal single: ran
+    Metal mixed: rejected: Metal mixed precision cannot evaluate tanh in the CustomIntegrator step 0 expression 'v + dt*f/m + 0
+AlchemicalNonequilibriumLangevinIntegrator     23 per-DOF/sum expressions, OK
+    Metal mixed: FAILED Unknown global variable: lambda_sterics
+AndersenVelocityVerletIntegrator                7 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -405833.8
+BAOABIntegrator                                10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404233.3
+ExternalPerturbationLangevinIntegrator         10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404151.1
+FIREMinimizationIntegrator                     16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -440454.2
+GHMCIntegrator                                 18 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -409651.4
+GeodesicBAOABIntegrator                        16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404118.2
+GradientDescentMinimizationIntegrator           4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -422946.1
+HMCIntegrator                                  46 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -400595.8
+LangevinIntegrator                             10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404154.8
+MTSIntegrator                                   5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404305.9
+MetropolisMonteCarloIntegrator                  5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -403689.5
+NonequilibriumLangevinIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404106.5
+NoseHooverChainVelocityVerletIntegrator         8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -403517.8
+PeriodicNonequilibriumIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: FAILED Unknown global variable: lambda_sterics
+VVVRIntegrator                                  8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404089.7
+VelocityVerletIntegrator                        4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -404305.9
+audit exit 1
+AlchemicalNonequilibriumLangevinIntegrator     23 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29443.4
+AndersenVelocityVerletIntegrator                7 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29817.5
+BAOABIntegrator                                10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29823.1
+ExternalPerturbationLangevinIntegrator         10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29828.2
+FIREMinimizationIntegrator                     16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -31986.7
+GHMCIntegrator                                 18 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29796.0
+GeodesicBAOABIntegrator                        16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29819.1
+GradientDescentMinimizationIntegrator           4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -30712.9
+HMCIntegrator                                  46 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29200.2
+LangevinIntegrator                             10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29807.2
+MTSIntegrator                                   5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+MetropolisMonteCarloIntegrator                  5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29778.7
+NonequilibriumLangevinIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29796.0
+NoseHooverChainVelocityVerletIntegrator         8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29710.0
+PeriodicNonequilibriumIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29370.2
+VVVRIntegrator                                  8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29807.5
+VelocityVerletIntegrator                        4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+audit exit 0

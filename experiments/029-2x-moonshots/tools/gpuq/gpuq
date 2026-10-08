@@ -1,0 +1,622 @@
+#!/tmp/openmm-metal-bench/env/bin/python3
+"""gpuq: the client of gpuqd, the M3 Ultra's GPU scheduler (ultra-tools/gpuq/gpuqd.py has the policy).
+
+  gpuq submit [--class C] [--lane L] [--est D] [--cap D] [--not-before T] [--not-after T] [--after ID]
+              [--what W] [--wait] [--no-preflight] -- cmd...
+      Queues a managed job: gpuqd runs cmd in this cwd and environment, logs it, and records its exit code.
+      C is merge, window, correctness, timing (default) or build. D is 90, 90s, 15m or 1.5h. T is an ISO
+      time (2026-09-29T00:00:00Z), HH:MMZ (the next one) or +D. --wait waits and exits with the job's code.
+      --not-before T: the job starts no earlier (any class; a window reserves the GPU from T).
+      --not-after T: a job not started by T ends as expired and never runs.
+      --after ID: the job starts once job ID has ended with exit 0; if ID failed, it ends as skipped.
+      A window needs --est; its cap defaults to 2 x est + 20 min. Check it with gpuq status.
+      Preflight: before queuing, each ab.sh, window.sh, holdout.sh or gate.sh call in cmd (direct, or in a
+      sh -c script) runs its own checks with GPUQ_PREFLIGHT=1 and stops before the GPU. A failed check
+      refuses the submit: stale BUILT, a missing path, an outdir holding the tool's own outputs, a window
+      estimate over the job's cap. --no-preflight skips it.
+  gpuq hold [same options] -- cmd...      Attached hold: waits for the GPU, then runs cmd here, in its own
+      process group, and exits with its code. lease.sh and build.sh use this.
+  gpuq ls                                 Running jobs with elapsed time; queued jobs in dispatch order with
+      predicted start; paused builds; the build gap.
+  gpuq refs                               One line per job not yet ended: id, state, cwd= and argv=.
+  gpuq status ID | log ID [-f] | wait ID | cancel ID [--lane L] | history [--lane L] [-n N]
+      wait exits with the job's code. cancel takes only your own lane's jobs (--lane, or GPUQ_LANE).
+  gpuq lease <lease.sh arguments>         The lease.sh shim (lease.sh execs this).
+  gpuq off | gpuq on                      Hand the GPU back to lease-legacy.sh, or take it again. off waits
+      for the running GPU jobs and continues paused builds before it writes OFF; never touch OFF by hand.
+The lane defaults to GPUQ_LANE. GPUQ_SOCK and GPUQ_DIR point at another instance (tests).
+"""
+import calendar
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import signal
+import socket
+import subprocess
+import sys
+import time
+
+SECRET_ENV = re.compile(r'TOKEN|API_KEY|SECRET|PASSWORD|CREDENTIAL', re.I)
+SOCK = os.environ.get('GPUQ_SOCK', '/tmp/openmm-gpuq.sock')
+HOME = Path(os.environ.get('GPUQ_DIR', '/tmp/openmm-metal-bench/gpuq'))
+MERGE_QUEUE = Path('/tmp/openmm-metal-bench/ultra-tools/merge-queue.txt')
+INTEGRATED = '/tmp/openmm-metal-bench/ultra-integrated'
+LEGACY_LEASE = os.environ.get('GPUQ_LEGACY_LEASE', '/tmp/openmm-metal-bench/ultra-tools/lease-legacy.sh')
+LEASE_CAP_SECONDS = 1200
+PREFLIGHT_TOOLS = ('ab.sh', 'window.sh', 'holdout.sh', 'gate.sh')
+PREFLIGHT_TIMEOUT_SECONDS = 600
+WINDOW_CAP_MARGIN = 1200  # gpuqd.py's default window cap is 2 x est + this
+WAIT_REPORT_SECONDS = 300
+RELEASE_RETRY_SECONDS = 120
+
+
+class Refused(Exception):
+    pass
+
+
+def call(req, retry=False, give_up=None):
+    """One request to gpuqd. With retry, waits for a restarting daemon (launchd brings it back)."""
+    told = False
+    started = time.time()
+    while True:
+        try:
+            with socket.socket(socket.AF_UNIX) as s:
+                s.connect(SOCK)
+                s.sendall((json.dumps(req) + '\n').encode())
+                line = s.makefile().readline()
+            if not line:
+                raise ConnectionResetError('gpuqd closed the connection')
+            reply = json.loads(line)
+            if not reply.pop('ok'):
+                raise Refused(reply['error'])
+            return reply
+        except (FileNotFoundError, ConnectionRefusedError, ConnectionResetError, BrokenPipeError) as e:
+            if not retry or (give_up and time.time() - started > give_up):
+                sys.exit(f'gpuq: gpuqd is not answering on {SOCK}: {e}')
+            if not told:
+                print(f'{clock()} gpuq: gpuqd is not answering on {SOCK} ({e}); retrying', file=sys.stderr, flush=True)
+                told = True
+            time.sleep(1)
+
+
+def clock(t=None):
+    return time.strftime('%H:%M:%SZ', time.gmtime(t))
+
+
+def dur(s):
+    if s is None:
+        return '-'
+    s = max(0, int(s))
+    if s < 90:
+        return f'{s}s'
+    if s < 90 * 60:
+        return f'{round(s / 60)}m'
+    return f'{s // 3600}h{s % 3600 // 60:02d}m'
+
+
+def parse_dur(text):
+    m = re.fullmatch(r'(\d+(?:\.\d+)?)([smh]?)', text)
+    if not m:
+        sys.exit(f'gpuq: {text} is not a duration (90, 90s, 15m, 1.5h)')
+    return float(m.group(1)) * {'': 1, 's': 1, 'm': 60, 'h': 3600}[m.group(2)]
+
+
+def parse_time(text):
+    if text.startswith('+'):
+        return time.time() + parse_dur(text[1:])
+    if m := re.fullmatch(r'(\d\d):(\d\d)Z', text):
+        now = time.time()
+        day = now - now % 86400
+        t = day + int(m.group(1)) * 3600 + int(m.group(2)) * 60
+        return t if t > now else t + 86400
+    try:
+        return calendar.timegm(time.strptime(text, '%Y-%m-%dT%H:%M:%SZ'))
+    except ValueError:
+        sys.exit(f'gpuq: {text} is not a time (2026-09-29T00:00:00Z, 00:00Z or +30m)')
+
+
+def parse_opts(args):
+    opts = {'cls': 'timing', 'lane': os.environ.get('GPUQ_LANE'), 'est': None, 'cap': None,
+            'not_before': None, 'not_after': None, 'after': None, 'what': None, 'wait': False, 'preflight': True}
+    while args and args[0] != '--':
+        flag = args.pop(0)
+        if flag == '--wait':
+            opts['wait'] = True
+            continue
+        if flag == '--no-preflight':
+            opts['preflight'] = False
+            continue
+        if not args:
+            sys.exit(f'gpuq: {flag} needs a value')
+        value = args.pop(0)
+        if flag == '--class':
+            opts['cls'] = value
+        elif flag == '--lane':
+            opts['lane'] = value
+        elif flag == '--est':
+            opts['est'] = parse_dur(value)
+        elif flag == '--cap':
+            opts['cap'] = parse_dur(value)
+        elif flag == '--not-before':
+            opts['not_before'] = parse_time(value)
+        elif flag == '--not-after':
+            opts['not_after'] = parse_time(value)
+        elif flag == '--after':
+            opts['after'] = int(value)
+        elif flag == '--what':
+            opts['what'] = value
+        else:
+            sys.exit(f'gpuq: unknown option {flag}')
+    if not args or len(args) < 2:
+        sys.exit('gpuq: the command goes after --')
+    if not opts['lane']:
+        sys.exit('gpuq: --lane is required (or set GPUQ_LANE)')
+    return opts, args[1:]
+
+
+def request(opts, kind, argv, pgid=None):
+    req = {'op': 'submit', 'kind': kind, 'argv': argv, 'cwd': os.getcwd(), **opts}
+    req.pop('wait')
+    req.pop('preflight', None)
+    req.pop('fallback', None)
+    if kind == 'managed':
+        # state.db keeps the env, so credentials stay out of it; GPU jobs don't need them.
+        req['env'] = {k: v for k, v in os.environ.items() if not SECRET_ENV.search(k)}
+    else:
+        req['client_pid'] = os.getpid()
+        req['pgid'] = pgid
+    try:
+        return call(req)['id']
+    except Refused as e:
+        if str(e).startswith('gpuq is off') and opts.get('fallback'):
+            return None
+        sys.exit(f'gpuq: {e}')
+
+
+def wait_ended(jid):
+    while True:
+        job = call({'op': 'wait', 'id': jid, 'states': ['ended'], 'timeout': 30}, retry=True)['job']
+        if not job:
+            sys.exit(f'gpuq: no job {jid}')
+        if job['state'] == 'ended':
+            return job
+
+
+def job_code(job):
+    return job['exit_code'] if job['exit_code'] is not None else 1
+
+
+def expand(word, names):
+    """$NAME and ${NAME} from the script's assignments, then this environment; anything else stays."""
+    def value(m):
+        name = m.group(1) or m.group(2)
+        return names.get(name, os.environ.get(name, m.group(0)))
+    return re.sub(r'\$\{(\w+)\}|\$(\w+)', value, word)
+
+
+def script_commands(script):
+    """A sh -c script as lists of words, split at ; & | and newlines, with redirections left out."""
+    lex = shlex.shlex(script.replace('\n', ';'), posix=True, punctuation_chars=';&|<>')
+    lex.whitespace_split = True
+    commands, words, skip = [], [], False
+    for token in lex:
+        if skip:
+            skip = False
+        elif set(token) & set('<>'):
+            if words and words[-1].isdigit():
+                words.pop()
+            skip = True
+        elif set(token) <= set(';&|'):
+            commands.append(words)
+            words = []
+        else:
+            words.append(token)
+    return [c for c in commands + [words] if c]
+
+
+def tool_calls(argv):
+    """The checked tools' calls in a job: argv itself, or each command of a `sh -c` script. A call is the
+    first word naming a tool (wrappers such as nohup or bg.sh <log> before it don't matter) and every
+    word after it. Plain NAME=value words set names for $NAME in later words."""
+    shell = os.path.basename(argv[0]) in ('sh', 'bash', 'zsh', 'dash') and len(argv) > 2 and argv[1] == '-c'
+    names, calls = {}, []
+    for words in script_commands(argv[2]) if shell else [list(argv)]:
+        while words and re.fullmatch(r'[A-Za-z_]\w*=.*', words[0]):
+            name, value = words.pop(0).split('=', 1)
+            names[name] = expand(value, names)
+        words = [expand(w, names) for w in words]
+        for i, word in enumerate(words):
+            if os.path.basename(word) in PREFLIGHT_TOOLS:
+                calls.append(words[i:])
+                break
+    return calls
+
+
+def preflight(opts, argv):
+    """Runs each checked tool's own checks at submit (GPUQ_PREFLIGHT=1: the tool exits 0 where it would
+    queue for the GPU, before writing anything), so a job that would fail at its start is refused now."""
+    env = dict(os.environ, GPUQ_PREFLIGHT='1')
+    env.pop('GPUQ_JOB', None)
+    if opts['cls'] == 'window' and opts['est']:
+        env['GPUQ_PREFLIGHT_CAP'] = str(int(opts['cap'] or 2 * opts['est'] + WINDOW_CAP_MARGIN))
+    for words in tool_calls(argv):
+        tool = os.path.basename(words[0])
+        unexpanded = [w for w in words if '$' in w]
+        if unexpanded:
+            print(f'gpuq: preflight skipped for {tool}: {unexpanded[0]} is not expanded at submit', file=sys.stderr)
+            continue
+        path = words[0] if '/' in words[0] else shutil.which(words[0])
+        if not path or not os.access(path, os.X_OK):
+            sys.exit(f'gpuq: refused at submit: {words[0]} does not exist or is not executable')
+        try:
+            run = subprocess.run([path] + words[1:], env=env, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                 stderr=subprocess.STDOUT, text=True, timeout=PREFLIGHT_TIMEOUT_SECONDS)
+        except subprocess.TimeoutExpired:
+            sys.exit(f'gpuq: refused at submit: the {tool} preflight ran over {PREFLIGHT_TIMEOUT_SECONDS} s')
+        lines = run.stdout.strip().splitlines()
+        if run.returncode != 0:
+            detail = '\n  '.join(lines[-3:]) or '(no output)'
+            sys.exit(f'gpuq: refused at submit: the {tool} preflight exited {run.returncode}:\n  {detail}\n'
+                     f'  (--no-preflight skips the check)')
+        print(f'gpuq: preflight ok: {tool} {" ".join(words[1:])[:120]}')
+
+
+def submit(args):
+    opts, argv = parse_opts(args)
+    if opts['preflight']:
+        preflight(opts, argv)
+    jid = request(opts, 'managed', argv)
+    job = call({'op': 'status', 'id': jid})['job']
+    print(f'job {jid} queued ({opts["cls"]}, lane {opts["lane"]}, est {dur(job["est"])}, cap {dur(job["cap"])}); '
+          f'log {HOME}/jobs/{jid}/out.log')
+    if opts['wait']:
+        job = wait_ended(jid)
+        print(ended_line(job))
+        sys.exit(job_code(job))
+
+
+def position(jid):
+    reply = call({'op': 'ls'}, retry=True)
+    queued = queue_order(reply)
+    for n, job in enumerate(queued, 1):
+        if job['id'] == jid:
+            start = reply['predicted'].get(str(jid))
+            when = f', predicted start {clock(start)}' if start else ''
+            return f'{n} in the queue{when}'
+    return 'queued'
+
+
+def hold(opts, argv):
+    """Waits for the GPU, then runs argv in its own process group here and exits with its code.
+
+    The work is forked into its new group first, blocked on a pipe, so gpuqd knows the group before it
+    grants anything (it can pause a build from its first instruction). After gpuq off, a hold whose job
+    ended with reason off, or that gpuqd refused, execs opts['fallback'] instead (the old path)."""
+    ready_r, ready_w = os.pipe()
+    pid = os.fork()
+    if pid == 0:
+        os.close(ready_w)
+        try:
+            os.setpgid(0, 0)
+            got = b''
+            while chunk := os.read(ready_r, 64):
+                got += chunk
+            if not got.startswith(b'go\n'):
+                os._exit(125)
+            env = dict(os.environ, OPENMM_LEASE_PID=str(os.getppid()), GPUQ_JOB=got.split()[1].decode())
+            env.pop('LEASE_TICKET_US', None)
+            os.execvpe(argv[0], argv, env)
+        except OSError as e:
+            print(f'gpuq: cannot run {argv[0]}: {e}', file=sys.stderr)
+        os._exit(127)
+    os.close(ready_r)
+    try:
+        os.setpgid(pid, pid)
+    except (PermissionError, ProcessLookupError):
+        pass
+
+    def give_up(why):
+        os.close(ready_w)
+        os.waitpid(pid, 0)
+        if opts.get('fallback') and why == 'off':
+            print(f'{clock()} gpuq is off: running the old path', file=sys.stderr, flush=True)
+            env = {k: v for k, v in os.environ.items() if k not in ('GPUQ_JOB', 'OPENMM_LEASE_PID')}
+            os.execvpe(opts['fallback'][0], opts['fallback'], env)
+        sys.exit(f'gpuq: the job ended before it started: {why}')
+
+    jid = request(opts, 'attached', argv, pid)
+    if jid is None:
+        give_up('off')
+    next_report = time.time() + 1
+    while True:
+        job = call({'op': 'wait', 'id': jid, 'states': ['running', 'ended'], 'timeout': 5}, retry=True)['job']
+        if job['state'] == 'ended':
+            give_up(job['reason'])
+        if job['state'] == 'running':
+            break
+        if time.time() >= next_report:
+            print(f'{clock()} waiting for the GPU: job {jid} ({opts["cls"]}), {position(jid)}', file=sys.stderr, flush=True)
+            next_report = time.time() + WAIT_REPORT_SECONDS
+    os.write(ready_w, f'go\n{jid}\n'.encode())
+    os.close(ready_w)
+
+    received = []
+
+    def forward(sig, _frame):
+        received.append(signal.Signals(sig).name)
+        try:
+            os.killpg(pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+    for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, forward)
+    _, status = os.waitpid(pid, 0)
+    code = os.waitstatus_to_exitcode(status)
+    died = -code if code < 0 else None
+    code = 128 - code if code < 0 else code
+    # gpuqd's own SIGTERMs (cap, cancel) go to the work's group, never to this client, so a signal this
+    # client got came from outside gpuqd: the history names it.
+    note = f'forwarded as SIGTERM by hold client {os.getpid()}, which got {", ".join(received)}' if received else None
+    try:
+        call({'op': 'release', 'id': jid, 'exit_code': code, 'signal': died, 'note': note},
+             retry=True, give_up=RELEASE_RETRY_SECONDS)
+    except Refused as e:
+        print(f'gpuq: release failed: {e}', file=sys.stderr)
+    sys.exit(code)
+
+
+def queue_order(reply):
+    queued = [j for j in reply['jobs'] if j['state'] == 'queued']
+    predicted = reply['predicted']
+    return sorted(queued, key=lambda j: (predicted.get(str(j['id']), float('inf')), j['id']))
+
+
+def refs(_args):
+    """One line per queued, launching or running job: id, state, cwd and argv on one line (rmcheck.sh)."""
+    for j in call({'op': 'ls'})['jobs']:
+        words = ' '.join(json.loads(j['argv'] or '[]')).replace('\n', ' ')
+        print(f"{j['id']} {j['state']} cwd={j['cwd']} argv={words}")
+
+
+def ls(_args):
+    reply = call({'op': 'ls'})
+    now = reply['now']
+    running = [j for j in reply['jobs'] if j['state'] == 'running']
+    gpu = [j for j in running if j['cls'] != 'build']
+    if any(j['cls'] in ('timing', 'window') for j in gpu):
+        state = f'{gpu[0]["cls"]} job {gpu[0]["id"]} has it alone'
+    elif gpu:
+        state = f'shared by {len(gpu)} jobs'
+    else:
+        state = 'idle'
+    print(f'gpuq {clock(now)}, {"night" if reply["night"] else "day"} slot. GPU: {state}.'
+          + (' FALLBACK: OFF exists, lease.sh runs lease-legacy.sh and gpuqd starts nothing.' if reply['off'] else ''))
+    print('running:' if running else 'running: none')
+    for j in running:
+        extra = ' PAUSED' if j['paused'] else ''
+        print(f'  {j["id"]:>5}  {j["cls"]:<11} {j["lane"]:<22} ran {dur(now - j["started"]):>6} of ~{dur(j["est"]):<6}'
+              f' cap {dur(j["cap"]):<6} {j["what"][:90]}{extra}')
+    queued = queue_order(reply)
+    print('queued, in predicted order:' if queued else 'queued: none')
+    for n, j in enumerate(queued, 1):
+        start = reply['predicted'].get(str(j['id']))
+        when = f'{clock(start)} (+{dur(start - now)})' if start else 'unknown'
+        nb = f' not before {clock(j["not_before"])}' if j['not_before'] and j['not_before'] > now else ''
+        nb += f' not after {clock(j["not_after"])}' if j.get('not_after') else ''
+        nb += f' after job {j["after"]} exits 0' if j['after'] else ''
+        print(f'  {n:>3}. {j["id"]:>5}  {j["cls"]:<11} {j["lane"]:<22} waited {dur(now - j["submitted"]):>6}'
+              f'  starts {when:<16} est {dur(j["est"]):<6} cap {dur(j["cap"]):<6} {j["what"][:70]}{nb}')
+    gap = reply['gap']
+    if gap:
+        print(f'build gap: timing waits until {clock(gap["until"])} at most, for builds {gap["builds"]}')
+
+
+def show(args):
+    job = call({'op': 'status', 'id': int(args[0])})
+    j = job['job']
+    for k, v in j.items():
+        if k in ('submitted', 'started', 'ended', 'not_before', 'not_after', 'term_sent', 'drain') and v:
+            v = f'{time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(v))}'
+        elif k in ('est', 'cap') and v:
+            v = f'{dur(v)} ({v:.0f} s)'
+        print(f'{k}: {v}')
+    if j['state'] == 'running' and j['cap']:
+        # window.sh reads this line.
+        print(f'cap left: {int(j["cap"] - (time.time() - j["started"]))} s')
+    print(f'log: {job["log"]}')
+
+
+def log(args):
+    jid = int(args[0])
+    follow = '-f' in args[1:]
+    reply = call({'op': 'status', 'id': jid})
+    if reply['job']['kind'] == 'attached':
+        sys.exit(f'gpuq: job {jid} is an attached hold; its output went to its own terminal or file')
+    path = Path(reply['log'])
+    offset = 0
+    data = b''
+    while True:
+        if path.exists():
+            with path.open('rb') as f:
+                f.seek(offset)
+                data = f.read()
+            offset += len(data)
+            sys.stdout.buffer.write(data)
+            sys.stdout.flush()
+        if not follow or call({'op': 'status', 'id': jid})['job']['state'] == 'ended' and not data:
+            return
+        time.sleep(0.5)
+
+
+def ended_line(job):
+    return f'job {job["id"]} ended: {job["reason"]}, exit {job["exit_code"]}' + (f' ({job["note"]})' if job.get('note') else '')
+
+
+def wait(args):
+    job = wait_ended(int(args[0]))
+    print(ended_line(job))
+    sys.exit(job_code(job))
+
+
+def cancel(args):
+    lane = os.environ.get('GPUQ_LANE')
+    if '--lane' in args:
+        lane = args[args.index('--lane') + 1]
+    try:
+        print(f'job {args[0]}: {call({"op": "cancel", "id": int(args[0]), "lane": lane})["state"]}')
+    except Refused as e:
+        sys.exit(f'gpuq: {e}')
+
+
+def history(args):
+    req = {'op': 'history', 'n': 30}
+    if '--lane' in args:
+        req['lane'] = args[args.index('--lane') + 1]
+    if '-n' in args:
+        req['n'] = int(args[args.index('-n') + 1])
+    for j in call(req)['jobs']:
+        waited = (j['started'] or j['ended']) - j['submitted']
+        ran = j['ended'] - j['started'] if j['started'] else None
+        print(f'  {j["id"]:>5}  {clock(j["ended"])}  {j["cls"]:<11} {j["lane"]:<22} {j["reason"]:<9}'
+              f' exit {str(j["exit_code"]):<4} waited {dur(waited):>6} ran {dur(ran):>6}  {j["what"][:80]}'
+              + (f'  [{j["note"]}]' if j.get('note') else ''))
+
+
+# ---------------------------------------------------------------- lease.sh shim
+
+def merge_path_allowed(argv):
+    gate = integrated = queued = False
+    listed = set()
+    if MERGE_QUEUE.exists():
+        listed = {line.rstrip().rstrip('/') for line in MERGE_QUEUE.read_text().splitlines() if line.strip()}
+    for arg in argv:
+        arg = arg.rstrip('/')
+        if arg == '--quick':
+            return False
+        if arg == 'gate.sh' or arg.endswith('/gate.sh'):
+            gate = True
+        if arg == INTEGRATED or arg.startswith(INTEGRATED + '/'):
+            integrated = True
+        if arg in listed:
+            queued = True
+    return integrated or (gate and queued)
+
+
+def lease_status():
+    reply = call({'op': 'ls'})
+    now = reply['now']
+    gpu = [j for j in reply['jobs'] if j['state'] == 'running' and j['cls'] != 'build']
+    if gpu:
+        first = gpu[0]
+        print(f'holder: {first["lane"]} {time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(first["started"]))} '
+              f'{first["what"]}, pid {first["client_pid"] or first["pid"]}, held {int(now - first["started"])} s')
+        if first['cls'] in ('merge', 'correctness'):
+            print(f'shared correctness hold, started {int(now - first["started"])} s ago; members:')
+            for j in gpu:
+                print(f'  pid {j["client_pid"] or j["pid"]}: {j["lane"]} {j["what"]}')
+    else:
+        print('holder: none')
+    builds = [j for j in reply['jobs'] if j['cls'] == 'build' and j['state'] == 'running']
+    print(f'build processes: {len(builds)} gpuq build jobs, {sum(1 for j in builds if j["paused"])} paused')
+    print('queue, oldest first:')
+    for j in sorted((j for j in reply['jobs'] if j['state'] == 'queued' and j['cls'] != 'build'), key=lambda j: j['id']):
+        cls = {'merge': 'merge-path', 'correctness': 'correctness'}.get(j['cls'], 'normal')
+        lane = re.sub(r'[^A-Za-z0-9_.-]', '_', j['lane'])
+        print(f'  {int(j["submitted"] * 1e6)}-{lane}-{j["client_pid"] or 0}  {cls}  waiting {int(now - j["submitted"])} s')
+    print()
+    sys.stdout.flush()
+    ls([])
+
+
+def lease(args):
+    original = list(args)
+    if args[:1] == ['--status']:
+        lease_status()
+        return
+    timing, merge, cap = True, False, LEASE_CAP_SECONDS
+    while args and args[0] in ('--correctness', '--merge-path', '--cap'):
+        flag = args.pop(0)
+        if flag == '--correctness':
+            timing = False
+        elif flag == '--merge-path':
+            merge = True
+        else:
+            value = args.pop(0) if args else ''
+            if not value.isdigit() or int(value) == 0:
+                sys.exit('--cap takes a number of seconds')
+            cap = int(value)
+    if len(args) < 3:
+        sys.exit('usage: lease.sh [--correctness [--merge-path]] [--cap SECONDS] <lane> <what> <command...> | lease.sh --status')
+    lane = re.sub(r'[^A-Za-z0-9_.-]', '_', args[0])
+    what, argv = args[1], args[2:]
+    outer = os.environ.get('GPUQ_JOB')
+    if outer and os.environ.get('OPENMM_LEASE_PID'):
+        try:
+            job = call({'op': 'status', 'id': int(outer)})['job']
+            if job['state'] == 'running' and job['cls'] != 'build':
+                os.execvp(argv[0], argv)
+        except Refused:
+            pass
+    if merge:
+        if timing:
+            sys.exit('lease.sh: --merge-path is for --correctness work only; timings are never merge-path')
+        if not merge_path_allowed(argv):
+            sys.exit(f'lease.sh: --merge-path is only for full gates and checks on {INTEGRATED}, or the full gate '
+                     f'(gate.sh, no --quick) of a candidate dir listed in {MERGE_QUEUE}')
+    if merge:
+        cls = 'merge'
+    elif not timing:
+        cls = 'correctness'
+    elif os.environ.get('OPENMM_WINDOW'):
+        cls = 'window'
+    else:
+        cls = 'timing'
+    about = re.search(r'about (\d+) min', what)
+    opts = {'cls': cls, 'lane': lane, 'est': int(about.group(1)) * 60 if about else None, 'cap': cap,
+            'not_before': None, 'not_after': None, 'after': None, 'what': what, 'wait': False,
+            'fallback': [LEGACY_LEASE] + original}
+    hold(opts, argv)
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        sys.exit(__doc__)
+    verb, rest = args[0], args[1:]
+    if verb == 'submit':
+        submit(rest)
+    elif verb == 'hold':
+        opts, argv = parse_opts(rest)
+        if opts['cls'] == 'build':
+            opts['fallback'] = argv
+        hold(opts, argv)
+    elif verb == 'off':
+        told = False
+        while not call({'op': 'off'}, retry=True)['off']:
+            if not told:
+                print(f'{clock()} gpuq off: no new grants; waiting for the running GPU jobs and paused builds', flush=True)
+                told = True
+            time.sleep(2)
+        print(f'{clock()} gpuq is off: lease.sh runs lease-legacy.sh; `gpuq on` switches back')
+    elif verb == 'on':
+        call({'op': 'on'})
+        print(f'{clock()} gpuq is on')
+    elif verb == 'lease':
+        lease(rest)
+    elif verb == 'ls':
+        ls(rest)
+    elif verb == 'refs':
+        refs(rest)
+    elif verb in ('status', 'log', 'wait', 'cancel') and rest:
+        {'status': show, 'log': log, 'wait': wait, 'cancel': cancel}[verb](rest)
+    elif verb == 'history':
+        history(rest)
+    else:
+        sys.exit(__doc__)
+
+
+if __name__ == '__main__':
+    main()

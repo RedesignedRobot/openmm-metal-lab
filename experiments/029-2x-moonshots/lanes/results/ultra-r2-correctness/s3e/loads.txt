@@ -1,0 +1,16 @@
+2026-09-27T09:38:42Z round 1 amber20-cellulose mine-s load { 3.18 5.17 8.94 } vm 5% top other 146.1%, other 100.0%, other 13.6%, other 6.3%, other 3.9%
+2026-09-27T09:39:08Z round 1 amber20-cellulose mine-m load { 3.06 4.98 8.76 } vm 5% top other 99.1%, other 18.1%, other 7.3%, other 7.1%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-27T09:39:38Z round 1 amber20-cellulose base-s load { 2.57 4.68 8.52 } vm 6% top other 100.4%, other 17.7%, powermetrics 12.4%, other 10.1%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-27T09:40:03Z round 1 amber20-cellulose base-m load { 2.48 4.49 8.34 } vm 6% top other 100.1%, other 17.6%, other 7.6%, other 6.1%, com.apple.Virtualization.VirtualMachine 3.3%
+2026-09-27T09:40:28Z round 1 amber20-stmv mine-s load { 2.43 4.32 8.17 } vm 8% top other 100.0%, other 17.8%, other 8.6%, com.apple.Virtualization.VirtualMachine 5.0%, WindowServer 3.5%
+2026-09-27T09:41:07Z round 1 amber20-stmv mine-m load { 2.47 4.09 7.90 } vm 5% top other 70.9%, other 19.7%, other 6.2%,  other 5.0%, WindowServer 4.7%
+2026-09-27T09:41:48Z round 1 amber20-stmv base-s load { 2.10 3.80 7.62 } vm 9% top other 17.7%, WindowServer 12.4%, com.apple.Virtualization.VirtualMachine 6.2%, other 5.5%,  other 3.3%
+2026-09-27T09:42:25Z round 1 amber20-stmv base-m load { 2.20 3.59 7.37 } vm 7% top other 16.7%, com.apple.Virtualization.VirtualMachine 5.3%, other 4.7%,  other 3.2%, other 2.3%
+2026-09-27T09:43:01Z round 2 amber20-cellulose base-m load { 1.53 3.27 7.10 } vm 5% top other 18.0%, other 16.0%, other 7.3%, WindowServer 5.9%,  other 4.7%
+2026-09-27T09:43:26Z round 2 amber20-cellulose base-s load { 1.86 3.21 6.96 } vm 5% top other 17.9%, other 4.9%, powermetrics 4.2%, com.apple.Virtualization.VirtualMachine 3.5%,  other 3.2%
+2026-09-27T09:43:51Z round 2 amber20-cellulose mine-m load { 1.70 3.07 6.80 } vm 6% top other 19.7%,  other 7.6%, other 7.3%, other 6.0%, com.apple.Virtualization.VirtualMachine 3.9%
+2026-09-27T09:44:15Z round 2 amber20-cellulose mine-s load { 1.45 2.90 6.63 } vm 6% top other 18.8%, com.apple.Virtualization.VirtualMachine 4.1%, other 2.6%, com.apple.Virtualization.VirtualMachine 1.9%,  other 1.7%
+2026-09-27T09:44:40Z round 2 amber20-stmv base-m load { 1.84 2.89 6.54 } vm 8% top other 98.5%, other 22.3%, other 21.5%, other 21.0%, other 17.8%
+2026-09-27T09:45:17Z round 2 amber20-stmv base-s load { 4.08 3.35 6.54 } vm 7% top python 207.1%, other 98.7%, other 19.1%, WindowServer 7.2%, com.apple.Virtualization.VirtualMachine 4.2%
+2026-09-27T09:46:00Z round 2 amber20-stmv mine-m load { 4.83 3.62 6.49 } vm 11% top other 273.1%, python 205.5%, other 18.6%, other 7.4%, other 6.1%
+2026-09-27T09:46:38Z round 2 amber20-stmv mine-s load { 4.03 3.60 6.35 } vm 6% top other 99.2%, other 17.4%, other 11.2%, WindowServer 5.7%, other 4.3%

@@ -1,0 +1,10 @@
+09:13:11Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-28T09:12:59Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/is-d, about 9 min, 0 build processes
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-integrated", "energy": -1388810.843867439, "bitwise_repeat": true, "us_median": 654.8958335770294, "us_min": 378.33332316949964, "us_p90": 794.5083169033752}
+int single exit 0
+{"test": "apoa1rf", "precision": "single", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.855586189, "bitwise_repeat": true, "us_median": 849.0000036545098, "us_min": 770.2916627749801, "us_p90": 1320.6249859649688}
+r single exit 0
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-integrated", "energy": -1388810.769131679, "bitwise_repeat": true, "us_median": 653.2499974127859, "us_min": 380.791665520519, "us_p90": 662.7041671890765}
+int mixed exit 0
+{"test": "apoa1rf", "precision": "mixed", "tree": "ultra-r2-accum-nb-r", "energy": -1388810.769131679, "bitwise_repeat": true, "us_median": 1308.4791717119515, "us_min": 774.7916679363698, "us_p90": 1336.7875129915774}
+r mixed exit 0
+check done

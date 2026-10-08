@@ -1,0 +1,29 @@
+{
+    "benchmarks": [
+        {
+            "test": "pme",
+            "constraints": "HBonds",
+            "hydrogen_mass": "1.5",
+            "cutoff": 0.9,
+            "ensemble": "NVT",
+            "precision": "mixed",
+            "timestep_in_fs": 4.0,
+            "platform": "CPU",
+            "platform_properties": {
+                "Threads": "28",
+                "DeterministicForces": "false"
+            },
+            "steps": 3835,
+            "elapsed_time": 29.573497,
+            "ns_per_day": 44.81634349836949
+        }
+    ],
+    "system": {
+        "hostname": "M3 Ultra",
+        "timestamp": "2026-09-25T05:28:25.446279+00:00",
+        "openmm_version": "8.6.0.dev-Unknown",
+        "cpuinfo": "Apple M3 Ultra",
+        "cpuarch": "arm",
+        "system": "Darwin"
+    }
+}

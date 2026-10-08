@@ -1,0 +1,16 @@
+start 23:26:27Z  2:26  up 1 day,  9:40, 2 users, load averages: 9.17 7.32 6.32
+23:26:27Z waiting for the lease: 58 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:31:31Z waiting for the lease: 54 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:36:37Z waiting for the lease: 54 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:41:43Z waiting for the lease: 48 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:46:49Z waiting for the lease: 38 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:51:54Z waiting for the lease: 38 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 33 build processes
+23:56:58Z waiting for the lease: 38 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 41 build processes
+t10
+test           atoms  steps    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    100  2.283e-06  8.908e-03  5.340e-07
+gbsa            2489    200  2.056e-06  8.802e-03  6.193e-07
+rf             23558    100  1.092e-06  1.242e-02  2.506e-07
+rf             23558    200  5.580e-06  4.853e-01  2.449e-07
+pme            23558    100  1.325e-06  1.421e-02  1.372e-06
+pme            23558    200  1.356e-06  2.389e-02  1.374e-06

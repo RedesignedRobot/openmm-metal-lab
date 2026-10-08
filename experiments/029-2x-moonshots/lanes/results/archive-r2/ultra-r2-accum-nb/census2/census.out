@@ -1,0 +1,25 @@
+03:05:53Z waiting for the lease: 2 in the queue, held by: infra 2026-09-29T03:05:24Z gpuclock overhead check, ab apoa1rf 5x30 on/off, about 8 min, 0 build processes running
+03:10:56Z waiting for the lease: 2 in the queue, held by: infra 2026-09-29T03:05:24Z gpuclock overhead check, ab apoa1rf 5x30 on/off, about 8 min, 0 build processes running
+03:16:31Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch 2026-09-29T03:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/fb/ab-stmv-m, about 18 min, 0 build processes running
+cw5-apoa1rf: xctrace pid 86611 recording 03:22:07Z
+captured cw5-apoa1rf 03:22:16Z: Target app exited, ending recording...
+saved cw5-apoa1rf 03:23:07Z: Output file saved as: cw5-apoa1rf.trace
+exported cw5-apoa1rf 03:23:11Z, rows 55850, releasing
+xctemp: removing 1 xctrace leftovers, 448480 KB
+ver-apoa1rf: xctrace pid 87308 recording 03:23:12Z
+03:23:15Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-r2-accum-nb (shader census cw5 vs verifier apoa1rf apoa1pme). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+captured ver-apoa1rf 03:23:20Z: Target app exited, ending recording...
+saved ver-apoa1rf 03:23:50Z: Output file saved as: ver-apoa1rf.trace
+exported ver-apoa1rf 03:23:53Z, rows 30595, releasing
+xctemp: removing 1 xctrace leftovers, 233644 KB
+cw5-apoa1pme: xctrace pid 87786 recording 03:23:55Z
+captured cw5-apoa1pme 03:24:02Z: Target app exited, ending recording...
+saved cw5-apoa1pme 03:24:41Z: Output file saved as: cw5-apoa1pme.trace
+exported cw5-apoa1pme 03:24:46Z, rows 73043, releasing
+xctemp: removing 1 xctrace leftovers, 289928 KB
+ver-apoa1pme: xctrace pid 88376 recording 03:24:48Z
+captured ver-apoa1pme 03:24:58Z: Target app exited, ending recording...
+saved ver-apoa1pme 03:25:42Z: Output file saved as: ver-apoa1pme.trace
+exported ver-apoa1pme 03:25:46Z, rows 35700, releasing
+xctemp: removing 1 xctrace leftovers, 209960 KB
+census2 done 03:25:46Z

@@ -1,0 +1,158 @@
+{
+  "apple8" : true,
+  "apple9" : false,
+  "densePrototype" : [
+    {
+      "atoms" : 2489,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "gbsa",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "rf",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "pme",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1rf",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1pme",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1ljpme",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-dhfr",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 408609,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-cellulose",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 1067095,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-stmv",
+      "threadgroups" : 0
+    }
+  ],
+  "deterministicScratchBytes" : 0,
+  "device" : "Apple M2",
+  "gpuCores" : 10,
+  "maxBufferLength" : 4294967296,
+  "recommendedMaxWorkingSetSize" : 5726633984,
+  "recordPrototype" : [
+    {
+      "atoms" : 2489,
+      "exclusionTiles" : 155,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "gbsa"
+    },
+    {
+      "atoms" : 23558,
+      "exclusionTiles" : 1253,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "rf"
+    },
+    {
+      "atoms" : 23558,
+      "exclusionTiles" : 1253,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "pme"
+    },
+    {
+      "atoms" : 92224,
+      "exclusionTiles" : 5213,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1rf"
+    },
+    {
+      "atoms" : 92224,
+      "exclusionTiles" : 5213,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1pme"
+    },
+    {
+      "atoms" : 92224,
+      "exclusionTiles" : 5213,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1ljpme"
+    },
+    {
+      "atoms" : 23558,
+      "exclusionTiles" : 1253,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-dhfr"
+    },
+    {
+      "atoms" : 408609,
+      "exclusionTiles" : 22228,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-cellulose"
+    },
+    {
+      "atoms" : 1067095,
+      "exclusionTiles" : 57294,
+      "forceTileCapacity" : 0,
+      "roundedScratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-stmv"
+    }
+  ],
+  "step0ScratchBytes" : 0
+}

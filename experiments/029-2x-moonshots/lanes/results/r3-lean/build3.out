@@ -1,0 +1,9 @@
+2026-09-27T21:25:54Z build-policy demote pid=46551 tree=/tmp/openmm-metal-bench/ultra-r3-lean taskpolicy_exit=0
+2026-09-27T21:26:14Z build-policy demote pid=48994 tree=/tmp/openmm-metal-bench/ultra-r3-lean taskpolicy_exit=0
+2026-09-27T21:26:15Z build-policy demote pid=49112 tree=/tmp/openmm-metal-bench/ultra-r3-lean taskpolicy_exit=0
+/tmp/openmm-metal-bench/ultra-r3-lean/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown ['CPU', 'Metal', 'OpenCL', 'Reference']
+built /tmp/openmm-metal-bench/ultra-r3-lean
+commit 88eca55dac3cbccbdfcb56ecb1dedab22d0176cf
+src b51b914efba8c4ee9862ae072d0d3cf3d1d2ab1f
+toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+built 2026-09-27T21:26:23Z

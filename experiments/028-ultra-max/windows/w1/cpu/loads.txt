@@ -1,0 +1,18 @@
+2026-09-25T05:26:44Z round 1 pme base-cpu load { 0.87 1.24 1.61 } vm 7% top other 22.9%, com.apple.Virtualization.VirtualMachine 6.8%,  other 1.9%, other 1.2%, other 1.2%
+2026-09-25T05:27:15Z round 1 pme base-cpu cpu threads 28, 6 samples: benchmark 1695% to 1710%, busiest other 13% (other), VM up to 6%
+2026-09-25T05:27:15Z round 1 apoa1pme base-cpu load { 6.61 2.58 2.08 } vm 7% top other 13.6%, com.apple.Virtualization.VirtualMachine 6.8%, other 6.7%, other 1.9%, powermetrics 1.8%
+2026-09-25T05:27:50Z round 1 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2080% to 2154%, busiest other 15% (other), VM up to 9%
+2026-09-25T05:27:50Z round 1 amber20-dhfr base-cpu load { 12.19 4.44 2.77 } vm 5% top other 16.0%, other 6.5%, com.apple.Virtualization.VirtualMachine 4.8%, other 3.1%, other 2.0%
+2026-09-25T05:28:25Z round 1 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1653% to 1678%, busiest other 24% (other), VM up to 7%
+2026-09-25T05:28:25Z round 2 pme base-cpu load { 11.21 5.01 3.05 } vm 6% top other 16.1%, other 8.5%, com.apple.Virtualization.VirtualMachine 5.1%, other 2.3%,  other 2.0%
+2026-09-25T05:28:56Z round 2 pme base-cpu cpu threads 28, 6 samples: benchmark 1777% to 1800%, busiest other 13% (other), VM up to 9%
+2026-09-25T05:28:56Z round 2 apoa1pme base-cpu load { 14.50 6.39 3.62 } vm 3% top other 17.8%, other 14.9%, other 13.0%, other 9.1%, other 5.1%
+2026-09-25T05:29:32Z round 2 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2095% to 2192%, busiest other 15% (other), VM up to 14%
+2026-09-25T05:29:32Z round 2 amber20-dhfr base-cpu load { 18.10 8.15 4.36 } vm 6% top other 16.3%, com.apple.Virtualization.VirtualMachine 6.5%,  other 3.2%, other 3.2%, other 2.3%
+2026-09-25T05:30:07Z round 2 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1666% to 1678%, busiest other 15% (other), VM up to 11%
+2026-09-25T05:30:07Z round 3 pme base-cpu load { 19.87 9.60 5.04 } vm 5% top other 15.8%, other 7.0%, com.apple.Virtualization.VirtualMachine 4.3%, other 2.2%,  other 2.1%
+2026-09-25T05:30:38Z round 3 pme base-cpu cpu threads 28, 6 samples: benchmark 1787% to 1831%, busiest other 14% (other), VM up to 13%
+2026-09-25T05:30:38Z round 3 apoa1pme base-cpu load { 20.20 10.88 5.69 } vm 6% top other 15.0%, com.apple.Virtualization.VirtualMachine 6.3%, other 2.0%,  other 1.6%, other 1.5%
+2026-09-25T05:31:13Z round 3 apoa1pme base-cpu cpu threads 28, 6 samples: benchmark 2098% to 2138%, busiest other 15% (other), VM up to 7%
+2026-09-25T05:31:14Z round 3 amber20-dhfr base-cpu load { 22.76 12.55 6.51 } vm 7% top other 15.4%, com.apple.Virtualization.VirtualMachine 7.3%, other 1.7%, other 1.5%, WindowServer 1.0%
+2026-09-25T05:31:48Z round 3 amber20-dhfr base-cpu cpu threads 28, 6 samples: benchmark 1801% to 1835%, busiest other 86% (com.apple.Virtualization.VirtualMachine), VM up to 86%

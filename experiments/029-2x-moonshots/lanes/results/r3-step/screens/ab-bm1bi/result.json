@@ -1,0 +1,257 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-bm1bi",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "gbsa",
+   "label": "bm_s",
+   "median": 2370.585996336894,
+   "rounds": {
+    "1": 2360.2763884955284,
+    "2": 2346.386622383942,
+    "3": 2390.244121026671,
+    "4": 2360.921032121857,
+    "5": 2369.0819962616833,
+    "6": 2368.8162823916905,
+    "7": 2388.0188659051996,
+    "8": 2352.049240907552,
+    "9": 2390.0205655804507,
+    "10": 2376.7079835330323,
+    "11": 2375.866088675799,
+    "12": 2385.0964987817442,
+    "13": 2377.5088551017857,
+    "14": 2347.173556042532,
+    "15": 2366.747546870466,
+    "16": 2365.5798005547126,
+    "17": 2372.089996412104,
+    "18": 2381.6441085266497,
+    "19": 2404.362430226501,
+    "20": 2359.707595814759
+   },
+   "spread": 0.024456319210585664
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "median": 2354.5190505753326,
+   "rounds": {
+    "1": 2326.2558521576116,
+    "2": 2368.4422705020993,
+    "3": 2380.484452482022,
+    "4": 2382.7372171846346,
+    "5": 2393.823632554333,
+    "6": 2354.465852346838,
+    "7": 2371.714209829071,
+    "8": 2368.19982864425,
+    "9": 2369.624008950824,
+    "10": 2369.5584972278825,
+    "11": 2369.536926376418,
+    "12": 2353.0074658402586,
+    "13": 2354.5722488038273,
+    "14": 2347.836833975865,
+    "15": 2296.011220777508,
+    "16": 2323.7142325446316,
+    "17": 2336.4773295299146,
+    "18": 2347.955744978344,
+    "19": 2352.3673491753266,
+    "20": 2353.7536380185256
+   },
+   "spread": 0.04154241680606684
+  },
+  {
+   "test": "pme",
+   "label": "bm_s",
+   "median": 1289.5541036060122,
+   "rounds": {
+    "1": 1281.5238513319262,
+    "2": 1288.0746438300532,
+    "3": 1296.4480966654273,
+    "4": 1291.6369993178391,
+    "5": 1295.1559715953515,
+    "6": 1293.706072583543,
+    "7": 1289.7182898614747,
+    "8": 1290.3022651888614,
+    "9": 1289.38991735055,
+    "10": 1296.7170646149077,
+    "11": 1301.4585812537973,
+    "12": 1296.0152203783953,
+    "13": 1282.3279185324338,
+    "14": 1282.2823709794977,
+    "15": 1281.5536313321204,
+    "16": 1283.1280285507958,
+    "17": 1285.9161151442509,
+    "18": 1292.8958211981965,
+    "19": 1285.4062957247597,
+    "20": 1287.0852805246443
+   },
+   "spread": 0.015458622376623972
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "median": 1313.5716905601637,
+   "rounds": {
+    "1": 1319.8697781656235,
+    "2": 1306.777658165366,
+    "3": 1325.549044711938,
+    "4": 1312.4404477321484,
+    "5": 1319.7012172962386,
+    "6": 1315.1423828374407,
+    "7": 1317.4597932933286,
+    "8": 1308.5947616834646,
+    "9": 1316.257426050968,
+    "10": 1329.0394541948053,
+    "11": 1327.2616822654898,
+    "12": 1318.8158663936438,
+    "13": 1311.9515168011978,
+    "14": 1311.458038017958,
+    "15": 1305.6955297786612,
+    "16": 1311.907158505536,
+    "17": 1307.2811523302082,
+    "18": 1300.00890941781,
+    "19": 1314.702933388179,
+    "20": 1308.002559879815
+   },
+   "spread": 0.02210046469912541
+  }
+ ],
+ "ratios": [
+  {
+   "test": "gbsa",
+   "num": "bm_s",
+   "den": "fold_s",
+   "ratio": 1.0068238758814185,
+   "round_min": 0.9896643863164434,
+   "round_max": 1.0308083538324366
+  },
+  {
+   "test": "pme",
+   "num": "bm_s",
+   "den": "fold_s",
+   "ratio": 0.9817158156446647,
+   "round_min": 0.9709471892848466,
+   "round_max": 0.9945284311760609
+  }
+ ],
+ "power": [
+  {
+   "test": "gbsa",
+   "label": "bm_s",
+   "gpu_w": 54.5763,
+   "pkg_w": 57.478899999999996,
+   "ns_per_day_per_gpu_w": 43.436180106326255
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "gpu_w": 54.424099999999996,
+   "pkg_w": 57.35425,
+   "ns_per_day_per_gpu_w": 43.262434299792424
+  },
+  {
+   "test": "pme",
+   "label": "bm_s",
+   "gpu_w": 58.6738,
+   "pkg_w": 60.9719,
+   "ns_per_day_per_gpu_w": 21.978363487723858
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "gpu_w": 59.76027500000001,
+   "pkg_w": 61.64852500000001,
+   "ns_per_day_per_gpu_w": 21.980683498530812
+  }
+ ],
+ "hygiene": {
+  "runs": 80,
+  "load": [
+   2.26,
+   12.27
+  ],
+  "vm_cpu": [
+   5,
+   132
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [
+   "2026-09-29T12:37:39Z round 2 gbsa fold_s after the run: FOREIGN GPU 14%",
+   "2026-09-29T12:37:40Z round 2 pme bm_s load { 3.04 2.84 4.04 } FOREIGN GPU 18% vm 40%",
+   "2026-09-29T12:37:48Z round 2 pme bm_s after the run: FOREIGN GPU 6%",
+   "2026-09-29T12:39:27Z round 5 gbsa bm_s after the run: FOREIGN GPU 7%",
+   "2026-09-29T12:40:30Z round 7 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:40:31Z round 7 gbsa bm_s load { 9.00 5.17 4.73 } FOREIGN GPU renderers chrome-headless-shell vm 37%",
+   "2026-09-29T12:40:39Z round 7 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:40:40Z round 7 pme fold_s load { 8.97 5.28 4.77 } FOREIGN GPU renderers chrome-headless-shell vm 13%",
+   "2026-09-29T12:40:48Z round 7 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:40:49Z round 7 pme bm_s load { 7.66 5.12 4.72 } FOREIGN GPU renderers chrome-headless-shell vm 12%",
+   "2026-09-29T12:40:57Z round 7 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:40:58Z round 8 gbsa bm_s load { 6.79 5.02 4.69 } FOREIGN GPU renderers chrome-headless-shell vm 11%",
+   "2026-09-29T12:41:15Z round 8 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:41:16Z round 8 pme bm_s load { 5.87 4.90 4.65 } FOREIGN GPU renderers chrome-headless-shell vm 27%",
+   "2026-09-29T12:41:24Z round 8 pme bm_s after the run: FOREIGN GPU 6%",
+   "2026-09-29T12:41:43Z round 9 gbsa fold_s after the run: FOREIGN GPU 6%",
+   "2026-09-29T12:41:44Z round 9 gbsa bm_s load { 4.47 4.64 4.57 } FOREIGN GPU renderers chrome-headless-shell vm 7%",
+   "2026-09-29T12:41:52Z round 9 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:41:54Z round 9 pme fold_s load { 4.02 4.54 4.53 } FOREIGN GPU renderers chrome-headless-shell vm 6%",
+   "2026-09-29T12:42:01Z round 9 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:03Z round 9 pme bm_s load { 3.62 4.44 4.50 } FOREIGN GPU renderers chrome-headless-shell vm 19%",
+   "2026-09-29T12:42:10Z round 9 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:12Z round 10 gbsa bm_s load { 3.49 4.39 4.48 } FOREIGN GPU renderers chrome-headless-shell vm 17%",
+   "2026-09-29T12:42:29Z round 10 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:31Z round 10 pme bm_s load { 3.82 4.42 4.49 } FOREIGN GPU renderers chrome-headless-shell vm 8%",
+   "2026-09-29T12:42:39Z round 10 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:40Z round 10 pme fold_s load { 4.83 4.60 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 11%",
+   "2026-09-29T12:42:47Z round 10 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:49Z round 11 gbsa fold_s load { 5.33 4.71 4.59 } FOREIGN GPU renderers chrome-headless-shell vm 5%",
+   "2026-09-29T12:42:57Z round 11 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:42:58Z round 11 gbsa bm_s load { 4.89 4.64 4.57 } FOREIGN GPU renderers chrome-headless-shell vm 8%",
+   "2026-09-29T12:43:06Z round 11 gbsa bm_s after the run: FOREIGN GPU 6% FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:08Z round 11 pme fold_s load { 4.60 4.58 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 5%",
+   "2026-09-29T12:43:15Z round 11 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:17Z round 11 pme bm_s load { 4.23 4.51 4.52 } FOREIGN GPU renderers chrome-headless-shell vm 9%",
+   "2026-09-29T12:43:24Z round 11 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:26Z round 12 gbsa bm_s load { 4.35 4.52 4.53 } FOREIGN GPU renderers chrome-headless-shell vm 6%",
+   "2026-09-29T12:43:34Z round 12 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:35Z round 12 gbsa fold_s load { 4.73 4.60 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 5%",
+   "2026-09-29T12:43:44Z round 12 gbsa fold_s after the run: FOREIGN GPU 6% FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:45Z round 12 pme bm_s load { 4.23 4.50 4.52 } FOREIGN GPU renderers chrome-headless-shell vm 6%",
+   "2026-09-29T12:43:53Z round 12 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:43:54Z round 12 pme fold_s load { 4.11 4.47 4.50 } FOREIGN GPU renderers chrome-headless-shell vm 7%",
+   "2026-09-29T12:44:02Z round 12 pme fold_s after the run: FOREIGN GPU 7% FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:44:03Z round 13 gbsa fold_s load { 3.78 4.39 4.48 } FOREIGN GPU renderers chrome-headless-shell vm 6%",
+   "2026-09-29T12:44:11Z round 13 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell",
+   "2026-09-29T12:45:25Z round 15 gbsa fold_s after the run: FOREIGN GPU 14%"
+  ],
+  "cpu_busy": [],
+  "vm_high": [
+   "2026-09-29T12:38:16Z round 3 pme fold_s load { 2.59 2.73 3.95 } vm 132%"
+  ]
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T12:36:46Z",
+ "last_run": "2026-09-29T12:48:43Z",
+ "arms": {
+  "fold_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "bm_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-bm",
+   "commit": "11e3b27c555e88fd93910a0b463398952711a472",
+   "src": "f21221d88176378dfde7aa0f606cda151b88c787",
+   "built": "2026-09-29T10:56:08Z"
+  }
+ },
+ "gpuq_job": null,
+ "written": "2026-09-29T12:48:58Z"
+}

@@ -1,0 +1,12 @@
+19:22:12Z waiting for the lease: 5 in the queue, held by: ultra-r2-spread 2026-09-27T19:17:53Z ab.sh /tmp/openmm-metal-bench/ultra-r2-spread/s3, about 9 min, 0 build processes
+19:27:16Z waiting for the lease: 2 in the queue, held by: ultra-r2-mixed 2026-09-27T19:25:55Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-gq-dhfr, about 2 min, 0 build processes
+v-single: xctrace pid 46726 recording 19:27:59Z
+captured v-single 19:28:02Z: Target app exited, ending recording...
+saved v-single 19:28:46Z: Output file saved as: v-single.trace
+exported v-single 19:28:56Z, rows 234624, releasing
+19:28:56Z waiting for the lease: 2 in the queue, held by: nobody, 0 build processes
+v-mixed: xctrace pid 49285 recording 19:28:59Z
+captured v-mixed 19:29:04Z: Target app exited, ending recording...
+saved v-mixed 19:29:41Z: Output file saved as: v-mixed.trace
+exported v-mixed 19:29:50Z, rows 183312, releasing
+PROF6 DONE

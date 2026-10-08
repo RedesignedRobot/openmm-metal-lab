@@ -1,0 +1,27 @@
+median ns/day, host clock
+test                  base-mixed   base-single    mine-mixed   mine-single
+amber20-cellulose          78.63         87.46         78.72         87.29
+amber20-stmv               28.18         30.81         28.12         31.12
+
+rounds, base-mixed:
+  amber20-cellulose  78.68 78.58   spread 0.1%
+  amber20-stmv       28.18 28.17   spread 0.0%
+rounds, base-single:
+  amber20-cellulose  87.52 87.40   spread 0.1%
+  amber20-stmv       30.85 30.78   spread 0.2%
+rounds, mine-mixed:
+  amber20-cellulose  78.70 78.75   spread 0.1%
+  amber20-stmv       28.11 28.13   spread 0.1%
+rounds, mine-single:
+  amber20-cellulose  87.40 87.17   spread 0.3%
+  amber20-stmv       31.10 31.14   spread 0.1%
+
+test                           mine-single/base-single               mine-mixed/base-mixed
+amber20-cellulose          0.998 (rounds 0.997..0.999)         1.001 (rounds 1.000..1.002)
+amber20-stmv               1.010 (rounds 1.008..1.012)         0.998 (rounds 0.998..0.998)
+
+1 minute load before 16 runs: 2.25 to 9.83
+Background VM CPU before 16 runs: 4% to 94%
+runs with no result: 0
+runs that overlapped a build: 1
+  2026-09-27T22:36:35Z round 1 amber20-stmv mine-mixed BUILD RUNNING during the run

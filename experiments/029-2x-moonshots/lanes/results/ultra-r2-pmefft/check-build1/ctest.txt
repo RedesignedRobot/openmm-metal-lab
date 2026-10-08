@@ -1,0 +1,29 @@
+Test project /tmp/openmm-metal-bench/ultra-r2-pmefft/build
+      Start 232: TestMetalConstantPotentialForceSingle
+      Start 233: TestMetalConstantPotentialForceMixed
+ 1/12 Test #233: TestMetalConstantPotentialForceMixed ....   Passed    9.17 sec
+      Start 262: TestMetalDispersionPMESingle
+ 2/12 Test #232: TestMetalConstantPotentialForceSingle ...   Passed   12.28 sec
+      Start 263: TestMetalDispersionPMEMixed
+ 3/12 Test #262: TestMetalDispersionPMESingle ............   Passed   10.38 sec
+      Start 264: TestMetalEwaldSingle
+ 4/12 Test #264: TestMetalEwaldSingle ....................   Passed    8.16 sec
+      Start 265: TestMetalEwaldMixed
+ 5/12 Test #265: TestMetalEwaldMixed .....................   Passed    8.69 sec
+      Start 294: TestMetalNonbondedForceSingle
+ 6/12 Test #294: TestMetalNonbondedForceSingle ...........   Passed    6.68 sec
+      Start 295: TestMetalNonbondedForceMixed
+ 7/12 Test #263: TestMetalDispersionPMEMixed .............   Passed   44.84 sec
+      Start 412: TestMetalAmoebaMultipoleForceSingle
+ 8/12 Test #412: TestMetalAmoebaMultipoleForceSingle .....   Passed    5.61 sec
+      Start 413: TestMetalAmoebaMultipoleForceMixed
+ 9/12 Test #295: TestMetalNonbondedForceMixed ............   Passed   28.54 sec
+      Start 418: TestMetalHippoNonbondedForceSingle
+10/12 Test #418: TestMetalHippoNonbondedForceSingle ......   Passed    2.78 sec
+      Start 419: TestMetalHippoNonbondedForceMixed
+11/12 Test #419: TestMetalHippoNonbondedForceMixed .......   Passed    9.81 sec
+12/12 Test #413: TestMetalAmoebaMultipoleForceMixed ......   Passed   27.11 sec
+
+100% tests passed out of 12
+
+Total Test time (real) =  89.85 sec

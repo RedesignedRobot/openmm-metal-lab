@@ -1,0 +1,81 @@
+23:32:09Z waiting for the lease: 58 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:37:14Z waiting for the lease: 58 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:42:21Z waiting for the lease: 52 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:47:27Z waiting for the lease: 42 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:52:31Z waiting for the lease: 42 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 3 build processes
+23:57:36Z waiting for the lease: 42 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 6 build processes
+00:02:40Z waiting for the lease: 27 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 30 build processes
+00:07:45Z waiting for the lease: 27 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:12:50Z waiting for the lease: 27 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:17:55Z waiting for the lease: 27 in the queue, held by: t10 2026-09-24T23:59:24Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t10, 0 build processes
+00:22:59Z waiting for the lease: 26 in the queue, held by: ultra-pme 2026-09-25T00:21:47Z ab cand2 amber20 dhfr cellulose single, 0 build processes
+00:28:04Z waiting for the lease: 24 in the queue, held by: ultra-pme 2026-09-25T00:27:17Z ab cand2 pme tests mixed, 0 build processes
+00:33:08Z waiting for the lease: 23 in the queue, held by: ultra-pme 2026-09-25T00:31:10Z split-pass probe screen, 0 build processes
+00:38:14Z waiting for the lease: 22 in the queue, held by: ultra-profiler 2026-09-25T00:36:00Z 1e GBSA kill test: forces plus counters census, base/kill/rsqrt on gbsa, 3 repeats, about 4 min, 0 build processes
+00:43:18Z waiting for the lease: 21 in the queue, held by: ultra-dispatch 2026-09-25T00:40:23Z waitfree vs poll, 0 build processes
+00:48:22Z waiting for the lease: 19 in the queue, held by: ultra-pme 2026-09-25T00:44:23Z cand3 screen part 2, 0 build processes
+00:53:27Z waiting for the lease: 17 in the queue, held by: ultra-atomics 2026-09-25T00:52:14Z words screen a: rf,gbsa, ultra-base/p0/words 2x15 s, ~12 min, 0 build processes
+00:58:34Z waiting for the lease: 15 in the queue, held by: ultra-nonbonded 2026-09-25T00:57:18Z screen tiles commit 6d72c3ae9, 4 configs x 5 tests x 2 rounds of 15 s, 0 build processes
+01:03:41Z waiting for the lease: 14 in the queue, held by: ultra-mixed 2026-09-25T01:00:36Z relaxed math screen single, 0 build processes
+01:08:45Z waiting for the lease: 12 in the queue, held by: ultra-pme 2026-09-25T01:07:31Z lab2 screen: LJPME dispersion grids, ~8 min, 0 build processes
+01:13:51Z waiting for the lease: 11 in the queue, held by: ultra-plugins 2026-09-25T01:11:44Z screen amoebagk before/cand/OpenCL 2x15s, ~8 min, 0 build processes
+01:18:57Z waiting for the lease: 10 in the queue, held by: ultra-workloads 2026-09-25T01:15:22Z aggregate throughput: 1,2,4,8 procs x gbsa,rf x Metal single/OpenCL single/Metal mixed, 10 s windows, ~10 min, 0 build processes
+01:24:02Z waiting for the lease: 9 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:29:07Z waiting for the lease: 9 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:34:12Z waiting for the lease: 8 in the queue, held by: ultra-plugins 2026-09-25T01:31:52Z screen amoebagk head/bar 2x15s, ~6 min, 0 build processes
+01:39:16Z waiting for the lease: 6 in the queue, held by: ultra-atomics 2026-09-25T01:39:10Z screen bonded b: pme,gbsa,rf, b0/bonded 2x15 s, ~12 min, 0 build processes
+01:44:20Z waiting for the lease: 5 in the queue, held by: ultra-nblist 2026-09-25T01:42:30Z job3 isolated nblist phase times, K3 unroll and K4 staged box data, ~8 min, 0 build processes
+01:49:24Z waiting for the lease: 4 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:54:29Z waiting for the lease: 4 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:59:33Z waiting for the lease: 3 in the queue, held by: ultra-atomics 2026-09-25T01:59:01Z census 1b: bonded b0 vs d8ab45b2b counters, 6 tests, ~4 min, 0 build processes
+02:04:36Z waiting for the lease: 2 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:09:40Z waiting for the lease: 2 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:15:13Z waiting for the lease: 1 in the queue, held by: ultra-mixed 2026-09-25T02:10:42Z fused LangevinMiddle screen, single and mixed, gbsa and rf, 0 build processes
+poll round1 gbsa single 2000 1000 2.7711 1385.5
+poll round1 rf single 2000 1000 3.0611 1530.6
+poll round1 pme single 2000 1000 3.2732 1636.6
+poll round1 amber20-dhfr single 2000 1000 3.1599 1579.9
+wfk round1 gbsa single 2000 1000 2.0696 1034.8
+wfk round1 rf single 2000 1000 2.0654 1032.7
+wfk round1 pme single 2000 1000 2.0723 1036.1
+wfk round1 amber20-dhfr single 2000 1000 2.0759 1038.0
+poll round1 gbsa mixed 2000 1000 2.9740 1487.0
+poll round1 rf mixed 2000 1000 3.4722 1736.1
+poll round1 pme mixed 2000 1000 3.6588 1829.4
+poll round1 amber20-dhfr mixed 2000 1000 3.4932 1746.6
+wfk round1 gbsa mixed 2000 1000 2.0653 1032.7
+wfk round1 rf mixed 2000 1000 2.0570 1028.5
+wfk round1 pme mixed 2000 1000 2.0666 1033.3
+wfk round1 amber20-dhfr mixed 2000 1000 2.0667 1033.4
+wfk round2 gbsa mixed 2000 1000 2.0659 1033.0
+wfk round2 rf mixed 2000 1000 2.0577 1028.8
+wfk round2 pme mixed 2000 1000 2.0688 1034.4
+wfk round2 amber20-dhfr mixed 2000 1000 2.0659 1032.9
+poll round2 gbsa mixed 2000 1000 2.9765 1488.2
+poll round2 rf mixed 2000 1000 3.4739 1736.9
+poll round2 pme mixed 2000 1000 3.7292 1864.6
+poll round2 amber20-dhfr mixed 2000 1000 3.5139 1757.0
+wfk round2 gbsa single 2000 1000 2.0719 1036.0
+wfk round2 rf single 2000 1000 2.0687 1034.4
+wfk round2 pme single 2000 1000 2.0750 1037.5
+wfk round2 amber20-dhfr single 2000 1000 2.0754 1037.7
+poll round2 gbsa single 2000 1000 2.7757 1387.9
+poll round2 rf single 2000 1000 3.0438 1521.9
+poll round2 pme single 2000 1000 3.2235 1611.8
+poll round2 amber20-dhfr single 2000 1000 3.1566 1578.3
+poll round3 gbsa single 2000 1000 2.7714 1385.7
+poll round3 rf single 2000 1000 3.0841 1542.0
+poll round3 pme single 2000 1000 3.2583 1629.1
+poll round3 amber20-dhfr single 2000 1000 3.1263 1563.1
+wfk round3 gbsa single 2000 1000 2.0708 1035.4
+wfk round3 rf single 2000 1000 2.0667 1033.4
+wfk round3 pme single 2000 1000 2.0773 1038.6
+wfk round3 amber20-dhfr single 2000 1000 2.0748 1037.4
+poll round3 gbsa mixed 2000 1000 3.1042 1552.1
+poll round3 rf mixed 2000 1000 3.4868 1743.4
+poll round3 pme mixed 2000 1000 3.6943 1847.2
+poll round3 amber20-dhfr mixed 2000 1000 3.5130 1756.5
+wfk round3 gbsa mixed 2000 1000 2.0672 1033.6
+wfk round3 rf mixed 2000 1000 2.0748 1037.4
+wfk round3 pme mixed 2000 1000 2.0751 1037.6
+wfk round3 amber20-dhfr mixed 2000 1000 2.0695 1034.7

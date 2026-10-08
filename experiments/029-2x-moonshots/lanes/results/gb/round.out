@@ -1,0 +1,139 @@
+21:17:16Z waiting for the lease: 4 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:09:59Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-small, about 10 min, 0 build processes
+21:22:36Z waiting for the lease: 1 in the queue, held by: ultra-m29-nonbonded 2026-09-26T21:19:08Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-apoa1rf, about 9 min, 0 build processes
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 136, in <module>
+    f, e, reached = metal(system, positions, precision)
+                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 98, in metal
+    return evaluate(context)
+  File "/tmp/openmm-metal-bench/ultra-tools/forces.py", line 62, in evaluate
+    state = context.getState(getForces=True, getEnergy=True, getPositions=True)
+  File "/tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/openmm.py", line 6141, in getState
+    state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+openmm.OpenMMException: Error compiling program: program_source:318:26: error: unknown type name '_mmThread'
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+                         ^
+program_source:318:45: error: expected ')'
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+                                            ^
+program_source:318:25: note: to match this '('
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+                        ^
+program_source:319:5: error: use of undeclared identifier 'data'
+    data.bornSum += simd_shuffle(value, lane);
+    ^
+program_source:319:34: error: use of undeclared identifier 'value'; did you mean 'false'?
+    data.bornSum += simd_shuffle(value, lane);
+                                 ^~~~~
+                                 false
+program_source:319:41: error: use of undeclared identifier 'lane'
+    data.bornSum += simd_shuffle(value, lane);
+                                        ^
+program_source:386:17: warning: unused variable 'gbPair' [-Wunused-variable]
+                GB_LOAD(j)
+                ^
+program_source:270:10: note: expanded from macro 'GB_LOAD'
+    auto gbPair = zeroGBPair(localData); \
+         ^
+program_source:386:17: warning: unused variable 'otherAtom' [-Wunused-variable]
+program_source:271:9: note: expanded from macro 'GB_LOAD'
+    int otherAtom = simd_shuffle(localAtomIndex, (index));
+        ^
+program_source:472:17: error: no matching function for call to 'finishGBPair'
+                GB_FINISH(tj)
+                ^~~~~~~~~~~~~
+program_source:274:26: note: expanded from macro 'GB_FINISH'
+#define GB_FINISH(index) finishGBPair(localData, gbPair, (2*tgx-(index)) & (TILE_SIZE-1));
+                         ^~~~~~~~~~~~
+program_source:318:13: note: candidate function not viable: requires single argument 'AtomData1', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+            ^
+program_source:670:21: error: no matching function for call to 'finishGBPair'
+                    GB_FINISH(tj)
+                    ^~~~~~~~~~~~~
+program_source:274:26: note: expanded from macro 'GB_FINISH'
+#define GB_FINISH(index) finishGBPair(localData, gbPair, (2*tgx-(index)) & (TILE_SIZE-1));
+                         ^~~~~~~~~~~~
+program_source:318:13: note: candidate function not viable: requires single argument 'AtomData1', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+            ^
+program_source:366:44: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+program_source:711:26: error: unknown type name '_mmThread'
+inline void finishGBPair(_mmThread AtomData2& data, real4 value, uint lane) {
+                         ^
+program_source:711:45: error: expected ')'
+inline void finishGBPair(_mmThread AtomData2& data, real4 value, uint lane) {
+                                            ^
+program_source:711:25: note: to match this '('
+inline void finishGBPair(_mmThread AtomData2& data, real4 value, uint lane) {
+                        ^
+program_source:712:32: error: use of undeclared identifier 'value'; did you mean 'false'?
+    real4 force = simd_shuffle(value, lane);
+                               ^~~~~
+                               false
+program_source:712:39: error: use of undeclared identifier 'lane'
+    real4 force = simd_shuffle(value, lane);
+                                      ^
+program_source:713:5: error: use of undeclared identifier 'data'
+    data.fx += force.x;
+    ^
+program_source:714:5: error: use of undeclared identifier 'data'
+    data.fy += force.y;
+    ^
+program_source:715:5: error: use of undeclared identifier 'data'
+    data.fz += force.z;
+    ^
+program_source:716:5: error: use of undeclared identifier 'data'
+    data.fw += force.w;
+    ^
+program_source:799:30: warning: unused variable 'r' [-Wunused-variable]
+                        real r = r2*invR;
+                             ^
+program_source:786:17: warning: unused variable 'gbPair' [-Wunused-variable]
+                GB_LOAD(j)
+                ^
+program_source:270:10: note: expanded from macro 'GB_LOAD'
+    auto gbPair = zeroGBPair(localData); \
+         ^
+program_source:786:17: warning: unused variable 'otherAtom' [-Wunused-variable]
+program_source:271:9: note: expanded from macro 'GB_LOAD'
+    int otherAtom = simd_shuffle(localAtomIndex, (index));
+        ^
+program_source:859:30: warning: unused variable 'r' [-Wunused-variable]
+                        real r = r2*invR;
+                             ^
+program_source:889:17: error: no matching function for call to 'finishGBPair'
+                GB_FINISH(tj)
+                ^~~~~~~~~~~~~
+program_source:274:26: note: expanded from macro 'GB_FINISH'
+#define GB_FINISH(index) finishGBPair(localData, gbPair, (2*tgx-(index)) & (TILE_SIZE-1));
+                         ^~~~~~~~~~~~
+program_source:318:13: note: candidate function not viable: requires single argument 'AtomData1', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+            ^
+program_source:711:13: note: candidate function not viable: requires single argument 'AtomData2', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData2& data, real4 value, uint lane) {
+            ^
+program_source:1074:34: warning: unused variable 'r' [-Wunused-variable]
+                            real r = r2*invR;
+                                 ^
+program_source:1104:21: error: no matching function for call to 'finishGBPair'
+                    GB_FINISH(tj)
+                    ^~~~~~~~~~~~~
+program_source:274:26: note: expanded from macro 'GB_FINISH'
+#define GB_FINISH(index) finishGBPair(localData, gbPair, (2*tgx-(index)) & (TILE_SIZE-1));
+                         ^~~~~~~~~~~~
+program_source:318:13: note: candidate function not viable: requires single argument 'AtomData1', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData1& data, real value, uint lane) {
+            ^
+program_source:711:13: note: candidate function not viable: requires single argument 'AtomData2', but 3 arguments were provided
+inline void finishGBPair(_mmThread AtomData2& data, real4 value, uint lane) {
+            ^
+program_source:767:44: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int pos = firstExclusionTile; pos < lastExclusionTile; pos++) {
+                                       ~~~ ^ ~~~~~~~~~~~~~~~~~
+

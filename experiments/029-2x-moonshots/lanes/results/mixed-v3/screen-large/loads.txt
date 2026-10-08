@@ -1,0 +1,21 @@
+2026-09-26T21:27:45Z round 1 amber20-dhfr baseS load { 1.78 2.97 5.23 } vm 5% top other 16.3%, WindowServer 4.8%, com.apple.Virtualization.VirtualMachine 2.5%, com.apple.Virtualization.VirtualMachine 2.2%, other 1.2%
+2026-09-26T21:28:02Z round 1 amber20-dhfr baseM load { 1.85 2.92 5.17 } vm 6% top other 14.3%, other 7.0%,  other 6.8%, powermetrics 6.6%, other 4.8%
+2026-09-26T21:28:22Z round 1 amber20-dhfr baseM BUILD RUNNING during the run
+2026-09-26T21:28:22Z round 1 amber20-dhfr mineS load { 6.56 3.97 5.50 } vm 5% top other 16.6%, com.apple.Virtualization.VirtualMachine 3.4%, WindowServer 2.7%, com.apple.Virtualization.VirtualMachine 1.8%, other 1.6%
+2026-09-26T21:28:39Z round 1 amber20-dhfr mineM load { 5.10 3.81 5.40 } vm 4% top other 18.9%, WindowServer 13.4%,  other 2.6%, com.apple.Virtualization.VirtualMachine 2.0%, other 2.0%
+2026-09-26T21:28:59Z round 1 amber20-dhfr opencl load { 4.59 3.78 5.36 } vm 4% top other 15.5%, other 4.2%, powermetrics 3.1%, WindowServer 2.8%, other 2.6%
+2026-09-26T21:29:18Z round 1 apoa1pme baseS load { 4.13 3.73 5.30 } vm 4% top other 16.7%, WindowServer 3.1%, other 3.1%, com.apple.Virtualization.VirtualMachine 2.1%, com.apple.Virtualization.VirtualMachine 2.0%
+2026-09-26T21:29:36Z round 1 apoa1pme baseM load { 3.29 3.56 5.21 } vm 4% top other 18.5%, other 6.3%, powermetrics 3.8%, com.apple.Virtualization.VirtualMachine 2.4%, WindowServer 2.2%
+2026-09-26T21:29:55Z round 1 apoa1pme mineS load { 2.48 3.36 5.10 } vm 5% top other 17.7%, powermetrics 7.7%, other 6.8%, WindowServer 5.6%, com.apple.Virtualization.VirtualMachine 3.6%
+2026-09-26T21:30:14Z round 1 apoa1pme mineM load { 2.28 3.26 5.02 } vm 5% top other 18.2%, other 4.0%, com.apple.Virtualization.VirtualMachine 2.5%, powermetrics 2.4%, WindowServer 2.2%
+2026-09-26T21:30:34Z round 1 apoa1pme opencl load { 1.96 3.12 4.94 } vm 3% top other 19.0%, other 9.1%, WindowServer 2.8%, com.apple.Virtualization.VirtualMachine 2.3%, com.apple.Virtualization.VirtualMachine 1.5%
+2026-09-26T21:30:53Z round 2 amber20-dhfr opencl load { 1.91 3.04 4.86 } vm 9% top other 17.1%, com.apple.Virtualization.VirtualMachine 5.2%, other 4.2%, com.apple.Virtualization.VirtualMachine 3.9%, WindowServer 3.3%
+2026-09-26T21:31:12Z round 2 amber20-dhfr mineM load { 1.70 2.93 4.79 } vm 5% top other 14.8%, other 6.8%, other 4.2%, com.apple.Virtualization.VirtualMachine 3.1%, WindowServer 2.0%
+2026-09-26T21:31:32Z round 2 amber20-dhfr mineS load { 1.89 2.90 4.74 } vm 5% top other 18.2%, other 4.0%, com.apple.Virtualization.VirtualMachine 2.7%, com.apple.Virtualization.VirtualMachine 2.1%, WindowServer 2.0%
+2026-09-26T21:31:49Z round 2 amber20-dhfr baseM load { 1.85 2.83 4.67 } vm 2% top other 15.8%, other 7.8%, WindowServer 1.7%, other 1.3%, com.apple.Virtualization.VirtualMachine 1.2%
+2026-09-26T21:32:08Z round 2 amber20-dhfr baseS load { 1.60 2.71 4.58 } vm 5% top other 18.6%, WindowServer 3.8%, com.apple.Virtualization.VirtualMachine 3.1%, other 3.0%,  other 1.7%
+2026-09-26T21:32:25Z round 2 apoa1pme opencl load { 1.64 2.66 4.53 } vm 6% top other 17.9%, com.apple.Virtualization.VirtualMachine 4.6%, WindowServer 2.6%, other 2.0%, com.apple.Virtualization.VirtualMachine 1.7%
+2026-09-26T21:32:44Z round 2 apoa1pme mineM load { 1.86 2.65 4.48 } vm 7% top other 16.2%, other 6.5%, WindowServer 4.2%, com.apple.Virtualization.VirtualMachine 4.2%, com.apple.Virtualization.VirtualMachine 2.4%
+2026-09-26T21:33:03Z round 2 apoa1pme mineS load { 1.80 2.57 4.41 } vm 4% top other 17.9%, WindowServer 3.6%, other 2.3%, other 2.2%, com.apple.Virtualization.VirtualMachine 2.1%
+2026-09-26T21:33:22Z round 2 apoa1pme baseM load { 1.40 2.45 4.33 } vm 6% top other 18.4%, WindowServer 6.0%, other 4.3%, com.apple.Virtualization.VirtualMachine 3.0%, com.apple.Virtualization.VirtualMachine 2.9%
+2026-09-26T21:33:40Z round 2 apoa1pme baseS load { 1.63 2.43 4.28 } vm 4% top other 16.7%, other 6.5%, WindowServer 2.8%, com.apple.Virtualization.VirtualMachine 2.5%, com.apple.Virtualization.VirtualMachine 2.0%

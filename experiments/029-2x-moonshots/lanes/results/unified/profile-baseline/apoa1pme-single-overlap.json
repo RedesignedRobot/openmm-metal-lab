@@ -1,0 +1,21 @@
+{
+  "raw": "/tmp/openmm-metal-bench/ultra-m29-unified/profile-baseline/apoa1pme-single-intervals.xml",
+  "clock": "xctrace GPU shader start and duration, microseconds",
+  "window_start_us": 3177470.125,
+  "window_end_us": 4177470.125,
+  "forward": {
+    "samples": 885,
+    "mean_us": 77.81521242937694,
+    "median_us": 79.33399999979883,
+    "mean_nonbonded_overlap_us": 0,
+    "mean_without_nonbonded_us": 77.81521242937694
+  },
+  "inverse": {
+    "samples": 885,
+    "mean_us": 59.96789265536666,
+    "median_us": 59.79199999989942,
+    "mean_nonbonded_overlap_us": 0,
+    "mean_without_nonbonded_us": 59.96789265536666
+  },
+  "interpretation": "Producer end to consumer start includes FFT and queue/event gaps. GPU nonbonded overlap is intersected shader-clock time. Without nonbonded does not imply idle GPU or isolated critical path."
+}

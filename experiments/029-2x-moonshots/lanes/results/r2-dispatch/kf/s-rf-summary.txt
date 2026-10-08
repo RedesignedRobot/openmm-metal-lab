@@ -1,0 +1,24 @@
+median ns/day, host clock
+test                    kc-mixed     kc-single      kf-mixed     kf-single      ki-mixed     ki-single
+rf                       1180.56       1460.25       1222.00       1511.57       1164.29       1446.47
+
+rounds, kc-mixed:
+  rf                 1176.16 1184.95   spread 0.7%
+rounds, kc-single:
+  rf                 1448.71 1471.80   spread 1.6%
+rounds, kf-mixed:
+  rf                 1226.53 1217.47   spread 0.7%
+rounds, kf-single:
+  rf                 1520.30 1502.83   spread 1.2%
+rounds, ki-mixed:
+  rf                 1159.96 1168.62   spread 0.7%
+rounds, ki-single:
+  rf                 1446.28 1446.65   spread 0.0%
+
+test                               kc-single/ki-single                   kc-mixed/ki-mixed                 kf-single/ki-single                   kf-mixed/ki-mixed                 kf-single/kc-single                   kf-mixed/kc-mixed
+rf                         1.010 (rounds 1.002..1.017)         1.014 (rounds 1.014..1.014)         1.045 (rounds 1.039..1.051)         1.050 (rounds 1.042..1.057)         1.035 (rounds 1.021..1.049)         1.035 (rounds 1.027..1.043)
+
+1 minute load before 12 runs: 2.02 to 3.83
+Background VM CPU before 12 runs: 4% to 13%
+runs with no result: 0
+runs that overlapped a build: 0

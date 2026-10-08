@@ -1,7 +1,9 @@
 #!/bin/sh
 # Runs on the M3 Ultra: configures, builds and installs the tree in <dir>/src (put there by sync.sh)
 # the way ultra-base is built: Xcode-beta's toolchain, Release, Metal, OpenCL, Python and tests on,
-# C and Fortran wrappers off, `nice -n 10` and 20 jobs as RULES.md asks. It makes <dir>/build,
+# C and Fortran wrappers off. cmake and ninja run under `taskpolicy -b` (Darwin
+# background priority, which keeps them on the 8 efficiency cores) and `nice -n 10`, with 8 jobs:
+# nice alone let a -j20 build take the performance cores from a timing hold. It makes <dir>/build,
 # <dir>/prefix and <dir>/venv, whose python imports this tree's openmm and sees numpy, scipy, Cython
 # and setuptools from the shared env. A build dir configured with another SDK is removed and
 # configured again; prefix stays until the install overwrites it, so runs of the old build keep
@@ -20,7 +22,7 @@ esac
 ENV=/tmp/openmm-metal-bench/env
 WINDOW=/tmp/openmm-window
 SITE=$ENV/lib/python3.13/site-packages
-JOBS=20
+JOBS=8
 export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
 export PATH=$ENV/bin:$PATH
 unset PYTHONPATH
@@ -49,7 +51,7 @@ done
 # No pip and no system site-packages, so setup.py never sees, or removes, the shared env's openmm.
 [ -x "$dir/venv/bin/python" ] || "$ENV/bin/python3" -m venv --without-pip "$dir/venv"
 echo "$dir/pydeps" > "$dir/venv/lib/python3.13/site-packages/ultra-pydeps.pth"
-nice -n 10 cmake -S "$dir/src" -B "$dir/build" -G Ninja \
+taskpolicy -b nice -n 10 cmake -S "$dir/src" -B "$dir/build" -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_OSX_ARCHITECTURES=arm64 \
     -DCMAKE_INSTALL_PREFIX="$dir/prefix" \
@@ -62,10 +64,10 @@ nice -n 10 cmake -S "$dir/src" -B "$dir/build" -G Ninja \
     -DBUILD_TESTING=ON \
     > "$dir/logs/configure.log" 2>&1 || { tail -30 "$dir/logs/configure.log"; exit 1; }
 grep -qx "CMAKE_OSX_SYSROOT:STRING=$sdk" "$dir/build/CMakeCache.txt" || { echo "cmake didn't pick up $sdk" >&2; exit 1; }
-nice -n 10 ninja -C "$dir/build" -j $JOBS > "$dir/logs/build.log" 2>&1 \
+taskpolicy -b nice -n 10 ninja -C "$dir/build" -j $JOBS > "$dir/logs/build.log" 2>&1 \
     || { grep -E "error|FAILED" "$dir/logs/build.log" | head -20; exit 1; }
-nice -n 10 ninja -C "$dir/build" install > "$dir/logs/install.log" 2>&1 || { tail -30 "$dir/logs/install.log"; exit 1; }
-nice -n 10 ninja -C "$dir/build" PythonInstall > "$dir/logs/python.log" 2>&1 || { tail -30 "$dir/logs/python.log"; exit 1; }
+taskpolicy -b nice -n 10 ninja -C "$dir/build" install > "$dir/logs/install.log" 2>&1 || { tail -30 "$dir/logs/install.log"; exit 1; }
+taskpolicy -b nice -n 10 ninja -C "$dir/build" PythonInstall > "$dir/logs/python.log" 2>&1 || { tail -30 "$dir/logs/python.log"; exit 1; }
 cd /
 "$dir/venv/bin/python" - "$dir" <<'PY'
 import os, sys

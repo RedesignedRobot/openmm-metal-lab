@@ -1,0 +1,30 @@
+08:01:37Z waiting for the lease: 22 in the queue, held by: ultra-r2-correctness 2026-09-27T07:59:10Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3b, about 8 min, 0 build processes
+08:06:41Z waiting for the lease: 21 in the queue, held by: ultra-profiler 2026-09-27T08:06:08Z sampled shader timeline q-k2-single, 0 build processes
+08:11:46Z waiting for the lease: 19 in the queue, held by: r2-mixed 2026-09-27T08:10:21Z e4 mixed traces gbsa rf pme apoa1pme, 0 build processes
+08:16:50Z waiting for the lease: 18 in the queue, held by: ultra-r2-mixed 2026-09-27T08:13:02Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a, about 7 min, 9 build processes
+08:21:54Z waiting for the lease: 17 in the queue, held by: ultra-r2-mixed 2026-09-27T08:18:50Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4b, about 12 min, 0 build processes
+08:26:58Z waiting for the lease: 16 in the queue, held by: r2-mixed 2026-09-27T08:25:38Z g conversion x2 diag traces, 1 build processes
+08:32:03Z waiting for the lease: 15 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:28:36Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1b, about 6 min, 0 build processes
+08:37:06Z waiting for the lease: 14 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:42:10Z waiting for the lease: 14 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-r2-correctness-e, 0a563fdb3c076465038f87e97f448f66d63ce612, logs in /tmp/openmm-metal-bench/ultra-r2-correctness-e/gate-20260927T084353Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  6.260e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.120e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.109e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  2.860e-07  ok
+pme            23558     mixed  2.048e-05  3.920e-01  2.721e-07  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  4.333e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.851e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.201e-01  1.216e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.200e-01  1.368e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  1.308e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.231e-01  1.377e-07  ok
+PASS

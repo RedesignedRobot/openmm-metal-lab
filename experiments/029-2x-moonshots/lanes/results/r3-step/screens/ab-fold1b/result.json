@@ -1,0 +1,224 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-fold1b",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "apoa1rf",
+   "label": "base_m",
+   "median": 537.0477490455308,
+   "rounds": {
+    "1": 537.183630474876,
+    "2": 536.9118676161856
+   },
+   "spread": 0.0005060310915992097
+  },
+  {
+   "test": "apoa1rf",
+   "label": "base_s",
+   "median": 591.669520568232,
+   "rounds": {
+    "1": 592.1224490585425,
+    "2": 591.2165920779214
+   },
+   "spread": 0.0015310184978789584
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_m",
+   "median": 536.4168855507394,
+   "rounds": {
+    "1": 537.1137085576713,
+    "2": 535.7200625438076
+   },
+   "spread": 0.0025980651456057385
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_s",
+   "median": 596.2934858134533,
+   "rounds": {
+    "1": 596.654888404491,
+    "2": 595.9320832224157
+   },
+   "spread": 0.0012121634719675397
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "base_m",
+   "median": 1233.6425165904252,
+   "rounds": {
+    "1": 1229.4588633604133,
+    "2": 1237.8261698204374
+   },
+   "spread": 0.0067826022105252175
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "base_s",
+   "median": 1364.7787586632726,
+   "rounds": {
+    "1": 1360.791653472309,
+    "2": 1368.7658638542362
+   },
+   "spread": 0.005842859387507951
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_m",
+   "median": 1246.3963867452608,
+   "rounds": {
+    "1": 1240.8293532671069,
+    "2": 1251.9634202234145
+   },
+   "spread": 0.008933006445391111
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_s",
+   "median": 1379.3631805276204,
+   "rounds": {
+    "1": 1361.0169851445646,
+    "2": 1397.7093759106765
+   },
+   "spread": 0.026600964332016367
+  }
+ ],
+ "ratios": [
+  {
+   "test": "apoa1rf",
+   "num": "fold_m",
+   "den": "base_m",
+   "ratio": 0.9988253120957816,
+   "round_min": 0.997780259397749,
+   "round_max": 0.9998698360984252
+  },
+  {
+   "test": "amber20-dhfr",
+   "num": "fold_m",
+   "den": "base_m",
+   "ratio": 1.0103383840807343,
+   "round_min": 1.0092483695433414,
+   "round_max": 1.0114210304707225
+  }
+ ],
+ "power": [
+  {
+   "test": "apoa1rf",
+   "label": "base_m",
+   "gpu_w": 89.66949523809524,
+   "pkg_w": 92.27202142857142,
+   "ns_per_day_per_gpu_w": 5.989191169410879
+  },
+  {
+   "test": "apoa1rf",
+   "label": "base_s",
+   "gpu_w": 93.99421428571429,
+   "pkg_w": 98.25932142857143,
+   "ns_per_day_per_gpu_w": 6.294744044242273
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_m",
+   "gpu_w": 90.14984285714286,
+   "pkg_w": 93.05564285714286,
+   "ns_per_day_per_gpu_w": 5.950280871823365
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_s",
+   "gpu_w": 94.85385952380952,
+   "pkg_w": 97.6618619047619,
+   "ns_per_day_per_gpu_w": 6.286444102612147
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "base_m",
+   "gpu_w": 57.38717857142857,
+   "pkg_w": 59.18114285714286,
+   "ns_per_day_per_gpu_w": 21.496831649511
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "base_s",
+   "gpu_w": 59.19392857142857,
+   "pkg_w": 61.11210714285714,
+   "ns_per_day_per_gpu_w": 23.05605982911594
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_m",
+   "gpu_w": 58.44991904761905,
+   "pkg_w": 61.06986428571429,
+   "ns_per_day_per_gpu_w": 21.324176441199583
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_s",
+   "gpu_w": 59.2255,
+   "pkg_w": 64.30683333333333,
+   "ns_per_day_per_gpu_w": 23.29002170564403
+  }
+ ],
+ "hygiene": {
+  "runs": 16,
+  "load": [
+   3.65,
+   11.35
+  ],
+  "vm_cpu": [
+   10,
+   33
+  ],
+  "no_result": [],
+  "build_overlap": [
+   "2026-09-29T10:13:25Z round 2 apoa1rf fold_m BUILD RUNNING during the run",
+   "2026-09-29T10:14:34Z builds: BUILD RUNNING on 1 of 16 timed runs (loads.txt); timing hold of gpuq job 31 (r3-step): 0 builds paused"
+  ],
+  "foreign_gpu": [],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T10:08:30Z",
+ "last_run": "2026-09-29T10:14:14Z",
+ "arms": {
+  "base_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "d1567e9ddb2fa5666e5caf104cdc0e18a95f3dae",
+   "built": "2026-09-29T06:51:15Z"
+  },
+  "fold_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "base_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "d1567e9ddb2fa5666e5caf104cdc0e18a95f3dae",
+   "built": "2026-09-29T06:51:15Z"
+  },
+  "fold_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  }
+ },
+ "gpuq_job": 31,
+ "written": "2026-09-29T10:14:39Z"
+}

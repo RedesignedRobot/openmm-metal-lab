@@ -1,0 +1,17 @@
+2026-09-29T12:30:37Z round 1 amber20-dhfr fold_s load { 1.81 2.77 4.82 } vm 6% top other 30.3%, powermetrics 4.8%, com.apple.Virtualization.VirtualMachine 3.5%, com.apple.Virtualization.VirtualMachine 2.9%, other 2.3%
+2026-09-29T12:30:57Z round 1 amber20-dhfr bm_s load { 2.02 2.77 4.78 } vm 16% top other 29.6%, other 11.4%, other 6.2%, com.apple.Virtualization.VirtualMachine 6.0%, com.apple.Virtualization.VirtualMachine 5.6%
+2026-09-29T12:31:17Z round 1 amber20-dhfr fold_m load { 2.44 2.80 4.75 } vm 16% top other 34.3%, com.apple.Virtualization.VirtualMachine 11.4%, WindowServer 5.6%, com.apple.Virtualization.VirtualMachine 4.4%, other 3.6%
+2026-09-29T12:31:40Z round 1 amber20-dhfr bm_m load { 2.87 2.88 4.72 } vm 19% top other 32.6%, com.apple.Virtualization.VirtualMachine 10.0%, com.apple.Virtualization.VirtualMachine 9.0%, other 2.9%, other 2.8%
+2026-09-29T12:32:06Z round 1 apoa1rf fold_s load { 2.73 2.84 4.65 } vm 14% top other 32.8%, other 15.2%, com.apple.Virtualization.VirtualMachine 7.1%, com.apple.Virtualization.VirtualMachine 6.6%,  other 4.5%
+2026-09-29T12:32:27Z round 1 apoa1rf bm_s load { 3.42 3.00 4.65 } vm 9% top other 591.6%, other 24.1%, other 5.9%, com.apple.Virtualization.VirtualMachine 4.7%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-29T12:32:49Z round 1 apoa1rf fold_m load { 3.10 2.95 4.60 } vm 9% top other 28.7%,  other 5.3%,  other 5.0%, com.apple.Virtualization.VirtualMachine 4.9%, WindowServer 4.5%
+2026-09-29T12:33:14Z round 1 apoa1rf bm_m load { 2.65 2.85 4.52 } vm 9% top other 27.9%, other 18.5%,  other 15.2%, powermetrics 8.7%, com.apple.Virtualization.VirtualMachine 8.2%
+2026-09-29T12:33:40Z round 2 amber20-dhfr bm_m load { 2.16 2.72 4.42 } vm 28% top other 31.8%, com.apple.Virtualization.VirtualMachine 17.0%, com.apple.Virtualization.VirtualMachine 11.2%, powermetrics 8.7%,  other 6.5%
+2026-09-29T12:34:05Z round 2 amber20-dhfr fold_m load { 2.92 2.85 4.42 } vm 20% top other 28.1%,  other 10.3%, com.apple.Virtualization.VirtualMachine 9.9%, powermetrics 9.6%, com.apple.Virtualization.VirtualMachine 8.6%
+2026-09-29T12:34:30Z round 2 amber20-dhfr bm_s load { 2.76 2.82 4.36 } vm 11% top other 27.6%, com.apple.Virtualization.VirtualMachine 5.3%, com.apple.Virtualization.VirtualMachine 5.3%, other 4.2%,  other 4.1%
+2026-09-29T12:34:50Z round 2 amber20-dhfr fold_s load { 2.56 2.76 4.30 } vm 12% top other 25.8%, com.apple.Virtualization.VirtualMachine 8.8%, powermetrics 5.5%, other 4.8%, com.apple.Virtualization.VirtualMachine 3.6%
+2026-09-29T12:35:10Z round 2 apoa1rf bm_m load { 2.12 2.65 4.22 } vm 17% top other 26.4%, powermetrics 15.1%, com.apple.Virtualization.VirtualMachine 8.8%, com.apple.Virtualization.VirtualMachine 7.8%,  other 5.9%
+2026-09-29T12:35:36Z round 2 apoa1rf fold_m load { 2.36 2.66 4.18 } vm 13% top other 26.9%, com.apple.Virtualization.VirtualMachine 8.7%, other 7.6%, WindowServer 6.5%, other 6.0%
+2026-09-29T12:36:01Z round 2 apoa1rf bm_s load { 2.93 2.77 4.18 } vm 15% top other 30.7%, powermetrics 8.3%, com.apple.Virtualization.VirtualMachine 6.6%, powermetrics 5.2%, com.apple.Virtualization.VirtualMachine 4.8%
+2026-09-29T12:36:23Z round 2 apoa1rf fold_s load { 2.48 2.67 4.10 } vm 21% top other 29.7%, powermetrics 14.4%, com.apple.Virtualization.VirtualMachine 12.2%, com.apple.Virtualization.VirtualMachine 8.5%, WindowServer 5.0%
+2026-09-29T12:36:43Z builds: none ran during the 16 timed runs; timing hold of gpuq job 87 (r3-step): 0 builds paused

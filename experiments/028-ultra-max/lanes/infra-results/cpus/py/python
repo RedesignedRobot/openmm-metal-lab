@@ -1,0 +1,11 @@
+#!/bin/sh
+case "$1" in
+-c) case "$2" in *Threads*) echo "${OPENMM_CPU_THREADS:-28}" ;; *) echo /fake/openmm/__init__.py fakerev ;; esac; exit 0 ;;
+esac
+out=""; secs=5; test=x
+while [ $# -gt 0 ]; do
+    case "$1" in --outfile) out="$2"; shift ;; --seconds) secs="$2"; shift ;; --test) test="$2"; shift ;; esac
+    shift
+done
+sleep $((secs + 1))
+printf '{"benchmarks": [{"test": "%s", "ns_per_day": 1.0}]}' "$test" > "$out"

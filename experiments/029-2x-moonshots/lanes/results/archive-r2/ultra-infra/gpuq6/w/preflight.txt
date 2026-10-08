@@ -1,0 +1,23 @@
+preflight: not quiet after 60 s (load 3.34, 0 build processes); starting anyway
+start 2026-09-29T06:49:45Z after 60 s of preflight, load { 3.34 3.17 2.77 }
+holder: window 2026-09-29T06:48:45Z dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, build.sh waits, pid 64446, held 60 s
+build processes: 0 gpuq build jobs, 0 paused
+queue, oldest first:
+
+gpuq 06:49:45Z, day slot. GPU: window job 3 has it alone.
+running:
+      3  window      window                 ran    60s of ~6m     dedicated window /tmp/openmm-metal-bench/ultra-infra/gpuq6/w, about 0 min; lanes wait, bui
+queued: none
+ %CPU   PID COMMAND
+ 23.4   608 other
+ 20.2  6047 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+ 17.3  8613 other
+ 16.9   181 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+ 13.3   756 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+ 12.7 80429 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virt
+ 11.5 61813 /usr/bin/powermetrics --samplers cpu_power gpu_power -i 1000 -n
+  6.9  7696 other
+  5.5 36821 other
+  3.5 37518 other
+ps: stdout: Broken pipe
+end 2026-09-29T06:50:02Z

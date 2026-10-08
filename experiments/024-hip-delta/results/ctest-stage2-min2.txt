@@ -1,4 +1,4 @@
-Test project /Users/amir/lab/hipdelta/build
+Test project ~/lab/hipdelta/build
       Start  72: TestMetalCustomIntegratorSingle
       Start  88: TestMetalMonteCarloAnisotropicBarostatSingle
  1/54 Test  #72: TestMetalCustomIntegratorSingle ................   Passed   30.62 sec
@@ -115,5 +115,5 @@ Total Test time (real) = 213.29 sec
 The following tests FAILED:
 	 89 - TestMetalMonteCarloBarostatSingle (Failed)
 Errors while running CTest
-Output from these tests are in: /Users/amir/lab/hipdelta/build/Testing/Temporary/LastTest.log
+Output from these tests are in: ~/lab/hipdelta/build/Testing/Temporary/LastTest.log
 Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.

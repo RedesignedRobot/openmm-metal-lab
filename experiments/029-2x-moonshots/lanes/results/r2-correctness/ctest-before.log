@@ -1,0 +1,27 @@
+Test project /tmp/openmm-metal-bench/ultra-r2-correctness-before/build
+    Start 228: TestMetalCommandBatchingSingle
+1/4 Test #228: TestMetalCommandBatchingSingle ...***Failed    1.79 sec
+Commits per step: NoCutoff 0.01, PME 1.01
+exception: Assertion failure at TestMetalCommandBatching.cpp:110
+
+    Start 229: TestMetalCommandBatchingMixed
+2/4 Test #229: TestMetalCommandBatchingMixed ....***Failed    0.33 sec
+Commits per step: NoCutoff 0.01, PME 1.01
+exception: Assertion failure at TestMetalCommandBatching.cpp:110
+
+    Start 284: TestMetalMixedPrecisionSingle
+3/4 Test #284: TestMetalMixedPrecisionSingle ....   Passed    0.72 sec
+    Start 285: TestMetalMixedPrecisionMixed
+4/4 Test #285: TestMetalMixedPrecisionMixed .....***Failed    7.45 sec
+exception: Assertion failure at TestMetalMixedPrecision.cpp:182.  Expected 9223372036854775807, found -9223372036854775808
+
+
+25% tests passed, 3 tests failed out of 4
+
+Total Test time (real) =  10.35 sec
+
+The following tests FAILED:
+	228 - TestMetalCommandBatchingSingle (Failed)
+	229 - TestMetalCommandBatchingMixed (Failed)
+	285 - TestMetalMixedPrecisionMixed (Failed)
+Errors while running CTest

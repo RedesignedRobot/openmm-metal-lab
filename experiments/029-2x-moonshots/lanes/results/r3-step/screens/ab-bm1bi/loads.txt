@@ -1,0 +1,107 @@
+2026-09-29T12:36:46Z round 1 gbsa fold_s load { 2.86 2.76 4.10 } vm 9% top other 30.6%, com.apple.Virtualization.VirtualMachine 5.7%, WindowServer 5.3%,  other 4.6%, powermetrics 4.6%
+2026-09-29T12:36:55Z round 1 gbsa bm_s load { 2.58 2.70 4.06 } vm 5% top other 28.7%, powermetrics 5.4%,  other 4.1%, other 3.7%, WindowServer 3.6%
+2026-09-29T12:37:04Z round 1 pme fold_s load { 2.33 2.64 4.02 } vm 10% top other 30.0%, com.apple.Virtualization.VirtualMachine 5.4%, com.apple.Virtualization.VirtualMachine 4.9%, other 4.2%, WindowServer 3.7%
+2026-09-29T12:37:13Z round 1 pme bm_s load { 3.62 2.91 4.10 } vm 10% top other 28.0%, WindowServer 6.8%, com.apple.Virtualization.VirtualMachine 4.9%, com.apple.Virtualization.VirtualMachine 4.7%, other 3.4%
+2026-09-29T12:37:22Z round 2 gbsa bm_s load { 3.65 2.93 4.10 } vm 14% top other 28.9%, com.apple.Virtualization.VirtualMachine 8.5%, WindowServer 6.1%, com.apple.Virtualization.VirtualMachine 5.8%, other 3.2%
+2026-09-29T12:37:30Z round 2 gbsa fold_s load { 3.24 2.87 4.07 } vm 8% top WindowServer 43.7%, other 28.8%,  other 20.2%, other 7.1%, other 6.3%
+2026-09-29T12:37:39Z round 2 gbsa fold_s after the run: FOREIGN GPU 14%
+2026-09-29T12:37:40Z round 2 pme bm_s load { 3.04 2.84 4.04 } FOREIGN GPU 18% vm 40% top WindowServer 56.0%, com.apple.Virtualization.VirtualMachine 37.6%, other 28.7%, other 7.1%,  other 6.3%
+2026-09-29T12:37:48Z round 2 pme bm_s after the run: FOREIGN GPU 6%
+2026-09-29T12:37:49Z round 2 pme fold_s load { 2.80 2.79 4.01 } vm 15% top other 29.9%, powermetrics 10.9%, WindowServer 9.6%, com.apple.Virtualization.VirtualMachine 8.5%, com.apple.Virtualization.VirtualMachine 6.9%
+2026-09-29T12:37:58Z round 3 gbsa fold_s load { 2.37 2.70 3.96 } vm 11% top other 29.5%, WindowServer 6.8%,  other 6.2%, com.apple.Virtualization.VirtualMachine 5.9%, com.apple.Virtualization.VirtualMachine 5.4%
+2026-09-29T12:38:07Z round 3 gbsa bm_s load { 2.26 2.67 3.95 } vm 10% top other 84.2%, other 25.6%, other 17.5%, WindowServer 8.2%, other 6.8%
+2026-09-29T12:38:16Z round 3 pme fold_s load { 2.59 2.73 3.95 } vm 132% top other 287.3%, com.apple.Virtualization.VirtualMachine 109.5%, other 30.8%, other 20.6%, other 6.1%
+2026-09-29T12:38:25Z round 3 pme bm_s load { 4.72 3.20 4.10 } vm 14% top other 88.0%, other 29.6%, other 23.8%, other 20.1%, other 17.7%
+2026-09-29T12:38:35Z round 4 gbsa bm_s load { 4.22 3.14 4.07 } vm 10% top other 30.9%, other 30.5%, WindowServer 6.8%, com.apple.Virtualization.VirtualMachine 5.9%, powermetrics 5.6%
+2026-09-29T12:38:44Z round 4 gbsa fold_s load { 3.80 3.09 4.04 } vm 12% top other 105.1%, other 23.4%, other 22.7%, WindowServer 6.8%, other 5.4%
+2026-09-29T12:38:52Z round 4 pme bm_s load { 3.52 3.05 4.02 } vm 11% top other 36.4%, other 30.2%, other 23.9%, other 18.3%, other 14.9%
+2026-09-29T12:39:01Z round 4 pme fold_s load { 3.32 3.02 4.00 } vm 13% top other 30.0%, com.apple.Virtualization.VirtualMachine 9.0%, WindowServer 7.3%,  other 7.2%, other 3.8%
+2026-09-29T12:39:10Z round 5 gbsa fold_s load { 3.12 2.98 3.98 } vm 12% top other 252.0%, other 117.8%, other 47.9%, other 25.4%, other 8.8%
+2026-09-29T12:39:19Z round 5 gbsa bm_s load { 4.52 3.28 4.07 } vm 13% top other 521.1%, other 29.3%, other 22.7%,  other 19.8%, other 12.1%
+2026-09-29T12:39:27Z round 5 gbsa bm_s after the run: FOREIGN GPU 7%
+2026-09-29T12:39:28Z round 5 pme fold_s load { 4.98 3.42 4.11 } vm 17% top other 478.4%, other 62.0%, other 24.2%, other 22.8%, com.apple.Virtualization.VirtualMachine 11.0%
+2026-09-29T12:39:37Z round 5 pme bm_s load { 5.21 3.52 4.14 } vm 10% top other 399.5%, other 22.3%, powermetrics 9.6%, WindowServer 6.7%,  other 6.2%
+2026-09-29T12:39:46Z round 6 gbsa bm_s load { 6.80 3.88 4.26 } vm 7% top other 445.3%, other 37.9%, other 28.0%, other 23.9%, other 22.2%
+2026-09-29T12:39:56Z round 6 gbsa fold_s load { 11.29 4.93 4.63 } vm 8% top other 441.1%, other 87.8%, other 20.6%,  other 8.2%, WindowServer 5.5%
+2026-09-29T12:40:05Z round 6 pme bm_s load { 12.27 5.36 4.78 } vm 9% top other 539.7%, other 19.3%,  other 11.4%, WindowServer 6.2%, other 5.3%
+2026-09-29T12:40:13Z round 6 pme fold_s load { 11.20 5.36 4.79 } vm 14% top other 29.0%,  other 11.0%, other 9.9%, com.apple.Virtualization.VirtualMachine 9.6%, powermetrics 9.1%
+2026-09-29T12:40:23Z round 7 gbsa fold_s load { 9.70 5.24 4.75 } vm 14% top other 71.6%, other 26.6%, com.apple.Virtualization.VirtualMachine 9.3%, WindowServer 5.4%, powermetrics 5.2%
+2026-09-29T12:40:30Z round 7 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:40:31Z round 7 gbsa bm_s load { 9.00 5.17 4.73 } FOREIGN GPU renderers chrome-headless-shell vm 37% top other 84.6%, other 69.4%, com.apple.Virtualization.VirtualMachine 34.5%, other 28.2%, other 26.5%
+2026-09-29T12:40:39Z round 7 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:40:40Z round 7 pme fold_s load { 8.97 5.28 4.77 } FOREIGN GPU renderers chrome-headless-shell vm 13% top other 108.1%, other 24.5%, com.apple.Virtualization.VirtualMachine 10.8%, other 6.5%, other 4.5%
+2026-09-29T12:40:48Z round 7 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:40:49Z round 7 pme bm_s load { 7.66 5.12 4.72 } FOREIGN GPU renderers chrome-headless-shell vm 12% top other 28.6%, WindowServer 8.9%, com.apple.Virtualization.VirtualMachine 8.1%, other 5.0%,  other 4.4%
+2026-09-29T12:40:57Z round 7 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:40:58Z round 8 gbsa bm_s load { 6.79 5.02 4.69 } FOREIGN GPU renderers chrome-headless-shell vm 11% top other 28.6%, other 12.3%, com.apple.Virtualization.VirtualMachine 8.0%, WindowServer 7.1%, other 6.7%
+2026-09-29T12:41:07Z round 8 gbsa fold_s load { 6.56 5.00 4.69 } vm 16% top other 28.2%, com.apple.Virtualization.VirtualMachine 8.1%, com.apple.Virtualization.VirtualMachine 7.7%, WindowServer 6.7%,  other 4.2%
+2026-09-29T12:41:15Z round 8 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:41:16Z round 8 pme bm_s load { 5.87 4.90 4.65 } FOREIGN GPU renderers chrome-headless-shell vm 27% top other 28.6%, com.apple.Virtualization.VirtualMachine 24.1%, other 10.7%, powermetrics 9.7%, WindowServer 7.9%
+2026-09-29T12:41:24Z round 8 pme bm_s after the run: FOREIGN GPU 6%
+2026-09-29T12:41:26Z round 8 pme fold_s load { 5.20 4.79 4.62 } vm 9% top other 29.8%,  other 6.4%, WindowServer 6.1%, com.apple.Virtualization.VirtualMachine 5.8%, other 4.3%
+2026-09-29T12:41:35Z round 9 gbsa fold_s load { 4.40 4.63 4.56 } vm 7% top other 30.4%,  other 9.2%, WindowServer 8.0%, com.apple.Virtualization.VirtualMachine 5.8%, com.apple.Virtualization.VirtualMachine 3.6%
+2026-09-29T12:41:43Z round 9 gbsa fold_s after the run: FOREIGN GPU 6%
+2026-09-29T12:41:44Z round 9 gbsa bm_s load { 4.47 4.64 4.57 } FOREIGN GPU renderers chrome-headless-shell vm 7% top other 84.6%, other 41.4%, other 36.0%, other 27.7%, other 15.7%
+2026-09-29T12:41:52Z round 9 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:41:54Z round 9 pme fold_s load { 4.02 4.54 4.53 } FOREIGN GPU renderers chrome-headless-shell vm 6% top other 125.9%, other 28.2%, powermetrics 8.2%, WindowServer 6.9%, other 6.6%
+2026-09-29T12:42:01Z round 9 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:03Z round 9 pme bm_s load { 3.62 4.44 4.50 } FOREIGN GPU renderers chrome-headless-shell vm 19% top other 29.9%, com.apple.Virtualization.VirtualMachine 10.6%, com.apple.Virtualization.VirtualMachine 8.2%, WindowServer 8.1%, other 3.7%
+2026-09-29T12:42:10Z round 9 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:12Z round 10 gbsa bm_s load { 3.49 4.39 4.48 } FOREIGN GPU renderers chrome-headless-shell vm 17% top other 83.9%, other 29.2%, com.apple.Virtualization.VirtualMachine 14.8%, other 14.2%, powermetrics 8.2%
+2026-09-29T12:42:21Z round 10 gbsa fold_s load { 3.56 4.38 4.48 } vm 7% top other 29.8%,  other 13.9%, WindowServer 7.6%, other 6.2%,  other 6.0%
+2026-09-29T12:42:29Z round 10 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:31Z round 10 pme bm_s load { 3.82 4.42 4.49 } FOREIGN GPU renderers chrome-headless-shell vm 8% top other 72.3%, other 29.7%, other 16.6%, other 16.5%, other 6.7%
+2026-09-29T12:42:39Z round 10 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:40Z round 10 pme fold_s load { 4.83 4.60 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 11% top other 104.7%, other 48.3%, other 47.5%, other 25.9%, other 6.9%
+2026-09-29T12:42:47Z round 10 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:49Z round 11 gbsa fold_s load { 5.33 4.71 4.59 } FOREIGN GPU renderers chrome-headless-shell vm 5% top other 108.3%, other 27.6%, other 20.3%, other 16.2%, other 12.8%
+2026-09-29T12:42:57Z round 11 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:42:58Z round 11 gbsa bm_s load { 4.89 4.64 4.57 } FOREIGN GPU renderers chrome-headless-shell vm 8% top other 29.3%, WindowServer 28.6%, other 21.9%, other 20.4%, other 7.7%
+2026-09-29T12:43:06Z round 11 gbsa bm_s after the run: FOREIGN GPU 6% FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:08Z round 11 pme fold_s load { 4.60 4.58 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 5% top other 48.4%, other 28.9%, WindowServer 17.0%, other 14.8%, other 12.9%
+2026-09-29T12:43:15Z round 11 pme fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:17Z round 11 pme bm_s load { 4.23 4.51 4.52 } FOREIGN GPU renderers chrome-headless-shell vm 9% top other 153.9%, other 93.6%, other 30.7%, WindowServer 21.5%, other 20.3%
+2026-09-29T12:43:24Z round 11 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:26Z round 12 gbsa bm_s load { 4.35 4.52 4.53 } FOREIGN GPU renderers chrome-headless-shell vm 6% top other 123.3%, other 48.2%, other 29.7%, WindowServer 18.1%, other 11.7%
+2026-09-29T12:43:34Z round 12 gbsa bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:35Z round 12 gbsa fold_s load { 4.73 4.60 4.55 } FOREIGN GPU renderers chrome-headless-shell vm 5% top other 43.2%, other 29.1%, WindowServer 17.0%, other 15.0%, powermetrics 10.2%
+2026-09-29T12:43:44Z round 12 gbsa fold_s after the run: FOREIGN GPU 6% FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:45Z round 12 pme bm_s load { 4.23 4.50 4.52 } FOREIGN GPU renderers chrome-headless-shell vm 6% top WindowServer 49.6%, other 43.8%, other 30.1%, other 22.4%, other 7.3%
+2026-09-29T12:43:53Z round 12 pme bm_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:43:54Z round 12 pme fold_s load { 4.11 4.47 4.50 } FOREIGN GPU renderers chrome-headless-shell vm 7% top other 31.4%, WindowServer 20.2%, other 15.3%, other 6.6%, other 4.6%
+2026-09-29T12:44:02Z round 12 pme fold_s after the run: FOREIGN GPU 7% FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:44:03Z round 13 gbsa fold_s load { 3.78 4.39 4.48 } FOREIGN GPU renderers chrome-headless-shell vm 6% top other 31.6%, WindowServer 16.7%, other 13.9%, powermetrics 9.1%, other 5.7%
+2026-09-29T12:44:11Z round 13 gbsa fold_s after the run: FOREIGN GPU renderers chrome-headless-shell
+2026-09-29T12:44:12Z round 13 gbsa bm_s load { 3.67 4.34 4.46 } vm 7% top WindowServer 47.5%, other 30.2%, other 10.5%,  other 10.1%, other 9.0%
+2026-09-29T12:44:22Z round 13 pme fold_s load { 3.62 4.32 4.45 } vm 9% top  other 63.5%, WindowServer 53.4%, other 32.6%, other 30.5%, other 9.2%
+2026-09-29T12:44:31Z round 13 pme bm_s load { 3.58 4.29 4.44 } vm 9% top other 27.8%, powermetrics 6.2%, com.apple.Virtualization.VirtualMachine 4.3%, com.apple.Virtualization.VirtualMachine 3.6%,  other 3.5%
+2026-09-29T12:44:40Z round 14 gbsa bm_s load { 3.43 4.23 4.41 } vm 15% top other 29.8%, powermetrics 9.9%, com.apple.Virtualization.VirtualMachine 8.9%, com.apple.Virtualization.VirtualMachine 5.1%,  other 4.7%
+2026-09-29T12:44:49Z round 14 gbsa fold_s load { 3.30 4.17 4.39 } vm 30% top other 32.2%, com.apple.Virtualization.VirtualMachine 13.1%, powermetrics 9.7%, com.apple.Virtualization.VirtualMachine 7.9%, other 3.7%
+2026-09-29T12:44:59Z round 14 pme bm_s load { 3.48 4.18 4.39 } vm 10% top other 28.5%, powermetrics 8.3%, com.apple.Virtualization.VirtualMachine 5.6%, com.apple.Virtualization.VirtualMachine 5.3%, other 3.1%
+2026-09-29T12:45:08Z round 14 pme fold_s load { 3.19 4.10 4.36 } vm 21% top other 27.4%, com.apple.Virtualization.VirtualMachine 14.5%, other 8.4%, com.apple.Virtualization.VirtualMachine 6.5%,  other 6.0%
+2026-09-29T12:45:17Z round 15 gbsa fold_s load { 2.93 4.03 4.33 } vm 18% top other 28.6%, com.apple.Virtualization.VirtualMachine 12.1%,  other 8.8%, com.apple.Virtualization.VirtualMachine 5.8%,  other 5.7%
+2026-09-29T12:45:25Z round 15 gbsa fold_s after the run: FOREIGN GPU 14%
+2026-09-29T12:45:26Z round 15 gbsa bm_s load { 2.63 3.93 4.29 } vm 15% top other 39.4%, other 29.5%, other 27.7%, other 21.1%,  other 14.6%
+2026-09-29T12:45:35Z round 15 pme fold_s load { 2.54 3.86 4.27 } vm 10% top other 30.0%,  other 13.4%, com.apple.Virtualization.VirtualMachine 5.5%, com.apple.Virtualization.VirtualMachine 5.0%, other 3.0%
+2026-09-29T12:45:44Z round 15 pme bm_s load { 2.85 3.88 4.27 } vm 13% top other 30.3%, com.apple.Virtualization.VirtualMachine 7.4%, com.apple.Virtualization.VirtualMachine 5.3%, other 5.2%, WindowServer 4.0%
+2026-09-29T12:45:53Z round 16 gbsa bm_s load { 2.71 3.82 4.24 } vm 30% top other 27.0%, com.apple.Virtualization.VirtualMachine 17.5%, powermetrics 4.9%,  other 4.5%, other 3.5%
+2026-09-29T12:46:01Z round 16 gbsa fold_s load { 2.57 3.77 4.22 } vm 29% top other 31.9%, com.apple.Virtualization.VirtualMachine 19.6%, com.apple.Virtualization.VirtualMachine 9.6%, powermetrics 4.9%, other 2.9%
+2026-09-29T12:46:10Z round 16 pme bm_s load { 2.49 3.72 4.20 } vm 16% top other 29.6%, com.apple.Virtualization.VirtualMachine 8.9%, com.apple.Virtualization.VirtualMachine 7.2%, other 7.1%, other 2.4%
+2026-09-29T12:46:19Z round 16 pme fold_s load { 2.34 3.64 4.16 } vm 12% top other 29.9%, com.apple.Virtualization.VirtualMachine 9.5%, powermetrics 8.6%, powermetrics 8.4%, other 3.3%
+2026-09-29T12:46:28Z round 17 gbsa fold_s load { 2.59 3.65 4.16 } vm 14% top other 30.8%, com.apple.Virtualization.VirtualMachine 8.4%, com.apple.Virtualization.VirtualMachine 6.0%,  other 4.9%, other 4.3%
+2026-09-29T12:46:37Z round 17 gbsa bm_s load { 2.70 3.66 4.16 } vm 14% top other 31.0%, com.apple.Virtualization.VirtualMachine 8.8%,  other 5.3%, com.apple.Virtualization.VirtualMachine 5.2%, other 4.9%
+2026-09-29T12:46:45Z round 17 pme fold_s load { 2.75 3.64 4.15 } vm 12% top other 97.9%, other 30.6%, other 15.8%, com.apple.Virtualization.VirtualMachine 6.9%, com.apple.Virtualization.VirtualMachine 6.0%
+2026-09-29T12:46:54Z round 17 pme bm_s load { 2.70 3.60 4.13 } vm 21% top other 30.0%, com.apple.Virtualization.VirtualMachine 11.0%, com.apple.Virtualization.VirtualMachine 9.6%,  other 3.4%, other 3.0%
+2026-09-29T12:47:03Z round 18 gbsa bm_s load { 2.90 3.61 4.12 } vm 28% top other 134.7%, other 52.6%, other 28.0%, com.apple.Virtualization.VirtualMachine 17.1%, com.apple.Virtualization.VirtualMachine 10.5%
+2026-09-29T12:47:13Z round 18 gbsa fold_s load { 3.24 3.66 4.13 } vm 13% top other 28.3%, other 20.7%, com.apple.Virtualization.VirtualMachine 7.2%, other 6.8%, WindowServer 3.4%
+2026-09-29T12:47:21Z round 18 pme bm_s load { 3.30 3.66 4.13 } vm 6% top other 339.3%, other 29.3%, com.apple.Virtualization.VirtualMachine 3.2%, com.apple.Virtualization.VirtualMachine 2.9%, other 2.1%
+2026-09-29T12:47:30Z round 18 pme fold_s load { 3.33 3.66 4.13 } vm 16% top other 28.5%, com.apple.Virtualization.VirtualMachine 11.0%, com.apple.Virtualization.VirtualMachine 5.6%, other 4.8%,  other 2.4%
+2026-09-29T12:47:39Z round 19 gbsa fold_s load { 2.89 3.55 4.08 } vm 13% top other 27.2%, powermetrics 9.4%, com.apple.Virtualization.VirtualMachine 6.7%, com.apple.Virtualization.VirtualMachine 6.2%, other 2.8%
+2026-09-29T12:47:49Z round 19 gbsa bm_s load { 3.08 3.57 4.08 } vm 6% top other 391.7%, other 27.2%, com.apple.Virtualization.VirtualMachine 6.9%, other 4.2%, powermetrics 3.4%
+2026-09-29T12:47:58Z round 19 pme fold_s load { 5.44 4.07 4.25 } vm 21% top other 30.8%, com.apple.Virtualization.VirtualMachine 8.8%,  other 8.2%, powermetrics 8.0%, com.apple.Virtualization.VirtualMachine 6.7%
+2026-09-29T12:48:07Z round 19 pme bm_s load { 5.08 4.02 4.24 } vm 10% top other 26.1%,  other 15.0%, com.apple.Virtualization.VirtualMachine 6.4%, com.apple.Virtualization.VirtualMachine 3.4%, other 2.7%
+2026-09-29T12:48:16Z round 20 gbsa bm_s load { 4.85 4.00 4.23 } vm 13% top other 165.8%, other 49.1%, other 26.0%, other 25.2%, other 7.4%
+2026-09-29T12:48:25Z round 20 gbsa fold_s load { 4.56 3.97 4.21 } vm 16% top other 363.0%, other 21.7%, com.apple.Virtualization.VirtualMachine 9.6%, com.apple.Virtualization.VirtualMachine 6.3%,  other 4.0%
+2026-09-29T12:48:34Z round 20 pme bm_s load { 3.93 3.85 4.17 } vm 21% top other 28.2%, powermetrics 13.6%, com.apple.Virtualization.VirtualMachine 11.3%, com.apple.Virtualization.VirtualMachine 11.2%, other 5.2%
+2026-09-29T12:48:43Z round 20 pme fold_s load { 3.79 3.83 4.15 } vm 29% top other 35.0%, other 29.7%, com.apple.Virtualization.VirtualMachine 19.5%, com.apple.Virtualization.VirtualMachine 7.8%,  other 7.7%
+2026-09-29T12:48:51Z builds: none ran during the 80 timed runs; timing hold of gpuq job 87 (r3-step): 0 builds paused

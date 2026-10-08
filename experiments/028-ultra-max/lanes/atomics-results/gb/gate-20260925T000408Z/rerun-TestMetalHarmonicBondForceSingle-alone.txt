@@ -1,0 +1,13 @@
+Test project /tmp/openmm-metal-bench/ultra-atomics/gb/build
+    Start 274: TestMetalHarmonicBondForceSingle
+1/1 Test #274: TestMetalHarmonicBondForceSingle ...***Failed    0.49 sec
+exception: Assertion failure at TestMetalHarmonicBondForce.cpp:64.  Expected 510.18, found 512.754
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.50 sec
+
+The following tests FAILED:
+	274 - TestMetalHarmonicBondForceSingle (Failed)
+Errors while running CTest

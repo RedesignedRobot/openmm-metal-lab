@@ -1,0 +1,411 @@
+2026-09-27 22:27:59.370502+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:350:48: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    for (unsigned int index = GLOBAL_ID; index < bufferSize; index += GLOBAL_SIZE)
+                                         ~~~~~ ^ ~~~~~~~~~~
+program_source:355:49: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+        if (_mmThread%(i*2) == 0 && _mmThread+i < workGroupSize)
+                                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~
+program_source:195:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:197:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:201:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.394614+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:895:7: warning: unused variable 'tol' [-Wunused-variable]
+mixed tol = _in_tol;
+      ^
+program_source:1045:7: warning: unused variable 'tol' [-Wunused-variable]
+mixed tol = _in_tol;
+      ^
+program_source:1354:5: warning: unused variable 'currentStage' [-Wunused-variable]
+int currentStage = _in_currentStage;
+    ^
+program_source:1639:15: warning: unused variable 'v' [-Wunused-variable]
+        real4 v = symmetryOffset[index];
+              ^
+program_source:1515:5: warning: unused variable 'currentStage' [-Wunused-variable]
+int currentStage = _in_currentStage;
+    ^
+program_source:206:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:208:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:212:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.396973+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:195:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:197:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:201:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.407284+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:202:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:204:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:208:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.409368+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:296:38: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+    for (int index = LOCAL_ID; index < NUM_GROUPS; index += LOCAL_SIZE)
+                               ~~~~~ ^ ~~~~~~~~~~
+program_source:197:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:199:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:203:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.412340+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:244:7: warning: unused variable 'periodicBoxSize' [-Wunused-variable]
+real4 periodicBoxSize = _in_periodicBoxSize;
+      ^
+program_source:245:7: warning: unused variable 'invPeriodicBoxSize' [-Wunused-variable]
+real4 invPeriodicBoxSize = _in_invPeriodicBoxSize;
+      ^
+program_source:246:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:247:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:248:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:197:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:199:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:203:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.419991+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:232:41: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+    for (int index = threadIdx.x; index < length; index += blockDim.x)
+                                  ~~~~~ ^ ~~~~~~
+program_source:244:36: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                if (ixj > i && ixj < length) {
+                               ~~~ ^ ~~~~~~
+program_source:244:25: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                if (ixj > i && ixj < length) {
+                    ~~~ ^ ~
+program_source:262:41: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+    for (int index = threadIdx.x; index < length; index += blockDim.x)
+                                  ~~~~~ ^ ~~~~~~
+program_source:323:14: warning: unused variable 'length' [-Wunused-variable]
+unsigned int length = _in_length;
+             ^
+program_source:411:25: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                if (ixj > threadIdx.x) {
+                    ~~~ ^ ~~~~~~~~~~~
+program_source:547:57: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                if (threadIdx.x < lenghtNextPow2 && ixj > threadIdx.x) {
+                                                    ~~~ ^ ~~~~~~~~~~~
+program_source:580:40: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                    if (ixj > i && ixj < length) {
+                                   ~~~ ^ ~~~~~~
+program_source:580:29: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                    if (ixj > i && ixj < length) {
+                        ~~~ ^ ~
+program_source:195:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:197:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:201:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.422927+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:195:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:197:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:201:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+openmm /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib
+2026-09-27 22:27:59.434359+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:299:7: warning: unused variable 'periodicBoxSize' [-Wunused-variable]
+real4 periodicBoxSize = _in_periodicBoxSize;
+      ^
+program_source:300:7: warning: unused variable 'invPeriodicBoxSize' [-Wunused-variable]
+real4 invPeriodicBoxSize = _in_invPeriodicBoxSize;
+      ^
+program_source:301:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:302:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:303:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:580:7: warning: unused variable 'periodicBoxSize' [-Wunused-variable]
+real4 periodicBoxSize = _in_periodicBoxSize;
+      ^
+program_source:581:7: warning: unused variable 'invPeriodicBoxSize' [-Wunused-variable]
+real4 invPeriodicBoxSize = _in_invPeriodicBoxSize;
+      ^
+program_source:582:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:583:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:584:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:586:14: warning: unused variable 'maxSinglePairs' [-Wunused-variable]
+unsigned int maxSinglePairs = _in_maxSinglePairs;
+             ^
+program_source:625:16: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+    if (block1 < startBlockIndex+numBlocks) {
+        ~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:891:41: warning: comparison of integers of different signs: 'const int' and 'unsigned int' [-Wsign-compare]
+                        if (indexInWarp < tilesToStore)
+                            ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+program_source:893:43: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                        for (int j = 0; j < tilesToStore/tilesPerWarp; j++)
+                                        ~ ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:918:33: warning: comparison of integers of different signs: 'const int' and 'unsigned int' [-Wsign-compare]
+                if (indexInWarp < tilesToStore)
+                    ~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+program_source:920:35: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                for (int j = 0; j <= tilesToStore/tilesPerWarp; j++) {
+                                ~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:921:48: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+                    if (j*warpSize+indexInWarp < tilesToStore*TILE_SIZE)
+                        ~~~~~~~~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~~~
+program_source:212:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:216:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.439768+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:208:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:210:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:214:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.455756+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:475:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:490:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 0.5f;
+                               ^
+program_source:695:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:710:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 1.0f;
+                               ^
+program_source:1239:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:1254:36: warning: unused variable 'interactionScale' [-Wunused-variable]
+                        const real interactionScale = 1.0f;
+                                   ^
+program_source:970:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:936:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:1482:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:1498:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:1512:24: warning: unused variable 'interactionScale' [-Wunused-variable]
+            const real interactionScale = 1.0f;
+                       ^
+program_source:405:14: warning: unused variable 'startTileIndex' [-Wunused-variable]
+unsigned int startTileIndex = _in_startTileIndex;
+             ^
+program_source:406:15: warning: unused variable 'numTileIndices' [-Wunused-variable]
+unsigned long numTileIndices = _in_numTileIndices;
+              ^
+program_source:409:7: warning: unused variable 'invPeriodicBoxSize' [-Wunused-variable]
+real4 invPeriodicBoxSize = _in_invPeriodicBoxSize;
+      ^
+program_source:410:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:411:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:412:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:420:11: warning: unused variable 'energy' [-Wunused-variable]
+    mixed energy = 0;
+          ^
+program_source:629:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:849:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1393:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1469:55: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int i = blockIdx.x*blockDim.x+threadIdx.x; i < numPairs; i += blockDim.x*gridDim.x) {
+                                                    ~ ^ ~~~~~~~~
+program_source:276:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+2026-09-27 22:27:59.476175+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:895:7: warning: unused variable 'tol' [-Wunused-variable]
+mixed tol = _in_tol;
+      ^
+program_source:1045:7: warning: unused variable 'tol' [-Wunused-variable]
+mixed tol = _in_tol;
+      ^
+program_source:1354:5: warning: unused variable 'currentStage' [-Wunused-variable]
+int currentStage = _in_currentStage;
+    ^
+program_source:1639:15: warning: unused variable 'v' [-Wunused-variable]
+        real4 v = symmetryOffset[index];
+              ^
+program_source:1515:5: warning: unused variable 'currentStage' [-Wunused-variable]
+int currentStage = _in_currentStage;
+    ^
+program_source:206:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+program_source:208:20: warning: unused function 'simd_shuffle' [-Wunused-function]
+static inline long simd_shuffle(long var, ushort srcLane) {
+                   ^
+program_source:212:20: warning: unused function 'simd_shuffle_rotate_down' [-Wunused-function]
+static inline long simd_shuffle_rotate_down(long var, ushort delta) {
+                   ^
+2026-09-27 22:27:59.491644+0300 python[46768:22267765] [Metal Compiler Warning] Warning: Compilation succeeded with: 
+
+program_source:475:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:490:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 0.5f;
+                               ^
+program_source:695:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:710:32: warning: unused variable 'interactionScale' [-Wunused-variable]
+                    const real interactionScale = 1.0f;
+                               ^
+program_source:893:32: warning: unused variable 'offset' [-Wunused-variable]
+            const unsigned int offset = atomIndex;
+                               ^
+program_source:429:15: warning: unused variable 'force' [-Wunused-variable]
+        real3 force = make_real3(0);
+              ^
+program_source:1239:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:1254:36: warning: unused variable 'interactionScale' [-Wunused-variable]
+                        const real interactionScale = 1.0f;
+                                   ^
+program_source:970:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:932:15: warning: unused variable 'force' [-Wunused-variable]
+        real3 force = make_real3(0);
+              ^
+program_source:936:16: warning: unused variable 'y' [-Wunused-variable]
+        int x, y;
+               ^
+program_source:1482:7: warning: unused variable 'obc3_charge1' [-Wunused-variable]
+float obc3_charge1 = global_obc3_charge[atom1];
+      ^
+program_source:1498:7: warning: unused variable 'obc3_charge2' [-Wunused-variable]
+float obc3_charge2 = shflobc3_charge;
+      ^
+program_source:1512:24: warning: unused variable 'interactionScale' [-Wunused-variable]
+            const real interactionScale = 1.0f;
+                       ^
+program_source:405:14: warning: unused variable 'startTileIndex' [-Wunused-variable]
+unsigned int startTileIndex = _in_startTileIndex;
+             ^
+program_source:406:15: warning: unused variable 'numTileIndices' [-Wunused-variable]
+unsigned long numTileIndices = _in_numTileIndices;
+              ^
+program_source:409:7: warning: unused variable 'invPeriodicBoxSize' [-Wunused-variable]
+real4 invPeriodicBoxSize = _in_invPeriodicBoxSize;
+      ^
+program_source:410:7: warning: unused variable 'periodicBoxVecX' [-Wunused-variable]
+real4 periodicBoxVecX = _in_periodicBoxVecX;
+      ^
+program_source:411:7: warning: unused variable 'periodicBoxVecY' [-Wunused-variable]
+real4 periodicBoxVecY = _in_periodicBoxVecY;
+      ^
+program_source:412:7: warning: unused variable 'periodicBoxVecZ' [-Wunused-variable]
+real4 periodicBoxVecZ = _in_periodicBoxVecZ;
+      ^
+program_source:922:13: warning: unused variable 'xForceX' [-Wunused-variable]
+    mm_long xForceX = 0, xForceY = 0, xForceZ = 0;
+            ^
+program_source:922:26: warning: unused variable 'xForceY' [-Wunused-variable]
+    mm_long xForceX = 0, xForceY = 0, xForceZ = 0;
+                         ^
+program_source:922:39: warning: unused variable 'xForceZ' [-Wunused-variable]
+    mm_long xForceX = 0, xForceY = 0, xForceZ = 0;
+                                      ^
+program_source:629:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:849:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1393:88: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+    unsigned int includeInteraction = (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < CUTOFF_0_SQUARED);
+                                                                                 ~~~~~ ^  ~~~~~
+program_source:1469:55: warning: comparison of integers of different signs: 'int' and 'const unsigned int' [-Wsign-compare]
+    for (int i = blockIdx.x*blockDim.x+threadIdx.x; i < numPairs; i += blockDim.x*gridDim.x) {
+                                                    ~ ^ ~~~~~~~~
+program_source:276:14: warning: unused variable 'warpSize' [-Wunused-const-variable]
+constant int warpSize = 32;
+             ^
+window A gbsa single Metal steps 5287 host_s 1.021020 us_per_step 193.12 ns_per_day 1789.57 cpu_per_host 0.43
+window B gbsa single Metal steps 5287 host_s 1.016402 us_per_step 192.25 ns_per_day 1797.70 cpu_per_host 0.42
+window C gbsa single Metal steps 5287 host_s 1.014668 us_per_step 191.92 ns_per_day 1800.77 cpu_per_host 0.44

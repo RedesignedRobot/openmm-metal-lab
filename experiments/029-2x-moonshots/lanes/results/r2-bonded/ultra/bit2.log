@@ -1,0 +1,71 @@
+13:17:42Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts no new hold ahead of it and waits in plain FIFO order
+13:17:42Z waiting for the lease: 11 in the queue, held by: ultra-r2-accum-nb 2026-09-27T13:11:49Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe3, about 8 min, 0 build processes
+13:22:47Z waiting for the lease: 9 in the queue, held by: r2-mixed 2026-09-27T13:20:55Z no inf guard diag traces, 7 build processes
+13:27:51Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:32:56Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:27:05Z drift dhfr nve Metal mixed tol 1e-8 seed 105 1 ns, 0 build processes
+13:38:01Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 0 build processes
+13:43:06Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:37:31Z drift dhfr nve Metal mixed tol 1e-8 seed 106 1 ns, 0 build processes
+13:48:10Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+13:53:14Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:47:11Z drift dhfr nve Metal mixed tol 1e-8 seed 107 1 ns, 0 build processes
+13:58:19Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:03:23Z waiting for the lease: 6 in the queue, held by: r2-drift 2026-09-27T13:56:17Z drift dhfr nve Metal mixed tol 1e-8 seed 108 1 ns, 0 build processes
+14:08:28Z waiting for the lease: 5 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:13:32Z waiting for the lease: 5 in the queue, held by: r2-bonded 2026-09-27T14:05:27Z forcetime probe skip/plain bonded, 5 tests x 3 arms x 2 rounds, about 15 min, 0 build processes
+14:18:37Z waiting for the lease: 3 in the queue, held by: r2-single-int 2026-09-27T14:16:03Z fused LM probe shader traces rf+gbsa, 0 build processes
+14:23:42Z waiting for the lease: 2 in the queue, held by: r2-single-int 2026-09-27T14:23:17Z cm fold s1: bitwise, constraints, drift, ctests, 0 build processes
+14:28:47Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch-kz 2026-09-27T14:28:41Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kz/p-gbsa, about 4 min, 0 build processes
+gbsa single E -21993.708503723145 repeat bitwise True
+gbsa mixed E -21993.70890992587 repeat bitwise True
+rf single E -276400.65094092087 repeat bitwise True
+rf mixed E -276400.6505332416 repeat bitwise True
+pme single E -299765.26687207003 repeat bitwise True
+pme mixed E -299765.2784336682 repeat bitwise True
+apoa1rf single E -1333620.599726814 repeat bitwise True
+apoa1rf mixed E -1333620.5947650373 repeat bitwise True
+apoa1pme single E -1361415.891349799 repeat bitwise True
+apoa1pme mixed E -1361415.8984614043 repeat bitwise True
+apoa1ljpme single E -1363683.051460798 repeat bitwise True
+apoa1ljpme mixed E -1363683.0317377727 repeat bitwise True
+amber20-dhfr single E -305869.85558342887 repeat bitwise True
+amber20-dhfr mixed E -305869.8595023826 repeat bitwise True
+amber20-cellulose single E -2997837.2734554373 repeat bitwise True
+amber20-cellulose mixed E -2997837.386301052 repeat bitwise True
+amber20-stmv single E -14039325.138416365 repeat bitwise True
+amber20-stmv mixed E -14039330.398275957 repeat bitwise True
+gbsa single E -21993.709133148193 repeat bitwise True
+gbsa mixed E -21993.708909925903 repeat bitwise True
+rf single E -276400.65432837204 repeat bitwise True
+rf mixed E -276400.65053324157 repeat bitwise True
+pme single E -299765.28835644503 repeat bitwise True
+pme mixed E -299765.27843366866 repeat bitwise True
+apoa1rf single E -1333620.591914314 repeat bitwise True
+apoa1rf mixed E -1333620.594765037 repeat bitwise True
+apoa1pme single E -1361415.875724799 repeat bitwise True
+apoa1pme mixed E -1361415.8984614015 repeat bitwise True
+apoa1ljpme single E -1363683.074898298 repeat bitwise True
+apoa1ljpme mixed E -1363683.0317377737 repeat bitwise True
+amber20-dhfr single E -305869.86144280387 repeat bitwise True
+amber20-dhfr mixed E -305869.85950238234 repeat bitwise True
+amber20-cellulose single E -2997837.3359554373 repeat bitwise True
+amber20-cellulose mixed E -2997837.3863010593 repeat bitwise True
+amber20-stmv single E -14039329.388416365 repeat bitwise True
+amber20-stmv mixed E -14039330.398275964 repeat bitwise True
+== ultra-r2-bonded against ultra-r1
+amber20-cellulose-mixed      bitwise True max|dF| 0 dE -7.451e-09 (E -2.99784e+06)
+amber20-cellulose-single     bitwise True max|dF| 0 dE -0.0625 (E -2.99784e+06)
+amber20-dhfr-mixed           bitwise True max|dF| 0 dE 2.328e-10 (E -305870)
+amber20-dhfr-single          bitwise True max|dF| 0 dE -0.005859 (E -305870)
+amber20-stmv-mixed           bitwise True max|dF| 0 dE -7.451e-09 (E -1.40393e+07)
+amber20-stmv-single          bitwise True max|dF| 0 dE -4.25 (E -1.40393e+07)
+apoa1ljpme-mixed             bitwise True max|dF| 0 dE -9.313e-10 (E -1.36368e+06)
+apoa1ljpme-single            bitwise True max|dF| 0 dE -0.02344 (E -1.36368e+06)
+apoa1pme-mixed               bitwise True max|dF| 0 dE 2.794e-09 (E -1.36142e+06)
+apoa1pme-single              bitwise True max|dF| 0 dE 0.01562 (E -1.36142e+06)
+apoa1rf-mixed                bitwise True max|dF| 0 dE 2.328e-10 (E -1.33362e+06)
+apoa1rf-single               bitwise True max|dF| 0 dE 0.007812 (E -1.33362e+06)
+gbsa-mixed                   bitwise True max|dF| 0 dE -3.274e-11 (E -21993.7)
+gbsa-single                  bitwise True max|dF| 0 dE -0.0006294 (E -21993.7)
+pme-mixed                    bitwise True max|dF| 0 dE -4.657e-10 (E -299765)
+pme-single                   bitwise True max|dF| 0 dE -0.02148 (E -299765)
+rf-mixed                     bitwise True max|dF| 0 dE 5.821e-11 (E -276401)
+rf-single                    bitwise True max|dF| 0 dE -0.003387 (E -276401)

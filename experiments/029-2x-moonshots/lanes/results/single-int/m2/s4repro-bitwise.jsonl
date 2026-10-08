@@ -1,0 +1,6 @@
+{"test": "gbsa", "precision": "mixed", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 3.637978807091713e-11}}}
+{"test": "gbsa", "precision": "single", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 0.0006561279296875}}}
+{"test": "rf", "precision": "mixed", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 2.3283064365386963e-10}}}
+{"test": "rf", "precision": "single", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 0.0078125}}}
+{"test": "pme", "precision": "mixed", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 9.313225746154785e-10}}}
+{"test": "pme", "precision": "single", "cmp": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "pe": {"equal": false, "max_abs": 0.03125}}}

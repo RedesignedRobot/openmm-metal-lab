@@ -1,0 +1,47 @@
+22:28:39Z waiting for the lease: 2 in the queue, held by: ultra-m29-nonbonded 2026-09-26T22:20:46Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-amber20-dhfr, about 9 min, 0 build processes
+22:34:05Z waiting for the lease: 1 in the queue, held by: ultra-gate 2026-09-26T22:29:12Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:37:21.118146+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      935.647
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:37:53.196281+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        Metal      1021.25
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:38:24.945423+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      single      HBonds        1.5            4         NVT        OpenCL     569.569
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:38:59.294353+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      816.027
+hostname: M3-Ultra
+timestamp: 2026-09-26T22:39:34.163398+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-dhfr      mixed       HBonds        1.5            4         NVT        Metal      878.814

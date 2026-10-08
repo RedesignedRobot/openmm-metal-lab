@@ -1,0 +1,5 @@
+baseS    single   1965.2 ns/day  175.9 us/step  x1.000 (+0.0 us)  spread 0.68%  n=2
+baseM    mixed    1544.6 ns/day  223.7 us/step  x1.000 (+0.0 us)  spread 0.22%  n=2
+probeS   single   2186.0 ns/day  158.1 us/step  x1.112 (-17.8 us)  spread 0.31%  n=2
+probeM   mixed    1672.7 ns/day  206.6 us/step  x1.083 (-17.1 us)  spread 0.28%  n=2
+Background VM CPU 6-30%

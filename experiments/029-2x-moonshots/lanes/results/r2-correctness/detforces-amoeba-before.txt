@@ -1,0 +1,8 @@
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF| det-vs-default
+amoebagk single identical identical identical identical 0.000e+00 0.000e+00
+amoebagk mixed identical identical identical identical 0.000e+00 0.000e+00
+amoebapme single DIFFERS DIFFERS DIFFERS DIFFERS 7.755e-04 1.076e-07
+amoebapme mixed DIFFERS DIFFERS DIFFERS DIFFERS 5.904e-04 9.821e-08
+hippo single DIFFERS DIFFERS DIFFERS DIFFERS 2.573e-03 1.397e-06
+hippo mixed DIFFERS DIFFERS DIFFERS DIFFERS 2.268e-03 1.313e-06
+FAIL

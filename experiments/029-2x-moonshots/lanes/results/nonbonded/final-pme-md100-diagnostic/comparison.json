@@ -1,0 +1,87 @@
+{
+  "candidate": {
+    "0-HarmonicBondForce": {
+      "relative": 1.9644456000083937e-06,
+      "maximum": 0.007038166328129591,
+      "maximum_atom": 1935,
+      "maximum_component": 0
+    },
+    "1-PeriodicTorsionForce": {
+      "relative": 1.4163646192359393e-06,
+      "maximum": 0.004280883191995599,
+      "maximum_atom": 2423,
+      "maximum_component": 2
+    },
+    "2-NonbondedForce": {
+      "relative": 1.852004825943215e-06,
+      "maximum": 0.02454716440206539,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    },
+    "3-CMMotionRemover": {
+      "relative": 0.0,
+      "maximum": 0.0,
+      "maximum_atom": 0,
+      "maximum_component": 0
+    },
+    "4-HarmonicAngleForce": {
+      "relative": 1.0973927666000183e-06,
+      "maximum": 0.003956405942062702,
+      "maximum_atom": 2164,
+      "maximum_component": 2
+    },
+    "total": {
+      "relative": 1.839985745084438e-06,
+      "maximum": 0.02454716440206539,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    }
+  },
+  "int028": {
+    "0-HarmonicBondForce": {
+      "relative": 1.9644456000083937e-06,
+      "maximum": 0.007038166328129591,
+      "maximum_atom": 1935,
+      "maximum_component": 0
+    },
+    "1-PeriodicTorsionForce": {
+      "relative": 1.4163646192359393e-06,
+      "maximum": 0.004280883191995599,
+      "maximum_atom": 2423,
+      "maximum_component": 2
+    },
+    "2-NonbondedForce": {
+      "relative": 1.8529181553171348e-06,
+      "maximum": 0.02476829763418209,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    },
+    "3-CMMotionRemover": {
+      "relative": 0.0,
+      "maximum": 0.0,
+      "maximum_atom": 0,
+      "maximum_component": 0
+    },
+    "4-HarmonicAngleForce": {
+      "relative": 1.0973927666000183e-06,
+      "maximum": 0.003956405942062702,
+      "maximum_atom": 2164,
+      "maximum_component": 2
+    },
+    "total": {
+      "relative": 1.8408611691832735e-06,
+      "maximum": 0.02476829763418209,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    }
+  },
+  "trajectory": {
+    "relative": 1.351066119372533e-06,
+    "maximum": 0.01944606197025678,
+    "maximum_atom": 5264
+  },
+  "same_positions_candidate_minus_int028": {
+    "maximum": 0.0005735675804316998,
+    "relative": 9.440211729553043e-08
+  }
+}

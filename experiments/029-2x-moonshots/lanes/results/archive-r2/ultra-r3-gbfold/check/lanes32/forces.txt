@@ -1,0 +1,13 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.472e-05  8.606e-02  5.205e-07
+gbsa            2489     mixed  2.472e-05  8.606e-02  5.106e-07
+rf             23558    single  2.212e-05  7.341e-01  1.657e-07
+rf             23558     mixed  2.208e-05  7.341e-01  1.836e-07
+pme            23558    single  2.048e-05  3.918e-01  2.404e-07
+pme            23558     mixed  2.043e-05  3.918e-01  2.717e-07
+apoa1rf        92224    single  5.625e-05  9.183e-01  4.992e-08
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.167e-07
+apoa1pme       92224    single  7.548e-05  6.502e-01  1.044e-07
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  1.756e-07
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  1.823e-07
+apoa1ljpme     92224     mixed  7.538e-05  6.396e-01  1.683e-07

@@ -1,0 +1,18 @@
+# mtlprobe --no-bench on the Studio (device query only, no timing), 2026-10-01, plus ioreg AGXAccelerator.
+name Apple M3 Ultra
+architecture applegpu_g15d
+hasUnifiedMemory 1 lowPower 0 removable 0 headless 0
+recommendedMaxWorkingSetSize 77.76 GiB
+maxBufferLength 58.32 GiB
+maxThreadgroupMemoryLength 32768
+maxThreadsPerThreadgroup 1024 x 1024 x 1024
+argumentBuffersSupport tier 2
+readWriteTextureSupport tier 2
+supportsRaytracing 1 supportsFunctionPointers 1 supportsDynamicLibraries 1 supports32BitFloatFiltering 1 supportsBCTextureCompression 1 supportsShaderBarycentricCoordinates 1
+families: Apple7=1 Apple8=1 Apple9=1 Apple10=0 Mac2=1 Metal3=1 Metal4=1
+threadExecutionWidth 32 maxTotalThreadsPerThreadgroup(fma) 1024
+"MetalPluginName" = "AGXMetalG15X_M2"
+"gpu-core-count" = 60
+"IOClass" = "AGXAcceleratorG15X"
+"GPUConfigurationVariable" = {"num_gps"=32,"gpu_gen"=15,"is_sksm"=0,"usc_gen"=3,"num_cores"=80,"num_mgpus"=8,"gpu_var"="D","core_mask_list"=(509,253,509,493,255,509,493,493),"num_frags"=80}
+hw.model: Mac15,14  hw.perflevel0.physicalcpu: 20  hw.perflevel1.physicalcpu: 8  hw.perflevel0.l2cachesize: 16777216  hw.memsize: 103079215104

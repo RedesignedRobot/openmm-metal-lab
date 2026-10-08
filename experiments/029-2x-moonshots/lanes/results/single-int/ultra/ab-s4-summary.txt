@@ -1,0 +1,32 @@
+median ns/day, host clock
+test                  mine-mixed   mine-single      nf-mixed     nf-single
+gbsa                     1371.95       1649.28       1324.27       1606.71
+rf                       1313.40       1511.79       1241.72       1423.23
+pme                       895.79       1019.56        884.88        983.60
+amber20-dhfr              926.23       1037.64        909.45       1021.04
+
+rounds, mine-mixed:
+  gbsa               1403.36 1340.55   spread 4.6%
+  rf                 1301.52 1325.28   spread 1.8%
+  pme                898.21 893.38   spread 0.5%
+  amber20-dhfr       927.87 924.59   spread 0.4%
+rounds, mine-single:
+  gbsa               1644.98 1653.57   spread 0.5%
+  rf                 1513.85 1509.73   spread 0.3%
+  pme                1021.01 1018.10   spread 0.3%
+  amber20-dhfr       1024.52 1050.77   spread 2.5%
+rounds, nf-mixed:
+  gbsa               1325.73 1322.81   spread 0.2%
+  rf                 1234.86 1248.57   spread 1.1%
+  pme                885.88 883.88   spread 0.2%
+  amber20-dhfr       910.75 908.15   spread 0.3%
+rounds, nf-single:
+  gbsa               1609.86 1603.56   spread 0.4%
+  rf                 1398.92 1447.53   spread 3.4%
+  pme                981.81 985.38   spread 0.4%
+  amber20-dhfr       1024.21 1017.87   spread 0.6%
+
+1 minute load before 32 runs: 2.12 to 9.79
+Background VM CPU before 32 runs: 3% to 31%
+runs with no result: 0
+runs that overlapped a build: 0

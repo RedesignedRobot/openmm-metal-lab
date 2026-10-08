@@ -1,17 +1,17 @@
 #!/bin/sh
 # Runs on the laptop: the whole M2 check of one or more candidates, from a worktree and commits.
-# 1. m2sync.sh puts the first commit into /Users/amir/lab/ultra-m2/cand/src, the second into cand2,
+# 1. m2sync.sh puts the first commit into $HOME/lab/ultra-m2/cand/src, the second into cand2,
 #    and so on (rolling trees: only changed files are rewritten, so ninja rebuilds only those).
 # 2. On the M2, detached at nice 0: m2build.sh for each tree (nice 10), then one m2check.sh session
 #    with every candidate against base, so base runs once per (round, test, precision).
 # 3. Waits in the foreground (30 s polls) for "CHECK DONE" or a failure, then prints the log.
-# The M2 log is /Users/amir/lab/ultra-m2/checks/run-<UTC time>.out. Options go to m2check.sh, for
+# The M2 log is $HOME/lab/ultra-m2/checks/run-<UTC time>.out. Options go to m2check.sh, for
 # example "-r 1 -s 5 -t gbsa,pme" for a smoke run.
 # usage: m2cand.sh [-r rounds] [-s seconds] [-t tests] <worktree> <commit>...
 set -eu
 here="$(cd "$(dirname "$0")" && pwd)"
 . "$here/../hosts.env"
-ROOT=/Users/amir/lab/ultra-m2
+ROOT=$HOME/lab/ultra-m2
 opts=""
 while getopts r:s:t: flag; do
     case $flag in

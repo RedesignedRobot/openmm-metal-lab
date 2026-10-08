@@ -1,0 +1,35 @@
+median ns/day, host clock
+test                      base-m        base-s       kstep-m       kstep-s        opencl    resident-m    resident-s
+gbsa                     1246.08       1623.04       1253.56       1638.45       1150.78       1282.74       1694.05
+rf                       1024.96       1212.92       1030.83       1231.49        667.70       1018.90       1227.05
+
+rounds, base-m:
+  gbsa               1239.64 1252.52   spread 1.0%
+  rf                 1021.72 1028.21   spread 0.6%
+rounds, base-s:
+  gbsa               1622.61 1623.47   spread 0.1%
+  rf                 1208.30 1217.54   spread 0.8%
+rounds, kstep-m:
+  gbsa               1252.88 1254.25   spread 0.1%
+  rf                 1030.29 1031.37   spread 0.1%
+rounds, kstep-s:
+  gbsa               1638.64 1638.27   spread 0.0%
+  rf                 1230.26 1232.73   spread 0.2%
+rounds, opencl:
+  gbsa               1137.19 1164.38   spread 2.4%
+  rf                 669.21 666.19   spread 0.5%
+rounds, resident-m:
+  gbsa               1283.86 1281.61   spread 0.2%
+  rf                 1018.01 1019.80   spread 0.2%
+rounds, resident-s:
+  gbsa               1696.51 1691.59   spread 0.3%
+  rf                 1221.96 1232.14   spread 0.8%
+
+test                                 resident-s/base-s                   resident-m/base-m                   resident-s/opencl                   resident-m/opencl                  resident-s/kstep-s                  resident-m/kstep-m                      kstep-s/base-s                      kstep-m/base-m
+gbsa                       1.044 (rounds 1.042..1.046)         1.029 (rounds 1.023..1.036)         1.472 (rounds 1.453..1.492)         1.115 (rounds 1.101..1.129)         1.034 (rounds 1.033..1.035)         1.023 (rounds 1.022..1.025)         1.009 (rounds 1.009..1.010)         1.006 (rounds 1.001..1.011)
+rf                         1.012 (rounds 1.011..1.012)         0.994 (rounds 0.992..0.996)         1.838 (rounds 1.826..1.850)         1.526 (rounds 1.521..1.531)         0.996 (rounds 0.993..1.000)         0.988 (rounds 0.988..0.989)         1.015 (rounds 1.012..1.018)         1.006 (rounds 1.003..1.008)
+
+1 minute load before 28 runs: 3.25 to 5.61
+Background VM CPU before 28 runs: 35% to 174%
+runs with no result: 0
+runs that overlapped a build: 0

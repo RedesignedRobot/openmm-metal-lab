@@ -1,0 +1,19 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  5.750e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.212e-05  7.340e-01  1.833e-07  ok
+rf             23558     mixed  2.208e-05  7.340e-01  1.787e-07  ok
+pme: Reference cached
+pme            23558    single  2.047e-05  3.919e-01  1.208e-06  ok
+pme            23558     mixed  2.044e-05  3.918e-01  1.203e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.625e-05  9.181e-01  5.065e-08  ok
+apoa1rf        92224     mixed  5.660e-05  1.526e+00  1.189e-07  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.548e-05  6.502e-01  5.692e-07  ok
+apoa1pme       92224     mixed  7.539e-05  6.426e-01  6.218e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.548e-05  6.472e-01  5.748e-07  ok
+apoa1ljpme     92224     mixed  7.538e-05  6.395e-01  6.154e-07  ok

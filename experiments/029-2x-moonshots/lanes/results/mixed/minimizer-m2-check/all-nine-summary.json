@@ -1,0 +1,434 @@
+[
+  {
+    "test": "gbsa",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 453.96977899327834,
+      "round_ns_per_day": [
+        454.46384774703967,
+        453.475710239517
+      ],
+      "footprint_bytes": 70976280.0,
+      "rss_bytes": 95027200.0
+    },
+    "candidate": {
+      "ns_per_day": 453.7390895929151,
+      "round_ns_per_day": [
+        453.1744914303434,
+        454.30368775548675
+      ],
+      "footprint_bytes": 70959920.0,
+      "rss_bytes": 95027200.0
+    },
+    "ratio": 0.9994918397412382,
+    "footprint_delta_bytes": -16360.0
+  },
+  {
+    "test": "gbsa",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 374.4696048984064,
+      "round_ns_per_day": [
+        374.07956541782437,
+        374.85964437898843
+      ],
+      "footprint_bytes": 73605912.0,
+      "rss_bytes": 99393536.0
+    },
+    "candidate": {
+      "ns_per_day": 374.01299760418294,
+      "round_ns_per_day": [
+        373.999387389724,
+        374.0266078186418
+      ],
+      "footprint_bytes": 73982744.0,
+      "rss_bytes": 99819520.0
+    },
+    "ratio": 0.9987806559244046,
+    "footprint_delta_bytes": 376832.0
+  },
+  {
+    "test": "rf",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 292.54203846011,
+      "round_ns_per_day": [
+        292.2697502887089,
+        292.81432663151105
+      ],
+      "footprint_bytes": 124789576.0,
+      "rss_bytes": 143376384.0
+    },
+    "candidate": {
+      "ns_per_day": 292.917712882782,
+      "round_ns_per_day": [
+        292.7824147216574,
+        293.0530110439066
+      ],
+      "footprint_bytes": 125190984.0,
+      "rss_bytes": 143818752.0
+    },
+    "ratio": 1.0012841724377441,
+    "footprint_delta_bytes": 401408.0
+  },
+  {
+    "test": "rf",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 231.34143398174257,
+      "round_ns_per_day": [
+        231.4440452542615,
+        231.23882270922365
+      ],
+      "footprint_bytes": 129459016.0,
+      "rss_bytes": 149839872.0
+    },
+    "candidate": {
+      "ns_per_day": 231.55509254807305,
+      "round_ns_per_day": [
+        231.63943605295307,
+        231.470749043193
+      ],
+      "footprint_bytes": 128148296.0,
+      "rss_bytes": 148561920.0
+    },
+    "ratio": 1.0009235637674285,
+    "footprint_delta_bytes": -1310720.0
+  },
+  {
+    "test": "pme",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 239.2627286956186,
+      "round_ns_per_day": [
+        239.08877361267133,
+        239.43668377856582
+      ],
+      "footprint_bytes": 130868040.0,
+      "rss_bytes": 147447808.0
+    },
+    "candidate": {
+      "ns_per_day": 238.81760187243964,
+      "round_ns_per_day": [
+        238.54323751001385,
+        239.09196623486542
+      ],
+      "footprint_bytes": 129155888.0,
+      "rss_bytes": 145776640.0
+    },
+    "ratio": 0.9981395897906639,
+    "footprint_delta_bytes": -1712152.0
+  },
+  {
+    "test": "pme",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 195.76979830886012,
+      "round_ns_per_day": [
+        195.9089882392272,
+        195.63060837849304
+      ],
+      "footprint_bytes": 133415740.0,
+      "rss_bytes": 151789568.0
+    },
+    "candidate": {
+      "ns_per_day": 195.94512743494295,
+      "round_ns_per_day": [
+        196.19252155619066,
+        195.69773331369527
+      ],
+      "footprint_bytes": 133382984.0,
+      "rss_bytes": 151781376.0
+    },
+    "ratio": 1.0008955882245238,
+    "footprint_delta_bytes": -32756.0
+  },
+  {
+    "test": "apoa1rf",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 78.59480552148081,
+      "round_ns_per_day": [
+        78.65150087880073,
+        78.53811016416088
+      ],
+      "footprint_bytes": 311591896.0,
+      "rss_bytes": 358375424.0
+    },
+    "candidate": {
+      "ns_per_day": 78.40934686770086,
+      "round_ns_per_day": [
+        78.40743406488814,
+        78.4112596705136
+      ],
+      "footprint_bytes": 316810248.0,
+      "rss_bytes": 363831296.0
+    },
+    "ratio": 0.9976403191973131,
+    "footprint_delta_bytes": 5218352.0
+  },
+  {
+    "test": "apoa1rf",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 63.6166275054581,
+      "round_ns_per_day": [
+        63.88847898581248,
+        63.344776025103705
+      ],
+      "footprint_bytes": 312353740.0,
+      "rss_bytes": 357539840.0
+    },
+    "candidate": {
+      "ns_per_day": 63.78562591351752,
+      "round_ns_per_day": [
+        63.863834882085904,
+        63.70741694494913
+      ],
+      "footprint_bytes": 312050648.0,
+      "rss_bytes": 359702528.0
+    },
+    "ratio": 1.002656513158371,
+    "footprint_delta_bytes": -303092.0
+  },
+  {
+    "test": "apoa1pme",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 59.71518723118041,
+      "round_ns_per_day": [
+        59.79973707870887,
+        59.63063738365195
+      ],
+      "footprint_bytes": 310526864.0,
+      "rss_bytes": 357392384.0
+    },
+    "candidate": {
+      "ns_per_day": 59.774409725547336,
+      "round_ns_per_day": [
+        59.85446114041328,
+        59.694358310681395
+      ],
+      "footprint_bytes": 316498892.0,
+      "rss_bytes": 364331008.0
+    },
+    "ratio": 1.0009917492871228,
+    "footprint_delta_bytes": 5972028.0
+  },
+  {
+    "test": "apoa1pme",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 50.76251217812711,
+      "round_ns_per_day": [
+        50.90713303960027,
+        50.61789131665396
+      ],
+      "footprint_bytes": 312124376.0,
+      "rss_bytes": 365961216.0
+    },
+    "candidate": {
+      "ns_per_day": 50.708857484106474,
+      "round_ns_per_day": [
+        50.97628841847393,
+        50.44142654973902
+      ],
+      "footprint_bytes": 318292940.0,
+      "rss_bytes": 371597312.0
+    },
+    "ratio": 0.9989430252420849,
+    "footprint_delta_bytes": 6168564.0
+  },
+  {
+    "test": "apoa1ljpme",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 44.772824982034244,
+      "round_ns_per_day": [
+        44.827701948146014,
+        44.717948015922474
+      ],
+      "footprint_bytes": 317695020.0,
+      "rss_bytes": 365428736.0
+    },
+    "candidate": {
+      "ns_per_day": 44.76757638489576,
+      "round_ns_per_day": [
+        44.82862426126712,
+        44.70652850852439
+      ],
+      "footprint_bytes": 317113304.0,
+      "rss_bytes": 365420544.0
+    },
+    "ratio": 0.9998827727055286,
+    "footprint_delta_bytes": -581716.0
+  },
+  {
+    "test": "apoa1ljpme",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 39.6806162291588,
+      "round_ns_per_day": [
+        39.74188500083271,
+        39.61934745748489
+      ],
+      "footprint_bytes": 320619492.0,
+      "rss_bytes": 372834304.0
+    },
+    "candidate": {
+      "ns_per_day": 39.53970090316865,
+      "round_ns_per_day": [
+        39.67334200589521,
+        39.4060598004421
+      ],
+      "footprint_bytes": 310453124.0,
+      "rss_bytes": 367460352.0
+    },
+    "ratio": 0.9964487616528848,
+    "footprint_delta_bytes": -10166368.0
+  },
+  {
+    "test": "amber20-dhfr",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 247.54810345468593,
+      "round_ns_per_day": [
+        247.1769779314889,
+        247.91922897788297
+      ],
+      "footprint_bytes": 143786848.0,
+      "rss_bytes": 159809536.0
+    },
+    "candidate": {
+      "ns_per_day": 248.21641046793542,
+      "round_ns_per_day": [
+        248.1425278392152,
+        248.2902930966556
+      ],
+      "footprint_bytes": 141607776.0,
+      "rss_bytes": 157687808.0
+    },
+    "ratio": 1.0026997056488127,
+    "footprint_delta_bytes": -2179072.0
+  },
+  {
+    "test": "amber20-dhfr",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 202.3470271209819,
+      "round_ns_per_day": [
+        201.1076035876886,
+        203.58645065427518
+      ],
+      "footprint_bytes": 153789280.0,
+      "rss_bytes": 167534592.0
+    },
+    "candidate": {
+      "ns_per_day": 201.7454402908475,
+      "round_ns_per_day": [
+        201.43736970053556,
+        202.05351088115944
+      ],
+      "footprint_bytes": 151610208.0,
+      "rss_bytes": 165371904.0
+    },
+    "ratio": 0.99702695493631,
+    "footprint_delta_bytes": -2179072.0
+  },
+  {
+    "test": "amber20-cellulose",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 13.28085614334053,
+      "round_ns_per_day": [
+        13.288786227505359,
+        13.272926059175703
+      ],
+      "footprint_bytes": 1573144376.0,
+      "rss_bytes": 1592893440.0
+    },
+    "candidate": {
+      "ns_per_day": 13.286161558208,
+      "round_ns_per_day": [
+        13.28650766607554,
+        13.28581545034046
+      ],
+      "footprint_bytes": 1573037880.0,
+      "rss_bytes": 1601724416.0
+    },
+    "ratio": 1.0003994783777648,
+    "footprint_delta_bytes": -106496.0
+  },
+  {
+    "test": "amber20-cellulose",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 11.469124649059884,
+      "round_ns_per_day": [
+        11.501337005724729,
+        11.43691229239504
+      ],
+      "footprint_bytes": 1573021496.0,
+      "rss_bytes": 1601658880.0
+    },
+    "candidate": {
+      "ns_per_day": 11.452609465210996,
+      "round_ns_per_day": [
+        11.479902397269303,
+        11.425316533152689
+      ],
+      "footprint_bytes": 1573119800.0,
+      "rss_bytes": 1596727296.0
+    },
+    "ratio": 0.9985600310089714,
+    "footprint_delta_bytes": 98304.0
+  },
+  {
+    "test": "amber20-stmv",
+    "precision": "single",
+    "base": {
+      "ns_per_day": 4.581013042294321,
+      "round_ns_per_day": [
+        4.580284087136231,
+        4.5817419974524105
+      ],
+      "footprint_bytes": 3734908300.0,
+      "rss_bytes": 2901377024.0
+    },
+    "candidate": {
+      "ns_per_day": 4.584840663231306,
+      "round_ns_per_day": [
+        4.581362937798984,
+        4.5883183886636285
+      ],
+      "footprint_bytes": 3734973848.0,
+      "rss_bytes": 2904596480.0
+    },
+    "ratio": 1.0008355402836984,
+    "footprint_delta_bytes": 65548.0
+  },
+  {
+    "test": "amber20-stmv",
+    "precision": "mixed",
+    "base": {
+      "ns_per_day": 4.026237220238613,
+      "round_ns_per_day": [
+        4.024233072357288,
+        4.0282413681199385
+      ],
+      "footprint_bytes": 3734875544.0,
+      "rss_bytes": 2863915008.0
+    },
+    "candidate": {
+      "ns_per_day": 4.027596779228711,
+      "round_ns_per_day": [
+        4.027503732962733,
+        4.027689825494689
+      ],
+      "footprint_bytes": 3734949272.0,
+      "rss_bytes": 2905849856.0
+    },
+    "ratio": 1.0003376748352688,
+    "footprint_delta_bytes": 73728.0
+  }
+]

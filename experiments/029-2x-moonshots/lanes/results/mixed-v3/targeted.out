@@ -1,0 +1,42 @@
+18:57:16Z waiting for the lease: 9 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:56:17Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-apoa1rf, about 3 min, 0 build processes
+19:02:20Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:59:03Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-gbsa, about 9 min, 0 build processes
+19:07:24Z waiting for the lease: 6 in the queue, held by: ultra-m29-unified 2026-09-26T19:06:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-unified/screen-small, about 14 min, 0 build processes
+19:12:28Z waiting for the lease: 6 in the queue, held by: ultra-m29-unified 2026-09-26T19:06:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-unified/screen-small, about 14 min, 0 build processes
+19:17:31Z waiting for the lease: 6 in the queue, held by: ultra-m29-unified 2026-09-26T19:06:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-unified/screen-small, about 14 min, 0 build processes
+19:22:35Z waiting for the lease: 5 in the queue, held by: ultra-m29-unified 2026-09-26T19:19:14Z ab.sh /tmp/openmm-metal-bench/ultra-m29-unified/screen-cellulose, about 7 min, 0 build processes
+19:27:40Z waiting for the lease: 3 in the queue, held by: ultra-m29-nonbonded 2026-09-26T19:27:30Z selected MAX_BITS md100 with state capture and detforces, 0 build processes
+19:32:44Z waiting for the lease: 2 in the queue, held by: ultra-m29-resident 2026-09-26T19:28:34Z ab.sh /tmp/openmm-metal-bench/ultra-m29-resident/resident-screen-small, about 9 min, 0 build processes
+Test project /tmp/openmm-metal-bench/ultra-m29-mixed-v3/build
+      Start 224: TestMetalCMMotionRemoverSingle
+ 1/12 Test #224: TestMetalCMMotionRemoverSingle ............   Passed    2.24 sec
+      Start 225: TestMetalCMMotionRemoverMixed
+ 2/12 Test #225: TestMetalCMMotionRemoverMixed .............   Passed    6.06 sec
+      Start 252: TestMetalCustomIntegratorSingle
+ 3/12 Test #252: TestMetalCustomIntegratorSingle ...........   Passed   46.23 sec
+      Start 253: TestMetalCustomIntegratorMixed
+ 4/12 Test #253: TestMetalCustomIntegratorMixed ............   Passed   48.58 sec
+      Start 280: TestMetalLangevinMiddleIntegratorSingle
+ 5/12 Test #280: TestMetalLangevinMiddleIntegratorSingle ...   Passed    9.34 sec
+      Start 281: TestMetalLangevinMiddleIntegratorMixed
+ 6/12 Test #281: TestMetalLangevinMiddleIntegratorMixed ....   Passed   14.27 sec
+      Start 284: TestMetalMixedPrecisionSingle
+ 7/12 Test #284: TestMetalMixedPrecisionSingle .............   Passed    0.38 sec
+      Start 285: TestMetalMixedPrecisionMixed
+ 8/12 Test #285: TestMetalMixedPrecisionMixed ..............   Passed    5.95 sec
+      Start 314: TestMetalSettleSingle
+ 9/12 Test #314: TestMetalSettleSingle .....................   Passed    0.96 sec
+      Start 315: TestMetalSettleMixed
+10/12 Test #315: TestMetalSettleMixed ......................   Passed    1.97 sec
+      Start 322: TestMetalVerletIntegratorSingle
+11/12 Test #322: TestMetalVerletIntegratorSingle ...........   Passed    6.94 sec
+      Start 323: TestMetalVerletIntegratorMixed
+12/12 Test #323: TestMetalVerletIntegratorMixed ............   Passed    8.95 sec
+
+100% tests passed out of 12
+
+Total Test time (real) = 151.90 sec
+{"platform": "Metal", "precision": "single", "step": "PASS", "library": "/tmp/openmm-metal-bench/ultra-int028/prefix/lib"}
+{"platform": "Metal", "precision": "mixed", "step": "PASS", "library": "/tmp/openmm-metal-bench/ultra-int028/prefix/lib"}
+{"platform": "Metal", "precision": "single", "step": "PASS", "library": "/tmp/openmm-metal-bench/ultra-m29-mixed-v3/prefix/lib"}
+{"platform": "Metal", "precision": "mixed", "step": "PASS", "library": "/tmp/openmm-metal-bench/ultra-m29-mixed-v3/prefix/lib"}
+{"platform": "OpenCL", "precision": "single", "step": "PASS", "library": "/tmp/openmm-metal-bench/ultra-int028/prefix/lib"}

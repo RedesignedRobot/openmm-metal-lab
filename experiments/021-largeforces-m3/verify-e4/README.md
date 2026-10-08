@@ -1,6 +1,6 @@
 # Independent check of #5434 (verify-e4)
 
-A fresh-context verifier's own probes, separate from the 021 lane.
+A fresh-context verifier's own probes, separate from the 021 runs.
 
 - probe.swift: Metal kernel probe of float to int/uint/long/ulong conversions. Outputs m3u-probe.txt (M3 Ultra) and m2-probe.txt (M2).
 - clprobe.c: OpenCL probe (-cl-mad-enable -cl-no-signed-zeros) of `(long)(x*2^32)`, `convert_long_sat(x*2^32)` and `(long)x`. Output m3u-clprobe.txt, M3 Ultra, 2026-09-23 16:28Z under the Studio lease.

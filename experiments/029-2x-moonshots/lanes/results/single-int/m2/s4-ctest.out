@@ -1,0 +1,69 @@
+Test project ~/lab/ultra-m2.noindex/cand-r2-single-int-p-bce69730f8/build
+      Start 253: TestMetalCustomIntegratorMixed
+      Start 289: TestMetalMonteCarloBarostatMixed
+      Start 297: TestMetalNoseHooverIntegratorMixed
+ 1/32 Test #297: TestMetalNoseHooverIntegratorMixed ..........   Passed   55.23 sec
+      Start 221: TestMetalBrownianIntegratorMixed
+ 2/32 Test #289: TestMetalMonteCarloBarostatMixed ............   Passed   80.91 sec
+      Start 288: TestMetalMonteCarloBarostatSingle
+ 3/32 Test #221: TestMetalBrownianIntegratorMixed ............   Passed   31.49 sec
+      Start 252: TestMetalCustomIntegratorSingle
+ 4/32 Test #253: TestMetalCustomIntegratorMixed ..............   Passed   97.15 sec
+      Start 219: TestMetalAndersenThermostatMixed
+ 5/32 Test #219: TestMetalAndersenThermostatMixed ............   Passed   26.64 sec
+      Start 220: TestMetalBrownianIntegratorSingle
+ 6/32 Test #288: TestMetalMonteCarloBarostatSingle ...........   Passed   47.10 sec
+      Start 325: TestMetalVirtualSitesMixed
+ 7/32 Test #252: TestMetalCustomIntegratorSingle .............   Passed   42.69 sec
+      Start 218: TestMetalAndersenThermostatSingle
+ 8/32 Test #218: TestMetalAndersenThermostatSingle ...........   Passed   16.95 sec
+      Start 319: TestMetalVariableLangevinIntegratorMixed
+ 9/32 Test #220: TestMetalBrownianIntegratorSingle ...........   Passed   29.01 sec
+      Start 296: TestMetalNoseHooverIntegratorSingle
+10/32 Test #325: TestMetalVirtualSitesMixed ..................   Passed   40.06 sec
+      Start 318: TestMetalVariableLangevinIntegratorSingle
+11/32 Test #296: TestMetalNoseHooverIntegratorSingle .........   Passed   16.72 sec
+      Start 279: TestMetalLangevinIntegratorMixed
+12/32 Test #319: TestMetalVariableLangevinIntegratorMixed ....   Passed   24.19 sec
+      Start 321: TestMetalVariableVerletIntegratorMixed
+13/32 Test #321: TestMetalVariableVerletIntegratorMixed ......   Passed    5.80 sec
+      Start 285: TestMetalMixedPrecisionMixed
+14/32 Test #318: TestMetalVariableLangevinIntegratorSingle ...   Passed   14.75 sec
+      Start 281: TestMetalLangevinMiddleIntegratorMixed
+15/32 Test #279: TestMetalLangevinIntegratorMixed ............   Passed   15.46 sec
+      Start 323: TestMetalVerletIntegratorMixed
+16/32 Test #285: TestMetalMixedPrecisionMixed ................   Passed   10.75 sec
+      Start 278: TestMetalLangevinIntegratorSingle
+17/32 Test #278: TestMetalLangevinIntegratorSingle ...........   Passed    7.51 sec
+      Start 280: TestMetalLangevinMiddleIntegratorSingle
+18/32 Test #323: TestMetalVerletIntegratorMixed ..............   Passed   12.83 sec
+      Start 227: TestMetalCheckpointsMixed
+19/32 Test #281: TestMetalLangevinMiddleIntegratorMixed ......   Passed   17.20 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+20/32 Test #280: TestMetalLangevinMiddleIntegratorSingle .....   Passed    6.54 sec
+      Start 324: TestMetalVirtualSitesSingle
+21/32 Test #227: TestMetalCheckpointsMixed ...................   Passed    3.41 sec
+      Start 322: TestMetalVerletIntegratorSingle
+22/32 Test #231: TestMetalCompoundIntegratorMixed ............   Passed    3.86 sec
+      Start 320: TestMetalVariableVerletIntegratorSingle
+23/32 Test #322: TestMetalVerletIntegratorSingle .............   Passed    5.52 sec
+      Start 225: TestMetalCMMotionRemoverMixed
+24/32 Test #320: TestMetalVariableVerletIntegratorSingle .....   Passed    3.01 sec
+      Start 315: TestMetalSettleMixed
+25/32 Test #324: TestMetalVirtualSitesSingle .................   Passed    6.78 sec
+      Start 230: TestMetalCompoundIntegratorSingle
+26/32 Test #225: TestMetalCMMotionRemoverMixed ...............   Passed    2.43 sec
+      Start 224: TestMetalCMMotionRemoverSingle
+27/32 Test #230: TestMetalCompoundIntegratorSingle ...........   Passed    2.52 sec
+      Start 314: TestMetalSettleSingle
+28/32 Test #224: TestMetalCMMotionRemoverSingle ..............   Passed    1.44 sec
+      Start 226: TestMetalCheckpointsSingle
+29/32 Test #315: TestMetalSettleMixed ........................   Passed    3.96 sec
+      Start 284: TestMetalMixedPrecisionSingle
+30/32 Test #314: TestMetalSettleSingle .......................   Passed    0.54 sec
+31/32 Test #284: TestMetalMixedPrecisionSingle ...............   Passed    0.22 sec
+32/32 Test #226: TestMetalCheckpointsSingle ..................   Passed    0.47 sec
+
+100% tests passed out of 32
+
+Total Test time (real) = 211.10 sec

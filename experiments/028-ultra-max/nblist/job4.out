@@ -1,0 +1,104 @@
+23:53:07Z waiting for the lease: 46 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:58:11Z waiting for the lease: 46 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+00:03:16Z waiting for the lease: 31 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:08:21Z waiting for the lease: 31 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:13:26Z waiting for the lease: 31 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:18:31Z waiting for the lease: 33 in the queue, held by: gb 2026-09-25T00:04:08Z gate.sh /tmp/openmm-metal-bench/ultra-atomics/gb, 0 build processes
+00:23:35Z waiting for the lease: 32 in the queue, held by: ultra-pme 2026-09-25T00:21:47Z ab cand2 amber20 dhfr cellulose single, 0 build processes
+00:28:39Z waiting for the lease: 30 in the queue, held by: ultra-pme 2026-09-25T00:27:17Z ab cand2 pme tests mixed, 0 build processes
+00:33:44Z waiting for the lease: 29 in the queue, held by: ultra-pme 2026-09-25T00:31:10Z split-pass probe screen, 0 build processes
+00:38:49Z waiting for the lease: 28 in the queue, held by: ultra-profiler 2026-09-25T00:36:00Z 1e GBSA kill test: forces plus counters census, base/kill/rsqrt on gbsa, 3 repeats, about 4 min, 0 build processes
+00:43:54Z waiting for the lease: 26 in the queue, held by: ultra-dispatch 2026-09-25T00:43:44Z gpuprof buffers rf,gbsa: poll and waitfree, 0 build processes
+00:48:58Z waiting for the lease: 24 in the queue, held by: ultra-pme 2026-09-25T00:48:36Z cand3 screen part 3, 0 build processes
+00:54:03Z waiting for the lease: 23 in the queue, held by: ultra-atomics 2026-09-25T00:52:14Z words screen a: rf,gbsa, ultra-base/p0/words 2x15 s, ~12 min, 0 build processes
+00:59:09Z waiting for the lease: 21 in the queue, held by: ultra-nonbonded 2026-09-25T00:57:18Z screen tiles commit 6d72c3ae9, 4 configs x 5 tests x 2 rounds of 15 s, 0 build processes
+01:04:15Z waiting for the lease: 19 in the queue, held by: ultra-mixed 2026-09-25T01:03:56Z relaxed math screen mixed, 0 build processes
+01:09:19Z waiting for the lease: 18 in the queue, held by: ultra-pme 2026-09-25T01:07:31Z lab2 screen: LJPME dispersion grids, ~8 min, 0 build processes
+01:14:26Z waiting for the lease: 17 in the queue, held by: ultra-plugins 2026-09-25T01:11:44Z screen amoebagk before/cand/OpenCL 2x15s, ~8 min, 0 build processes
+01:19:32Z waiting for the lease: 16 in the queue, held by: ultra-workloads 2026-09-25T01:15:22Z aggregate throughput: 1,2,4,8 procs x gbsa,rf x Metal single/OpenCL single/Metal mixed, 10 s windows, ~10 min, 0 build processes
+01:24:36Z waiting for the lease: 15 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:29:40Z waiting for the lease: 15 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:34:45Z waiting for the lease: 14 in the queue, held by: ultra-plugins 2026-09-25T01:31:52Z screen amoebagk head/bar 2x15s, ~6 min, 0 build processes
+01:39:50Z waiting for the lease: 12 in the queue, held by: ultra-atomics 2026-09-25T01:39:10Z screen bonded b: pme,gbsa,rf, b0/bonded 2x15 s, ~12 min, 0 build processes
+01:44:54Z waiting for the lease: 10 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:49:58Z waiting for the lease: 10 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:55:03Z waiting for the lease: 10 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+02:00:07Z waiting for the lease: 9 in the queue, held by: ultra-atomics 2026-09-25T01:59:01Z census 1b: bonded b0 vs d8ab45b2b counters, 6 tests, ~4 min, 0 build processes
+02:05:11Z waiting for the lease: 8 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:10:14Z waiting for the lease: 8 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:15:18Z waiting for the lease: 7 in the queue, held by: ultra-mixed 2026-09-25T02:10:42Z fused LangevinMiddle screen, single and mixed, gbsa and rf, 0 build processes
+02:20:39Z waiting for the lease: 1 in the queue, held by: ultra-nonbonded 2026-09-25T02:18:44Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-xres, about 6 min, 0 build processes
+ 5:23  up 1 day, 12:37, 2 users, load averages: 2.72 3.64 3.20
+{"round": 0, "test": "rf", "label": "g0", "ns_day": 154.008, "load": 2.72021484375}
+{"round": 0, "test": "rf", "label": "g1", "ns_day": 155.088, "load": 2.58203125}
+{"round": 0, "test": "rf", "label": "g2", "ns_day": 156.23, "load": 2.58203125}
+{"round": 0, "test": "rf", "label": "b4g1", "ns_day": 163.635, "load": 2.58203125}
+{"round": 0, "test": "rf", "label": "b4g2", "ns_day": 159.831, "load": 2.455078125}
+{"round": 0, "test": "pme", "label": "g0", "ns_day": 144.911, "load": 2.455078125}
+{"round": 0, "test": "pme", "label": "g1", "ns_day": 144.828, "load": 2.33837890625}
+{"round": 0, "test": "pme", "label": "g2", "ns_day": 145.212, "load": 2.33837890625}
+{"round": 0, "test": "pme", "label": "b4g1", "ns_day": 148.459, "load": 2.33837890625}
+{"round": 0, "test": "pme", "label": "b4g2", "ns_day": 148.963, "load": 3.03173828125}
+{"round": 0, "test": "apoa1pme", "label": "g0", "ns_day": 97.71, "load": 3.03173828125}
+{"round": 0, "test": "apoa1pme", "label": "g1", "ns_day": 97.397, "load": 2.94873046875}
+{"round": 0, "test": "apoa1pme", "label": "g2", "ns_day": 102.964, "load": 2.94873046875}
+{"round": 0, "test": "apoa1pme", "label": "b4g1", "ns_day": 102.132, "load": 2.94873046875}
+{"round": 0, "test": "apoa1pme", "label": "b4g2", "ns_day": 101.807, "load": 2.79248046875}
+{"round": 1, "test": "rf", "label": "b4g2", "ns_day": 164.026, "load": 2.79248046875}
+{"round": 1, "test": "rf", "label": "b4g1", "ns_day": 162.658, "load": 2.79248046875}
+{"round": 1, "test": "rf", "label": "g2", "ns_day": 157.715, "load": 2.64892578125}
+{"round": 1, "test": "rf", "label": "g1", "ns_day": 158.065, "load": 2.64892578125}
+{"round": 1, "test": "rf", "label": "g0", "ns_day": 155.793, "load": 2.64892578125}
+{"round": 1, "test": "pme", "label": "b4g2", "ns_day": 151.429, "load": 2.7568359375}
+{"round": 1, "test": "pme", "label": "b4g1", "ns_day": 150.875, "load": 2.7568359375}
+{"round": 1, "test": "pme", "label": "g2", "ns_day": 147.937, "load": 2.7568359375}
+{"round": 1, "test": "pme", "label": "g1", "ns_day": 146.277, "load": 2.69580078125}
+{"round": 1, "test": "pme", "label": "g0", "ns_day": 146.034, "load": 2.69580078125}
+{"round": 1, "test": "apoa1pme", "label": "b4g2", "ns_day": 101.0, "load": 2.69580078125}
+{"round": 1, "test": "apoa1pme", "label": "b4g1", "ns_day": 102.488, "load": 2.6396484375}
+{"round": 1, "test": "apoa1pme", "label": "g2", "ns_day": 100.848, "load": 2.6396484375}
+{"round": 1, "test": "apoa1pme", "label": "g1", "ns_day": 98.809, "load": 2.90869140625}
+{"round": 1, "test": "apoa1pme", "label": "g0", "ns_day": 98.523, "load": 2.90869140625}
+== ns/day
+{"round": 0, "test": "rf", "label": "g0", "ns_day": 784.406, "load": 2.91552734375}
+{"round": 0, "test": "rf", "label": "g1", "ns_day": 789.535, "load": 3.5234375}
+{"round": 0, "test": "rf", "label": "g2", "ns_day": 790.427, "load": 3.2412109375}
+{"round": 0, "test": "rf", "label": "b4", "ns_day": 929.935, "load": 3.04345703125}
+{"round": 0, "test": "rf", "label": "b4g2", "ns_day": 942.297, "load": 3.11962890625}
+{"round": 0, "test": "pme", "label": "g0", "ns_day": 684.569, "load": 3.1875}
+{"round": 0, "test": "pme", "label": "g1", "ns_day": 685.65, "load": 2.92431640625}
+{"round": 0, "test": "pme", "label": "g2", "ns_day": 688.352, "load": 2.93017578125}
+{"round": 0, "test": "pme", "label": "b4", "ns_day": 757.644, "load": 3.095703125}
+{"round": 0, "test": "pme", "label": "b4g2", "ns_day": 764.308, "load": 2.9267578125}
+{"round": 0, "test": "apoa1rf", "label": "g0", "ns_day": 301.457, "load": 2.4765625}
+{"round": 0, "test": "apoa1rf", "label": "g1", "ns_day": 304.948, "load": 2.51806640625}
+{"round": 0, "test": "apoa1rf", "label": "g2", "ns_day": 305.585, "load": 2.396484375}
+{"round": 0, "test": "apoa1rf", "label": "b4", "ns_day": 312.155, "load": 2.7646484375}
+{"round": 0, "test": "apoa1rf", "label": "b4g2", "ns_day": 318.026, "load": 2.9541015625}
+{"round": 0, "test": "apoa1pme", "label": "g0", "ns_day": 231.111, "load": 2.5732421875}
+{"round": 0, "test": "apoa1pme", "label": "g1", "ns_day": 233.098, "load": 2.52685546875}
+{"round": 0, "test": "apoa1pme", "label": "g2", "ns_day": 232.572, "load": 2.4326171875}
+{"round": 0, "test": "apoa1pme", "label": "b4", "ns_day": 235.762, "load": 2.23779296875}
+{"round": 0, "test": "apoa1pme", "label": "b4g2", "ns_day": 238.892, "load": 2.12109375}
+{"round": 1, "test": "rf", "label": "b4g2", "ns_day": 960.435, "load": 2.19140625}
+{"round": 1, "test": "rf", "label": "b4", "ns_day": 949.37, "load": 2.24169921875}
+{"round": 1, "test": "rf", "label": "g2", "ns_day": 789.878, "load": 2.30224609375}
+{"round": 1, "test": "rf", "label": "g1", "ns_day": 787.874, "load": 2.56298828125}
+{"round": 1, "test": "rf", "label": "g0", "ns_day": 783.121, "load": 2.677734375}
+{"round": 1, "test": "pme", "label": "b4g2", "ns_day": 762.251, "load": 2.4189453125}
+{"round": 1, "test": "pme", "label": "b4", "ns_day": 751.501, "load": 2.30517578125}
+{"round": 1, "test": "pme", "label": "g2", "ns_day": 685.612, "load": 2.2509765625}
+{"round": 1, "test": "pme", "label": "g1", "ns_day": 687.923, "load": 2.310546875}
+{"round": 1, "test": "pme", "label": "g0", "ns_day": 681.55, "load": 2.3427734375}
+{"round": 1, "test": "apoa1rf", "label": "b4g2", "ns_day": 315.784, "load": 2.31494140625}
+{"round": 1, "test": "apoa1rf", "label": "b4", "ns_day": 310.21, "load": 2.36962890625}
+{"round": 1, "test": "apoa1rf", "label": "g2", "ns_day": 305.508, "load": 2.47265625}
+{"round": 1, "test": "apoa1rf", "label": "g1", "ns_day": 304.459, "load": 2.2744140625}
+{"round": 1, "test": "apoa1rf", "label": "g0", "ns_day": 300.735, "load": 2.33203125}
+{"round": 1, "test": "apoa1pme", "label": "b4g2", "ns_day": 238.285, "load": 1.97314453125}
+{"round": 1, "test": "apoa1pme", "label": "b4", "ns_day": 235.65, "load": 2.13525390625}
+{"round": 1, "test": "apoa1pme", "label": "g2", "ns_day": 232.421, "load": 2.1201171875}
+{"round": 1, "test": "apoa1pme", "label": "g1", "ns_day": 232.105, "load": 2.1904296875}
+{"round": 1, "test": "apoa1pme", "label": "g0", "ns_day": 230.374, "load": 2.970703125}
+ 5:29  up 1 day, 12:43, 2 users, load averages: 2.97 2.95 3.00
+JOB4 DONE

@@ -13,7 +13,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 200514
 elapsed_time: 58.620574
 ns_per_day: 1182.138516760344
@@ -34,7 +34,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 136575
 elapsed_time: 59.66715
 ns_per_day: 791.0604076112232
@@ -97,7 +97,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 82163
 elapsed_time: 59.674923
 ns_per_day: 475.83694075315344
@@ -160,7 +160,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 121604
 elapsed_time: 59.175763
 ns_per_day: 710.1951925824766
@@ -223,7 +223,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 92948
 elapsed_time: 59.896169
 ns_per_day: 536.3085709204539
@@ -244,7 +244,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 64958
 elapsed_time: 59.941131
 ns_per_day: 374.52554573920196
@@ -286,7 +286,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 52469
 elapsed_time: 62.893313
 ns_per_day: 288.31819370049715
@@ -307,7 +307,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 38271
 elapsed_time: 62.889919
 ns_per_day: 210.31125195120697
@@ -349,7 +349,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 32302
 elapsed_time: 60.810349
 ns_per_day: 183.58012054823098
@@ -370,7 +370,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 26063
 elapsed_time: 60.844381
 ns_per_day: 148.03951740424475
@@ -433,7 +433,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 19179
 elapsed_time: 61.079686
 ns_per_day: 108.51827889226539
@@ -496,7 +496,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 22570
 elapsed_time: 61.024484
 ns_per_day: 127.82069570633318
@@ -738,7 +738,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8463
 elapsed_time: 60.395478
 ns_per_day: 48.4276786417685
@@ -759,7 +759,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7078
 elapsed_time: 60.29206
 ns_per_day: 40.571790049966765
@@ -801,7 +801,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 3222
 elapsed_time: 60.13954
 ns_per_day: 18.5156587496346
@@ -822,7 +822,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/dt/bps8v4bs0fl37rrrrykk0rrw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M3 Ultra', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 2730
 elapsed_time: 59.67729
 ns_per_day: 15.809833187800582

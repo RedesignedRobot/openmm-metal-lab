@@ -1,0 +1,83 @@
+{
+  "apple9" : true,
+  "densePrototype" : [
+    {
+      "atoms" : 2489,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "gbsa",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "rf",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "pme",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 834442752,
+      "scratchBytes" : 834442752,
+      "shareOfRecommendedWorkingSet" : 0.0099940235926437582,
+      "test" : "apoa1rf",
+      "threadgroups" : 377
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 834442752,
+      "scratchBytes" : 834442752,
+      "shareOfRecommendedWorkingSet" : 0.0099940235926437582,
+      "test" : "apoa1pme",
+      "threadgroups" : 377
+    },
+    {
+      "atoms" : 92224,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "apoa1ljpme",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 23558,
+      "roundedScratchBytes" : 0,
+      "scratchBytes" : 0,
+      "shareOfRecommendedWorkingSet" : 0,
+      "test" : "amber20-dhfr",
+      "threadgroups" : 0
+    },
+    {
+      "atoms" : 408609,
+      "roundedScratchBytes" : 833625600,
+      "scratchBytes" : 833625600,
+      "shareOfRecommendedWorkingSet" : 0.0099842366583727093,
+      "test" : "amber20-cellulose",
+      "threadgroups" : 85
+    },
+    {
+      "atoms" : 1067095,
+      "roundedScratchBytes" : 819535872,
+      "scratchBytes" : 819535872,
+      "shareOfRecommendedWorkingSet" : 0.0098154856281691023,
+      "test" : "amber20-stmv",
+      "threadgroups" : 32
+    }
+  ],
+  "deterministicScratchBytes" : 0,
+  "device" : "Apple M3 Ultra",
+  "gpuCores" : 60,
+  "maxBufferLength" : 62620631040,
+  "recommendedMaxWorkingSetSize" : 83494174720,
+  "step0ScratchBytes" : 0
+}

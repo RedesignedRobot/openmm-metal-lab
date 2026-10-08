@@ -1,0 +1,41 @@
+control (tanh, ^1.5)                            2 per-DOF/sum expressions, FAILS in mixed
+    v = v + dt*f/m + 0.001*tanh(v)   uses tanh
+    x = x + dt*v*abs(v)^1.5   uses pow
+    Metal single: ran
+    Metal mixed: rejected: Error compiling program: program_source:955:31: error: call to deleted function 'tanh'
+AlchemicalNonequilibriumLangevinIntegrator     23 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29374.1
+AndersenVelocityVerletIntegrator                7 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29748.0
+BAOABIntegrator                                10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29837.4
+ExternalPerturbationLangevinIntegrator         10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29787.2
+FIREMinimizationIntegrator                     16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -31986.7
+GHMCIntegrator                                 18 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29805.3
+GeodesicBAOABIntegrator                        16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29796.4
+GradientDescentMinimizationIntegrator           4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -30712.9
+HMCIntegrator                                  46 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -28953.6
+LangevinIntegrator                             10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29795.3
+MTSIntegrator                                   5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+MetropolisMonteCarloIntegrator                  5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29778.7
+NonequilibriumLangevinIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29774.3
+NoseHooverChainVelocityVerletIntegrator         8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29710.0
+PeriodicNonequilibriumIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29338.2
+VVVRIntegrator                                  8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29767.1
+VelocityVerletIntegrator                        4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+forces with all eleven functions, Metal single: dE 2.26e-06 max|dF| 6.93e-08
+forces with all eleven functions, Metal mixed: dE 1.31e-06 max|dF| 6.93e-08

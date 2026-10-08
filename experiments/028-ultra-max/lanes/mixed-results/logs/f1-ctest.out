@@ -1,0 +1,43 @@
+Test project /tmp/openmm-metal-bench/ultra-mixed/f1/build
+      Start 224: TestMetalCMMotionRemoverSingle
+      Start 225: TestMetalCMMotionRemoverMixed
+      Start 226: TestMetalCheckpointsSingle
+ 1/16 Test #226: TestMetalCheckpointsSingle ................   Passed    2.00 sec
+      Start 227: TestMetalCheckpointsMixed
+ 2/16 Test #224: TestMetalCMMotionRemoverSingle ............   Passed    2.48 sec
+      Start 230: TestMetalCompoundIntegratorSingle
+ 3/16 Test #230: TestMetalCompoundIntegratorSingle .........   Passed    2.48 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+ 4/16 Test #225: TestMetalCMMotionRemoverMixed .............   Passed    7.67 sec
+      Start 280: TestMetalLangevinMiddleIntegratorSingle
+ 5/16 Test #227: TestMetalCheckpointsMixed .................   Passed    7.87 sec
+      Start 281: TestMetalLangevinMiddleIntegratorMixed
+ 6/16 Test #231: TestMetalCompoundIntegratorMixed ..........   Passed    8.05 sec
+      Start 284: TestMetalMixedPrecisionSingle
+ 7/16 Test #284: TestMetalMixedPrecisionSingle .............   Passed    0.48 sec
+      Start 285: TestMetalMixedPrecisionMixed
+ 8/16 Test #280: TestMetalLangevinMiddleIntegratorSingle ...   Passed   10.27 sec
+      Start 288: TestMetalMonteCarloBarostatSingle
+ 9/16 Test #285: TestMetalMixedPrecisionMixed ..............   Passed    7.55 sec
+      Start 289: TestMetalMonteCarloBarostatMixed
+10/16 Test #281: TestMetalLangevinMiddleIntegratorMixed ....   Passed   22.08 sec
+      Start 314: TestMetalSettleSingle
+11/16 Test #314: TestMetalSettleSingle .....................   Passed    1.12 sec
+      Start 315: TestMetalSettleMixed
+12/16 Test #315: TestMetalSettleMixed ......................   Passed    4.24 sec
+      Start 324: TestMetalVirtualSitesSingle
+13/16 Test #324: TestMetalVirtualSitesSingle ...............   Passed    9.91 sec
+      Start 325: TestMetalVirtualSitesMixed
+14/16 Test #288: TestMetalMonteCarloBarostatSingle .........   Passed   54.17 sec
+15/16 Test #325: TestMetalVirtualSitesMixed ................   Passed   38.84 sec
+16/16 Test #289: TestMetalMonteCarloBarostatMixed ..........***Failed   91.49 sec
+exception: Assertion failure at TestMonteCarloBarostat.h:607.  Expected 10, found 11.0055 (This test is stochastic and may occasionally fail)
+
+
+94% tests passed, 1 tests failed out of 16
+
+Total Test time (real) = 112.54 sec
+
+The following tests FAILED:
+	289 - TestMetalMonteCarloBarostatMixed (Failed)
+Errors while running CTest

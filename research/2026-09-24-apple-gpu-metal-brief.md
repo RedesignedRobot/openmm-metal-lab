@@ -1,6 +1,6 @@
 # Apple GPU and Metal, low-level brief for experiment 028
 
-Research lane, 2026-09-24. This is for the implementation lanes: dispatch overhead, atomics, nonbonded, PME/FFT, mixed precision and plugins. The target is the M3 Ultra (Apple9, 60 GPU cores, macOS 27.2). The code base is 6df2b8bcb.
+Research note, 2026-09-24. This is for the implementation work: dispatch overhead, atomics, nonbonded, PME/FFT, mixed precision and plugins. The target is the M3 Ultra (Apple9, 60 GPU cores, macOS 27.2). The code base is 6df2b8bcb.
 
 Each claim carries a tier. **Verified** means I read the primary source or our code and cite it. **Lab** means one of our experiments measured it, and I name the experiment. **Reported** means a source says it and I didn't check. **Inference** is my own reasoning. Nothing in this brief was built or run for it.
 
@@ -154,7 +154,7 @@ This is my recommended shape, and all of it is inference built on the facts abov
 - Lab 004:
   - The split-word 64-bit add (`common.metal:57-67`) is exact under contention: 2^22 adds into 8 cells took 2.0 ms on the M3 Ultra and 5.1 ms on the M2.
   - Float atomics: 2^20 adds into 8 cells took 0.34 ms on the M3 Ultra and 190.8 ms on the M2. The M2 almost certainly runs a CAS loop and the M3 has a hardware path (inference).
-- Lab 011 head note, M3 Ultra, ApoA1 98^3 grid, GPU clock: gridSpreadCharge with float atomics took 0.169 ms, against 0.412 + 0.020 ms for fixed point plus finishSpreadCharge. That's 2.6x. On the M2, float atomics lost: 0.832 against 0.796 ms.
+- Lab 011 review note, M3 Ultra, ApoA1 98^3 grid, GPU clock: gridSpreadCharge with float atomics took 0.169 ms, against 0.412 + 0.020 ms for fixed point plus finishSpreadCharge. That's 2.6x. On the M2, float atomics lost: 0.832 against 0.796 ms.
 - Verified. `supportsHardwareFloatGlobalAtomicAdd(false)` is hardcoded (`MetalContext.cpp:117`), so `useFixedPointChargeSpreading` is always true on Metal (`MetalKernels.cpp:52`). CUDA spreads with float atomics unless the run is double precision or DeterministicForces (`CudaKernels.cpp:57`). A counterexample exists: HIP went back to fixed point on RDNA4 because `global_atomic_add_f32` was "very slow compared to global_atomic_add_u64" (1ce5d91d9, #4960). So key this on measurement per GPU family, not on the feature bit. Enable it for Apple9 and up (`supportsFamily(MTL::GPUFamilyApple9)`) and keep fixed point on Apple7 and 8.
 - Fastest fixed-point accumulation without a 64-bit add (inference, ranked):
   1. Reduce before you touch memory. Sum per-atom contributions in registers and SIMD shuffles, then issue one split-word add per atom per tile. The nonbonded kernel already works this way.
@@ -177,7 +177,7 @@ This is my recommended shape, and all of it is inference built on the facts abov
 
 ## 3. FFT for PME
 
-- Lab 011 head note, M3 Ultra, 98^3, 32 transforms per sync, wall clock per transform: VkFFT on Metal took 0.067 ms forward and 0.064 ms inverse, the same as VkFFT on OpenCL. MPSGraph was 4 to 7x slower. That's the second MPS loss, so under the MPS rule it's out.
+- Lab 011 review note, M3 Ultra, 98^3, 32 transforms per sync, wall clock per transform: VkFFT on Metal took 0.067 ms forward and 0.064 ms inverse, the same as VkFFT on OpenCL. MPSGraph was 4 to 7x slower. That's the second MPS loss, so under the MPS rule it's out.
 - Verified. The platform uses VkFFT backend 5 (Metal), appended to the shared compute encoder (`MetalFFT3D.cpp:26-106`), with `useLUT = 1`. `findLegalDimension` accepts prime factors up to 13 (`MetalFFT3D.cpp:108-124`).
 - Reported ([VkFFT README](https://github.com/DTolm/VkFFT); Tolmachev, [IEEE Access 11:12039, 2023](https://ieeexplore.ieee.org/document/10036080/)):
   - VkFFT has radix 2, 3, 4, 5, 7, 8, 11 and 13 kernels, Rader for primes from 17 up to about 10,000, and Bluestein for everything else.
@@ -185,7 +185,7 @@ This is my recommended shape, and all of it is inference built on the facts abov
   - It has native zero padding, and it can fuse a convolution, multiplying by a kernel in frequency space.
 - Reported ([arXiv 2603.27569](https://arxiv.org/html/2603.27569), M1, 1D only): a hand-written radix-8 Stockham kernel in MSL reached 138 GFLOPS at N=4096, against vDSP's 107. It keeps the data in registers and uses threadgroup memory only for exchange. The paper says VkFFT's Metal backend caps threadgroups at 256 threads. Its SIMD-shuffle variant was slower, at 61.5 GFLOPS.
 - Inference, for PME sizes:
-  - OpenMM grids run from about 24^3 to 200^3 and are 3D, R2C, and batched over one axis at a time. VkFFT already does each axis in one pass through threadgroup memory. A 98^3 R2C moves about 3.8 MB each way per axis. Three axes at 0.064 ms work out to roughly 350 GB/s, which is well under the M3 Ultra's roughly 800 GB/s. So a hand-written Stockham has at most about 2x to find, on 0.13 ms per step at ApoA1 size. That's about 4% of apoa1pme, and it isn't worth a lane.
+  - OpenMM grids run from about 24^3 to 200^3 and are 3D, R2C, and batched over one axis at a time. VkFFT already does each axis in one pass through threadgroup memory. A 98^3 R2C moves about 3.8 MB each way per axis. Three axes at 0.064 ms work out to roughly 350 GB/s, which is well under the M3 Ultra's roughly 800 GB/s. So a hand-written Stockham has at most about 2x to find, on 0.13 ms per step at ApoA1 size. That's about 4% of apoa1pme, and it isn't worth the work.
   - The cheaper wins are to fold `reciprocalConvolution` (0.015 ms) into VkFFT's convolution mode, and to limit `findLegalDimension` to 2, 3, 5 and 7, since radix 11 and 13 are the slowest butterflies. Neither is worth more than 1 to 2%.
   - FFT does matter for LJPME, which has two grids, and for the second queue. A small FFT underfills 60 cores, and that's exactly what running it concurrently with nonbonded fixes.
 
@@ -235,14 +235,14 @@ research/2026-09-23-mixed-without-fp64.md already covers the mixed-precision con
 - MTL4 commit feedback: `MTL4CommitFeedback` returns `GPUStartTime` and `GPUEndTime` per commit (`MTL4CommitFeedback.hpp:41-51`).
 - Metal System Trace from the command line, once Xcode is installed. xctrace comes with Xcode, not the Command Line Tools, which is why lab 024 couldn't use it. The options below are verified from the [xctrace man page](https://keith.github.io/xcode-man-pages/xctrace.1.html):
   - `xcrun xctrace list templates` should list "Metal System Trace".
-  - `xcrun xctrace record --template 'Metal System Trace' --time-limit 20s --output /tmp/openmm-metal-bench/ultra-<lane>/run.trace --launch -- /path/to/python benchmark.py ...`. `--attach <pid>` and `--all-processes` also exist, and `--env VAR=value` passes environment variables.
+  - `xcrun xctrace record --template 'Metal System Trace' --time-limit 20s --output /tmp/openmm-metal-bench/ultra-<name>/run.trace --launch -- /path/to/python benchmark.py ...`. `--attach <pid>` and `--all-processes` also exist, and `--env VAR=value` passes environment variables.
   - `xcrun xctrace export --input run.trace --toc` gives the table of contents, then `--xpath '<expr>'` pulls a table as XML, so the results can be read over SSH without Instruments.
   - Unverified: whether recording GPU tracks over a non-GUI SSH session needs extra privileges or `DevToolsSecurity`. Test a 5 s record first.
-- Discipline reminders from the lab: name the clock in every table (011 head note). Apple's OpenCL ticks need x125/3 (008). A kernel the compiler can prove side-effect free gets deleted (008 head note).
+- Discipline reminders from the lab: name the clock in every table (011 review note). Apple's OpenCL ticks need x125/3 (008). A kernel the compiler can prove side-effect free gets deleted (008 review note).
 
-## Ranked levers for the lanes
+## Ranked levers
 
-| # | Lever | Lane | Tier of the evidence | Expected gain |
+| # | Lever | Area | Tier of the evidence | Expected gain |
 |---|---|---|---|---|
 | 1 | Float-atomic PME spreading on Apple9 and up; fixed point on 7 and 8, and for DeterministicForces | PME | lab 011 (2.6x on the kernel), verified code path | 10-15% apoa1pme, more on ljpme, less on pme (inference) |
 | 2 | PME on a second MTLCommandQueue, MetalDisablePmeStream default false | PME, dispatch | verified plumbing, Apple guidance | 5-20% on PME tests (inference) |
@@ -268,7 +268,7 @@ Dead ends I'd skip:
 ## Conflicts and open questions
 
 - The Feature Set Tables say Apple9 has "the full set of 64-bit atomic operations", while MSL 4.1 defines only max and min for atomic_ulong. I trust the spec for what compiles. A probe of `atomic_max_explicit((device atomic_ulong*)p, v, memory_order_relaxed)` on the M3 Ultra would settle it in 5 minutes.
-- Lab 008's overview says the M3 Ultra has "32 CPU cores, 80 GPU cores". RULES.md and the IORegistry-based code say 28 and 60. 008's M3 Ultra rows came from some machine, so anyone quoting them should check which one.
+- Lab 008's overview says the M3 Ultra has "32 CPU cores, 80 GPU cores". The lab's machine notes and the IORegistry-based code say 28 and 60. 008's M3 Ultra rows came from some machine, so anyone quoting them should check which one.
 - metal-benchmarks' microarchitecture numbers are M1 and M2. Apple9's dynamic caching and concurrent FP32, FP16 and int issue change occupancy and the instruction mix, so treat them as a floor.
 - Classic counter sample buffers returning zeros on macOS 26 is one bug report. It's unverified on 27.2.
 - Whether `memoryBarrier(resources:)` in a concurrent encoder is scoped to those resources or is a full barrier is unverified. Probe it before designing two interleaved chains in one encoder.
@@ -278,6 +278,6 @@ Dead ends I'd skip:
 
 - [Metal Shading Language spec 4.1](https://developer.apple.com/metal/Metal-Shading-Language-Specification.pdf), sections 1.6.3 (math modes and pragmas), 6.10.2 (SIMD-group functions), 6.16.4 (atomics, including 64-bit) and 8.4 (ulp tables). This is the ground truth for what compiles.
 - [Metal Feature Set Tables](https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf), dated May 21, 2026: family support for Metal 4, float atomics, 64-bit atomics, ICB barriers and counter heaps, plus the per-family limits.
-- [WWDC22 10159, Scale compute workloads across Apple GPUs](https://developer.apple.com/videos/play/wwdc2022/10159/): Apple's own guidance on concurrent dispatch, second queues, shared events and Ultra scaling. It's the closest thing to a playbook for the dispatch lane.
+- [WWDC22 10159, Scale compute workloads across Apple GPUs](https://developer.apple.com/videos/play/wwdc2022/10159/): Apple's own guidance on concurrent dispatch, second queues, shared events and Ultra scaling. It's the closest thing to a playbook for the dispatch experiment.
 - `libraries/metal-cpp/Metal/MTL4ComputeCommandEncoder.hpp`, `MTL4Counters.hpp`, `MTLComputeCommandEncoder.hpp` and `MTLIndirectCommandEncoder.hpp` in the base worktree: the exact C++ surface available to us.
-- Lab experiments 008 (submission costs), 011 plus its HEAD-NOTE (PME and FFT, like-for-like), 024 (gbsa step anatomy) and 004 (atomics probes): our own numbers, which beat any external benchmark for this machine.
+- Lab experiments 008 (submission costs), 011 plus its REVIEW-NOTE (PME and FFT, like-for-like), 024 (gbsa step anatomy) and 004 (atomics probes): our own numbers, which beat any external benchmark for this machine.

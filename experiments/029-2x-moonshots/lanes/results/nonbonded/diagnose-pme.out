@@ -1,0 +1,98 @@
+18:21:04Z waiting for the lease: 9 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:20:11Z int028 md100 comparison and MAX_BITS deterministic checks, 0 build processes
+18:26:07Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:21:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-stmv, about 13 min, 1 build processes
+18:31:10Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:21:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-stmv, about 13 min, 0 build processes
+18:36:14Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:21:54Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-screen-stmv, about 13 min, 0 build processes
+18:41:18Z waiting for the lease: 6 in the queue, held by: ultra-m29-nonbonded 2026-09-26T18:36:57Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/blocks-screen-amber20-stmv, about 10 min, 0 build processes
+18:46:24Z waiting for the lease: 1 in the queue, held by: ultra-m29-mixed 2026-09-26T18:45:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed/screen-large, about 7 min, 0 build processes
+18:52:00Z waiting for the lease: 1 in the queue, held by: ultra-m29-mixed 2026-09-26T18:45:51Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed/screen-large, about 7 min, 0 build processes
+CAPTURED pme single after md100
+EVALUATED candidate ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']
+EVALUATED int028 ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']
+EVALUATED reference ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']
+{
+  "candidate": {
+    "0-HarmonicBondForce": {
+      "relative": 1.917833205867009e-06,
+      "maximum": 0.007243380339787109,
+      "maximum_atom": 1901,
+      "maximum_component": 0
+    },
+    "1-PeriodicTorsionForce": {
+      "relative": 1.234358950949096e-06,
+      "maximum": 0.0028257446913357853,
+      "maximum_atom": 1122,
+      "maximum_component": 0
+    },
+    "2-NonbondedForce": {
+      "relative": 1.7688137128446063e-06,
+      "maximum": 0.025078979669160617,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    },
+    "3-CMMotionRemover": {
+      "relative": 0.0,
+      "maximum": 0.0,
+      "maximum_atom": 0,
+      "maximum_component": 0
+    },
+    "4-HarmonicAngleForce": {
+      "relative": 1.1509592286977158e-06,
+      "maximum": 0.0034923662201720163,
+      "maximum_atom": 1681,
+      "maximum_component": 1
+    },
+    "total": {
+      "relative": 1.7679738403844494e-06,
+      "maximum": 0.025078979669160617,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    }
+  },
+  "int028": {
+    "0-HarmonicBondForce": {
+      "relative": 1.917833205867009e-06,
+      "maximum": 0.007243380339787109,
+      "maximum_atom": 1901,
+      "maximum_component": 0
+    },
+    "1-PeriodicTorsionForce": {
+      "relative": 1.234358950949096e-06,
+      "maximum": 0.0028257446913357853,
+      "maximum_atom": 1122,
+      "maximum_component": 0
+    },
+    "2-NonbondedForce": {
+      "relative": 1.7680928221332201e-06,
+      "maximum": 0.02516781294161774,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    },
+    "3-CMMotionRemover": {
+      "relative": 0.0,
+      "maximum": 0.0,
+      "maximum_atom": 0,
+      "maximum_component": 0
+    },
+    "4-HarmonicAngleForce": {
+      "relative": 1.1509592286977158e-06,
+      "maximum": 0.0034923662201720163,
+      "maximum_atom": 1681,
+      "maximum_component": 1
+    },
+    "total": {
+      "relative": 1.7671979414824488e-06,
+      "maximum": 0.02516781294161774,
+      "maximum_atom": 5033,
+      "maximum_component": 0
+    }
+  },
+  "trajectory": {
+    "relative": 1.3508351494349124e-06,
+    "maximum": 0.018853607094115432,
+    "maximum_atom": 22175
+  },
+  "same_positions_candidate_minus_int028": {
+    "maximum": 0.0006916448473930359,
+    "relative": 9.750873619489474e-08
+  }
+}

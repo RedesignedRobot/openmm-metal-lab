@@ -1,0 +1,68 @@
+median ns/day, host clock
+test                        s2t4            u8
+gbsa                     1367.11       1391.54
+rf                        947.78       1022.25
+pme                       758.83        791.71
+apoa1rf                   300.94        324.96
+apoa1pme                  231.85        243.16
+apoa1ljpme                200.35        209.81
+amber20-dhfr              796.28        820.00
+
+rounds, s2t4:
+  gbsa               1364.20 1370.01   spread 0.4%
+  rf                 947.81 947.75   spread 0.0%
+  pme                756.10 761.57   spread 0.7%
+  apoa1rf            300.86 301.02   spread 0.1%
+  apoa1pme           232.46 231.25   spread 0.5%
+  apoa1ljpme         200.03 200.66   spread 0.3%
+  amber20-dhfr       795.74 796.82   spread 0.1%
+rounds, u8:
+  gbsa               1388.98 1394.11   spread 0.4%
+  rf                 1023.06 1021.44   spread 0.2%
+  pme                789.97 793.45   spread 0.4%
+  apoa1rf            324.26 325.67   spread 0.4%
+  apoa1pme           243.25 243.07   spread 0.1%
+  apoa1ljpme         209.95 209.68   spread 0.1%
+  amber20-dhfr       820.79 819.21   spread 0.2%
+
+test                                           u8/s2t4
+gbsa                       1.018 (rounds 1.018..1.018)
+rf                         1.079 (rounds 1.078..1.079)
+pme                        1.043 (rounds 1.042..1.045)
+apoa1rf                    1.080 (rounds 1.078..1.082)
+apoa1pme                   1.049 (rounds 1.046..1.051)
+apoa1ljpme                 1.047 (rounds 1.045..1.050)
+amber20-dhfr               1.030 (rounds 1.028..1.031)
+
+1 minute load before 56 runs: 4.99 to 21.67
+Background VM CPU before 56 runs: 4% to 74%
+runs with no result: 0
+runs that overlapped a build: 28
+  2026-09-25T06:04:48Z round 1 amber20-dhfr s2t4 load { 10.29 10.44 11.33 } BUILD RUNNING vm 14%
+  2026-09-25T06:05:06Z round 1 amber20-dhfr u8 load { 10.32 10.43 11.30 } BUILD RUNNING vm 8%
+  2026-09-25T06:05:23Z round 1 apoa1ljpme s2t4 load { 10.53 10.47 11.30 } BUILD RUNNING vm 18%
+  2026-09-25T06:05:42Z round 1 apoa1ljpme u8 load { 11.99 10.85 11.42 } BUILD RUNNING vm 7%
+  2026-09-25T06:06:00Z round 1 apoa1pme s2t4 load { 11.36 10.78 11.38 } BUILD RUNNING vm 24%
+  2026-09-25T06:06:19Z round 1 apoa1pme u8 load { 10.99 10.73 11.35 } BUILD RUNNING vm 11%
+  2026-09-25T06:06:38Z round 1 apoa1rf s2t4 load { 11.34 10.82 11.37 } BUILD RUNNING vm 10%
+  2026-09-25T06:06:56Z round 1 apoa1rf u8 load { 14.94 11.64 11.65 } BUILD RUNNING vm 9%
+  2026-09-25T06:07:15Z round 1 gbsa s2t4 load { 12.09 11.21 11.49 } BUILD RUNNING vm 6%
+  2026-09-25T06:07:31Z round 1 gbsa u8 load { 10.00 10.79 11.34 } BUILD RUNNING vm 18%
+  2026-09-25T06:07:48Z round 1 pme s2t4 load { 8.38 10.39 11.18 } BUILD RUNNING vm 5%
+  2026-09-25T06:08:05Z round 1 pme u8 load { 7.22 9.99 11.02 } BUILD RUNNING vm 8%
+  2026-09-25T06:08:21Z round 1 rf s2t4 load { 6.67 9.73 10.91 } BUILD RUNNING vm 8%
+  2026-09-25T06:08:38Z round 1 rf u8 load { 6.08 9.45 10.79 } BUILD RUNNING vm 8%
+  2026-09-25T06:08:54Z round 2 amber20-dhfr u8 load { 6.77 9.43 10.76 } BUILD RUNNING vm 9%
+  2026-09-25T06:09:11Z round 2 amber20-dhfr s2t4 load { 8.12 9.56 10.77 } BUILD RUNNING vm 9%
+  2026-09-25T06:09:29Z round 2 apoa1ljpme u8 load { 8.99 9.68 10.79 } BUILD RUNNING vm 8%
+  2026-09-25T06:09:47Z round 2 apoa1ljpme s2t4 load { 9.05 9.65 10.76 } BUILD RUNNING vm 14%
+  2026-09-25T06:10:06Z round 2 apoa1pme u8 load { 8.96 9.59 10.71 } BUILD RUNNING vm 16%
+  2026-09-25T06:10:25Z round 2 apoa1pme s2t4 load { 9.20 9.60 10.68 } BUILD RUNNING vm 11%
+  2026-09-25T06:10:43Z round 2 apoa1rf u8 load { 9.36 9.62 10.67 } BUILD RUNNING vm 12%
+  2026-09-25T06:11:02Z round 2 apoa1rf s2t4 load { 9.61 9.66 10.66 } BUILD RUNNING vm 10%
+  2026-09-25T06:11:21Z round 2 gbsa u8 load { 9.67 9.66 10.64 } BUILD RUNNING vm 8%
+  2026-09-25T06:11:37Z round 2 gbsa s2t4 load { 9.97 9.73 10.65 } BUILD RUNNING vm 9%
+  2026-09-25T06:11:53Z round 2 pme u8 load { 10.12 9.77 10.65 } BUILD RUNNING vm 15%
+  2026-09-25T06:12:10Z round 2 pme s2t4 load { 9.88 9.74 10.61 } BUILD RUNNING vm 20%
+  2026-09-25T06:12:26Z round 2 rf u8 load { 9.68 9.70 10.58 } BUILD RUNNING vm 10%
+  2026-09-25T06:12:43Z round 2 rf s2t4 load { 9.76 9.72 10.57 } BUILD RUNNING vm 9%

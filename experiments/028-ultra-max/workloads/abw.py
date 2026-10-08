@@ -17,7 +17,7 @@ benchmark.py's adaptive loop around benchmark.py's timeIntegration (host clock),
 The other workers sit blocked in a read, with no polling.
 --cold runs the listed labels as ab.sh does, a fresh benchmark.py process per run through tools/ab-test.sh,
 interleaved with the warm runs in the same order (the A/A check).
-loads.txt gets ab-test.sh's lines for every run: load, Hyperscale VM CPU and top 5 before it, BUILD RUNNING,
+loads.txt gets ab-test.sh's lines for every run: load, Background VM CPU and top 5 before it, BUILD RUNNING,
 CPU sampling and CPU BUSY for CPU-platform runs, NO RESULT. memory.txt gets each worker's resident size,
 physical footprint and peak resident size at ready and after every run. runs.txt gets each run's wall time
 from the driver's side, cold and warm. workers.txt records the driver's and each worker's pid (RULES: stop only
@@ -141,7 +141,7 @@ def build_running():
 
 
 def before_run():
-    """ab-test.sh's load, Hyperscale VM CPU and top 5 CPU processes."""
+    """ab-test.sh's load, Background VM CPU and top 5 CPU processes."""
     vm = sum(float(line.split(None, 1)[0]) for line in command('ps', '-Ao', 'pcpu=,comm=').splitlines()
              if 'Virtualization.VirtualMachine' in line)
     top = []
@@ -153,7 +153,7 @@ def before_run():
 
 class RunWatch:
     """What ab-test.sh watches during a run: a build starting (every second) and, for a CPU-platform run, the
-    worker's %CPU, the busiest other process and the Hyperscale VM (every CPU_SAMPLE_SECONDS)."""
+    worker's %CPU, the busiest other process and the background VM (every CPU_SAMPLE_SECONDS)."""
 
     def __init__(self, cpu_pid=None):
         self.build_seen = False

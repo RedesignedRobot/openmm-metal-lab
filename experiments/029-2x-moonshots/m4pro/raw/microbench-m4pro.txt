@@ -1,0 +1,9 @@
+# mtlprobe.m, two back-to-back runs, GPU timestamps (GPUEndTime - GPUStartTime), best of 5 after one warm-up.
+copy 1 GiB: 9.487 ms, 226.3 GB/s (read+write)
+fp32 fma: 9.592 ms, 5.37 TFLOPS
+atomics spread grid (4194304 words): float 5.75 Gop/s, uint 5.78 Gop/s
+atomics contended grid (4096 words): float 28.41 Gop/s, uint 28.43 Gop/s
+copy 1 GiB: 9.550 ms, 224.9 GB/s (read+write)
+fp32 fma: 9.582 ms, 5.38 TFLOPS
+atomics spread grid (4194304 words): float 5.70 Gop/s, uint 5.76 Gop/s
+atomics contended grid (4096 words): float 28.44 Gop/s, uint 28.43 Gop/s

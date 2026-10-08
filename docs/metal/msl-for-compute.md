@@ -6,7 +6,7 @@ Primary sources:
 - Metal Shading Language Specification, Version 4.1 (dated June 4, 2026). URL: https://developer.apple.com/metal/Metal-Shading-Language-Specification.pdf
 - Metal Feature Set Tables (dated May 21, 2026). URL: https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf
 - Apple Metal framework headers in macOS 27 SDK: `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Metal.framework/Headers/`
-- Apple metal-cpp headers (tag `release/metal-cpp_macOS27_iOS27`): `/Users/mas/code/metal-ref/`
+- Apple metal-cpp headers (tag `release/metal-cpp_macOS27_iOS27`): `~/code/metal-ref/`
 
 ## Kernel argument rules
 

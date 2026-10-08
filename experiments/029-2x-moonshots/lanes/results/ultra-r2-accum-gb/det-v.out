@@ -1,0 +1,29 @@
+16:10:54Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+16:10:54Z waiting for the lease: 14 in the queue, held by: r2-mixed 2026-09-27T16:10:31Z q on nf residual traces, 0 build processes
+16:15:58Z waiting for the lease: 12 in the queue, held by: r2-drift 2026-09-27T16:14:38Z drift dhfr nve Metal single tol 1e-8 seed 112 1 ns, 0 build processes
+16:21:03Z waiting for the lease: 12 in the queue, held by: r2-drift 2026-09-27T16:14:38Z drift dhfr nve Metal single tol 1e-8 seed 112 1 ns, 0 build processes
+16:26:09Z waiting for the lease: 8 in the queue, held by: ultra-r2-bonded 2026-09-27T16:25:45Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab2, about 16 min, 0 build processes
+16:31:13Z waiting for the lease: 8 in the queue, held by: ultra-r2-bonded 2026-09-27T16:25:45Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab2, about 16 min, 0 build processes
+16:36:17Z waiting for the lease: 7 in the queue, held by: r2-infra 2026-09-27T16:34:23Z M0(2b) xctrace counter-profile probe, apoa1rf 1 s x 8 profiles, 0 build processes
+16:41:22Z waiting for the lease: 7 in the queue, held by: r2-infra 2026-09-27T16:34:23Z M0(2b) xctrace counter-profile probe, apoa1rf 1 s x 8 profiles, 0 build processes
+16:46:26Z waiting for the lease: 6 in the queue, held by: ultra-r2-single-int 2026-09-27T16:45:28Z ab.sh /tmp/openmm-metal-bench/ultra-r2-single-int/ab-s3m, about 4 min, 0 build processes
+16:51:30Z waiting for the lease: 4 in the queue, held by: ultra-r2-dispatch-kf 2026-09-27T16:50:37Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kf/s-gbsa, about 4 min, 0 build processes
+16:56:34Z waiting for the lease: 4 in the queue, held by: ultra-r2-dispatch-kf 2026-09-27T16:50:37Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kf/s-gbsa, about 4 min, 0 build processes
+17:01:39Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T16:57:19Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe6, about 17 min, 0 build processes
+17:06:43Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T16:57:19Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe6, about 17 min, 0 build processes
+17:11:47Z waiting for the lease: 2 in the queue, held by: ultra-r2-accum-gb 2026-09-27T17:08:29Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s10, about 4 min, 0 build processes
+17:17:25Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T17:11:51Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe7, about 7 min, 0 build processes
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS

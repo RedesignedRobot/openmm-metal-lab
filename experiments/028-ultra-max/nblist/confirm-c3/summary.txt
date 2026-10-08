@@ -1,0 +1,23 @@
+median ns/day, host clock
+test                         cut          s2t4            u8
+apoa1ljpme                200.73        199.00        207.91
+amber20-dhfr              790.55        788.46        815.10
+
+rounds, cut:
+  apoa1ljpme         201.01 199.39 200.73   spread 0.8%
+  amber20-dhfr       792.03 790.55 789.20   spread 0.4%
+rounds, s2t4:
+  apoa1ljpme         198.94 199.00 199.61   spread 0.3%
+  amber20-dhfr       788.46 785.77 791.50   spread 0.7%
+rounds, u8:
+  apoa1ljpme         208.04 207.91 207.11   spread 0.4%
+  amber20-dhfr       813.46 815.21 815.10   spread 0.2%
+
+test                                           u8/s2t4                            cut/s2t4
+apoa1ljpme                 1.045 (rounds 1.038..1.046)         1.009 (rounds 1.002..1.010)
+amber20-dhfr               1.034 (rounds 1.030..1.037)         1.003 (rounds 0.997..1.006)
+
+1 minute load before 18 runs: 1.34 to 2.96
+Background VM CPU before 18 runs: 4% to 13%
+runs with no result: 0
+runs that overlapped a build: 0

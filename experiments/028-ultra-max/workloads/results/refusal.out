@@ -1,0 +1,37 @@
+19:55:25Z waiting for the lease, held by: ultra-base 2026-09-24T19:53:23Z gate.sh ctest /tmp/openmm-metal-bench/ultra-base
+20:00:26Z waiting for the lease, held by: ultra-base 2026-09-24T19:53:23Z gate.sh ctest /tmp/openmm-metal-bench/ultra-base
+20:05:26Z waiting for the lease, held by: ultra-base 2026-09-24T20:03:36Z gate.sh rerun TestMetalMonteCarloFlexibleBarostatMixed
+20:10:27Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:05:56Z profile single buffers+counters, 9 tests, ~15 min
+20:15:27Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:14:56Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 1 amoebapme
+20:20:28Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:17:49Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 2 amoebagk
+20:25:29Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:24:22Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 3 amoebagk
+20:30:30Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:16Z gate.sh forces /tmp/openmm-metal-bench/ultra-plugins
+20:35:31Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:40:31Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:45:32Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:50:32Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv
+20:55:33Z waiting for the lease, held by: ultra-dispatch 2026-09-24T20:55:26Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen2 round 1 gbsa
+21:00:33Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min
+21:05:34Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min
+21:10:34Z waiting for the lease, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909
+21:15:35Z waiting for the lease, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909
+21:20:36Z waiting for the lease, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453
+21:25:36Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:30:37Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:35:37Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:40:38Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:45:38Z waiting for the lease, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab
+21:50:39Z waiting for the lease, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab
+21:55:40Z waiting for the lease, held by: ultra-workloads 2026-09-24T21:55:40Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 apoa1pme
+mixed OpenMMException 'No compatible OpenCL platform is available'
+double OpenMMException 'No compatible OpenCL platform is available'
+--- benchmark.py --platform OpenCL --precision mixed --test pme
+hostname: M3-Ultra
+timestamp: 2026-09-24T21:58:01.031971+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+exit 0

@@ -1,0 +1,13 @@
+median ns/day, host clock
+test                      base-m        cand-m
+amber20-stmv               27.68         27.61
+
+rounds, base-m:
+  amber20-stmv       27.70 27.64 27.68   spread 0.2%
+rounds, cand-m:
+  amber20-stmv       27.61 27.64 27.59   spread 0.2%
+
+1 minute load before 6 runs: 1.04 to 5.54
+Background VM CPU before 6 runs: 5% to 30%
+runs with no result: 0
+runs that overlapped a build: 0

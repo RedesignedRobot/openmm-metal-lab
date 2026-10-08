@@ -1,0 +1,80 @@
+== neq single
+binary   PASS restored True, after 200 more steps max|dx| 0.0426 nm, dE 0.381, d(work) 0.0366, work 214.6707
+xml      PASS restored True, max|dx| 2.4e-07 nm, max|dv| 0 nm/ps, dE at restart 0.00113, after 200 steps E -28957.3 (original -29117.2), work 250.5790 (original 214.6707)
+nan      PASS raised: Particle coordinate is NaN
+rollback PASS energy at checkpoint -28933.7236 (saved -28933.7236), after 200 steps -29117.2
+== neq single deterministic
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0, work 214.8396
+xml      PASS restored True, max|dx| 2.4e-07 nm, max|dv| 0 nm/ps, dE at restart 0.000369, after 200 steps E -28955.1 (original -28982.6), work 244.5884 (original 214.8396)
+nan      PASS raised: Particle coordinate is NaN
+rollback PASS energy at checkpoint -28937.0887 (saved -28937.0887), after 200 steps -28982.6
+== neq mixed
+binary   PASS restored True, after 200 more steps max|dx| 3.26e-05 nm, dE -0.000577, d(work) 0.00032, work 217.4683
+xml      PASS restored True, max|dx| 2.2e-07 nm, max|dv| 0 nm/ps, dE at restart -0.000415, after 200 steps E -28899.0 (original -29160.1), work 252.1323 (original 217.4683)
+nan      PASS raised: Particle coordinate is NaN
+rollback PASS energy at checkpoint -28904.4299 (saved -28904.4299), after 200 steps -29160.1
+== neq mixed deterministic
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0, work 216.2036
+xml      PASS restored True, max|dx| 2.4e-07 nm, max|dv| 0 nm/ps, dE at restart 2.12e-05, after 200 steps E -28827.6 (original -29040.8), work 251.6517 (original 216.2036)
+nan      PASS raised: Particle coordinate is NaN
+rollback PASS energy at checkpoint -28891.5253 (saved -28891.5253), after 200 steps -29040.8
+== tip3p-hmr single
+binary   PASS restored True, after 200 more steps max|dx| 0.191 nm, dE -140, d(work) 0
+xml      PASS restored True, max|dx| 6.3e-07 nm, max|dv| 0 nm/ps, dE at restart 0.0674, after 200 steps E -396562.1 (original -396835.2)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -398616.5609 (saved -398616.5697), after 200 steps -397145.3
+== tip3p-hmr single deterministic
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0.0352, d(work) 0
+xml      PASS restored True, max|dx| 7.3e-07 nm, max|dv| 0 nm/ps, dE at restart 0.0137, after 200 steps E -395524.2 (original -397792.6)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -398258.0240 (saved -398258.0279), after 200 steps -396874.1
+== tip3p-hmr mixed
+binary   PASS restored True, after 200 more steps max|dx| 0.302 nm, dE -149, d(work) 0
+xml      PASS restored True, max|dx| 6.9e-07 nm, max|dv| 0 nm/ps, dE at restart -0.00402, after 200 steps E -396230.6 (original -396370.0)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -397768.0758 (saved -397768.0761), after 200 steps -396580.8
+== tip3p-hmr mixed deterministic
+binary   FAIL restored True, after 200 more steps max|dx| 0.269 nm, dE -135, d(work) 0
+xml      PASS restored True, max|dx| 6.3e-07 nm, max|dv| 0 nm/ps, dE at restart -0.0345, after 200 steps E -396909.5 (original -396169.3)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -398415.9500 (saved -398415.9498), after 200 steps -396473.0
+== tip4pew single
+binary   PASS restored True, after 200 more steps max|dx| 0.00217 nm, dE -0.578, d(work) 0
+xml      PASS restored True, max|dx| 4.8e-07 nm, max|dv| 0 nm/ps, dE at restart -0.0273, after 200 steps E -463475.5 (original -463928.4)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -466672.0822 (saved -466672.1252), after 200 steps -464227.5
+== tip4pew single deterministic
+binary   FAIL restored True, after 200 more steps max|dx| 0.00185 nm, dE -0.676, d(work) 0
+xml      PASS restored True, max|dx| 5.6e-07 nm, max|dv| 0 nm/ps, dE at restart 0.00391, after 200 steps E -464031.5 (original -464141.0)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -466184.1091 (saved -466184.1521), after 200 steps -464232.1
+== tip4pew mixed
+binary   PASS restored True, after 200 more steps max|dx| 0.00649 nm, dE -10.7, d(work) 0
+xml      PASS restored True, max|dx| 6.7e-07 nm, max|dv| 0 nm/ps, dE at restart -0.0958, after 200 steps E -465191.9 (original -463671.4)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -466278.8354 (saved -466278.8354), after 200 steps -463795.1
+== tip4pew mixed deterministic
+binary   FAIL restored True, after 200 more steps max|dx| 0.000929 nm, dE -23.5, d(work) 0
+xml      PASS restored True, max|dx| 7e-07 nm, max|dv| 0 nm/ps, dE at restart -0.0558, after 200 steps E -464428.2 (original -465040.7)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -466142.2352 (saved -466142.2356), after 200 steps -464987.9
+== gbsa single
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0
+xml      PASS restored True, max|dx| 0 nm, max|dv| 0 nm/ps, dE at restart 0, after 200 steps E -15049.6 (original -14794.7)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -15222.0420 (saved -15222.0420), after 200 steps -14794.7
+== gbsa single deterministic
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0
+xml      PASS restored True, max|dx| 0 nm, max|dv| 0 nm/ps, dE at restart 0, after 200 steps E -15049.6 (original -14794.7)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -15222.0420 (saved -15222.0420), after 200 steps -14794.7
+== gbsa mixed
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0
+xml      PASS restored True, max|dx| 0 nm, max|dv| 0 nm/ps, dE at restart 0, after 200 steps E -15049.4 (original -14794.7)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -15222.0191 (saved -15222.0191), after 200 steps -14794.7
+== gbsa mixed deterministic
+binary   PASS restored True, after 200 more steps max|dx| 0 nm, dE 0, d(work) 0
+xml      PASS restored True, max|dx| 0 nm, max|dv| 0 nm/ps, dE at restart 0, after 200 steps E -15049.4 (original -14794.7)
+nan      PASS energy after 10 steps: nan
+rollback PASS energy at checkpoint -15222.0191 (saved -15222.0191), after 200 steps -14794.7

@@ -1,0 +1,89 @@
+0 A: builds finish at 9 s; t2 timing waits, c1 correctness passes it
+0 t1 starts
+21:08:22Z waiting for the lease: 1 in the queue, held by: test-t1 2026-09-28T21:08:21Z t1, 0 build processes running
+21:08:22Z waiting for the lease: 2 in the queue, held by: test-t1 2026-09-28T21:08:21Z t1, 0 build processes running
+3 t1 ends
+2026-09-28T21:08:25Z build-policy gap after the timing hold of pid 47224: timing waits up to 20 s for ultra-fake1
+21:08:25Z lease.sh: build gap, waiting up to 20 s for the builds the last timing hold paused or held back
+5 c1 starts
+5 status during the gap:
+build processes running: 0; no timing hold: builds run
+build gap: timing tickets wait up to 18 s more for ultra-fake1
+  2026-09-28T21:08:25Z build-policy gap after the timing hold of pid 47224: timing waits up to 20 s for ultra-fake1
+queue, oldest first:
+  1790629702368344-test-t2-47274  normal  waiting 4 s
+7 c1 ends
+21:08:28Z lease.sh: build gap, waiting up to 20 s for the builds the last timing hold paused or held back
+10 fake build 1 done
+/tmp/openmm-metal-bench/ultra-infra/gaptest/run.sh: line 25: 47223 Terminated: 15          $T/bin/build.sh --locked $T/$1
+2026-09-28T21:08:31Z build-policy gap ended after 6 s: its builds are done
+10 t2 starts
+11 t2 ends
+12 B: the build never ends; t4 waits the 20 s cap
+12 t3 starts
+21:08:34Z waiting for the lease: 1 in the queue, held by: test-t3 2026-09-28T21:08:33Z t3, 0 build processes running
+14 t3 ends
+2026-09-28T21:08:35Z build-policy gap after the timing hold of pid 48035: timing waits up to 20 s for ultra-fake2
+21:08:35Z lease.sh: build gap, waiting up to 20 s for the builds the last timing hold paused or held back
+2026-09-28T21:08:56Z build-policy gap ended after 21 s at the cap; next hold pauses ultra-fake2
+35 t4 starts
+36 t4 ends
+2026-09-28T21:08:57Z build-policy gap after the timing hold of pid 48119: timing waits up to 20 s for ultra-fake2
+/tmp/openmm-metal-bench/ultra-infra/gaptest/run.sh: line 35: 48034 Terminated: 15          $T/bin/build.sh --locked $T/$1
+38 C: window ticket after the gap opens; c2 behind it doesn't pass; build ends 6 s after t5
+2026-09-28T21:08:59Z build-policy gap ended after 2 s: its builds are done
+38 t5 starts
+21:08:59Z waiting for the lease: 1 in the queue, held by: test-t5 2026-09-28T21:08:59Z t5, 0 build processes running
+21:09:00Z waiting for the lease: 2 in the queue, held by: test-t5 2026-09-28T21:08:59Z t5, 0 build processes running
+40 t5 ends
+2026-09-28T21:09:01Z build-policy gap after the timing hold of pid 49424: timing waits up to 20 s for ultra-fake1
+21:09:01Z lease.sh: build gap, waiting up to 20 s for the builds the last timing hold paused or held back
+47 fake build done
+/tmp/openmm-metal-bench/ultra-infra/gaptest/run.sh: line 43: 49422 Terminated: 15          $T/bin/build.sh --locked $T/$1
+2026-09-28T21:09:08Z build-policy gap ended after 7 s: its builds are done
+47 w starts
+48 w ends
+49 c2 starts
+50 c2 ends
+51 D: no pending builds; t7 starts right after t6
+51 t6 starts
+21:09:12Z waiting for the lease: 1 in the queue, held by: test-t6 2026-09-28T21:09:12Z t6, 0 build processes running
+53 t6 ends
+53 t7 starts
+54 t7 ends
+54 gap log:
+2026-09-28T21:08:25Z build-policy gap after the timing hold of pid 47224: timing waits up to 20 s for ultra-fake1
+2026-09-28T21:08:31Z build-policy gap ended after 6 s: its builds are done
+2026-09-28T21:08:35Z build-policy gap after the timing hold of pid 48035: timing waits up to 20 s for ultra-fake2
+2026-09-28T21:08:56Z build-policy gap ended after 21 s at the cap; next hold pauses ultra-fake2
+2026-09-28T21:08:57Z build-policy gap after the timing hold of pid 48119: timing waits up to 20 s for ultra-fake2
+2026-09-28T21:08:59Z build-policy gap ended after 2 s: its builds are done
+2026-09-28T21:09:01Z build-policy gap after the timing hold of pid 49424: timing waits up to 20 s for ultra-fake1
+2026-09-28T21:09:08Z build-policy gap ended after 7 s: its builds are done
+54 leftovers:
+/tmp/openmm-metal-bench/ultra-infra/gaptest/queue:
+
+/tmp/openmm-metal-bench/ultra-infra/gaptest/timing:
+ls: /tmp/openmm-metal-bench/ultra-infra/gaptest/.build-gap.json: No such file or directory
+ls: /tmp/openmm-metal-bench/ultra-infra/gaptest/lease: No such file or directory
+54 E: a lease.sh from before the change queues behind t8; its begin waits out the gap (build ends 6 s after t8)
+54 t8 starts
+21:09:16Z waiting for the lease: 1 in the queue, held by: test-t8 2026-09-28T21:09:15Z t8, 0 build processes running
+56 t8 ends
+2026-09-28T21:09:17Z build-policy gap after the timing hold of pid 50624: timing waits up to 20 s for ultra-fake2
+62 fake build done
+/tmp/openmm-metal-bench/ultra-infra/gaptest/run.sh: line 58: 50623 Terminated: 15          $T/bin/build.sh --locked $T/$1
+2026-09-28T21:09:25Z build-policy gap ended after 8 s: its builds are done
+2026-09-28T21:09:25Z build-policy timing hold of pid 50674 waited 8 s for the gap
+64 t9 starts
+65 t9 ends
+65 gap log:
+2026-09-28T21:09:17Z build-policy gap after the timing hold of pid 50624: timing waits up to 20 s for ultra-fake2
+2026-09-28T21:09:25Z build-policy gap ended after 8 s: its builds are done
+2026-09-28T21:09:25Z build-policy timing hold of pid 50674 waited 8 s for the gap
+65 leftovers:
+/tmp/openmm-metal-bench/ultra-infra/gaptest/queue:
+
+/tmp/openmm-metal-bench/ultra-infra/gaptest/timing:
+ls: /tmp/openmm-metal-bench/ultra-infra/gaptest/.build-gap.json: No such file or directory
+ls: /tmp/openmm-metal-bench/ultra-infra/gaptest/lease: No such file or directory

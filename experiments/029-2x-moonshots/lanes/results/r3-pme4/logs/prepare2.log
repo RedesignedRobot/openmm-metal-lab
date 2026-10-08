@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "~/code/metal/lab/experiments/029-2x-moonshots/lanes/results/r3-pme4/analyze.py", line 221, in <module>
+    prepare(name, args.steps)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "~/code/metal/lab/experiments/029-2x-moonshots/lanes/results/r3-pme4/analyze.py", line 97, in prepare
+    box = np.asarray(system.getDefaultPeriodicBoxVectors().value_in_unit(u.nanometer))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'value_in_unit'

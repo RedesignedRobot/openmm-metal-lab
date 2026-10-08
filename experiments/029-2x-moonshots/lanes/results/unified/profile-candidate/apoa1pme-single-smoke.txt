@@ -1,0 +1,5 @@
+openmm /tmp/openmm-metal-bench/ultra-m29-unified/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-m29-unified/prefix/lib/plugins/libOpenMMMetal.dylib /tmp/openmm-metal-bench/ultra-m29-unified/prefix/lib/plugins/libOpenMMRPMDMetal.dylib /tmp/openmm-metal-bench/ultra-m29-unified/prefix/lib/plugins/libOpenMMDrudeMetal.dylib /tmp/openmm-metal-bench/ultra-m29-unified/prefix/lib/plugins/libOpenMMAmoebaMetal.dylib
+PME grid [2.9202898720871846, 98, 98, 98]
+window A apoa1pme single Metal steps 20 host_s 0.102239 us_per_step 5111.95 ns_per_day 67.61 cpu_per_host 9.08
+window B apoa1pme single Metal steps 20 host_s 0.101311 us_per_step 5065.57 ns_per_day 68.23 cpu_per_host 9.26
+window C apoa1pme single Metal steps 20 host_s 0.102251 us_per_step 5112.56 ns_per_day 67.60 cpu_per_host 9.07

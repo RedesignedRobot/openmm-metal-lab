@@ -1,0 +1,27 @@
+2026-09-29T09:54:47Z round 1 gbsa base_s load { 4.77 4.12 5.67 } vm 14% top other 31.3%, other 17.2%,  other 12.2%, powermetrics 8.5%, com.apple.Virtualization.VirtualMachine 7.5%
+2026-09-29T09:55:07Z round 1 gbsa fold_s load { 3.95 3.98 5.59 } vm 13% top other 34.7%, other 20.2%, other 10.7%, com.apple.Virtualization.VirtualMachine 7.7%,  other 5.6%
+2026-09-29T09:55:27Z round 1 gbsa base_m load { 3.71 3.91 5.52 } vm 15% top other 35.2%, other 21.4%, other 10.2%, com.apple.Virtualization.VirtualMachine 7.7%, com.apple.Virtualization.VirtualMachine 7.2%
+2026-09-29T09:55:51Z round 1 gbsa fold_m load { 4.16 4.00 5.51 } vm 22% top other 34.8%, other 23.4%, com.apple.Virtualization.VirtualMachine 13.2%,  other 10.5%, com.apple.Virtualization.VirtualMachine 9.3%
+2026-09-29T09:56:15Z round 1 rf base_s load { 3.65 3.90 5.43 } vm 31% top other 33.5%, other 22.3%, com.apple.Virtualization.VirtualMachine 16.0%, com.apple.Virtualization.VirtualMachine 15.2%,  other 11.1%
+2026-09-29T09:56:34Z round 1 rf fold_s load { 3.93 3.95 5.41 } vm 20% top other 34.8%,  other 21.6%, other 20.4%, powermetrics 12.3%, com.apple.Virtualization.VirtualMachine 11.0%
+2026-09-29T09:56:54Z round 1 rf base_m load { 4.10 4.00 5.39 } vm 7% top  other 66.3%,  other 44.1%, other 35.9%, other 28.4%, other 14.7%
+2026-09-29T09:57:16Z round 1 rf fold_m load { 3.66 3.90 5.33 } vm 21% top other 34.8%, other 19.9%, other 14.4%, com.apple.Virtualization.VirtualMachine 12.4%, com.apple.Virtualization.VirtualMachine 8.7%
+2026-09-29T09:57:39Z round 1 pme base_s load { 3.16 3.78 5.24 } vm 15% top other 32.0%, other 21.5%,  other 7.3%, com.apple.Virtualization.VirtualMachine 6.4%, com.apple.Virtualization.VirtualMachine 6.1%
+2026-09-29T09:57:58Z round 1 pme fold_s load { 3.23 3.76 5.20 } vm 17% top other 36.9%, other 33.0%, other 22.2%, com.apple.Virtualization.VirtualMachine 8.8%, com.apple.Virtualization.VirtualMachine 8.3%
+2026-09-29T09:58:17Z round 1 pme base_m load { 3.46 3.79 5.18 } vm 17% top other 36.6%, other 23.1%, other 19.8%, com.apple.Virtualization.VirtualMachine 11.0%, com.apple.Virtualization.VirtualMachine 6.0%
+2026-09-29T09:58:41Z round 1 pme fold_m load { 3.02 3.66 5.09 } vm 25% top other 28.2%, other 17.2%, com.apple.Virtualization.VirtualMachine 16.9%,  other 8.6%, com.apple.Virtualization.VirtualMachine 8.3%
+2026-09-29T09:59:03Z round 1 pme fold_m BUILD RUNNING during the run
+2026-09-29T09:59:05Z round 2 gbsa fold_m load { 3.30 3.68 5.06 } vm 13% top other 31.1%, other 18.4%, com.apple.Virtualization.VirtualMachine 8.6%, powermetrics 4.6%, com.apple.Virtualization.VirtualMachine 4.1%
+2026-09-29T09:59:26Z round 2 gbsa fold_m BUILD RUNNING during the run
+2026-09-29T09:59:28Z round 2 gbsa base_m load { 3.04 3.59 4.99 } vm 30% top other 29.4%,  other 18.0%, other 17.4%, com.apple.Virtualization.VirtualMachine 17.0%, com.apple.Virtualization.VirtualMachine 12.9%
+2026-09-29T09:59:52Z round 2 gbsa fold_s load { 3.01 3.55 4.94 } vm 12% top other 30.3%, other 16.9%, com.apple.Virtualization.VirtualMachine 8.5%, powermetrics 4.8%, other 3.6%
+2026-09-29T10:00:11Z round 2 gbsa base_s load { 3.23 3.56 4.91 } vm 23% top other 27.3%, other 15.0%, com.apple.Virtualization.VirtualMachine 10.9%,  other 8.1%, com.apple.Virtualization.VirtualMachine 7.9%
+2026-09-29T10:00:30Z round 2 rf fold_m load { 2.79 3.44 4.84 } vm 15% top other 28.9%, other 15.5%, com.apple.Virtualization.VirtualMachine 9.6%, WindowServer 8.2%, other 5.8%
+2026-09-29T10:00:53Z round 2 rf base_m load { 3.03 3.44 4.80 } vm 21% top other 32.6%, other 22.1%, com.apple.Virtualization.VirtualMachine 11.6%, powermetrics 9.9%, com.apple.Virtualization.VirtualMachine 9.5%
+2026-09-29T10:01:16Z round 2 rf fold_s load { 2.75 3.35 4.73 } vm 12% top other 77.7%, other 27.8%, other 16.3%, com.apple.Virtualization.VirtualMachine 9.3%, other 3.1%
+2026-09-29T10:01:35Z round 2 rf base_s load { 2.40 3.23 4.65 } vm 13% top other 27.7%, other 16.6%, powermetrics 9.9%, com.apple.Virtualization.VirtualMachine 7.4%, com.apple.Virtualization.VirtualMachine 5.5%
+2026-09-29T10:01:54Z round 2 pme fold_m load { 2.02 3.08 4.57 } vm 8% top other 29.9%, other 18.1%,  other 9.5%, com.apple.Virtualization.VirtualMachine 3.9%, com.apple.Virtualization.VirtualMachine 3.7%
+2026-09-29T10:02:18Z round 2 pme base_m load { 1.98 2.99 4.49 } vm 9% top other 31.5%, other 20.0%,  other 8.4%, other 5.6%, com.apple.Virtualization.VirtualMachine 4.8%
+2026-09-29T10:02:43Z round 2 pme fold_s load { 1.94 2.93 4.43 } vm 26% top other 36.1%, other 21.9%, WindowServer 16.0%, com.apple.Virtualization.VirtualMachine 15.2%, other 11.7%
+2026-09-29T10:03:02Z round 2 pme base_s load { 2.10 2.90 4.39 } vm 16% top other 34.3%, WindowServer 18.3%, other 13.9%, other 9.5%, com.apple.Virtualization.VirtualMachine 9.0%
+2026-09-29T10:03:20Z builds: BUILD RUNNING on 2 of 24 timed runs (loads.txt); timing hold of gpuq job 30 (r3-step): 0 builds paused

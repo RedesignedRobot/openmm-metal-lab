@@ -1,0 +1,9 @@
+hostname: M2
+timestamp: 2026-09-26T18:29:17.179364+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M2
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+pme               single      HBonds        1.5            4         NVT        Metal      238.601

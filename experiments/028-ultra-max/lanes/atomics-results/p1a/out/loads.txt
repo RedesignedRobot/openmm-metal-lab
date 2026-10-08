@@ -1,0 +1,121 @@
+apoa1rf-prof load { 5.60 5.74 5.82 } 23:13:59Z
+ %CPU COMMAND
+ 21.9 other
+  7.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  6.2 other
+  5.4 other
+apoa1rf-prof-lo load { 4.73 5.54 5.75 } 23:14:13Z
+ %CPU COMMAND
+ 21.0 other
+  7.6 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+  6.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  3.5 other
+apoa1rf-prof-plain load { 4.31 5.42 5.70 } 23:14:26Z
+ %CPU COMMAND
+ 24.6 other
+  6.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.8 other
+  1.8 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+apoa1rf-prof-words load { 4.27 5.37 5.68 } 23:14:38Z
+ %CPU COMMAND
+ 22.2 other
+  7.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  3.2 other
+  3.1 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+rf-prof-words load { 4.01 5.27 5.64 } 23:14:51Z
+ %CPU COMMAND
+ 21.0 other
+ 10.0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  5.2 other
+  2.9 other
+rf-prof-plain load { 3.86 5.20 5.61 } 23:14:59Z
+ %CPU COMMAND
+ 23.9 other
+ 10.7 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  8.4 other
+  4.1 other
+rf-prof-lo load { 3.90 5.16 5.59 } 23:15:07Z
+ %CPU COMMAND
+ 24.3 other
+  6.4 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  1.5 other
+  1.4 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh --correctness ultra-nblist diag1 forces of sort and wrap knobs, ~2 min /bin/sh /tmp/openmm-metal-bench/ultra-nblist/diag1.sh
+rf-prof load { 3.76 5.09 5.56 } 23:15:17Z
+ %CPU COMMAND
+ 23.8 other
+ 10.4 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  6.3 other
+  6.0 other
+apoa1pme-prof load { 3.63 5.02 5.53 } 23:15:28Z
+ %CPU COMMAND
+ 22.1 other
+  4.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  4.0 other
+  2.4 other
+apoa1pme-prof-lo load { 3.47 4.94 5.49 } 23:15:39Z
+ %CPU COMMAND
+ 24.7 other
+ 21.6 other
+ 21.2 other
+ 15.6 other
+apoa1pme-prof-plain load { 4.73 5.15 5.56 } 23:15:50Z
+ %CPU COMMAND
+ 21.4 other
+  9.6 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  3.7 other
+  1.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+apoa1pme-prof-words load { 4.30 5.05 5.52 } 23:16:01Z
+ %CPU COMMAND
+ 22.6 other
+ 15.1 other
+ 11.0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  9.7 other
+amber20-cellulose-prof-words load { 3.77 4.90 5.46 } 23:16:12Z
+ %CPU COMMAND
+ 22.4 other
+  9.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  4.9 other
+  2.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+amber20-cellulose-prof-plain load { 4.25 4.94 5.46 } 23:16:27Z
+ %CPU COMMAND
+ 23.0 other
+  9.3 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.3 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+  1.6 /bin/sh /tmp/openmm-metal-bench/ultra-tools/lease.sh ultra-profiler tbpc sweep amber20-dhfr 12,24,16,32: gpucapture plus gpudebug profile, 13 min cap /tmp/openmm-metal-bench/ultra-profiler/tools/gpusweep.sh /tmp/openmm-metal-bench/ultra-profiler/sweep amber20-dhfr:12,amber20-dhfr:24,amber20-dhfr:16,amber20-dhfr:32
+amber20-cellulose-prof-lo load { 5.61 5.24 5.56 } 23:16:42Z
+ %CPU COMMAND
+ 24.9 other
+ 12.7 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+  1.2 other
+amber20-cellulose-prof load { 4.65 5.05 5.49 } 23:16:57Z
+ %CPU COMMAND
+ 23.7 other
+  9.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.7 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+  2.5 other
+gbsa-prof load { 4.12 4.91 5.43 } 23:17:11Z
+ %CPU COMMAND
+ 23.9 other
+  6.9 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  6.1 other
+  3.8 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+gbsa-prof-words load { 4.03 4.87 5.41 } 23:17:22Z
+ %CPU COMMAND
+ 14.7 other
+  5.0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.0 other
+  2.0 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+pme-prof-words load { 3.87 4.82 5.39 } 23:17:29Z
+ %CPU COMMAND
+ 16.5 other
+  5.5 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  2.2 other
+  1.9 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+pme-prof load { 3.66 4.74 5.36 } 23:17:39Z
+ %CPU COMMAND
+ 22.1 other
+ 10.5 other
+ 10.1 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+  4.0 /usr/bin/powermetrics -i 2000 --samplers cpu_power gpu_power -a --hide-cpu-duty-cycle
+done

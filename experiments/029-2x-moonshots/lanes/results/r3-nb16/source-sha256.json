@@ -1,0 +1,8 @@
+{
+  "platforms/metal/src/kernels/nonbonded16.metal": "ba4c58a3c31ed05e8ec28bc53a3d5e4d70888e4aca945ef9a9b4db49ce08d800",
+  "platforms/metal/src/kernels/nonbonded.metal": "8a3ecdc7cbe401f5c7983fdce07caf01a8df2250dce1af44afd23cea779cbaac",
+  "platforms/metal/include/MetalNonbondedUtilities.h": "dd7a78f647b9d071c987bd1ed1572b3a5e1b5e7451aa3c8a15fe5030cca4366c",
+  "platforms/metal/src/MetalNonbondedUtilities.cpp": "4ac863f9a65b248e466871100fc97774207adad0b49964a189c616fd5c126671",
+  "platforms/metal/tests/TestNonbonded16Emulator.py": "7462b0d4e5ed755ea7cb324667680290d1bcf23675e08a1e18c59393b56739d2",
+  "candidate.patch": "e9e552af5cf0e377be0a0ba8a98121668d4721a2a46df8ec886b366305e20af9"
+}

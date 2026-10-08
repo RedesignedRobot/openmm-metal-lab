@@ -1,0 +1,45 @@
+22:00:27Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+22:00:27Z waiting for the lease: 8 in the queue, held by: ultra-r2-mixed 2026-09-27T22:00:12Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv2, about 4 min, 0 build processes
+22:05:30Z waiting for the lease: 7 in the queue, held by: ultra-r2-mixed 2026-09-27T22:04:06Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv3, about 4 min, 0 build processes
+22:10:34Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T22:09:35Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abC, about 11 min, 9 build processes
+22:15:38Z waiting for the lease: 5 in the queue, held by: ultra-r2-accum-nb 2026-09-27T22:09:35Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abC, about 11 min, 0 build processes
+22:20:41Z waiting for the lease: 4 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:25:45Z waiting for the lease: 4 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:30:49Z waiting for the lease: 4 in the queue, held by: r3-lean 2026-09-27T22:18:38Z force-only 2x15 screen part 1, 0 build processes
+22:35:53Z waiting for the lease: 3 in the queue, held by: r3-lean 2026-09-27T22:32:12Z force-only 2x15 screen part 2, 0 build processes
+22:40:57Z waiting for the lease: 2 in the queue, held by: r3-nb16 2026-09-27T22:40:51Z paired apoa1rf direct force instruction gate, 0 build processes
+AlchemicalNonequilibriumLangevinIntegrator     23 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29443.4
+AndersenVelocityVerletIntegrator                7 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29817.5
+BAOABIntegrator                                10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29823.1
+ExternalPerturbationLangevinIntegrator         10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29828.2
+FIREMinimizationIntegrator                     16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -31986.7
+GHMCIntegrator                                 18 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29796.0
+GeodesicBAOABIntegrator                        16 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29819.1
+GradientDescentMinimizationIntegrator           4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -30712.9
+HMCIntegrator                                  46 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29200.2
+LangevinIntegrator                             10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29807.2
+MTSIntegrator                                   5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+MetropolisMonteCarloIntegrator                  5 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29778.7
+NonequilibriumLangevinIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29796.0
+NoseHooverChainVelocityVerletIntegrator         8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29710.0
+PeriodicNonequilibriumIntegrator               10 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29370.2
+VVVRIntegrator                                  8 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29807.5
+VelocityVerletIntegrator                        4 per-DOF/sum expressions, OK
+    Metal mixed: compiled and ran 20 steps, E -29821.9
+audit exit 0

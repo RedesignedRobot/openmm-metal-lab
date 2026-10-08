@@ -1,0 +1,8 @@
+{"test": "gbsa", "precision": "mixed", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "gbsa", "precision": "single", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "rf", "precision": "mixed", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "rf", "precision": "single", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "pme", "precision": "mixed", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "pme", "precision": "single", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "apoa1pme", "precision": "mixed", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}
+{"test": "apoa1pme", "precision": "single", "vs_base": {"pos": {"equal": true, "max_abs": 0.0}, "vel": {"equal": true, "max_abs": 0.0}, "f": {"equal": true, "max_abs": 0.0}, "fchunks": {"equal": true, "max_abs": 0.0}}}

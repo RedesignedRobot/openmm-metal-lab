@@ -1,0 +1,14 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-atomics/build'
+[1/7] Generating src/MetalKernelSources.cpp, src/MetalKernelSources.h
+[2/3] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/src/MetalKernelSources.cpp.o
+In file included from /tmp/openmm-metal-bench/ultra-atomics/build/platforms/metal/src/MetalKernelSources.cpp:26:
+In file included from /tmp/openmm-metal-bench/ultra-atomics/build/platforms/metal/src/MetalKernelSources.h:30:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:594:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h:12:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h:12:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+1 warning generated.
+[3/3] Linking CXX shared library libOpenMMMetal.dylib

@@ -1,0 +1,65 @@
+Test project /tmp/openmm-metal-bench/ultra-plugins/head/build
+      Start 216: TestMetalATMForceSingle
+      Start 221: TestMetalBrownianIntegratorMixed
+ 1/27 Test #216: TestMetalATMForceSingle .........................   Passed    4.31 sec
+      Start 226: TestMetalCheckpointsSingle
+ 2/27 Test #226: TestMetalCheckpointsSingle ......................   Passed    0.87 sec
+      Start 231: TestMetalCompoundIntegratorMixed
+ 3/27 Test #231: TestMetalCompoundIntegratorMixed ................   Passed    8.42 sec
+      Start 236: TestMetalCustomBondForceSingle
+ 4/27 Test #236: TestMetalCustomBondForceSingle ..................   Passed    0.74 sec
+      Start 241: TestMetalCustomCVForceMixed
+ 5/27 Test #241: TestMetalCustomCVForceMixed .....................   Passed   11.79 sec
+      Start 246: TestMetalCustomExternalForceSingle
+ 6/27 Test #246: TestMetalCustomExternalForceSingle ..............   Passed    0.81 sec
+      Start 251: TestMetalCustomHbondForceMixed
+ 7/27 Test #251: TestMetalCustomHbondForceMixed ..................   Passed   10.30 sec
+      Start 256: TestMetalCustomNonbondedForceSingle
+ 8/27 Test #221: TestMetalBrownianIntegratorMixed ................   Passed   43.16 sec
+      Start 261: TestMetalDPDIntegratorMixed
+ 9/27 Test #256: TestMetalCustomNonbondedForceSingle .............   Passed   10.23 sec
+      Start 266: TestMetalFFTSingle
+10/27 Test #266: TestMetalFFTSingle ..............................   Passed    1.13 sec
+      Start 271: TestMetalGayBerneForceMixed
+11/27 Test #271: TestMetalGayBerneForceMixed .....................   Passed    6.09 sec
+      Start 276: TestMetalLCPOForceSingle
+12/27 Test #276: TestMetalLCPOForceSingle ........................   Passed    3.07 sec
+      Start 281: TestMetalLangevinMiddleIntegratorMixed
+13/27 Test #261: TestMetalDPDIntegratorMixed .....................   Passed   28.00 sec
+      Start 286: TestMetalMonteCarloAnisotropicBarostatSingle
+14/27 Test #281: TestMetalLangevinMiddleIntegratorMixed ..........   Passed   15.37 sec
+      Start 291: TestMetalMonteCarloFlexibleBarostatMixed
+15/27 Test #291: TestMetalMonteCarloFlexibleBarostatMixed ........***Failed   20.51 sec
+exception: Assertion failure at TestMonteCarloFlexibleBarostat.h:105.  Expected 3, found 3.60466 (This test is stochastic and may occasionally fail)
+
+      Start 296: TestMetalNoseHooverIntegratorSingle
+16/27 Test #296: TestMetalNoseHooverIntegratorSingle .............   Passed   26.92 sec
+      Start 301: TestMetalPeriodicTorsionForceMixed
+17/27 Test #301: TestMetalPeriodicTorsionForceMixed ..............   Passed    2.30 sec
+      Start 306: TestMetalRBTorsionForceSingle
+18/27 Test #306: TestMetalRBTorsionForceSingle ...................   Passed    0.38 sec
+      Start 311: TestMetalRMSDForceMixed
+19/27 Test #311: TestMetalRMSDForceMixed .........................   Passed    4.77 sec
+      Start 316: TestMetalSortSingle
+20/27 Test #316: TestMetalSortSingle .............................   Passed    0.51 sec
+      Start 321: TestMetalVariableVerletIntegratorMixed
+21/27 Test #321: TestMetalVariableVerletIntegratorMixed ..........   Passed    9.05 sec
+      Start 408: TestMetalAmoebaExtrapolatedPolarizationSingle
+22/27 Test #408: TestMetalAmoebaExtrapolatedPolarizationSingle ...   Passed    1.82 sec
+      Start 413: TestMetalAmoebaMultipoleForceMixed
+23/27 Test #413: TestMetalAmoebaMultipoleForceMixed ..............   Passed   25.72 sec
+      Start 418: TestMetalHippoNonbondedForceSingle
+24/27 Test #418: TestMetalHippoNonbondedForceSingle ..............   Passed    5.57 sec
+      Start 433: TestMetalRpmdMixed
+25/27 Test #286: TestMetalMonteCarloAnisotropicBarostatSingle ....   Passed  115.79 sec
+      Start 454: TestMetalDrudeNoseHooverSingle
+26/27 Test #454: TestMetalDrudeNoseHooverSingle ..................   Passed    4.91 sec
+27/27 Test #433: TestMetalRpmdMixed ..............................   Passed  107.28 sec
+
+96% tests passed, 1 tests failed out of 27
+
+Total Test time (real) = 277.98 sec
+
+The following tests FAILED:
+	291 - TestMetalMonteCarloFlexibleBarostatMixed (Failed)
+Errors while running CTest

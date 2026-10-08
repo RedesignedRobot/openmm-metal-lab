@@ -1,0 +1,15 @@
+06:49:02Z waiting for the lease: 7 in the queue, held by: r2-drift 2026-09-27T06:48:12Z drift dhfr nve mixed seed 1 1 ns, 0 build processes
+06:54:07Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T06:51:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-gbsa, about 7 min, 3 build processes
+06:59:11Z waiting for the lease: 6 in the queue, held by: ultra-r2-dispatch 2026-09-27T06:51:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-gbsa, about 7 min, 0 build processes
+07:04:15Z waiting for the lease: 4 in the queue, held by: r2-mixed 2026-09-27T07:04:14Z e1 mixed traces gbsa rf pme BUILD RUNNING, 6 build processes
+07:08:27Z int028 run 2 exit=1 fails=1 pairs: cutoff pairs=0 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:09:12Z r1 run 2 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:09:37Z int028 run 3 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:10:02Z r1 run 3 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:10:26Z int028 run 4 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=2 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:11:09Z r1 run 4 exit=1 fails=1 pairs: cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:11:53Z int028 run 5 exit=0 fails=0 pairs: cutoff pairs=1 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:12:22Z r1 run 5 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:12:48Z int028 run 6 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=2 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+07:13:14Z r1 run 6 exit=0 fails=0 pairs: cutoff pairs=0 cutoff pairs=1 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 cutoff pairs=0 
+ALL-DONE

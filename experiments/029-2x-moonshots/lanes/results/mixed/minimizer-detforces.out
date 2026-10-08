@@ -1,0 +1,22 @@
+20:43:38Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:43:17Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-pme, about 9 min, 0 build processes
+20:48:41Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:43:17Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-pme, about 9 min, 0 build processes
+20:53:45Z waiting for the lease: 5 in the queue, held by: m29-mixed 2026-09-26T20:53:43Z Minimizer keep confirmation 3x30 seconds per arm about 9 minutes, 0 build processes
+20:58:48Z waiting for the lease: 5 in the queue, held by: m29-mixed 2026-09-26T20:53:43Z Minimizer keep confirmation 3x30 seconds per arm about 9 minutes, 0 build processes
+21:03:52Z waiting for the lease: 3 in the queue, held by: ultra-m29-mixed-v2 2026-09-26T21:03:37Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-large, about 7 min, 0 build processes
+21:08:55Z waiting for the lease: 3 in the queue, held by: ultra-m29-mixed-v2 2026-09-26T21:03:37Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-large, about 7 min, 0 build processes
+21:13:58Z waiting for the lease: 2 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:09:59Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-small, about 10 min, 0 build processes
+/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/prefix/lib
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS

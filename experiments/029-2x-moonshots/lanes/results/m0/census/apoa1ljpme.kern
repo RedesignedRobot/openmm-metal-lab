@@ -1,0 +1,45 @@
+steps by computeNonbonded: a 1958, b 1120
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+gridSpreadCharge                                 296.40     528.48  -232.09    1.95    1.82
+computeBondedForces                              105.50     245.07  -139.57    1.00    1.01
+findBlocksWithInteractions                       133.37     247.86  -114.48    1.00    0.92
+computeRange                                       0.42      93.46   -93.04    0.31    0.90
+computeNonbonded                                 442.04     513.19   -71.16    1.00    1.00
+sortBuckets                                        6.96      39.35   -32.39    1.00    1.82
+gridInterpolateForce                              62.60      34.51    28.09    2.00    1.80
+VkFFT_main                                        86.76     106.63   -19.87   11.84   10.92
+integrateLangevinMiddleFused                      15.52       0.00    15.52    1.00    0.00
+findBlockBounds                                   18.92       8.52    10.40    1.00    0.82
+finishSpreadCharge                                 0.00      10.04   -10.04    0.00    1.82
+computeBucketPositions                             1.92      11.05    -9.13    0.99    1.86
+assignElementsToBuckets                            0.00       7.56    -7.56    0.00    0.82
+applySettleToPositions                             0.00       7.20    -7.20    0.00    0.99
+findAtomGridIndex                                  0.00       5.54    -5.54    0.00    1.82
+sortBoxData                                        8.57       3.65     4.91    1.00    1.01
+integrateLangevinMiddlePart3                       0.00       4.81    -4.81    0.00    1.00
+applyShakeToPositions                              0.00       4.42    -4.42    0.00    1.00
+integrateLangevinMiddlePart1                       0.00       4.29    -4.29    0.00    1.00
+integrateLangevinMiddlePart2                       0.00       3.70    -3.70    0.00    1.00
+applySettleToVelocities                            0.00       3.59    -3.59    0.00    1.00
+reduceForces                                       0.00       3.57    -3.57    0.00    0.76
+applyShakeToVelocities                             0.00       3.30    -3.30    0.00    0.95
+clearThreeBuffers                                  3.12       0.00     3.12    1.00    0.00
+computeSortKeys                                    1.84       4.32    -2.48    0.99    0.83
+clearFourBuffers                                   0.00       2.03    -2.03    0.00    0.80
+copyDataToBuckets                                  2.39       4.22    -1.83    1.00    1.73
+clearBuffer                                        2.75       1.49     1.26    1.00    0.81
+assignElementsToBuckets2                          11.36      10.27     1.09    1.00    1.01
+CopyInts                                           0.00       0.86    -0.86    0.00    0.36
+calcCenterOfMassMomentum                           3.67       2.84     0.84    1.00    1.00
+reciprocalConvolution                              9.69       8.97     0.72    2.00    2.01
+removeCenterOfMassMomentum                         8.10       7.77     0.33    1.00    1.00
+generateRandomNumbers                              2.54       2.27     0.27    0.25    0.25
+computeKineticEnergy                               0.23       0.41    -0.17    0.00    0.00
+copyInteractionCounts                              0.09       0.00     0.09    0.07    0.00
+gridEvaluateEnergy                                 0.03       0.05    -0.02    0.01    0.01
+copyFloatBuffer                                    0.01       0.02    -0.01    0.00    0.00
+computeParameters                                  0.00       0.01    -0.01    0.00    0.00
+computeExclusionParameters                         0.00       0.01    -0.00    0.00    0.00
+determineNativeAccuracy                            0.00       0.00    -0.00    0.00    0.00
+reduceEnergy                                       0.01       0.02    -0.00    0.00    0.00
+total                                           1224.83    1935.34  -710.51

@@ -1,0 +1,27 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  1.907e-06  8.845e-03  4.762e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.90687996e-06 raw_max_force=0.00884532443
+gbsa            2489     mixed  1.349e-05  1.360e-01  5.539e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.34868795e-05 raw_max_force=0.136038258
+rf             23558    single  1.052e-06  1.174e-02  2.288e-07
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.05223169e-06 raw_max_force=0.011742944
+rf             23558     mixed  2.041e-05  2.864e-01  2.629e-07
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.08086595e-05 raw_max_force=0.418494292
+# cutoff pair {'i': 9469, 'j': 13803, 'distance_minus_cutoff_nm': -5.060324936856375e-09, 'pair_force_norm': 0.45988642106694966}
+pme            23558    single  1.359e-06  1.615e-02  3.867e-07
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.35916776e-06 raw_max_force=0.0161489796
+pme            23558     mixed  1.883e-05  3.001e-01  3.894e-07
+# cutoff pairs=0 epsilon_nm=1.90734863e-06 raw_rel_force=1.88347959e-05 raw_max_force=0.300136721
+apoa1rf        92224    single  1.574e-06  4.353e-02  2.085e-07
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.25136218e-06 raw_max_force=0.4558563
+# cutoff pair {'i': 5200, 'j': 35822, 'distance_minus_cutoff_nm': -2.125918308060193e-08, 'pair_force_norm': 0.6417472116794763}
+apoa1rf        92224     mixed  5.256e-05  8.750e-01  1.751e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25574059e-05 raw_max_force=0.874955289
+apoa1pme       92224    single  5.253e-05  2.544e-01  2.205e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25281209e-05 raw_max_force=0.254398048
+apoa1pme       92224     mixed  7.429e-05  6.891e-01  2.472e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.42929802e-05 raw_max_force=0.689093469
+apoa1ljpme     92224    single  5.252e-05  2.513e-01  2.359e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=5.25211093e-05 raw_max_force=0.251308858
+apoa1ljpme     92224     mixed  7.491e-05  7.702e-01  1.884e-07
+# cutoff pairs=0 epsilon_nm=3.81469727e-06 raw_rel_force=7.49139086e-05 raw_max_force=0.770158206

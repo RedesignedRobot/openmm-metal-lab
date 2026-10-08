@@ -1,0 +1,28 @@
+2026-09-27T16:50:40Z round 1 gbsa ki-single load { 6.08 10.20 12.39 } vm 4% top  other 21.0%, other 17.8%, other 15.9%, WindowServer 5.0%, com.apple.Virtualization.VirtualMachine 2.3%
+2026-09-27T16:50:58Z round 1 gbsa kc-single load { 6.43 10.06 12.30 } vm 20% top other 178.6%, other 176.0%, other 173.0%, other 167.6%, other 167.5%
+2026-09-27T16:51:14Z round 1 gbsa kf-single load { 8.19 10.31 12.36 } vm 116% top other 163.6%, com.apple.Virtualization.VirtualMachine 86.8%, other 75.0%, WindowServer 20.9%, other 20.0%
+2026-09-27T16:51:30Z round 1 gbsa ki-mixed load { 7.44 10.01 12.20 } vm 5% top other 19.5%,  other 17.8%,  other 14.7%,  other 10.4%, WindowServer 9.4%
+2026-09-27T16:51:47Z round 1 gbsa kc-mixed load { 7.40 9.89 12.12 } vm 4% top other 19.8%, WindowServer 11.7%,  other 7.7%,  other 5.6%, other 4.0%
+2026-09-27T16:52:04Z round 1 gbsa kc-mixed BUILD RUNNING during the run
+2026-09-27T16:52:04Z round 1 gbsa kf-mixed load { 9.33 10.15 12.17 } BUILD RUNNING vm 7% top clang 99.9%, WindowServer 22.0%,  other 21.7%, other 20.8%, other 10.9%
+2026-09-27T16:52:20Z round 2 gbsa kf-mixed load { 11.73 10.66 12.30 } BUILD RUNNING vm 8% top other 121.6%, other 91.5%, other 13.1%, WindowServer 11.3%, cmake 8.1%
+2026-09-27T16:52:37Z round 2 gbsa kc-mixed load { 9.86 10.30 12.15 } vm 6% top other 192.7%, other 144.2%, other 47.2%, other 45.0%, other 37.3%
+2026-09-27T16:52:54Z round 2 gbsa ki-mixed load { 9.58 10.23 12.09 } vm 6% top other 137.8%, other 20.1%, other 16.5%,  other 12.8%, WindowServer 11.3%
+2026-09-27T16:53:11Z round 2 gbsa kf-single load { 8.91 10.03 11.98 } vm 6% top other 90.4%, other 44.2%, other 20.8%, WindowServer 13.1%, other 7.6%
+2026-09-27T16:53:28Z round 2 gbsa kc-single load { 7.82 9.74 11.84 } vm 13% top other 84.5%, other 84.4%, other 84.3%, other 84.0%, other 83.9%
+2026-09-27T16:53:45Z round 2 gbsa kc-single BUILD RUNNING during the run
+2026-09-27T16:53:45Z round 2 gbsa ki-single load { 8.66 9.83 11.83 } BUILD RUNNING vm 8% top other 227.9%, clang 98.1%, clang 98.1%, clang 97.3%, clang 55.0%
+2026-09-27T16:54:02Z rerun round 1 gbsa: a build or a busy CPU overlapped it
+2026-09-27T16:54:02Z round 1 gbsa ki-single load { 8.23 9.65 11.72 } BUILD RUNNING vm 6% top clang 98.7%, other 20.5%, other 17.8%, powermetrics 13.0%,  other 11.8%
+2026-09-27T16:54:19Z round 1 gbsa kc-single load { 11.14 10.18 11.87 } BUILD RUNNING vm 9% top other 48.1%, other 47.9%, other 26.5%, other 15.7%, cmake 13.8%
+2026-09-27T16:54:35Z round 1 gbsa kf-single load { 9.38 9.84 11.71 } vm 122% top com.apple.Virtualization.VirtualMachine 118.9%, other 68.5%, other 42.1%, other 41.8%, other 41.8%
+2026-09-27T16:54:52Z round 1 gbsa ki-mixed load { 8.05 9.52 11.56 } vm 7% top  other 44.7%,  other 19.8%, other 16.4%, other 11.5%,  other 5.4%
+2026-09-27T16:55:09Z round 1 gbsa kc-mixed load { 6.63 9.14 11.39 } vm 17% top other 63.6%, other 46.4%, other 40.6%, other 17.6%, WindowServer 12.3%
+2026-09-27T16:55:25Z round 1 gbsa kf-mixed load { 6.20 8.92 11.27 } vm 8% top WindowServer 29.2%, other 20.6%, com.apple.Virtualization.VirtualMachine 11.6%,  other 7.6%, other 4.9%
+2026-09-27T16:55:41Z rerun round 2 gbsa: a build or a busy CPU overlapped it
+2026-09-27T16:55:41Z round 2 gbsa kf-mixed load { 5.14 8.50 11.07 } vm 7% top other 99.6%, WindowServer 21.4%, other 15.6%, other 6.6%,  other 6.2%
+2026-09-27T16:55:57Z round 2 gbsa kc-mixed load { 4.49 8.20 10.91 } vm 8% top other 45.9%, WindowServer 30.7%, other 20.9%,  other 18.7%, other 7.7%
+2026-09-27T16:56:14Z round 2 gbsa ki-mixed load { 4.34 7.98 10.79 } vm 9% top other 47.1%, WindowServer 29.8%, other 19.6%,  other 11.8%, com.apple.Virtualization.VirtualMachine 10.5%
+2026-09-27T16:56:30Z round 2 gbsa kf-single load { 3.98 7.71 10.64 } vm 7% top other 43.8%, WindowServer 28.4%, other 22.0%,  other 12.1%, other 5.4%
+2026-09-27T16:56:46Z round 2 gbsa kc-single load { 3.77 7.42 10.47 } vm 11% top other 100.7%, other 100.5%, other 100.0%, other 100.0%, other 99.2%
+2026-09-27T16:57:02Z round 2 gbsa ki-single load { 4.64 7.44 10.42 } vm 6% top other 145.6%, other 113.4%,  other 69.9%, other 34.7%, WindowServer 26.0%

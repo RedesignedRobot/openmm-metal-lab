@@ -1,0 +1,794 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-m29-resident-prototype/build'
+[1/2] Building OpenMM Python binary module...
+OPENMM_LIB_PATH = /tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib
+OPENMM_INCLUDE_PATH = /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal
+Compiling openmm/app/internal/compiled.pyx because it changed.
+[1/1] Cythonizing openmm/app/internal/compiled.pyx
+Compiling openmm/app/internal/xtc_utils/xtc.pyx because it changed.
+[1/1] Cythonizing openmm/app/internal/xtc_utils/xtc.pyx
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'extras_require'
+  warnings.warn(msg)
+                                  author                                               Peter Eastman
+                              data_files                                                          []
+                             description                Python wrapper for OpenMM (a C++ MD package)
+                            download_url                                          https://openmm.org
+                             ext_modules[Extension(name='openmm._openmm', sources=['src/swig_doxygen/OpenMMSwig.cxx'], include_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include'], define_macros=[('MAJOR_VERSION', '8'), ('MINOR_VERSION', '6')], undef_macros=[], library_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], libraries=['OpenMM', 'OpenMMAmoeba', 'OpenMMRPMD', 'OpenMMDrude'], runtime_library_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], extra_objects=[], extra_compile_args=['-std=c++11', '-stdlib=libc++'], extra_link_args=['-stdlib=libc++', '-Wl', '-rpath', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], export_symbols=[], swig_opts=[], depends=[], language=None, optional=False), Extension(name='openmm.app.internal.compiled', sources=['openmm/app/internal/compiled.cpp'], include_dirs=[], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=[], language='c++', optional=False), Extension(name='openmm.app.internal.xtc_utils', sources=['openmm/app/internal/xtc_utils/xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile_xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile.cpp', 'openmm/app/internal/xtc_utils/src/xtc.cpp'], include_dirs=['openmm/app/internal/xtc_utils', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include', 'openmm/app/internal/xtc_utils/include', 'openmm/app/internal/xtc_utils/'], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/arrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/arrayscalars.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ndarrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ndarraytypes.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ufuncobject.h', 'openmm/app/internal/xtc_utils/include/xtc.h'], language='c++', optional=False)]
+                          extras_require{'cuda12': ['OpenMM-CUDA-12==8.6.0; platform_system != "Darwin"'], 'cuda13': ['OpenMM-CUDA-13==8.6.0; platform_system != "Darwin"'], 'hip6': ['OpenMM-HIP-6==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"'], 'hip7': ['OpenMM-HIP-7==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"']}
+                        install_requires                                                   ['numpy']
+                                 license               Python Software Foundation License (BSD-like)
+                        long_descriptionOpenMM is a toolkit for molecular simulation. It can be used either as a
+    stand-alone application for running simulations, or as a library you call
+    from your own code. It provides a combination of extreme flexibility
+    (through custom forces and integrators), openness, and high performance
+    (especially on recent GPUs) that make it truly unique among simulation codes.
+    
+                                    name                                                      OpenMM
+                            package_data{'openmm': [], 'openmm.app': ['data/*.xml', 'data/*.pdb', 'data/amber14/*.xml', 'data/amber19/*.xml', 'data/charmm36/*.xml', 'data/charmm36_2024/*.xml', 'data/implicit/*.xml'], 'openmm.app.internal': []}
+                                packages['simtk', 'simtk.unit', 'simtk.openmm', 'simtk.openmm.app', 'openmm', 'openmm.unit', 'openmm', 'openmm.app', 'openmm.app.internal', 'openmm.app.internal.charmm', 'openmm.app.internal.pdbx', 'openmm.app.internal.pdbx.reader', 'openmm.app.internal.pdbx.writer']
+                               platforms                            ['Linux', 'Mac OS X', 'Windows']
+                                     url                                          https://openmm.org
+                                 version                                                       8.6.0
+running build
+running build_py
+creating build/lib.macosx-11.0-arm64-cpython-313/simtk
+copying simtk/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/simtk
+creating build/lib.macosx-11.0-arm64-cpython-313/simtk/unit
+copying simtk/unit/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/simtk/unit
+creating build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm
+copying simtk/openmm/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm
+creating build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/app
+copying simtk/openmm/app/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/app
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/testInstallation.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/version.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/openmm.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/vec3.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/amd.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+copying openmm/mtsintegrator.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/doctests.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/prefix.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/unit_definitions.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/constants.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/mymatrix.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/unit_math.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/unit.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/standard_dimensions.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/baseunit.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/unit_operators.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/quantity.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+copying openmm/unit/basedimension.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/unit
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/simulation.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/replicaexchangesampler.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/modeller.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/charmmcrdfiles.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/metadynamics.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/charmmpsffile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/checkpointreporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/gromacsgrofile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/xtcfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/pdbxfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/dcdfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/element.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/expandedensemblesampler.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/simulatedtempering.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/statedatareporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/charmmparameterset.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/pdbfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/xtcreporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/dcdreporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/replicaexchangereporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/topology.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/amberinpcrdfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/tinkerfiles.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/forcefield.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/desmonddmsfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/amberprmtopfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/pdbreporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+copying openmm/app/gromacstopfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/unitcell.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/multistatesampler.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/amoebaforces.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/argtracker.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/amber_file_parser.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/customgbforces.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/debuggingreporter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/lcpo.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/singleton.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/safesave.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+copying openmm/app/internal/pdbstructure.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm
+copying openmm/app/internal/charmm/_charmmfile.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm
+copying openmm/app/internal/charmm/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm
+copying openmm/app/internal/charmm/exceptions.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm
+copying openmm/app/internal/charmm/topologyobjects.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx
+copying openmm/app/internal/pdbx/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+copying openmm/app/internal/pdbx/reader/PdbxReaderTests.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+copying openmm/app/internal/pdbx/reader/PdbxReadWriteTests.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+copying openmm/app/internal/pdbx/reader/PdbxContainers.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+copying openmm/app/internal/pdbx/reader/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+copying openmm/app/internal/pdbx/reader/PdbxReader.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer
+copying openmm/app/internal/pdbx/writer/__init__.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer
+copying openmm/app/internal/pdbx/writer/PdbxWriterTests.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer
+copying openmm/app/internal/pdbx/writer/PdbxWriter.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amberfb15.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber10.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip3pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2009.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber10_obc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2013_gk.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/spce.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber96_obc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/iamoeba.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/charmm36_2024.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2018.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/swm4ndp.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip4pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber03.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/charmm_polar_2023.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/opc3.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/pdbNames.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2009_gk.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber14-all.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber99Test.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/charmm_polar_2019.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber99sbildn.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber03_obc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber19-all.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber99_obc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber99sbnmr.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/residues.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip3p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber99sb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/hydrogens.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/charmm_polar_2013.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/charmm36.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amber96.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip5p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip4pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2018_gk.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/glycam-hydrogens.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/amoeba2013.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/opc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip3p.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/test.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/DLPC.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/DLPE.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/DMPC.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/DOPC.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/POPC.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip5p.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/DPPC.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/POPE.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/swm4ndp.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/tip4pew.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+copying openmm/app/data/spce.pdb -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/tip3pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/protein.ff15ipq.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/spce.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/tip4pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/GLYCAM_06j-1.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/RNA.OL3.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/opc3.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/DNA.bsc1.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/tip3p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/DNA.OL15.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/protein.ff14SB.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/lipid17.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/tip4pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+copying openmm/app/data/amber14/opc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/tip3pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/lipid21.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/spce.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/tip4pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/opc3.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/protein.ff19SB.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/DNA.OL21.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/tip3p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/tip4pfb.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+copying openmm/app/data/amber19/opc.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/spce.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip4pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip3p-pme-f.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip3p-pme-b.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip5pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/water.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip5p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+copying openmm/app/data/charmm36/tip4p2005.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/spce.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip4pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip3p-pme-f.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip3p-pme-b.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip5pew.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/water.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip5p.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+copying openmm/app/data/charmm36_2024/tip4p2005.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024
+creating build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+copying openmm/app/data/implicit/gbn2.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+copying openmm/app/data/implicit/gbn.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+copying openmm/app/data/implicit/obc1.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+copying openmm/app/data/implicit/hct.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+copying openmm/app/data/implicit/obc2.xml -> build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit
+running build_ext
+building 'openmm._openmm' extension
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -DMAJOR_VERSION=8 -DMINOR_VERSION=6 -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c src/swig_doxygen/OpenMMSwig.cxx -o build/temp.macosx-11.0-arm64-cpython-313/src/swig_doxygen/OpenMMSwig.o -std=c++11 -stdlib=libc++
+In file included from src/swig_doxygen/OpenMMSwig.cxx:7575:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/OpenMM.h:54:
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/GayBerneForce.h:286:23: warning: field 'epsilon' will be initialized after field 'xparticle' [-Wreorder-ctor]
+  286 |         sigma(sigma), epsilon(epsilon), xparticle(xparticle), yparticle(yparticle), sx(sx), sy(sy), sz(sz), ex(ex), ey(ey), ez(ez) {
+      |         ~~~~~~~~~~~~  ^~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~
+      |         xparticle(xparticle) yparticle(yparticle) sigma(sigma)epsilon(epsilon)
+In file included from src/swig_doxygen/OpenMMSwig.cxx:7575:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/OpenMM.h:67:
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/NonbondedForce.h:692:9: warning: field 'parameter' will be initialized after field 'particle' [-Wreorder-ctor]
+  692 |         parameter(parameter), particle(particle), chargeScale(chargeScale), sigmaScale(sigmaScale), epsilonScale(epsilonScale) {
+      |         ^~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~
+      |         particle(particle)    parameter(parameter)
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/NonbondedForce.h:709:9: warning: field 'parameter' will be initialized after field 'exception' [-Wreorder-ctor]
+  709 |         parameter(parameter), exception(exception), chargeProdScale(chargeProdScale), sigmaScale(sigmaScale), epsilonScale(epsilonScale) {
+      |         ^~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~
+      |         exception(exception)  parameter(parameter)
+In file included from src/swig_doxygen/OpenMMSwig.cxx:7576:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/OpenMMAmoeba.h:36:
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/AmoebaVdwForce.h:500:83: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+  500 |         parentIndex(parentIndex), reductionFactor(reductionFactor), sigma(sigma), epsilon(epsilon),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~  ^~~~~~~~~~~~~~~~
+      |                                   typeIndex(typeIndex)              reductionFactor(reductionFactor) sigma(sigma)
+  501 |         typeIndex(typeIndex), isAlchemical(isAlchemical), scaleFactor(scaleFactor) {
+      |         ~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~
+      |         epsilon(epsilon)      scaleFactor(scaleFactor)    isAlchemical(isAlchemical)
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/AmoebaVdwForce.h:500:83: note: field 'epsilon' will be initialized after field 'typeIndex'
+  500 |         parentIndex(parentIndex), reductionFactor(reductionFactor), sigma(sigma), epsilon(epsilon),
+      |                                                                                   ^~~~~~~~~~~~~~~~
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/AmoebaVdwForce.h:501:31: note: field 'isAlchemical' will be initialized after field 'scaleFactor'
+  501 |         typeIndex(typeIndex), isAlchemical(isAlchemical), scaleFactor(scaleFactor) {
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/swig_doxygen/OpenMMSwig.cxx:7576:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/OpenMMAmoeba.h:38:
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/HippoNonbondedForce.h:411:41: warning: initializer order does not match the declaration order [-Wreorder-ctor]
+  411 |         charge(charge), dipole(dipole), quadrupole(quadrupole), coreCharge(coreCharge), alpha(alpha), epsilon(epsilon),
+      |         ~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~  ^~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~
+      |         axisType(axisType) multipoleAtomZ(multipoleAtomZ) multipoleAtomX(multipoleAtomX) multipoleAtomY(multipoleAtomY) charge(charge) coreCharge(coreCharge)
+  412 |         damping(damping), c6(c6), pauliK(pauliK), pauliQ(pauliQ), pauliAlpha(pauliAlpha), polarizability(polarizability),
+      |         ~~~~~~~~~~~~~~~~  ~~~~~~  ~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         alpha(alpha)      epsilon(epsilon) damping(damping) c6(c6)pauliK(pauliK)          pauliQ(pauliQ)
+  413 |         axisType(axisType), multipoleAtomZ(multipoleAtomZ), multipoleAtomX(multipoleAtomX), multipoleAtomY(multipoleAtomY) {
+      |         ~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         pauliAlpha(pauliAlpha) polarizability(polarizability) dipole(dipole)                quadrupole(quadrupole)
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/HippoNonbondedForce.h:411:41: note: field 'quadrupole' will be initialized after field 'coreCharge'
+  411 |         charge(charge), dipole(dipole), quadrupole(quadrupole), coreCharge(coreCharge), alpha(alpha), epsilon(epsilon),
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/HippoNonbondedForce.h:412:91: note: field 'polarizability' will be initialized after field 'axisType'
+  412 |         damping(damping), c6(c6), pauliK(pauliK), pauliQ(pauliQ), pauliAlpha(pauliAlpha), polarizability(polarizability),
+      |                                                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/swig_doxygen/OpenMMSwig.cxx:7575:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/OpenMM.h:34:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/BrownianIntegrator.h:33:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/Integrator.h:33:
+In file included from /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/State.h:33:
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/Vec3.h:158:13: warning: unused function 'operator*' [-Wunused-function]
+  158 | static Vec3 operator*(double lhs, Vec3 rhs) {
+      |             ^~~~~~~~
+6 warnings generated.
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -bundle -undefined dynamic_lookup -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib build/temp.macosx-11.0-arm64-cpython-313/src/swig_doxygen/OpenMMSwig.o -L/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib -Wl,-rpath,/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib -lOpenMM -lOpenMMAmoeba -lOpenMMRPMD -lOpenMMDrude -o build/lib.macosx-11.0-arm64-cpython-313/openmm/_openmm.cpython-313-darwin.so -stdlib=libc++ -Wl -rpath /tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib
+ld: warning: duplicate -rpath '~/code/metal/bench.noindex/env/lib' ignored
+ld: warning: duplicate -rpath '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib' ignored
+building 'openmm.app.internal.compiled' extension
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c openmm/app/internal/compiled.cpp -o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/compiled.o
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -bundle -undefined dynamic_lookup -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/compiled.o -o build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/compiled.cpython-313-darwin.so
+ld: warning: duplicate -rpath '~/code/metal/bench.noindex/env/lib' ignored
+building 'openmm.app.internal.xtc_utils' extension
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -Iopenmm/app/internal/xtc_utils -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include -Iopenmm/app/internal/xtc_utils/include -Iopenmm/app/internal/xtc_utils/ -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c openmm/app/internal/xtc_utils/src/xdrfile.cpp -o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xdrfile.o
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:160:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  160 |                 sprintf(newmode,"wb+");
+      |                 ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:164:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  164 |                 sprintf(newmode,"ab+");
+      |                 ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:168:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  168 |                 sprintf(newmode,"rb");
+      |                 ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:454:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  454 |     while (size >= num && num_of_bits < 32)
+      |            ~~~~ ^  ~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:500:32: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+  500 |     while (bytes[num_of_bytes] >= num)
+      |            ~~~~~~~~~~~~~~~~~~~ ^  ~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:609:21: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  609 |     if (num_of_bits >= num_of_bytes * 8)
+      |         ~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:611:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  611 |                 for (i = 0; i < num_of_bytes; i++)
+      |                             ~ ^ ~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:619:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  619 |                 for (i = 0; i < num_of_bytes-1; i++)
+      |                             ~ ^ ~~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:659:16: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+  659 |                 if (lastbits < num_of_bits)
+      |                     ~~~~~~~~ ^ ~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:751:17: warning: variable 'minidx' set but not used [-Wunused-but-set-variable]
+  751 |         int smallidx,  minidx, maxidx;
+      |                        ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:754:25: warning: variable 'larger' set but not used [-Wunused-but-set-variable]
+  754 |         int smallnum, smaller, larger, i, is_smaller, run;
+      |                                ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:758:6: warning: unused variable 'errval' [-Wunused-variable]
+  758 |         int errval=1;
+      |             ^~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:780:10: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+  780 |         if(size3>xfp->buf1size)
+      |            ~~~~~^~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:837:19: warning: comparison of integers of different signs: 'unsigned long' and 'int' [-Wsign-compare]
+  837 |         maxidx = (LASTIDX<tmp) ? LASTIDX : tmp;
+      |                   ~~~~~~~^~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:927:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  927 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:930:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  930 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:933:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  933 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:940:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  940 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:943:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  943 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:946:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+  946 |                                 if(countmjh >= size3 ) { return -1; }
+      |                                    ~~~~~~~~ ^  ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:996:6: warning: variable 'errval' set but not used [-Wunused-but-set-variable]
+  996 |         int errval;
+      |             ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1006:10: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+ 1006 |         if(size3>xfp->buf1size)
+      |            ~~~~~^~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1052:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1052 |                 if (fabs(lf) > INT_MAX-2)
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1063:29: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+ 1063 |                 countmjh++; if( countmjh> size3) { return -1; }
+      |                                 ~~~~~~~~^ ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1068:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1068 |                 if (fabs(lf) > INT_MAX-2)
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1079:28: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+ 1079 |           countmjh++; if( countmjh> size3) { return -1; }
+      |                           ~~~~~~~~^ ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1084:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1084 |                 if (fabs(lf) > INT_MAX-2)
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1093:28: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+ 1093 |           countmjh++; if( countmjh> size3) { return -1; }
+      |                           ~~~~~~~~^ ~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1106:49: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1106 |                 (float)maxint[2] - (float)minint[2] >= INT_MAX-2) {
+      |                                                     ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1105:49: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1105 |                 (float)maxint[1] - (float)minint[1] >= INT_MAX-2 ||
+      |                                                     ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1104:52: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1104 |         if ((float)maxint[0] - (float)minint[0] >= INT_MAX-2 ||
+      |                                                 ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1132:18: warning: comparison of integers of different signs: 'int' and 'unsigned long' [-Wsign-compare]
+ 1132 |         while (smallidx < LASTIDX && magicints[smallidx] < mindiff)
+      |                ~~~~~~~~ ^ ~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1138:19: warning: comparison of integers of different signs: 'unsigned long' and 'int' [-Wsign-compare]
+ 1138 |         maxidx = (LASTIDX<tmp) ? LASTIDX : tmp;
+      |                   ~~~~~~~^~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1270:8: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+ 1270 |         if(tmp==(unsigned int)buf2[0])
+      |            ~~~^ ~~~~~~~~~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1284:25: warning: variable 'minidx' set but not used [-Wunused-but-set-variable]
+ 1284 |         int smallidx,  maxidx, minidx;
+      |                                ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1287:25: warning: variable 'larger' set but not used [-Wunused-but-set-variable]
+ 1287 |         int smallnum, smaller, larger, i, is_smaller, run;
+      |                                ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1292:6: warning: unused variable 'errval' [-Wunused-variable]
+ 1292 |         int errval=1;
+      |             ^~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1311:10: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+ 1311 |         if(size3>xfp->buf1size)
+      |            ~~~~~^~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1372:19: warning: comparison of integers of different signs: 'unsigned long' and 'int' [-Wsign-compare]
+ 1372 |         maxidx = (LASTIDX<tmp) ? LASTIDX : tmp;
+      |                   ~~~~~~~^~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1499:6: warning: variable 'errval' set but not used [-Wunused-but-set-variable]
+ 1499 |         int errval=1;
+      |             ^
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1508:10: warning: comparison of integers of different signs: 'unsigned int' and 'int' [-Wsign-compare]
+ 1508 |         if(size3>xfp->buf1size) {
+      |            ~~~~~^~~~~~~~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1552:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1552 |                 if (fabs(lf) > INT_MAX-2) {
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1566:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1566 |                 if (fabs(lf) > INT_MAX-2) {
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1580:25: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1580 |                 if (fabs(lf) > INT_MAX-2) {
+      |                              ~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1600:49: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1600 |                 (float)maxint[2] - (float)minint[2] >= INT_MAX-2) {
+      |                                                     ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1599:49: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1599 |                 (float)maxint[1] - (float)minint[1] >= INT_MAX-2 ||
+      |                                                     ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1598:52: warning: implicit conversion from 'int' to 'float' changes value from 2147483645 to 2147483648 [-Wimplicit-const-int-float-conversion]
+ 1598 |         if ((float)maxint[0] - (float)minint[0] >= INT_MAX-2 ||
+      |                                                 ~~ ~~~~~~~^~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1623:18: warning: comparison of integers of different signs: 'int' and 'unsigned long' [-Wsign-compare]
+ 1623 |         while (smallidx < LASTIDX && magicints[smallidx] < mindiff) {
+      |                ~~~~~~~~ ^ ~~~~~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1628:19: warning: comparison of integers of different signs: 'unsigned long' and 'int' [-Wsign-compare]
+ 1628 |         maxidx = (LASTIDX<tmp) ? LASTIDX : tmp;
+      |                   ~~~~~~~^~~~
+openmm/app/internal/xtc_utils/src/xdrfile.cpp:1738:8: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+ 1738 |         if(tmp==(unsigned int)buf2[0])
+      |            ~~~^ ~~~~~~~~~~~~~~~~~~~~~
+50 warnings generated.
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -Iopenmm/app/internal/xtc_utils -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include -Iopenmm/app/internal/xtc_utils/include -Iopenmm/app/internal/xtc_utils/ -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c openmm/app/internal/xtc_utils/src/xdrfile_xtc.cpp -o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xdrfile_xtc.o
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -Iopenmm/app/internal/xtc_utils -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include -Iopenmm/app/internal/xtc_utils/include -Iopenmm/app/internal/xtc_utils/ -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c openmm/app/internal/xtc_utils/src/xtc.cpp -o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xtc.o
+openmm/app/internal/xtc_utils/src/xtc.cpp:139:36: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  139 |         for (size_t aidx = 0; aidx < natoms; aidx++) {
+      |                               ~~~~ ^ ~~~~~~
+openmm/app/internal/xtc_utils/src/xtc.cpp:163:26: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  163 |     for (size_t f = 0; f < nframes; f++) {
+      |                        ~ ^ ~~~~~~~
+openmm/app/internal/xtc_utils/src/xtc.cpp:165:30: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Wsign-compare]
+  165 |         for (size_t i = 0; i < natoms; i++) {
+      |                            ~ ^ ~~~~~~
+3 warnings generated.
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -Iopenmm/app/internal/xtc_utils -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include -Iopenmm/app/internal/xtc_utils/include -Iopenmm/app/internal/xtc_utils/ -I/tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/include -I~/code/metal/bench.noindex/env/include/python3.13 -c openmm/app/internal/xtc_utils/xtc.cpp -o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/xtc.o
+openmm/app/internal/xtc_utils/xtc.cpp:27650:50: warning: code will never be executed [-Wunreachable-code]
+ 27650 |     if (unlikely(__Pyx_PyUnicode_READY(s1) < 0)) goto bad;
+       |                                                  ^~~~~~~~
+1 warning generated.
+clang++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -O2 -Wall -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -fPIC -O2 -isystem ~/code/metal/bench.noindex/env/include -fdebug-prefix-map=/Users/runner/miniforge3/conda-bld/python-split_1788385659663/work=/usr/local/src/conda/python-split-3.13.15 -arch arm64 -bundle -undefined dynamic_lookup -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib -Wl,-rpath,~/code/metal/bench.noindex/env/lib -L~/code/metal/bench.noindex/env/lib build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xdrfile.o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xdrfile_xtc.o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/src/xtc.o build/temp.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils/xtc.o -o build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils.cpython-313-darwin.so
+ld: warning: duplicate -rpath '~/code/metal/bench.noindex/env/lib' ignored
+[2/2] Installing OpenMM Python binary module...
+OPENMM_LIB_PATH = /tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib
+OPENMM_INCLUDE_PATH = /tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'extras_require'
+  warnings.warn(msg)
+                                  author                                               Peter Eastman
+                              data_files                                                          []
+                             description                Python wrapper for OpenMM (a C++ MD package)
+                            download_url                                          https://openmm.org
+                             ext_modules[Extension(name='openmm._openmm', sources=['src/swig_doxygen/OpenMMSwig.cxx'], include_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include'], define_macros=[('MAJOR_VERSION', '8'), ('MINOR_VERSION', '6')], undef_macros=[], library_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], libraries=['OpenMM', 'OpenMMAmoeba', 'OpenMMRPMD', 'OpenMMDrude'], runtime_library_dirs=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], extra_objects=[], extra_compile_args=['-std=c++11', '-stdlib=libc++'], extra_link_args=['-stdlib=libc++', '-Wl', '-rpath', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/prefix/lib'], export_symbols=[], swig_opts=[], depends=[], language=None, optional=False), Extension(name='openmm.app.internal.compiled', sources=['openmm/app/internal/compiled.cpp'], include_dirs=[], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=[], language='c++', optional=False), Extension(name='openmm.app.internal.xtc_utils', sources=['openmm/app/internal/xtc_utils/xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile_xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile.cpp', 'openmm/app/internal/xtc_utils/src/xtc.cpp'], include_dirs=['openmm/app/internal/xtc_utils', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include', 'openmm/app/internal/xtc_utils/include', 'openmm/app/internal/xtc_utils/'], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=['/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/arrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/arrayscalars.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ndarrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ndarraytypes.h', '/tmp/openmm-metal-bench/ultra-m29-resident-prototype/pydeps/numpy/_core/include/numpy/ufuncobject.h', 'openmm/app/internal/xtc_utils/include/xtc.h'], language='c++', optional=False)]
+                          extras_require{'cuda12': ['OpenMM-CUDA-12==8.6.0; platform_system != "Darwin"'], 'cuda13': ['OpenMM-CUDA-13==8.6.0; platform_system != "Darwin"'], 'hip6': ['OpenMM-HIP-6==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"'], 'hip7': ['OpenMM-HIP-7==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"']}
+                        install_requires                                                   ['numpy']
+                                 license               Python Software Foundation License (BSD-like)
+                        long_descriptionOpenMM is a toolkit for molecular simulation. It can be used either as a
+    stand-alone application for running simulations, or as a library you call
+    from your own code. It provides a combination of extreme flexibility
+    (through custom forces and integrators), openness, and high performance
+    (especially on recent GPUs) that make it truly unique among simulation codes.
+    
+                                    name                                                      OpenMM
+                            package_data{'openmm': [], 'openmm.app': ['data/*.xml', 'data/*.pdb', 'data/amber14/*.xml', 'data/amber19/*.xml', 'data/charmm36/*.xml', 'data/charmm36_2024/*.xml', 'data/implicit/*.xml'], 'openmm.app.internal': []}
+                                packages['simtk', 'simtk.unit', 'simtk.openmm', 'simtk.openmm.app', 'openmm', 'openmm.unit', 'openmm', 'openmm.app', 'openmm.app.internal', 'openmm.app.internal.charmm', 'openmm.app.internal.pdbx', 'openmm.app.internal.pdbx.reader', 'openmm.app.internal.pdbx.writer']
+                               platforms                            ['Linux', 'Mac OS X', 'Windows']
+                                     url                                          https://openmm.org
+                                 version                                                       8.6.0
+running install
+running build
+running build_py
+copying openmm/version.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+running build_ext
+running install_lib
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/unit/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/app/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/doctests.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/prefix.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_definitions.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/constants.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/mymatrix.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_math.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/standard_dimensions.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/baseunit.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_operators.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/quantity.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/basedimension.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/testInstallation.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/version.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/simulation.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/replicaexchangesampler.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/modeller.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmcrdfiles.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/metadynamics.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmpsffile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/checkpointreporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/gromacsgrofile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/xtcfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/compiled.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/unitcell.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/_charmmfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/exceptions.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/topologyobjects.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/multistatesampler.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/amoebaforces.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReaderTests.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReadWriteTests.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxContainers.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReader.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/PdbxWriterTests.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/PdbxWriter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/argtracker.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/amber_file_parser.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/customgbforces.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/debuggingreporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/lcpo.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/singleton.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/safesave.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbstructure.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbxfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/dcdfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/element.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/expandedensemblesampler.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/simulatedtempering.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/statedatareporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmparameterset.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/xtcreporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/dcdreporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/replicaexchangereporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/topology.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/amberinpcrdfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/tinkerfiles.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amberfb15.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3p.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber10.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/test.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DLPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip3p-pme-f.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip3p-pme-b.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip5pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/water.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip4p2005.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2009.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber10_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2013_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber96_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/iamoeba.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2018.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/swm4ndp.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DLPE.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber03.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2023.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DMPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/pdbNames.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2009_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14-all.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/lipid21.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/protein.ff19SB.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/DNA.OL21.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DOPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/POPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip5p.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99Test.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip3p-pme-f.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip3p-pme-b.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip5pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/water.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip4p2005.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2019.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DPPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sbildn.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber03_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/POPE.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19-all.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sbnmr.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/residues.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/swm4ndp.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/gbn2.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/gbn.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/obc1.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/hct.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/obc2.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pew.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/hydrogens.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2013.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/spce.pdb -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber96.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/protein.ff15ipq.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/GLYCAM_06j-1.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/RNA.OL3.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/DNA.bsc1.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/DNA.OL15.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/protein.ff14SB.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/lipid17.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2018_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/glycam-hydrogens.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2013.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/forcefield.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/desmonddmsfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/amberprmtopfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbreporter.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/gromacstopfile.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/openmm.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/_openmm.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/vec3.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/amd.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/mtsintegrator.py -> /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/unit/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm/app/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/simtk/openmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/doctests.py to doctests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/prefix.py to prefix.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/unit_definitions.py to unit_definitions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/constants.py to constants.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/mymatrix.py to mymatrix.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/unit_math.py to unit_math.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/unit.py to unit.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/standard_dimensions.py to standard_dimensions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/baseunit.py to baseunit.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/unit_operators.py to unit_operators.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/quantity.py to quantity.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/unit/basedimension.py to basedimension.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/testInstallation.py to testInstallation.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/version.py to version.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/simulation.py to simulation.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/replicaexchangesampler.py to replicaexchangesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/modeller.py to modeller.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/charmmcrdfiles.py to charmmcrdfiles.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/metadynamics.py to metadynamics.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/charmmpsffile.py to charmmpsffile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/checkpointreporter.py to checkpointreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/gromacsgrofile.py to gromacsgrofile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/xtcfile.py to xtcfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/unitcell.py to unitcell.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/_charmmfile.py to _charmmfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/exceptions.py to exceptions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/topologyobjects.py to topologyobjects.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/multistatesampler.py to multistatesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/amoebaforces.py to amoebaforces.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReaderTests.py to PdbxReaderTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReadWriteTests.py to PdbxReadWriteTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxContainers.py to PdbxContainers.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReader.py to PdbxReader.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/PdbxWriterTests.py to PdbxWriterTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/PdbxWriter.py to PdbxWriter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/argtracker.py to argtracker.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py to amber_file_parser.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/customgbforces.py to customgbforces.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/debuggingreporter.py to debuggingreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/lcpo.py to lcpo.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/singleton.py to singleton.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/safesave.py to safesave.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/internal/pdbstructure.py to pdbstructure.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/pdbxfile.py to pdbxfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/dcdfile.py to dcdfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/element.py to element.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/expandedensemblesampler.py to expandedensemblesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/simulatedtempering.py to simulatedtempering.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/statedatareporter.py to statedatareporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/charmmparameterset.py to charmmparameterset.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/pdbfile.py to pdbfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/xtcreporter.py to xtcreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/dcdreporter.py to dcdreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/replicaexchangereporter.py to replicaexchangereporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/topology.py to topology.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py to amberinpcrdfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/tinkerfiles.py to tinkerfiles.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/forcefield.py to forcefield.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/desmonddmsfile.py to desmonddmsfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/amberprmtopfile.py to amberprmtopfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/pdbreporter.py to pdbreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/app/gromacstopfile.py to gromacstopfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/openmm.py to openmm.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/vec3.py to vec3.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/amd.py to amd.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/openmm/mtsintegrator.py to mtsintegrator.cpython-313.pyc
+running install_egg_info
+Writing /tmp/openmm-metal-bench/ultra-m29-resident-prototype/venv/lib/python3.13/site-packages/OpenMM-8.6.0-py3.13.egg-info

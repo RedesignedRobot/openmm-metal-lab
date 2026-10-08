@@ -1,0 +1,24 @@
+median ns/day, host clock
+test                        rl16         rl16m          rl32           rl4           rl8          rl8m
+gbsa                     2108.44       1648.02       2065.92       2045.39       2089.32       1640.55
+
+rounds, rl16:
+  gbsa               2108.23 2108.66   spread 0.0%
+rounds, rl16m:
+  gbsa               1646.72 1649.31   spread 0.2%
+rounds, rl32:
+  gbsa               2066.91 2064.93   spread 0.1%
+rounds, rl4:
+  gbsa               2042.69 2048.08   spread 0.3%
+rounds, rl8:
+  gbsa               2088.70 2089.94   spread 0.1%
+rounds, rl8m:
+  gbsa               1640.72 1640.37   spread 0.0%
+
+test                                          rl16/rl8
+gbsa                       1.009 (rounds 1.009..1.009)
+
+1 minute load before 12 runs: 3.72 to 5.79
+Background VM CPU before 12 runs: 4% to 24%
+runs with no result: 0
+runs that overlapped a build: 0

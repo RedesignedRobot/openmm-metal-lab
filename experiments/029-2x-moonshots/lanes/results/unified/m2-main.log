@@ -1,0 +1,47 @@
+Waiting for the M2 7484d7bef forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-436e5a3b065c4aebae21e991c094eaef/src: 7484d7bef401f813dc871c1e156578954606d4ea, 2519 working-tree blobs verified
+M2 pid=81278 log=~/lab/ultra-m2.noindex/uploads/436e5a3b065c4aebae21e991c094eaef/run.log
+19:18:38Z memory free 62%, 0 other build processes, load { 2.18 1.58 1.50 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-m29-unified-84469ab524 PASS, 20 s
+  loads ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-m29-unified-84469ab524/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.467e-05  8.584e-02  6.222e-07  ok
+gbsa            2489     mixed  2.467e-05  8.584e-02  6.194e-07  ok
+rf             23558    single  2.213e-05  7.342e-01  2.196e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.216e-07  ok
+pme            23558    single  2.048e-05  3.919e-01  1.244e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.328e-06  ok
+apoa1rf        92224    single  5.987e-05  1.327e+00  9.458e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.198e-01  7.614e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.198e-01  7.544e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.151e-06  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.092e-06  ok
+forces gate cand-m29-unified-84469ab524 PASS, 20 s
+A/B 1062 s
+M2 check 20260926T191932Z-7484d7bef, base 7484d7bef401
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-m29-unified-84469ab524: 7484d7bef401 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+pme                single     239.77     131.53  0.549  0.548..0.549      125      127     +3   +2.2      140      143  SLOWER
+pme                mixed      196.16     112.76  0.575  0.574..0.576      128      133     +5   +3.6      145      149  SLOWER
+apoa1pme           single      59.73      16.18  0.271  0.267..0.275      298      296     -1   -0.5      346      346  SLOWER
+apoa1pme           mixed       50.82      15.23  0.300  0.299..0.301      312      297    -15   -4.8      358      348  SLOWER
+apoa1ljpme         single      44.77      14.25  0.318  0.317..0.319      302      296     -6   -1.9      347      343  SLOWER
+apoa1ljpme         mixed       39.52      12.97  0.328  0.326..0.330      297      305     +8   +2.6      348      358  SLOWER
+amber20-dhfr       single     247.64     131.25  0.530  0.529..0.531      138      139     +2   +1.1      153      154  SLOWER
+amber20-dhfr       mixed      201.52     106.75  0.530  0.530..0.530      146      149     +3   +1.7      159      161  SLOWER
+amber20-cellulose  single      13.27       5.40  0.407  0.402..0.411     1500     1500     -0   -0.0     1507     1513  SLOWER
+amber20-cellulose  mixed       11.43       5.13  0.449  0.447..0.451     1500     1500     +0   +0.0     1517     1528  SLOWER
+
+1-minute load before 40 runs: 1.33 to 2.86; memory free 61% to 65%
+Spotlight CPU before 40 runs: 0% to 7%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-m29-unified-84469ab524 7484d7bef401 FLAGGED: gate PASS; slower: pme single 0.549, pme mixed 0.575, apoa1pme single 0.271, apoa1pme mixed 0.300, apoa1ljpme single 0.318, apoa1ljpme mixed 0.328, amber20-dhfr single 0.530, amber20-dhfr mixed 0.530, amber20-cellulose single 0.407, amber20-cellulose mixed 0.449; footprint growth: none; missing: none
+CHECK WALL 1082 s; tests=pme,apoa1pme,apoa1ljpme,amber20-dhfr,amber20-cellulose; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260926T191932Z-7484d7bef
+

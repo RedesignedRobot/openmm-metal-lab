@@ -1,0 +1,312 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-m29-gb/build'
+[1/1] Installing OpenMM Python binary module...
+OPENMM_LIB_PATH = /tmp/openmm-metal-bench/ultra-m29-gb/prefix/lib
+OPENMM_INCLUDE_PATH = /tmp/openmm-metal-bench/ultra-m29-gb/src/./include/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm/internal/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm/internal
+Warning: importing 'simtk.openmm' is deprecated.  Import 'openmm' instead.
+REMOVING "/tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm"
+REMOVING "/tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/unit"
+REMOVING "/tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm"
+/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'extras_require'
+  warnings.warn(msg)
+                                  author                                               Peter Eastman
+                              data_files                                                          []
+                             description                Python wrapper for OpenMM (a C++ MD package)
+                            download_url                                          https://openmm.org
+                             ext_modules[Extension(name='openmm._openmm', sources=['src/swig_doxygen/OpenMMSwig.cxx'], include_dirs=['/tmp/openmm-metal-bench/ultra-m29-gb/src/./include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include'], define_macros=[('MAJOR_VERSION', '8'), ('MINOR_VERSION', '6')], undef_macros=[], library_dirs=['/tmp/openmm-metal-bench/ultra-m29-gb/prefix/lib'], libraries=['OpenMM', 'OpenMMAmoeba', 'OpenMMRPMD', 'OpenMMDrude'], runtime_library_dirs=['/tmp/openmm-metal-bench/ultra-m29-gb/prefix/lib'], extra_objects=[], extra_compile_args=['-std=c++11', '-stdlib=libc++'], extra_link_args=['-stdlib=libc++', '-Wl', '-rpath', '/tmp/openmm-metal-bench/ultra-m29-gb/prefix/lib'], export_symbols=[], swig_opts=[], depends=[], language=None, optional=False), Extension(name='openmm.app.internal.compiled', sources=['openmm/app/internal/compiled.cpp'], include_dirs=[], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=[], language='c++', optional=False), Extension(name='openmm.app.internal.xtc_utils', sources=['openmm/app/internal/xtc_utils/xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile_xtc.cpp', 'openmm/app/internal/xtc_utils/src/xdrfile.cpp', 'openmm/app/internal/xtc_utils/src/xtc.cpp'], include_dirs=['openmm/app/internal/xtc_utils', '/tmp/openmm-metal-bench/ultra-m29-gb/src/./include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/./include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/olla/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/serialization/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/amoeba/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/rpmd/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm', '/tmp/openmm-metal-bench/ultra-m29-gb/src/plugins/drude/openmmapi/include/openmm/internal', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include', 'openmm/app/internal/xtc_utils/include', 'openmm/app/internal/xtc_utils/'], define_macros=[], undef_macros=[], library_dirs=[], libraries=[], runtime_library_dirs=[], extra_objects=[], extra_compile_args=[], extra_link_args=[], export_symbols=[], swig_opts=[], depends=['/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include/numpy/arrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include/numpy/arrayscalars.h', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include/numpy/ndarrayobject.h', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include/numpy/ndarraytypes.h', '/tmp/openmm-metal-bench/ultra-m29-gb/pydeps/numpy/_core/include/numpy/ufuncobject.h', 'openmm/app/internal/xtc_utils/include/xtc.h'], language='c++', optional=False)]
+                          extras_require{'cuda12': ['OpenMM-CUDA-12==8.6.0; platform_system != "Darwin"'], 'cuda13': ['OpenMM-CUDA-13==8.6.0; platform_system != "Darwin"'], 'hip6': ['OpenMM-HIP-6==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"'], 'hip7': ['OpenMM-HIP-7==8.6.0; platform_system != "Darwin" and platform_machine == "x86_64"']}
+                        install_requires                                                   ['numpy']
+                                 license               Python Software Foundation License (BSD-like)
+                        long_descriptionOpenMM is a toolkit for molecular simulation. It can be used either as a
+    stand-alone application for running simulations, or as a library you call
+    from your own code. It provides a combination of extreme flexibility
+    (through custom forces and integrators), openness, and high performance
+    (especially on recent GPUs) that make it truly unique among simulation codes.
+    
+                                    name                                                      OpenMM
+                            package_data{'openmm': [], 'openmm.app': ['data/*.xml', 'data/*.pdb', 'data/amber14/*.xml', 'data/amber19/*.xml', 'data/charmm36/*.xml', 'data/charmm36_2024/*.xml', 'data/implicit/*.xml'], 'openmm.app.internal': []}
+                                packages['simtk', 'simtk.unit', 'simtk.openmm', 'simtk.openmm.app', 'openmm', 'openmm.unit', 'openmm', 'openmm.app', 'openmm.app.internal', 'openmm.app.internal.charmm', 'openmm.app.internal.pdbx', 'openmm.app.internal.pdbx.reader', 'openmm.app.internal.pdbx.writer']
+                               platforms                            ['Linux', 'Mac OS X', 'Windows']
+                                     url                                          https://openmm.org
+                                 version                                                       8.6.0
+running install
+running build
+running build_py
+copying openmm/version.py -> build/lib.macosx-11.0-arm64-cpython-313/openmm
+running build_ext
+running install_lib
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/unit/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/unit
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/app/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/simtk/openmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/doctests.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/prefix.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_definitions.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/constants.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/mymatrix.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_math.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/standard_dimensions.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/baseunit.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/unit_operators.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/quantity.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/unit/basedimension.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/testInstallation.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/version.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/simulation.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/replicaexchangesampler.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/modeller.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmcrdfiles.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/metadynamics.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmpsffile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/checkpointreporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/gromacsgrofile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/xtcfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/compiled.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/unitcell.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/_charmmfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/exceptions.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/charmm/topologyobjects.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/multistatesampler.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/amoebaforces.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReaderTests.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReadWriteTests.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxContainers.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/reader/PdbxReader.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/PdbxWriterTests.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbx/writer/PdbxWriter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/argtracker.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/amber_file_parser.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/customgbforces.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/debuggingreporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/lcpo.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/singleton.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/safesave.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/xtc_utils.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/internal/pdbstructure.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbxfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/dcdfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/element.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/expandedensemblesampler.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/simulatedtempering.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/statedatareporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/charmmparameterset.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/xtcreporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/dcdreporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/replicaexchangereporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/topology.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/amberinpcrdfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/tinkerfiles.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amberfb15.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3p.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber10.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/test.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DLPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip3p-pme-f.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip3p-pme-b.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip5pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/water.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36/tip4p2005.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2009.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber10_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2013_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber96_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/iamoeba.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2018.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/swm4ndp.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DLPE.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber03.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2023.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DMPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/pdbNames.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2009_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14-all.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/lipid21.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/protein.ff19SB.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/DNA.OL21.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber19
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DOPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/POPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip5p.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99Test.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip3p-pme-f.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip3p-pme-b.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip5pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/water.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36_2024/tip4p2005.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/charmm36_2024
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2019.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/DPPC.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sbildn.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber03_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/POPE.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber19-all.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99_obc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sbnmr.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/residues.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber99sb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/swm4ndp.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/gbn2.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/gbn.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/obc1.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/hct.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/implicit/obc2.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/implicit
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pew.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/hydrogens.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm_polar_2013.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/charmm36.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/spce.pdb -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber96.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip5p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+creating /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip3pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/protein.ff15ipq.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/spce.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip4pew.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/GLYCAM_06j-1.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/RNA.OL3.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/opc3.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/DNA.bsc1.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip3p.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/DNA.OL15.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/protein.ff14SB.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/lipid17.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/tip4pfb.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amber14/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data/amber14
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2018_gk.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/glycam-hydrogens.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/amoeba2013.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/data/opc.xml -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/data
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/forcefield.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/desmonddmsfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/amberprmtopfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/pdbreporter.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/app/gromacstopfile.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/__init__.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/openmm.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/_openmm.cpython-313-darwin.so -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/vec3.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/amd.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+copying build/lib.macosx-11.0-arm64-cpython-313/openmm/mtsintegrator.py -> /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/unit/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm/app/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/simtk/openmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/doctests.py to doctests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/prefix.py to prefix.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/unit_definitions.py to unit_definitions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/constants.py to constants.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/mymatrix.py to mymatrix.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/unit_math.py to unit_math.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/unit.py to unit.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/standard_dimensions.py to standard_dimensions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/baseunit.py to baseunit.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/unit_operators.py to unit_operators.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/quantity.py to quantity.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/unit/basedimension.py to basedimension.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/testInstallation.py to testInstallation.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/version.py to version.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/simulation.py to simulation.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/replicaexchangesampler.py to replicaexchangesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/modeller.py to modeller.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/charmmcrdfiles.py to charmmcrdfiles.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/metadynamics.py to metadynamics.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/charmmpsffile.py to charmmpsffile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/checkpointreporter.py to checkpointreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/gromacsgrofile.py to gromacsgrofile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/xtcfile.py to xtcfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/unitcell.py to unitcell.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/_charmmfile.py to _charmmfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/exceptions.py to exceptions.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/charmm/topologyobjects.py to topologyobjects.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/multistatesampler.py to multistatesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/amoebaforces.py to amoebaforces.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReaderTests.py to PdbxReaderTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReadWriteTests.py to PdbxReadWriteTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxContainers.py to PdbxContainers.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/reader/PdbxReader.py to PdbxReader.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/PdbxWriterTests.py to PdbxWriterTests.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbx/writer/PdbxWriter.py to PdbxWriter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/argtracker.py to argtracker.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py to amber_file_parser.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/customgbforces.py to customgbforces.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/debuggingreporter.py to debuggingreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/lcpo.py to lcpo.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/singleton.py to singleton.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/safesave.py to safesave.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/internal/pdbstructure.py to pdbstructure.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/pdbxfile.py to pdbxfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/dcdfile.py to dcdfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/element.py to element.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/expandedensemblesampler.py to expandedensemblesampler.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/simulatedtempering.py to simulatedtempering.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/statedatareporter.py to statedatareporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/charmmparameterset.py to charmmparameterset.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/pdbfile.py to pdbfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/xtcreporter.py to xtcreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/dcdreporter.py to dcdreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/replicaexchangereporter.py to replicaexchangereporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/topology.py to topology.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py to amberinpcrdfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/tinkerfiles.py to tinkerfiles.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/forcefield.py to forcefield.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/desmonddmsfile.py to desmonddmsfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/amberprmtopfile.py to amberprmtopfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/pdbreporter.py to pdbreporter.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/app/gromacstopfile.py to gromacstopfile.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/__init__.py to __init__.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/openmm.py to openmm.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/vec3.py to vec3.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/amd.py to amd.cpython-313.pyc
+byte-compiling /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/openmm/mtsintegrator.py to mtsintegrator.cpython-313.pyc
+running install_egg_info
+Removing /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/OpenMM-8.6.0-py3.13.egg-info
+Writing /tmp/openmm-metal-bench/ultra-m29-gb/venv/lib/python3.13/site-packages/OpenMM-8.6.0-py3.13.egg-info

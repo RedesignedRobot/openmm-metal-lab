@@ -1,0 +1,30 @@
+{
+  "steps": 32,
+  "list_us_per_step": 266.0738826667234,
+  "force_instructions_per_step": 2146470360.0,
+  "outer_rebuilds": 5,
+  "outer_steps_per_rebuild": 6.4,
+  "outer_instruction_range": [
+    1497422,
+    1430244910
+  ],
+  "outer_active_threshold": 698313806.0,
+  "prune_calls": 16,
+  "prune_us_per_call": 267.0993012466334,
+  "prune_instruction_range": [
+    1245251,
+    1039563331
+  ],
+  "prune_active_threshold": 468087603.0,
+  "family_us_per_step": {
+    "findBlockBounds": 9.995496077907285,
+    "prepareDualList": 9.605329001442914,
+    "dualSortLocal": 6.179262459685235,
+    "dualSortOffsets": 2.6317530167201695,
+    "dualSortScatter": 3.557913283650639,
+    "sortBoxData": 6.419785606084876,
+    "findBlocksWithInteractions": 83.10264056649915,
+    "pruneNeighborList": 144.21737125425432,
+    "copyInteractionCounts": 0.3643314004787602
+  }
+}

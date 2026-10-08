@@ -1,0 +1,24 @@
+median ns/day, host clock
+test                       baseM         baseS        ownedM        ownedS          rowM          rowS
+gbsa                     1351.92       1769.83       1294.58       1697.48       1330.84       1592.94
+
+rounds, baseM:
+  gbsa               1350.15 1353.69   spread 0.3%
+rounds, baseS:
+  gbsa               1753.75 1785.92   spread 1.8%
+rounds, ownedM:
+  gbsa               1309.03 1280.13   spread 2.2%
+rounds, ownedS:
+  gbsa               1564.68 1830.28   spread 15.6%
+rounds, rowM:
+  gbsa               1331.26 1330.43   spread 0.1%
+rounds, rowS:
+  gbsa               1733.17 1452.71   spread 17.6%
+
+test                                      ownedS/baseS                        ownedM/baseM                          rowS/baseS                          rowM/baseM
+gbsa                       0.959 (rounds 0.892..1.025)         0.958 (rounds 0.946..0.970)         0.900 (rounds 0.813..0.988)         0.984 (rounds 0.983..0.986)
+
+1 minute load before 12 runs: 4.22 to 14.50
+Background VM CPU before 12 runs: 4% to 13%
+runs with no result: 0
+runs that overlapped a build: 0

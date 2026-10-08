@@ -1,0 +1,14 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.016e-06  1.140e-02  7.040e-07
+gbsa            2489     mixed  1.439e-05  1.600e-01  8.152e-07
+rf             23558    single  1.107e-06  1.778e-02  2.964e-07
+rf             23558     mixed  2.100e-05  4.170e-01  3.673e-07
+pme            23558    single  1.385e-06  2.955e-02  1.434e-06
+pme            23558     mixed  2.031e-05  3.521e-01  1.452e-06
+apoa1rf        92224    single  1.613e-06  5.272e-02  2.132e-07
+apoa1rf        92224     mixed  5.484e-05  1.779e+00  3.109e-07
+apoa1pme       92224    single  5.361e-05  3.126e-01  9.857e-07
+apoa1pme       92224     mixed  7.510e-05  8.624e-01  9.971e-07
+apoa1ljpme     92224    single  5.362e-05  3.822e-01  1.026e-06
+apoa1ljpme     92224     mixed  7.534e-05  8.360e-01  1.023e-06
+# per-row worst of 21 md100 tables: seed-1.txt seed-2.txt seed-3.txt seed-4.txt seed-5.txt seed-6.txt seed-7.txt seed-8.txt seed-9.txt seed-10.txt seed-11.txt seed-12.txt seed-13.txt seed-14.txt seed-15.txt seed-16.txt seed-17.txt seed-18.txt seed-19.txt seed-20.txt forces-md100-seed2026.txt

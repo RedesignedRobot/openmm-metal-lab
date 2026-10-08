@@ -1,0 +1,170 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-m29-mixed-minimizer/build'
+[1/143] Building CXX object platforms/opencl/sharedTarget/CMakeFiles/OpenMMOpenCL.dir/__/__/common/src/CommonMinimizeKernel.cpp.o
+In file included from ../src/platforms/common/src/CommonMinimizeKernel.cpp:30:
+In file included from ../src/platforms/common/include/openmm/common/CommonMinimizeKernel.h:33:
+In file included from ../src/openmmapi/include/openmm/LocalEnergyMinimizer.h:33:
+In file included from ../src/openmmapi/include/openmm/Context.h:33:
+In file included from ../src/openmmapi/include/openmm/Integrator.h:33:
+In file included from ../src/openmmapi/include/openmm/State.h:33:
+In file included from ../src/openmmapi/include/openmm/Vec3.h:33:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert:22:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+1 warning generated.
+[2/143] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/__/common/src/CommonMinimizeKernel.cpp.o
+In file included from ../src/platforms/common/src/CommonMinimizeKernel.cpp:30:
+In file included from ../src/platforms/common/include/openmm/common/CommonMinimizeKernel.h:33:
+In file included from ../src/openmmapi/include/openmm/LocalEnergyMinimizer.h:33:
+In file included from ../src/openmmapi/include/openmm/Context.h:33:
+In file included from ../src/openmmapi/include/openmm/Integrator.h:33:
+In file included from ../src/openmmapi/include/openmm/State.h:33:
+In file included from ../src/openmmapi/include/openmm/Vec3.h:33:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert:22:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+1 warning generated.
+[3/143] Linking CXX shared library libOpenMMOpenCL.dylib
+[4/143] Linking CXX executable TestOpenCLBrownianIntegrator
+[5/143] Linking CXX shared library libOpenMMAmoebaOpenCL.dylib
+[6/143] Linking CXX shared library libOpenMMRPMDOpenCL.dylib
+[7/143] Linking CXX executable TestOpenCLAndersenThermostat
+[8/143] Linking CXX executable TestOpenCLATMForce
+[9/143] Linking CXX shared library libOpenMMDrudeOpenCL.dylib
+[10/143] Linking CXX executable TestOpenCLCMAPTorsionForce
+[11/143] Linking CXX executable TestOpenCLCMMotionRemover
+[12/143] Linking CXX executable TestOpenCLCheckpoints
+[13/143] Linking CXX executable TestOpenCLCompoundIntegrator
+[14/143] Linking CXX executable TestOpenCLConstantPotentialForce
+[15/143] Linking CXX executable TestOpenCLCustomAngleForce
+[16/143] Linking CXX executable TestOpenCLCustomBondForce
+[17/143] Linking CXX executable TestOpenCLCustomCPPForce
+[18/143] Linking CXX shared library libOpenMMMetal.dylib
+[19/143] Linking CXX executable TestOpenCLCustomCompoundBondForce
+[20/143] Linking CXX executable TestOpenCLCustomCentroidBondForce
+[21/143] Linking CXX executable TestOpenCLCustomHbondForce
+[22/143] Linking CXX executable TestOpenCLCustomExternalForce
+[23/143] Linking CXX executable TestOpenCLCustomGBForce
+[24/143] Linking CXX executable TestOpenCLCustomIntegrator
+[25/143] Linking CXX executable TestOpenCLCustomCVForce
+[26/143] Linking CXX executable TestOpenCLCustomManyParticleForce
+[27/143] Linking CXX executable TestOpenCLCustomNonbondedForce
+[28/143] Linking CXX executable TestOpenCLDeviceQuery
+[29/143] Linking CXX executable TestOpenCLCustomTorsionForce
+[30/143] Linking CXX executable TestOpenCLDPDIntegrator
+[31/143] Linking CXX shared library libOpenMMAmoebaMetal.dylib
+[32/143] Linking CXX shared library libOpenMMRPMDMetal.dylib
+[33/143] Linking CXX shared library libOpenMMDrudeMetal.dylib
+[34/143] Linking CXX executable TestOpenCLEwald
+[35/143] Linking CXX executable TestOpenCLDispersionPME
+[36/143] Linking CXX executable TestOpenCLFFT
+[37/143] Linking CXX executable TestOpenCLGBSAOBCForce
+[38/143] Linking CXX executable TestOpenCLHarmonicAngleForce
+[39/143] Linking CXX executable TestOpenCLGayBerneForce
+[40/143] Linking CXX executable TestOpenCLHarmonicBondForce
+[41/143] Linking CXX executable TestOpenCLLCPOForce
+[42/143] Linking CXX executable TestOpenCLLangevinIntegrator
+[43/143] Linking CXX executable TestOpenCLLocalEnergyMinimizer
+[44/143] Linking CXX executable TestOpenCLLangevinMiddleIntegrator
+[45/143] Linking CXX executable TestOpenCLMonteCarloAnisotropicBarostat
+[46/143] Linking CXX executable TestOpenCLMonteCarloFlexibleBarostat
+[47/143] Linking CXX executable TestOpenCLMonteCarloBarostat
+[48/143] Linking CXX executable TestOpenCLMultipleForces
+[49/143] Linking CXX executable TestOpenCLNonbondedForce
+[50/143] Linking CXX executable TestOpenCLOrientationRestraintForce
+[51/143] Linking CXX executable TestOpenCLNoseHooverIntegrator
+[52/143] Linking CXX executable TestOpenCLPeriodicTorsionForce
+[53/143] Linking CXX executable TestOpenCLPythonForce
+[54/143] Linking CXX executable TestOpenCLQTBIntegrator
+[55/143] Linking CXX executable TestOpenCLRBTorsionForce
+[56/143] Linking CXX executable TestOpenCLRMSDForce
+[57/143] Linking CXX executable TestOpenCLRGForce
+[58/143] Linking CXX executable TestOpenCLSettle
+[59/143] Linking CXX executable TestOpenCLRandom
+[60/143] Linking CXX executable TestOpenCLSort
+[61/143] Linking CXX executable TestOpenCLVariableLangevinIntegrator
+[62/143] Linking CXX executable TestOpenCLVariableVerletIntegrator
+[63/143] Linking CXX executable TestOpenCLVerletIntegrator
+[64/143] Linking CXX executable TestOpenCLVirtualSites
+[65/143] Linking CXX executable TestMetalATMForce
+[66/143] Linking CXX executable TestMetalAndersenThermostat
+[67/143] Linking CXX executable TestMetalBrownianIntegrator
+[68/143] Linking CXX executable TestMetalCMAPTorsionForce
+[69/143] Linking CXX executable TestMetalCMMotionRemover
+[70/143] Linking CXX executable TestMetalCheckpoints
+[71/143] Linking CXX executable TestMetalCommandBatching
+[72/143] Linking CXX executable TestMetalCompoundIntegrator
+[73/143] Linking CXX executable TestMetalConstantPotentialForce
+[74/143] Linking CXX executable TestMetalCustomAngleForce
+[75/143] Linking CXX executable TestMetalCustomBondForce
+[76/143] Linking CXX executable TestMetalCustomCVForce
+[77/143] Linking CXX executable TestMetalCustomCPPForce
+[78/143] Linking CXX executable TestMetalCustomCompoundBondForce
+[79/143] Linking CXX executable TestMetalCustomCentroidBondForce
+[80/143] Linking CXX executable TestMetalCustomExternalForce
+[81/143] Linking CXX executable TestMetalCustomGBForce
+[82/143] Linking CXX executable TestMetalCustomHbondForce
+[83/143] Linking CXX executable TestMetalCustomIntegrator
+[84/143] Linking CXX executable TestMetalCustomManyParticleForce
+[85/143] Linking CXX executable TestMetalCustomNonbondedForce
+[86/143] Linking CXX executable TestMetalCustomTorsionForce
+[87/143] Linking CXX executable TestMetalDPDIntegrator
+[88/143] Linking CXX executable TestMetalDispersionPME
+[89/143] Linking CXX executable TestMetalEwald
+[90/143] Linking CXX executable TestMetalFFT
+[91/143] Linking CXX executable TestMetalGBSAOBCForce
+[92/143] Linking CXX executable TestMetalGayBerneForce
+[93/143] Linking CXX executable TestMetalHarmonicAngleForce
+[94/143] Linking CXX executable TestMetalHarmonicBondForce
+[95/143] Linking CXX executable TestMetalLCPOForce
+[96/143] Linking CXX executable TestMetalLangevinMiddleIntegrator
+[97/143] Linking CXX executable TestMetalLocalEnergyMinimizer
+[98/143] Linking CXX executable TestMetalLangevinIntegrator
+[99/143] Linking CXX executable TestMetalMixedPrecision
+[100/143] Linking CXX executable TestMetalMonteCarloAnisotropicBarostat
+[101/143] Linking CXX executable TestMetalMonteCarloBarostat
+[102/143] Linking CXX executable TestMetalMonteCarloFlexibleBarostat
+[103/143] Linking CXX executable TestMetalMultipleForces
+[104/143] Linking CXX executable TestMetalOrientationRestraintForce
+[105/143] Linking CXX executable TestMetalNonbondedForce
+[106/143] Linking CXX executable TestMetalNoseHooverIntegrator
+[107/143] Linking CXX executable TestMetalPeriodicTorsionForce
+[108/143] Linking CXX executable TestMetalPythonForce
+[109/143] Linking CXX executable TestMetalQTBIntegrator
+[110/143] Linking CXX executable TestMetalRBTorsionForce
+[111/143] Linking CXX executable TestMetalRGForce
+[112/143] Linking CXX executable TestMetalRMSDForce
+[113/143] Linking CXX executable TestMetalRandom
+[114/143] Linking CXX executable TestMetalSettle
+[115/143] Linking CXX executable TestMetalSort
+[116/143] Linking CXX executable TestMetalVariableLangevinIntegrator
+[117/143] Linking CXX executable TestMetalVariableVerletIntegrator
+[118/143] Linking CXX executable TestOpenCLAmoebaExtrapolatedPolarization
+[119/143] Linking CXX executable TestOpenCLAmoebaGeneralizedKirkwoodForce
+[120/143] Linking CXX executable TestOpenCLAmoebaMultipoleForce
+[121/143] Linking CXX executable TestMetalVerletIntegrator
+[122/143] Linking CXX executable TestOpenCLAmoebaTorsionTorsionForce
+[123/143] Linking CXX executable TestOpenCLAmoebaVdwForce
+[124/143] Linking CXX executable TestMetalVirtualSites
+[125/143] Linking CXX executable TestOpenCLWcaDispersionForce
+[126/143] Linking CXX executable TestOpenCLHippoNonbondedForce
+[127/143] Linking CXX executable TestOpenCLRpmd
+[128/143] Linking CXX executable TestMetalAmoebaExtrapolatedPolarization
+[129/143] Linking CXX executable TestMetalAmoebaMultipoleForce
+[130/143] Linking CXX executable TestMetalAmoebaGeneralizedKirkwoodForce
+[131/143] Linking CXX executable TestMetalAmoebaTorsionTorsionForce
+[132/143] Linking CXX executable TestMetalHippoNonbondedForce
+[133/143] Linking CXX executable TestMetalAmoebaVdwForce
+[134/143] Linking CXX executable TestOpenCLDrudeForce
+[135/143] Linking CXX executable TestOpenCLDrudeNoseHoover
+[136/143] Linking CXX executable TestMetalWcaDispersionForce
+[137/143] Linking CXX executable TestOpenCLDrudeLangevinIntegrator
+[138/143] Linking CXX executable TestOpenCLDrudeSCFIntegrator
+[139/143] Linking CXX executable TestMetalRpmd
+[140/143] Linking CXX executable TestMetalDrudeForce
+[141/143] Linking CXX executable TestMetalDrudeLangevinIntegrator
+[142/143] Linking CXX executable TestMetalDrudeNoseHoover
+[143/143] Linking CXX executable TestMetalDrudeSCFIntegrator

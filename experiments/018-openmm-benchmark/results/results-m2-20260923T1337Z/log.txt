@@ -13,7 +13,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 67004
 elapsed_time: 59.951423
 ns_per_day: 386.25575910016335
@@ -34,7 +34,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 49945
 elapsed_time: 59.417955
 ns_per_day: 290.5012802948199
@@ -97,7 +97,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 25664
 elapsed_time: 60.325682
 ns_per_day: 147.02657485082386
@@ -160,7 +160,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 44499
 elapsed_time: 60.521587
 ns_per_day: 254.10527321433256
@@ -223,7 +223,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 35109
 elapsed_time: 60.681662
 ns_per_day: 199.95613172229855
@@ -244,7 +244,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 23588
 elapsed_time: 60.532556
 ns_per_day: 134.67154435044833
@@ -286,7 +286,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 11700
 elapsed_time: 68.758147
 ns_per_day: 58.80786752441133
@@ -307,7 +307,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 7428
 elapsed_time: 65.850977
 ns_per_day: 38.98373140310431
@@ -349,7 +349,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 8927
 elapsed_time: 65.678436
 ns_per_day: 46.97388348285271
@@ -370,7 +370,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 6426
 elapsed_time: 63.392606
 ns_per_day: 35.03288064857279
@@ -433,7 +433,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 4891
 elapsed_time: 63.202906
 ns_per_day: 26.744491780172257
@@ -496,7 +496,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 6333
 elapsed_time: 64.618476
 ns_per_day: 33.87088237735597
@@ -511,28 +511,28 @@ cpuarch: arm
 system: Darwin
 Downloading https://ambermd.org/Amber20_Benchmark_Suite.tar.gz
 Extracting Amber20_Benchmark_Suite.tar.gz
-/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py:121: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+~/lab/bench-018/examples/benchmarks/benchmark.py:121: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
   tarfh.extractall(path=dirname)
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -540,17 +540,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -563,25 +563,25 @@ cpuinfo: Apple M2
 cpuarch: arm
 system: Darwin
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -589,17 +589,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -612,25 +612,25 @@ cpuinfo: Apple M2
 cpuarch: arm
 system: Darwin
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -638,17 +638,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -661,25 +661,25 @@ cpuinfo: Apple M2
 cpuarch: arm
 system: Darwin
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
     from scipy.io import netcdf_file
 ModuleNotFoundError: No module named 'scipy'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
     crdfile = AmberNetcdfRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
     raise ImportError('scipy is necessary to parse NetCDF restarts')
 ImportError: scipy is necessary to parse NetCDF restarts
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
     crdfile = AmberAsciiRestart(filename)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
     lines = f.readlines()
   File "<frozen codecs>", line 325, in decode
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
@@ -687,17 +687,17 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invali
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 554, in <module>
     runOneTest(test, args)
     ~~~~~~~~~~^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 301, in runOneTest
     system, positions, test_parameters = retrieveTestSystem(testName, pme_cutoff=options.pme_cutoff, bond_constraints=options.bond_constraints, polarization=options.polarization, epsilon=options.epsilon)
                                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/amir/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
+  File "~/lab/bench-018/examples/benchmarks/benchmark.py", line 191, in retrieveTestSystem
     inpcrd = app.AmberInpcrdFile(os.path.join(dirname, f'PME/Coordinates/{fileName}.inpcrd'))
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
     results = amber_file_parser.readAmberCoordinates(file)
-  File "/Users/amir/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+  File "~/lab/qa-f934/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
     raise TypeError('Could not parse Amber ASCII restart file %s' %
                     filename)
 TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd
@@ -738,7 +738,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1818
 elapsed_time: 59.715728
 ns_per_day: 10.52152960439501
@@ -759,7 +759,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 1419
 elapsed_time: 60.406986
 ns_per_day: 8.118372269061725
@@ -801,7 +801,7 @@ ensemble: NVT
 precision: single
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'single', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 647
 elapsed_time: 59.283318
 ns_per_day: 3.7717726932895346
@@ -822,7 +822,7 @@ ensemble: NVT
 precision: mixed
 timestep_in_fs: 4.0
 platform: Metal
-platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/th/tnk93_8506q84lgg883110gw0000gn/T/'}
+platform_properties: {'DeviceName': 'Apple M2', 'Precision': 'mixed', 'UseCpuPme': 'false', 'TempDirectory': '/var/folders/xx/xxxx/T/'}
 steps: 510
 elapsed_time: 59.252874
 ns_per_day: 2.974640521234463

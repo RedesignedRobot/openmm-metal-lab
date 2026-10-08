@@ -1,0 +1,27 @@
+18:06:27Z waiting for the lease: 7 in the queue, held by: r2-dispatch 2026-09-28T18:06:00Z cw2 checks: batching, md100, detforces, bitwise trajectories, 2 build processes running
+18:11:31Z waiting for the lease: 6 in the queue, held by: ultra-r3-nbfma 2026-09-28T18:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1rf, about 11 min, 0 build processes running
+18:16:34Z waiting for the lease: 6 in the queue, held by: ultra-r3-nbfma 2026-09-28T18:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1rf, about 11 min, 0 build processes running
+18:21:37Z waiting for the lease: 6 in the queue, held by: ultra-r3-nbfma 2026-09-28T18:11:13Z ab.sh /tmp/openmm-metal-bench/ultra-r3-nbfma/ab-apoa1rf, about 11 min, 0 build processes running
+18:26:40Z waiting for the lease: 4 in the queue, held by: ultra-r2-mixed 2026-09-28T18:23:52Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-qg1, about 9 min, 0 build processes running
+18:31:43Z waiting for the lease: 3 in the queue, held by: ultra-r2-mixed 2026-09-28T18:31:28Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-qg2c, about 10 min, 0 build processes running
+18:36:46Z waiting for the lease: 2 in the queue, held by: ultra-r2-accum-nb 2026-09-28T18:35:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/dt3r/ab-apoa1pme-single-mixed, about 8 min, 0 build processes running
+18:41:49Z waiting for the lease: 2 in the queue, held by: ultra-r2-accum-nb 2026-09-28T18:35:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/dt3r/ab-apoa1pme-single-mixed, about 8 min, 0 build processes running
+18:47:15Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch-cw2 2026-09-28T18:42:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-cw2/ab-apoa1, about 13 min, 0 build processes running
+18:52:49Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch-cw2 2026-09-28T18:42:26Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-cw2/ab-apoa1, about 13 min, 0 build processes running
+irl-apoa1rf: xctrace pid 22931 recording 18:55:02Z
+captured irl-apoa1rf 18:55:10Z: Target app exited, ending recording...
+saved irl-apoa1rf 18:55:55Z: Output file saved as: irl-apoa1rf.trace
+exported irl-apoa1rf 18:56:00Z, rows 48380, releasing
+xctemp: removing 1 xctrace leftovers, 499128 KB
+c16-apoa1rf: xctrace pid 26407 recording 18:56:01Z
+captured c16-apoa1rf 18:56:10Z: Target app exited, ending recording...
+saved c16-apoa1rf 18:57:04Z: Output file saved as: c16-apoa1rf.trace
+exported c16-apoa1rf 18:57:09Z, rows 59259, releasing
+xctemp: removing 1 xctrace leftovers, 598484 KB
+c16h-apoa1rf: xctrace pid 30352 recording 18:57:10Z
+18:57:11Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-r2-accum-nb (shader census irl c16 c16h apoa1rf). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+captured c16h-apoa1rf 18:57:18Z: Target app exited, ending recording...
+saved c16h-apoa1rf 18:57:55Z: Output file saved as: c16h-apoa1rf.trace
+exported c16h-apoa1rf 18:57:59Z, rows 47390, releasing
+xctemp: removing 1 xctrace leftovers, 476924 KB
+census done 18:58:00Z

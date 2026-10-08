@@ -1,0 +1,11 @@
+#!/bin/sh
+# 028 nonbonded lane: force kernel block shapes (blocks per core x threads) on top of tiles per batch,
+# scr2 knob build, against ultra-base and 6d72c3ae9. Runs inside one lease.sh hold.
+D=/tmp/openmm-metal-bench/ultra-nonbonded
+S=$D/venv-scr2/bin/python:Metal:single:NB_TILES=0
+exec /tmp/openmm-metal-bench/ultra-tools/ab.sh $D/ab-shape 2 15 gbsa,rf,pme,apoa1rf \
+    base=/tmp/openmm-metal-bench/ultra-base/venv/bin/python:Metal:single \
+    tiles=$D/venv/bin/python:Metal:single \
+    b20x128=$S,NB_BPC=20,NB_TGS=128 \
+    b10x256=$S,NB_BPC=10,NB_TGS=256 \
+    b80x64=$S,NB_BPC=80,NB_TGS=64

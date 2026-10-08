@@ -1,0 +1,46 @@
+median ns/day, host clock
+test                  base-mixed   base-single    mine-mixed   mine-single
+gbsa                     1246.28       1632.75       1243.96       1622.12
+rf                       1188.73       1478.21       1190.32       1471.03
+pme                       860.32       1003.31        860.19        997.94
+apoa1rf                   397.42        471.32        399.45        472.65
+apoa1pme                  278.71        293.04        280.52        314.10
+
+rounds, base-mixed:
+  gbsa               1245.17 1247.38   spread 0.2%
+  rf                 1190.55 1186.90   spread 0.3%
+  pme                861.71 858.94   spread 0.3%
+  apoa1rf            397.30 397.54   spread 0.1%
+  apoa1pme           279.32 278.10   spread 0.4%
+rounds, base-single:
+  gbsa               1632.56 1632.94   spread 0.0%
+  rf                 1474.81 1481.61   spread 0.5%
+  pme                1004.66 1001.95   spread 0.3%
+  apoa1rf            471.40 471.25   spread 0.0%
+  apoa1pme           314.69 271.39   spread 14.8%
+rounds, mine-mixed:
+  gbsa               1244.10 1243.83   spread 0.0%
+  rf                 1189.06 1191.58   spread 0.2%
+  pme                855.59 864.78   spread 1.1%
+  apoa1rf            398.88 400.03   spread 0.3%
+  apoa1pme           282.05 279.00   spread 1.1%
+rounds, mine-single:
+  gbsa               1624.40 1619.84   spread 0.3%
+  rf                 1472.14 1469.92   spread 0.2%
+  pme                998.77 997.10   spread 0.2%
+  apoa1rf            473.18 472.12   spread 0.2%
+  apoa1pme           314.39 313.82   spread 0.2%
+
+test                           mine-single/base-single               mine-mixed/base-mixed
+gbsa                       0.993 (rounds 0.992..0.995)         0.998 (rounds 0.997..0.999)
+rf                         0.995 (rounds 0.992..0.998)         1.001 (rounds 0.999..1.004)
+pme                        0.995 (rounds 0.994..0.995)         1.000 (rounds 0.993..1.007)
+apoa1rf                    1.003 (rounds 1.002..1.004)         1.005 (rounds 1.004..1.006)
+apoa1pme                   1.072 (rounds 0.999..1.156)         1.007 (rounds 1.003..1.010)
+
+1 minute load before 40 runs: 1.68 to 7.38
+Background VM CPU before 40 runs: 3% to 56%
+runs with no result: 0
+runs that overlapped a build: 2
+  2026-09-27T22:18:59Z round 1 gbsa base-single BUILD RUNNING during the run
+  2026-09-27T22:18:59Z round 1 gbsa mine-single load { 3.07 5.69 6.87 } BUILD RUNNING vm 6%

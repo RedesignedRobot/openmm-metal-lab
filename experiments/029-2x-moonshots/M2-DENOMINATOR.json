@@ -1,0 +1,840 @@
+{
+  "clock": "benchmark.py host wall time",
+  "rounds": 3,
+  "seconds": 30,
+  "commit": "7484d7bef401f813dc871c1e156578954606d4ea",
+  "rows": [
+    {
+      "test": "gbsa",
+      "metal-single": 453.9644284749307,
+      "metal-mixed": 375.01933163132077,
+      "opencl-single": 374.0298622981896,
+      "single/opencl": 1.2137117226030858,
+      "mixed/opencl": 1.0026454287020066
+    },
+    {
+      "test": "rf",
+      "metal-single": 291.83392089291675,
+      "metal-mixed": 231.31309408109925,
+      "opencl-single": 253.03978849943354,
+      "single/opencl": 1.153312380726915,
+      "mixed/opencl": 0.9141372408379842
+    },
+    {
+      "test": "pme",
+      "metal-single": 238.6533896083635,
+      "metal-mixed": 195.80193117642713,
+      "opencl-single": 194.0866021149176,
+      "single/opencl": 1.2296232043212243,
+      "mixed/opencl": 1.0088379570914117
+    },
+    {
+      "test": "apoa1rf",
+      "metal-single": 78.56814822593765,
+      "metal-mixed": 63.920265002869954,
+      "opencl-single": 59.10538758686824,
+      "single/opencl": 1.3292891127812103,
+      "mixed/opencl": 1.0814625808675258
+    },
+    {
+      "test": "apoa1pme",
+      "metal-single": 59.75814242592338,
+      "metal-mixed": 50.75557932876851,
+      "opencl-single": 45.961028531097895,
+      "single/opencl": 1.3001915826468105,
+      "mixed/opencl": 1.1043177437690836
+    },
+    {
+      "test": "apoa1ljpme",
+      "metal-single": 44.70928747765386,
+      "metal-mixed": 39.552676560601384,
+      "opencl-single": 33.961942354871375,
+      "single/opencl": 1.3164526048151932,
+      "mixed/opencl": 1.164617622493788
+    },
+    {
+      "test": "amber20-dhfr",
+      "metal-single": 247.66070908460875,
+      "metal-mixed": 201.6037762869507,
+      "opencl-single": 207.02846010524607,
+      "single/opencl": 1.196264073831717,
+      "mixed/opencl": 0.9737974005335419
+    },
+    {
+      "test": "amber20-cellulose",
+      "metal-single": 13.273881687707867,
+      "metal-mixed": 11.502402034911402,
+      "opencl-single": 10.282225673432226,
+      "single/opencl": 1.2909541289300472,
+      "mixed/opencl": 1.118668506239066
+    },
+    {
+      "test": "amber20-stmv",
+      "metal-single": 4.593069149163109,
+      "metal-mixed": 4.043099687868238,
+      "opencl-single": 3.698474332986746,
+      "single/opencl": 1.2418821210133755,
+      "mixed/opencl": 1.0931804100430744
+    }
+  ],
+  "full_check_runtime_estimate": {
+    "seconds": 2437.9897634964905,
+    "ab_seconds": 2420.612396,
+    "forces_proxy_seconds": 17.37736749649048,
+    "method": "For each test and Metal precision, median process wall minus half its final measured integration time, multiplied by four (base/candidate x two rounds), plus the baseline forces self-check timestamp proxy. Planning estimate for 2x15 seconds, not a measured full check; replace with the first real full CHECK WALL."
+  },
+  "libraries": {
+    "prefix/lib/libOpenMM.dylib": "1cc48a5714800dc6a8c03e881e09a17f",
+    "prefix/lib/libOpenMMAmoeba.dylib": "b89a646e1bf90d4ff0aeeb440689656e",
+    "prefix/lib/libOpenMMDrude.dylib": "24c94ccbca6b56559d043798abf4fe2c",
+    "prefix/lib/libOpenMMRPMD.dylib": "514885bab115c24b1374723655626d05",
+    "prefix/lib/plugins/libOpenMMAmoebaMetal.dylib": "ed0728d0751c8a393ac15294d2869490",
+    "prefix/lib/plugins/libOpenMMAmoebaOpenCL.dylib": "85f3b8456a562ea3c3173647027ebe5d",
+    "prefix/lib/plugins/libOpenMMAmoebaReference.dylib": "6beb6b290bb4dd8db344cd2696e87d85",
+    "prefix/lib/plugins/libOpenMMCPU.dylib": "96dcc47164a499bf3b2c75fa302da804",
+    "prefix/lib/plugins/libOpenMMDrudeMetal.dylib": "696aabe834c8e6630bc28f07cb0cfa27",
+    "prefix/lib/plugins/libOpenMMDrudeOpenCL.dylib": "ab2bfc3f843f0d6fd1aed509e77369d5",
+    "prefix/lib/plugins/libOpenMMDrudeReference.dylib": "424f72463e796b383f200652b81c10a6",
+    "prefix/lib/plugins/libOpenMMMetal.dylib": "d0c5b2b0c1e2910d4594cc5414834951",
+    "prefix/lib/plugins/libOpenMMOpenCL.dylib": "6209a5e0c84d36521ceebf289fba2baa",
+    "prefix/lib/plugins/libOpenMMPME.dylib": "74bc504ae91b0f984a8abe51c37cfb07",
+    "prefix/lib/plugins/libOpenMMRPMDMetal.dylib": "1fcc737a3c96cc578fc4ea8b4d03fbe6",
+    "prefix/lib/plugins/libOpenMMRPMDOpenCL.dylib": "bb0534f37ad8e39cebdbece6e2d5de68",
+    "prefix/lib/plugins/libOpenMMRPMDReference.dylib": "43648e731de0092d0b61d6f7e9b11e85"
+  },
+  "runs": [
+    {
+      "name": "metal-mixed-gbsa-round1",
+      "load": [
+        2.7265625,
+        2.70166015625,
+        2.0283203125
+      ],
+      "ns_per_day": 375.01933163132077
+    },
+    {
+      "name": "metal-single-gbsa-round1",
+      "load": [
+        2.71142578125,
+        2.6982421875,
+        2.048828125
+      ],
+      "ns_per_day": 453.9644284749307
+    },
+    {
+      "name": "opencl-single-gbsa-round1",
+      "load": [
+        2.38818359375,
+        2.61865234375,
+        2.04541015625
+      ],
+      "ns_per_day": 376.09841891466994
+    },
+    {
+      "name": "metal-single-rf-round1",
+      "load": [
+        1.52001953125,
+        2.3828125,
+        1.97900390625
+      ],
+      "ns_per_day": 291.1103900896335
+    },
+    {
+      "name": "opencl-single-rf-round1",
+      "load": [
+        1.6796875,
+        2.33642578125,
+        1.978515625
+      ],
+      "ns_per_day": 253.03978849943354
+    },
+    {
+      "name": "metal-mixed-rf-round1",
+      "load": [
+        1.01611328125,
+        2.111328125,
+        1.908203125
+      ],
+      "ns_per_day": 231.31309408109925
+    },
+    {
+      "name": "opencl-single-pme-round1",
+      "load": [
+        1.97216796875,
+        2.2255859375,
+        1.95654296875
+      ],
+      "ns_per_day": 194.93437195763997
+    },
+    {
+      "name": "metal-mixed-pme-round1",
+      "load": [
+        1.8916015625,
+        2.185546875,
+        1.95068359375
+      ],
+      "ns_per_day": 195.63220644147418
+    },
+    {
+      "name": "metal-single-pme-round1",
+      "load": [
+        1.35546875,
+        2.02001953125,
+        1.89892578125
+      ],
+      "ns_per_day": 238.6533896083635
+    },
+    {
+      "name": "metal-single-apoa1rf-round1",
+      "load": [
+        1.3837890625,
+        1.953125,
+        1.87890625
+      ],
+      "ns_per_day": 78.60944648592847
+    },
+    {
+      "name": "opencl-single-apoa1rf-round1",
+      "load": [
+        2.1748046875,
+        2.09521484375,
+        1.93408203125
+      ],
+      "ns_per_day": 59.01134722346442
+    },
+    {
+      "name": "metal-mixed-apoa1rf-round1",
+      "load": [
+        1.7158203125,
+        1.98828125,
+        1.900390625
+      ],
+      "ns_per_day": 63.940333407181356
+    },
+    {
+      "name": "metal-mixed-apoa1pme-round1",
+      "load": [
+        1.4052734375,
+        1.8779296875,
+        1.86279296875
+      ],
+      "ns_per_day": 50.75523368300725
+    },
+    {
+      "name": "opencl-single-apoa1pme-round1",
+      "load": [
+        2.1669921875,
+        2.00244140625,
+        1.9072265625
+      ],
+      "ns_per_day": 45.92629610071011
+    },
+    {
+      "name": "metal-single-apoa1pme-round1",
+      "load": [
+        2.07470703125,
+        2.0,
+        1.91015625
+      ],
+      "ns_per_day": 59.75814242592338
+    },
+    {
+      "name": "opencl-single-apoa1ljpme-round1",
+      "load": [
+        3.5859375,
+        2.380859375,
+        2.0517578125
+      ],
+      "ns_per_day": 33.92316560730245
+    },
+    {
+      "name": "metal-mixed-apoa1ljpme-round1",
+      "load": [
+        2.33642578125,
+        2.20849609375,
+        2.00146484375
+      ],
+      "ns_per_day": 39.552676560601384
+    },
+    {
+      "name": "metal-single-apoa1ljpme-round1",
+      "load": [
+        1.8583984375,
+        2.10400390625,
+        1.9716796875
+      ],
+      "ns_per_day": 44.709358288611845
+    },
+    {
+      "name": "metal-mixed-amber20-dhfr-round1",
+      "load": [
+        1.96484375,
+        2.08056640625,
+        1.9658203125
+      ],
+      "ns_per_day": 201.03754915866196
+    },
+    {
+      "name": "metal-single-amber20-dhfr-round1",
+      "load": [
+        1.55517578125,
+        1.96044921875,
+        1.9248046875
+      ],
+      "ns_per_day": 248.0773823275286
+    },
+    {
+      "name": "opencl-single-amber20-dhfr-round1",
+      "load": [
+        1.48095703125,
+        1.88623046875,
+        1.89794921875
+      ],
+      "ns_per_day": 208.05092865451525
+    },
+    {
+      "name": "opencl-single-amber20-cellulose-round1",
+      "load": [
+        1.283203125,
+        1.763671875,
+        1.8505859375
+      ],
+      "ns_per_day": 10.306577408615377
+    },
+    {
+      "name": "metal-single-amber20-cellulose-round1",
+      "load": [
+        1.2763671875,
+        1.69970703125,
+        1.8212890625
+      ],
+      "ns_per_day": 13.273881687707867
+    },
+    {
+      "name": "metal-mixed-amber20-cellulose-round1",
+      "load": [
+        1.23876953125,
+        1.6015625,
+        1.7724609375
+      ],
+      "ns_per_day": 11.505548495031796
+    },
+    {
+      "name": "metal-single-amber20-stmv-round1",
+      "load": [
+        2.107421875,
+        1.77392578125,
+        1.818359375
+      ],
+      "ns_per_day": 4.593069149163109
+    },
+    {
+      "name": "opencl-single-amber20-stmv-round1",
+      "load": [
+        1.29345703125,
+        1.63232421875,
+        1.759765625
+      ],
+      "ns_per_day": 3.6970103411864157
+    },
+    {
+      "name": "metal-mixed-amber20-stmv-round1",
+      "load": [
+        1.24609375,
+        1.46337890625,
+        1.65380859375
+      ],
+      "ns_per_day": 4.051145659268072
+    },
+    {
+      "name": "metal-single-gbsa-round2",
+      "load": [
+        1.70166015625,
+        1.5595703125,
+        1.68115234375
+      ],
+      "ns_per_day": 453.1598254560921
+    },
+    {
+      "name": "metal-mixed-gbsa-round2",
+      "load": [
+        1.7744140625,
+        1.59814453125,
+        1.68994140625
+      ],
+      "ns_per_day": 377.5770496934739
+    },
+    {
+      "name": "opencl-single-gbsa-round2",
+      "load": [
+        2.0732421875,
+        1.68359375,
+        1.71630859375
+      ],
+      "ns_per_day": 373.0045839107405
+    },
+    {
+      "name": "metal-mixed-rf-round2",
+      "load": [
+        1.25537109375,
+        1.52099609375,
+        1.6552734375
+      ],
+      "ns_per_day": 230.68066679560786
+    },
+    {
+      "name": "metal-single-rf-round2",
+      "load": [
+        0.7958984375,
+        1.38134765625,
+        1.5986328125
+      ],
+      "ns_per_day": 292.1281553039321
+    },
+    {
+      "name": "opencl-single-rf-round2",
+      "load": [
+        1.38232421875,
+        1.47021484375,
+        1.6220703125
+      ],
+      "ns_per_day": 249.3634240568074
+    },
+    {
+      "name": "opencl-single-pme-round2",
+      "load": [
+        2.06689453125,
+        1.62353515625,
+        1.6708984375
+      ],
+      "ns_per_day": 193.95088715229681
+    },
+    {
+      "name": "metal-single-pme-round2",
+      "load": [
+        1.80419921875,
+        1.595703125,
+        1.65869140625
+      ],
+      "ns_per_day": 238.58121531855537
+    },
+    {
+      "name": "metal-mixed-pme-round2",
+      "load": [
+        1.75537109375,
+        1.6142578125,
+        1.66259765625
+      ],
+      "ns_per_day": 195.80193117642713
+    },
+    {
+      "name": "opencl-single-apoa1rf-round2",
+      "load": [
+        1.90478515625,
+        1.6748046875,
+        1.6806640625
+      ],
+      "ns_per_day": 59.19532511994174
+    },
+    {
+      "name": "metal-mixed-apoa1rf-round2",
+      "load": [
+        1.630859375,
+        1.630859375,
+        1.66259765625
+      ],
+      "ns_per_day": 63.91525694206143
+    },
+    {
+      "name": "metal-single-apoa1rf-round2",
+      "load": [
+        1.57080078125,
+        1.6083984375,
+        1.65283203125
+      ],
+      "ns_per_day": 78.55189204126941
+    },
+    {
+      "name": "opencl-single-apoa1pme-round2",
+      "load": [
+        1.31005859375,
+        1.5390625,
+        1.62548828125
+      ],
+      "ns_per_day": 46.05309326812073
+    },
+    {
+      "name": "metal-single-apoa1pme-round2",
+      "load": [
+        1.08544921875,
+        1.4609375,
+        1.59228515625
+      ],
+      "ns_per_day": 59.66354657719198
+    },
+    {
+      "name": "metal-mixed-apoa1pme-round2",
+      "load": [
+        0.90771484375,
+        1.37646484375,
+        1.5556640625
+      ],
+      "ns_per_day": 50.84203529324591
+    },
+    {
+      "name": "metal-single-apoa1ljpme-round2",
+      "load": [
+        1.07421875,
+        1.3779296875,
+        1.54931640625
+      ],
+      "ns_per_day": 44.70928747765386
+    },
+    {
+      "name": "metal-mixed-apoa1ljpme-round2",
+      "load": [
+        1.14501953125,
+        1.365234375,
+        1.537109375
+      ],
+      "ns_per_day": 39.23737504898247
+    },
+    {
+      "name": "opencl-single-apoa1ljpme-round2",
+      "load": [
+        1.29638671875,
+        1.384765625,
+        1.53662109375
+      ],
+      "ns_per_day": 33.961942354871375
+    },
+    {
+      "name": "metal-single-amber20-dhfr-round2",
+      "load": [
+        1.0888671875,
+        1.32421875,
+        1.5068359375
+      ],
+      "ns_per_day": 247.66070908460875
+    },
+    {
+      "name": "opencl-single-amber20-dhfr-round2",
+      "load": [
+        1.58203125,
+        1.4267578125,
+        1.53564453125
+      ],
+      "ns_per_day": 207.02846010524607
+    },
+    {
+      "name": "metal-mixed-amber20-dhfr-round2",
+      "load": [
+        1.087890625,
+        1.32861328125,
+        1.494140625
+      ],
+      "ns_per_day": 201.6158539608158
+    },
+    {
+      "name": "metal-mixed-amber20-cellulose-round2",
+      "load": [
+        1.109375,
+        1.3125,
+        1.4736328125
+      ],
+      "ns_per_day": 11.502402034911402
+    },
+    {
+      "name": "metal-single-amber20-cellulose-round2",
+      "load": [
+        1.259765625,
+        1.3232421875,
+        1.4677734375
+      ],
+      "ns_per_day": 13.283924430736016
+    },
+    {
+      "name": "opencl-single-amber20-cellulose-round2",
+      "load": [
+        1.3076171875,
+        1.3310546875,
+        1.4619140625
+      ],
+      "ns_per_day": 10.246167709209113
+    },
+    {
+      "name": "metal-single-amber20-stmv-round2",
+      "load": [
+        1.365234375,
+        1.36865234375,
+        1.46484375
+      ],
+      "ns_per_day": 4.604301290003035
+    },
+    {
+      "name": "opencl-single-amber20-stmv-round2",
+      "load": [
+        0.9619140625,
+        1.2490234375,
+        1.40673828125
+      ],
+      "ns_per_day": 3.698474332986746
+    },
+    {
+      "name": "metal-mixed-amber20-stmv-round2",
+      "load": [
+        2.2197265625,
+        1.65966796875,
+        1.53759765625
+      ],
+      "ns_per_day": 4.03708851663813
+    },
+    {
+      "name": "metal-mixed-gbsa-round3",
+      "load": [
+        1.94873046875,
+        1.64306640625,
+        1.53466796875
+      ],
+      "ns_per_day": 373.3894029849229
+    },
+    {
+      "name": "metal-single-gbsa-round3",
+      "load": [
+        2.55224609375,
+        1.81884765625,
+        1.6015625
+      ],
+      "ns_per_day": 454.4293118093229
+    },
+    {
+      "name": "opencl-single-gbsa-round3",
+      "load": [
+        2.60302734375,
+        1.91162109375,
+        1.642578125
+      ],
+      "ns_per_day": 374.0298622981896
+    },
+    {
+      "name": "metal-single-rf-round3",
+      "load": [
+        1.44970703125,
+        1.69970703125,
+        1.57421875
+      ],
+      "ns_per_day": 291.83392089291675
+    },
+    {
+      "name": "opencl-single-rf-round3",
+      "load": [
+        1.9384765625,
+        1.791015625,
+        1.61083984375
+      ],
+      "ns_per_day": 253.77660013377533
+    },
+    {
+      "name": "metal-mixed-rf-round3",
+      "load": [
+        1.33203125,
+        1.66455078125,
+        1.5703125
+      ],
+      "ns_per_day": 231.57668331078742
+    },
+    {
+      "name": "metal-single-pme-round3",
+      "load": [
+        1.15283203125,
+        1.587890625,
+        1.54638671875
+      ],
+      "ns_per_day": 238.8492596030606
+    },
+    {
+      "name": "metal-mixed-pme-round3",
+      "load": [
+        0.9384765625,
+        1.49755859375,
+        1.51416015625
+      ],
+      "ns_per_day": 195.9326702808168
+    },
+    {
+      "name": "opencl-single-pme-round3",
+      "load": [
+        1.6806640625,
+        1.61572265625,
+        1.5546875
+      ],
+      "ns_per_day": 194.0866021149176
+    },
+    {
+      "name": "opencl-single-apoa1rf-round3",
+      "load": [
+        1.86865234375,
+        1.671875,
+        1.5771484375
+      ],
+      "ns_per_day": 59.10538758686824
+    },
+    {
+      "name": "metal-single-apoa1rf-round3",
+      "load": [
+        1.8896484375,
+        1.70458984375,
+        1.591796875
+      ],
+      "ns_per_day": 78.56814822593765
+    },
+    {
+      "name": "metal-mixed-apoa1rf-round3",
+      "load": [
+        1.48095703125,
+        1.62451171875,
+        1.56591796875
+      ],
+      "ns_per_day": 63.920265002869954
+    },
+    {
+      "name": "metal-single-apoa1pme-round3",
+      "load": [
+        1.3310546875,
+        1.5693359375,
+        1.5478515625
+      ],
+      "ns_per_day": 59.83864025393694
+    },
+    {
+      "name": "metal-mixed-apoa1pme-round3",
+      "load": [
+        1.2041015625,
+        1.50537109375,
+        1.52392578125
+      ],
+      "ns_per_day": 50.75557932876851
+    },
+    {
+      "name": "opencl-single-apoa1pme-round3",
+      "load": [
+        1.43017578125,
+        1.5263671875,
+        1.529296875
+      ],
+      "ns_per_day": 45.961028531097895
+    },
+    {
+      "name": "opencl-single-apoa1ljpme-round3",
+      "load": [
+        1.3173828125,
+        1.4892578125,
+        1.513671875
+      ],
+      "ns_per_day": 33.997095268881445
+    },
+    {
+      "name": "metal-mixed-apoa1ljpme-round3",
+      "load": [
+        1.7001953125,
+        1.5478515625,
+        1.53076171875
+      ],
+      "ns_per_day": 39.64206748612661
+    },
+    {
+      "name": "metal-single-apoa1ljpme-round3",
+      "load": [
+        1.36376953125,
+        1.478515625,
+        1.50439453125
+      ],
+      "ns_per_day": 44.63277388997859
+    },
+    {
+      "name": "opencl-single-amber20-dhfr-round3",
+      "load": [
+        2.0947265625,
+        1.67041015625,
+        1.57421875
+      ],
+      "ns_per_day": 206.85693043199205
+    },
+    {
+      "name": "metal-mixed-amber20-dhfr-round3",
+      "load": [
+        1.6572265625,
+        1.60986328125,
+        1.55615234375
+      ],
+      "ns_per_day": 201.6037762869507
+    },
+    {
+      "name": "metal-single-amber20-dhfr-round3",
+      "load": [
+        0.9853515625,
+        1.4462890625,
+        1.4970703125
+      ],
+      "ns_per_day": 247.50176794156553
+    },
+    {
+      "name": "opencl-single-amber20-cellulose-round3",
+      "load": [
+        1.29638671875,
+        1.4658203125,
+        1.5
+      ],
+      "ns_per_day": 10.282225673432226
+    },
+    {
+      "name": "metal-mixed-amber20-cellulose-round3",
+      "load": [
+        1.29052734375,
+        1.43701171875,
+        1.4853515625
+      ],
+      "ns_per_day": 11.442589578514951
+    },
+    {
+      "name": "metal-single-amber20-cellulose-round3",
+      "load": [
+        1.49658203125,
+        1.46142578125,
+        1.4912109375
+      ],
+      "ns_per_day": 13.27113672344487
+    },
+    {
+      "name": "opencl-single-amber20-stmv-round3",
+      "load": [
+        1.82373046875,
+        1.544921875,
+        1.517578125
+      ],
+      "ns_per_day": 3.698504585163583
+    },
+    {
+      "name": "metal-mixed-amber20-stmv-round3",
+      "load": [
+        1.7265625,
+        1.55908203125,
+        1.517578125
+      ],
+      "ns_per_day": 4.043099687868238
+    },
+    {
+      "name": "metal-single-amber20-stmv-round3",
+      "load": [
+        1.45947265625,
+        1.533203125,
+        1.5087890625
+      ],
+      "ns_per_day": 4.584555133625883
+    }
+  ],
+  "source_hash": "962ac562afadf240b808b9ceb7f8c07518d41eb9",
+  "evidence": "Persistent bench: ultra-infra/m2-denominator; M2: ultra-m2.noindex/M2_DENOMINATOR.txt",
+  "runner_sha256": "01de38f3d342d7e6bcb4446918ee086d9bedbdf3f2e58c33cfbfd4e266f80482",
+  "session_wall_seconds": 3799.1
+}

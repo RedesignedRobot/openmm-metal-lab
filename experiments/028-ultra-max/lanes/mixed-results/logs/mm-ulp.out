@@ -1,0 +1,13 @@
+23:45:36Z waiting for the lease: 48 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 25 build processes
+op | outputs that differ safe vs relaxed | max ulp safe vs relaxed | max ulp safe vs exact | max ulp relaxed vs exact
+x/y | 0 | 0 | 0 | 0
+1/precise::sqrt(x) | 1146605 | 2 | 1 | 1
+precise::sqrt(x) | 0 | 0 | 0 | 0
+exp(y) | 0 | 0 | 1 | 1
+erfc_oc(y) | 182456 | 7 | - | -
+two_sum err (pragma safe) | 0 | 0 | 0 | 0
+two_sum err (no pragma) | 3462676 | 973078528 | 0 | 973078528
+fast::divide(1,x) | 429854 | 1 | 0 | 1
+precise::divide(x,y) | 0 | 0 | 0 | 0
+1/x | 429854 | 1 | 0 | 1
+A&S erfc (PME direct), vs the same formula in double | 2863146 | 50 | 24 | 44

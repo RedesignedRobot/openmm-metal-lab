@@ -1,0 +1,25 @@
+load { 3.63 4.70 5.33 }
+device Apple M3 Ultra apple9=1
+atomic_ulong fetch_add compiles: no
+checksum 168009836da10400  k_emul     work=0 tiles=288000 median 1490.2 us  min 1461.6 us
+checksum 3e7e46516da10400  k_ret      work=0 tiles=288000 median 1025.1 us  min 1009.9 us
+checksum e53dba0d5bdae800  k_words    work=0 tiles=288000 median 1523.1 us  min 1508.2 us
+checksum 3e7e46516da10400  k_lo       work=0 tiles=288000 median 876.2 us  min 822.0 us
+checksum abfa16505f5e0385  k_plain    work=0 tiles=288000 median 220.4 us  min 218.7 us
+checksum 168009836da10400  k_emul     work=0 tiles=288000 median 1485.7 us  min 1454.4 us
+checksum 3e7e46516da10400  k_ret      work=0 tiles=288000 median 1028.7 us  min 1007.9 us
+checksum e53dba0d5bdae800  k_words    work=0 tiles=288000 median 1525.8 us  min 1499.5 us
+checksum 3e7e46516da10400  k_lo       work=0 tiles=288000 median 866.8 us  min 825.6 us
+checksum 3fb8f24d24fc7f13  k_plain    work=0 tiles=288000 median 221.2 us  min 218.6 us
+device Apple M3 Ultra apple9=1
+atomic_ulong fetch_add compiles: no
+checksum 366430edf54c1c00  k_emul     work=400 tiles=288000 median 2636.6 us  min 2585.5 us
+checksum fd11e4c9f54c1c00  k_ret      work=400 tiles=288000 median 2348.3 us  min 2310.5 us
+checksum 86e52f014dfb2200  k_words    work=400 tiles=288000 median 2815.5 us  min 2761.2 us
+checksum fd11e4c9f54c1c00  k_lo       work=400 tiles=288000 median 2424.6 us  min 2401.9 us
+checksum 4727d09dd791e80a  k_plain    work=400 tiles=288000 median 2561.1 us  min 2500.2 us
+checksum 366430edf54c1c00  k_emul     work=400 tiles=288000 median 2633.6 us  min 2586.2 us
+checksum fd11e4c9f54c1c00  k_ret      work=400 tiles=288000 median 2351.7 us  min 2312.6 us
+checksum 86e52f014dfb2200  k_words    work=400 tiles=288000 median 2807.7 us  min 2752.4 us
+checksum fd11e4c9f54c1c00  k_lo       work=400 tiles=288000 median 2426.0 us  min 2404.8 us
+checksum 45864f8fab1a7b17  k_plain    work=400 tiles=288000 median 2563.3 us  min 2502.6 us

@@ -1,0 +1,655 @@
+diff --git a/platforms/metal/include/MetalContext.h b/platforms/metal/include/MetalContext.h
+index 0cb63e925..9982ea723 100644
+--- a/platforms/metal/include/MetalContext.h
++++ b/platforms/metal/include/MetalContext.h
+@@ -305,7 +305,8 @@ public:
+      * @param blockSize    the size of each thread block to use
+      * @param sharedSize   the amount of dynamic shared memory to allocated for the kernel, in bytes
+      */
+-    void executeKernelFlat(metalFunction_t kernel, void** arguments, int threads, int blockSize = -1, unsigned int sharedSize = 0);
++    void executeKernelFlat(metalFunction_t kernel, void** arguments, int threads, int blockSize = -1, unsigned int sharedSize = 0,
++            MTL::Buffer* indirect = NULL, size_t indirectOffset = 0);
+     /**
+      * Compute the largest thread block size that can be used for a kernel that requires a particular amount of
+      * shared memory per thread.
+diff --git a/platforms/metal/include/MetalNonbondedUtilities.h b/platforms/metal/include/MetalNonbondedUtilities.h
+index 7de9a6c1e..decb90b0a 100644
+--- a/platforms/metal/include/MetalNonbondedUtilities.h
++++ b/platforms/metal/include/MetalNonbondedUtilities.h
+@@ -323,6 +323,8 @@ private:
+     MetalArray largeBlockBoundingBox;
+     MetalArray oldPositions;
+     MetalArray rebuildNeighborList;
++    MetalArray displacementFlags, rebuildDispatch;
++    bool useIndirectRebuild;
+     ComputeSort blockSorter;
+     std::shared_ptr<MetalEvent> downloadCountEvent;
+     metalDeviceptr_t pinnedCountDeviceMemory;
+@@ -339,7 +341,8 @@ private:
+     int startTileIndex, startBlockIndex, numBlocks, numTilesInBatch, maxExclusions;
+     int numForceThreadBlocks, forceThreadBlockSize, findInteractingBlocksThreadBlockSize, numAtoms, groupFlags, paramStartIndex;
+     unsigned int maxTiles, maxSinglePairs, tilesAfterReorder;
+-    long long numTiles;
++    int uncommittedSteps;
++    long long numTiles, commitCountAfterLastStep;
+     std::string kernelSource;
+ };
+ 
+@@ -352,7 +355,7 @@ public:
+     bool hasForces;
+     std::string source;
+     metalFunction_t forceKernel, energyKernel, forceEnergyKernel;
+-    metalFunction_t findBlockBoundsKernel;
++    metalFunction_t findBlockBoundsKernel, prepareRebuildDispatchKernel;
+     metalFunction_t computeSortKeysKernel;
+     metalFunction_t sortBoxDataKernel;
+     metalFunction_t findInteractingBlocksKernel;
+diff --git a/platforms/metal/include/MetalQueue.h b/platforms/metal/include/MetalQueue.h
+index 197918262..dd99bec54 100644
+--- a/platforms/metal/include/MetalQueue.h
++++ b/platforms/metal/include/MetalQueue.h
+@@ -27,8 +27,11 @@
+ 
+ #include "openmm/common/ComputeQueue.h"
+ #include <Metal/Metal.hpp>
++#include <atomic>
++#include <condition_variable>
+ #include <deque>
+ #include <mutex>
++#include <thread>
+ 
+ typedef MTL::CommandQueue* metalStream_t;
+ 
+@@ -51,6 +54,11 @@ public:
+     metalStream_t getStream() {
+         return stream;
+     }
++    /**
++     * Get the lock that callers must hold for as long as they use the encoder or command buffer this
++     * returns, since after commitWhenIdle() another thread can commit the open buffer whenever the lock
++     * is free.
++     */
+     std::recursive_mutex& getLock() {
+         return lock;
+     }
+@@ -63,18 +71,37 @@ public:
+     void setConcurrentDispatch(bool concurrent);
+     void commit();
+     void finish();
++    /**
++     * Get whether the GPU has finished every command buffer committed to this queue.
++     */
++    bool isIdle();
++    /**
++     * Get whether every kernel encoded on this queue has been committed and has finished.
++     */
++    bool isDrained();
++    /**
++     * From now on, commit the open command buffer from a background thread whenever the GPU finishes every
++     * committed buffer.  Code that can leave steps open calls this, so they don't wait for the host's next
++     * commit after Integrator::step() returns.
++     */
++    void commitWhenIdle();
+     long long getCommitCount() const {
+         return commitCount;
+     }
+ private:
+     void endEncoding();
++    void submit();
++    void runIdleCommits();
+     metalStream_t stream;
+     MTL::CommandBuffer* openBuffer;
+     MTL::ComputeCommandEncoder* encoder;
+     bool concurrentDispatch;
+     std::deque<MTL::CommandBuffer*> pending;
+-    long long commitCount;
++    std::atomic<long long> commitCount;
+     std::recursive_mutex lock;
++    std::condition_variable_any bufferOpened;
++    std::thread committer;
++    bool stopCommitter;
+ };
+ 
+ } // namespace OpenMM
+diff --git a/platforms/metal/include/MetalSort.h b/platforms/metal/include/MetalSort.h
+index f96506ad9..c313f3112 100644
+--- a/platforms/metal/include/MetalSort.h
++++ b/platforms/metal/include/MetalSort.h
+@@ -86,6 +86,8 @@ public:
+      * Sort an array.
+      */
+     void sort(ArrayInterface& data);
++    // GPU-selected dispatch sizes for the short-list sort and copy, two uint3 records.
++    void sortIndirect(ArrayInterface& data, MTL::Buffer* dispatch, size_t offset);
+ private:
+     MetalContext& context;
+     ComputeSortImpl::SortTrait* trait;
+diff --git a/platforms/metal/src/MetalContext.cpp b/platforms/metal/src/MetalContext.cpp
+index c2b6deb68..04e06cd4d 100644
+--- a/platforms/metal/src/MetalContext.cpp
++++ b/platforms/metal/src/MetalContext.cpp
+@@ -747,7 +747,7 @@ void MetalContext::executeKernel(metalFunction_t kernel, void** arguments, int t
+     executeKernelFlat(kernel, arguments, gridSize*blockSize, blockSize, sharedSize);
+ }
+ 
+-void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, int threads, int blockSize, unsigned int sharedSize) {
++void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, int threads, int blockSize, unsigned int sharedSize, MTL::Buffer* indirect, size_t indirectOffset) {
+     if (blockSize == -1)
+         blockSize = ThreadBlockSize;
+     int gridSize = (threads+blockSize-1)/blockSize;
+@@ -776,7 +776,10 @@ void MetalContext::executeKernelFlat(metalFunction_t kernel, void** arguments, i
+         encoder->setBytes(packed.data(), packed.size(), 0);
+     }
+     encoder->setThreadgroupMemoryLength((sharedSize+15)/16*16, 0);
+-    encoder->dispatchThreadgroups(MTL::Size(gridSize, 1, 1), MTL::Size(blockSize, 1, 1));
++    if (indirect != NULL)
++        encoder->dispatchThreadgroups(indirect, indirectOffset, MTL::Size(blockSize, 1, 1));
++    else
++        encoder->dispatchThreadgroups(MTL::Size(gridSize, 1, 1), MTL::Size(blockSize, 1, 1));
+ }
+ 
+ int MetalContext::computeThreadBlockSize(double memory) const {
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index a936c2d9d..55d661f7d 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -28,6 +28,7 @@
+ #include "MetalArray.h"
+ #include "MetalContext.h"
+ #include "MetalEvent.h"
++#include "MetalSort.h"
+ #include "MetalKernelSources.h"
+ #include "MetalExpressionUtilities.h"
+ #include <algorithm>
+@@ -38,6 +39,10 @@
+ using namespace OpenMM;
+ using namespace std;
+ 
++// Steps without a host wait share a command buffer, up to this many.  Fewer buffers mean fewer boundaries
++// where the GPU can idle, and committing every few steps keeps committed work queued ahead of the GPU, so
++// it doesn't wait for MetalQueue's idle commit.
++static const int StepsPerCommandBuffer = 8;
+ 
+ class MetalNonbondedUtilities::BlockSortTrait : public ComputeSortImpl::SortTrait {
+ public:
+@@ -53,7 +58,9 @@ public:
+ };
+ 
+ MetalNonbondedUtilities::MetalNonbondedUtilities(MetalContext& context) : context(context), useCutoff(false), usePeriodic(false), useNeighborList(false), anyExclusions(false), usePadding(true),
+-        pinnedCountBuffer(NULL), forceRebuildNeighborList(true), groupFlags(0), canUsePairList(true), waitForCount(true), tilesAfterReorder(0) {
++        pinnedCountBuffer(NULL), forceRebuildNeighborList(true), groupFlags(0), canUsePairList(true), waitForCount(true), tilesAfterReorder(0),
++        uncommittedSteps(0), commitCountAfterLastStep(0) {
++    useIndirectRebuild = context.getDevice()->supportsFamily(MTL::GPUFamilyApple7) && context.getNumAtomBlocks() <= 1024;
+     // Decide how many thread blocks to use.
+ 
+     downloadCountEvent = std::make_shared<MetalEvent>(context);
+@@ -262,6 +269,8 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         long long maxListBytes = numTiles*(MetalContext::TileSize+1)*(long long) sizeof(int)+maxPossiblePairs*(long long) sizeof(int2);
+         long long unusedMemory = (long long) context.getDevice()->recommendedMaxWorkingSetSize()-(long long) context.getDevice()->currentAllocatedSize();
+         waitForCount = (numContexts > 1 || maxListBytes > unusedMemory/256);
++        if (!waitForCount)
++            context.getCurrentStream().commitWhenIdle();
+         maxTiles = 20*numAtomBlocks;
+         if (maxTiles > numTiles || !waitForCount)
+             maxTiles = numTiles;
+@@ -287,6 +296,10 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         largeBlockBoundingBox.initialize(context, numAtomBlocks*4, elementSize, "largeBlockBoundingBox");
+         oldPositions.initialize(context, numAtoms, 4*elementSize, "oldPositions");
+         rebuildNeighborList.initialize<int>(context, 1, "rebuildNeighborList");
++        if (useIndirectRebuild) {
++            displacementFlags.initialize<unsigned int>(context, numAtomBlocks, "displacementFlags");
++            rebuildDispatch.initialize<unsigned int>(context, 15, "rebuildDispatch");
++        }
+         blockSorter = context.createSort(new BlockSortTrait(), numAtomBlocks, false);
+         vector<unsigned int> count(2, 0);
+         interactionCount.upload(count);
+@@ -340,6 +353,11 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         findBlockBoundsArgs.push_back(&blockBoundingBox.getDevicePointer());
+         findBlockBoundsArgs.push_back(&rebuildNeighborList.getDevicePointer());
+         findBlockBoundsArgs.push_back(&blockSizeRange.getDevicePointer());
++        if (useIndirectRebuild) {
++            findBlockBoundsArgs.push_back(&oldPositions.getDevicePointer());
++            findBlockBoundsArgs.push_back(&displacementFlags.getDevicePointer());
++            findBlockBoundsArgs.push_back(&forceRebuildNeighborList);
++        }
+         computeSortKeysArgs.push_back(&blockBoundingBox.getDevicePointer());
+         computeSortKeysArgs.push_back(&sortedBlocks.getDevicePointer());
+         computeSortKeysArgs.push_back(&blockSizeRange.getDevicePointer());
+@@ -390,6 +408,8 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         findInteractingBlocksArgs.push_back(&rebuildNeighborList.getDevicePointer());
+         copyInteractionCountsArgs.push_back(&interactionCount.getDevicePointer());
+         copyInteractionCountsArgs.push_back(&pinnedCountDeviceMemory);
++        if (useIndirectRebuild)
++            copyInteractionCountsArgs.push_back(&blockSizeRange.getDevicePointer());
+     }
+ }
+ 
+@@ -425,10 +445,23 @@ void MetalNonbondedUtilities::prepareInteractions(int forceGroups) {
+     // Compute the neighbor list.
+ 
+     context.executeKernelFlat(kernels.findBlockBoundsKernel, &findBlockBoundsArgs[0], context.getPaddedNumAtoms(), context.getSIMDWidth());
+-    context.executeKernelFlat(kernels.computeSortKeysKernel, &computeSortKeysArgs[0], context.getNumAtomBlocks());
+-    blockSorter->sort(sortedBlocks);
+-    context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64);
+-    context.executeKernelFlat(kernels.findInteractingBlocksKernel, &findInteractingBlocksArgs[0], context.getNumAtomBlocks() * context.getSIMDWidth() * numTilesInBatch, findInteractingBlocksThreadBlockSize);
++    if (useIndirectRebuild) {
++        void* args[] = {&displacementFlags.getDevicePointer(), &rebuildNeighborList.getDevicePointer(),
++                &interactionCount.getDevicePointer(), &rebuildDispatch.getDevicePointer()};
++        context.executeKernelFlat(kernels.prepareRebuildDispatchKernel, args, 32, 32);
++        MTL::Buffer* dispatch = rebuildDispatch.getDevicePointer();
++        context.executeKernelFlat(kernels.computeSortKeysKernel, &computeSortKeysArgs[0], context.getNumAtomBlocks(), 64, 0, dispatch, 0);
++        dynamic_cast<MetalSort&>(*blockSorter).sortIndirect(sortedBlocks, dispatch, 3*sizeof(unsigned int));
++        context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64, 0, dispatch, 9*sizeof(unsigned int));
++        context.executeKernelFlat(kernels.findInteractingBlocksKernel, &findInteractingBlocksArgs[0], context.getNumAtomBlocks()*context.getSIMDWidth()*numTilesInBatch,
++                findInteractingBlocksThreadBlockSize, 0, dispatch, 12*sizeof(unsigned int));
++    }
++    else {
++        context.executeKernelFlat(kernels.computeSortKeysKernel, &computeSortKeysArgs[0], context.getNumAtomBlocks());
++        blockSorter->sort(sortedBlocks);
++        context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64);
++        context.executeKernelFlat(kernels.findInteractingBlocksKernel, &findInteractingBlocksArgs[0], context.getNumAtomBlocks() * context.getSIMDWidth() * numTilesInBatch, findInteractingBlocksThreadBlockSize);
++    }
+     forceRebuildNeighborList = false;
+     context.executeKernelFlat(kernels.copyInteractionCountsKernel, &copyInteractionCountsArgs[0], 1, 1);
+     // Each command buffer boundary leaves the GPU idle, so the force kernels go into this buffer
+@@ -459,10 +492,19 @@ void MetalNonbondedUtilities::computeInteractions(int forceGroups, bool includeF
+         context.executeKernelFlat(kernel, &forceArgs[0], numForceThreadBlocks*forceThreadBlockSize, forceThreadBlockSize);
+     }
+     if (useNeighborList && numTiles > 0) {
+-        context.getCurrentStream().commit();
+         // Without the wait, the count comes from an earlier step.  It can't exceed the arrays, so it only
+-        // guides reordering, which needs the exact count right after a reorder.
+-        if (waitForCount || context.getStepsSinceReorder() == 0)
++        // guides reordering, which needs the exact count right after a reorder.  Steps without the wait
++        // share a command buffer, up to StepsPerCommandBuffer of them, unless the GPU has run out of work.
++        MetalQueue& queue = context.getCurrentStream();
++        bool wait = (waitForCount || context.getStepsSinceReorder() == 0);
++        if (queue.getCommitCount() != commitCountAfterLastStep)
++            uncommittedSteps = 0;
++        if (wait || ++uncommittedSteps >= StepsPerCommandBuffer || queue.isIdle()) {
++            queue.commit();
++            uncommittedSteps = 0;
++        }
++        commitCountAfterLastStep = queue.getCommitCount();
++        if (wait)
+             downloadCountEvent->poll();
+         updateNeighborListSize();
+     }
+@@ -582,6 +624,10 @@ void MetalNonbondedUtilities::createKernelsForGroups(int groups) {
+         defines["MAX_BITS_FOR_PAIRS"] = context.intToString(getMaxBitsForPairs());
+         defines["NUM_TILES_IN_BATCH"] = context.intToString(numTilesInBatch);
+         defines["GROUP_SIZE"] = context.intToString(findInteractingBlocksThreadBlockSize);
++        if (useIndirectRebuild) {
++            defines["INDIRECT_REBUILD"] = "1";
++            defines["SORT_BLOCK_SIZE"] = context.intToString(MetalContext::ThreadBlockSize);
++        }
+         int binShift = 1;
+         while (1<<binShift <= context.getNumAtomBlocks())
+             binShift++;
+@@ -589,6 +635,8 @@ void MetalNonbondedUtilities::createKernelsForGroups(int groups) {
+         defines["BLOCK_INDEX_MASK"] = context.intToString((1<<binShift)-1);
+         metalModule_t interactingBlocksProgram = context.createModule(MetalKernelSources::vectorOps+MetalKernelSources::findInteractingBlocks, defines);
+         kernels.findBlockBoundsKernel = context.getKernel(interactingBlocksProgram, "findBlockBounds");
++        if (useIndirectRebuild)
++            kernels.prepareRebuildDispatchKernel = context.getKernel(interactingBlocksProgram, "prepareRebuildDispatch");
+         kernels.computeSortKeysKernel = context.getKernel(interactingBlocksProgram, "computeSortKeys");
+         kernels.sortBoxDataKernel = context.getKernel(interactingBlocksProgram, "sortBoxData");
+         kernels.findInteractingBlocksKernel = context.getKernel(interactingBlocksProgram, "findBlocksWithInteractions");
+diff --git a/platforms/metal/src/MetalQueue.cpp b/platforms/metal/src/MetalQueue.cpp
+index 0b21b003e..3dc84f516 100644
+--- a/platforms/metal/src/MetalQueue.cpp
++++ b/platforms/metal/src/MetalQueue.cpp
+@@ -33,10 +33,18 @@ using namespace std;
+ // ahead of the GPU.
+ static const int MaxBuffersInFlight = 8;
+ 
+-MetalQueue::MetalQueue(metalStream_t stream) : stream(stream), openBuffer(NULL), encoder(NULL), concurrentDispatch(false), commitCount(0) {
++MetalQueue::MetalQueue(metalStream_t stream) : stream(stream), openBuffer(NULL), encoder(NULL), concurrentDispatch(false), commitCount(0), stopCommitter(false) {
+ }
+ 
+ MetalQueue::~MetalQueue() {
++    if (committer.joinable()) {
++        {
++            lock_guard<recursive_mutex> guard(lock);
++            stopCommitter = true;
++        }
++        bufferOpened.notify_one();
++        committer.join();
++    }
+     endEncoding();
+     if (openBuffer != NULL)
+         openBuffer->release();
+@@ -61,6 +69,8 @@ MTL::CommandBuffer* MetalQueue::getCommandBuffer() {
+         NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
+         openBuffer = stream->commandBuffer()->retain();
+         pool->release();
++        if (committer.joinable())
++            bufferOpened.notify_one();
+     }
+     return openBuffer;
+ }
+@@ -83,13 +93,7 @@ void MetalQueue::endEncoding() {
+ 
+ void MetalQueue::commit() {
+     lock_guard<recursive_mutex> guard(lock);
+-    if (openBuffer != NULL) {
+-        endEncoding();
+-        openBuffer->commit();
+-        pending.push_back(openBuffer);
+-        openBuffer = NULL;
+-        commitCount++;
+-    }
++    submit();
+     if ((int) pending.size() > MaxBuffersInFlight)
+         pending.front()->waitUntilCompleted();
+     while (!pending.empty() && pending.front()->status() >= MTL::CommandBufferStatusCompleted) {
+@@ -101,6 +105,16 @@ void MetalQueue::commit() {
+     }
+ }
+ 
++void MetalQueue::submit() {
++    if (openBuffer != NULL) {
++        endEncoding();
++        openBuffer->commit();
++        pending.push_back(openBuffer);
++        openBuffer = NULL;
++        commitCount++;
++    }
++}
++
+ void MetalQueue::finish() {
+     lock_guard<recursive_mutex> guard(lock);
+     commit();
+@@ -108,3 +122,41 @@ void MetalQueue::finish() {
+         buffer->waitUntilCompleted();
+     commit();
+ }
++
++bool MetalQueue::isIdle() {
++    lock_guard<recursive_mutex> guard(lock);
++    return pending.empty() || pending.back()->status() >= MTL::CommandBufferStatusCompleted;
++}
++
++bool MetalQueue::isDrained() {
++    lock_guard<recursive_mutex> guard(lock);
++    return openBuffer == NULL && isIdle();
++}
++
++void MetalQueue::commitWhenIdle() {
++    lock_guard<recursive_mutex> guard(lock);
++    if (!committer.joinable())
++        committer = thread(&MetalQueue::runIdleCommits, this);
++}
++
++void MetalQueue::runIdleCommits() {
++    // Wait for the newest committed buffer without holding the lock, then commit the open buffer unless the
++    // host committed a newer one meanwhile.  Encoders are only used under the lock, so this never commits
++    // a kernel that is half encoded.  Errors are left for the host's next commit() to report.
++    unique_lock<recursive_mutex> guard(lock);
++    while (!stopCommitter) {
++        NS::AutoreleasePool* pool = NS::AutoreleasePool::alloc()->init();
++        if (!pending.empty() && pending.back()->status() < MTL::CommandBufferStatusCompleted) {
++            MTL::CommandBuffer* newest = pending.back()->retain();
++            guard.unlock();
++            newest->waitUntilCompleted();
++            newest->release();
++            guard.lock();
++        }
++        else if (openBuffer != NULL)
++            submit();
++        else
++            bufferOpened.wait(guard);
++        pool->release();
++    }
++}
+diff --git a/platforms/metal/src/MetalSort.cpp b/platforms/metal/src/MetalSort.cpp
+index 36601bb8b..549378314 100644
+--- a/platforms/metal/src/MetalSort.cpp
++++ b/platforms/metal/src/MetalSort.cpp
+@@ -93,6 +93,18 @@ MetalSort::~MetalSort() {
+     delete trait;
+ }
+ 
++void MetalSort::sortIndirect(ArrayInterface& data, MTL::Buffer* dispatch, size_t offset) {
++    if (!isShortList || dataLength > MetalContext::ThreadBlockSize*context.getNumThreadBlocks())
++        throw OpenMMException("Indirect neighbor sort requires the short-list kernel");
++    if (data.getSize() != dataLength || data.getElementSize() != trait->getDataSize())
++        throw OpenMMException("MetalSort called with different data size");
++    MetalArray& values = context.unwrap(data);
++    void* sortArgs[] = {&values.getDevicePointer(), &buckets.getDevicePointer(), &dataLength};
++    context.executeKernelFlat(shortList2Kernel, sortArgs, dataLength*context.getSIMDWidth(), MetalContext::ThreadBlockSize, 0, dispatch, offset);
++    void* copyArgs[] = {&buckets.getDevicePointer(), &values.getDevicePointer(), &dataLength};
++    context.executeKernelFlat(copyShortListKernel, copyArgs, dataLength, MetalContext::ThreadBlockSize, 0, dispatch, offset+3*sizeof(unsigned int));
++}
++
+ void MetalSort::sort(ArrayInterface& data) {
+     if (data.getSize() != dataLength || data.getElementSize() != trait->getDataSize())
+         throw OpenMMException("MetalSort called with different data size");
+diff --git a/platforms/metal/src/kernels/findInteractingBlocks.metal b/platforms/metal/src/kernels/findInteractingBlocks.metal
+index d858c797b..42b31a6ad 100644
+--- a/platforms/metal/src/kernels/findInteractingBlocks.metal
++++ b/platforms/metal/src/kernels/findInteractingBlocks.metal
+@@ -40,7 +40,11 @@ private:
+  */
+ extern "C" __global__ void findBlockBounds(int numAtoms, real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
+         const real4* __restrict__ posq, real4* __restrict__ blockCenter, real4* __restrict__ blockBoundingBox, int* __restrict__ rebuildNeighborList,
+-        real2* __restrict__ blockSizeRange) {
++        real2* __restrict__ blockSizeRange
++#ifdef INDIRECT_REBUILD
++        , const real4* __restrict__ oldPositions, unsigned int* __restrict__ displacementFlags, bool forceRebuild
++#endif
++        ) {
+     const int indexInTile = threadIdx.x%TILE_SIZE;
+     const int index = warpSize == TILE_SIZE ? blockIdx.x : (blockIdx.x*(warpSize/TILE_SIZE) + threadIdx.x/TILE_SIZE);
+     const int base = index * TILE_SIZE;
+@@ -48,6 +52,17 @@ extern "C" __global__ void findBlockBounds(int numAtoms, real4 periodicBoxSize,
+         return;
+ 
+     real4 tPos = posq[base + indexInTile < numAtoms ? base + indexInTile : 0];
++#ifdef INDIRECT_REBUILD
++    bool moved = forceRebuild;
++    if (!forceRebuild && base+indexInTile < numAtoms) {
++        real4 displacement = oldPositions[base+indexInTile]-tPos;
++        moved = displacement.x*displacement.x + displacement.y*displacement.y + displacement.z*displacement.z > 0.25f*PADDING*PADDING;
++    }
++    bool tileMoved = simd_any(moved);
++    if (indexInTile == 0)
++        displacementFlags[index] = tileMoved;
++#endif
++
+ #ifdef USE_PERIODIC
+     real4 pos;
+     pos.x = SHFL(tPos.x, 0);
+@@ -188,6 +203,7 @@ extern "C" __global__ void sortBoxData(const unsigned int* __restrict__ sortedBl
+         blockSizeRange->y = 0;
+     }
+ 
++#ifndef INDIRECT_REBUILD
+     // Also check whether any atom has moved enough so that we really need to rebuild the neighbor list.
+ 
+     bool rebuild = forceRebuild;
+@@ -202,6 +218,7 @@ extern "C" __global__ void sortBoxData(const unsigned int* __restrict__ sortedBl
+         interactionCount[0] = 0;
+         interactionCount[1] = 0;
+     }
++#endif
+ }
+ 
+ #if MAX_BITS_FOR_PAIRS > 0
+@@ -649,7 +666,44 @@ extern "C" __global__ __launch_bounds__(GROUP_SIZE) void findBlocksWithInteracti
+ }
+ 
+ extern "C" __global__ void copyInteractionCounts(const unsigned int* __restrict__ interactionCount,
+-        unsigned int* __restrict__ pinnedInteractionCount) {
++        unsigned int* __restrict__ pinnedInteractionCount
++#ifdef INDIRECT_REBUILD
++        , real2* __restrict__ blockSizeRange
++#endif
++        ) {
++#ifdef INDIRECT_REBUILD
++    blockSizeRange->x = 1e38;
++    blockSizeRange->y = 0;
++#endif
+     pinnedInteractionCount[0] = interactionCount[0];
+     pinnedInteractionCount[1] = interactionCount[1];
+ }
++
++#ifdef INDIRECT_REBUILD
++// A separate dispatch supplies the device-wide ordering between the per-tile
++// displacement test and the decision. No threadgroup waits for another group.
++extern "C" __global__ void prepareRebuildDispatch(const unsigned int* __restrict__ displacementFlags,
++        int* __restrict__ rebuildNeighborList, unsigned int* __restrict__ interactionCount,
++        unsigned int* __restrict__ dispatch) {
++    bool moved = false;
++    for (int i = threadIdx.x; i < NUM_BLOCKS; i += 32)
++        moved = moved || displacementFlags[i] != 0;
++    bool rebuild = simd_any(moved);
++    if (threadIdx.x == 0) {
++        rebuildNeighborList[0] = rebuild;
++        if (rebuild) {
++            interactionCount[0] = 0;
++            interactionCount[1] = 0;
++        }
++        dispatch[0] = rebuild ? (NUM_BLOCKS+63)/64 : 0;
++        dispatch[3] = rebuild ? (NUM_BLOCKS*32+SORT_BLOCK_SIZE-1)/SORT_BLOCK_SIZE : 0;
++        dispatch[6] = rebuild ? (NUM_BLOCKS+SORT_BLOCK_SIZE-1)/SORT_BLOCK_SIZE : 0;
++        dispatch[9] = rebuild ? (NUM_ATOMS+63)/64 : 0;
++        dispatch[12] = rebuild ? (NUM_BLOCKS*32*NUM_TILES_IN_BATCH+GROUP_SIZE-1)/GROUP_SIZE : 0;
++        for (int i = 0; i < 5; i++) {
++            dispatch[3*i+1] = 1;
++            dispatch[3*i+2] = 1;
++        }
++    }
++}
++#endif
+diff --git a/platforms/metal/tests/TestMetalCommandBatching.cpp b/platforms/metal/tests/TestMetalCommandBatching.cpp
+index 6675f4bba..bb131fe70 100644
+--- a/platforms/metal/tests/TestMetalCommandBatching.cpp
++++ b/platforms/metal/tests/TestMetalCommandBatching.cpp
+@@ -29,7 +29,8 @@
+ 
+ /**
+  * This tests that the Metal platform batches kernels into a few command buffers per step,
+- * instead of submitting each kernel separately.
++ * instead of submitting each kernel separately, and that work left open when step() returns
++ * still reaches the GPU.
+  */
+ 
+ #include "openmm/internal/AssertionUtilities.h"
+@@ -42,7 +43,9 @@
+ #include "openmm/LangevinMiddleIntegrator.h"
+ #include "openmm/NonbondedForce.h"
+ #include "openmm/System.h"
++#include <chrono>
+ #include <iostream>
++#include <thread>
+ 
+ using namespace OpenMM;
+ using namespace std;
+@@ -60,19 +63,17 @@ public:
+ 
+ static QueuePlatform platform;
+ 
+-double measureCommitsPerStep(NonbondedForce::NonbondedMethod method) {
++void createSystem(System& system, vector<Vec3>& positions, NonbondedForce::NonbondedMethod method) {
+     // NonbondedForce only uses a neighbor list for more than 3000 particles.
+ 
+     const int gridSize = 15;
+     const double spacing = 0.4;
+-    System system;
+     double boxSize = gridSize*spacing;
+     system.setDefaultPeriodicBoxVectors(Vec3(boxSize, 0, 0), Vec3(0, boxSize, 0), Vec3(0, 0, boxSize));
+     NonbondedForce* nonbonded = new NonbondedForce();
+     nonbonded->setNonbondedMethod(method);
+     nonbonded->setCutoffDistance(1.0);
+     HarmonicBondForce* bonds = new HarmonicBondForce();
+-    vector<Vec3> positions;
+     for (int i = 0; i < gridSize; i++)
+         for (int j = 0; j < gridSize; j++)
+             for (int k = 0; k < gridSize; k++) {
+@@ -86,6 +87,12 @@ double measureCommitsPerStep(NonbondedForce::NonbondedMethod method) {
+             }
+     system.addForce(nonbonded);
+     system.addForce(bonds);
++}
++
++double measureCommitsPerStep(NonbondedForce::NonbondedMethod method) {
++    System system;
++    vector<Vec3> positions;
++    createSystem(system, positions, method);
+     LangevinMiddleIntegrator integrator(300.0, 1.0, 0.002);
+     Context context(system, integrator, platform);
+     context.setPositions(positions);
+@@ -99,9 +106,10 @@ double measureCommitsPerStep(NonbondedForce::NonbondedMethod method) {
+ }
+ 
+ void testCommitsPerStep() {
+-    // Each step is submitted once.  With a neighbor list, the buffer holds the neighbor list and the
+-    // force kernels, and is submitted before the host waits for the interaction count, if it has to.
+-    // The rest of the step goes with the next step's neighbor list.
++    // The host submits each step at most once.  With a neighbor list, the buffer holds the neighbor list
++    // and the force kernels, and is submitted before the host waits for the interaction count, if it has
++    // to.  The rest of the step goes with the next step's neighbor list.  Steps without the wait can share
++    // a buffer, and the idle commit can split a step when the GPU runs out of work.
+ 
+     double noCutoff = measureCommitsPerStep(NonbondedForce::NoCutoff);
+     double pme = measureCommitsPerStep(NonbondedForce::PME);
+@@ -110,9 +118,58 @@ void testCommitsPerStep() {
+     ASSERT(pme <= 1.1);
+ }
+ 
++void testWorkLeftOpenAfterStep() {
++    // Work left open when step() returns must reach the GPU while the host does something else, and
++    // neither committing it from another thread nor sharing buffers between steps may change the
++    // trajectory.
++
++    System system;
++    vector<Vec3> positions;
++    createSystem(system, positions, NonbondedForce::PME);
++    map<string, string> properties;
++    properties[MetalPlatform::MetalDeterministicForces()] = "true";
++    LangevinMiddleIntegrator integrator1(300.0, 1.0, 0.002);
++    LangevinMiddleIntegrator integrator2(300.0, 1.0, 0.002);
++    integrator1.setRandomNumberSeed(5);
++    integrator2.setRandomNumberSeed(5);
++    Context context1(system, integrator1, platform, properties);
++    Context context2(system, integrator2, platform, properties);
++    context1.setPositions(positions);
++    context2.setPositions(positions);
++
++    // After 25 steps the neighbor list may ask for an early reorder, based on an interaction count whose
++    // age depends on how far ahead the host runs, so the two contexts could reorder at different steps.
++
++    const int numSteps = 25;
++    MetalQueue& queue = platform.getQueue(context1);
++    long long start = queue.getCommitCount();
++    integrator1.step(numSteps);
++
++    // The host leaves the queue alone for 50 ms, and a slow GPU gets up to 10 s more.
++
++    this_thread::sleep_for(chrono::milliseconds(50));
++    auto deadline = chrono::steady_clock::now()+chrono::seconds(10);
++    while (!queue.isDrained() && chrono::steady_clock::now() < deadline)
++        this_thread::sleep_for(chrono::milliseconds(1));
++    ASSERT(queue.isDrained());
++    cout << "Commits per step without a sync: " << (queue.getCommitCount()-start)/(double) numSteps << endl;
++
++    // context2 synchronizes after every step, so no command buffer holds work from two steps.
++
++    for (int i = 0; i < numSteps; i++) {
++        integrator2.step(1);
++        context2.getState(State::Positions);
++    }
++    vector<Vec3> positions1 = context1.getState(State::Positions).getPositions();
++    vector<Vec3> positions2 = context2.getState(State::Positions).getPositions();
++    for (int i = 0; i < system.getNumParticles(); i++)
++        ASSERT(positions1[i] == positions2[i]);
++}
++
+ int main(int argc, char* argv[]) {
+     try {
+         testCommitsPerStep();
++        testWorkLeftOpenAfterStep();
+     }
+     catch(const exception& e) {
+         cout << "exception: " << e.what() << endl;

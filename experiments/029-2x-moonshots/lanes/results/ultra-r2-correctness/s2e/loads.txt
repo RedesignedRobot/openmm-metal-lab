@@ -1,0 +1,33 @@
+2026-09-27T09:47:19Z round 1 pme mine-s load { 4.37 3.71 6.27 } vm 5% top other 414.8%, other 105.8%, other 29.0%, other 17.1%, other 15.8%
+2026-09-27T09:47:36Z round 1 pme mine-m load { 5.44 4.00 6.31 } vm 5% top other 196.0%, other 19.1%, other 10.1%, other 9.1%,  other 6.5%
+2026-09-27T09:47:56Z round 1 pme base-s load { 4.82 3.95 6.24 } vm 5% top other 100.7%, other 16.8%,  other 6.1%, other 5.6%, powermetrics 3.1%
+2026-09-27T09:48:13Z round 1 pme base-m load { 4.86 4.00 6.22 } vm 5% top other 100.3%, other 19.9%, other 4.6%, com.apple.Virtualization.VirtualMachine 4.2%, other 3.9%
+2026-09-27T09:48:29Z round 1 apoa1pme mine-s load { 4.57 3.99 6.17 } vm 4% top other 104.5%, other 53.4%, other 15.2%, other 7.2%, WindowServer 5.8%
+2026-09-27T09:48:48Z round 1 apoa1pme mine-m load { 3.85 3.86 6.07 } vm 5% top other 272.2%, other 269.6%, other 13.1%, other 10.5%, WindowServer 6.5%
+2026-09-27T09:49:10Z round 1 apoa1pme base-s load { 3.43 3.77 5.99 } vm 8% top other 99.0%, other 18.1%, other 11.3%, other 5.2%, com.apple.Virtualization.VirtualMachine 5.2%
+2026-09-27T09:49:29Z round 1 apoa1pme base-m load { 3.25 3.70 5.91 } vm 5% top other 99.2%, other 17.9%,  other 5.1%, other 4.7%, other 4.0%
+2026-09-27T09:49:48Z round 1 apoa1ljpme mine-s load { 3.18 3.65 5.84 } vm 4% top other 100.0%, other 18.1%, other 7.7%, other 5.4%, other 4.9%
+2026-09-27T09:50:07Z round 1 apoa1ljpme mine-m load { 3.93 3.78 5.84 } vm 4% top python 674.2%, other 100.0%, other 19.2%, other 5.9%, powermetrics 4.9%
+2026-09-27T09:50:27Z round 1 apoa1ljpme base-s load { 6.00 4.25 5.96 } vm 7% top python 671.9%, other 100.0%, other 19.1%,  other 7.5%, other 5.7%
+2026-09-27T09:50:46Z round 1 apoa1ljpme base-m load { 6.99 4.59 6.04 } vm 8% top python 668.7%, other 100.0%, other 19.1%, WindowServer 13.5%, other 8.5%
+2026-09-27T09:51:05Z round 1 amber20-dhfr mine-s load { 7.64 4.85 6.10 } vm 4% top python 675.4%, other 99.4%, other 19.9%, WindowServer 14.7%, other 8.8%
+2026-09-27T09:51:22Z round 1 amber20-dhfr mine-m load { 8.75 5.28 6.23 } vm 5% top python 667.7%, other 100.0%, other 19.7%, other 3.7%, powermetrics 3.3%
+2026-09-27T09:51:41Z round 1 amber20-dhfr base-s load { 9.36 5.65 6.34 } vm 8% top python 674.7%, other 100.4%, other 18.6%, powermetrics 13.3%, other 4.7%
+2026-09-27T09:51:58Z round 1 amber20-dhfr base-m load { 9.71 5.91 6.42 } vm 5% top python 673.5%, other 98.7%, other 18.0%, other 6.5%, com.apple.Virtualization.VirtualMachine 3.2%
+2026-09-27T09:52:15Z round 2 pme base-m load { 10.25 6.21 6.52 } vm 6% top python 562.4%, other 99.9%, other 52.8%, other 49.0%, other 16.0%
+2026-09-27T09:52:32Z round 2 pme base-s load { 11.43 6.74 6.70 } vm 7% top python 513.7%, other 178.8%, other 99.3%, other 19.3%, other 6.1%
+2026-09-27T09:52:48Z round 2 pme mine-m load { 11.47 6.98 6.79 } vm 6% top python 640.3%, other 100.3%, other 48.5%, other 19.4%, other 10.5%
+2026-09-27T09:53:05Z round 2 pme mine-s load { 11.58 7.23 6.88 } vm 5% top python 686.9%, other 104.9%, other 18.3%,  other 4.2%, WindowServer 3.3%
+2026-09-27T09:53:21Z round 2 pme mine-s BUILD RUNNING during the run
+2026-09-27T09:53:22Z round 2 apoa1pme base-m load { 12.17 7.64 7.03 } BUILD RUNNING vm 14% top python 547.4%, other 178.8%, other 98.9%, clang 72.7%, WindowServer 18.5%
+2026-09-27T09:53:40Z round 2 apoa1pme base-s load { 15.18 8.56 7.37 } BUILD RUNNING vm 8% top python 617.7%, other 98.8%, other 44.0%, other 21.4%, other 11.5%
+2026-09-27T09:53:59Z round 2 apoa1pme mine-m load { 16.12 9.19 7.62 } vm 6% top python 354.2%, other 99.7%, other 94.8%, other 79.0%, other 41.7%
+2026-09-27T09:54:18Z round 2 apoa1pme mine-s load { 16.49 9.74 7.86 } vm 6% top python 549.4%, other 226.7%, other 141.9%, other 18.4%, WindowServer 12.0%
+2026-09-27T09:54:37Z round 2 apoa1ljpme base-m load { 15.34 9.91 7.96 } vm 7% top python 677.9%, other 183.8%, other 24.0%, WindowServer 7.0%, other 6.1%
+2026-09-27T09:54:56Z round 2 apoa1ljpme base-s load { 13.88 9.93 8.02 } vm 8% top python 672.7%, other 123.7%, other 24.4%,  other 6.8%, WindowServer 5.8%
+2026-09-27T09:55:15Z round 2 apoa1ljpme mine-m load { 13.76 10.10 8.11 } vm 8% top python 686.6%, other 271.5%, other 22.3%, other 8.5%,  other 6.6%
+2026-09-27T09:55:34Z round 2 apoa1ljpme mine-s load { 13.25 10.23 8.20 } vm 34% top python 597.1%, other 98.8%, com.apple.Virtualization.VirtualMachine 30.2%, other 22.4%, other 19.6%
+2026-09-27T09:55:53Z round 2 amber20-dhfr base-m load { 11.91 10.12 8.21 } vm 5% top python 675.9%, other 100.0%, other 21.8%, other 4.8%, WindowServer 4.1%
+2026-09-27T09:56:10Z round 2 amber20-dhfr base-s load { 11.72 10.16 8.26 } vm 6% top python 667.7%, other 100.0%, other 23.0%, WindowServer 8.0%, other 7.3%
+2026-09-27T09:56:27Z round 2 amber20-dhfr mine-m load { 11.86 10.30 8.35 } vm 6% top python 593.0%, other 100.0%, other 68.1%, other 14.9%, other 11.3%
+2026-09-27T09:56:45Z round 2 amber20-dhfr mine-s load { 12.65 10.54 8.47 } vm 7% top other 602.4%, python 561.8%, other 65.4%,  other 32.7%, other 29.7%

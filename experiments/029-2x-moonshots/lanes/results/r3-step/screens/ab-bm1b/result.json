@@ -1,0 +1,221 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-bm1b",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "apoa1rf",
+   "label": "bm_m",
+   "median": 534.1071874018837,
+   "rounds": {
+    "1": 535.3305554493672,
+    "2": 532.8838193544003
+   },
+   "spread": 0.004580983279533927
+  },
+  {
+   "test": "apoa1rf",
+   "label": "bm_s",
+   "median": 592.7743948124075,
+   "rounds": {
+    "1": 591.8985476704039,
+    "2": 593.6502419544112
+   },
+   "spread": 0.0029550775123504142
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_m",
+   "median": 537.4896631334836,
+   "rounds": {
+    "1": 538.1772853609385,
+    "2": 536.8020409060288
+   },
+   "spread": 0.002558643540960944
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_s",
+   "median": 597.0479908823086,
+   "rounds": {
+    "1": 597.7388349738033,
+    "2": 596.357146790814
+   },
+   "spread": 0.002314199535195509
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "bm_m",
+   "median": 1224.5016844184954,
+   "rounds": {
+    "1": 1224.161523225251,
+    "2": 1224.84184561174
+   },
+   "spread": 0.0005555912214298856
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "bm_s",
+   "median": 1361.9375450659993,
+   "rounds": {
+    "1": 1360.7785096187142,
+    "2": 1363.0965805132844
+   },
+   "spread": 0.001702039056759994
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_m",
+   "median": 1249.1143564824104,
+   "rounds": {
+    "1": 1248.9099415846906,
+    "2": 1249.31877138013
+   },
+   "spread": 0.00032729573022503687
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_s",
+   "median": 1376.8586321570856,
+   "rounds": {
+    "1": 1377.7977913962038,
+    "2": 1375.9194729179671
+   },
+   "spread": 0.0013642057611201305
+  }
+ ],
+ "ratios": [
+  {
+   "test": "apoa1rf",
+   "num": "bm_m",
+   "den": "fold_m",
+   "ratio": 0.9937069008697198,
+   "round_min": 0.9927008072752198,
+   "round_max": 0.9947104235184098
+  },
+  {
+   "test": "amber20-dhfr",
+   "num": "bm_m",
+   "den": "fold_m",
+   "ratio": 0.9802959017033269,
+   "round_min": 0.9801839848211653,
+   "round_max": 0.9804077819615642
+  }
+ ],
+ "power": [
+  {
+   "test": "apoa1rf",
+   "label": "bm_m",
+   "gpu_w": 90.24579047619048,
+   "pkg_w": 93.07131666666666,
+   "ns_per_day_per_gpu_w": 5.91836122863589
+  },
+  {
+   "test": "apoa1rf",
+   "label": "bm_s",
+   "gpu_w": 94.69394523809524,
+   "pkg_w": 98.33385476190476,
+   "ns_per_day_per_gpu_w": 6.259897539615186
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_m",
+   "gpu_w": 90.46858095238096,
+   "pkg_w": 92.38454761904762,
+   "ns_per_day_per_gpu_w": 5.941174908186044
+  },
+  {
+   "test": "apoa1rf",
+   "label": "fold_s",
+   "gpu_w": 95.30565714285714,
+   "pkg_w": 103.14322619047618,
+   "ns_per_day_per_gpu_w": 6.264559825524013
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "bm_m",
+   "gpu_w": 58.21743333333333,
+   "pkg_w": 59.668457142857136,
+   "ns_per_day_per_gpu_w": 21.03324750521743
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "bm_s",
+   "gpu_w": 59.89634761904762,
+   "pkg_w": 61.515319047619045,
+   "ns_per_day_per_gpu_w": 22.738240296857267
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_m",
+   "gpu_w": 59.257714285714286,
+   "pkg_w": 61.02021428571429,
+   "ns_per_day_per_gpu_w": 21.07935433452154
+  },
+  {
+   "test": "amber20-dhfr",
+   "label": "fold_s",
+   "gpu_w": 59.36366666666667,
+   "pkg_w": 61.00086666666667,
+   "ns_per_day_per_gpu_w": 23.193625149340825
+  }
+ ],
+ "hygiene": {
+  "runs": 16,
+  "load": [
+   1.81,
+   3.42
+  ],
+  "vm_cpu": [
+   6,
+   28
+  ],
+  "no_result": [],
+  "build_overlap": [],
+  "foreign_gpu": [],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T12:30:37Z",
+ "last_run": "2026-09-29T12:36:23Z",
+ "arms": {
+  "fold_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "bm_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-bm",
+   "commit": "11e3b27c555e88fd93910a0b463398952711a472",
+   "src": "f21221d88176378dfde7aa0f606cda151b88c787",
+   "built": "2026-09-29T10:56:08Z"
+  },
+  "fold_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "bm_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step-bm",
+   "commit": "11e3b27c555e88fd93910a0b463398952711a472",
+   "src": "f21221d88176378dfde7aa0f606cda151b88c787",
+   "built": "2026-09-29T10:56:08Z"
+  }
+ },
+ "gpuq_job": null,
+ "written": "2026-09-29T12:49:18Z"
+}

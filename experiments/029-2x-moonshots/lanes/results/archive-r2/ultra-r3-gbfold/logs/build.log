@@ -1,0 +1,392 @@
+ninja: Entering directory `/tmp/openmm-metal-bench/ultra-r3-gbfold/build'
+[1/80] Generating src/MetalKernelSources.cpp, src/MetalKernelSources.h
+[2/74] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/src/MetalKernelSources.cpp.o
+In file included from platforms/metal/src/MetalKernelSources.cpp:26:
+In file included from platforms/metal/src/MetalKernelSources.h:30:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/string:594:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h:12:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h:12:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+1 warning generated.
+[3/74] Building CXX object platforms/metal/CMakeFiles/OpenMMMetal.dir/src/MetalKernels.cpp.o
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:29:
+In file included from ../src/platforms/metal/include/MetalPlatform.h:29:
+In file included from ../src/olla/include/openmm/Platform.h:33:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/map:577:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/equal.h:13:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h:12:
+In file included from /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config:15:
+/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/availability.h:204:4: warning: "The selected platform is no longer supported by libc++." [-W#warnings]
+  204 | #  warning "The selected platform is no longer supported by libc++."
+      |    ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:86:10: warning: 'addInteraction' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   86 |     void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:74:18: note: overridden virtual function is here
+   74 |     virtual void addInteraction(bool usesCutoff, bool usesPeriodic, bool usesExclusions, double cutoffDistance,
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:92:10: warning: 'addParameter' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   92 |     void addParameter(ComputeParameterInfo parameter);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:80:18: note: overridden virtual function is here
+   80 |     virtual void addParameter(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:99:10: warning: 'addArgument' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+   99 |     void addArgument(ComputeParameterInfo parameter);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:90:18: note: overridden virtual function is here
+   90 |     virtual void addArgument(ComputeParameterInfo parameter) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:108:17: warning: 'addEnergyParameterDerivative' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  108 |     std::string addEnergyParameterDerivative(const std::string& param);
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:99:25: note: overridden virtual function is here
+   99 |     virtual std::string addEnergyParameterDerivative(const std::string& param) = 0;
+      |                         ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:118:10: warning: 'initialize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  118 |     void initialize(const System& system);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:189:18: note: overridden virtual function is here
+  189 |     virtual void initialize(const System& system) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:122:9: warning: 'getNumForceBuffers' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  122 |     int getNumForceBuffers() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:103:17: note: overridden virtual function is here
+  103 |     virtual int getNumForceBuffers() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:134:10: warning: 'getUseCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  134 |     bool getUseCutoff() {
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:107:18: note: overridden virtual function is here
+  107 |     virtual bool getUseCutoff() = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:146:10: warning: 'getUsePeriodic' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  146 |     bool getUsePeriodic() {
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:111:18: note: overridden virtual function is here
+  111 |     virtual bool getUsePeriodic() = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:152:9: warning: 'getNumForceThreadBlocks' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  152 |     int getNumForceThreadBlocks() {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:115:17: note: overridden virtual function is here
+  115 |     virtual int getNumForceThreadBlocks() = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:158:9: warning: 'getForceThreadBlockSize' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  158 |     int getForceThreadBlockSize() {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:119:17: note: overridden virtual function is here
+  119 |     virtual int getForceThreadBlockSize() = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:164:12: warning: 'getMaxCutoffDistance' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  164 |     double getMaxCutoffDistance();
+      |            ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:123:20: note: overridden virtual function is here
+  123 |     virtual double getMaxCutoffDistance() = 0;
+      |                    ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:169:12: warning: 'padCutoff' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  169 |     double padCutoff(double cutoff);
+      |            ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:128:20: note: overridden virtual function is here
+  128 |     virtual double padCutoff(double cutoff) = 0;
+      |                    ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:173:10: warning: 'prepareInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  173 |     void prepareInteractions(int forceGroups);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:193:18: note: overridden virtual function is here
+  193 |     virtual void prepareInteractions(int forceGroups) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:181:10: warning: 'computeInteractions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  181 |     void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:201:18: note: overridden virtual function is here
+  201 |     virtual void computeInteractions(int forceGroups, bool includeForces, bool includeEnergy) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:191:17: warning: 'getBlockCenters' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  191 |     MetalArray& getBlockCenters() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:132:29: note: overridden virtual function is here
+  132 |     virtual ArrayInterface& getBlockCenters() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:197:17: warning: 'getBlockBoundingBoxes' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  197 |     MetalArray& getBlockBoundingBoxes() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:136:29: note: overridden virtual function is here
+  136 |     virtual ArrayInterface& getBlockBoundingBoxes() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:203:17: warning: 'getInteractionCount' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  203 |     MetalArray& getInteractionCount() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:140:29: note: overridden virtual function is here
+  140 |     virtual ArrayInterface& getInteractionCount() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:209:17: warning: 'getInteractingTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  209 |     MetalArray& getInteractingTiles() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:144:29: note: overridden virtual function is here
+  144 |     virtual ArrayInterface& getInteractingTiles() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:215:17: warning: 'getInteractingAtoms' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  215 |     MetalArray& getInteractingAtoms() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:148:29: note: overridden virtual function is here
+  148 |     virtual ArrayInterface& getInteractingAtoms() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:227:17: warning: 'getExclusions' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  227 |     MetalArray& getExclusions() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:152:29: note: overridden virtual function is here
+  152 |     virtual ArrayInterface& getExclusions() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:233:17: warning: 'getExclusionTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  233 |     MetalArray& getExclusionTiles() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:156:29: note: overridden virtual function is here
+  156 |     virtual ArrayInterface& getExclusionTiles() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:239:17: warning: 'getExclusionIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  239 |     MetalArray& getExclusionIndices() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:160:29: note: overridden virtual function is here
+  160 |     virtual ArrayInterface& getExclusionIndices() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:245:17: warning: 'getExclusionRowIndices' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  245 |     MetalArray& getExclusionRowIndices() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:164:29: note: overridden virtual function is here
+  164 |     virtual ArrayInterface& getExclusionRowIndices() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:252:17: warning: 'getRebuildNeighborList' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  252 |     MetalArray& getRebuildNeighborList() {
+      |                 ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:169:29: note: overridden virtual function is here
+  169 |     virtual ArrayInterface& getRebuildNeighborList() = 0;
+      |                             ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:258:9: warning: 'getStartTileIndex' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  258 |     int getStartTileIndex() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:173:17: note: overridden virtual function is here
+  173 |     virtual int getStartTileIndex() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:264:9: warning: 'getNumTiles' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  264 |     int getNumTiles() const {
+      |         ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:177:17: note: overridden virtual function is here
+  177 |     virtual int getNumTiles() const = 0;
+      |                 ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:274:10: warning: 'setUsePadding' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  274 |     void setUsePadding(bool padding);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:185:18: note: overridden virtual function is here
+  185 |     virtual void setUsePadding(bool padding) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:31:
+In file included from ../src/platforms/metal/include/MetalContext.h:45:
+../src/platforms/metal/include/MetalNonbondedUtilities.h:309:10: warning: 'setKernelSource' overrides a member function but is not marked 'override' [-Winconsistent-missing-override]
+  309 |     void setKernelSource(const std::string& source);
+      |          ^
+../src/platforms/common/include/openmm/common/NonbondedUtilities.h:205:18: note: overridden virtual function is here
+  205 |     virtual void setKernelSource(const std::string& source) = 0;
+      |                  ^
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:34:
+In file included from ../src/platforms/common/include/openmm/common/CommonKernels.h:33:
+In file included from ../src/openmmapi/include/openmm/internal/CompiledExpressionSet.h:33:
+In file included from ../src/libraries/lepton/include/lepton/CompiledExpression.h:42:
+In file included from ../src/libraries/asmjit/asmjit/a64.h:51:
+In file included from ../src/libraries/asmjit/asmjit/./arm.h:58:
+In file included from ../src/libraries/asmjit/asmjit/././core.h:1829:
+In file included from ../src/libraries/asmjit/asmjit/././core/assembler.h:9:
+In file included from ../src/libraries/asmjit/asmjit/././core/../core/codeholder.h:13:
+In file included from ../src/libraries/asmjit/asmjit/././core/../core/../core/string.h:10:
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/zone.h:448:12: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'asmjit::ZoneAllocator' [-Wnontrivial-memcall]
+  448 |     memset(this, 0, sizeof(*this));
+      |            ^
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/zone.h:448:12: note: explicitly cast the pointer to silence this warning
+  448 |     memset(this, 0, sizeof(*this));
+      |            ^
+      |            (void*)
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/zone.h:453:12: warning: first argument in call to 'memset' is a pointer to non-trivially copyable type 'asmjit::ZoneAllocator' [-Wnontrivial-memcall]
+  453 |     memset(this, 0, sizeof(*this));
+      |            ^
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/zone.h:453:12: note: explicitly cast the pointer to silence this warning
+  453 |     memset(this, 0, sizeof(*this));
+      |            ^
+      |            (void*)
+In file included from ../src/platforms/metal/src/MetalKernels.cpp:26:
+In file included from ../src/platforms/metal/include/MetalKernels.h:34:
+In file included from ../src/platforms/common/include/openmm/common/CommonKernels.h:33:
+In file included from ../src/openmmapi/include/openmm/internal/CompiledExpressionSet.h:33:
+In file included from ../src/libraries/lepton/include/lepton/CompiledExpression.h:42:
+In file included from ../src/libraries/asmjit/asmjit/a64.h:51:
+In file included from ../src/libraries/asmjit/asmjit/./arm.h:58:
+In file included from ../src/libraries/asmjit/asmjit/././core.h:1829:
+In file included from ../src/libraries/asmjit/asmjit/././core/assembler.h:9:
+In file included from ../src/libraries/asmjit/asmjit/././core/../core/codeholder.h:15:
+In file included from ../src/libraries/asmjit/asmjit/././core/../core/../core/target.h:10:
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/func.h:1339:12: warning: first argument in call to 'memcpy' is a pointer to non-trivially copyable type 'asmjit::FuncArgsAssignment' [-Wnontrivial-memcall]
+ 1339 |     memcpy(this, &other, sizeof(*this));
+      |            ^
+../src/libraries/asmjit/asmjit/././core/../core/../core/../core/func.h:1339:12: note: explicitly cast the pointer to silence this warning
+ 1339 |     memcpy(this, &other, sizeof(*this));
+      |            ^
+      |            (void*)
+32 warnings generated.
+[4/74] Linking CXX shared library libOpenMMMetal.dylib
+[5/74] Linking CXX executable TestMetalCMMotionRemover
+[6/74] Linking CXX shared library libOpenMMAmoebaMetal.dylib
+[7/74] Linking CXX shared library libOpenMMDrudeMetal.dylib
+[8/74] Linking CXX shared library libOpenMMRPMDMetal.dylib
+[9/74] Linking CXX executable TestMetalCMAPTorsionForce
+[10/74] Linking CXX executable TestMetalAndersenThermostat
+[11/74] Linking CXX executable TestMetalBrownianIntegrator
+[12/74] Linking CXX executable TestMetalATMForce
+[13/74] Linking CXX executable TestMetalCommandBatching
+[14/74] Linking CXX executable TestMetalCompoundIntegrator
+[15/74] Linking CXX executable TestMetalCheckpoints
+[16/74] Linking CXX executable TestMetalCustomCPPForce
+[17/74] Linking CXX executable TestMetalCustomAngleForce
+[18/74] Linking CXX executable TestMetalConstantPotentialForce
+[19/74] Linking CXX executable TestMetalCustomBondForce
+[20/74] Linking CXX executable TestMetalCustomCVForce
+[21/74] Linking CXX executable TestMetalCustomCentroidBondForce
+[22/74] Linking CXX executable TestMetalCustomCompoundBondForce
+[23/74] Linking CXX executable TestMetalCustomIntegrator
+[24/74] Linking CXX executable TestMetalCustomExternalForce
+[25/74] Linking CXX executable TestMetalCustomHbondForce
+[26/74] Linking CXX executable TestMetalCustomGBForce
+[27/74] Linking CXX executable TestMetalCustomNonbondedForce
+[28/74] Linking CXX executable TestMetalCustomManyParticleForce
+[29/74] Linking CXX executable TestMetalCustomTorsionForce
+[30/74] Linking CXX executable TestMetalDPDIntegrator
+[31/74] Linking CXX executable TestMetalDispersionPME
+[32/74] Linking CXX executable TestMetalFFT
+[33/74] Linking CXX executable TestMetalGBSAOBCForce
+[34/74] Linking CXX executable TestMetalEwald
+[35/74] Linking CXX executable TestMetalGayBerneForce
+[36/74] Linking CXX executable TestMetalHarmonicAngleForce
+[37/74] Linking CXX executable TestMetalHarmonicBondForce
+[38/74] Linking CXX executable TestMetalLCPOForce
+[39/74] Linking CXX executable TestMetalLangevinMiddleIntegrator
+[40/74] Linking CXX executable TestMetalLangevinIntegrator
+[41/74] Linking CXX executable TestMetalMonteCarloAnisotropicBarostat
+[42/74] Linking CXX executable TestMetalMixedPrecision
+[43/74] Linking CXX executable TestMetalLocalEnergyMinimizer
+[44/74] Linking CXX executable TestMetalMonteCarloBarostat
+[45/74] Linking CXX executable TestMetalMonteCarloFlexibleBarostat
+[46/74] Linking CXX executable TestMetalMultipleForces
+[47/74] Linking CXX executable TestMetalPythonForce
+[48/74] Linking CXX executable TestMetalNonbondedForce
+[49/74] Linking CXX executable TestMetalOrientationRestraintForce
+[50/74] Linking CXX executable TestMetalQTBIntegrator
+[51/74] Linking CXX executable TestMetalPeriodicTorsionForce
+[52/74] Linking CXX executable TestMetalNoseHooverIntegrator
+[53/74] Linking CXX executable TestMetalRBTorsionForce
+[54/74] Linking CXX executable TestMetalRGForce
+[55/74] Linking CXX executable TestMetalRandom
+[56/74] Linking CXX executable TestMetalRMSDForce
+[57/74] Linking CXX executable TestMetalSettle
+[58/74] Linking CXX executable TestMetalSort
+[59/74] Linking CXX executable TestMetalVariableLangevinIntegrator
+[60/74] Linking CXX executable TestMetalVariableVerletIntegrator
+[61/74] Linking CXX executable TestMetalVerletIntegrator
+[62/74] Linking CXX executable TestMetalAmoebaExtrapolatedPolarization
+[63/74] Linking CXX executable TestMetalVirtualSites
+[64/74] Linking CXX executable TestMetalAmoebaGeneralizedKirkwoodForce
+[65/74] Linking CXX executable TestMetalAmoebaTorsionTorsionForce
+[66/74] Linking CXX executable TestMetalAmoebaMultipoleForce
+[67/74] Linking CXX executable TestMetalAmoebaVdwForce
+[68/74] Linking CXX executable TestMetalHippoNonbondedForce
+[69/74] Linking CXX executable TestMetalDrudeForce
+[70/74] Linking CXX executable TestMetalWcaDispersionForce
+[71/74] Linking CXX executable TestMetalRpmd
+[72/74] Linking CXX executable TestMetalDrudeSCFIntegrator
+[73/74] Linking CXX executable TestMetalDrudeLangevinIntegrator
+[74/74] Linking CXX executable TestMetalDrudeNoseHoover

@@ -1,0 +1,55 @@
+median ns/day, host clock
+test                        e342          gate           ind
+gbsa                     1280.17       1310.92       1314.47
+rf                        793.35        804.82        798.90
+pme                       590.22        596.46        600.46
+apoa1rf                   301.54        304.58        305.96
+apoa1pme                  200.21        201.81        199.89
+apoa1ljpme                161.62        161.07        161.21
+
+rounds, e342:
+  gbsa               1289.10 1271.25   spread 1.4%
+  rf                 785.85 800.85   spread 1.9%
+  pme                591.12 589.31   spread 0.3%
+  apoa1rf            302.26 300.83   spread 0.5%
+  apoa1pme           200.84 199.58   spread 0.6%
+  apoa1ljpme         161.41 161.83   spread 0.3%
+rounds, gate:
+  gbsa               1304.49 1317.34   spread 1.0%
+  rf                 793.53 816.11   spread 2.8%
+  pme                594.49 598.42   spread 0.7%
+  apoa1rf            305.19 303.96   spread 0.4%
+  apoa1pme           201.82 201.80   spread 0.0%
+  apoa1ljpme         160.66 161.49   spread 0.5%
+rounds, ind:
+  gbsa               1308.70 1320.24   spread 0.9%
+  rf                 786.97 810.83   spread 3.0%
+  pme                602.33 598.58   spread 0.6%
+  apoa1rf            306.67 305.24   spread 0.5%
+  apoa1pme           198.62 201.17   spread 1.3%
+  apoa1ljpme         162.68 159.75   spread 1.8%
+
+test                                         gate/e342                            ind/e342
+gbsa                       1.024 (rounds 1.012..1.036)         1.027 (rounds 1.015..1.039)
+rf                         1.014 (rounds 1.010..1.019)         1.007 (rounds 1.001..1.012)
+pme                        1.011 (rounds 1.006..1.015)         1.017 (rounds 1.016..1.019)
+apoa1rf                    1.010 (rounds 1.010..1.010)         1.015 (rounds 1.015..1.015)
+apoa1pme                   1.008 (rounds 1.005..1.011)         0.998 (rounds 0.989..1.008)
+apoa1ljpme                 0.997 (rounds 0.995..0.998)         0.997 (rounds 0.987..1.008)
+
+1 minute load before 36 runs: 2.16 to 13.87
+Background VM CPU before 36 runs: 1% to 43%
+runs with no result: 0
+runs that overlapped a build: 12
+  2026-09-25T02:33:31Z round 1 apoa1pme gate BUILD RUNNING during the run
+  2026-09-25T02:33:31Z round 1 apoa1pme ind load { 9.20 4.41 3.49 } BUILD RUNNING vm 12%
+  2026-09-25T02:33:51Z round 1 apoa1ljpme e342 load { 8.61 4.61 3.59 } BUILD RUNNING vm 7%
+  2026-09-25T02:34:10Z round 1 apoa1ljpme gate load { 9.25 5.00 3.75 } BUILD RUNNING vm 7%
+  2026-09-25T02:34:29Z round 1 apoa1ljpme ind load { 13.87 6.31 4.25 } BUILD RUNNING vm 6%
+  2026-09-25T02:34:48Z round 2 gbsa ind load { 11.71 6.20 4.24 } BUILD RUNNING vm 15%
+  2026-09-25T02:35:38Z round 2 gbsa e342 BUILD RUNNING during the run
+  2026-09-25T02:37:00Z round 2 pme gate BUILD RUNNING during the run
+  2026-09-25T02:37:01Z round 2 pme e342 load { 3.91 5.07 4.08 } BUILD RUNNING vm 7%
+  2026-09-25T02:39:09Z round 2 apoa1pme e342 BUILD RUNNING during the run
+  2026-09-25T02:39:09Z round 2 apoa1ljpme ind load { 8.09 5.41 4.30 } BUILD RUNNING vm 8%
+  2026-09-25T02:39:29Z round 2 apoa1ljpme gate load { 8.09 5.56 4.38 } BUILD RUNNING vm 10%

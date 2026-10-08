@@ -1,5 +1,7 @@
 # Experiment 008: Host side cost of a Metal platform
 
+History: `results.md` lists the M3 Ultra as 32 CPU and 80 GPU cores. The machine has 28 CPU and 60 GPU cores.
+
 ## Question
 
 What does the host side of a Metal platform cost per molecular dynamics step on Apple silicon, and how should OpenMM batch its GPU commands to minimize overhead?

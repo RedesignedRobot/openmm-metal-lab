@@ -1,0 +1,3 @@
+cpu CPU mixed settings=none /fake/openmm/__init__.py fakerev not a build.sh tree
+cpu4 CPU mixed settings=OPENMM_CPU_THREADS=4 /fake/openmm/__init__.py fakerev not a build.sh tree
+metal Metal single settings=none /fake/openmm/__init__.py fakerev not a build.sh tree

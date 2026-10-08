@@ -1,0 +1,12 @@
+06:48:34Z waiting for the lease: 2 in the queue, held by: r2-infra 2026-09-27T06:48:11Z md100 pme proof r1 1, 3 build processes
+06:53:50Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch 2026-09-27T06:51:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-gbsa, about 7 min, 1 build processes
+06:59:32Z waiting for the lease: 1 in the queue, held by: ultra-r2-dispatch 2026-09-27T06:51:54Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-gbsa, about 7 min, 0 build processes
+2026-09-27T07:03:04Z build-policy demote pid=90280 tree=/tmp/openmm-metal-bench/ultra-r2-gayberne taskpolicy_exit=0
+2026-09-27T07:03:04Z build-policy demote pid=89695 tree=/tmp/openmm-metal-bench/ultra-r2-mixed-b taskpolicy_exit=0
+owned1-single: xctrace pid 90404 recording 07:03:06Z
+captured owned1-single 07:03:10Z: Target app exited, ending recording...
+saved owned1-single 07:04:03Z: Output file saved as: owned1-single.trace
+07:04:09Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-profiler (sampled shader timeline owned1-single). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+exported owned1-single 07:04:14Z, rows 247873, releasing
+2026-09-27T07:04:14Z build-policy promote pid=89695 tree=/tmp/openmm-metal-bench/ultra-r2-mixed-b taskpolicy_exit=0
+2026-09-27T07:04:14Z build-policy promote pid=90498 tree=/tmp/openmm-metal-bench/ultra-r2-gayberne taskpolicy_exit=0

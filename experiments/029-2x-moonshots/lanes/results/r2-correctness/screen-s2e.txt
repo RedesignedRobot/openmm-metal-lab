@@ -1,0 +1,41 @@
+median ns/day, host clock
+test                      base-m        base-s        mine-m        mine-s
+pme                       857.07        995.28        856.72        994.98
+apoa1pme                  274.47        306.99        272.52        305.80
+apoa1ljpme                218.16        240.95        218.02        241.10
+amber20-dhfr              877.04       1033.18        876.37       1027.60
+
+rounds, base-m:
+  pme                853.97 860.17   spread 0.7%
+  apoa1pme           275.36 273.58   spread 0.6%
+  apoa1ljpme         219.55 216.77   spread 1.3%
+  amber20-dhfr       878.45 875.63   spread 0.3%
+rounds, base-s:
+  pme                995.55 995.01   spread 0.1%
+  apoa1pme           307.57 306.40   spread 0.4%
+  apoa1ljpme         240.48 241.43   spread 0.4%
+  amber20-dhfr       1032.78 1033.57   spread 0.1%
+rounds, mine-m:
+  pme                856.27 857.16   spread 0.1%
+  apoa1pme           274.07 270.96   spread 1.1%
+  apoa1ljpme         218.66 217.39   spread 0.6%
+  amber20-dhfr       876.73 876.01   spread 0.1%
+rounds, mine-s:
+  pme                995.51 994.46   spread 0.1%
+  apoa1pme           307.21 304.39   spread 0.9%
+  apoa1ljpme         242.01 240.20   spread 0.7%
+  amber20-dhfr       1027.38 1027.83   spread 0.0%
+
+test                                     mine-s/base-s                       mine-m/base-m
+pme                        1.000 (rounds 0.999..1.000)         1.000 (rounds 0.997..1.003)
+apoa1pme                   0.996 (rounds 0.993..0.999)         0.993 (rounds 0.990..0.995)
+apoa1ljpme                 1.001 (rounds 0.995..1.006)         0.999 (rounds 0.996..1.003)
+amber20-dhfr               0.995 (rounds 0.994..0.995)         0.999 (rounds 0.998..1.000)
+
+1 minute load before 32 runs: 3.18 to 16.49
+Background VM CPU before 32 runs: 4% to 34%
+runs with no result: 0
+runs that overlapped a build: 3
+  2026-09-27T09:53:21Z round 2 pme mine-s BUILD RUNNING during the run
+  2026-09-27T09:53:22Z round 2 apoa1pme base-m load { 12.17 7.64 7.03 } BUILD RUNNING vm 14%
+  2026-09-27T09:53:40Z round 2 apoa1pme base-s load { 15.18 8.56 7.37 } BUILD RUNNING vm 8%

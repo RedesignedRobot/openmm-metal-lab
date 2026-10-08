@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1446, in __init__
+    from scipy.io import netcdf_file
+ModuleNotFoundError: No module named 'scipy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1535, in readAmberCoordinates
+    crdfile = AmberNetcdfRestart(filename)
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1448, in __init__
+    raise ImportError('scipy is necessary to parse NetCDF restarts')
+ImportError: scipy is necessary to parse NetCDF restarts
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1539, in readAmberCoordinates
+    crdfile = AmberAsciiRestart(filename)
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1264, in __init__
+    lines = f.readlines()
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84 in position 399: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-profiler/tools/prof.py", line 24, in <module>
+    system, positions, _ = retrieveTestSystem(test)
+                           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<string>", line 191, in retrieveTestSystem
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/amberinpcrdfile.py", line 79, in __init__
+    results = amber_file_parser.readAmberCoordinates(file)
+  File "/tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/app/internal/amber_file_parser.py", line 1545, in readAmberCoordinates
+    raise TypeError('Could not parse Amber ASCII restart file %s' %
+                    filename)
+TypeError: Could not parse Amber ASCII restart file Amber20_Benchmark_Suite/PME/Coordinates/JAC.inpcrd

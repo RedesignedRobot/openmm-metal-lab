@@ -1,0 +1,75 @@
+{
+  "raw_outdir": "/tmp/openmm-metal-bench/ultra-m29-mixed/minimizer-confirm",
+  "round_seconds": 30,
+  "rounds": 3,
+  "arms": {
+    "base-single": {
+      "round_wall_seconds": [
+        0.7637828330007324,
+        0.8778127080004197,
+        0.8594846249980037
+      ],
+      "median_seconds": 0.8594846249980037,
+      "sample_counts": [
+        39,
+        34,
+        35
+      ]
+    },
+    "base-mixed": {
+      "round_wall_seconds": [
+        8.483434000498164,
+        7.758301750000101,
+        7.849193978998301
+      ],
+      "median_seconds": 7.849193978998301,
+      "sample_counts": [
+        4,
+        4,
+        4
+      ]
+    },
+    "mine-single": {
+      "round_wall_seconds": [
+        0.8092133749996719,
+        0.8541469579977274,
+        0.8994695420005883
+      ],
+      "median_seconds": 0.8541469579977274,
+      "sample_counts": [
+        37,
+        36,
+        33
+      ]
+    },
+    "mine-mixed": {
+      "round_wall_seconds": [
+        0.7714720830008446,
+        0.8626001874999929,
+        0.9832019165005477
+      ],
+      "median_seconds": 0.8626001874999929,
+      "sample_counts": [
+        39,
+        34,
+        32
+      ]
+    },
+    "cpu": {
+      "round_wall_seconds": [
+        5.828598083500765,
+        6.7225105420002365,
+        5.509434645999136
+      ],
+      "median_seconds": 5.828598083500765,
+      "sample_counts": [
+        6,
+        5,
+        6
+      ]
+    }
+  },
+  "mixed_over_single_wall": 1.0098966921594865,
+  "mixed_speedup": 9.099457770519399,
+  "load_caveat": "External tsgolint, indexing and build activity overlapped; not a fully quiet confirmation."
+}

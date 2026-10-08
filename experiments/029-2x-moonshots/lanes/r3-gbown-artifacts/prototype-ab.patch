@@ -1,0 +1,639 @@
+diff --git a/platforms/metal/include/MetalKernels.h b/platforms/metal/include/MetalKernels.h
+index 2d1600fcf..4de94103f 100644
+--- a/platforms/metal/include/MetalKernels.h
++++ b/platforms/metal/include/MetalKernels.h
+@@ -143,7 +143,7 @@ public:
+ private:
+     bool createOwnedKernels();
+     MetalContext& cu;
+-    bool hasCheckedOwned = false, useOwned = false;
++    bool hasCheckedOwned = false, useOwned = false, useRowOwned = false;
+     ComputeArray partialBornSum, partialForce, atomData;
+     ComputeKernel ownedBornSumKernel, ownedReduceBornSumKernel, ownedForce1Kernel, ownedReduceBornForceKernel;
+ };
+diff --git a/platforms/metal/src/MetalKernels.cpp b/platforms/metal/src/MetalKernels.cpp
+index 771d8ec53..67ced24b1 100644
+--- a/platforms/metal/src/MetalKernels.cpp
++++ b/platforms/metal/src/MetalKernels.cpp
+@@ -129,6 +129,7 @@ void MetalIntegrateLangevinMiddleStepKernel::integrate(double tol) {
+ 
+ // Lanes that share one atom in the reduction kernels.
+ static const int REDUCE_LANES = 8;
++static const int ROW_THREADS = 512;
+ 
+ // The block-pair kernels win when the half-list launch leaves the GPU short of work, so that its tail after the last
+ // atomics is exposed, and lose when the launch already fills the GPU, since they read and write one partial per atom
+@@ -153,7 +154,9 @@ bool MetalCalcGBSAOBCForceKernel::createOwnedKernels() {
+     long long partialBytes = (long long) numBlocks*paddedAtoms*(sizeof(float)+sizeof(mm_float4));
+     if (partialBytes > cu.getDevice()->recommendedMaxWorkingSetSize()/100)
+         return false;
+-    partialBornSum.initialize<float>(cu, numBlocks*paddedAtoms, "partialBornSum");
++    useRowOwned = cu.getDevice()->supportsFamily(MTL::GPUFamilyApple9);
++    if (!useRowOwned)
++        partialBornSum.initialize<float>(cu, numBlocks*paddedAtoms, "partialBornSum");
+     partialForce.initialize<mm_float4>(cu, numBlocks*paddedAtoms, "partialForce");
+     atomData.initialize<mm_float4>(cu, paddedAtoms, "gbsaAtomData");
+     map<string, string> defines;
+@@ -169,27 +172,35 @@ bool MetalCalcGBSAOBCForceKernel::createOwnedKernels() {
+     defines["NUM_BLOCK_PAIRS"] = cu.intToString(numBlocks*(numBlocks+1)/2);
+     defines["TILE_SIZE"] = "32";
+     defines["REDUCE_LANES"] = cu.intToString(REDUCE_LANES);
++    defines["ROW_THREADS"] = cu.intToString(ROW_THREADS);
+     defines["DIELECTRIC_OFFSET"] = "0.009f";
+     defines["PROBE_RADIUS"] = "0.14f";
+     ComputeProgram program = cu.compileProgram(MetalKernelSources::gbsaObcOwned, defines);
+-    ownedBornSumKernel = program->createKernel("computeBornSumOwned");
+-    ownedBornSumKernel->addArg(partialBornSum);
++    ownedBornSumKernel = program->createKernel(useRowOwned ? "computeBornSumRowOwned" : "computeBornSumOwned");
++    ownedBornSumKernel->addArg(useRowOwned ? bornRadii : partialBornSum);
+     ownedBornSumKernel->addArg(cu.getPosq());
+     ownedBornSumKernel->addArg(params);
+     for (int i = 0; i < 5; i++)
+         ownedBornSumKernel->addArg(); // The periodic box size arguments are set when the kernel is executed.
+     ownedBornSumKernel->addArg(nb.getBlockCenters());
+     ownedBornSumKernel->addArg(nb.getBlockBoundingBoxes());
+-    ownedReduceBornSumKernel = program->createKernel("reduceBornSumOwned");
+-    ownedReduceBornSumKernel->addArg(1.0f);
+-    ownedReduceBornSumKernel->addArg(0.8f);
+-    ownedReduceBornSumKernel->addArg(4.85f);
+-    ownedReduceBornSumKernel->addArg(partialBornSum);
+-    ownedReduceBornSumKernel->addArg(params);
+-    ownedReduceBornSumKernel->addArg(charges);
+-    ownedReduceBornSumKernel->addArg(bornRadii);
+-    ownedReduceBornSumKernel->addArg(obcChain);
+-    ownedReduceBornSumKernel->addArg(atomData);
++    if (useRowOwned) {
++        ownedBornSumKernel->addArg(charges);
++        ownedBornSumKernel->addArg(obcChain);
++        ownedBornSumKernel->addArg(atomData);
++    }
++    else {
++        ownedReduceBornSumKernel = program->createKernel("reduceBornSumOwned");
++        ownedReduceBornSumKernel->addArg(1.0f);
++        ownedReduceBornSumKernel->addArg(0.8f);
++        ownedReduceBornSumKernel->addArg(4.85f);
++        ownedReduceBornSumKernel->addArg(partialBornSum);
++        ownedReduceBornSumKernel->addArg(params);
++        ownedReduceBornSumKernel->addArg(charges);
++        ownedReduceBornSumKernel->addArg(bornRadii);
++        ownedReduceBornSumKernel->addArg(obcChain);
++        ownedReduceBornSumKernel->addArg(atomData);
++    }
+     ownedForce1Kernel = program->createKernel("computeGBSAForce1Owned");
+     ownedForce1Kernel->addArg(partialForce);
+     ownedForce1Kernel->addArg(cu.getEnergyBuffer());
+@@ -225,8 +236,12 @@ double MetalCalcGBSAOBCForceKernel::execute(ContextImpl& context, bool includeFo
+     ownedForce1Kernel->setArg(4, (int) includeEnergy);
+     setPeriodicBoxArgs(cu, ownedBornSumKernel, 3);
+     setPeriodicBoxArgs(cu, ownedForce1Kernel, 5);
+-    ownedBornSumKernel->execute(threads, nb.getForceThreadBlockSize());
+-    ownedReduceBornSumKernel->execute(cu.getPaddedNumAtoms()*REDUCE_LANES);
++    if (useRowOwned)
++        ownedBornSumKernel->execute(cu.getNumAtomBlocks()*ROW_THREADS, ROW_THREADS);
++    else {
++        ownedBornSumKernel->execute(threads, nb.getForceThreadBlockSize());
++        ownedReduceBornSumKernel->execute(cu.getPaddedNumAtoms()*REDUCE_LANES);
++    }
+     ownedForce1Kernel->execute(threads, nb.getForceThreadBlockSize());
+     ownedReduceBornForceKernel->execute(cu.getPaddedNumAtoms()*REDUCE_LANES);
+     return 0.0;
+diff --git a/platforms/metal/src/kernels/gbsaObcOwned.metal b/platforms/metal/src/kernels/gbsaObcOwned.metal
+index d15d6deb2..bd11354b5 100644
+--- a/platforms/metal/src/kernels/gbsaObcOwned.metal
++++ b/platforms/metal/src/kernels/gbsaObcOwned.metal
+@@ -226,6 +226,27 @@ DEVICE mm_long sumOverReduceLanes(mm_long value) {
+     return value;
+ }
+ 
++// Both paths round each block sum before the exact integer reduction.
++DEVICE void storeBornRadius(unsigned int index, mm_long fixedSum, float alpha, float beta, float gamma,
++        GLOBAL const float2* RESTRICT params, GLOBAL const real* RESTRICT charge,
++        GLOBAL real* RESTRICT bornRadii, GLOBAL real* RESTRICT obcChain, GLOBAL real4* RESTRICT atomData) {
++    real sum = RECIP((real) 0x100000000)*fixedSum;
++    // Now calculate Born radius and OBC term.
++
++    float offsetRadius = params[index].x;
++    sum *= 0.5f*offsetRadius;
++    real sum2 = sum*sum;
++    real sum3 = sum*sum2;
++    real tanhSum = tanh(alpha*sum - beta*sum2 + gamma*sum3);
++    real nonOffsetRadius = offsetRadius + DIELECTRIC_OFFSET;
++    real radius = RECIP(RECIP(offsetRadius) - tanhSum/nonOffsetRadius);
++    real chain = offsetRadius*(alpha - 2*beta*sum + 3*gamma*sum2);
++    chain = (1-tanhSum*tanhSum)*chain / nonOffsetRadius;
++    bornRadii[index] = radius;
++    obcChain[index] = chain;
++    atomData[index] = make_real4(charge[index], radius, RECIP(radius), 0);
++}
++
+ /**
+  * Add each atom's Born sum over the chunks and compute the Born radii.  REDUCE_LANES lanes share an atom, each
+  * adding every REDUCE_LANES-th chunk.
+@@ -241,22 +262,7 @@ KERNEL void reduceBornSumOwned(float alpha, float beta, float gamma, GLOBAL cons
+         fixedSum = sumOverReduceLanes(fixedSum);
+         if (part != 0 || index >= NUM_ATOMS)
+             continue;
+-        real sum = RECIP((real) 0x100000000)*fixedSum;
+-
+-        // Now calculate Born radius and OBC term.
+-
+-        float offsetRadius = params[index].x;
+-        sum *= 0.5f*offsetRadius;
+-        real sum2 = sum*sum;
+-        real sum3 = sum*sum2;
+-        real tanhSum = tanh(alpha*sum - beta*sum2 + gamma*sum3);
+-        real nonOffsetRadius = offsetRadius + DIELECTRIC_OFFSET;
+-        real radius = RECIP(RECIP(offsetRadius) - tanhSum/nonOffsetRadius);
+-        real chain = offsetRadius*(alpha - 2*beta*sum + 3*gamma*sum2);
+-        chain = (1-tanhSum*tanhSum)*chain / nonOffsetRadius;
+-        bornRadii[index] = radius;
+-        obcChain[index] = chain;
+-        atomData[index] = make_real4(charge[index], radius, RECIP(radius), 0);
++        storeBornRadius(index, fixedSum, alpha, beta, gamma, params, charge, bornRadii, obcChain, atomData);
+     }
+ }
+ 
+@@ -303,3 +309,37 @@ KERNEL void reduceBornForceOwned(GLOBAL const real4* RESTRICT partialForce, GLOB
+     }
+     energyBuffer[GLOBAL_ID] += energy/-6;
+ }
++
++/**
++ * One threadgroup owns a row. SIMD groups divide the y blocks and reduce their
++ * integer sums locally before writing the radii. No cross-threadgroup handoff.
++ */
++KERNEL void computeBornSumRowOwned(GLOBAL real* RESTRICT bornRadii, GLOBAL const real4* RESTRICT posq,
++        GLOBAL const float2* RESTRICT params, real4 periodicBoxSize, real4 invPeriodicBoxSize,
++        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ,
++        GLOBAL const real4* RESTRICT blockCenter, GLOBAL const real4* RESTRICT blockSize,
++        GLOBAL const real* RESTRICT charge, GLOBAL real* RESTRICT obcChain, GLOBAL real4* RESTRICT atomData) {
++    LOCAL mm_long sums[ROW_THREADS];
++    const unsigned int lane = LOCAL_ID%TILE_SIZE;
++    const unsigned int simd = LOCAL_ID/TILE_SIZE;
++    for (unsigned int x = GROUP_ID; x < NUM_BLOCKS; x += NUM_GROUPS) {
++        mm_long sum = 0;
++        for (unsigned int y = simd; y < NUM_BLOCKS; y += ROW_THREADS/TILE_SIZE) {
++            if (blocksInRange(blockCenter[x], blockSize[x], blockCenter[y], blockSize[y], periodicBoxSize,
++                    invPeriodicBoxSize, periodicBoxVecX, periodicBoxVecY, periodicBoxVecZ))
++                sum += realToFixedPoint(bornSumOverBlock(x, y, lane, posq, params, periodicBoxSize,
++                        invPeriodicBoxSize, periodicBoxVecX, periodicBoxVecY, periodicBoxVecZ));
++        }
++        sums[LOCAL_ID] = sum;
++        SYNC_THREADS;
++        if (simd == 0) {
++            mm_long total = 0;
++            for (unsigned int i = 0; i < ROW_THREADS/TILE_SIZE; i++)
++                total += sums[i*TILE_SIZE+lane];
++            unsigned int atom = x*TILE_SIZE+lane;
++            if (atom < NUM_ATOMS)
++                storeBornRadius(atom, total, 1.0f, 0.8f, 4.85f, params, charge, bornRadii, obcChain, atomData);
++        }
++        SYNC_THREADS;
++    }
++}
+diff --git a/platforms/metal/include/MetalNonbondedUtilities.h b/platforms/metal/include/MetalNonbondedUtilities.h
+index 43cdd7c35..465ec5fd9 100644
+--- a/platforms/metal/include/MetalNonbondedUtilities.h
++++ b/platforms/metal/include/MetalNonbondedUtilities.h
+@@ -284,7 +284,7 @@ public:
+      * @param includeForces whether this kernel should compute forces
+      * @param includeEnergy whether this kernel should compute potential energy
+      */
+-    metalFunction_t createInteractionKernel(const std::string& source, std::vector<ComputeParameterInfo>& params, std::vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy);
++    metalFunction_t createInteractionKernel(const std::string& source, std::vector<ComputeParameterInfo>& params, std::vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy, bool owned = false);
+     /**
+      * Create the set of kernels that will be needed for a particular combination of force groups.
+      *
+@@ -340,6 +340,10 @@ private:
+     double maxCutoff;
+     bool useCutoff, usePeriodic, anyExclusions, usePadding, useNeighborList, forceRebuildNeighborList, canUsePairList, useLargeBlocks, hasInitializedParams, waitForCount;
+     bool useLJPME = false;
++    bool useOwnedDirect = false;
++    MetalArray ownedPartialForce, ownedPairExclusions;
++    metalFunction_t ownedReduceKernel = NULL;
++    std::vector<void*> ownedReduceArgs;
+     int startTileIndex, startBlockIndex, numBlocks, numTilesInBatch, maxExclusions;
+     int numForceThreadBlocks, forceThreadBlockSize, findInteractingBlocksThreadBlockSize, numAtoms, groupFlags, paramStartIndex;
+     unsigned int maxTiles, maxSinglePairs, tilesAfterReorder;
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index 73c1c3b98..8fbd5fbe3 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -24,6 +24,13 @@
+  * -------------------------------------------------------------------------- */
+ 
+ #include "openmm/OpenMMException.h"
++#include "openmm/GBSAOBCForce.h"
++#include "openmm/NonbondedForce.h"
++#include "openmm/HarmonicBondForce.h"
++#include "openmm/HarmonicAngleForce.h"
++#include "openmm/PeriodicTorsionForce.h"
++#include "openmm/RBTorsionForce.h"
++#include "openmm/CMMotionRemover.h"
+ #include "MetalNonbondedUtilities.h"
+ #include "MetalArray.h"
+ #include "MetalContext.h"
+@@ -164,6 +171,39 @@ static bool compareInt2LargeSIMD(int2 a, int2 b) {
+     return ((a.y < b.y) || (a.y == b.y && a.x < b.x));
+ }
+ 
++// Only this force set has no other consumer of the neighbor list. Keep the
++// periodic and general custom-force paths until they have independent coverage.
++static bool isSmallOwnedGBSystem(const System& system, MetalContext& context, int forceThreads) {
++    if (!context.getDevice()->supportsFamily(MTL::GPUFamilyApple9) || context.getUseDoublePrecision() ||
++            context.getPlatformData().contexts.size() != 1)
++        return false;
++    const long long blocks = context.getNumAtomBlocks();
++    const long long bytes = blocks*context.getPaddedNumAtoms()*(2*sizeof(mm_float4)+sizeof(float));
++    if (blocks*blocks > 2*(forceThreads/32) || bytes > context.getDevice()->recommendedMaxWorkingSetSize()/100)
++        return false;
++    int gb = 0, nb = 0;
++    for (int i = 0; i < system.getNumForces(); i++) {
++        const Force& force = system.getForce(i);
++        if (const auto* obc = dynamic_cast<const GBSAOBCForce*>(&force)) {
++            if (obc->getNonbondedMethod() != GBSAOBCForce::CutoffNonPeriodic)
++                return false;
++            gb++;
++        }
++        else if (const auto* direct = dynamic_cast<const NonbondedForce*>(&force)) {
++            if (direct->getNonbondedMethod() != NonbondedForce::CutoffNonPeriodic)
++                return false;
++            nb++;
++        }
++        else if (dynamic_cast<const HarmonicBondForce*>(&force) == NULL &&
++                dynamic_cast<const HarmonicAngleForce*>(&force) == NULL &&
++                dynamic_cast<const PeriodicTorsionForce*>(&force) == NULL &&
++                dynamic_cast<const RBTorsionForce*>(&force) == NULL &&
++                dynamic_cast<const CMMotionRemover*>(&force) == NULL)
++            return false;
++    }
++    return gb == 1 && nb == 1;
++}
++
+ void MetalNonbondedUtilities::initialize(const System& system) {
+     string errorMessage = "Error initializing nonbonded utilities";
+     if (atomExclusions.size() == 0) {
+@@ -248,6 +288,21 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+     atomExclusions.clear(); // We won't use this again, so free the memory it used
+     exclusions.upload(exclusionVec);
+ 
++    useOwnedDirect = useCutoff && !usePeriodic &&
++            isSmallOwnedGBSystem(system, context, numForceThreadBlocks*forceThreadBlockSize);
++    if (useOwnedDirect) {
++        ownedPartialForce.initialize<mm_float4>(context, numAtomBlocks*context.getPaddedNumAtoms(), "ownedDirectPartialForce");
++        vector<int> pairExclusions(numAtomBlocks*(numAtomBlocks+1)/2, -1);
++        for (int i = 0; i < exclusionTilesVec.size(); i++) {
++            int2 pair = exclusionTilesVec[i];
++            pairExclusions[pair.x*(pair.x+1)/2+pair.y] = i;
++        }
++        ownedPairExclusions.initialize<int>(context, pairExclusions.size(), "ownedDirectPairExclusions");
++        ownedPairExclusions.upload(pairExclusions);
++        ownedReduceArgs.push_back(&ownedPartialForce.getDevicePointer());
++        ownedReduceArgs.push_back(&context.unwrap(context.getLongForceBuffer()).getDevicePointer());
++    }
++
+     // Create data structures for the neighbor list.
+ 
+     maxCutoff = getMaxCutoffDistance();
+@@ -328,6 +383,10 @@ void MetalNonbondedUtilities::initialize(const System& system) {
+         forceArgs.push_back(NULL);
+     if (energyParameterDerivatives.size() > 0)
+         forceArgs.push_back(&context.unwrap(context.getEnergyParamDerivBuffer()).getDevicePointer());
++    if (useOwnedDirect) {
++        forceArgs.push_back(&ownedPartialForce.getDevicePointer());
++        forceArgs.push_back(&ownedPairExclusions.getDevicePointer());
++    }
+     if (useCutoff) {
+         findBlockBoundsArgs.push_back(&numAtoms);
+         findBlockBoundsArgs.push_back(context.getPeriodicBoxSizePointer());
+@@ -425,6 +484,8 @@ void MetalNonbondedUtilities::prepareInteractions(int forceGroups) {
+     // Compute the neighbor list.
+ 
+     context.executeKernelFlat(kernels.findBlockBoundsKernel, &findBlockBoundsArgs[0], context.getPaddedNumAtoms(), context.getSIMDWidth());
++    if (useOwnedDirect)
++        return;
+     context.executeKernelFlat(kernels.computeSortKeysKernel, &computeSortKeysArgs[0], context.getNumAtomBlocks());
+     blockSorter->sort(sortedBlocks);
+     context.executeKernelFlat(kernels.sortBoxDataKernel, &sortBoxDataArgs[0], context.getNumAtoms(), 64);
+@@ -453,12 +514,20 @@ void MetalNonbondedUtilities::computeInteractions(int forceGroups, bool includeF
+     if (kernels.hasForces && (includeForces || includeEnergy)) {
+         metalFunction_t& kernel = (includeForces ? (includeEnergy ? kernels.forceEnergyKernel : kernels.forceKernel) : kernels.energyKernel);
+         if (kernel == NULL)
+-            kernel = createInteractionKernel(kernels.source, parameters, arguments, true, true, forceGroups, includeForces, includeEnergy);
++            kernel = createInteractionKernel(kernels.source, parameters, arguments, true, true, forceGroups, includeForces, includeEnergy, useOwnedDirect);
+         if (!hasInitializedParams)
+             initParamArgs();
+         context.executeKernelFlat(kernel, &forceArgs[0], numForceThreadBlocks*forceThreadBlockSize, forceThreadBlockSize);
++        if (useOwnedDirect && includeForces) {
++            // The pair pass may overlap bonded work, but its partials must be
++            // complete before the reduction reads them.
++            context.getCurrentStream().setConcurrentDispatch(false);
++            context.executeKernelFlat(ownedReduceKernel, &ownedReduceArgs[0], context.getPaddedNumAtoms()*8, 64);
++        }
+     }
+-    if (useNeighborList && numTiles > 0) {
++    if (useOwnedDirect)
++        context.getCurrentStream().commit();
++    else if (useNeighborList && numTiles > 0) {
+         context.getCurrentStream().commit();
+         // Without the wait, the count comes from an earlier step.  It can't exceed the arrays, so it only
+         // guides reordering, which needs the exact count right after a reorder.
+@@ -616,7 +685,7 @@ static string loadParameter(const ComputeParameterInfo& param, const string& ind
+     return "make_"+param.getType()+"("+array+"[3*"+index+"], "+array+"[3*"+index+"+1], "+array+"[3*"+index+"+2])";
+ }
+ 
+-metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& source, vector<ComputeParameterInfo>& params, vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy) {
++metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& source, vector<ComputeParameterInfo>& params, vector<ComputeParameterInfo>& arguments, bool useExclusions, bool isSymmetric, int groups, bool includeForces, bool includeEnergy, bool owned) {
+     map<string, string> replacements;
+     replacements["COMPUTE_INTERACTION"] = source;
+     const string suffixes[] = {"x", "y", "z", "w"};
+@@ -757,7 +826,9 @@ metalFunction_t MetalNonbondedUtilities::createInteractionKernel(const string& s
+     int endExclusionIndex = (context.getContextIndex()+1)*numExclusionTiles/numContexts;
+     defines["FIRST_EXCLUSION_TILE"] = context.intToString(startExclusionIndex);
+     defines["LAST_EXCLUSION_TILE"] = context.intToString(endExclusionIndex);
+-    metalModule_t program = context.createModule(MetalKernelSources::vectorOps+context.replaceStrings(kernelSource, replacements), defines);
++    metalModule_t program = context.createModule(MetalKernelSources::vectorOps+context.replaceStrings(owned ? MetalKernelSources::nonbondedOwned : kernelSource, replacements), defines);
++    if (owned)
++        ownedReduceKernel = context.getKernel(program, "reduceNonbondedOwned");
+     metalFunction_t kernel = context.getKernel(program, "computeNonbonded");
+     return kernel;
+ }
+diff --git a/platforms/metal/src/kernels/nonbondedOwned.metal b/platforms/metal/src/kernels/nonbondedOwned.metal
+new file mode 100644
+index 000000000..6586c938d
+--- /dev/null
++++ b/platforms/metal/src/kernels/nonbondedOwned.metal
+@@ -0,0 +1,121 @@
++/**
++ * Direct interactions for small GB systems. Each SIMD group owns an unordered
++ * block pair, including pairs with exclusions, and writes both endpoint slots.
++ * The composed interaction body retains Coulomb, LJ and the OBC chain rule.
++ */
++DEVICE bool ownedBlocksInRange(real4 a, real4 sa, real4 b, real4 sb,
++        real4 periodicBoxSize, real4 invPeriodicBoxSize, real4 periodicBoxVecX,
++        real4 periodicBoxVecY, real4 periodicBoxVecZ) {
++    real4 delta = b-a;
++#ifdef USE_PERIODIC
++    APPLY_PERIODIC_TO_DELTA(delta)
++#endif
++    delta.x = max((real) 0, fabs(delta.x)-sa.x-sb.x);
++    delta.y = max((real) 0, fabs(delta.y)-sa.y-sb.y);
++    delta.z = max((real) 0, fabs(delta.z)-sa.z-sb.z);
++    return delta.x*delta.x+delta.y*delta.y+delta.z*delta.z < MAX_CUTOFF_SQUARED*1.0001f;
++}
++
++extern "C" __launch_bounds__(THREAD_BLOCK_SIZE) __global__ void computeNonbonded(
++        unsigned long long* __restrict__ forceBuffers, mixed* __restrict__ energyBuffer, const real4* __restrict__ posq, const tileflags* __restrict__ exclusions,
++        const int2* __restrict__ exclusionTiles, unsigned int startTileIndex, unsigned long long numTileIndices
++#ifdef USE_CUTOFF
++        , const int* __restrict__ tiles, const unsigned int* __restrict__ interactionCount, real4 periodicBoxSize, real4 invPeriodicBoxSize,
++        real4 periodicBoxVecX, real4 periodicBoxVecY, real4 periodicBoxVecZ, unsigned int maxTiles, const real4* __restrict__ blockCenter,
++        const real4* __restrict__ blockSize, const unsigned int* __restrict__ interactingAtoms, unsigned int maxSinglePairs,
++        const int2* __restrict__ singlePairs
++#endif
++        PARAMETER_ARGUMENTS, real4* __restrict__ partialForce, const int* __restrict__ pairExclusions) {
++
++    const unsigned int lane = LOCAL_ID%TILE_SIZE;
++    mixed energy = 0;
++    INIT_DERIVATIVES
++    for (unsigned int owner = GLOBAL_ID/TILE_SIZE; owner < NUM_BLOCKS*(NUM_BLOCKS+1)/2;
++            owner += GLOBAL_SIZE/TILE_SIZE) {
++        unsigned int x = (unsigned int) ((SQRT(8.0f*owner+1.0f)-1.0f)*0.5f);
++        if (x*(x+1)/2 > owner)
++            x--;
++        else if ((x+1)*(x+2)/2 <= owner)
++            x++;
++        const unsigned int y = owner-x*(x+1)/2;
++        const unsigned int atom1 = x*TILE_SIZE+lane;
++        const unsigned int atomY = y*TILE_SIZE+lane;
++        real3 force = make_real3(0);
++        real3 shflForce = make_real3(0);
++        if (ownedBlocksInRange(blockCenter[x], blockSize[x], blockCenter[y], blockSize[y], periodicBoxSize,
++                invPeriodicBoxSize, periodicBoxVecX, periodicBoxVecY, periodicBoxVecZ)) {
++            const real4 posq1 = posq[atom1];
++            LOAD_ATOM1_PARAMETERS
++            unsigned int j = atomY;
++            real4 shflPosq = posq[j];
++            DECLARE_LOCAL_PARAMETERS
++            LOAD_LOCAL_PARAMETERS_FROM_GLOBAL
++            const int exclusionTile = pairExclusions[owner];
++            const tileflags excl = (exclusionTile < 0 ? (tileflags) -1 : exclusions[exclusionTile*TILE_SIZE+lane]);
++            // Diagonal pairs are evaluated from both sides. Off-diagonal pairs
++            // rotate each y atom and its force back to its original lane.
++            for (unsigned int k = 0; k < TILE_SIZE; k++) {
++                const unsigned int column = (lane+k)%TILE_SIZE;
++                const unsigned int atom2 = y*TILE_SIZE+column;
++                const real4 posq2 = shflPosq;
++                real3 delta = make_real3(posq2.x-posq1.x, posq2.y-posq1.y, posq2.z-posq1.z);
++#ifdef USE_PERIODIC
++                APPLY_PERIODIC_TO_DELTA(delta)
++#endif
++                real r2 = delta.x*delta.x+delta.y*delta.y+delta.z*delta.z;
++                if (atom1 < NUM_ATOMS && atom2 < NUM_ATOMS && atom1 != atom2 && r2 < MAX_CUTOFF_SQUARED) {
++                    real invR = RSQRT(r2);
++                    real r = r2*invR;
++                    LOAD_ATOM2_PARAMETERS
++                    bool isExcluded = ((excl & ((tileflags) 1 << column)) == 0);
++                    real dEdR = 0;
++                    real tempEnergy = 0;
++                    const real interactionScale = (x == y ? 0.5f : 1.0f);
++                    COMPUTE_INTERACTION
++#ifdef INCLUDE_ENERGY
++                    energy += interactionScale*tempEnergy;
++#endif
++#ifdef INCLUDE_FORCES
++                    delta *= dEdR;
++                    force -= delta;
++                    if (x != y)
++                        shflForce += delta;
++#endif
++                }
++                SHUFFLE_WARP_DATA
++            }
++        }
++#ifdef INCLUDE_FORCES
++        partialForce[y*PADDED_NUM_ATOMS+atom1] = make_real4(force.x, force.y, force.z, 0);
++        if (x != y)
++            partialForce[x*PADDED_NUM_ATOMS+atomY] = make_real4(shflForce.x, shflForce.y, shflForce.z, 0);
++#endif
++    }
++#ifdef INCLUDE_ENERGY
++    energyBuffer[GLOBAL_ID] += energy;
++#endif
++    SAVE_DERIVATIVES
++}
++
++KERNEL void reduceNonbondedOwned(GLOBAL const real4* RESTRICT partialForce, GLOBAL mm_ulong* RESTRICT forceBuffers) {
++    const unsigned int part = GLOBAL_ID%8;
++    for (unsigned int atom = GLOBAL_ID/8; atom < NUM_ATOMS; atom += GLOBAL_SIZE/8) {
++        mm_long fx = 0, fy = 0, fz = 0;
++        for (unsigned int block = part; block < NUM_BLOCKS; block += 8) {
++            real4 f = partialForce[block*PADDED_NUM_ATOMS+atom];
++            fx += realToFixedPoint(f.x);
++            fy += realToFixedPoint(f.y);
++            fz += realToFixedPoint(f.z);
++        }
++        for (ushort mask = 1; mask < 8; mask *= 2) {
++            fx += as_type<mm_long>(simd_shuffle_xor(as_type<uint2>(fx), mask));
++            fy += as_type<mm_long>(simd_shuffle_xor(as_type<uint2>(fy), mask));
++            fz += as_type<mm_long>(simd_shuffle_xor(as_type<uint2>(fz), mask));
++        }
++        if (part == 0) {
++            ATOMIC_ADD(&forceBuffers[atom], (mm_ulong) fx);
++            ATOMIC_ADD(&forceBuffers[atom+PADDED_NUM_ATOMS], (mm_ulong) fy);
++            ATOMIC_ADD(&forceBuffers[atom+2*PADDED_NUM_ATOMS], (mm_ulong) fz);
++        }
++    }
++}
+diff --git a/platforms/metal/tests/TestMetalOwnedGB.cpp b/platforms/metal/tests/TestMetalOwnedGB.cpp
+new file mode 100644
+index 000000000..d125f985b
+--- /dev/null
++++ b/platforms/metal/tests/TestMetalOwnedGB.cpp
+@@ -0,0 +1,146 @@
++#include "MetalContext.h"
++#include "MetalPlatform.h"
++#include "MetalQueue.h"
++#include "openmm/internal/ContextImpl.h"
++#include "openmm/Context.h"
++#include "openmm/GBSAOBCForce.h"
++#include "openmm/HarmonicBondForce.h"
++#include "openmm/NonbondedForce.h"
++#include "openmm/State.h"
++#include "openmm/System.h"
++#include "openmm/VerletIntegrator.h"
++#include "openmm/internal/AssertionUtilities.h"
++#include <cmath>
++#include <iostream>
++#include <map>
++#include <vector>
++
++using namespace OpenMM;
++using namespace std;
++
++class QueuePlatform : public MetalPlatform {
++public:
++    MetalQueue& getQueue(Context& context) const {
++        auto* data = reinterpret_cast<PlatformData*>(getContextImpl(context).getPlatformData());
++        return data->contexts[0]->getCurrentStream();
++    }
++};
++
++static QueuePlatform platform;
++
++void checkSubmission(Context& context, VerletIntegrator& integrator) {
++    integrator.step(3);
++    MetalQueue& queue = platform.getQueue(context);
++    long long before = queue.getCommitCount();
++    integrator.step(20);
++    context.getState(State::Positions);
++    long long commits = queue.getCommitCount()-before;
++    ASSERT(commits >= 20 && commits <= 22);
++}
++
++// Exclusions remove Coulomb/LJ pairs, but must retain the OBC chain rule.
++// Moving a whole block out of range and back must refresh every owned slot.
++void testOwnedCutoffAndExclusions() {
++    System system;
++    auto* nb = new NonbondedForce();
++    auto* gb = new GBSAOBCForce();
++    auto* bonds = new HarmonicBondForce();
++    nb->setNonbondedMethod(NonbondedForce::CutoffNonPeriodic);
++    gb->setNonbondedMethod(GBSAOBCForce::CutoffNonPeriodic);
++    nb->setCutoffDistance(1.0);
++    gb->setCutoffDistance(1.0);
++    nb->setForceGroup(0);
++    gb->setForceGroup(1);
++    bonds->setForceGroup(2);
++    system.addForce(nb);
++    system.addForce(gb);
++    system.addForce(bonds);
++    vector<Vec3> positions;
++    for (int i = 0; i < 97; i++) {
++        system.addParticle(12.0);
++        double charge = (i%3-1)*0.1;
++        nb->addParticle(charge, 0.2, 0.1);
++        gb->addParticle(charge, 0.15, 0.8);
++        positions.push_back(Vec3(0.31*(i%5), 0.32*((i/5)%5), 0.33*(i/25)));
++    }
++    nb->addException(0, 1, 0, 0.2, 0);
++    nb->addException(0, 33, 0, 0.2, 0);
++    nb->addException(31, 64, 0.005, 0.21, 0.03);
++    bonds->addBond(2, 3, 0.3, 100);
++    VerletIntegrator metalIntegrator(0.001), referenceIntegrator(0.001);
++    map<string, string> properties;
++    properties["DeterministicForces"] = "true";
++    Context metal(system, metalIntegrator, platform, properties);
++    Context reference(system, referenceIntegrator, Platform::getPlatformByName("Reference"));
++    for (int snapshot = 0; snapshot < 3; snapshot++) {
++        vector<Vec3> current = positions;
++        if (snapshot == 1)
++            for (int i = 64; i < 97; i++)
++                current[i][0] += 6.0;
++        metal.setPositions(current);
++        reference.setPositions(current);
++        for (int groups : {-1, 1, 2, 4}) {
++            State expected = reference.getState(State::Forces | State::Energy, false, groups);
++            State actual = metal.getState(State::Forces | State::Energy, false, groups);
++            State forceOnly = metal.getState(State::Forces, false, groups);
++            ASSERT_EQUAL_TOL(expected.getPotentialEnergy(), actual.getPotentialEnergy(), 3e-5);
++            for (int i = 0; i < system.getNumParticles(); i++) {
++                ASSERT_EQUAL_VEC(expected.getForces()[i], actual.getForces()[i], 5e-5);
++                ASSERT_EQUAL_VEC(actual.getForces()[i], forceOnly.getForces()[i], 5e-6);
++            }
++            State energyOnly = metal.getState(State::Energy, false, groups);
++            ASSERT_EQUAL_TOL(expected.getPotentialEnergy(), energyOnly.getPotentialEnergy(), 3e-5);
++        }
++    }
++}
++
++// The conservative block rejection must not change the strict atom cutoff.
++void testOwnedCutoffBoundary() {
++    System system;
++    auto* nb = new NonbondedForce();
++    auto* gb = new GBSAOBCForce();
++    nb->setNonbondedMethod(NonbondedForce::CutoffNonPeriodic);
++    gb->setNonbondedMethod(GBSAOBCForce::CutoffNonPeriodic);
++    nb->setCutoffDistance(1.0);
++    gb->setCutoffDistance(1.0);
++    system.addForce(nb);
++    system.addForce(gb);
++    for (int i = 0; i < 2; i++) {
++        system.addParticle(12);
++        nb->addParticle(i == 0 ? 1 : -1, 0.2, 0.1);
++        gb->addParticle(i == 0 ? 1 : -1, 0.15, 0.8);
++    }
++    VerletIntegrator mi(0.001), ri(0.001);
++    Context metal(system, mi, platform);
++    Context reference(system, ri, Platform::getPlatformByName("Reference"));
++    for (double distance : {0.9999, 1.0, 1.0001}) {
++        vector<Vec3> positions = {Vec3(), Vec3(distance, 0, 0)};
++        metal.setPositions(positions);
++        // Reference's Born sums include equality. Metal's established cutoff is
++        // strict, so use the excluded side for the exact-boundary expectation.
++        if (distance == 1.0)
++            positions[1][0] = 1.0001;
++        reference.setPositions(positions);
++        State expected = reference.getState(State::Forces | State::Energy);
++        State actual = metal.getState(State::Forces | State::Energy);
++        ASSERT_EQUAL_TOL(expected.getPotentialEnergy(), actual.getPotentialEnergy(), 3e-5);
++        for (int i = 0; i < 2; i++)
++            ASSERT_EQUAL_VEC(expected.getForces()[i], actual.getForces()[i], 5e-5);
++    }
++    checkSubmission(metal, mi);
++}
++
++int main(int argc, char* argv[]) {
++    try {
++        if (argc > 1)
++            platform.setPropertyDefaultValue("Precision", argv[1]);
++        testOwnedCutoffAndExclusions();
++        testOwnedCutoffBoundary();
++    }
++    catch (const exception& e) {
++        cerr << "exception: " << e.what() << endl;
++        return 1;
++    }
++    cout << "Done" << endl;
++    return 0;
++}

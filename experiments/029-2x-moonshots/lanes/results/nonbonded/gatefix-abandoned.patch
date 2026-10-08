@@ -1,0 +1,73 @@
+diff --git a/platforms/common/include/openmm/common/NonbondedUtilities.h b/platforms/common/include/openmm/common/NonbondedUtilities.h
+index be21559b6..8e95c83cd 100644
+--- a/platforms/common/include/openmm/common/NonbondedUtilities.h
++++ b/platforms/common/include/openmm/common/NonbondedUtilities.h
+@@ -78,6 +78,12 @@ public:
+      * Add a per-atom parameter that the default interaction kernel may depend on.
+      */
+     virtual void addParameter(ComputeParameterInfo parameter) = 0;
++    /**
++     * Notify the utilities that an interaction uses PME.  Platforms may use
++     * this hint to account for the cost of evaluating sparse interaction tiles.
++     */
++    virtual void setUsePME(bool useLJPME) {
++    }
+     /**
+      * Add an array (other than a per-atom parameter) that should be passed as an argument to the default interaction kernel.
+      */
+diff --git a/platforms/common/src/CommonCalcNonbondedForce.cpp b/platforms/common/src/CommonCalcNonbondedForce.cpp
+index a3c5f4c41..667def5cc 100644
+--- a/platforms/common/src/CommonCalcNonbondedForce.cpp
++++ b/platforms/common/src/CommonCalcNonbondedForce.cpp
+@@ -626,6 +626,8 @@ void CommonCalcNonbondedForceKernel::commonInitialize(const System& system, cons
+         cc.getNonbondedUtilities().addParameter(ComputeParameterInfo(sigmaEpsilon, prefix+"sigmaEpsilon", "float", 2));
+     }
+     source = cc.replaceStrings(source, replacements);
++    if (force.getIncludeDirectSpace() && (nonbondedMethod == PME || nonbondedMethod == LJPME))
++        cc.getNonbondedUtilities().setUsePME(doLJPME);
+     if (force.getIncludeDirectSpace())
+         cc.getNonbondedUtilities().addInteraction(useCutoff, usePeriodic, true, force.getCutoffDistance(), exclusionList, source, force.getForceGroup(), numParticles > 3000, true);
+ 
+diff --git a/platforms/metal/include/MetalNonbondedUtilities.h b/platforms/metal/include/MetalNonbondedUtilities.h
+index 7de9a6c1e..8b329deeb 100644
+--- a/platforms/metal/include/MetalNonbondedUtilities.h
++++ b/platforms/metal/include/MetalNonbondedUtilities.h
+@@ -90,6 +90,10 @@ public:
+      * Add a per-atom parameter that the default interaction kernel may depend on.
+      */
+     void addParameter(ComputeParameterInfo parameter);
++    void setUsePME(bool ljpme) override {
++        usePME = true;
++        useLJPME |= ljpme;
++    }
+     /**
+      * Add an array (other than a per-atom parameter) that should be passed as an argument to the default interaction kernel.
+      */
+@@ -336,6 +340,7 @@ private:
+     std::map<int, std::string> groupKernelSource;
+     double maxCutoff;
+     bool useCutoff, usePeriodic, anyExclusions, usePadding, useNeighborList, forceRebuildNeighborList, canUsePairList, useLargeBlocks, hasInitializedParams, waitForCount;
++    bool usePME = false, useLJPME = false;
+     int startTileIndex, startBlockIndex, numBlocks, numTilesInBatch, maxExclusions;
+     int numForceThreadBlocks, forceThreadBlockSize, findInteractingBlocksThreadBlockSize, numAtoms, groupFlags, paramStartIndex;
+     unsigned int maxTiles, maxSinglePairs, tilesAfterReorder;
+diff --git a/platforms/metal/src/MetalNonbondedUtilities.cpp b/platforms/metal/src/MetalNonbondedUtilities.cpp
+index a936c2d9d..28af765e6 100644
+--- a/platforms/metal/src/MetalNonbondedUtilities.cpp
++++ b/platforms/metal/src/MetalNonbondedUtilities.cpp
+@@ -523,6 +523,15 @@ void MetalNonbondedUtilities::setAtomBlockRange(double startFraction, double end
+ }
+ 
+ int MetalNonbondedUtilities::getMaxBitsForPairs() const {
++    // Small non-LJPME systems avoid sparse-pair atomics on Apple9 and later.
++    // Preserve the large-system policy: disabling its two-bit pair list regresses
++    // cellulose.  Older devices and double precision retain their existing policy.
++    // Single-precision PME retains the validated pair-list policy after repeated
++    // md100 maximum-force-error failures with MAX_BITS=0.
++    if (!useLJPME && (!usePME || context.getUseMixedPrecision()) &&
++            !context.getUseDoublePrecision() && context.getNumAtoms() < 100000 &&
++            context.getDevice()->supportsFamily(MTL::GPUFamilyApple9))
++        return 0;
+     int maxBits = 0;
+     if (canUsePairList) {
+         if (context.getUseDoublePrecision()) {

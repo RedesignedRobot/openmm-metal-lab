@@ -1,0 +1,16 @@
+2026-09-27T07:38:07Z round 1 amoebagk mine-s load { 14.71 9.48 12.61 } BUILD RUNNING vm 6% top clang 99.7%, other 54.1%, other 18.3%, other 8.7%,  other 6.7%
+2026-09-27T07:38:31Z round 1 amoebagk mine-m load { 10.92 9.01 12.34 } BUILD RUNNING vm 9% top clang 100.0%, other 19.8%, other 9.1%, com.apple.Virtualization.VirtualMachine 5.8%,  other 5.7%
+2026-09-27T07:39:01Z round 1 amoebagk base-s load { 7.59 8.39 12.00 } BUILD RUNNING vm 44% top clang 99.1%, com.apple.Virtualization.VirtualMachine 74.8%, other 19.8%, powermetrics 6.0%, other 4.5%
+2026-09-27T07:39:22Z round 1 amoebagk base-m load { 6.42 8.07 11.80 } vm 5% top other 18.2%, other 4.3%, other 3.7%, com.apple.Virtualization.VirtualMachine 3.0%, WindowServer 2.1%
+2026-09-27T07:39:49Z round 1 amoebapme mine-s load { 4.96 7.56 11.49 } vm 7% top other 18.7%, other 10.1%, other 6.7%, com.apple.Virtualization.VirtualMachine 4.1%, other 3.4%
+2026-09-27T07:40:15Z round 1 amoebapme mine-m load { 3.83 7.09 11.20 } vm 7% top other 17.2%, other 10.2%, WindowServer 4.7%, com.apple.Virtualization.VirtualMachine 4.1%, other 3.8%
+2026-09-27T07:40:48Z round 1 amoebapme base-s load { 3.07 6.60 10.88 } vm 13% top other 17.8%, other 13.0%, com.apple.Virtualization.VirtualMachine 8.3%, com.apple.Virtualization.VirtualMachine 4.8%, other 4.5%
+2026-09-27T07:41:13Z round 1 amoebapme base-m load { 3.16 6.32 10.66 } vm 14% top other 17.8%, com.apple.Virtualization.VirtualMachine 9.1%, other 4.4%,  other 2.6%, com.apple.Virtualization.VirtualMachine 2.4%
+2026-09-27T07:41:44Z round 2 amoebagk base-m load { 2.31 5.81 10.32 } vm 9% top other 17.7%,  other 12.6%, other 7.1%, com.apple.Virtualization.VirtualMachine 5.5%, powermetrics 4.8%
+2026-09-27T07:42:07Z round 2 amoebagk base-s load { 2.16 5.49 10.08 } vm 4% top other 18.3%, WindowServer 13.4%, other 11.0%, other 6.9%, com.apple.Virtualization.VirtualMachine 3.1%
+2026-09-27T07:42:29Z round 2 amoebagk mine-m load { 1.78 5.13 9.81 } vm 4% top other 16.2%, other 7.5%, other 4.6%, WindowServer 2.7%, com.apple.Virtualization.VirtualMachine 2.6%
+2026-09-27T07:42:51Z round 2 amoebagk mine-s load { 1.34 4.81 9.59 } vm 5% top other 17.1%, other 4.0%, com.apple.Virtualization.VirtualMachine 2.7%, com.apple.Virtualization.VirtualMachine 2.3%, WindowServer 1.8%
+2026-09-27T07:43:14Z round 2 amoebapme base-m load { 1.69 4.66 9.42 } vm 12% top other 15.7%, com.apple.Virtualization.VirtualMachine 6.3%, com.apple.Virtualization.VirtualMachine 5.5%, other 3.5%, powermetrics 3.5%
+2026-09-27T07:43:40Z round 2 amoebapme base-s load { 1.57 4.34 9.14 } vm 8% top other 16.3%, other 11.7%, com.apple.Virtualization.VirtualMachine 5.0%, WindowServer 3.5%, other 3.4%
+2026-09-27T07:44:06Z round 2 amoebapme mine-m load { 1.31 4.06 8.90 } vm 9% top other 15.3%, other 8.1%, com.apple.Virtualization.VirtualMachine 4.7%, other 4.3%, com.apple.Virtualization.VirtualMachine 2.9%
+2026-09-27T07:44:31Z round 2 amoebapme mine-s load { 1.75 3.95 8.72 } vm 13% top other 19.1%, com.apple.Virtualization.VirtualMachine 8.1%, com.apple.Virtualization.VirtualMachine 5.1%,  other 3.6%, other 2.1%

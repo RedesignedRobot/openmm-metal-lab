@@ -1,0 +1,31 @@
+22:18:51Z waiting for the lease: 29 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:23:58Z waiting for the lease: 28 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:29:03Z waiting for the lease: 28 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:34:09Z waiting for the lease: 27 in the queue, held by: ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+22:39:16Z waiting for the lease: 26 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:44:23Z waiting for the lease: 26 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:49:29Z waiting for the lease: 26 in the queue, held by: ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+22:54:36Z waiting for the lease: 25 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 7 build processes
+22:59:42Z waiting for the lease: 23 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:04:50Z waiting for the lease: 23 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:09:57Z waiting for the lease: 22 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:15:04Z waiting for the lease: 21 in the queue, held by: atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+23:20:13Z waiting for the lease: 19 in the queue, held by: ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+23:25:21Z waiting for the lease: 14 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 13 build processes
+23:30:26Z waiting for the lease: 13 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:35:32Z waiting for the lease: 13 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:40:39Z waiting for the lease: 13 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:45:45Z waiting for the lease: 8 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 3 build processes
+23:50:49Z waiting for the lease: 8 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:55:53Z waiting for the lease: 8 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 78 build processes
+00:00:58Z waiting for the lease: 7 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 35 build processes
+00:06:03Z waiting for the lease: 7 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:11:08Z waiting for the lease: 7 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:16:13Z waiting for the lease: 7 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:21:18Z waiting for the lease: 7 in the queue, held by: ultra-nblist 2026-09-25T00:03:45Z gate.sh /tmp/openmm-metal-bench/ultra-nblist, 0 build processes
+00:26:22Z waiting for the lease: 5 in the queue, held by: ultra-pme 2026-09-25T00:24:41Z ab cand2 amber20 stmv single, 0 build processes
+00:31:27Z waiting for the lease: 3 in the queue, held by: ultra-pme 2026-09-25T00:31:10Z split-pass probe screen, 0 build processes
+00:36:32Z waiting for the lease: 2 in the queue, held by: ultra-profiler 2026-09-25T00:36:00Z 1e GBSA kill test: forces plus counters census, base/kill/rsqrt on gbsa, 3 repeats, about 4 min, 0 build processes
+00:41:45Z waiting for the lease: 1 in the queue, held by: ultra-dispatch 2026-09-25T00:40:23Z waitfree vs poll, 0 build processes
+done /tmp/openmm-metal-bench/ultra-dispatch/prof1/poll
+done /tmp/openmm-metal-bench/ultra-dispatch/prof1/waitfree

@@ -2,20 +2,20 @@
 # Runs on the M2: configures, builds and installs <dir>/src (put there by m2sync.sh) the way the
 # M3 Ultra's build.sh builds ultra-base: Xcode-beta's toolchain, Release, Metal, OpenCL, CPU and
 # Reference on, Python wrappers and tests on, C and Fortran wrappers and examples off. It adds ccache
-# (cache in /Users/amir/lab/ultra-m2/ccache, keyed on the compiler's --version under Xcode-beta) and
+# (cache in $HOME/lab/ultra-m2/ccache, keyed on the compiler's --version under Xcode-beta) and
 # builds at nice 10 with 4 jobs, 3 when another build runs, 2 when memory is short. The build dir is
 # kept, so a later commit synced into the same src rebuilds only what changed. It makes <dir>/build,
 # <dir>/prefix and <dir>/venv (Homebrew python3 with numpy, scipy, Cython and setuptools from pip,
 # inside the venv only), checks that all four platforms load from the venv and from this prefix, and
 # writes <dir>/BUILT with the commit, a hash of src, the toolchain and the step times.
 # Launch detached:
-#   /bin/sh -c 'nohup /Users/amir/lab/ultra-m2/tools/m2build.sh /Users/amir/lab/ultra-m2/cand > /Users/amir/lab/ultra-m2/cand/build.out 2>&1 < /dev/null &'
+#   /bin/sh -c 'nohup $HOME/lab/ultra-m2/tools/m2build.sh $HOME/lab/ultra-m2/cand > $HOME/lab/ultra-m2/cand/build.out 2>&1 < /dev/null &'
 # The last line of the output is "built <dir>" or "BUILD FAILED".
 # usage: m2build.sh <dir>
 set -eu
 [ $# -eq 1 ] || { echo "usage: m2build.sh <dir>" >&2; exit 2; }
 dir="${1%/}"
-ROOT=/Users/amir/lab/ultra-m2
+ROOT=$HOME/lab/ultra-m2
 case "$dir" in
 "$ROOT"/*) ;;
 *) echo "the dir must be under $ROOT, not $dir" >&2; exit 2 ;;
@@ -97,7 +97,7 @@ import openmm
 from openmm import version
 names = sorted(openmm.Platform.getPlatform(i).getName() for i in range(openmm.Platform.getNumPlatforms()))
 print(openmm.__file__, version.git_revision, version.openmm_library_path, names)
-# Real paths: /Users/amir/lab/ultra-m2 is a symlink to ultra-m2.noindex, which Spotlight skips, and
+# Real paths: $HOME/lab/ultra-m2 is a symlink to ultra-m2.noindex, which Spotlight skips, and
 # python reports the venv under the real path.
 tree = os.path.realpath(sys.argv[1])
 assert os.path.realpath(openmm.__file__).startswith(tree + "/venv/"), "openmm imported from outside the venv"

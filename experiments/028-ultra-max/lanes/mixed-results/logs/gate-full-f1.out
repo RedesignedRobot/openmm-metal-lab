@@ -1,0 +1,26 @@
+02:33:15Z waiting for the lease: 12 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 34 build processes
+02:38:19Z waiting for the lease: 11 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 0 build processes
+02:43:23Z waiting for the lease: 9 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 0 build processes
+02:48:27Z waiting for the lease: 10 in the queue, held by: ultra-workloads 2026-09-25T02:41:51Z abw A/A amber20-cellulose mixed, about 9 min, 17 build processes
+gate /tmp/openmm-metal-bench/ultra-mixed/f1, cf1d7fc140b9dfcb0d3c86526af9dba1203fd981, logs in /tmp/openmm-metal-bench/ultra-mixed/f1/gate-20260925T025046Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.567e-02  6.144e-07  ok
+gbsa            2489     mixed  2.468e-05  8.567e-02  6.124e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.045e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.094e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  1.195e-06  ok
+pme            23558     mixed  2.048e-05  3.918e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  4.845e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.871e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.200e-01  5.921e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.200e-01  5.871e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.229e-01  6.063e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.229e-01  6.179e-07  ok
+ctest: 110 tests in 4 parts, 0 failed in the -j2 runs
+PASS

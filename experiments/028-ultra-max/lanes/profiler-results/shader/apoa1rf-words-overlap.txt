@@ -1,0 +1,4 @@
+56744 intervals in pid 10919, 2540 computeBondedForces -> computeNonbonded pairs
+computeBondedForces: median span 172.7 us; computeNonbonded: median span 382.0 us
+computeNonbonded start minus computeBondedForces end: median 3.00 us, min -0.08, max 10.25
+overlapping pairs: 2 of 2540, overlap median over those 0.1 us, mean over all 0.00 us

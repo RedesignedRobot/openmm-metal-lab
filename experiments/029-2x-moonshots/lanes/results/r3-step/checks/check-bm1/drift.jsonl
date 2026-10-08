@@ -1,0 +1,8 @@
+{"run": "base", "d": {"test": "gbsa", "precision": "mixed", "ps": 50.0, "seed": 1, "tolerance": 1e-08, "integrator": "lm0", "ewald_error_tolerance": 1e-05, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "drift_kj_per_ns": 3025.526219034303, "drift_kt_per_ns_per_dof": 0.19429075957433398, "rms_kj": 32.1768376957638, "e_first": -13885.906336211428, "e_last": -13510.802439514584}}
+{"run": "new", "d": }
+{"run": "base", "d": {"test": "gbsa", "precision": "single", "ps": 50.0, "seed": 1, "tolerance": 1e-08, "integrator": "lm0", "ewald_error_tolerance": 1e-05, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "drift_kj_per_ns": 2495.032031859266, "drift_kt_per_ns_per_dof": 0.16022391925823684, "rms_kj": 34.622595684444754, "e_first": -13885.903247833252, "e_last": -13602.022449493408}}
+{"run": "new", "d": }
+{"run": "base", "d": {"test": "dhfr", "precision": "mixed", "ps": 50.0, "seed": 1, "tolerance": 1e-08, "integrator": "lm0", "ewald_error_tolerance": 1e-05, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "drift_kj_per_ns": 1854.8787541080164, "drift_kt_per_ns_per_dof": 0.015370402711483754, "rms_kj": 54.13351846715944, "e_first": -214959.1562786128, "e_last": -214802.13007101644}}
+{"run": "new", "d": }
+{"run": "base", "d": {"test": "dhfr", "precision": "single", "ps": 50.0, "seed": 1, "tolerance": 1e-08, "integrator": "lm0", "ewald_error_tolerance": 1e-05, "openmm": "/tmp/openmm-metal-bench/ultra-r3-step/prefix/lib", "drift_kj_per_ns": 1305.9621373045886, "drift_kt_per_ns_per_dof": 0.010821819987891584, "rms_kj": 56.15748168540631, "e_first": -214959.14498999313, "e_last": -214571.1712808867}}
+{"run": "new", "d": }

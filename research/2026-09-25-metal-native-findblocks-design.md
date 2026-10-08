@@ -1,6 +1,6 @@
 # Native Metal design: findBlocksWithInteractions and the rebuild trigger, experiment 028
 
-2026-09-25, research lane (read-only). Revised at 23:45Z against nblist's `NB_TIME` knob scan (`lanes/nblist.md` 23:12Z, dev tree 163f2838e): the model's R, design 2's (a) and (c), design 3, wrap at batch 1 and the padding rule changed. Base 6df2b8bcb, Metal single, M3 Ultra unless marked. Code is `platforms/metal/src/kernels/findInteractingBlocks.metal` in the base tree (cited as `fib:line`). Tiers: **verified** means I read the code, doc or data file; **reported** means another lane's log says so; **inference** means my model or reasoning. Data and scripts: `experiments/028-ultra-max/research-data/rebuild-rate/` (CPU replay of the trigger) and `research-data/findblocks-emu/` (a numpy emulator of the kernel on real positions).
+2026-09-25, research note (read-only). Revised at 23:45Z against nblist's `NB_TIME` knob scan (`lanes/nblist.md` 23:12Z, dev tree 163f2838e): the model's R, design 2's (a) and (c), design 3, wrap at batch 1 and the padding rule changed. Base 6df2b8bcb, Metal single, M3 Ultra unless marked. Code is `platforms/metal/src/kernels/findInteractingBlocks.metal` in the base tree (cited as `fib:line`). Tiers: **verified** means I read the code, doc or data file; **reported** means another experiment's log says so; **inference** means my model or reasoning. Data and scripts: `experiments/028-ultra-max/research-data/rebuild-rate/` (CPU replay of the trigger) and `research-data/findblocks-emu/` (a numpy emulator of the kernel on real positions).
 
 ## Answer
 
@@ -14,12 +14,12 @@ findBlocks has two regimes on this GPU. At batch 1 on dhfr size (737 rows, about
 
 ## Current cost
 
-**Per step (reported, profiler lane, buffers mode, `lanes/profiler.md:122-130`).** findBlocks costs 21.4 us on gbsa (7%, 78 rows), 147.4 on rf (32%), 95.7 on pme (16%), 272.3 on apoa1rf (24%), 174.8 on apoa1pme (10%), 157.3 on apoa1ljpme (7%), 67.4 on amber20-dhfr (12%), 504.4 on cellulose (9%) and 1027.5 on stmv (7%).
+**Per step (reported, profiler experiment, buffers mode, `lanes/profiler.md:122-130`).** findBlocks costs 21.4 us on gbsa (7%, 78 rows), 147.4 on rf (32%), 95.7 on pme (16%), 272.3 on apoa1rf (24%), 174.8 on apoa1pme (10%), 157.3 on apoa1ljpme (7%), 67.4 on amber20-dhfr (12%), 504.4 on cellulose (9%) and 1027.5 on stmv (7%).
 
 - Rebuild fraction: 50.2% on every explicit test, 33.7% on amber20-dhfr and 8.0% on gbsa (profiler `:148` and `:312`, from a gap split of the raw durations). That matches my replay below. The earlier 71-75% apoa1 figures were a classifier artifact.
 - Per rebuild, from buffers mode: rf 294 us, pme 191, apoa1rf 542, apoa1pme 348, amber20-dhfr 200, cellulose 1005, stmv 2047.
 - Counters mode (`lanes/nblist.md:13-21`) gives rf 305 and apoa1rf 578, which agree with buffers mode within 4-7%. On the PME tests it gives 275 for pme, 687 for apoa1pme and about 2x buffers mode on cellulose and stmv.
-- The two modes disagree by up to 2x on every PME test. I calibrate only on the two RF numbers, where they agree. The nblist lane's `NB_TIME` (one command buffer per phase) is the arbiter.
+- The two modes disagree by up to 2x on every PME test. I calibrate only on the two RF numbers, where they agree. The nblist experiment's `NB_TIME` (one command buffer per phase) is the arbiter.
 - `NB_TIME` (`lanes/nblist.md` 23:12Z, median of rebuild steps) gives pme 280.7 us (candidate sort paths) and 268.5 (base sort paths), apoa1pme 619.9 and 544.9, apoa1ljpme 788.6 and 571.2. `NB_TIME` commits each phase without a host wait (163f2838e `MetalNonbondedUtilities.cpp:50-75`), so a phase shares the GPU with any command buffer it doesn't depend on. On apoa1 the PME atom sort runs on every rebuild step, so the apoa1 numbers are upper bounds. On pme it runs every second step, and rebuilds with and without it differ by -8% to +10% with no consistent sign, so the pme numbers stand (`research-data/findblocks-emu/lsort.py`).
 
 **Rebuild rate against padding (verified, CPU replay of the Metal trigger `fib:189-202`, 400-600 steps per test, `research-data/rebuild-rate/disp-run1.txt`).**
@@ -268,9 +268,9 @@ At batch 4 on pme (model, findBlocks per rebuild scaled from batch 1 to about 16
 4. **Padding above 0.08 on LJPME:** computeNonbonded rises 6% at 0.12 and 14% at 0.16 on apoa1ljpme, because its extra tiles cost full ALU steps and its singles are cheap. The rebuild saving may still cover it; the whole-step screen decides.
 5. **Lookahead rebuild overlapped with the current step.**
    - Keeping T=2 needs the list to cover a 2-step lag: pad above 2 x D(2)max = 0.136 nm at rc 0.9, +16-21% tiles.
-   - It needs the concurrent encoder, which the lead stopped at 21:30Z (`lanes/dispatch.md:31`).
+   - It needs the concurrent encoder, stopped at 21:30Z (`lanes/dispatch.md:31`).
    - It is worth about 8 us/step once the knobs land.
-6. **Overlapping the rebuild chain with PME and bonded kernels** (GROMACS runs pruning "in a rolling fashion ... between force computations", Pall et al. 2020, V.E): the same concurrency blocker. Revisit if the dispatch lane revives concurrent dispatch. findBlocks shares no written buffer with the PME or bonded kernels, so it is the cleanest candidate for a second chain.
+6. **Overlapping the rebuild chain with PME and bonded kernels** (GROMACS runs pruning "in a rolling fashion ... between force computations", Pall et al. 2020, V.E): the same concurrency blocker. Revisit if the dispatch experiment revives concurrent dispatch. findBlocks shares no written buffer with the PME or bonded kernels, so it is the cleanest candidate for a second chain.
 7. **GROMACS's fixed list lifetime with a drift-tolerance buffer** (Pall et al. 2020, V.B and V.D): it trades OpenMM's exact list for a tolerance. That is a physics contract change, out of scope.
 8. **A tighter stage 1 to cut the 38-44% empty candidates:** stage 2's per-atom sphere test (`fib:495`) is already the cheapest exact filter. Design 2 makes an empty candidate cheap instead.
 9. **Broadcasting x positions from registers with simd_shuffle instead of `posBuffer`:** 4 shuffles per atom against one uniform threadgroup float4 load (inference). Cheap to add to K3 if anyone doubts it.
@@ -278,7 +278,7 @@ At batch 4 on pme (model, findBlocks per rebuild scaled from batch 1 to about 16
 11. **Half-precision positions in the mask:** tiles would stop being bit-identical to base and the boundary gets a rounding margin. It isn't worth it once the mask is unrolled.
 12. **Cell grid, simdgroup_matrix masks, ray tracing, top-2 trigger, Metal 4:** rejected in the study's neighbor-list area, and nothing here changes that.
 
-## Order of work (for the nblist lane, which owns the code)
+## Order of work (for the nblist experiment)
 
 K1 and K2 ran in job2 (23:12Z): design 1 passes on pme, (a) and (c) are dead, design 3 is dead. K3 (`NB_UNROLL`) and K4 (`NB_STAGEBOX`) are queued in job3, with `NB_TIME_WAIT` isolating each phase. Ship design 1 with the rows-per-core rule (6d72c3ae9), (b) if K3 passes, MAX_BITS by body cost after screen-mb, and a padding only after K5.
 
@@ -286,7 +286,7 @@ K1 and K2 ran in job2 (23:12Z): design 1 passes on pme, (a) and (c) are dead, de
 
 - Code (verified): `platforms/metal/src/kernels/findInteractingBlocks.metal:21` (half BoundingBox), `:48`, `:161-202`, `:306`, `:337`, `:385`, `:430-449`, `:473-495`, `:526-557`, `:572-599`. `MetalNonbondedUtilities.cpp:70`, `:263-264`, `:417-420`. `MetalContext.cpp:176` (AMD_RDNA, so 32-wide), `:594-611`. `common.metal:19`. `platforms/hip/src/HipNonbondedUtilities.cpp:273`. `platforms/cuda/src/kernels/findInteractingBlocks.cu:188-216`, `:456-476`, `:495`, `:521`.
 - Lab data (verified): `experiments/009-neighbour-list/README.md` (captures, validation counts, threadgroup memory finding). `research-data/rebuild-rate/disp-run1.txt`. `research-data/findblocks-emu/emu-cap.txt`, `emu-dhfr.txt`, `emu2-cap.txt`, `emu2-dhfr.txt`.
-- Lane logs (reported): `lanes/profiler.md:122-130`, `:148`, `:291`, `:312`. `lanes/nblist.md:13-21`, `:55`, `:84-111` (job2 `NB_TIME` knob scan; raw per-phase records `job2-times.txt` in the nblist lane's Studio dir). `lanes/dispatch.md:31`.
+- Experiment logs (reported): `lanes/profiler.md:122-130`, `:148`, `:291`, `:312`. `lanes/nblist.md:13-21`, `:55`, `:84-111` (job2 `NB_TIME` knob scan; raw per-phase records `job2-times.txt` in the nblist experiment's Studio dir). `lanes/dispatch.md:31`.
 - Code at 163f2838e (verified): `MetalNonbondedUtilities.cpp:50-75` (`NB_TIME`), `:96-97` (2400 x 64 computeNonbonded launch), `nonbonded.metal:239-253`, `:322-344`, `:434-441`, `:451-495`; `common.metal:57-67` (64-bit atomicAdd as one or two 32-bit atomics).
 - Scripts (research-data/findblocks-emu/): `emu3.py` and `emu3-out.txt` (list-shape counts), `fit.py` and `fit2.py` (cost fit, leave-one-out, predictions), `age.py`, `lsort.py`, `means.py` (read the job2 records).
 - Pall, Zhmurov, Bauer, Abraham, Lundborg, Gray, Hess, Lindahl, "Heterogeneous parallelization and acceleration of molecular dynamics simulations in GROMACS", J. Chem. Phys. 153, 134110 (2020), arXiv:2006.09167, sections V.B, V.D, V.E, V.F (verified in the PDF).

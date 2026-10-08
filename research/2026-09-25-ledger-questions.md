@@ -1,6 +1,6 @@
 # Ledger questions settled from primary sources
 
-2026-09-25, research lane. No GPU time. Each answer marks its tier: verified (I read the code, the doc, or ran a compile or a CPU emulation), reported (a lane log says so), or inference (my reasoning). Supporting files are in `research-data/ledger-q/` (the compile test, the SHAKE emulation and its output, and every forces row on the Studio).
+2026-09-25, research note. No GPU time. Each answer marks its tier: verified (I read the code, the doc, or ran a compile or a CPU emulation), reported (an experiment log says so), or inference (my reasoning). Supporting files are in `research-data/ledger-q/` (the compile test, the SHAKE emulation and its output, and every forces row on the Studio).
 
 ## 1. Waitfree capacity bound with tiles per batch above 1 and wrapped rows
 
@@ -20,7 +20,7 @@ The 314 of 326 MB admission margin (dispatch.md:39) does not depend on this ques
 
 ## 2. Untracked buffers and concurrent passes (OQ2)
 
-Answer: untracked buffers are not a prerequisite for any concurrency the lanes plan. Close OQ2 and correct the playbook (:19, :200, :308, :543). The design doc (metal-native-design.md:636) holds for separate passes. For a concurrent encoder both documents missed the actual rule: tracking does nothing inside it, in either direction.
+Answer: untracked buffers are not a prerequisite for any planned concurrency. Close OQ2 and correct the playbook (:19, :200, :308, :543). The design doc (metal-native-design.md:636) holds for separate passes. For a concurrent encoder both documents missed the actual rule: tracking does nothing inside it, in either direction.
 
 Separate passes, tracked buffers (verified doc, reported measurement):
 - Apple, MTLHazardTrackingMode.tracked: "When at least one command writes to a tracked resource, the framework takes the following actions: Delay write operations until all previous read operations finish. Prevent subsequent commands from running until write operations finish." Only conflicting commands wait.
@@ -87,7 +87,7 @@ If c3 is ever revived, forcing one mixed correction on every constraint after th
 
 ## 6. findBlocks per-block cost on stmv
 
-Answer: the lead's arithmetic is right. metal-native-design.md:177 ("dhfr costs 0.38 us per block and stmv 0.12") used raw counters-mode per-rebuild times, which count overlapped time twice. Corrected: dhfr about 0.26 us per block, stmv 0.060.
+Answer: the original arithmetic is right. metal-native-design.md:177 ("dhfr costs 0.38 us per block and stmv 0.12") used raw counters-mode per-rebuild times, which count overlapped time twice. Corrected: dhfr about 0.26 us per block, stmv 0.060.
 
 - Per rebuild, raw over attributed (profiler.md 22:25Z correction): dhfr 270 over 188 us, stmv 3999 over 2000. Buffers mode (findblocks design :20): dhfr 200, stmv 2047. nblist.md:21's 1983 agrees with the attributed figure.
 - Blocks: 23558/32 rounds up to 737, 1066628/32 to 33333. So 0.38 x 737 = 280 and 0.12 x 33333 = 4000, both raw. Attributed: 188/737 = 0.255 and 2000/33333 = 0.060. Buffers mode: 0.271 and 0.061.

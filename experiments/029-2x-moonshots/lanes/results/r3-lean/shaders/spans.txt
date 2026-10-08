@@ -1,0 +1,6 @@
+Mixed precision, sampled spans only. Counts are not complete dispatch counts.
+test arm bonded_count nonbonded_count bonded_mean_us bonded_median_us nonbonded_mean_us bonded_span_overlap_percent
+gbsa base 2515 2516 39.907 39.583 43.734 98.12
+gbsa mine 2537 2781 38.077 37.750 42.461 98.28
+apoa1rf base 1321 1321 40.576 40.084 424.646 90.02
+apoa1rf mine 1470 1599 39.078 38.812 420.688 89.05

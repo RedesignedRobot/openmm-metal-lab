@@ -1,0 +1,59 @@
+Test project /tmp/openmm-metal-bench/ultra-plugins/head/build
+      Start 219: TestMetalAndersenThermostatMixed
+      Start 224: TestMetalCMMotionRemoverSingle
+ 1/27 Test #224: TestMetalCMMotionRemoverSingle .................   Passed    1.27 sec
+      Start 229: TestMetalCommandBatchingMixed
+ 2/27 Test #229: TestMetalCommandBatchingMixed ..................   Passed    0.38 sec
+      Start 234: TestMetalCustomAngleForceSingle
+ 3/27 Test #234: TestMetalCustomAngleForceSingle ................   Passed    0.59 sec
+      Start 239: TestMetalCustomCPPForceMixed
+ 4/27 Test #239: TestMetalCustomCPPForceMixed ...................   Passed    4.38 sec
+      Start 244: TestMetalCustomCompoundBondForceSingle
+ 5/27 Test #244: TestMetalCustomCompoundBondForceSingle .........   Passed    2.19 sec
+      Start 249: TestMetalCustomGBForceMixed
+ 6/27 Test #219: TestMetalAndersenThermostatMixed ...............   Passed   24.08 sec
+      Start 254: TestMetalCustomManyParticleForceSingle
+ 7/27 Test #249: TestMetalCustomGBForceMixed ....................   Passed   19.22 sec
+      Start 259: TestMetalCustomTorsionForceMixed
+ 8/27 Test #259: TestMetalCustomTorsionForceMixed ...............   Passed    2.74 sec
+      Start 264: TestMetalEwaldSingle
+ 9/27 Test #254: TestMetalCustomManyParticleForceSingle .........   Passed    7.27 sec
+      Start 269: TestMetalGBSAOBCForceMixed
+10/27 Test #264: TestMetalEwaldSingle ...........................   Passed    9.92 sec
+      Start 274: TestMetalHarmonicBondForceSingle
+11/27 Test #274: TestMetalHarmonicBondForceSingle ...............   Passed    0.44 sec
+      Start 279: TestMetalLangevinIntegratorMixed
+12/27 Test #269: TestMetalGBSAOBCForceMixed .....................   Passed   25.63 sec
+      Start 284: TestMetalMixedPrecisionSingle
+13/27 Test #279: TestMetalLangevinIntegratorMixed ...............   Passed   16.02 sec
+      Start 289: TestMetalMonteCarloBarostatMixed
+14/27 Test #284: TestMetalMixedPrecisionSingle ..................   Passed    0.44 sec
+      Start 294: TestMetalNonbondedForceSingle
+15/27 Test #294: TestMetalNonbondedForceSingle ..................   Passed    5.92 sec
+      Start 299: TestMetalOrientationRestraintForceMixed
+16/27 Test #299: TestMetalOrientationRestraintForceMixed ........   Passed    3.57 sec
+      Start 304: TestMetalQTBIntegratorSingle
+17/27 Test #304: TestMetalQTBIntegratorSingle ...................   Passed   36.40 sec
+      Start 309: TestMetalRGForceMixed
+18/27 Test #309: TestMetalRGForceMixed ..........................   Passed    4.80 sec
+      Start 314: TestMetalSettleSingle
+19/27 Test #314: TestMetalSettleSingle ..........................   Passed    1.23 sec
+      Start 319: TestMetalVariableLangevinIntegratorMixed
+20/27 Test #289: TestMetalMonteCarloBarostatMixed ...............   Passed   59.44 sec
+      Start 324: TestMetalVirtualSitesSingle
+21/27 Test #324: TestMetalVirtualSitesSingle ....................   Passed    6.54 sec
+      Start 411: TestMetalAmoebaGeneralizedKirkwoodForceMixed
+22/27 Test #411: TestMetalAmoebaGeneralizedKirkwoodForceMixed ...   Passed    2.60 sec
+      Start 416: TestMetalAmoebaVdwForceSingle
+23/27 Test #416: TestMetalAmoebaVdwForceSingle ..................   Passed    2.17 sec
+      Start 421: TestMetalWcaDispersionForceMixed
+24/27 Test #421: TestMetalWcaDispersionForceMixed ...............   Passed    0.32 sec
+      Start 452: TestMetalDrudeLangevinIntegratorSingle
+25/27 Test #319: TestMetalVariableLangevinIntegratorMixed .......   Passed   24.48 sec
+      Start 457: TestMetalDrudeSCFIntegratorMixed
+26/27 Test #457: TestMetalDrudeSCFIntegratorMixed ...............   Passed    8.20 sec
+27/27 Test #452: TestMetalDrudeLangevinIntegratorSingle .........   Passed   75.34 sec
+
+100% tests passed out of 27
+
+Total Test time (real) = 203.58 sec

@@ -1,0 +1,4 @@
+openmm /tmp/openmm-metal-bench/ultra-profiler/venv/lib/python3.13/site-packages/openmm/__init__.py plugins /tmp/openmm-metal-bench/ultra-profiler/prefix-1e-rsqrt/lib/plugins/libOpenMMMetal.dylib
+window A gbsa single Metal steps 3672 host_s 1.051893 us_per_step 286.46 ns_per_day 1206.44 cpu_per_host 0.44
+window B gbsa single Metal steps 3672 host_s 2.297594 us_per_step 625.71 ns_per_day 552.34 cpu_per_host 0.52
+window C gbsa single Metal steps 3672 host_s 1.043253 us_per_step 284.11 ns_per_day 1216.43 cpu_per_host 0.45

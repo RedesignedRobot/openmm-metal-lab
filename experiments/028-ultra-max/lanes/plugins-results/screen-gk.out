@@ -1,0 +1,124 @@
+22:54:46Z waiting for the lease: 44 in the queue, held by: ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 3 build processes
+22:59:53Z waiting for the lease: 42 in the queue, held by: ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+23:05:01Z waiting for the lease: 41 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:10:08Z waiting for the lease: 41 in the queue, held by: ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+23:15:15Z waiting for the lease: 40 in the queue, held by: atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+23:20:24Z waiting for the lease: 37 in the queue, held by: ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+23:25:31Z waiting for the lease: 32 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:30:37Z waiting for the lease: 30 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:35:45Z waiting for the lease: 30 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:40:53Z waiting for the lease: 29 in the queue, held by: cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+23:46:00Z waiting for the lease: 19 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 1 build processes
+23:51:06Z waiting for the lease: 19 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+23:56:11Z waiting for the lease: 19 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 82 build processes
+00:01:17Z waiting for the lease: 16 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 40 build processes
+00:06:23Z waiting for the lease: 16 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:11:30Z waiting for the lease: 16 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:16:37Z waiting for the lease: 16 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:21:44Z waiting for the lease: 16 in the queue, held by: ultra-nblist 2026-09-25T00:03:45Z gate.sh /tmp/openmm-metal-bench/ultra-nblist, 0 build processes
+00:26:52Z waiting for the lease: 14 in the queue, held by: ultra-pme 2026-09-25T00:24:41Z ab cand2 amber20 stmv single, 0 build processes
+00:31:59Z waiting for the lease: 12 in the queue, held by: ultra-pme 2026-09-25T00:31:10Z split-pass probe screen, 0 build processes
+00:37:07Z waiting for the lease: 11 in the queue, held by: ultra-profiler 2026-09-25T00:36:00Z 1e GBSA kill test: forces plus counters census, base/kill/rsqrt on gbsa, 3 repeats, about 4 min, 0 build processes
+00:42:14Z waiting for the lease: 10 in the queue, held by: ultra-dispatch 2026-09-25T00:40:23Z waitfree vs poll, 0 build processes
+00:47:21Z waiting for the lease: 8 in the queue, held by: ultra-pme 2026-09-25T00:44:23Z cand3 screen part 2, 0 build processes
+00:52:28Z waiting for the lease: 6 in the queue, held by: ultra-atomics 2026-09-25T00:52:14Z words screen a: rf,gbsa, ultra-base/p0/words 2x15 s, ~12 min, 0 build processes
+00:57:35Z waiting for the lease: 4 in the queue, held by: ultra-nonbonded 2026-09-25T00:57:18Z screen tiles commit 6d72c3ae9, 4 configs x 5 tests x 2 rounds of 15 s, 0 build processes
+01:02:43Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-25T01:00:36Z relaxed math screen single, 0 build processes
+01:07:54Z waiting for the lease: 1 in the queue, held by: ultra-pme 2026-09-25T01:07:31Z lab2 screen: LJPME dispersion grids, ~8 min, 0 build processes
+estimate: 2 rounds, 1 tests, 5 configurations, about 5 min 0 s
+before-single Metal single settings=none /tmp/openmm-metal-bench/ultra-plugins/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit a703c73330292e949fa7526ecd3fcb618aadee72 src bd4ff3a62eeca8494a8c072c9bed8662189b7110 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:53:18Z 
+cand-single Metal single settings=none /tmp/openmm-metal-bench/ultra-plugins/cand/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 636ea574f71fb9fd487b0b76ea099b692f39d890 src ef3378ea3c8487a7a715960335ce68cb47c1ab71 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:51:32Z 
+before-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-plugins/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit a703c73330292e949fa7526ecd3fcb618aadee72 src bd4ff3a62eeca8494a8c072c9bed8662189b7110 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:53:18Z 
+cand-mixed Metal mixed settings=none /tmp/openmm-metal-bench/ultra-plugins/cand/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 636ea574f71fb9fd487b0b76ea099b692f39d890 src ef3378ea3c8487a7a715960335ce68cb47c1ab71 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:51:32Z 
+opencl-single OpenCL single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:11:49.136997+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        Metal      4.42345
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:12:09.349225+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        Metal      13.2248
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:12:30.234406+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          mixed       None          1              2         NVT        Metal      4.3928
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:12:55.997068+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          mixed       None          1              2         NVT        Metal      12.7369
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:13:22.520623+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        OpenCL     3.94522
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:13:42.838179+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        OpenCL     3.93044
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:14:02.341517+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          mixed       None          1              2         NVT        Metal      13.2073
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:14:22.874371+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          mixed       None          1              2         NVT        Metal      4.4446
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:14:42.569396+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        Metal      13.0874
+hostname: M3 Ultra
+timestamp: 2026-09-25T01:15:02.889672+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amoebagk          single      None          1              2         NVT        Metal      4.42442
+done /tmp/openmm-metal-bench/ultra-plugins/screen-gk

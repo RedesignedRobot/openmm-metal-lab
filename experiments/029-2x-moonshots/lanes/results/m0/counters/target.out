@@ -1,0 +1,9 @@
+19:21:06Z waiting for the lease: 4 in the queue, held by: ultra-r2-spread 2026-09-27T19:17:53Z ab.sh /tmp/openmm-metal-bench/ultra-r2-spread/s3, about 9 min, 0 build processes
+19:26:12Z waiting for the lease: 1 in the queue, held by: ultra-r2-mixed 2026-09-27T19:25:55Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-gq-dhfr, about 2 min, 0 build processes
+sub: session 20 (open rc 0)
+sub: profile load rc 0: Profile data loaded. (6.3s)
+sub: target walk: 24 dispatches, 9 s
+r1: session 23 (open rc 0)
+r1: profile load rc 0: Profile data loaded. (4.8s)
+r1: target walk: 24 dispatches, 7 s
+target done 19:27:56Z

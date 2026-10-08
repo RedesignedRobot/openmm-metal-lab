@@ -1,0 +1,42 @@
+14:42:31Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+14:42:31Z waiting for the lease: 18 in the queue, held by: ultra-r2-accum-gb 2026-09-27T14:41:12Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s7, about 4 min, 0 build processes
+14:47:36Z waiting for the lease: 16 in the queue, held by: r2-mixed 2026-09-27T14:46:48Z scoped no inf guard diag traces, 1 build processes
+14:52:41Z waiting for the lease: 15 in the queue, held by: ultra-r2-mixed 2026-09-27T14:52:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf1, about 7 min, 0 build processes
+14:57:45Z waiting for the lease: 15 in the queue, held by: ultra-r2-mixed 2026-09-27T14:52:09Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf1, about 7 min, 0 build processes
+15:02:49Z waiting for the lease: 14 in the queue, held by: ultra-r2-mixed 2026-09-27T14:58:00Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-nf2, about 12 min, 0 build processes
+15:07:54Z waiting for the lease: 13 in the queue, held by: r2-infra 2026-09-27T15:04:52Z M0(1) OpenCL shader census, 9 tests + stmv Metal, 0 build processes
+15:13:02Z waiting for the lease: 13 in the queue, held by: r2-infra 2026-09-27T15:04:52Z M0(1) OpenCL shader census, 9 tests + stmv Metal, 0 build processes
+15:18:09Z waiting for the lease: 11 in the queue, held by: r2-drift 2026-09-27T15:16:39Z drift dhfr nve Metal single tol 1e-8 seed 111 1 ns, 0 build processes
+15:23:13Z waiting for the lease: 11 in the queue, held by: r2-drift 2026-09-27T15:16:39Z drift dhfr nve Metal single tol 1e-8 seed 111 1 ns, 0 build processes
+15:28:18Z waiting for the lease: 9 in the queue, held by: r2-infra 2026-09-27T15:25:10Z M0(2) Apple9 counters apoa1rf, gpucapture+gpudebug, r1 vs sub-tiles, 0 build processes
+15:33:22Z waiting for the lease: 7 in the queue, held by: ultra-r2-bonded 2026-09-27T15:29:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab1, about 9 min, 0 build processes
+15:38:26Z waiting for the lease: 6 in the queue, held by: r2-dispatch 2026-09-27T15:37:11Z kc batching, md100, detforces, 0 build processes
+15:43:30Z waiting for the lease: 4 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:48:34Z waiting for the lease: 4 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:53:38Z waiting for the lease: 4 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:58:43Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:03:46Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+== owned u (tree q)
+gbsa single rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.421e-07 E -21993.712639 Eref -21993.722363 bitwise-repeat True
+gbsa mixed rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.862e-07 E -21993.711670 Eref -21993.722363 bitwise-repeat True
+Test project /tmp/openmm-metal-bench/ultra-r2-accum-gb-q/build
+    Start 268: TestMetalGBSAOBCForceSingle
+1/2 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    5.96 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+2/2 Test #269: TestMetalGBSAOBCForceMixed .......   Passed   27.10 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  33.08 sec
+== owned v (tree s)
+gbsa single rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.458e-07 E -21993.712559 Eref -21993.722363 bitwise-repeat True
+gbsa mixed rel|dF| 2.4725e-05 max|dF| 8.6050e-02 rel|dE| 4.862e-07 E -21993.711670 Eref -21993.722363 bitwise-repeat True
+Test project /tmp/openmm-metal-bench/ultra-r2-accum-gb-s/build
+    Start 268: TestMetalGBSAOBCForceSingle
+1/2 Test #268: TestMetalGBSAOBCForceSingle ......   Passed    5.58 sec
+    Start 269: TestMetalGBSAOBCForceMixed
+2/2 Test #269: TestMetalGBSAOBCForceMixed .......   Passed    5.80 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =  11.39 sec

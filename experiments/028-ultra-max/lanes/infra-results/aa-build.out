@@ -1,0 +1,104 @@
+03:34:29Z waiting for the lease: 1 in the queue, held by: ultra-dispatch 2026-09-25T03:29:39Z screen8: base, poll t2, waitfree t5, waitfree+k t10 in one session, about 16 min, 0 build processes
+03:39:34Z waiting for the lease: 2 in the queue, held by: ultra-dispatch 2026-09-25T03:29:39Z screen8: base, poll t2, waitfree t5, waitfree+k t10 in one session, about 16 min, 17 build processes
+03:45:00Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 1 build processes
+03:51:01Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+03:56:42Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:02:24Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:08:04Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:13:45Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:19:27Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:25:09Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:30:51Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:36:34Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:42:17Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:48:00Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:53:44Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+04:59:26Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:05:09Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:10:52Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:16:34Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:22:18Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:28:05Z waiting for the lease: 1 in the queue, held by: window 2026-09-25T03:43:22Z dedicated window /tmp/openmm-metal-bench/ultra-infra/w1, about 104 min; lanes wait, build.sh waits BUILD RUNNING, 0 build processes
+05:31:48Z /tmp/openmm-window is up
+05:31:48Z round 1, quiet (0 build processes)
+estimate: 1 rounds, 1 tests, 2 configurations, about 0 min 38 s
+a Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+b Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:31:50.637992+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      701.194
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:32:07.113396+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      705.639
+done /tmp/openmm-metal-bench/ultra-infra/aa-build/r1
+build 99160
+/tmp/openmm-metal-bench/ultra-infra/aa-build.sh: line 36: [: 0
+0: integer expression expected
+05:33:24Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-infra (A/A rf single 2x15 s, round 2 beside a taskpolicy -b build, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+05:33:50Z load { 11.26 11.55 7.10 }; build processes 13; build group 99160 %cpu 0, processes 2; all build processes %cpu 481
+05:33:50Z round 2, one build compiling
+estimate: 1 rounds, 1 tests, 2 configurations, about 0 min 38 s
+a Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+b Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+05:34:00Z load { 10.91 11.46 7.12 }; build processes 15; build group 99160 %cpu 2, processes 2; all build processes %cpu 311
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:33:52.806322+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      736.764
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:34:09.332106+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      733.01
+done /tmp/openmm-metal-bench/ultra-infra/aa-build/r2
+05:34:25Z load { 10.26 11.27 7.18 }; build processes 17; build group 99160 %cpu 1, processes 2; all build processes %cpu 663
+05:34:25Z /tmp/openmm-window is down; build.sh waiters poll every 30 s
+05:35:25Z lease.sh: GPU under 10% for 60 s in the timing hold of ultra-infra (A/A rf single 2x15 s, round 2 beside a taskpolicy -b build, about 5 min). A timing hold carries only timing: run ctest, drift, checks and gate.sh through their own --correctness tickets.
+05:35:25Z load { 11.00 11.27 7.45 }; build processes 17; build group 99160 %cpu 1, processes 2; all build processes %cpu 454
+05:35:25Z round 3, the waiters' builds and ours
+estimate: 1 rounds, 1 tests, 2 configurations, about 0 min 38 s
+a Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+b Metal single settings=none /tmp/openmm-metal-bench/ultra-base/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6df2b8bcb0334496515a8f6c1bd58b2bdb98f1a0 src 0844e9e44035809d2ab828860e05130f0b24d36a toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T20:36:53Z 
+05:35:35Z load { 11.55 11.37 7.53 }; build processes 32; build group 99160 %cpu 0, processes 2; all build processes %cpu 583
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:35:27.684065+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      703.031
+hostname: M3 Ultra
+timestamp: 2026-09-25T05:35:44.280586+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+rf                single      HBonds        1.5            4         NVT        Metal      696.632
+done /tmp/openmm-metal-bench/ultra-infra/aa-build/r3
+05:36:00Z load { 13.53 11.85 7.82 }; build processes 34; build group 99160 %cpu 0, processes 2; all build processes %cpu 696
+05:36:00Z AA DONE; the builds keep going outside the hold

@@ -1,0 +1,15 @@
+2026-09-26T20:43:19Z round 1 pme base-s load { 11.99 6.94 6.04 } vm 6% top other 22.4%, other 5.3%, WindowServer 4.8%, com.apple.Virtualization.VirtualMachine 3.2%, com.apple.Virtualization.VirtualMachine 3.2%
+2026-09-26T20:43:51Z round 1 pme cand-s load { 9.50 6.79 6.01 } vm 4% top other 33.9%, WindowServer 28.8%, other 7.5%, other 6.9%, other 5.0%
+2026-09-26T20:44:22Z round 1 pme cl-s load { 6.84 6.42 5.91 } vm 6% top other 98.1%, other 22.5%, WindowServer 5.9%, other 4.5%,  other 3.5%
+2026-09-26T20:44:54Z round 1 pme base-m load { 6.33 6.31 5.88 } vm 8% top other 109.8%, WindowServer 42.0%, other 29.5%, other 22.6%,  other 7.5%
+2026-09-26T20:45:26Z round 1 pme cand-m load { 5.23 6.04 5.80 } vm 33% top other 100.0%, com.apple.Virtualization.VirtualMachine 30.3%, other 24.3%, WindowServer 3.3%, other 3.1%
+2026-09-26T20:45:57Z round 2 pme cand-m load { 6.02 6.17 5.85 } vm 110% top com.apple.Virtualization.VirtualMachine 106.0%, other 101.3%, other 58.3%, other 23.8%,  other 7.7%
+2026-09-26T20:46:28Z round 2 pme base-m load { 5.07 5.93 5.78 } vm 6% top other 100.3%, other 22.4%, other 6.6%,  other 4.3%, WindowServer 4.1%
+2026-09-26T20:47:00Z round 2 pme cl-s load { 4.89 5.80 5.73 } vm 4% top other 100.7%, other 21.9%, WindowServer 17.0%, other 9.7%, other 7.2%
+2026-09-26T20:47:32Z round 2 pme cand-s load { 4.13 5.51 5.63 } vm 10% top other 98.5%, other 22.1%, WindowServer 16.7%, com.apple.Virtualization.VirtualMachine 6.8%,  other 5.7%
+2026-09-26T20:48:03Z round 2 pme base-s load { 6.64 5.92 5.77 } vm 9% top other 99.5%, other 21.4%, powermetrics 12.4%, other 9.9%, other 8.6%
+2026-09-26T20:48:35Z round 3 pme base-s load { 5.46 5.70 5.70 } vm 6% top other 110.9%, other 21.7%, other 4.3%, WindowServer 3.5%, com.apple.Virtualization.VirtualMachine 2.7%
+2026-09-26T20:49:07Z round 3 pme cand-s load { 5.14 5.59 5.65 } vm 5% top other 103.7%, other 31.9%, WindowServer 23.3%, other 6.3%,  other 5.8%
+2026-09-26T20:49:39Z round 3 pme cl-s load { 6.15 5.76 5.71 } vm 9% top other 215.0%, other 113.7%, other 106.9%, other 106.7%, other 104.4%
+2026-09-26T20:50:06Z round 3 pme base-m load { 12.11 7.34 6.29 } vm 8% top other 287.3%, other 266.2%, other 119.2%, other 113.1%, other 110.2%
+2026-09-26T20:50:40Z round 3 pme cand-m load { 16.43 8.88 6.88 } vm 19% top other 246.5%, other 214.6%, other 134.5%, other 119.5%, other 119.3%

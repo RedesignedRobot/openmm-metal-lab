@@ -1,0 +1,16 @@
+start 2026-09-24T23:11:19Z after 0 s of preflight, load { 2.85 4.32 5.36 }
+holder: window 2026-09-24T23:11:19Z dedicated window /tmp/openmm-metal-bench/ultra-infra/wcpu/w, about 1 min; lanes wait, build.sh waits, pid 16733, held 0 s
+build processes: 0
+queue, oldest first:
+ %CPU   PID COMMAND
+ 66.7 16538 other
+ 45.6 16537 other
+ 33.9   566 other
+ 27.3 13834 /tmp/openmm-metal-bench/ultra-profiler/venv/bin/python benchmark.py --platform Metal --precision single --test rf --seconds 15 --style table --outfi
+ 23.1   635 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+ 22.1  1290 other
+ 18.8   790 other
+ 13.2   591 other
+ 10.2  1106 other
+  5.9 90735 other
+end 2026-09-24T23:11:21Z

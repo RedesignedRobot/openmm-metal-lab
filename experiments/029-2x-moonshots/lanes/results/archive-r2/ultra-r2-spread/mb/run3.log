@@ -1,0 +1,27 @@
+15:32:35Z waiting for the lease: 15 in the queue, held by: ultra-r2-bonded 2026-09-27T15:29:23Z ab.sh /tmp/openmm-metal-bench/ultra-r2-bonded/ab1, about 9 min, 0 build processes
+15:37:39Z waiting for the lease: 14 in the queue, held by: r2-dispatch 2026-09-27T15:37:11Z kc batching, md100, detforces, 0 build processes
+15:42:43Z waiting for the lease: 12 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:47:47Z waiting for the lease: 12 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:52:51Z waiting for the lease: 12 in the queue, held by: r2-single-int 2026-09-27T15:42:42Z cm fold s3 128a2cb2a: bitwise, constraints, drift, ctests, 0 build processes
+15:57:55Z waiting for the lease: 11 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:02:59Z waiting for the lease: 11 in the queue, held by: ultra-r2-accum-nb 2026-09-27T15:54:13Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/probe5, about 13 min, 0 build processes
+16:08:03Z waiting for the lease: 7 in the queue, held by: ultra-r2-accum-gb 2026-09-27T16:07:01Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-gb/s9, about 4 min, 0 build processes
+16:13:07Z waiting for the lease: 4 in the queue, held by: r2-mixed 2026-09-27T16:10:31Z q on nf residual traces, 6 build processes
+16:18:12Z waiting for the lease: 2 in the queue, held by: r2-drift 2026-09-27T16:14:38Z drift dhfr nve Metal single tol 1e-8 seed 112 1 ns, 0 build processes
+flush list: 2867033 points, 4.020881517582811 adds per point
+base median    235.4 us  min    234.0  p90    237.7  relL2 9.572e-06  maxAbs 2.420e-05  tgs 720 x 64  regs? maxThreads 1024
+flush median     66.4 us  min     65.1  p90     66.8  relL2 5.257e-08  maxAbs 2.437e-07  tgs 1441 x 64  regs? maxThreads 1024
+k32c2048w1 median    195.9 us  min    194.1  p90    199.2  relL2 9.572e-06  maxAbs 2.412e-05  tgs 2882 x 32  regs? maxThreads 1024
+k32c2048w1+NOBAR median    195.7 us  min    193.6  p90    198.2  relL2 9.571e-06  maxAbs 2.412e-05  tgs 2882 x 32  regs? maxThreads 1024
+k32c2048w1+NOFLUSH median    160.7 us  min    159.1  p90    162.8  relL2 9.404e-01  maxAbs 2.071e+00  tgs 2882 x 32  regs? maxThreads 1024
+k32c2048w1+NOACC median    171.1 us  min    168.1  p90    173.8  relL2 1.502e+00  maxAbs 3.358e+00  tgs 2882 x 32  regs? maxThreads 1024
+k32c2048w1+TG=720 median    245.2 us  min    242.0  p90    246.7  relL2 9.571e-06  maxAbs 2.412e-05  tgs 720 x 32  regs? maxThreads 1024
+k32c3072w1 median    193.5 us  min    192.9  p90    194.3  relL2 9.571e-06  maxAbs 2.409e-05  tgs 2882 x 32  regs? maxThreads 1024
+k16c1024w2 median    301.1 us  min    298.3  p90    303.4  relL2 9.571e-06  maxAbs 2.412e-05  tgs 2882 x 64  regs? maxThreads 1024
+k16c2048w1 median    135.3 us  min    135.0  p90    135.7  relL2 9.571e-06  maxAbs 2.411e-05  tgs 5764 x 32  regs? maxThreads 1024
+k16c2048w2 median    144.4 us  min    143.7  p90    144.8  relL2 9.571e-06  maxAbs 2.411e-05  tgs 2882 x 64  regs? maxThreads 1024
+k16c1536w2 median    127.9 us  min    126.9  p90    128.3  relL2 9.571e-06  maxAbs 2.411e-05  tgs 2882 x 64  regs? maxThreads 1024
+k8c1024w2 median    104.2 us  min    103.0  p90    108.2  relL2 9.571e-06  maxAbs 2.414e-05  tgs 5764 x 64  regs? maxThreads 1024
+k8c1024w4 median    102.7 us  min    101.8  p90    104.8  relL2 9.571e-06  maxAbs 2.414e-05  tgs 2882 x 128  regs? maxThreads 1024
+k8c1024w8 median    116.1 us  min    115.5  p90    116.5  relL2 9.571e-06  maxAbs 2.412e-05  tgs 1441 x 256  regs? maxThreads 1024
+k16c1024w4 median    302.5 us  min    299.0  p90    304.6  relL2 9.571e-06  maxAbs 2.412e-05  tgs 1441 x 128  regs? maxThreads 1024

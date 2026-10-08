@@ -1,0 +1,13 @@
+2026-09-27T18:44:33Z round 1 apoa1ljpme base load { 4.55 7.19 6.98 } vm 133% top com.apple.Virtualization.VirtualMachine 131.4%, other 100.0%, other 19.8%, other 15.9%, powermetrics 4.8%
+2026-09-27T18:44:52Z round 1 apoa1ljpme mine load { 4.20 6.93 6.90 } vm 134% top com.apple.Virtualization.VirtualMachine 131.1%, other 99.9%, other 21.0%, WindowServer 5.6%,  other 4.7%
+2026-09-27T18:45:11Z round 1 pme base load { 3.92 6.69 6.81 } vm 132% top com.apple.Virtualization.VirtualMachine 129.1%, other 100.0%, other 89.3%, other 20.4%, powermetrics 12.9%
+2026-09-27T18:45:28Z round 1 pme mine load { 4.84 6.76 6.83 } vm 130% top com.apple.Virtualization.VirtualMachine 127.8%, other 99.1%, Python 65.2%,  other 31.3%, other 21.2%
+2026-09-27T18:45:44Z round 1 pme mine BUILD RUNNING during the run
+2026-09-27T18:45:45Z round 1 amber20-dhfr base load { 10.33 7.86 7.22 } BUILD RUNNING vm 128% top com.apple.Virtualization.VirtualMachine 124.0%, other 99.9%, python 85.2%, other 20.0%, other 7.1%
+2026-09-27T18:46:02Z round 1 amber20-dhfr mine load { 9.58 7.85 7.24 } vm 115% top com.apple.Virtualization.VirtualMachine 112.8%, other 99.9%, other 24.3%, other 20.2%, WindowServer 9.0%
+2026-09-27T18:46:19Z round 2 apoa1ljpme mine load { 9.53 7.91 7.27 } vm 130% top com.apple.Virtualization.VirtualMachine 125.6%, other 99.7%, other 19.3%, WindowServer 7.7%,  other 5.2%
+2026-09-27T18:46:38Z round 2 apoa1ljpme base load { 7.94 7.66 7.19 } vm 140% top com.apple.Virtualization.VirtualMachine 137.4%, other 99.9%, other 22.0%,  other 16.5%, other 6.7%
+2026-09-27T18:46:57Z round 2 pme mine load { 6.75 7.40 7.11 } vm 135% top com.apple.Virtualization.VirtualMachine 131.6%, other 99.8%,  other 65.8%, other 32.2%, other 21.7%
+2026-09-27T18:47:14Z round 2 pme base load { 6.57 7.33 7.09 } vm 126% top com.apple.Virtualization.VirtualMachine 122.5%, other 100.0%, other 40.3%, other 20.5%, powermetrics 11.8%
+2026-09-27T18:47:30Z round 2 amber20-dhfr mine load { 5.98 7.15 7.03 } vm 132% top com.apple.Virtualization.VirtualMachine 128.2%, other 99.6%, other 20.4%, WindowServer 5.4%, other 4.8%
+2026-09-27T18:47:48Z round 2 amber20-dhfr base load { 5.73 7.04 6.99 } vm 128% top com.apple.Virtualization.VirtualMachine 125.6%, other 99.9%, other 18.3%, other 6.4%,  other 4.4%

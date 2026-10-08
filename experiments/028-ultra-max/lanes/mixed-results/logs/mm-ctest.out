@@ -1,0 +1,14 @@
+23:45:36Z waiting for the lease: 46 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 21 build processes
+Test project /tmp/openmm-metal-bench/ultra-mixed/mm/build
+    Start 232: TestMetalConstantPotentialForceSingle
+    Start 233: TestMetalConstantPotentialForceMixed
+    Start 284: TestMetalMixedPrecisionSingle
+1/4 Test #284: TestMetalMixedPrecisionSingle ...........   Passed    1.19 sec
+    Start 285: TestMetalMixedPrecisionMixed
+2/4 Test #285: TestMetalMixedPrecisionMixed ............   Passed   12.01 sec
+3/4 Test #232: TestMetalConstantPotentialForceSingle ...   Passed   16.87 sec
+4/4 Test #233: TestMetalConstantPotentialForceMixed ....   Passed   75.99 sec
+
+100% tests passed out of 4
+
+Total Test time (real) =  76.00 sec

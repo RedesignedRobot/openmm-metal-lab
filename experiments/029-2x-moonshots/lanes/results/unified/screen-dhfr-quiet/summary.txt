@@ -1,0 +1,24 @@
+median ns/day, host clock
+test                      base-m        base-s         cpu-m         cpu-s        opencl
+amber20-dhfr              818.42        953.18        129.98        146.11        569.13
+
+rounds, base-m:
+  amber20-dhfr       818.72 818.13   spread 0.1%
+rounds, base-s:
+  amber20-dhfr       953.18 953.18   spread 0.0%
+rounds, cpu-m:
+  amber20-dhfr       130.90 129.07   spread 1.4%
+rounds, cpu-s:
+  amber20-dhfr       147.54 144.67   spread 2.0%
+rounds, opencl:
+  amber20-dhfr       569.66 568.59   spread 0.2%
+
+test                                      cpu-s/base-s                        cpu-m/base-m                        cpu-s/opencl                        cpu-m/opencl
+amber20-dhfr               0.153 (rounds 0.152..0.155)         0.159 (rounds 0.158..0.160)         0.257 (rounds 0.254..0.259)         0.228 (rounds 0.227..0.230)
+
+1 minute load before 10 runs: 7.05 to 11.34
+Background VM CPU before 10 runs: 104% to 113%
+runs with no result: 0
+runs that overlapped a build: 2
+  2026-09-26T19:53:51Z round 2 amber20-dhfr cpu-s BUILD RUNNING during the run
+  2026-09-26T19:53:51Z round 2 amber20-dhfr base-s load { 11.34 7.92 6.30 } BUILD RUNNING vm 104%

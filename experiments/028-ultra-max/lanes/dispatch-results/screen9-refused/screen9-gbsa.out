@@ -1,0 +1,11 @@
+06:15:51Z waiting for the lease: 11 in the queue, held by: ultra-profiler 2026-09-25T06:12:59Z workloads rf concurrency traces, Metal and OpenCL N=1 and N=4, capture and save only, up to 10 min BUILD RUNNING, 0 build processes
+06:21:01Z waiting for the lease: 10 in the queue, held by: ultra-nblist 2026-09-25T06:20:44Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-cut, about 9 min, 0 build processes
+06:26:06Z waiting for the lease: 10 in the queue, held by: ultra-nblist 2026-09-25T06:20:44Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-cut, about 9 min, 0 build processes
+06:31:10Z waiting for the lease: 3 in the queue, held by: head 2026-09-25T06:28:16Z gate.sh /tmp/openmm-metal-bench/ultra-plugins/head, 0 build processes
+06:36:15Z waiting for the lease: 3 in the queue, held by: head 2026-09-25T06:28:16Z gate.sh /tmp/openmm-metal-bench/ultra-plugins/head, 0 build processes
+06:41:19Z waiting for the lease: 3 in the queue, held by: head 2026-09-25T06:28:16Z gate.sh /tmp/openmm-metal-bench/ultra-plugins/head, 0 build processes
+06:46:24Z waiting for the lease: 3 in the queue, held by: head 2026-09-25T06:28:16Z gate.sh /tmp/openmm-metal-bench/ultra-plugins/head, 0 build processes
+06:51:28Z waiting for the lease: 2 in the queue, held by: ultra-plugins 2026-09-25T06:49:38Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/screen-fix, about 9 min, 0 build processes
+06:56:35Z waiting for the lease: 1 in the queue, held by: ultra-nonbonded 2026-09-25T06:56:14Z ab.sh /tmp/openmm-metal-bench/ultra-nonbonded/ab-nox, about 3 min, 0 build processes
+base plugins-int-b69 md5 0137cb38f26be36bbff53e96aadc1a02, core libs from ultra-integrated/prefix: commit b69efb0fe8006a2da6839cf24ffc2110536fa2bb
+/tmp/openmm-metal-bench/ultra-integrated/src changed after build.sh; rebuild before timing base

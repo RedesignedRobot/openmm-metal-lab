@@ -1,8 +1,8 @@
 # Review of the native Metal design study
 
-The research lane reviewed research/2026-09-25-metal-native-design.md on 2026-09-24 at about 21:32Z. It checked the study against labs 008, 011 and 024, the OpenCL submission path and the experiment 028 lane logs. Hostnames are scrubbed.
+A research pass reviewed research/2026-09-25-metal-native-design.md on 2026-09-24 at about 21:32Z. It checked the study against labs 008, 011 and 024, the OpenCL submission path and the experiment 028 logs. Hostnames are scrubbed.
 
-Design review of research/2026-09-25-metal-native-design.md, checked against labs 008, 011, 024, the OpenCL submission path and the lane logs as of about 21:32Z. Short version: probe 1b as written can't see the overlap it's looking for, dispatch has already built probe 1c but it's being judged against the wrong baseline, and x-resident's rf number is too high. GBSA and the fused integrator hold up. The API check comes next, then the GBSA prototype draft.
+Design review of research/2026-09-25-metal-native-design.md, checked against labs 008, 011, 024, the OpenCL submission path and the experiment logs as of about 21:32Z. Short version: probe 1b as written can't see the overlap it's looking for, dispatch has already built probe 1c but it's being judged against the wrong baseline, and x-resident's rf number is too high. GBSA and the fused integrator hold up. The API check comes next, then the GBSA prototype draft.
 
 PME as its own pass (roadmap 2, probe 1b)
 1. On base, P and the list chain sit in different command buffers. prepareInteractions commits X through downloadCountEvent->enqueue() (MetalNonbondedUtilities.cpp:424; MetalEvent::enqueue is encodeSignalEvent plus commit). The PME chain is encoded later, into Y. So findBlocks, sortShortList2 and computeRange, the windows the study counts on, can only be reached across a buffer boundary. There Apple promises start order and nothing more: "The GPU starts the command buffer after it starts any command buffers that are ahead of it" (commit() doc). Fix: build the probe on dispatch's cand/onebuf cfc9547f3 or cand/poll 17fc67494, which already put the list chain and the force kernels in one buffer.
@@ -10,7 +10,7 @@ PME as its own pass (roadmap 2, probe 1b)
 3. The timestamp pass can't judge this. Sample attachments are the variable that changes scheduling, so the pass will show overlap whether or not production gets it. Decide on host-clock B/A. The kill clause "P starts only after D ends" can't fire either, because P is encoded ahead of D. The real no-overlap signal is that the end times of D and findBlocks don't move.
 4. The 10 to 25 us overhead estimate is too high, which helps the design. Split mode prices a plain encoder boundary at 4.0% of gbsa over about 20 boundaries, about 0.6 us each, and at nothing on pme (0.998). Lab 008 gives +0.06 us GPU and +0.17 us host per boundary (encoder_per_kernel 1.942/0.284 against one_encoder_serial 1.881/0.112). The study's 8 us per boundary is counters sampling. The real cost is about 1 us of boundaries plus the fold (the 1.9 us dispatch floor plus 3.7 MB on apoa1). 1.03 stays a fair kill bar.
 5. Ticket 41058 no longer carries PLAIN or NOWRITE. pme.md:119 and :129 list base, lab, stream, tiled41, ti1024 and b256m5. So item b's no-build kill test for the int tile only has its tiled41 half. Either add the two arms to pme's next ticket or decide on tiled41 alone.
-6. Lab 011 agrees with the study's PME inputs: VkFFT at parity on the Ultra (Metal 0.067 against OpenCL 0.068 ms forward, 0.064 both inverse) and the float spread at 0.169 against 0.412 ms fixed point, 2.44x. Two small misquotes: the HEAD-NOTE says gather is "8 to 30x" slower, and the agreement is 0.54 ppm, not 0.3.
+6. Lab 011 agrees with the study's PME inputs: VkFFT at parity on the Ultra (Metal 0.067 against OpenCL 0.068 ms forward, 0.064 both inverse) and the float spread at 0.169 against 0.412 ms fixed point, 2.44x. Two small misquotes: the REVIEW-NOTE says gather is "8 to 30x" slower, and the agreement is 0.54 ppm, not 0.3.
 
 Wait-free step (roadmap 4, probe 1c)
 7. It's already built: dispatch's probe/wait 99aa5dbd5, DISPATCH_WAIT=none, queued in screen5 with base, one and poll on gbsa and rf.
@@ -40,4 +40,4 @@ Moot or minor
    - The cap is at MetalContext.cpp:589, not :590.
    - MetalArray.cpp:55 is the newBuffer line; the dispatch area cites :53.
    - "atomic_ulog" in the last paragraph is a typo.
-   - Feature Set Tables footnote 7 reads like a full 64-bit set, but MSL 6.16.4.6 and the atomics lane's compile failure say min and max only. The study already sides with MSL, and it's right to.
+   - Feature Set Tables footnote 7 reads like a full 64-bit set, but MSL 6.16.4.6 and the atomics experiment's compile failure say min and max only. The study already sides with MSL, and it's right to.

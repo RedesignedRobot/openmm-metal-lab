@@ -1,0 +1,7 @@
+19:14:50Z waiting for the lease: 3 in the queue, held by: ultra-r2-dispatch-kg 2026-09-27T19:14:33Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch-kg/s-rf, about 4 min, 0 build processes
+19:19:54Z waiting for the lease: 2 in the queue, held by: ultra-r2-spread 2026-09-27T19:17:53Z ab.sh /tmp/openmm-metal-bench/ultra-r2-spread/s3, about 9 min, 0 build processes
+f2-single: xctrace pid 38484 recording 19:25:04Z
+captured f2-single 19:25:09Z: Target app exited, ending recording...
+saved f2-single 19:25:46Z: Output file saved as: f2-single.trace
+exported f2-single 19:25:55Z, rows 163634, releasing
+PROF5 DONE

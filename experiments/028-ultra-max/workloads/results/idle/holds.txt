@@ -1,0 +1,156 @@
+atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 0 build processes
+atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 3 build processes
+atomics 2026-09-24T23:13:59Z probe 1a counters base/lo/plain/words + atomic ubench, ~10 min, 0 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 0 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 1 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 13 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 3 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 5 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 6 build processes
+cand2 2026-09-24T23:25:17Z gate.sh /tmp/openmm-metal-bench/ultra-pme/cand2, 7 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 3 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 30 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 35 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 38 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 4 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 40 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 41 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 55 build processes
+t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 79 build processes
+timing1 2026-09-24T22:44:12Z timing hold, 0 build processes
+timing1 2026-09-24T22:58:04Z timing hold BUILD RUNNING, 13 build processes
+timing2 2026-09-24T22:44:26Z timing hold, 0 build processes
+timing3 2026-09-24T22:58:17Z timing hold BUILD RUNNING, 13 build processes
+ultra-atomics 2026-09-24T23:17:52Z gate.sh forces /tmp/openmm-metal-bench/ultra-atomics, 0 build processes
+ultra-base 2026-09-24T19:52:09Z ab.sh /tmp/openmm-metal-bench/ultra-base/smoke/ab round 1 amber20-dhfr
+ultra-base 2026-09-24T19:52:55Z infra: base forces repeat
+ultra-base 2026-09-24T19:53:23Z gate.sh ctest /tmp/openmm-metal-bench/ultra-base
+ultra-base 2026-09-24T20:03:36Z gate.sh rerun TestMetalMonteCarloFlexibleBarostatMixed
+ultra-dispatch 2026-09-24T20:55:26Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen2 round 1 gbsa
+ultra-mixed 2026-09-24T20:29:25Z census c1 c2
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 1 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 12 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 13 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 26 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 3 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 4 build processes
+ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 9 build processes
+ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 1 build processes
+ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 13 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 1 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 12 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 13 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 3 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 6 build processes
+ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 7 build processes
+ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 0 build processes
+ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 11 build processes
+ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 13 build processes
+ultra-mixed 2026-09-24T22:21:27Z mixed pass 4: gate.sh t4, 3 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 0 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 1 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 10 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 12 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 13 build processes
+ultra-nblist 2026-09-24T22:55:37Z job2 nblist knob timings ~12 min, 5 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 1 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 15 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 21 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 22 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 25 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 3 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 32 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 33 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 34 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 35 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 36 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 37 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 38 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 39 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 4 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 40 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 41 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 44 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 6 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 77 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 78 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 79 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 80 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 81 build processes
+ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 82 build processes
+ultra-nonbonded 2026-09-24T23:59:01Z xres 761d5a666 DeterministicForces bitwise x5 vs 6d72c3ae9, 0 build processes
+ultra-nonbonded-xres 2026-09-24T23:59:01Z gate.sh --quick /tmp/openmm-metal-bench/ultra-nonbonded-xres, 0 build processes
+ultra-plugins 2026-09-24T20:12:27Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 1 amoebagk
+ultra-plugins 2026-09-24T20:14:56Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 1 amoebapme
+ultra-plugins 2026-09-24T20:17:49Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 2 amoebagk
+ultra-plugins 2026-09-24T20:21:07Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 2 amoebapme
+ultra-plugins 2026-09-24T20:24:22Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 3 amoebagk
+ultra-plugins 2026-09-24T20:26:38Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 3 amoebapme
+ultra-plugins 2026-09-24T20:30:16Z gate.sh forces /tmp/openmm-metal-bench/ultra-plugins
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 0 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 1 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 12 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 13 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 17 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 25 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 26 build processes
+ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 4 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 0 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 1 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 11 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 12 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 13 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 3 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 5 build processes
+ultra-plugins 2026-09-24T22:35:02Z rerun gate failures, ~10 min, 7 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 11 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 12 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 13 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 3 build processes
+ultra-pme 2026-09-24T21:42:04Z spread variants lab, 9 build processes
+ultra-profiler 2026-09-24T20:05:56Z profile single buffers+counters, 9 tests, ~15 min
+ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv
+ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv, 0 build processes
+ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min
+ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 13 build processes
+ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 9 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 0 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 1 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 11 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 13 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 20 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 24 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 26 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 3 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 7 build processes
+ultra-profiler 2026-09-24T22:50:29Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 2 amber20-stmv, 8 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 0 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 1 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 12 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 13 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 2 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 25 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 3 build processes
+ultra-profiler 2026-09-24T23:04:51Z probes base/prof/nb6x256/tbpc24, 2x15 s, about 14 min, 7 build processes
+ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 0 build processes
+ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 11 build processes
+ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 12 build processes
+ultra-profiler 2026-09-24T23:18:14Z xctrace Metal System Trace gbsa,rf,pme single, about 4 min, 13 build processes
+ultra-profiler 2026-09-24T23:23:08Z tbpc sweep apoa1pme 12,24,16,32: gpucapture plus gpudebug profile, 13 min cap, 0 build processes
+ultra-profiler 2026-09-24T23:23:08Z tbpc sweep apoa1pme 12,24,16,32: gpucapture plus gpudebug profile, 13 min cap, 1 build processes
+ultra-profiler 2026-09-24T23:23:08Z tbpc sweep apoa1pme 12,24,16,32: gpucapture plus gpudebug profile, 13 min cap, 13 build processes
+ultra-workloads 2026-09-24T20:10:52Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 pme
+ultra-workloads 2026-09-24T21:55:40Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 apoa1pme
+ultra-workloads 2026-09-24T21:55:40Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 apoa1pme, 0 build processes
+ultra-workloads 2026-09-24T23:23:35Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 amber20-dhfr, 0 build processes
+ultra-workloads 2026-09-24T23:23:35Z wl-ab.sh /tmp/openmm-metal-bench/ultra-workloads/mixed-vs-cpu round 1 amber20-dhfr, 13 build processes

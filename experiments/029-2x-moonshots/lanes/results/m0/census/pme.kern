@@ -1,0 +1,47 @@
+steps by computeNonbonded: a 5370, b 3383
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+findBlocksWithInteractions                        33.27     121.87   -88.60    1.00    0.95
+gridSpreadCharge                                  55.71     108.81   -53.10    1.00    1.00
+sortShortList                                      0.00      30.19   -30.19    0.00    1.00
+computeRange                                       0.00      15.75   -15.75    0.00    0.50
+integrateLangevinMiddleFused                      14.66       0.00    14.66    1.00    0.00
+VkFFT_main                                        33.84      42.39    -8.55    6.01    5.99
+computeNonbonded                                  91.96      99.70    -7.74    1.00    1.00
+computeBondedForces                               44.39      36.76     7.63    1.00    1.00
+sortShortList2                                     6.96       0.00     6.96    1.00    0.00
+applySettleToPositions                             0.00       6.91    -6.91    0.00    0.99
+gridInterpolateForce                              14.06       8.53     5.53    1.00    1.00
+sortBuckets                                        0.00       5.37    -5.37    0.00    0.50
+findBlockBounds                                    5.32       9.75    -4.43    1.00    1.00
+applyShakeToPositions                              0.00       3.97    -3.97    0.00    1.00
+applySettleToVelocities                            0.00       3.46    -3.46    0.00    1.00
+finishSpreadCharge                                 0.00       3.37    -3.37    0.00    1.00
+reduceForces                                       0.00       3.17    -3.17    0.00    0.92
+applyShakeToVelocities                             0.00       2.96    -2.96    0.00    1.00
+assignElementsToBuckets                            0.00       2.88    -2.88    0.00    0.50
+integrateLangevinMiddlePart1                       0.00       2.83    -2.83    0.00    1.00
+clearThreeBuffers                                  2.80       0.00     2.80    1.00    0.00
+integrateLangevinMiddlePart3                       0.00       2.65    -2.65    0.00    1.00
+clearFourBuffers                                   0.00       2.32    -2.32    0.00    1.00
+integrateLangevinMiddlePart2                       0.00       2.27    -2.27    0.00    1.00
+computeSortKeys                                    0.81       2.46    -1.65    0.56    1.00
+computeBucketPositions                             0.00       1.63    -1.63    0.00    0.50
+copyDataToBuckets                                  0.00       0.90    -0.90    0.00    0.48
+findAtomGridIndex                                  0.00       0.84    -0.84    0.00    0.46
+calcCenterOfMassMomentum                           3.01       2.27     0.74    1.00    1.00
+copyShortList                                      0.63       0.00     0.63    0.45    0.00
+sortBoxData                                        2.80       2.26     0.53    1.00    1.00
+CopyInts                                           0.00       0.51    -0.51    0.00    0.33
+removeCenterOfMassMomentum                         5.60       5.15     0.45    1.00    1.00
+reciprocalConvolution                              3.39       3.11     0.27    1.00    1.00
+generateRandomNumbers                              1.27       1.10     0.18    0.25    0.25
+copyInteractionCounts                              0.08       0.00     0.08    0.06    0.00
+computeKineticEnergy                               0.02       0.03    -0.01    0.00    0.00
+gridEvaluateEnergy                                 0.00       0.00    -0.00    0.00    0.00
+reduceEnergy                                       0.01       0.01    -0.00    0.00    0.00
+clearBuffer                                        0.00       0.00     0.00    0.00    0.00
+timeShiftVelocities                                0.00       0.00    -0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00    -0.00    0.00    0.00
+computeExclusionParameters                         0.00       0.00    -0.00    0.00    0.00
+computeParameters                                  0.00       0.00     0.00    0.00    0.00
+total                                            320.59     536.19  -215.60

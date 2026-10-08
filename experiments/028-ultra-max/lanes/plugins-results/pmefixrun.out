@@ -1,0 +1,12 @@
+build 09:17:16Z
+built 6aac90ee3b4a1ccccdc4f724f909974eced67fa7 09:18:40Z
+integrated gate verdict FAIL seen 09:20:10Z
+09:20:10Z waiting for the lease: 2 in the queue, held by: ultra-atomics 2026-09-25T09:19:52Z d3 screen mixed apoa1rf,amber20-cellulose 2x15 s, 0 build processes
+09:25:15Z waiting for the lease: 1 in the queue, held by: ultra-nonbonded 2026-09-25T09:25:13Z rf and apoa1rf Metal shader timeline on merged integrated, capture and save only, about 2 min, 0 build processes
+cand 6aac90ee3b4a1ccccdc4f724f909974eced67fa7 09:26:45Z
+1/4 Test #408: TestMetalAmoebaExtrapolatedPolarizationSingle ...   Passed    1.84 sec
+2/4 Test #409: TestMetalAmoebaExtrapolatedPolarizationMixed ....   Passed    6.18 sec
+3/4 Test #412: TestMetalAmoebaMultipoleForceSingle .............   Passed    3.97 sec
+4/4 Test #413: TestMetalAmoebaMultipoleForceMixed ..............   Passed   27.68 sec
+100% tests passed out of 4
+pmefix done 09:27:24Z

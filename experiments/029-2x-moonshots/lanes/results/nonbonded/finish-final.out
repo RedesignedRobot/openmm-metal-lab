@@ -1,0 +1,85 @@
+20:35:32Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:35:26Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/records-screen-amber20-stmv, about 10 min, 0 build processes
+20:40:35Z waiting for the lease: 7 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:35:26Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/records-screen-amber20-stmv, about 10 min, 0 build processes
+20:45:40Z waiting for the lease: 5 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:43:17Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-pme, about 9 min, 0 build processes
+20:50:43Z waiting for the lease: 5 in the queue, held by: ultra-m29-nonbonded 2026-09-26T20:43:17Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-pme, about 9 min, 0 build processes
+20:55:46Z waiting for the lease: 3 in the queue, held by: m29-mixed 2026-09-26T20:53:43Z Minimizer keep confirmation 3x30 seconds per arm about 9 minutes, 0 build processes
+21:00:50Z waiting for the lease: 3 in the queue, held by: m29-mixed 2026-09-26T20:53:43Z Minimizer keep confirmation 3x30 seconds per arm about 9 minutes, 0 build processes
+21:05:54Z waiting for the lease: 2 in the queue, held by: ultra-m29-mixed-v2 2026-09-26T21:03:37Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v2/screen-large, about 7 min, 0 build processes
+21:11:03Z waiting for the lease: 1 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:09:59Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-small, about 10 min, 0 build processes
+21:16:35Z waiting for the lease: 1 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:09:59Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-small, about 10 min, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-m29-nonbonded-final, 7484d7bef401f813dc871c1e156578954606d4ea, logs in /tmp/openmm-metal-bench/ultra-m29-nonbonded-final/gate-20260926T211815Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.468e-05  8.563e-02  5.493e-07  ok
+gbsa            2489     mixed  2.468e-05  8.563e-02  6.117e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.028e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.109e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.919e-01  1.224e-06  ok
+pme            23558     mixed  2.048e-05  3.919e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  4.772e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.851e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.200e-01  6.007e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.200e-01  5.873e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.230e-01  5.920e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.879e-07  ok
+PASS
+21:18:28Z waiting for the lease: 4 in the queue, held by: m29-mixed 2026-09-26T21:18:15Z Minimizer candidate deterministic force bitwise check, 0 build processes
+21:23:31Z waiting for the lease: 3 in the queue, held by: ultra-m29-nonbonded 2026-09-26T21:19:08Z ab.sh /tmp/openmm-metal-bench/ultra-m29-nonbonded/maxbits-confirm-apoa1rf, about 9 min, 0 build processes
+21:28:38Z waiting for the lease: 1 in the queue, held by: ultra-m29-mixed-v3 2026-09-26T21:27:42Z ab.sh /tmp/openmm-metal-bench/ultra-m29-mixed-v3/screen-large, about 7 min, 0 build processes
+test           atoms precision    rel|dF|    max|dF|    rel|dE|  (after 100 MD steps)
+gbsa            2489    single  1.955e-06  8.007e-03  7.919e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.95484046e-06 raw_max_force=0.00800721001
+gbsa            2489     mixed  1.317e-05  9.293e-02  5.858e-07  ok
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.31662775e-05 raw_max_force=0.0929343908
+rf             23558    single  1.062e-06  2.194e-02  2.517e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=4.20441713e-06 raw_max_force=0.360682985
+# cutoff pair {'i': 17637, 'j': 23254, 'distance_minus_cutoff_nm': -9.042082638188731e-09, 'pair_force_norm': 0.4598867078258031}
+rf             23558     mixed  1.907e-05  2.793e-01  2.291e-07  ok
+# cutoff pairs=1 epsilon_nm=1.90734863e-06 raw_rel_force=2.07421405e-05 raw_max_force=0.645874148
+# cutoff pair {'i': 22225, 'j': 22772, 'distance_minus_cutoff_nm': -5.046074214032359e-08, 'pair_force_norm': 0.9197793814429639}
+pme            23558    single  1.351e-06  1.945e-02  1.321e-06  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=1.35106612e-06 raw_max_force=0.019446062
+pme            23558     mixed  1.998e-05  3.137e-01  1.397e-06  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=1.99772708e-05 raw_max_force=0.313658733
+apoa1rf        92224    single  1.568e-06  4.144e-02  1.788e-07  ok
+# cutoff pairs=1 epsilon_nm=3.81469727e-06 raw_rel_force=3.1107817e-06 raw_max_force=0.510688718
+# cutoff pair {'i': 964, 'j': 32416, 'distance_minus_cutoff_nm': 3.877075993585777e-08, 'pair_force_norm': 0.6063353380171117}
+apoa1rf        92224     mixed  5.355e-05  1.391e+00  2.444e-07  ok
+# cutoff pairs=7 epsilon_nm=3.81469727e-06 raw_rel_force=5.55297143e-05 raw_max_force=1.73652587
+# cutoff pair {'i': 38428, 'j': 41939, 'distance_minus_cutoff_nm': 1.2952606565086455e-07, 'pair_force_norm': 0.9197721132633515}
+# cutoff pair {'i': 53854, 'j': 55747, 'distance_minus_cutoff_nm': -5.751553411315058e-08, 'pair_force_norm': 1.8246575193190289}
+# cutoff pair {'i': 54163, 'j': 63417, 'distance_minus_cutoff_nm': 2.0344571582953108e-07, 'pair_force_norm': 0.9197721132633516}
+# cutoff pair {'i': 55100, 'j': 57088, 'distance_minus_cutoff_nm': -6.940435537394762e-08, 'pair_force_norm': 0.9197821100115006}
+# cutoff pair {'i': 57964, 'j': 60322, 'distance_minus_cutoff_nm': -3.1876132911001775e-07, 'pair_force_norm': 1.8247327499015304}
+# cutoff pair {'i': 68661, 'j': 68845, 'distance_minus_cutoff_nm': -1.9314769705847112e-07, 'pair_force_norm': 0.919799933550893}
+# cutoff pair {'i': 73423, 'j': 78387, 'distance_minus_cutoff_nm': -3.8791879264366e-08, 'pair_force_norm': 0.919777700702827}
+apoa1pme       92224    single  5.253e-05  2.538e-01  8.921e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=5.25286866e-05 raw_max_force=0.253821662
+apoa1pme       92224     mixed  7.429e-05  7.271e-01  9.478e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=7.42933959e-05 raw_max_force=0.727053
+apoa1ljpme     92224    single  5.251e-05  2.528e-01  8.516e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=5.25110903e-05 raw_max_force=0.252751522
+apoa1ljpme     92224     mixed  7.512e-05  6.780e-01  9.114e-07  ok
+# cutoff pairs=0 epsilon_nm=0 raw_rel_force=7.51199424e-05 raw_max_force=0.678016433
+test precision same-context-forces new-context-forces fresh-process-forces energy-bitwise max|dF|
+gbsa single identical identical identical DIFFERS 0.000e+00
+gbsa mixed identical identical identical DIFFERS 0.000e+00
+rf single identical identical identical DIFFERS 0.000e+00
+rf mixed identical identical identical DIFFERS 0.000e+00
+pme single identical identical identical DIFFERS 0.000e+00
+pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1rf single identical identical identical DIFFERS 0.000e+00
+apoa1rf mixed identical identical identical DIFFERS 0.000e+00
+apoa1pme single identical identical identical DIFFERS 0.000e+00
+apoa1pme mixed identical identical identical DIFFERS 0.000e+00
+apoa1ljpme single identical identical identical DIFFERS 0.000e+00
+apoa1ljpme mixed identical identical identical DIFFERS 0.000e+00
+PASS
+EVALUATED candidate ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']
+EVALUATED int028 ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']
+EVALUATED reference ['HarmonicBondForce', 'PeriodicTorsionForce', 'NonbondedForce', 'CMMotionRemover', 'HarmonicAngleForce']

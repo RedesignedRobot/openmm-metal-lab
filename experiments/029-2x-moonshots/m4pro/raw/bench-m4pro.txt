@@ -1,0 +1,20 @@
+# M4 Pro, trunk 734ce92d5, benchmark.py --seconds 15, one round each, host clock (benchmark.py wall time).
+# 2026-10-01 00:33-00:38 local. Not a dedicated machine: a browser was open, load average 3 to 4.
+gbsa Metal single | ns_per_day: 968.1451992348967
+gbsa Metal mixed | ns_per_day: 982.5746567140158
+gbsa OpenCL single | ns_per_day: 855.1786495899513
+rf Metal single | ns_per_day: 741.126774240536
+rf Metal mixed | ns_per_day: 708.9839582062609
+rf OpenCL single | ns_per_day: 519.9286527137161
+pme Metal single | ns_per_day: 572.2026474034562
+pme Metal mixed | ns_per_day: 543.9007543409517
+pme OpenCL single | ns_per_day: 398.1053928314139
+apoa1rf Metal single | ns_per_day: 223.18985624639805
+apoa1rf Metal mixed | ns_per_day: 199.70613985601852
+apoa1rf OpenCL single | ns_per_day: 129.28805785081963
+apoa1pme Metal single | ns_per_day: 170.89559410525484
+apoa1pme Metal mixed | ns_per_day: 159.40559315291495
+apoa1pme OpenCL single | ns_per_day: 102.99985264257788
+apoa1ljpme Metal single | ns_per_day: 130.3445536486437
+apoa1ljpme Metal mixed | ns_per_day: 123.22076090154358
+apoa1ljpme OpenCL single | ns_per_day: 74.88903319385871

@@ -16,7 +16,7 @@ This document records the exact configuration, build, and test steps for the Met
 
 ### Apple M2 remote machine
 
-- Host address: `amir@10.10.10.11`.
+- Host address: `<user>@<m2-host>`.
 - CPU: Apple M2, 8 cores.
 - GPU: 10 cores.
 - RAM: 8 GB unified memory.
@@ -27,20 +27,20 @@ This document records the exact configuration, build, and test steps for the Met
 
 ## Worktree preparation
 
-The fork repository `/Users/mas/code/openmm` contains the `norpg` remote pointing to `https://github.com/NORPG/openmm.git`.
+The fork repository `~/code/openmm` contains the `norpg` remote pointing to `https://github.com/NORPG/openmm.git`.
 Fetching the remote and creating the worktree on the host:
 
 ```sh
-cd /Users/mas/code/openmm
+cd ~/code/openmm
 git fetch norpg
-git worktree add /Users/mas/code/wt/openmm-norpg 8f6a7332f4bca326cd43366f2916da396db661ae
+git worktree add ~/code/wt/openmm-norpg 8f6a7332f4bca326cd43366f2916da396db661ae
 ```
 
 The worktree was mirrored to the M2 remote machine under `~/lab/013-norpg`:
 
 ```sh
-ssh amir@10.10.10.11 "mkdir -p ~/lab/013-norpg"
-rsync -az --delete --exclude .git --exclude build /Users/mas/code/wt/openmm-norpg/ amir@10.10.10.11:~/lab/013-norpg/
+ssh <user>@<m2-host> "mkdir -p ~/lab/013-norpg"
+rsync -az --delete --exclude .git --exclude build ~/code/wt/openmm-norpg/ <user>@<m2-host>:~/lab/013-norpg/
 ```
 
 ## Configure commands and errors encountered
@@ -100,7 +100,7 @@ cmake -S . -B build -G Ninja \
 The build ran using 8 parallel jobs:
 
 ```sh
-uv run --with cmake --with ninja ninja -C /Users/mas/code/wt/openmm-norpg/build TestMetalComputeContext
+uv run --with cmake --with ninja ninja -C ~/code/wt/openmm-norpg/build TestMetalComputeContext
 ```
 
 The targets `libOpenMM.dylib`, `libOpenMMMetal.dylib`, and `TestMetalComputeContext` built without errors.
@@ -108,7 +108,7 @@ The targets `libOpenMM.dylib`, `libOpenMMMetal.dylib`, and `TestMetalComputeCont
 The install target was verified:
 
 ```sh
-uv run --with cmake --with ninja ninja -C /Users/mas/code/wt/openmm-norpg/build install
+uv run --with cmake --with ninja ninja -C ~/code/wt/openmm-norpg/build install
 ```
 
 ### Apple M2 remote build
@@ -116,7 +116,7 @@ uv run --with cmake --with ninja ninja -C /Users/mas/code/wt/openmm-norpg/build 
 The build ran using 4 parallel jobs to stay within 8 GB of RAM and avoid disk swapping:
 
 ```sh
-ssh amir@10.10.10.11 "ninja -C ~/lab/013-norpg/build -j4 TestMetalComputeContext"
+ssh <user>@<m2-host> "ninja -C ~/lab/013-norpg/build -j4 TestMetalComputeContext"
 ```
 
 The targets compiled and linked cleanly.
@@ -127,7 +127,7 @@ The targets compiled and linked cleanly.
 
 ```sh
 uv run --with cmake ctest \
-  --test-dir /Users/mas/code/wt/openmm-norpg/build \
+  --test-dir ~/code/wt/openmm-norpg/build \
   -R '^TestMetalComputeContext$' \
   --timeout 300 \
   -V > /tmp/ctest-m3ultra.log 2>&1
@@ -138,7 +138,7 @@ Outcome: Test passed in 0.94 seconds. Exit code 0.
 ### Apple M2 remote test
 
 ```sh
-ssh amir@10.10.10.11 "/opt/homebrew/opt/cmake/bin/ctest \
+ssh <user>@<m2-host> "/opt/homebrew/opt/cmake/bin/ctest \
   --test-dir ~/lab/013-norpg/build \
   -R '^TestMetalComputeContext$' \
   --timeout 300 \

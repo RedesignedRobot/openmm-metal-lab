@@ -48,8 +48,8 @@
 18:52:06:I1:   Hostname: M2
 18:52:06:I1: UTC Offset: 3
 18:52:06:I1:        PID: 26088
-18:52:06:I1:        CWD: /Users/amir/lab/fah-client/run-patched-stock
-18:52:06:I1:       Exec: /Users/amir/lab/fah-client/fah-client-patched
+18:52:06:I1:        CWD: ~/lab/fah-client/run-patched-stock
+18:52:06:I1:       Exec: ~/lab/fah-client/fah-client-patched
 18:52:06:I1:*******************************************************************
 18:52:06:I2:<config>
 18:52:06:I2:  <!-- Client -->
@@ -684,7 +684,7 @@
 18:52:07:D5:bstream_gets()
 18:52:07:D5:bstream_gets()
 18:52:07:D5:bstream_destroy()
-18:52:07:I1:F@H ID = AKM4CzHUOElj0QPubujpBwKkm4RjFHtc1VV_kXh6qTY
+18:52:07:I1:F@H ID = <client-id>
 18:52:07:I3:Loading default resource group
 18:52:07:D5:SQL: CREATE TABLE IF NOT EXISTS "groups" (name TEXT PRIMARY KEY,value)
 18:52:07:D5:SQL: REPLACE INTO "groups" (name, value) VALUES (@NAME, @VALUE)
@@ -755,7 +755,7 @@
 18:52:09:D5:REQ1:Host: 127.0.0.1:7396
 18:52:09:D5:REQ1:Upgrade: websocket
 18:52:09:D5:REQ1:Connection: Upgrade
-18:52:09:D5:REQ1:Sec-WebSocket-Key: RGk645m1qSlxsWY0sL70FQ==
+18:52:09:D5:REQ1:Sec-WebSocket-Key: <nonce>
 18:52:09:D5:REQ1:Sec-WebSocket-Version: 13
 18:52:09:D5:REQ1:Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 18:52:09:D5:REQ1:User-Agent: Python/3.14 websockets/17.1
@@ -764,7 +764,7 @@
 18:52:09:I4:REQ1:> HTTP/1.1 101 HTTP_SWITCHING_PROTOCOLS
 18:52:09:D5:REQ1:Upgrade: websocket
 18:52:09:D5:REQ1:Connection: upgrade
-18:52:09:D5:REQ1:Sec-WebSocket-Accept: qCdSMwUQ2S7XbSyWF7oSPn/6yJQ=
+18:52:09:D5:REQ1:Sec-WebSocket-Accept: <nonce>
 18:52:09:D5:REQ1:Date: Wed, 23 Sep 2026 18:52:09 GMT
 18:52:09:D5:REQ1:
 18:52:09:D4:CON1:cb::HTTP::ConnIn::writeRequest() length=171 hasMore=0
@@ -824,7 +824,7 @@
 18:52:09:D4:CON1:Connection closed
 18:52:09:D4:FD-1:cb::Event::FD::~FD()
 18:52:17:D5:OSXOSImpl::finishInit() on thread 0x1e9d2ff80 main
-18:52:17:D4:consoleUserChanged() amir
+18:52:17:D4:consoleUserChanged() user
 18:52:17:D5:Event callback fd=2 flags=8
 18:52:17:D3:Vacuuming database
 18:52:18:D5:SQL: VACUUM

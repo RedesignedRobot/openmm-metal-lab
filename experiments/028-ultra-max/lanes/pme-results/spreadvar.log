@@ -1,0 +1,86 @@
+20:24:57Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:24:22Z ab.sh /tmp/openmm-metal-bench/ultra-plugins/amoeba1 round 3 amoebagk
+20:29:58Z waiting for the lease, held by: ultra-mixed 2026-09-24T20:29:25Z census c1 c2
+20:35:00Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:40:01Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:45:02Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:50:03Z waiting for the lease, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins
+20:55:04Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv
+21:00:05Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min
+21:05:06Z waiting for the lease, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min
+21:10:07Z waiting for the lease, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909
+21:15:08Z waiting for the lease, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909
+21:20:09Z waiting for the lease, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453
+21:25:10Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:30:11Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:35:12Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+21:40:14Z waiting for the lease, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1
+lab src matches labhash.txt; BUILT Sep 25 00:08
+load { 5.78 9.23 9.03 } at 21:42:04Z
+ %CPU COMMAND
+ 99.1 other
+ 23.4 other
+ 11.0 /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine
+  9.6 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer -daemon
+apoa1pme single round 0 ubase 193.72 ns/day load1=5.78
+apoa1pme single round 0 lab 230.06 ns/day load1=4.94
+apoa1pme single round 0 stream 198.72 ns/day load1=4.53
+apoa1pme single round 0 tiled41 178.15 ns/day load1=4.65
+apoa1pme single round 0 ti1024 230.63 ns/day load1=4.19
+apoa1pme single round 0 b256m5 230.36 ns/day load1=4.07
+apoa1pme single round 1 b256m5 230.62 ns/day load1=4.00
+apoa1pme single round 1 ti1024 229.60 ns/day load1=4.31
+apoa1pme single round 1 tiled41 179.37 ns/day load1=4.38
+apoa1pme single round 1 stream 199.06 ns/day load1=4.55
+apoa1pme single round 1 lab 231.71 ns/day load1=6.81
+apoa1pme single round 1 ubase 194.67 ns/day load1=7.33
+pme single round 0 ubase 543.23 ns/day load1=8.30
+pme single round 0 lab 631.41 ns/day load1=8.60
+pme single round 0 stream 410.81 ns/day load1=7.79
+pme single round 0 tiled41 517.96 ns/day load1=6.73
+pme single round 0 ti1024 619.79 ns/day load1=6.35
+pme single round 0 b256m5 618.26 ns/day load1=5.88
+pme single round 1 b256m5 624.96 ns/day load1=6.63
+pme single round 1 ti1024 623.16 ns/day load1=6.63
+pme single round 1 tiled41 515.02 ns/day load1=6.42
+pme single round 1 stream 410.87 ns/day load1=8.53
+pme single round 1 lab 614.63 ns/day load1=11.11
+pme single round 1 ubase 540.08 ns/day load1=14.40
+apoa1ljpme single round 0 ubase 145.73 ns/day load1=19.89
+apoa1ljpme single round 0 lab 200.48 ns/day load1=19.67
+apoa1ljpme single round 0 stream 182.43 ns/day load1=18.19
+apoa1ljpme single round 0 tiled41 158.52 ns/day load1=15.11
+apoa1ljpme single round 0 ti1024 194.01 ns/day load1=20.47
+apoa1ljpme single round 0 b256m5 201.19 ns/day load1=16.50
+apoa1ljpme single round 1 b256m5 201.07 ns/day load1=12.82
+apoa1ljpme single round 1 ti1024 194.16 ns/day load1=10.87
+apoa1ljpme single round 1 tiled41 158.91 ns/day load1=9.12
+apoa1ljpme single round 1 stream 180.35 ns/day load1=7.77
+apoa1ljpme single round 1 lab 199.09 ns/day load1=6.76
+apoa1ljpme single round 1 ubase 145.44 ns/day load1=6.51
+SUMMARY apoa1pme single ubase=194.20 (1.000) lab=230.89 (1.189) stream=198.89 (1.024) tiled41=178.76 (0.921) ti1024=230.11 (1.185) b256m5=230.49 (1.187)
+SUMMARY pme single ubase=541.65 (1.000) lab=623.02 (1.150) stream=410.84 (0.758) tiled41=516.49 (0.954) ti1024=621.48 (1.147) b256m5=621.61 (1.148)
+SUMMARY apoa1ljpme single ubase=145.58 (1.000) lab=199.79 (1.372) stream=181.39 (1.246) tiled41=158.71 (1.090) ti1024=194.08 (1.333) b256m5=201.13 (1.382)
+== pmeprof apoa1pme /tmp/openmm-metal-bench/ultra-base
+apoa1pme single empty=0.909ms recip=1.677ms direct=1.692ms all=2.350ms recip-empty=0.768ms
+apoa1pme single empty=0.847ms recip=1.545ms direct=1.619ms all=2.369ms recip-empty=0.698ms
+== pmeprof apoa1pme /tmp/openmm-metal-bench/ultra-pme
+apoa1pme single empty=0.921ms recip=1.310ms direct=1.643ms all=2.070ms recip-empty=0.389ms
+apoa1pme single empty=0.854ms recip=1.267ms direct=1.616ms all=2.075ms recip-empty=0.413ms
+== pmeprof apoa1ljpme /tmp/openmm-metal-bench/ultra-base
+apoa1ljpme single empty=0.915ms recip=2.179ms direct=1.722ms all=2.999ms recip-empty=1.264ms
+apoa1ljpme single empty=0.896ms recip=2.253ms direct=1.694ms all=2.977ms recip-empty=1.357ms
+== pmeprof apoa1ljpme /tmp/openmm-metal-bench/ultra-pme
+apoa1ljpme single empty=0.989ms recip=1.483ms direct=1.720ms all=2.325ms recip-empty=0.494ms
+apoa1ljpme single empty=0.889ms recip=1.475ms direct=1.717ms all=2.248ms recip-empty=0.586ms
+== pmeprof apoa1pme lab PME_LAB_PLAIN=1
+apoa1pme single empty=1.083ms recip=1.205ms direct=1.756ms all=1.957ms recip-empty=0.122ms
+apoa1pme single empty=0.902ms recip=1.117ms direct=1.719ms all=1.950ms recip-empty=0.215ms
+== pmeprof apoa1pme lab PME_LAB_NOWRITE=1
+apoa1pme single empty=0.982ms recip=1.169ms direct=1.735ms all=1.928ms recip-empty=0.186ms
+apoa1pme single empty=0.908ms recip=1.138ms direct=1.702ms all=1.910ms recip-empty=0.230ms
+== pmeprof apoa1pme lab PME_LAB_TILED=1 PME_LAB_MSL41=1
+apoa1pme single empty=0.789ms recip=1.664ms direct=1.731ms all=2.327ms recip-empty=0.875ms
+apoa1pme single empty=0.863ms recip=1.343ms direct=1.436ms all=2.301ms recip-empty=0.480ms
+== pmeprof apoa1pme lab PME_LAB_TILED=1 PME_LAB_MSL41=1 PME_LAB_TILE_ITEMS=1 PME_LAB_TILE_BLOCK=1024
+apoa1pme single empty=0.923ms recip=1.276ms direct=1.674ms all=2.080ms recip-empty=0.352ms
+apoa1pme single empty=0.848ms recip=1.385ms direct=1.699ms all=2.078ms recip-empty=0.537ms

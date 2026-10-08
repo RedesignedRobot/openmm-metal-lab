@@ -1,0 +1,81 @@
+--- forces.py
++++ forces.py
+@@ -11,7 +11,12 @@
+ --md STEPS is the stale-list check: each Metal Context first runs STEPS steps of benchmark.py's
+ LangevinMiddleIntegrator (4 fs, 300 K, fixed seeds), then its forces are compared with Reference at the
+ positions it reached. The trajectory differs from build to build, so a row fails only when rel|dF| or
+-max|dF| is more than MD_FACTOR times the baseline's (ultra-base/forces-md100.txt).
++max|dF| is more than MD_FACTOR times the baseline's (ultra-base/forces-md100.txt). A trajectory can also
++reach a pair whose distance is within float rounding of the cutoff, which Metal (float r2) and Reference
++(double r2) put on opposite sides; the atoms of such a pair carry that pair's whole force at the cutoff
++as error, up to about 1.5 kJ/mol/nm for a water O-O pair in rf. Among the STRADDLE_CANDIDATES atoms with
++the largest |dF|, those with a non-exception partner within STRADDLE_ULPS float ulps of the box length of
++the cutoff are left out of rel|dF| and max|dF| and reported apart, as the count and their largest |dF|.
+ usage: python forces.py [--md STEPS] [--write-reference] <benchmarks dir> <out> [baseline]
+ """
+ import argparse
+@@ -26,6 +31,8 @@
+ PRECISIONS = ["single", "mixed"]
+ ENERGY_FACTOR = 10
+ MD_FACTOR = 2
++STRADDLE_CANDIDATES = 64
++STRADDLE_ULPS = 4
+ SEED = 2026
+ 
+ parser = argparse.ArgumentParser()
+@@ -100,6 +107,32 @@
+     return evaluate(context)
+ 
+ 
++def straddling(system, reached, error):
++    """Atoms among the largest errors that have a pair within float rounding of the cutoff."""
++    nonbonded = [f for f in system.getForces() if isinstance(f, mm.NonbondedForce)]
++    if not nonbonded or nonbonded[0].getNonbondedMethod() == mm.NonbondedForce.NoCutoff:
++        return []
++    force = nonbonded[0]
++    cutoff = force.getCutoffDistance().value_in_unit(u.nanometer)
++    periodic = force.usesPeriodicBoundaryConditions()
++    box = np.array([v.value_in_unit(u.nanometer) for v in system.getDefaultPeriodicBoxVectors()]).diagonal()
++    band = STRADDLE_ULPS*np.spacing(np.float32(box.max() if periodic else np.abs(reached).max()))
++    exceptions = {}
++    for k in range(force.getNumExceptions()):
++        i, j, *_ = force.getExceptionParameters(k)
++        exceptions.setdefault(i, set()).add(j)
++        exceptions.setdefault(j, set()).add(i)
++    atoms = []
++    for i in np.argsort(-np.linalg.norm(error, axis=1))[:STRADDLE_CANDIDATES]:
++        delta = reached-reached[i]
++        if periodic:
++            delta -= box*np.round(delta/box)
++        near = np.flatnonzero(np.abs(np.linalg.norm(delta, axis=1)-cutoff) < band)
++        if any(j != i and j not in exceptions.get(i, ()) for j in near):
++            atoms.append(i)
++    return atoms
++
++
+ def verdict(test, precision, rel_force, max_force, rel_energy):
+     if not baseline:
+         return ""
+@@ -131,13 +164,20 @@
+             f, e, reached = metal(system, positions, precision)
+             if args.md:
+                 fref, eref = reference(system, reached)
+-            rel_force = np.linalg.norm(f-fref)/np.linalg.norm(fref)
+-            max_force = np.abs(f-fref).max()
++            error = f-fref
++            straddle = straddling(system, reached, error) if args.md else []
++            if straddle:
++                straddle_max = np.linalg.norm(error[straddle], axis=1).max()
++                error[straddle] = 0
++            rel_force = np.linalg.norm(error)/np.linalg.norm(fref)
++            max_force = np.abs(error).max()
+             rel_energy = abs(e-eref)/abs(eref)
+             row = (f"{test:12} {system.getNumParticles():7d} {precision:>9} {rel_force:10.3e} "
+                    f"{max_force:10.3e} {rel_energy:10.3e}")
+             print(row, file=out, flush=True)
+             result = verdict(test, precision, rel_force, max_force, rel_energy)
++            if straddle:
++                result += f"  ({len(straddle)} atoms on the cutoff left out, largest |dF| {straddle_max:.2e})"
+             failed = failed or result.startswith("FAIL")
+             print(f"{row}  {result}", flush=True)
+ sys.exit(1 if failed else 0)

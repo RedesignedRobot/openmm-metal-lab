@@ -1,0 +1,12 @@
+08:24:01Z round 1 load { 2.36 4.03 3.69 } vm 8% run min Metal mixed 200
+08:24:12Z round 1 load { 2.31 3.96 3.67 } vm 6% run min CPU mixed 200
+08:24:20Z round 1 load { 2.18 3.88 3.64 } vm 5% run min Metal single 200
+08:24:23Z round 1 load { 2.01 3.82 3.62 } vm 5% run min OpenCL single 200
+08:24:28Z round 2 load { 1.93 3.77 3.61 } vm 6% run min OpenCL single 200
+08:24:33Z round 2 load { 1.93 3.77 3.61 } vm 9% run min Metal single 200
+08:24:36Z round 2 load { 1.93 3.74 3.60 } vm 8% run min CPU mixed 200
+08:24:46Z round 2 load { 4.10 4.13 3.74 } vm 4% run min Metal mixed 200
+08:24:56Z round 3 load { 4.00 4.11 3.73 } vm 7% run min Metal mixed 200
+08:25:07Z round 3 load { 3.45 3.99 3.69 } vm 6% run min CPU mixed 200
+08:25:17Z round 3 load { 5.48 4.39 3.84 } vm 5% run min Metal single 200
+08:25:21Z round 3 load { 5.12 4.33 3.82 } vm 5% run min OpenCL single 200

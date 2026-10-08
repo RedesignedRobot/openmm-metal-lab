@@ -1,0 +1,72 @@
+estimate: 2 rounds, 1 tests, 2 configurations, about 1 min 48 s
+00:01:27Z waiting for the lease: 39 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 41 build processes
+00:06:32Z waiting for the lease: 34 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:11:37Z waiting for the lease: 34 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:16:42Z waiting for the lease: 35 in the queue, held by: t2 2026-09-24T23:59:29Z gate.sh /tmp/openmm-metal-bench/ultra-dispatch/t2, 0 build processes
+00:21:47Z waiting for the lease: 35 in the queue, held by: ultra-nblist 2026-09-25T00:03:45Z gate.sh /tmp/openmm-metal-bench/ultra-nblist, 0 build processes
+00:26:51Z waiting for the lease: 33 in the queue, held by: ultra-pme 2026-09-25T00:24:41Z ab cand2 amber20 stmv single, 0 build processes
+00:31:55Z waiting for the lease: 31 in the queue, held by: ultra-pme 2026-09-25T00:31:10Z split-pass probe screen, 0 build processes
+00:37:01Z waiting for the lease: 30 in the queue, held by: ultra-profiler 2026-09-25T00:36:00Z 1e GBSA kill test: forces plus counters census, base/kill/rsqrt on gbsa, 3 repeats, about 4 min, 0 build processes
+00:42:07Z waiting for the lease: 29 in the queue, held by: ultra-dispatch 2026-09-25T00:40:23Z waitfree vs poll, 0 build processes
+00:47:10Z waiting for the lease: 27 in the queue, held by: ultra-pme 2026-09-25T00:44:23Z cand3 screen part 2, 0 build processes
+00:52:15Z waiting for the lease: 25 in the queue, held by: ultra-atomics 2026-09-25T00:52:14Z words screen a: rf,gbsa, ultra-base/p0/words 2x15 s, ~12 min, 0 build processes
+00:57:20Z waiting for the lease: 23 in the queue, held by: ultra-nonbonded 2026-09-25T00:57:18Z screen tiles commit 6d72c3ae9, 4 configs x 5 tests x 2 rounds of 15 s, 0 build processes
+01:02:28Z waiting for the lease: 22 in the queue, held by: ultra-mixed 2026-09-25T01:00:36Z relaxed math screen single, 0 build processes
+01:07:32Z waiting for the lease: 20 in the queue, held by: ultra-pme 2026-09-25T01:07:31Z lab2 screen: LJPME dispersion grids, ~8 min, 0 build processes
+01:12:37Z waiting for the lease: 19 in the queue, held by: ultra-plugins 2026-09-25T01:11:44Z screen amoebagk before/cand/OpenCL 2x15s, ~8 min, 0 build processes
+01:17:44Z waiting for the lease: 18 in the queue, held by: ultra-workloads 2026-09-25T01:15:22Z aggregate throughput: 1,2,4,8 procs x gbsa,rf x Metal single/OpenCL single/Metal mixed, 10 s windows, ~10 min, 0 build processes
+01:22:49Z waiting for the lease: 17 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:27:54Z waiting for the lease: 17 in the queue, held by: ultra-nblist 2026-09-25T01:20:16Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-n2, about 13 min, 0 build processes
+01:32:58Z waiting for the lease: 16 in the queue, held by: ultra-plugins 2026-09-25T01:31:52Z screen amoebagk head/bar 2x15s, ~6 min, 0 build processes
+01:38:02Z waiting for the lease: 15 in the queue, held by: ultra-atomics 2026-09-25T01:34:57Z screen bonded a: apoa1rf,apoa1pme,cellulose, b0/bonded 2x15 s, ~12 min, 0 build processes
+01:43:07Z waiting for the lease: 13 in the queue, held by: ultra-nblist 2026-09-25T01:42:30Z job3 isolated nblist phase times, K3 unroll and K4 staged box data, ~8 min, 0 build processes
+01:48:11Z waiting for the lease: 12 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:53:15Z waiting for the lease: 12 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+01:58:19Z waiting for the lease: 12 in the queue, held by: ultra-nblist 2026-09-25T01:44:48Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-mb, about 16 min, 0 build processes
+02:03:23Z waiting for the lease: 10 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:08:27Z waiting for the lease: 10 in the queue, held by: ultra-dispatch 2026-09-25T02:01:15Z ab.sh /tmp/openmm-metal-bench/ultra-dispatch/screen7, about 11 min, 0 build processes
+02:13:31Z waiting for the lease: 9 in the queue, held by: ultra-mixed 2026-09-25T02:10:42Z fused LangevinMiddle screen, single and mixed, gbsa and rf, 0 build processes
+02:18:35Z waiting for the lease: 5 in the queue, held by: ultra-profiler 2026-09-25T02:18:25Z shader timeline: apoa1rf ultra-base, 0 build processes
+02:23:40Z waiting for the lease: 2 in the queue, held by: ultra-nblist 2026-09-25T02:23:36Z job4 gated chain g1/g2 phase times + ns/day, ~9 min, 0 build processes
+02:28:44Z waiting for the lease: 2 in the queue, held by: ultra-nblist 2026-09-25T02:23:36Z job4 gated chain g1/g2 phase times + ns/day, ~9 min, 0 build processes
+02:34:22Z waiting for the lease: 1 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 39 build processes
+02:40:04Z waiting for the lease: 1 in the queue, held by: ultra-nblist 2026-09-25T02:29:25Z ab.sh /tmp/openmm-metal-bench/ultra-nblist/screen-gate, about 12 min, 0 build processes
+tiles Metal single settings=none /tmp/openmm-metal-bench/ultra-nonbonded/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 6d72c3ae9bbd0945c70994e01d95398bbb3d64f7 src 35948dc4d6e0367232d7e849643cfc5a3ad96f2d toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T22:37:09Z 
+xres Metal single settings=none /tmp/openmm-metal-bench/ultra-nonbonded-xres/venv/lib/python3.13/site-packages/openmm/__init__.py Unknown commit 761d5a666104d03ad9a218f04ca5a632e0466fbe src 56600f91a06017c9af072503acb23108867d3c7c toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-24T23:58:25Z 
+hostname: M3 Ultra
+timestamp: 2026-09-25T02:40:07.815682+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      54.2946
+hostname: M3 Ultra
+timestamp: 2026-09-25T02:40:33.473088+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      56.3855
+hostname: M3 Ultra
+timestamp: 2026-09-25T02:41:00.371611+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      56.3655
+hostname: M3 Ultra
+timestamp: 2026-09-25T02:41:25.707730+00:00
+openmm_version: 8.6.0.dev-Unknown
+cpuinfo: Apple M3 Ultra
+cpuarch: arm
+system: Darwin
+
+Test              Precision   Constraints   H mass (amu)   dt (fs)   Ensemble   Platform   ns/day
+amber20-cellulose single      HBonds        1.5            4         NVT        Metal      54.2906
+done /tmp/openmm-metal-bench/ultra-nonbonded/ab-xresc

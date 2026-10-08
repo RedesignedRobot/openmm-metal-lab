@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "~/code/wt/m029-fah-longrun/experiments/029-2x-moonshots/tools/fah-longrun-m029.py", line 312, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "~/code/wt/m029-fah-longrun/experiments/029-2x-moonshots/tools/fah-longrun-m029.py", line 292, in main
+    return arm(args)
+  File "~/code/wt/m029-fah-longrun/experiments/029-2x-moonshots/tools/fah-longrun-m029.py", line 100, in arm
+    require(os.environ.get("OPENMM_PLUGIN_DIR") == str(build / "prefix/lib/plugins"),
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "plugin directory", os.environ.get("OPENMM_PLUGIN_DIR"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/code/wt/m029-fah-longrun/experiments/029-2x-moonshots/tools/fah-longrun-m029.py", line 42, in require
+    raise ValueError(f"{quantity}: {value}")
+ValueError: plugin directory: /tmp/openmm-metal-bench/ultra-m029-stack4/prefix/lib/plugins

@@ -1,0 +1,47 @@
+Waiting for the M2 8ae6cf17b forces baseline
+/tmp/openmm-metal-bench/ultra-m2-transfer-fb9fe1c7753141deb7c29dd85ba9663b/src: 8ae6cf17bef6a6084f4f0d12fa6aa5705dd73374, 2518 working-tree blobs verified
+M2 pid=49043 log=~/lab/ultra-m2.noindex/uploads/fb9fe1c7753141deb7c29dd85ba9663b/run.log
+09:44:20Z memory free 64%, 0 other build processes, load { 1.99 1.76 1.67 }, -j4
+loads ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/plugins/libOpenMMMetal.dylib
+forces gate cand-r2-accum-gb-726145eae0 PASS, 18 s
+  Hits:            713 / 736 (96.88%)
+  Misses:           23 / 736 ( 3.12%)
+built ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0
+check started 2026-09-27T09:45:15Z, 2 rounds of 15 s, tests gbsa
+clock: benchmark.py host clock, datetime.now() around step()
+base ~/lab/ultra-m2.noindex/base: commit 8ae6cf17bef6a6084f4f0d12fa6aa5705dd73374 src b01853a160c25e316b42f7ab748a3976daabc183 toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-27T06:37:04Z steps venv 0s, configure 1s, ninja -j4 36s (231 edges), install+python 5s 
+  loads ~/lab/ultra-m2.noindex/base/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/base/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/base/prefix/lib/plugins/libOpenMMMetal.dylib
+cand-r2-accum-gb-726145eae0 ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0: commit 8ae6cf17bef6a6084f4f0d12fa6aa5705dd73374 src 40f1c66be65831880f3b9ad7eaec3945cf77669f toolchain Apple clang version 21.0.0 (clang-2100.3.34.2), Xcode 27.2 Build version 27B5019j, SDK /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk built 2026-09-27T09:45:13Z steps venv 7s, configure 2s, ninja -j4 20s (1429 edges), install+python 26s 
+  loads ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/venv/lib/python3.14/site-packages/openmm/__init__.py Unknown libOpenMM ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/libOpenMM.dylib Metal ~/lab/ultra-m2.noindex/cand-r2-accum-gb-726145eae0/prefix/lib/plugins/libOpenMMMetal.dylib
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  2.474e-05  8.609e-02  5.972e-07  ok
+gbsa            2489     mixed  2.474e-05  8.609e-02  6.064e-07  ok
+rf             23558    single  2.213e-05  7.342e-01  2.478e-07  ok
+rf             23558     mixed  2.213e-05  7.342e-01  2.216e-07  ok
+pme            23558    single  2.048e-05  3.920e-01  1.348e-06  ok
+pme            23558     mixed  2.048e-05  3.920e-01  1.330e-06  ok
+apoa1rf        92224    single  5.987e-05  1.327e+00  8.287e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  1.112e-07  ok
+apoa1pme       92224    single  7.747e-05  7.197e-01  7.385e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.197e-01  7.564e-07  ok
+apoa1ljpme     92224    single  7.747e-05  7.227e-01  1.059e-06  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.227e-01  1.068e-06  ok
+forces gate cand-r2-accum-gb-726145eae0 PASS, 18 s
+A/B 129 s
+M2 check 20260927T094515Z-8ae6cf17b, base 8ae6cf17bef6
+clock: benchmark.py host clock, datetime.now() around step(); ns/day and MB are medians of rounds
+MB = peak memory footprint, RSS = maximum resident set size, both from /usr/bin/time -l
+
+cand-r2-accum-gb-726145eae0: 8ae6cf17bef6 against base, forces gate PASS
+test               prec    base ns/d  cand ns/d  ratio        rounds  base MB  cand MB    dMB     d% base RSS cand RSS  flags
+gbsa               single     455.18     363.97  0.800  0.797..0.803       68       68     +1   +0.9       91       91  SLOWER
+gbsa               mixed      374.23     317.44  0.848  0.845..0.852       71       71     +0   +0.3       95       95  SLOWER
+
+1-minute load before 8 runs: 3.16 to 3.55; memory free 65% to 68%
+Spotlight CPU before 8 runs: 0% to 0%; runs that started with Spotlight at 50% or more: 0
+runs that started with a build running: 0; runs with no result: 0
+
+verdict cand-r2-accum-gb-726145eae0 8ae6cf17bef6 FLAGGED: gate PASS; slower: gbsa single 0.800, gbsa mixed 0.848; footprint growth: none; missing: none
+CHECK WALL 147 s; tests=gbsa; rounds=2; seconds=15
+CHECK DONE ~/lab/ultra-m2.noindex/checks/20260927T094515Z-8ae6cf17b
+

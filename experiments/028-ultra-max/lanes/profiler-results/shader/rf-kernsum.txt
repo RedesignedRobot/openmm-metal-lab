@@ -1,0 +1,32 @@
+steps by computeNonbonded: a 5180, b 4693
+kernel                                        a us/step  b us/step      a-b  a/step  b/step
+sortShortList2                                    44.64       0.00    44.64    1.00    0.00
+sortShortList                                      0.00      30.33   -30.33    0.00    0.99
+findBlocksWithInteractions                       139.74     117.91    21.83    0.98    1.00
+computeNonbonded                                 133.41     118.84    14.57    1.00    1.00
+findBlockBounds                                    4.89       9.58    -4.69    1.00    0.98
+reduceForces                                       0.00       3.50    -3.50    0.00    0.92
+clearThreeBuffers                                  0.00       2.42    -2.42    0.00    1.00
+computeSortKeys                                    0.68       2.92    -2.24    0.49    1.00
+computeBondedForces                               22.45      24.57    -2.12    1.00    1.00
+clearTwoBuffers                                    1.76       0.00     1.76    0.98    0.00
+sortBoxData                                        1.81       2.54    -0.73    0.90    1.00
+removeCenterOfMassMomentum                         4.71       5.38    -0.68    1.00    1.00
+integrateLangevinMiddlePart3                       2.35       2.95    -0.60    1.00    1.00
+applySettleToPositions                             6.59       7.19    -0.59    1.00    1.00
+applySettleToVelocities                            3.34       3.79    -0.45    1.00    1.00
+integrateLangevinMiddlePart2                       2.13       2.55    -0.42    1.00    1.00
+CopyInts                                           0.00       0.41    -0.41    0.00    0.26
+integrateLangevinMiddlePart1                       2.69       3.10    -0.41    1.00    1.00
+calcCenterOfMassMomentum                           2.48       2.60    -0.12    1.00    1.00
+applyShakeToVelocities                             2.90       2.80     0.10    1.00    0.98
+applyShakeToPositions                              4.07       4.17    -0.10    1.00    1.00
+copyInteractionCounts                              0.09       0.00     0.09    0.07    0.00
+generateRandomNumbers                              1.11       1.14    -0.03    0.25    0.25
+computeKineticEnergy                               0.03       0.04    -0.01    0.00    0.00
+reduceEnergy                                       0.00       0.00    -0.00    0.00    0.00
+determineNativeAccuracy                            0.00       0.00    -0.00    0.00    0.00
+computeParameters                                  0.00       0.00     0.00    0.00    0.00
+copyFloatBuffer                                    0.00       0.00     0.00    0.00    0.00
+clearBuffer                                        0.00       0.00    -0.00    0.00    0.00
+total                                            381.86     348.72    33.14

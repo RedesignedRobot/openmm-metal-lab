@@ -1,20 +1,11 @@
-# Program: performance, accuracy, compatibility (from 2026-09-23)
+# Program state, 2026-09-23 to 2026-09-24 (history)
 
-State file for the experiment program. Each lane lists its ranked experiments; status moves
-queued -> running -> measured -> verified. A gain counts only with an end-to-end measurement that
-names its clock and a fresh-context verifier pass.
+This was the experiment program's state file before experiment 028. It is kept for the compatibility, performance and accuracy tables and the reasoning behind them. Statuses are as of 2026-09-24 and are superseded by experiments 028 and 029.
 
-Machines: Studio (M3 Ultra, main box for tests and timing since 2026-09-23, only under /tmp/openmm-metal-bench,
-everything deleted when the work is done) and mini (M2, `amir@100.80.58.31` over Tailscale). The laptop (M3 Pro) is the owner's working machine: edit code there, but no builds,
-GPU runs or timings (owner, 2026-09-23). M3 results come from the Studio. One heavy job per machine: every build, GPU run or timed measurement
-holds that machine's lease, `mkdir /tmp/openmm-lease` (owner line inside; released right after; never
-held while editing; stale after 60 min = ask the lead).
-OpenMM's setup.py deletes whatever `openmm` its Python can import, even for `setup.py build` (removePackage).
-Build a variant's Python module with an interpreter that has no openmm installed, never the Studio's shared
-env: on 2026-09-23 a 022 variant build wiped the shared install, which was restored with
-`ninja -C src/build PythonInstall` (restore-env.sh).
-Harnesses that keep a program off FAH servers must fail closed: the FAH client fetches api.foldingathome.org/gpus
-whenever its working directory lacks a fresh gpus.json, whatever --api-server says (023 rerun, 2026-09-23).
+Two traps from this period still apply:
+
+- OpenMM's setup.py deletes whatever `openmm` its Python can import, even for `setup.py build` (removePackage). Build each variant's Python module with an interpreter that has no openmm installed.
+- A harness that must keep a program off Folding@home servers has to fail closed: the FAH client fetches api.foldingathome.org/gpus whenever its working directory lacks a fresh gpus.json, whatever --api-server says (experiment 023).
 
 ## Compatibility (research report 2026-09-23)
 
@@ -34,43 +25,6 @@ macOS arm64 core that loads Metal (FAH core devs, closed source; "no plans" as o
 | C7 | AMOEBA/HIPPO plugin (PRIVATE sweep + glue; after C5) | queued |
 | C8 | Packaging: conda-forge osx-arm64 toolchain, runtime gate on older macOS | queued |
 | C9 | Exp 024: Metal as the smallest diff from HIP (peastman plans his own Metal port from HIP, 2026-09-23 #5397). Metric: added lines vs a renamed HIP copy (baseline ~2,024 + df64 683). Stages: host, kernels via macros, then measured speedups, then df64 | stages 1-4 done, verified through stage 2 (mini metal-hipdelta 9074c38f1): 479 added lines + 589 df64, 110/110 Single+Mixed on M2 and M3 Ultra, M2 1.00 to 1.18x `metal`; M3 Ultra gbsa 0.86 to 0.93x (neighbor list build, open); stage 4 verified 2026-09-24 by verify-024s4 on the M2 (Metal ctest 109/110 then 5/5 on the stochastic Brownian test, same on `metal`; OpenCL ctest identical status to the merge base on all 191 tests, 66/66 Single; common code reviewed; range fix has no cross-threadgroup read left; df64 minimizer 1.17e-6 vs Reference). Notes for a PR: doubleToString virtual changes ComputeContext's vtable (plugins rebuild); OpenCL devices with fp64 but no int64 atomics now run mixed minimization instead of throwing; Metal mixed minimization 4x slower than single (one-threadgroup reductions, = C4) |
-
-Maintainer questions (jcoffland, FAH core devs, peastman) are in the report; not sent (outreach paused).
-
-## Paused 2026-09-24 19:15Z (owner switching accounts). Resume here.
-
-Every agent is stopped. The Studio and this laptop are clean, with no leases held. Still running by itself on the M2: best-metal's detached chains (leased.sh PIDs 53071, 56892 and 58596, log ~/lab/fast/phase3.log). The full benchmark.py run of 6df2b8bcb covers Metal single, Metal mixed, OpenCL single and `metal`+P0 single, 3 rounds of 30 s, 8 tests. After it: the forces check on the timed libs (out/m2-full/checks), a nonbonded launch-shape screen (~/lab/fast/out/m2-screen3) and metalp0 amber20-dhfr with scipy (~/lab/fast/dhfr-p0.log). All should finish by about 19:55Z and release the lease.
-To resume:
-1. On the M2, check that the lease is gone. Copy ~/lab/fast/out/m2-full, m2-screen3 and the logs into 025/results/m2-<stamp>/ with hostnames replaced by "M2", compute the medians, commit, then delete ~/lab/fast. The screen 1 and 2 notes are in ~/lab/fast/out/screen1.log and screen2.log. Screen 2 found `metal`+P0 1.041 to 1.072x 6df2b8bcb on pme, apoa1rf, apoa1pme and cellulose.
-2. Restart the profiler lane (026-per-step-profile), M3 Ultra only. Measure the per-step wall time, GPU busy time, gap, dispatches, waits and top kernels on all 8 tests, single and mixed. Also run amber20-stmv (Metal single and mixed against OpenCL single), OpenCL amoebagk and amoebapme on the Ultra, and A/B probes: UseBlockingSync=false, the nonbonded launch shape, and the block count scaled to 60 cores. Nothing was measured before the stop.
-3. Restart the metal-plugins lane (027). The laptop worktree /Users/amir/code/mini/hipdelta-plugins is on branch metal-hipdelta-plugins at 6df2b8bcb, with an uncommitted plugins/amoeba/platforms/metal/ and 027/port.sh. Port AMOEBA, then Drude, then RPMD, from HIP. Build and test on the M2 only.
-4. Then the core optimization lanes, chosen by the profile. The #5397 reply is held until the optimized numbers are in. The owner's focus is M3 Ultra maximum performance. The M3 Pro is skipped.
-
-## Optimization pass, decided 2026-09-24 19:15Z
-
-benchmark.py, 6df2b8bcb, Metal single over OpenCL single: M3 Pro 1.15 to 1.40, M2 about 0.99 to 1.18, M3 Ultra 1.02 to 1.13 (025). Metal mixed runs at 0.72 to 0.88x Metal single, and OpenCL can't run mixed on any Apple GPU (no cl_khr_fp64). Only one test clears peastman's 40% bar. The owner's decisions: the #5397 reply waits for the optimized numbers. Any change that measures is allowed in the hipdelta tree: keep it if it gains 3% or more on at least one chip and costs no more than 1% on any, and track the added lines. The headline table per chip is the fastest build that passes the gates, timed on AC at nice 0, as the median of 3 rounds. Step 1 is 026-per-step-profile: wall time, GPU busy time and gap per step, per-kernel shares and the mixed-over-single cost map, on all three chips, before any kernel work.
-
-## peastman on #5397, 2026-09-24 15:28Z
-
-"Let's focus on the benchmark.py benchmarks ... A 40% speedup is worth doing a lot of work for. An 8% speedup isn't." (Earlier, 23 Sep 19:17Z: AI-generated code can't be used directly, only as a reference.) Owner's choice: measure first, then reply. Running: fah-precision (does FAH need mixed precision, which Apple OpenCL can't do) and best-metal (metal-hipdelta-fast = 6df2b8bcb + P0 simd_ballot, then benchmark.py vs OpenCL from the same tree on the M2, exp 025). M3 Ultra timings wait until the owner's 18 agents on the Studio are done. Gate notes: 6df2b8bcb M2 ctest 109/110 (TestMetalLangevinIntegratorMixed, rerun pending), Studio 109/110 (FlexibleBarostatMixed, rerun pending; /tmp/openmm-metal-bench/evwait kept for it).
-
-## Resumed 2026-09-24 09:17 UTC
-
-- GitHub: no new activity on #5397, cbang#213, #455, #303 at 09:17 UTC. Session cron polls every 2 hours (read only).
-- gbsa gap closed on the M3 Ultra (gbsa-gap, then the lead after the agent ended with the session restart): the 0.85x was a 40 us GPU idle gap per step while the host blocked in waitUntilCompleted(); waiting on the shared event (waitUntilSignaledValue) removes it without a busy core. 6df2b8bcb on metal-hipdelta-gbsa (mini remote): 0.995 to 1.120x `metal` on all six tests, forces unchanged. M2 gates and M3 Ultra ctest running at 15:45Z. `metal` itself gains 1 to 2 percent from the same change (not applied).
-- Lesson 2026-09-24: a remote command chain joined with `;` ran final.sh after a failed archive transfer, on the old tree. Chain transfer, verify and run with `&&`, and check a hash of the changed file on the remote before a gate.
-- Lesson 2026-09-24: 024 and 025 launched mini jobs from zsh over ssh, so zsh's BG_NICE ran them at nice 5. 017's bench.sh guarded against this; the later scripts didn't. On macOS, `renice 0` needs root once a process is niced, so a niced timing run can only be killed and restarted. Launch with `setopt no_bg_nice` or through `/bin/sh -c`, and have every timing script refuse to run when `ps -o nice= -p $$` isn't 0.
-- verify-024s4 finished 09:59 UTC: stage 4 verified (C9 row). Earlier running: gbsa-gap (per-kernel GPU profile on the M3 Ultra, owner at the machine).
-- ConstantPotential flake closed (cp-flake, M2, 2026-09-24): upstream test fragility, not a Metal bug. Full test 1 fail in 480 runs (mixed alone), no concurrency effect. In-process probe: 6 of 9,235 Metal method-trials and 6 of 8,625 CPU-platform trials had exactly one electrode charge bitwise unchanged, never more than one. Seed 1312 (cg) leaves atom 230 unchanged in 20 of 20 replays; its true change is 1.34e-8 (Reference, double), about 29 float ulps, below the float solver noise. Metal runs the common kernels unchanged. Candidate upstream test fix: count unchanged electrode charges and assert <= 3 (a stale solve gives 300); 0 of 17,860 trials would fail it. Assertion from #4870.
-- Upstream bug found by cp-flake, confirmed by the lead on origin/master: ComputeContext.cpp:48 does `workThread = new WorkThread()` and ~ComputeContext() is empty; no platform deletes it. Each Context leaks one thread (CPU platform about 2); a probe died after about 2,036 Contexts at kern.num_taskthreads 2048. No upstream issue found. Fix needs care: deleting in the base destructor runs after the derived context is gone, so a queued task could touch freed state; flush and delete at the start of each platform destructor or in a base cleanup the derived destructors call. Posted as openmm/openmm#5436 (2026-09-24, owner approved): one-line `delete workThread;`, a regression from #4833 (8.3.0 through 8.6.1). OpenCL 3,000-Context probe: 2,034 then crash before, 7 to 11 threads after.
-
-## Paused 2026-09-24 ~08:20 UTC (owner offline). Resume here.
-
-- Upstream: #5435 merged 2026-09-24 02:46Z (#5434 closed). #5397: my FAHBench-vs-benchmark.py answer and test offer posted 05:23Z, awaiting peastman. cbang#213, fah-client-bastet#455 and the #303 comment posted 2026-09-23 20:42Z, no replies yet. Public text is first person singular.
-- `metal` (laptop, local only) is at 052eaa85b = P2 CCMA pipelining + P3 energy guard (exp 022, verified; ctest parity with base).
-- No agents or background jobs running. Studio keeps only env/prefix/src/bin and rebuild scripts under /tmp/openmm-metal-bench (1.0 GB, owner's choice). Leases free.
-- Next: (1) fresh verifier on 024 stage 4 and its 6 common-code files, including OpenCL ctest; (2) profile the M3 Ultra gbsa neighbor-list gap; decide on HIP's numTilesInBatch line; (3) rebase metal-fah-readiness onto `metal`; (4) poll #5397, cbang#213, #455, #303 (read only, show replies to the owner); (5) final cleanup of laptop scratch worktrees and mini ~/lab/hipdelta* when 024 is closed.
-- Agent monitors missed job completion twice on 2026-09-23/24; the lead should poll lease and process state directly rather than trust an agent's monitor.
 
 ## Performance
 
@@ -106,8 +60,7 @@ Double precision: decline.
 
 | # | Experiment | Status |
 |---|---|---|
-| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | fixed and verified (Metal): on M3, float->signed int64 casts wrap mod 2^64 (M2 saturates), so realToFixedPoint turns 1e22+ forces into exactly 0 and L-BFGS exits at iteration 0. Independent probe (verify-e4) confirms on M3 Ultra + M2. Saturating realToFixedPoint + 5 direct-cast sites routed through it: branches metal-fixed-point-sat 556fbad21 (Metal ctest 110/110 on M3 Ultra) and opencl-fixed-point-sat 0e0a66cfe (upstream fix; TestOpenCLLocalEnergyMinimizer 3/3). Cost: noise (dhfr 1.001, nav 0.999). OpenCL side: upstream as openmm/openmm#5435, trimmed to the realToFixedPoint change in common.cl at peastman's request (9a824905b; OpenCL 66/66 on M3 Ultra); independent OpenCL probe on M3 Ultra confirms (021/verify-e4). Open: df64::operator long (df64.metal:455-458) still wraps; clamp it with the next Metal fix batch |
-
+| E4 | Root cause of M3 testLargeForces (#5434): float atomic rounding RNE vs RTZ probe, out-of-range float->long probe, M2 vs M3 | fixed and verified (Metal): on M3, float->signed int64 casts wrap mod 2^64 (M2 saturates), so realToFixedPoint turns 1e22+ forces into exactly 0 and L-BFGS exits at iteration 0. Independent probe (verify-e4) confirms on M3 Ultra + M2. Saturating realToFixedPoint + 5 direct-cast sites routed through it: branches metal-fixed-point-sat 556fbad21 (Metal ctest 110/110 on M3 Ultra) and opencl-fixed-point-sat 0e0a66cfe (upstream fix; TestOpenCLLocalEnergyMinimizer 3/3). Cost: noise (dhfr 1.001, nav 0.999). OpenCL side: upstream as openmm/openmm#5435, trimmed to the realToFixedPoint change in common.cl at peastman's request (9a824905b; OpenCL 66/66 on M3 Ultra); independent OpenCL probe on M3 Ultra confirms (021/verify-e4). Open: df64::operator long (df64.metal:455-458 on the old `metal` branch, :379 on ultra/integrated) still wraps; clamp it with the next Metal fix batch |
 | E1 | Better erfc in direct-space PME via an upstream macro hook; host prediction first, then kernel A/B | queued |
 | E2 | Replace 20-point fast-math probe with domain sweep (exp on [-88,0], log near 1, ulp not relative, NaN = fail); attribute Metal-vs-OpenCL energy gap | queued |
 | E3 | Two-pass deterministic minimizer reductions (= C4) | queued |

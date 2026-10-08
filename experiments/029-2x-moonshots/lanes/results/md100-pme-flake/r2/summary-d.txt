@@ -1,0 +1,58 @@
+07:20:05Z waiting for the lease: 16 in the queue, held by: r2-drift 2026-09-27T07:16:37Z drift dhfr nve mixed seed 4 1 ns, 0 build processes
+07:25:10Z waiting for the lease: 16 in the queue, held by: r2-drift 2026-09-27T07:18:45Z drift dhfr nve CPU mixed tol 1e-5 seed 41 0.15 ns, 0 build processes
+07:30:14Z waiting for the lease: 14 in the queue, held by: ultra-r2-dispatch 2026-09-27T07:29:37Z ab.sh /tmp/openmm-metal-bench/ultra-r2-dispatch/s1-rf, about 7 min, 0 build processes
+07:35:19Z waiting for the lease: 13 in the queue, held by: r2-mixed 2026-09-27T07:35:18Z e2 mixed traces gbsa rf pme apoa1pme, 0 build processes
+07:40:23Z waiting for the lease: 12 in the queue, held by: ultra-r2-correctness 2026-09-27T07:38:06Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s1-amoeba, about 9 min BUILD RUNNING, 0 build processes
+07:45:27Z waiting for the lease: 11 in the queue, held by: ultra-r2-correctness 2026-09-27T07:44:57Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2-pme, about 11 min, 0 build processes
+07:50:31Z waiting for the lease: 11 in the queue, held by: ultra-r2-correctness 2026-09-27T07:44:57Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s2-pme, about 11 min, 0 build processes
+07:55:34Z waiting for the lease: 10 in the queue, held by: ultra-r2-correctness 2026-09-27T07:54:39Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3a, about 16 min, 0 build processes
+08:00:38Z waiting for the lease: 9 in the queue, held by: ultra-r2-correctness 2026-09-27T07:59:10Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3b, about 8 min, 3 build processes
+08:05:41Z waiting for the lease: 9 in the queue, held by: ultra-r2-correctness 2026-09-27T07:59:10Z ab.sh /tmp/openmm-metal-bench/ultra-r2-correctness/s3b, about 8 min, 0 build processes
+08:10:46Z waiting for the lease: 6 in the queue, held by: r2-mixed 2026-09-27T08:10:21Z e4 mixed traces gbsa rf pme apoa1pme, 0 build processes
+08:15:50Z waiting for the lease: 5 in the queue, held by: ultra-r2-mixed 2026-09-27T08:13:02Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4a, about 7 min, 21 build processes
+08:20:54Z waiting for the lease: 4 in the queue, held by: ultra-r2-mixed 2026-09-27T08:18:50Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-e4b, about 12 min, 0 build processes
+08:25:58Z waiting for the lease: 3 in the queue, held by: r2-mixed 2026-09-27T08:25:38Z g conversion x2 diag traces, 0 build processes
+08:31:03Z waiting for the lease: 2 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:28:36Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1b, about 6 min, 3 build processes
+08:36:22Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:42:00Z waiting for the lease: 1 in the queue, held by: ultra-r2-accum-nb 2026-09-27T08:33:38Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/screen1a, about 16 min BUILD RUNNING, 0 build processes
+08:42:19Z r1 pme-only run 1 exit=0 
+08:42:21Z r1 pme-only run 2 exit=0 pme 23558 single 1.373e-06 2.712e-02 1.274e-06 FAIL max|dF| 2.71e-02 > 2 x base 1.27e-02
+08:42:27Z r1 pme-only run 3 exit=0 
+08:42:29Z r1 pme-only run 4 exit=0 
+08:42:33Z r1 pme-only run 5 exit=0 
+08:42:35Z r1 pme-only run 6 exit=0 
+08:42:37Z r1 pme-only run 7 exit=0 
+08:42:39Z r1 pme-only run 8 exit=0 
+08:42:40Z r1 pme-only run 9 exit=0 
+08:42:42Z r1 pme-only run 10 exit=0 
+08:42:49Z r1 pme-only run 11 exit=0 pme 23558 single 1.371e-06 2.833e-02 1.366e-06 FAIL max|dF| 2.83e-02 > 2 x base 1.27e-02
+08:42:51Z r1 pme-only run 12 exit=0 
+08:42:53Z r1 pme-only run 13 exit=0 pme 23558 single 1.396e-06 2.563e-02 1.381e-06 FAIL max|dF| 2.56e-02 > 2 x base 1.27e-02
+08:42:55Z r1 pme-only run 14 exit=0 
+08:42:57Z r1 pme-only run 15 exit=0 
+08:42:59Z r1 pme-only run 16 exit=0 
+08:43:01Z r1 pme-only run 17 exit=0 
+08:43:03Z r1 pme-only run 18 exit=0 
+08:43:05Z r1 pme-only run 19 exit=0 
+08:43:07Z r1 pme-only run 20 exit=0 
+08:43:09Z r1 pme-only run 21 exit=0 
+08:43:11Z r1 pme-only run 22 exit=0 
+08:43:13Z r1 pme-only run 23 exit=0 
+08:43:15Z r1 pme-only run 24 exit=0 
+08:43:17Z r1 pme-only run 25 exit=0 
+08:43:19Z r1 pme-only run 26 exit=0 
+08:43:21Z r1 pme-only run 27 exit=0 
+08:43:23Z r1 pme-only run 28 exit=0 
+08:43:24Z r1 pme-only run 29 exit=0 
+08:43:26Z r1 pme-only run 30 exit=0 
+08:43:28Z r1 pme-only run 31 exit=0 
+08:43:30Z r1 pme-only run 32 exit=0 
+08:43:38Z r1 pme-only run 33 exit=0 
+08:43:40Z r1 pme-only run 34 exit=0 
+08:43:42Z r1 pme-only run 35 exit=0 
+08:43:44Z r1 pme-only run 36 exit=0 
+08:43:46Z r1 pme-only run 37 exit=0 
+08:43:48Z r1 pme-only run 38 exit=0 
+08:43:50Z r1 pme-only run 39 exit=0 
+08:43:52Z r1 pme-only run 40 exit=0 
+ALL-DONE

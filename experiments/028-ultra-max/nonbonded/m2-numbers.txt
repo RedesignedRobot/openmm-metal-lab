@@ -1,0 +1,21 @@
+M2 results for the nonbonded lane, as infra reported them. Raw files: ../m2/results/<id>.
+Pairs are single/mixed. Ratios are median ns/day of the first arm over the second.
+
+checks/20260925T023517Z-6d72c3ae9: 761d5a666 (xres) against 6d72c3ae9 (tiles4), 2x15 s
+  forces gate: PASS, single and mixed
+  xres/tiles: pme 1.018/1.010, apoa1pme 1.013/1.008, dhfr 1.014/1.014,
+              rf 1.001/0.994, apoa1rf 1.000/0.999, gbsa 0.988/1.000
+  gbsa single rounds 0.974 and 1.004 against base, so infra reran gbsa (next check)
+
+checks/20260925T042748Z-6d72c3ae9: gbsa rerun, 3x30 s, load 2.0 to 2.9, no builds or Spotlight
+  gbsa xres/tiles single 0.991, 1.000, 1.001 (median 1.000); mixed 0.998, 0.990, 1.001
+  apoa1rf xres/tiles single 1.002, 1.003; mixed 1.002, 1.001
+
+checks/20260925T084043Z-forcetime: forcetime.py, apoa1rf single, 300 evals x 5, load 1.6 to 2.7
+  ms per force evaluation, round 1 / round 2:
+    tiles 3.3336 / 3.3113
+    xres  3.3202 / 3.3016
+    nox   3.2824 / 3.2882   (626652d2c, lab probe, forces wrong on purpose)
+  nox/tiles 0.989, xres/tiles 0.997
+
+tiles4 6d72c3ae9 against base (infra's c4, for nblist): gbsa 0.997/0.993, rf 0.996/1.004, pme 1.002/1.000

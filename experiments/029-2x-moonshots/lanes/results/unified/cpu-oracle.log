@@ -1,0 +1,4 @@
+PASS grid 7x11x13 max error 5.96046448e-07
+PASS grid 21x24x28 max error 7.74860382e-07
+PASS grid 32x48x64 max error 5.36441803e-07
+PASS CPU FFT direct-DFT and 3D spectral/roundtrip oracle

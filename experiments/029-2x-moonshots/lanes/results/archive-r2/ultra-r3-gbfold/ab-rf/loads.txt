@@ -1,0 +1,19 @@
+2026-09-29T02:16:50Z round 1 rf tr-s load { 4.26 4.79 3.97 } vm 13% top other 47.9%, other 24.4%, WindowServer 15.3%, com.apple.Virtualization.VirtualMachine 10.3%, other 5.2%
+2026-09-29T02:17:23Z round 1 rf a-s load { 4.10 4.70 3.96 } vm 8% top other 68.1%, other 23.6%, WindowServer 22.1%, com.apple.Virtualization.VirtualMachine 7.7%,  other 4.6%
+2026-09-29T02:17:56Z round 1 rf b-s load { 3.01 4.37 3.87 } vm 16% top other 22.5%, WindowServer 14.9%, com.apple.Virtualization.VirtualMachine 11.3%, other 5.4%, com.apple.Virtualization.VirtualMachine 5.1%
+2026-09-29T02:18:28Z round 1 rf tr-m load { 5.90 5.03 4.14 } vm 38% top other 81.9%, com.apple.Virtualization.VirtualMachine 35.1%, other 23.4%, WindowServer 15.9%, com.apple.Virtualization.VirtualMachine 7.1%
+2026-09-29T02:19:05Z round 1 rf a-m load { 4.62 4.82 4.09 } vm 7% top other 26.2%, WindowServer 20.7%, other 7.1%,  other 5.6%, other 5.3%
+2026-09-29T02:19:43Z round 1 rf b-m load { 6.56 5.20 4.26 } vm 36% top com.apple.Virtualization.VirtualMachine 31.1%, other 22.9%, WindowServer 17.3%,  other 16.7%, other 15.2%
+2026-09-29T02:20:15Z round 2 rf b-m load { 7.95 5.61 4.44 } vm 5% top other 116.7%, other 110.3%, other 14.9%, other 14.5%, WindowServer 13.2%
+2026-09-29T02:20:49Z round 2 rf a-m load { 5.14 5.16 4.32 } vm 13% top other 25.2%, WindowServer 17.9%,  other 10.1%, other 8.6%, com.apple.Virtualization.VirtualMachine 6.8%
+2026-09-29T02:21:22Z round 2 rf tr-m load { 3.88 4.85 4.23 } vm 9% top other 28.3%,  other 23.7%, other 21.5%, WindowServer 13.6%, other 11.0%
+2026-09-29T02:21:59Z round 2 rf b-s load { 5.64 5.09 4.35 } vm 6% top other 147.9%, other 20.3%, WindowServer 9.3%, other 7.1%, other 3.7%
+2026-09-29T02:22:32Z round 2 rf a-s load { 10.81 6.34 4.82 } vm 15% top other 146.2%, other 143.7%, other 134.0%, other 127.4%, other 116.5%
+2026-09-29T02:23:06Z round 2 rf tr-s load { 16.70 8.34 5.61 } vm 8% top other 14.3%, other 8.0%, other 7.9%, WindowServer 7.9%, powermetrics 7.5%
+2026-09-29T02:23:40Z round 3 rf tr-s load { 16.66 9.29 6.07 } vm 8% top other 33.4%, other 20.6%, WindowServer 10.1%, powermetrics 8.1%, other 4.9%
+2026-09-29T02:24:12Z round 3 rf a-s load { 12.00 8.87 6.02 } vm 7% top other 24.6%, WindowServer 14.1%, powermetrics 10.8%, other 5.4%, powermetrics 4.6%
+2026-09-29T02:24:45Z round 3 rf b-s load { 7.89 8.20 5.89 } vm 12% top other 24.9%, WindowServer 11.2%, com.apple.Virtualization.VirtualMachine 9.4%, other 5.0%, powermetrics 3.8%
+2026-09-29T02:25:17Z round 3 rf tr-m load { 5.68 7.63 5.77 } vm 9% top other 23.3%, WindowServer 9.5%,  other 5.8%, other 4.6%, com.apple.Virtualization.VirtualMachine 4.5%
+2026-09-29T02:25:51Z round 3 rf a-m load { 6.05 7.45 5.77 } vm 10% top other 23.1%, WindowServer 12.4%, powermetrics 5.9%, com.apple.Virtualization.VirtualMachine 5.4%, other 5.0%
+2026-09-29T02:26:28Z round 3 rf b-m load { 3.90 6.75 5.59 } vm 20% top other 24.3%, WindowServer 16.8%, com.apple.Virtualization.VirtualMachine 13.0%, com.apple.Virtualization.VirtualMachine 6.8%, other 6.2%
+2026-09-29T02:27:00Z builds: none ran during the 18 timed runs; timing hold of lease.sh pid 19360: 0 builds paused

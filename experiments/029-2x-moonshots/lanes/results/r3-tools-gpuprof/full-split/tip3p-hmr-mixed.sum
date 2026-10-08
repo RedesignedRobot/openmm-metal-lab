@@ -1,0 +1,41 @@
+== tip3p-hmr-mixed
+buffers: us/step A 487.16 B 486.38 C 483.83, B/mean(A,C) 1.002; GPU busy 418.08, idle 68.30, buffers 0.40, dispatches 16.51, blits 0.21 per step
+  host waits: finish 454.05 us (0.26/step)
+split: us/step A 484.54 B 535.05 C 482.21, B/mean(A,C) 1.107; GPU busy 470.07, idle 64.98, buffers 0.40, dispatches 16.51, blits 0.21 per step
+  host waits: finish 497.88 us (0.24/step)
+counters: us/step A 482.05 B 582.02 C 475.08, B/mean(A,C) 1.216; GPU busy 502.92, idle 79.10, buffers 0.39, dispatches 16.51, blits 0.20 per step
+  host waits: finish 503.48 us (0.23/step)
+split price: +0.105 of step time, +51.02 us/step (split's B/mean(A,C) minus buffers')
+counters: 90199 encoders, 3067 runs of unstamped ones bracketed, 0 overflowed, sampleTimestamps slope 1.0000; encoder sum 514.78 us/step, union 481.43 us/step
+validation: union 481.43 against window B minus idle 502.92 us/step, -4.3%: PASS (tolerance 10%)
+against the buffers run's GPU busy 418.08 us/step: +15.2%
+| Kernel, grid x threadgroup | Per step | Attributed us/step | Share | Own us/step | Median us |
+|---|---:|---:|---:|---:|---:|
+| computeNonbonded 2400x64 | 1.08 | 134.10 | 27.9% | 134.44 | 124.88 |
+| integrateLangevinMiddleFusedQuads 619x64 | 1.00 | 55.14 | 11.5% | 55.14 | 55.00 |
+| findBlocksWithInteractions 0x32 | 0.51 | 49.23 | 10.2% | 51.27 | 98.71 |
+| computeBondedForces 461x64 | 1.08 | 49.10 | 10.2% | 49.24 | 45.42 |
+| gridSpreadCharge 231x128 | 1.08 | 48.28 | 10.0% | 50.48 | 46.12 |
+| gridInterpolateForce 461x64 | 1.08 | 27.80 | 5.8% | 27.95 | 25.79 |
+| convolveLines 63x1024 | 1.00 | 20.07 | 4.2% | 20.33 | 20.17 |
+| planesInverse 63x1024 | 1.00 | 19.40 | 4.0% | 19.49 | 19.38 |
+| planesForward 63x1024 | 1.00 | 17.87 | 3.7% | 18.30 | 17.79 |
+| prepareRebuildDispatch 1x928 | 1.08 | 14.96 | 3.1% | 17.97 | 7.04 |
+| clearThreeBuffers 720x64 | 1.08 | 6.76 | 1.4% | 12.98 | 11.71 |
+| removeCenterOfMassMomentum 461x64 | 1.00 | 5.94 | 1.2% | 11.38 | 11.08 |
+| calcCenterOfMassMomentum 461x64 | 1.00 | 5.90 | 1.2% | 11.48 | 11.71 |
+| computeKineticEnergy 1x256 | 0.08 | 5.47 | 1.1% | 5.47 | 68.12 |
+| findBlockBounds 116x256 | 1.08 | 4.57 | 0.9% | 8.64 | 7.12 |
+| unstamped sortBoxData+findBlocksWithInteractions | 0.57 | 2.71 | 0.6% | 3.25 | 2.25 |
+| sortBoxData 0x64 | 0.51 | 2.51 | 0.5% | 2.72 | 5.08 |
+| generateRandomNumbers 720x64 | 0.25 | 2.12 | 0.4% | 4.19 | 12.50 |
+| vkFFTbackward 0x0 | 0.08 | 1.91 | 0.4% | 1.93 | 23.71 |
+| vkFFTforward 0x0 | 0.08 | 1.90 | 0.4% | 2.05 | 24.21 |
+| scalePositions 141x64 | 0.04 | 1.67 | 0.3% | 1.80 | 44.54 |
+| reduceEnergy 60x256 | 0.08 | 1.15 | 0.2% | 1.15 | 13.71 |
+| blit 1x1 | 0.20 | 1.07 | 0.2% | 1.08 | 5.38 |
+| gridEvaluateEnergy 720x64 | 0.08 | 1.04 | 0.2% | 1.27 | 10.96 |
+| reciprocalConvolution 720x64 | 0.08 | 0.65 | 0.1% | 0.67 | 8.17 |
+| copyFloatBuffer 461x64 | 0.01 | 0.09 | 0.0% | 0.09 | 10.25 |
+| copyInteractionCounts 1x1 | 0.00 | 0.01 | 0.0% | 0.02 | 3.79 |
+json {"tag": "tip3p-hmr-mixed", "buffers": {"steps": 4160, "us_A": 487.16, "us_B": 486.38, "us_C": 483.83, "record_ratio": 1.0018228818010484, "notes": [], "wall_us": 486.38, "busy_us": 418.08040792043005, "idle_us": 68.29959207956995, "buffers": 0.403125, "dispatches": 16.512259615384615, "blits": 0.20841346153846155, "overflow": 0, "wait_finish_us": 454.05167572115386, "wait_finish_n": 0.25817307692307695}, "split": {"steps": 5480, "us_A": 484.54, "us_B": 535.05, "us_C": 482.21, "record_ratio": 1.1069045771916213, "notes": [], "wall_us": 535.05, "busy_us": 470.0692705281103, "idle_us": 64.98072947188967, "buffers": 0.39507299270072993, "dispatches": 16.513686131386862, "blits": 0.20529197080291972, "overflow": 0, "wait_finish_us": 497.8772304744525, "wait_finish_n": 0.23868613138686132}, "counters": {"steps": 5400, "us_A": 482.05, "us_B": 582.02, "us_C": 475.08, "record_ratio": 1.2161775307429503, "notes": [], "wall_us": 582.02, "busy_us": 502.91809747081794, "idle_us": 79.10190252918204, "buffers": 0.3875925925925926, "dispatches": 16.506296296296295, "blits": 0.19722222222222222, "overflow": 0, "wait_finish_us": 503.47975037037037, "wait_finish_n": 0.22666666666666666, "encoders": 90199, "unstamped_runs": 3067, "tick_slope": 1.0, "kernel_sum_us": 514.777765925926, "kernel_union_us": 481.4251005505125, "kernels": {"calcCenterOfMassMomentum 461x64": {"n": 1.0, "us": 11.479887407407409, "attr_us": 5.899876879634521, "median_us": 11.708}, "removeCenterOfMassMomentum 461x64": {"n": 1.0, "us": 11.378419074074074, "attr_us": 5.936708395084779, "median_us": 11.083}, "clearThreeBuffers 720x64": {"n": 1.0801851851851851, "us": 12.975281296296298, "attr_us": 6.761912305524607, "median_us": 11.709000000000001}, "findBlockBounds 116x256": {"n": 1.0801851851851851, "us": 8.63997425925926, "attr_us": 4.565192915227574, "median_us": 7.125}, "prepareRebuildDispatch 1x928": {"n": 1.0801851851851851, "us": 17.972551111111112, "attr_us": 14.958365723874454, "median_us": 7.042000000000001}, "unstamped sortBoxData+findBlocksWithInteractions": {"n": 0.567962962962963, "us": 3.2487759259259263, "attr_us": 2.714402183716439, "median_us": 2.25}, "gridSpreadCharge 231x128": {"n": 1.0801851851851851, "us": 50.482412777777775, "attr_us": 48.27841957632228, "median_us": 46.125}, "planesForward 63x1024": {"n": 1.0, "us": 18.296175740740743, "attr_us": 17.874189471950995, "median_us": 17.792}, "convolveLines 63x1024": {"n": 1.0, "us": 20.328161851851853, "attr_us": 20.072991677874665, "median_us": 20.167}, "planesInverse 63x1024": {"n": 1.0, "us": 19.492559074074077, "attr_us": 19.39642086249983, "median_us": 19.375}, "gridInterpolateForce 461x64": {"n": 1.0801851851851851, "us": 27.94926925925926, "attr_us": 27.798656395774472, "median_us": 25.792}, "computeBondedForces 461x64": {"n": 1.0801851851851851, "us": 49.24098407407408, "attr_us": 49.102909610222994, "median_us": 45.417}, "computeNonbonded 2400x64": {"n": 1.0801851851851851, "us": 134.44258074074077, "attr_us": 134.1000501270173, "median_us": 124.87500000000001}, "generateRandomNumbers 720x64": {"n": 0.25, "us": 4.1945687037037045, "attr_us": 2.122658987911878, "median_us": 12.5}, "integrateLangevinMiddleFusedQuads 619x64": {"n": 1.0, "us": 55.144220925925936, "attr_us": 55.14422126536913, "median_us": 55.0}, "sortBoxData 0x64": {"n": 0.5122222222222222, "us": 2.7200001851851856, "attr_us": 2.514313005290374, "median_us": 5.084}, "findBlocksWithInteractions 0x32": {"n": 0.5122222222222222, "us": 51.27266388888889, "attr_us": 49.2336172950066, "median_us": 98.708}, "vkFFTforward 0x0": {"n": 0.08018518518518518, "us": 2.0461485185185184, "attr_us": 1.9046669169458457, "median_us": 24.209000000000003}, "gridEvaluateEnergy 720x64": {"n": 0.08018518518518518, "us": 1.2699764814814816, "attr_us": 1.0388925093812522, "median_us": 10.959000000000001}, "reciprocalConvolution 720x64": {"n": 0.08018518518518518, "us": 0.6740985185185185, "attr_us": 0.6450898379423758, "median_us": 8.166}, "vkFFTbackward 0x0": {"n": 0.08018518518518518, "us": 1.9271983333333333, "attr_us": 1.9057246255990186, "median_us": 23.709000000000003}, "reduceEnergy 60x256": {"n": 0.08018518518518518, "us": 1.1477533333333334, "attr_us": 1.147753263702961, "median_us": 13.708000000000002}, "computeKineticEnergy 1x256": {"n": 0.08018518518518518, "us": 5.47077962962963, "attr_us": 5.47077959506876, "median_us": 68.125}, "blit 1x1": {"n": 0.19722222222222222, "us": 1.075316666666667, "attr_us": 1.0653706650137555, "median_us": 5.375}, "scalePositions 141x64": {"n": 0.04, "us": 1.795268888888889, "attr_us": 1.6671980281696759, "median_us": 44.5415}, "copyInteractionCounts 1x1": {"n": 0.004074074074074074, "us": 0.017947592592592595, "attr_us": 0.009926758745374778, "median_us": 3.7915}, "copyFloatBuffer 461x64": {"n": 0.009444444444444445, "us": 0.09479166666666668, "attr_us": 0.09479167164061908, "median_us": 10.25}}}, "split_price": 0.10508169539057288, "split_price_us": 51.01663770364618, "valid_err": -0.042736574858598275, "valid": true, "vs_buffers_busy": 0.15151318126856195}

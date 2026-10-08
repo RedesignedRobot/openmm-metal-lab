@@ -1,0 +1,24 @@
+== pmefft
+pme pme 56x56x56
+amber20-dhfr pme 56x56x56
+apoa1pme pme 98x98x98
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/grids.py", line 16, in <module>
+    grids.append("pme %dx%dx%d" % tuple(f.getPMEParametersInContext(context)[1:]))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/venv/lib/python3.13/site-packages/openmm/openmm.py", line 18080, in getPMEParametersInContext
+    return _openmm.NonbondedForce_getPMEParametersInContext(self, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+openmm.OpenMMException: getPMEParametersInContext: This Context is not using PME
+== spread
+pme pme 56x56x56
+amber20-dhfr pme 55x55x55
+apoa1pme pme 98x98x98
+Traceback (most recent call last):
+  File "/tmp/openmm-metal-bench/ultra-r2-pmefft/grids.py", line 16, in <module>
+    grids.append("pme %dx%dx%d" % tuple(f.getPMEParametersInContext(context)[1:]))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/openmm-metal-bench/ultra-r2-spread/venv/lib/python3.13/site-packages/openmm/openmm.py", line 18080, in getPMEParametersInContext
+    return _openmm.NonbondedForce_getPMEParametersInContext(self, context)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+openmm.OpenMMException: getPMEParametersInContext: This Context is not using PME

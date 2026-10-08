@@ -1,0 +1,22 @@
+triggering capture of 12 CommandBuffers from 75474 @ 0                                 
+     disable unused resources  no
+  disable backtrace recording  no
+capture progress
+0 / 12 MTLCommandBuffer
+0 / 0 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+0 / 12 MTLCommandBuffer
+0 / 0 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+1 / 12 MTLCommandBuffer
+0 / 0 MTLResources
+0 / 0 Downloaded GPU Data (MiB)
+2 / 12 MTLCommandBuffer
+48 / 75 MTLResources
+34 / 48 Downloaded GPU Data (MiB)
+12 / 12 MTLCommandBuffer
+381 / 381 MTLResources
+199 / 199 Downloaded GPU Data (MiB)
+capture finished
+capture took 0.2 seconds
+/tmp/openmm-metal-bench/ultra-infra/m0/sub.gputrace

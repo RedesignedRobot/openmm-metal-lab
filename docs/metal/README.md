@@ -1,6 +1,6 @@
 # Metal reference notes
 
-Seven notes written by two Gemini research lanes on 2026-09-21, against macOS 27.0 and the MSL 4.1 specification. They are working notes, not verified fact. Each note cites sources; the head has checked only the claims listed below. Before a design decision rests on a claim, check its citation or write a probe in `experiments/004-msl-probes`.
+Seven research notes written on 2026-09-21, against macOS 27.0 and the MSL 4.1 specification. They are working notes, not verified fact. Each note cites sources; only the claims listed below have been checked. Before a design decision rests on a claim, check its citation or write a probe in `experiments/004-msl-probes`.
 
 | Note | Covers |
 | --- | --- |
@@ -22,4 +22,4 @@ Checked by execution (see `experiments/004-msl-probes`):
 - 64-bit accumulation: the split-word add from OpenMM's OpenCL prelude is exact in MSL under contention on both chips, and about 150 times cheaper per add than a float atomic on the M2.
 - Native 64-bit atomics: the claim in `msl-for-compute.md` (min and max on Apple8, full arithmetic on Apple9) failed to compile on both chips. Treat as wrong until shown otherwise.
 
-Not yet checked, and carrying suspiciously exact numbers: the per-dispatch firmware latency (10 to 25 microseconds), the SETTLE and half-spectrum PME speedups, and the threadgroup sizing advice in the implementation lane's notes. The API lane reported "nothing unverified", which is not believable for four notes of this size.
+Not yet checked, and carrying suspiciously exact numbers: the per-dispatch firmware latency (10 to 25 microseconds), the SETTLE and half-spectrum PME speedups, and the threadgroup sizing advice in the implementation notes. The API note reported "nothing unverified", which is not believable for four notes of this size.

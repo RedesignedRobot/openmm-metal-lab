@@ -1,0 +1,20 @@
+median ns/day, host clock
+test                      base-m        base-s        mine-m        mine-s
+amoebapme                   9.63          9.65          9.58          9.65
+
+rounds, base-m:
+  amoebapme          9.63 9.58 9.66   spread 0.8%
+rounds, base-s:
+  amoebapme          9.61 9.65 9.75   spread 1.5%
+rounds, mine-m:
+  amoebapme          9.47 9.58 9.66   spread 1.9%
+rounds, mine-s:
+  amoebapme          9.65 9.68 9.65   spread 0.4%
+
+test                                     mine-s/base-s                       mine-m/base-m
+amoebapme                  1.001 (rounds 0.990..1.004)         0.995 (rounds 0.984..1.000)
+
+1 minute load before 12 runs: 3.57 to 6.73
+Background VM CPU before 12 runs: 4% to 79%
+runs with no result: 0
+runs that overlapped a build: 0

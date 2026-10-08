@@ -1,5 +1,7 @@
 # Experiment 010: Nonbonded Force and Energy Kernel on Apple Silicon
 
+History: the M2 comparison is stale. 010b and the later platform work replaced it, and `REVIEW-NOTE.md` has the reviewed numbers.
+
 ## Question
 
 1. Does Metal compute the same forces and potential energy as Apple's OpenCL implementation on real equilibrated simulation inputs?

@@ -1,0 +1,21 @@
+1 before begin: S S S  ticks +10/s
+2 after begin: T T T  ticks +0/s
+timing hold of lease.sh pid 63138: 1 builds paused, ultra-fake1
+3 active rc=0 (0 expected)
+3b inside the hold rc=1 (1 expected)
+4 registered during the hold: S S S  ticks +10/s
+5 after end: S S S  / S S S  ticks +10/s; state file left: 0
+5b active rc=1 (1 expected)
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 21: 63138 Terminated: 15          $T/bin/lease.sh
+6 begin 2: T T T  / T T T 
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 22: 63704 Killed: 9               $T/bin/lease.sh
+6b 3.5 s after kill -9 of the holder (guard): S S S  / S S S  ticks +10/s; state file left: 0
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 24: 64195 Killed: 9               $T/bin/lease.sh
+7 recover right after kill -9: S S S  / S S S 
+8 register from inside the hold: S S S  (not stopped expected); outside build n1: T T T 
+9 end: S S S  / S S S  / S S S 
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 31: 64307 Terminated: 15          $T/bin/lease.sh
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 32: 63097 Terminated: 15          $T/bin/ninja -C $T/ultra-fake1/build
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 32: 63411 Terminated: 15          $T/bin/ninja -C $T/ultra-fake2/build
+/tmp/openmm-metal-bench/ultra-infra/policytest/run.sh: line 32: 64381 Terminated: 15          $T/bin/ninja -C $T/ultra-fake2/build
+--- log

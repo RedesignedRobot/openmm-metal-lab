@@ -1,0 +1,32 @@
+20:44:08Z waiting for the lease: 17 in the queue, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 26 build processes
+20:49:13Z waiting for the lease: 16 in the queue, held by: ultra-plugins 2026-09-24T20:30:41Z gate.sh ctest /tmp/openmm-metal-bench/ultra-plugins, 1 build processes
+20:54:17Z waiting for the lease: 16 in the queue, held by: ultra-profiler 2026-09-24T20:50:19Z ab.sh /tmp/openmm-metal-bench/ultra-profiler/stmv round 1 amber20-stmv, 0 build processes
+20:59:21Z waiting for the lease: 16 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:04:25Z waiting for the lease: 16 in the queue, held by: ultra-profiler 2026-09-24T20:56:33Z profile dhfr single + mixed buffers/counters + split, ~15 min, 0 build processes
+21:09:29Z waiting for the lease: 15 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 0 build processes
+21:14:33Z waiting for the lease: 15 in the queue, held by: nonbonded lane (028): s1r1, started 21:08Z, pid 60909, 3 build processes
+21:19:37Z waiting for the lease: 15 in the queue, held by: nonbonded lane (028): s1r2, started 21:17Z, pid 47453, 13 build processes
+21:24:41Z waiting for the lease: 15 in the queue, held by: atomics 2026-09-24T21:22:52Z force dump + force-eval timing base/words/lo, <20 min, 0 build processes
+21:29:45Z waiting for the lease: 15 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 13 build processes
+21:34:50Z waiting for the lease: 15 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:39:54Z waiting for the lease: 15 in the queue, held by: ultra-mixed 2026-09-24T21:24:45Z drift verlet base vs c1, 0 build processes
+21:44:59Z waiting for the lease: 15 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 11 build processes
+21:50:04Z waiting for the lease: 15 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+21:55:08Z waiting for the lease: 15 in the queue, held by: ultra-pme 2026-09-24T21:42:04Z spread variants lab, 0 build processes
+22:00:14Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:05:18Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:10:21Z waiting for the lease: 3 in the queue, held by: ultra-mixed 2026-09-24T21:58:02Z constraint checks + census c3 c4, 0 build processes
+22:15:32Z waiting for the lease: 1 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 13 build processes
+22:20:43Z waiting for the lease: 1 in the queue, held by: ultra-mixed 2026-09-24T22:11:57Z mixed pass 3: 3x30 s confirm, 0 build processes
+22:21:27Z pass 4 start
+22:24:55Z screen done
+22:31:10Z parallel part done
+100% tests passed out of 55
+
+Total Test time (real) = 374.86 sec
+/tmp/openmm-metal-bench/ultra-mixed/pass4-body.sh: line 33: 97653 Terminated: 15          ctest --test-dir $M/t4/build --rerun-failed --output-on-failure > $M/logs/p4-ctest-rerun.out 2>&1
+104/446 Test #104: TestOpenCLCustomHbondForceDouble .................***Failed    0.04 sec
+exception: No compatible OpenCL platform is available
+
+        Start 105: TestOpenCLCustomIntegratorSingle
+22:35:01Z pass 4 done

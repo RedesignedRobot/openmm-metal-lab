@@ -1,0 +1,5 @@
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa            2489    single  1.979e-06  7.402e-03  6.102e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.97886066e-06 raw_max_force=0.00740209639
+gbsa            2489     mixed  1.323e-05  7.137e-02  3.199e-07
+# cutoff pairs=0 epsilon_nm=9.53674316e-07 raw_rel_force=1.32282452e-05 raw_max_force=0.0713747926

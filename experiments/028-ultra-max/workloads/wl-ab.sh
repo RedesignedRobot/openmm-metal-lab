@@ -1,5 +1,5 @@
 #!/bin/sh
-# Workloads lane driver: ab.sh's loop plus the RULES.md pre-timing checks. Before every (round, test)
+# Workloads lane driver: ab.sh's loop plus the lab's pre-timing checks. Before every (round, test)
 # it waits until no build runs (pgrep clang, clang++, ninja, cc1plus) and logs the top CPU consumers.
 # Then it calls ultra-tools/ab-test.sh under lease.sh, with the configuration order reversed every
 # other round. Configurations use ab.sh's syntax: label=python:platform:precision[:VAR=value,...].

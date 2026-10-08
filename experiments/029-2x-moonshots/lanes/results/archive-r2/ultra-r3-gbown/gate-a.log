@@ -1,0 +1,25 @@
+21:09:15Z waiting for the lease: 1 in the queue, held by: ultra-gate 2026-09-27T20:43:43Z gate.sh /tmp/openmm-metal-bench/ultra-gate, 0 build processes
+21:09:30Z lease.sh: a plain ticket has waited over 1800 s; this correctness ticket starts or joins no hold ahead of it and waits in plain FIFO order
+21:14:21Z waiting for the lease: 3 in the queue, held by: ultra-r2-accum-nb 2026-09-27T21:10:16Z ab.sh /tmp/openmm-metal-bench/ultra-r2-accum-nb/fbbc/abA, about 9 min, 0 build processes
+21:19:25Z waiting for the lease: 4 in the queue, held by: ultra-r2-mixed 2026-09-27T21:18:33Z ab.sh /tmp/openmm-metal-bench/ultra-r2-mixed/ab-pv, about 4 min, 0 build processes
+gate --quick /tmp/openmm-metal-bench/ultra-r3-gbown, 28169ea73f3e78c0609076416c410f77563fe1e6, logs in /tmp/openmm-metal-bench/ultra-r3-gbown/gate-20260927T212218Z
+test           atoms precision    rel|dF|    max|dF|    rel|dE|
+gbsa: Reference cached
+gbsa            2489    single  2.473e-05  8.605e-02  4.355e-07  ok
+gbsa            2489     mixed  2.473e-05  8.605e-02  4.862e-07  ok
+rf: Reference cached
+rf             23558    single  2.213e-05  7.340e-01  2.213e-07  ok
+rf             23558     mixed  2.213e-05  7.340e-01  2.109e-07  ok
+pme: Reference cached
+pme            23558    single  2.048e-05  3.918e-01  1.162e-06  ok
+pme            23558     mixed  2.048e-05  3.920e-01  1.202e-06  ok
+apoa1rf: Reference cached
+apoa1rf        92224    single  5.987e-05  1.327e+00  5.943e-08  ok
+apoa1rf        92224     mixed  5.987e-05  1.327e+00  4.851e-08  ok
+apoa1pme: Reference cached
+apoa1pme       92224    single  7.747e-05  7.201e-01  6.094e-07  ok
+apoa1pme       92224     mixed  7.747e-05  7.201e-01  5.871e-07  ok
+apoa1ljpme: Reference cached
+apoa1ljpme     92224    single  7.747e-05  7.229e-01  5.748e-07  ok
+apoa1ljpme     92224     mixed  7.747e-05  7.230e-01  5.936e-07  ok
+PASS

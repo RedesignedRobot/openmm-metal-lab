@@ -1,0 +1,301 @@
+{
+ "outdir": "~/code/metal/bench.noindex/ultra-r3-step/ab-fold1a",
+ "clock": "benchmark.py host wall time, datetime.now() around step()",
+ "rows": [
+  {
+   "test": "gbsa",
+   "label": "base_m",
+   "median": 2002.05465077375,
+   "rounds": {
+    "1": 2006.0653531559317,
+    "2": 1998.0439483915684
+   },
+   "spread": 0.004006586314346214
+  },
+  {
+   "test": "gbsa",
+   "label": "base_s",
+   "median": 2273.733918421445,
+   "rounds": {
+    "1": 2270.607994437949,
+    "2": 2276.859842404942
+   },
+   "spread": 0.0027495952434633784
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_m",
+   "median": 2046.1166254064042,
+   "rounds": {
+    "1": 2045.5462719667332,
+    "2": 2046.6869788460751
+   },
+   "spread": 0.0005574984657168973
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "median": 2333.425665173146,
+   "rounds": {
+    "1": 2334.5076864048497,
+    "2": 2332.3436439414427
+   },
+   "spread": 0.0009274100716837742
+  },
+  {
+   "test": "rf",
+   "label": "base_m",
+   "median": 1524.517059419903,
+   "rounds": {
+    "1": 1526.4839848908143,
+    "2": 1522.5501339489915
+   },
+   "spread": 0.002580391552535128
+  },
+  {
+   "test": "rf",
+   "label": "base_s",
+   "median": 1713.1975885901459,
+   "rounds": {
+    "1": 1711.7203227457157,
+    "2": 1714.674854434576
+   },
+   "spread": 0.0017245714729797379
+  },
+  {
+   "test": "rf",
+   "label": "fold_m",
+   "median": 1528.8638457930783,
+   "rounds": {
+    "1": 1525.266090892592,
+    "2": 1532.4616006935644
+   },
+   "spread": 0.0047064425133552384
+  },
+  {
+   "test": "rf",
+   "label": "fold_s",
+   "median": 1746.06811284596,
+   "rounds": {
+    "1": 1743.5208402728533,
+    "2": 1748.6153854190666
+   },
+   "spread": 0.0029177241762404806
+  },
+  {
+   "test": "pme",
+   "label": "base_m",
+   "median": 1181.4472833400994,
+   "rounds": {
+    "1": 1182.1269462440423,
+    "2": 1180.7676204361564
+   },
+   "spread": 0.0011505598489700431
+  },
+  {
+   "test": "pme",
+   "label": "base_s",
+   "median": 1286.2093530373775,
+   "rounds": {
+    "1": 1281.8080379505382,
+    "2": 1290.6106681242168
+   },
+   "spread": 0.006843854892589016
+  },
+  {
+   "test": "pme",
+   "label": "fold_m",
+   "median": 1190.2347900457778,
+   "rounds": {
+    "1": 1189.4909393805574,
+    "2": 1190.9786407109982
+   },
+   "spread": 0.001249922572321714
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "median": 1302.0666975659667,
+   "rounds": {
+    "1": 1311.4846907012582,
+    "2": 1292.6487044306753
+   },
+   "spread": 0.014466222280159821
+  }
+ ],
+ "ratios": [
+  {
+   "test": "gbsa",
+   "num": "fold_m",
+   "den": "base_m",
+   "ratio": 1.0220083775513447,
+   "round_min": 1.019680773983106,
+   "round_max": 1.0243453255838864
+  },
+  {
+   "test": "rf",
+   "num": "fold_m",
+   "den": "base_m",
+   "ratio": 1.0028512546621349,
+   "round_min": 0.9992021573693028,
+   "round_max": 1.0065097802191023
+  },
+  {
+   "test": "pme",
+   "num": "fold_m",
+   "den": "base_m",
+   "ratio": 1.0074379168919285,
+   "round_min": 1.0062294435973334,
+   "round_max": 1.0086477814077168
+  }
+ ],
+ "power": [
+  {
+   "test": "gbsa",
+   "label": "base_m",
+   "gpu_w": 49.227452380952386,
+   "pkg_w": 50.9834,
+   "ns_per_day_per_gpu_w": 40.66947513920924
+  },
+  {
+   "test": "gbsa",
+   "label": "base_s",
+   "gpu_w": 52.99223333333333,
+   "pkg_w": 54.92073333333333,
+   "ns_per_day_per_gpu_w": 42.906927589164546
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_m",
+   "gpu_w": 50.437466666666666,
+   "pkg_w": 52.12683333333334,
+   "ns_per_day_per_gpu_w": 40.567394848136786
+  },
+  {
+   "test": "gbsa",
+   "label": "fold_s",
+   "gpu_w": 54.32026666666667,
+   "pkg_w": 56.26883333333333,
+   "ns_per_day_per_gpu_w": 42.95681535387307
+  },
+  {
+   "test": "rf",
+   "label": "base_m",
+   "gpu_w": 68.59057142857142,
+   "pkg_w": 70.32663095238095,
+   "ns_per_day_per_gpu_w": 22.226335597852522
+  },
+  {
+   "test": "rf",
+   "label": "base_s",
+   "gpu_w": 71.89094230769231,
+   "pkg_w": 73.56301648351649,
+   "ns_per_day_per_gpu_w": 23.830506787039766
+  },
+  {
+   "test": "rf",
+   "label": "fold_m",
+   "gpu_w": 69.31182142857142,
+   "pkg_w": 70.96657142857143,
+   "ns_per_day_per_gpu_w": 22.057764668161738
+  },
+  {
+   "test": "rf",
+   "label": "fold_s",
+   "gpu_w": 73.16389285714286,
+   "pkg_w": 74.81625,
+   "ns_per_day_per_gpu_w": 23.86516141582664
+  },
+  {
+   "test": "pme",
+   "label": "base_m",
+   "gpu_w": 58.29664285714286,
+   "pkg_w": 59.972678571428574,
+   "ns_per_day_per_gpu_w": 20.26612898165098
+  },
+  {
+   "test": "pme",
+   "label": "base_s",
+   "gpu_w": 59.49442857142857,
+   "pkg_w": 60.89707142857142,
+   "ns_per_day_per_gpu_w": 21.618988263634872
+  },
+  {
+   "test": "pme",
+   "label": "fold_m",
+   "gpu_w": 58.96325,
+   "pkg_w": 60.65146428571428,
+   "ns_per_day_per_gpu_w": 20.186044528511875
+  },
+  {
+   "test": "pme",
+   "label": "fold_s",
+   "gpu_w": 60.25221190476191,
+   "pkg_w": 61.87813095238096,
+   "ns_per_day_per_gpu_w": 21.610272161030167
+  }
+ ],
+ "hygiene": {
+  "runs": 24,
+  "load": [
+   1.94,
+   4.77
+  ],
+  "vm_cpu": [
+   7,
+   31
+  ],
+  "no_result": [],
+  "build_overlap": [
+   "2026-09-29T09:59:03Z round 1 pme fold_m BUILD RUNNING during the run",
+   "2026-09-29T09:59:26Z round 2 gbsa fold_m BUILD RUNNING during the run",
+   "2026-09-29T10:03:20Z builds: BUILD RUNNING on 2 of 24 timed runs (loads.txt); timing hold of gpuq job 30 (r3-step): 0 builds paused"
+  ],
+  "foreign_gpu": [],
+  "cpu_busy": [],
+  "vm_high": []
+ },
+ "slot": "day",
+ "first_run": "2026-09-29T09:54:47Z",
+ "last_run": "2026-09-29T10:03:02Z",
+ "arms": {
+  "base_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "d1567e9ddb2fa5666e5caf104cdc0e18a95f3dae",
+   "built": "2026-09-29T06:51:15Z"
+  },
+  "fold_s": {
+   "platform": "Metal",
+   "precision": "single",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  },
+  "base_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-gbfold-c",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "d1567e9ddb2fa5666e5caf104cdc0e18a95f3dae",
+   "built": "2026-09-29T06:51:15Z"
+  },
+  "fold_m": {
+   "platform": "Metal",
+   "precision": "mixed",
+   "settings": "none",
+   "tree": "/tmp/openmm-metal-bench/ultra-r3-step",
+   "commit": "f4ae7b7245d88c0b78cc6db07ab825a1181cf881",
+   "src": "7332cdc2a216037a9320cbd42a49cbb89ac60a92",
+   "built": "2026-09-29T08:58:42Z"
+  }
+ },
+ "gpuq_job": 30,
+ "written": "2026-09-29T10:03:33Z"
+}

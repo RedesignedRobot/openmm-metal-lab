@@ -1,0 +1,17 @@
+23:46:15Z waiting for the lease: 50 in the queue, held by: ultra-nonbonded 2026-09-24T23:40:55Z gate.sh /tmp/openmm-metal-bench/ultra-nonbonded, 0 build processes
+== /tmp/openmm-metal-bench/ultra-base/build/TestOpenCLAmoebaGeneralizedKirkwoodForce single 23:49:33Z
+Done
+exit 0 /tmp/openmm-metal-bench/ultra-base/build/TestOpenCLAmoebaGeneralizedKirkwoodForce single
+== /tmp/openmm-metal-bench/ultra-base/build/TestOpenCLAmoebaGeneralizedKirkwoodForce mixed 23:49:44Z
+exception: No compatible OpenCL platform is available
+FAIL - ERROR.  Test failed.
+exit 0 /tmp/openmm-metal-bench/ultra-base/build/TestOpenCLAmoebaGeneralizedKirkwoodForce mixed
+== /tmp/openmm-metal-bench/ultra-plugins/bar/build/TestMetalAmoebaGeneralizedKirkwoodForce single 23:49:44Z
+exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+FAIL - ERROR.  Test failed.
+exit 0 /tmp/openmm-metal-bench/ultra-plugins/bar/build/TestMetalAmoebaGeneralizedKirkwoodForce single
+== /tmp/openmm-metal-bench/ultra-plugins/bar/build/TestMetalAmoebaGeneralizedKirkwoodForce mixed 23:49:50Z
+exception: Assertion failure at TestAmoebaGeneralizedKirkwoodForce.h:7034.  testGeneralizedKirkwoodVillinMutualPolarizationRelative difference in norms 1.19427e-05 larger than allowed tolerance at particle=519: norms=94.2077 expected norm=94.2089
+FAIL - ERROR.  Test failed.
+exit 0 /tmp/openmm-metal-bench/ultra-plugins/bar/build/TestMetalAmoebaGeneralizedKirkwoodForce mixed
+villin done 23:50:05Z

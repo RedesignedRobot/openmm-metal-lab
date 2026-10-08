@@ -6,7 +6,7 @@
 # merge by hand. build-patch.sh rebuilds only the OpenMMMetal target, so a candidate that changes files outside
 # platforms/metal and platforms/common is reported: it needs a full build instead.
 set -e
-repo=/Users/amir/code/mini/ultra-profiler
+repo=$HOME/code/mini/ultra-profiler
 base=6df2b8bcb
 lab=$(cd "$(dirname "$0")" && pwd)
 commit="$1"; out="$2"

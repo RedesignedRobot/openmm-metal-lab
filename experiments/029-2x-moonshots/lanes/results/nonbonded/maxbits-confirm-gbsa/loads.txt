@@ -1,0 +1,15 @@
+2026-09-26T18:59:05Z round 1 gbsa base-s load { 3.55 4.44 4.22 } vm 10% top other 99.9%, other 21.7%, com.apple.Virtualization.VirtualMachine 7.8%, other 4.0%, com.apple.Virtualization.VirtualMachine 2.6%
+2026-09-26T18:59:36Z round 1 gbsa cand-s load { 5.56 4.77 4.34 } vm 8% top other 143.1%, other 94.1%, other 13.6%, WindowServer 6.8%, com.apple.Virtualization.VirtualMachine 6.7%
+2026-09-26T19:00:08Z round 1 gbsa cl-s load { 5.12 4.73 4.34 } vm 10% top other 99.5%, other 16.5%, powermetrics 11.5%, WindowServer 11.0%, com.apple.Virtualization.VirtualMachine 5.1%
+2026-09-26T19:00:39Z round 1 gbsa base-m load { 4.79 4.69 4.34 } vm 16% top other 96.7%, other 20.2%, com.apple.Virtualization.VirtualMachine 14.0%, other 5.4%, other 3.8%
+2026-09-26T19:01:11Z round 1 gbsa cand-m load { 4.28 4.57 4.31 } vm 14% top other 99.6%, other 21.2%, com.apple.Virtualization.VirtualMachine 12.1%, powermetrics 5.1%, WindowServer 2.9%
+2026-09-26T19:01:42Z round 2 gbsa cand-m load { 3.84 4.42 4.26 } vm 7% top other 97.5%, other 96.7%, other 16.8%, com.apple.Virtualization.VirtualMachine 6.0%, other 5.3%
+2026-09-26T19:02:12Z round 2 gbsa base-m load { 3.64 4.32 4.23 } vm 12% top other 99.6%, other 21.0%, powermetrics 12.5%, com.apple.Virtualization.VirtualMachine 8.9%, other 6.4%
+2026-09-26T19:02:43Z round 2 gbsa cl-s load { 3.59 4.24 4.20 } vm 12% top other 99.9%, other 20.7%, com.apple.Virtualization.VirtualMachine 10.9%, other 6.9%, other 4.2%
+2026-09-26T19:03:14Z round 2 gbsa cand-s load { 3.53 4.16 4.17 } vm 10% top other 100.0%, other 19.8%, com.apple.Virtualization.VirtualMachine 5.8%, com.apple.Virtualization.VirtualMachine 4.1%, WindowServer 1.2%
+2026-09-26T19:03:45Z round 2 gbsa base-s load { 4.10 4.24 4.20 } vm 5% top other 99.3%, other 16.2%, WindowServer 4.0%, other 4.0%, com.apple.Virtualization.VirtualMachine 4.0%
+2026-09-26T19:04:17Z round 3 gbsa base-s load { 3.87 4.15 4.17 } vm 25% top other 100.0%, other 17.7%, com.apple.Virtualization.VirtualMachine 14.0%, com.apple.Virtualization.VirtualMachine 11.2%, other 6.2%
+2026-09-26T19:04:48Z round 3 gbsa cand-s load { 3.64 4.07 4.14 } vm 18% top other 99.3%, other 17.6%, com.apple.Virtualization.VirtualMachine 16.9%, other 8.6%,  other 1.8%
+2026-09-26T19:05:18Z round 3 gbsa cl-s load { 4.16 4.14 4.16 } vm 8% top other 99.4%, other 99.1%, other 14.3%, com.apple.Virtualization.VirtualMachine 6.4%, other 4.6%
+2026-09-26T19:05:49Z round 3 gbsa base-m load { 4.41 4.22 4.19 } vm 15% top other 101.8%, other 22.2%, com.apple.Virtualization.VirtualMachine 13.5%, other 5.3%, WindowServer 4.9%
+2026-09-26T19:06:20Z round 3 gbsa cand-m load { 3.59 4.05 4.13 } vm 14% top other 18.4%, com.apple.Virtualization.VirtualMachine 9.5%, other 5.8%, WindowServer 5.1%, powermetrics 5.1%
